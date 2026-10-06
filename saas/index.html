@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BENAQAAB OS — Channel Intelligence & Video Production SaaS Studio</title>
+  <meta name="description" content="Production-grade Channel Operations, Topic Intelligence Radar, Video Theater, and Forensic QA Platform for Benaqaab India.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Ambient Volumetric Orbs -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="orb-3"></div>
+  </div>
+
+  <!-- Organic Noise Texture -->
+  <div class="noise-layer" aria-hidden="true"></div>
+
+  <!-- Main App Layout Shell -->
+  <div class="app-layout">
+
+    <!-- 1. Left Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-section">
+        <img src="assets/logo.png" alt="Benaqaab India Logo" class="brand-logo-img" onerror="this.style.display='none'">
+        <div class="brand-info">
+          <h2>Benaqaab OS</h2>
+          <div class="brand-motto">SACH · SABOOT · BEBAK</div>
+        </div>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item active" data-tab="dashboard">
+          <div class="nav-icon">📊</div>
+          <span>Command HUD</span>
+        </li>
+        <li class="nav-item" data-tab="productions">
+          <div class="nav-icon">🎬</div>
+          <span>Productions</span>
+          <span class="nav-count" id="countProductions">0</span>
+        </li>
+        <li class="nav-item" data-tab="topics">
+          <div class="nav-icon">🎯</div>
+          <span>Topic Radar</span>
+          <span class="nav-count" id="countTopics">0</span>
+        </li>
+        <li class="nav-item" data-tab="vault">
+          <div class="nav-icon">📼</div>
+          <span>Video Vault</span>
+          <span class="nav-count" id="countVault">0</span>
+        </li>
+        <li class="nav-item" data-tab="thumbnails">
+          <div class="nav-icon">🖼️</div>
+          <span>CTR Studio</span>
+        </li>
+        <li class="nav-item" data-tab="auditor">
+          <div class="nav-icon">🛡️</div>
+          <span>QA Auditor</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="system-status-pill">
+          <div class="pulse-dot"></div>
+          <span>SYSTEM READY • -14 LUFS</span>
+        </div>
+        <button class="btn btn-secondary" style="font-size: 11px; width: 100%; justify-content: center;" onclick="window.os.exportData()">
+          💾 Export Database
+        </button>
+      </div>
+    </aside>
+
+    <!-- 2. Main Workspace -->
+    <main class="main-stage">
+
+      <!-- Top Header Bar -->
+      <header class="top-header">
+        <div class="search-box">
+          <span style="color: var(--text-muted);">🔍</span>
+          <input type="text" id="globalSearch" placeholder="Search productions, topics, citations..." autocomplete="off">
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-primary" onclick="window.os.openNewTopicModal()">
+            <span>+</span> <span>New Topic</span>
+          </button>
+          <button class="btn btn-secondary" title="Reset State to Repository Defaults" onclick="window.os.resetData()">
+            🔄 Reset
+          </button>
+        </div>
+      </header>
+
+      <!-- VIEW 1: DASHBOARD HUD -->
+      <section id="view-dashboard" class="view-container active">
+        <div class="section-head">
+          <div>
+            <h1>Channel Operations HUD</h1>
+            <p>Real-time analytics, news cycle alerts, and production tracking.</p>
+          </div>
+          <div class="status-tag status-delivered" style="font-size: 13px; padding: 6px 14px;">
+            Studio Status: Fully Operational
+          </div>
+        </div>
+
+        <!-- Bento Metrics Grid -->
+        <div class="bento-grid">
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label">
+              <span>Total Productions</span>
+              <span>📹</span>
+            </div>
+            <div class="metric-value" id="dashTotalProd">0</div>
+            <div class="metric-sub">
+              <span class="metric-delta delta-positive">+100%</span>
+              <span>Flagships & Shorts</span>
+            </div>
+          </div>
+
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label">
+              <span>Vetted Backlog</span>
+              <span>📚</span>
+            </div>
+            <div class="metric-value" id="dashVettedTopics">0</div>
+            <div class="metric-sub">
+              <span class="metric-delta delta-gold">Primary Tier</span>
+              <span>Ready for synthesis</span>
+            </div>
+          </div>
+
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label">
+              <span>Delivered Master Cuts</span>
+              <span>🏆</span>
+            </div>
+            <div class="metric-value" id="dashDelivered">0</div>
+            <div class="metric-sub">
+              <span class="metric-delta delta-positive">Pass</span>
+              <span>Gate 0 verified</span>
+            </div>
+          </div>
+
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label">
+              <span>Broadcast Quality</span>
+              <span>💎</span>
+            </div>
+            <div class="metric-value">99.2%</div>
+            <div class="metric-sub">
+              <span class="metric-delta delta-positive">WCAG 2.1 AA</span>
+              <span>-14 LUFS Audio</span>
+            </div>
+          </div>
+
+          <!-- Time-Critical Live News Radar Banner (Bento 8-Col) -->
+          <div class="bento-card col-8 radar-card">
+            <div class="radar-badge">⚡ LIVE NEWS RADAR • OCTOBER 2026</div>
+            <h2 style="font-size: 22px; color: #fff; margin-bottom: 8px;">RBI Repo Rate Decision & Your EMI</h2>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; max-width: 680px;">
+              Decision Date: <strong>7 October 2026</strong>. Weak monsoon (12.6% deficit) ➔ Mandi food inflation ➔ Crude >$100 & Rupee ~96 ➔ RBI expected +25 bps hike to 5.50%. First rate hike since Feb 2023.
+            </p>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-primary" onclick="window.os.switchTab('topics')">Inspect Research Ledger</button>
+              <button class="btn btn-secondary" onclick="window.os.switchTab('productions')">View Sona ₹1.5L Short</button>
+            </div>
+          </div>
+
+          <!-- Channel Identity Bento Card (4-Col) -->
+          <div class="bento-card col-4">
+            <div class="metric-label" style="margin-bottom: 12px;">
+              <span>Brand Directives</span>
+              <span>🇮🇳</span>
+            </div>
+            <h3 style="font-size: 16px; color: #fff; margin-bottom: 8px;">Benaqaab India</h3>
+            <ul style="font-size: 12px; color: var(--text-secondary); padding-left: 18px; line-height: 1.6;">
+              <li>Strictly <strong>0 AI Slop</strong>: Original motion & sound.</li>
+              <li>Edge-to-edge full-screen visuals (No bottom reels).</li>
+              <li>Conversational Hinglish voice as master clock.</li>
+              <li>Two-source verification (RBI, PIB, ISRO, ECI).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Recent Deliveries Shelf -->
+        <div style="margin-top: 10px;">
+          <h2 style="font-size: 18px; margin-bottom: 14px;">Recent Master Outputs</h2>
+          <div id="dashRecentList"></div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: PRODUCTIONS TRACKER -->
+      <section id="view-productions" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Episode & Short Production Tracker</h1>
+            <p>Every longform explainer, vertical short, and rapid-response film.</p>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-pill active" onclick="window.os.setProductionFilter('all', this)">All Productions</div>
+          <div class="filter-pill" onclick="window.os.setProductionFilter('shorts', this)">📱 Shorts (9:16)</div>
+          <div class="filter-pill" onclick="window.os.setProductionFilter('docu', this)">🎬 Documentaries (16:9)</div>
+          <div class="filter-pill" onclick="window.os.setProductionFilter('delivered', this)">✅ Delivered</div>
+        </div>
+
+        <!-- Productions Grid -->
+        <div class="production-grid" id="productionsGrid"></div>
+      </section>
+
+      <!-- VIEW 3: TOPIC INTELLIGENCE RADAR -->
+      <section id="view-topics" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Master Topic Radar & Research Matrix</h1>
+            <p>Pre-researched topics with 3-layer retention hooks and verified factual ledgers.</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.os.openNewTopicModal()">+ Propose Topic</button>
+        </div>
+
+        <div class="bento-grid" id="topicsGrid"></div>
+      </section>
+
+      <!-- VIEW 4: VIDEO VAULT & THEATER -->
+      <section id="view-vault" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Broadcast Media Vault</h1>
+            <p>Instant cinema playback of all final rendered MP4 files in the repository.</p>
+          </div>
+        </div>
+
+        <div class="production-grid" id="vaultGrid"></div>
+      </section>
+
+      <!-- VIEW 5: THUMBNAIL STUDIO & CTR LAB -->
+      <section id="view-thumbnails" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Thumbnail Studio & Real-World CTR Simulator</h1>
+            <p>Preview and test your thumbnails in live YouTube mobile and desktop UI mockups before publishing.</p>
+          </div>
+        </div>
+
+        <!-- Simulator Pane -->
+        <div class="sim-container">
+          <!-- Mobile Shorts Feed Simulator -->
+          <div class="sim-pane">
+            <h3 style="margin-bottom: 6px; color: #fff;">📱 YouTube Shorts Feed Simulator</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
+              Checks 9:16 legibility and retention impact at mobile scale.
+            </p>
+            <div class="phone-mockup">
+              <div class="phone-screen">
+                <img id="simShortsImg" src="../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg" alt="Shorts Simulator">
+                <div class="shorts-ui-overlay">
+                  <div class="shorts-ui-btn">👍</div>
+                  <div class="shorts-ui-btn">👎</div>
+                  <div class="shorts-ui-btn">💬</div>
+                  <div class="shorts-ui-btn">↗️</div>
+                </div>
+                <div style="position: absolute; bottom: 20px; left: 16px; color: #fff; text-shadow: 0 2px 8px #000;">
+                  <div style="font-size: 12px; font-weight: 800;">@benaqaabindia • Subscribe</div>
+                  <div style="font-size: 11px; margin-top: 4px;">Sona ₹1.5 Lakh: Asli Showroom Bill #Shorts</div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 18px;">
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg', true)">
+                Curiosity Text
+              </button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1080x1920.jpg', true)">
+                Clean Plate
+              </button>
+            </div>
+          </div>
+
+          <!-- Desktop Search Card Simulator -->
+          <div class="sim-pane">
+            <h3 style="margin-bottom: 6px; color: #fff;">💻 YouTube Desktop Search Simulator</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
+              Checks 16:9 click-through rate, contrast, and visual clarity against dark feed.
+            </p>
+            <div class="desktop-card-mockup">
+              <img id="simDeskImg" src="../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg" alt="Desktop Card">
+              <div class="desktop-meta">
+                <div class="channel-avatar">BI</div>
+                <div>
+                  <div style="font-weight: 700; color: #fff; font-size: 14px; margin-bottom: 4px;">
+                    Sona 1.5 Lakh Par Asli Bill Dekhiye: Showroom Ka Sach
+                  </div>
+                  <div style="font-size: 12px; color: #aaa;">Benaqaab India • 142K views • 2 hours ago</div>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 18px;">
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg', false)">
+                Curiosity Text
+              </button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1280x720.jpg', false)">
+                Clean Plate
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 6: FORENSIC QA AUDITOR -->
+      <section id="view-auditor" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Forensic QA Matrix & Compliance Auditor</h1>
+            <p>10-point production quality standards checking audio loudness, visual staging, and fact ledgers.</p>
+          </div>
+        </div>
+
+        <div class="qa-table-wrap">
+          <table class="qa-table">
+            <thead>
+              <tr>
+                <th style="width: 70px;">ID</th>
+                <th>Quality Pillar & Description</th>
+                <th>Standard Specification</th>
+                <th style="width: 120px;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="qaTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL: CINEMA VIDEO PLAYER -->
+  <div class="modal-backdrop" id="videoCinemaModal">
+    <div class="cinema-modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cinemaModalTitle">Video Cinema Player</h3>
+        <button class="modal-close" onclick="window.os.closeModals()">✕</button>
+      </div>
+      <div class="cinema-stage-wrap">
+        <video id="cinemaVideoPlayer" class="cinema-video" controls playsinline></video>
+      </div>
+      <div class="modal-details">
+        <div>
+          <h4 style="margin-bottom: 8px; color: #fff;">Production Metadata</h4>
+          <div id="cinemaModalMeta" style="color: var(--text-secondary); font-size: 13px; line-height: 1.6;"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+          <a id="cinemaDownloadBtn" href="#" download class="btn btn-primary" style="justify-content: center; text-decoration: none;">
+            ⬇ Download MP4
+          </a>
+          <button class="btn btn-secondary" onclick="window.os.closeModals()">Close Theater</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NEW TOPIC PROPOSAL -->
+  <div class="modal-backdrop" id="newTopicModal">
+    <div class="cinema-modal" style="width: min(640px, 94vw);">
+      <div class="modal-header">
+        <h3 class="modal-title">Register New Topic in Master Ledger</h3>
+        <button class="modal-close" onclick="window.os.closeModals()">✕</button>
+      </div>
+      <form id="newTopicForm" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Topic Title</label>
+          <input type="text" name="topicTitle" required placeholder="e.g. Lithium in J&K: 5.9M Tonnes Auction Update" style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Category</label>
+          <input type="text" name="topicCategory" placeholder="e.g. Economy / Mining / Tech" style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">First-Second Retention Hook (Spoken & Visual)</label>
+          <textarea name="topicHook" required rows="2" placeholder="The exact words that hook the viewer at Frame-0..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Investigation Angle & Thesis</label>
+          <textarea name="topicAngle" rows="2" placeholder="The hidden mechanism, conflict, or counter-intuitive reality..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Verified Numbers & Primary Ledger (1 per line)</label>
+          <textarea name="topicData" rows="3" placeholder="GSI G3 stage estimation&#10;800-1000 ppm concentration..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
+          <button type="button" class="btn btn-secondary" onclick="window.os.closeModals()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save to Ledger</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/database.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+/**
+ * BENAQAAB OS — Core Design System & Tokens
+ * Standards: Anti-AI-Slop, Glassmorphism, 8pt Spacing, High-Contrast Typography
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+:root {
+  /* Chromatic Obsidian Base */
+  --bg-space: #040508;
+  --bg-primary: #07090e;
+  --bg-surface: #0c1019;
+  --bg-card: rgba(15, 23, 42, 0.65);
+  --bg-card-hover: rgba(22, 33, 58, 0.75);
+  --bg-glass: rgba(255, 255, 255, 0.035);
+  --bg-glass-active: rgba(255, 255, 255, 0.08);
+
+  /* Specular Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(56, 189, 248, 0.5);
+
+  /* 60-30-10 Curated Accent Tokens */
+  --gold: #fbbf24;
+  --gold-glow: rgba(251, 191, 36, 0.35);
+  --emerald: #34d399;
+  --emerald-glow: rgba(52, 211, 153, 0.3);
+  --sky: #38bdf8;
+  --sky-glow: rgba(56, 189, 248, 0.3);
+  --rose: #f43f5e;
+  --rose-glow: rgba(244, 63, 94, 0.3);
+  --indigo: #6366f1;
+  --indigo-glow: rgba(99, 102, 241, 0.3);
+
+  /* High-Contrast Neutral Typography */
+  --text-head: #ffffff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-ghost: #475569;
+
+  /* Typography Pairing */
+  --font-display: 'Outfit', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow-gold: 0 0 25px rgba(251, 191, 36, 0.22);
+  --shadow-glow-sky: 0 0 25px rgba(56, 189, 248, 0.22);
+
+  /* Transitions & Springs */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 160ms var(--ease-spring);
+  --transition-normal: 260ms var(--ease-spring);
+  --transition-slow: 450ms var(--ease-spring);
+
+  /* Layout Constants */
+  --sidebar-width: 270px;
+  --header-height: 72px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* Reset & Global Canvas */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient Volumetric Lighting */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb-1 {
+  position: absolute;
+  top: -10%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.orb-2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+.orb-3 {
+  position: absolute;
+  top: 45%;
+  right: -5%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.06) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+/* Subtle Organic Noise Texture */
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Application Shell Layout */
+.app-layout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Typography Utility Classes */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text-head);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
