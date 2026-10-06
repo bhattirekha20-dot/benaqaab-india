@@ -1,0 +1,333 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "gsroffset": 3,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": {
+      "95467255": {
+        "pageid": 95467255,
+        "ns": 6,
+        "title": "File:Assembl\u00e9e nationale du Qu\u00e9bec, Canada.jpg",
+        "index": 3,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg/1920px-Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 932,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg/3840px-Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg/1920px-Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 932,
+              "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg/3840px-Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Assembl%C3%A9e_nationale_du_Qu%C3%A9bec%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_du_Qu%C3%A9bec,_Canada.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=95467255",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2025-12-12 17:35:25",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Assembl\u00e9e nationale du Qu\u00e9bec, Canada",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Parliament Building of Quebec|Self-published work|Heritage properties in Canada with known IDs|Images from Wiki Loves Monuments 2020|Images from Wiki Loves Monuments 2020 in Canada|Next FP Nominations by Wilfredor|Images of Canada by User:Wilfredor|Photographs of Quebec City by Wilfredor",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "quality",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "<a href=\"https://en.wikipedia.org/wiki/Parliament_Building_(Quebec)\" class=\"extiw\" title=\"en:Parliament Building (Quebec)\">Parliament Building of Quebec</a>, in Quebec City, Canada, home to the National Assembly of Quebec.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2020-10-24 15:54:45",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q115464159\" class=\"extiw\" title=\"d:Q115464159\"><span title=\"developer analyst and photographer from Venezuela\">Wilfredor</span></a></bdi>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "105186178": {
+        "pageid": 105186178,
+        "ns": 6,
+        "title": "File:Demonstrator with a flag in front of the Parliament Building of Quebec.jpg",
+        "index": 1,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg/1920px-Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 966,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg/3840px-Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg/1920px-Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 966,
+              "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg/3840px-Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Demonstrator_with_a_flag_in_front_of_the_Parliament_Building_of_Quebec.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=105186178",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-05-14 22:21:25",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Demonstrator with a flag in front of the Parliament Building of Quebec",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Parliament Building of Quebec|Self-published work|Media created with Nikon Z7ii provided by the Quebec WikiClub in 2021|Street photography in Quebec by Wilfredor|Media created with Nikon Z7ii provided by the Quebec WikiClub|Protests by Wilfredor|Demonstrations and protests in Quebec City|Images of Canada by User:Wilfredor|Protests related to the COVID-19 pandemic in Quebec|Photographs of Quebec City by Wilfredor",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "quality",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "A demonstrator in front of the H\u00f4tel du Parlement on 8 May 2021, at a protest against the state of health emergency in Quebec. Quebec City, Quebec, Canada.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-05-08 13:50:01",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q115464159\" class=\"extiw\" title=\"d:Q115464159\"><span title=\"developer analyst and photographer from Venezuela\">Wilfredor</span></a></bdi>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "107659168": {
+        "pageid": 107659168,
+        "ns": 6,
+        "title": "File:Parliament Hill, Quebec city, Canada.jpg",
+        "index": 2,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Parliament_Hill%2C_Quebec_city%2C_Canada.jpg/1920px-Parliament_Hill%2C_Quebec_city%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 933,
+            "responsiveUrls": {
+              "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Parliament_Hill%2C_Quebec_city%2C_Canada.jpg/3840px-Parliament_Hill%2C_Quebec_city%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Parliament_Hill%2C_Quebec_city%2C_Canada.jpg/1920px-Parliament_Hill%2C_Quebec_city%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 933,
+              "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Parliament_Hill%2C_Quebec_city%2C_Canada.jpg/3840px-Parliament_Hill%2C_Quebec_city%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Parliament_Hill%2C_Quebec_city%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Parliament_Hill,_Quebec_city,_Canada.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=107659168",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2021-07-18 18:26:10",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Parliament Hill, Quebec city, Canada",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "CC-Zero|Parliament Hill (Quebec City)|Self-published work|FoP-Canada|Files with coordinates missing SDC location of creation|Media created with Nikon Z7ii provided by the Quebec WikiClub in 2021|Media created with Nikon Z7ii provided by the Quebec WikiClub|\u00c9difice La Capitale|Images of Canada by User:Wilfredor",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "quality",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "GPSLatitude": {
+                "value": "46.807158",
+                "source": "commons-desc-page"
+              },
+              "GPSLongitude": {
+                "value": "-71.216475",
+                "source": "commons-desc-page"
+              },
+              "GPSMapDatum": {
+                "value": "WGS-84",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Si\u00e8ge social de La Capitale, 625, rue Jacques-Parizeau, Qu\u00e9bec",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "2021-05-27 16:59:55",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q115464159\" class=\"extiw\" title=\"d:Q115464159\"><span title=\"developer analyst and photographer from Venezuela\">Wilfredor</span></a></bdi>",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "CC0",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Creative Commons Zero, Public Domain Dedication",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseUrl": {
+                "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                "source": "commons-desc-page"
+              },
+              "Copyrighted": {
+                "value": "True",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "cc0",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

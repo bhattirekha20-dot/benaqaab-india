@@ -1,0 +1,100 @@
+[
+  {
+    "t": 0,
+    "k": "THE WORLD / 6–7 OCT 2026",
+    "h": "DUNIYA MEIN<br><em>KYA BADLA?</em>",
+    "sub": "Germany se Nobel tak — five developments.",
+    "src": "Dated news snapshot · not a live bulletin",
+    "type": "world",
+    "url": "",
+    "rail": [
+      "WORLD",
+      "CONTEXT",
+      "SOURCES"
+    ]
+  },
+  {
+    "t": 7.7,
+    "k": "GERMANY / INTELLIGENCE",
+    "h": "SPY CHIEF<br><em>UNDER INVESTIGATION</em>",
+    "sub": "Allegations are not a conviction.",
+    "src": "Al Jazeera · citing German prosecutors · 6 Oct",
+    "type": "germany",
+    "url": "https://www.aljazeera.com/news/2026/10/6/former-german-spy-chief-arrested-on-suspicion-of-treason-and-espionage",
+    "rail": [
+      "ALLEGATION",
+      "INQUIRY",
+      "NOT GUILT"
+    ]
+  },
+  {
+    "t": 16.22,
+    "k": "FRANCE / EDUCATION",
+    "h": "BETTER SCHOOLS.<br><em>MORE TEACHERS.</em>",
+    "sub": "Students, teachers and parents protest.",
+    "src": "Reuters via U.S. News · 6 Oct",
+    "type": "france",
+    "url": "https://www.usnews.com/news/world/articles/2026-10-06/france-braces-for-day-of-school-blockades-and-street-protests",
+    "rail": [
+      "STAFFING",
+      "SCHOOLS",
+      "DEMANDS"
+    ]
+  },
+  {
+    "t": 22.58,
+    "k": "KENYA / PUBLIC HEALTH",
+    "h": "EBOLA CASE.<br><em>CONTACT TRACING.</em>",
+    "sub": "Imported case ≠ nationwide spread.",
+    "src": "AP via KSAT · citing Health Ministry · 6 Oct",
+    "type": "kenya",
+    "url": "https://www.ksat.com/health/2026/10/06/kenya-confirms-first-ebola-case-imported-from-congo-after-patient-dies-in-nairobi/",
+    "rail": [
+      "CASE",
+      "CONTACTS",
+      "MONITOR"
+    ]
+  },
+  {
+    "t": 33.86,
+    "k": "CANADA / QUEBEC",
+    "h": "ELECTION WIN.<br><em>NO MAJORITY.</em>",
+    "sub": "Victory is not an independence vote.",
+    "src": "CNN · Quebec election report · 6 Oct",
+    "type": "quebec",
+    "url": "https://www.cnn.com/2026/10/06/americas/quebec-separatist-party-elections-result-win-intl-hnk",
+    "rail": [
+      "ELECTION",
+      "MINORITY",
+      "NO SECESSION"
+    ]
+  },
+  {
+    "t": 42.4,
+    "k": "SCIENCE / PHYSICS NOBEL",
+    "h": "GHOST PARTICLES.<br><em>PHYSICS NOBEL.</em>",
+    "sub": "Francis Halzen · IceCube observatory.",
+    "src": "Reuters via U.S. News · 6 Oct",
+    "type": "science",
+    "url": "https://www.usnews.com/news/world/articles/2026-10-06/francis-halzen-wins-2026-nobel-prize-in-physics",
+    "rail": [
+      "NEUTRINOS",
+      "ICECUBE",
+      "DISCOVERY"
+    ]
+  },
+  {
+    "t": 52.4,
+    "k": "BENAQAAB INDIA",
+    "h": "SHOR NAHI.<br><em>SOURCE KE SAATH.</em>",
+    "sub": "Like ★  /  Subscribe ▶",
+    "src": "Source links available below the preview",
+    "type": "closing",
+    "url": "",
+    "rail": [
+      "SACH",
+      "SABOOT",
+      "BEBAK"
+    ]
+  }
+]

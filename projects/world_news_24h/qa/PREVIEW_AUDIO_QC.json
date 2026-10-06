@@ -1,0 +1,10 @@
+{
+  "scope": "Decoded final preview MP3, NOT muxed MP4",
+  "target_lufs": -14,
+  "target_true_peak_max_dbtp": -1.5,
+  "measured_lufs": -14.93,
+  "measured_true_peak_dbtp": -1.68,
+  "measured_lra_lu": 2.5,
+  "duration_seconds": 58.0,
+  "method": "two-pass loudnorm; measured after MP3 encoding"
+}

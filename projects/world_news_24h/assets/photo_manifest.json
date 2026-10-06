@@ -1,0 +1,74 @@
+{
+  "germany": {
+    "title": "File:2019-08-30 BND Zentrale Berlin OK 0322.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:2019-08-30_BND_Zentrale_Berlin_OK_0322.jpg",
+    "creator": "Olaf Kosinsky",
+    "license": "CC BY-SA 3.0 de",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "date": "2019-08-30 14:59:21",
+    "description": "Headquarters of the Federal Intelligence Service of the Federal Intelligence Service in Berlin.",
+    "label": "BND premises · archive, not arrest photograph",
+    "path": "assets/photo_germany.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  },
+  "france": {
+    "title": "File:Facade lycée Carnot.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Facade_lyc%C3%A9e_Carnot.jpg",
+    "creator": "Plaqueminier",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2016-11-23",
+    "description": "Sur le boulevard malesherbes",
+    "label": "Paris school · archive, not these protests",
+    "path": "assets/photo_france.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  },
+  "kenya": {
+    "title": "File:Ebola virus em.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
+    "creator": "Photo Credit: \tDr. Frederick Murphy\nContent Providers(s): CDC/ Dr. Frederick A. Murphy",
+    "license": "Public domain",
+    "license_url": "",
+    "date": "1976",
+    "description": "Transmission Electron Micrograph of the Ebola Virus. Hemorrhagic Fever, RNA Virus.",
+    "label": "CDC Ebola micrograph · reference, not patient sample",
+    "path": "assets/photo_kenya.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  },
+  "quebec": {
+    "title": "File:Assemblée nationale du Québec, Canada.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_du_Qu%C3%A9bec,_Canada.jpg",
+    "creator": "Wilfredor",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2020-10-24 15:54:45",
+    "description": "Parliament Building of Quebec, in Quebec City, Canada, home to the National Assembly of Quebec.",
+    "label": "Quebec legislature · archive, not election night",
+    "path": "assets/photo_quebec.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  },
+  "science": {
+    "title": "File:Halzen-Neutel.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Halzen-Neutel.jpg",
+    "creator": "Mauro.mezzetto",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2025-10-15",
+    "description": "Francis Halzen con una replica del telescopio di Galileo al XXI International Workshop on Neutrino Telescopes - Padova 29 September - 3 October 2025",
+    "label": "Francis Halzen · archival photograph",
+    "path": "assets/photo_science.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  },
+  "icecube": {
+    "title": "File:IceCube Neutrino Observatory in 2023 02.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:IceCube_Neutrino_Observatory_in_2023_02.jpg",
+    "creator": "Christopher Michel",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "Taken on 6 January 2023, 07:21:57",
+    "description": "IceCube Neutrino Observatory in 2023 by Christopher Michel",
+    "label": "IceCube observatory · 2023 archive",
+    "path": "assets/photo_icecube.jpg",
+    "modification": "Resized and JPEG encoded; no AI alteration."
+  }
+}

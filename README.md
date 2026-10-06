@@ -34,8 +34,8 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | `knowledge/` | Research data, catalogues, topic ideas |
 | `tools/` | Quality gates, CapCut/Alight project writers |
 | `viz/` | Rendering engine, motion libraries, episode recipes |
-| `projects/` | 15 production projects (EP12–EP16, anime edits, Flight Surcharge, India 24H, etc.) |
-| `VIDEOS/` | Delivered MP4s (11 videos + gallery page) |
+| `projects/` | 16 production projects (EP12–EP16, anime edits, Flight Surcharge, India 24H, World News 24H, etc.) |
+| `VIDEOS/` | Delivered MP4s (11 videos + gallery page; local rendered archive deliverables) |
 
 ---
 

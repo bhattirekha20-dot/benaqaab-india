@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,416 | `0dae6556a3223573` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,456 | `859d286d24cd328b` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29243,7 +29243,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,416 · **SHA-256 (first 16):** `0dae6556a3223573` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,456 · **SHA-256 (first 16):** `859d286d24cd328b` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34659,6 +34659,45 @@ To eliminate fragmentation across multiple reference guides and registries, crea
 8. 11-step execution flow from topic selection to published delivery.
 
 `README.md`, `START_HERE.md`, and `AI_HANDOVER_PROMPT.md` have been updated to designate `MASTER_AGENT_DISPATCH.md` as the primary reading step.
+
+---
+
+## 155. Full Reconciliation of GitHub Update Review & Enrolment of World News 24H (SH-11) — 07 Oct 2026
+
+**Context & Scope:**  
+Addressed all findings and gaps from the 7 October 2026 repository audit review across revisions `4f90f83` and `a8624ff`:
+
+1. **Separation of Roundups (P0):**
+   - Formalized `projects/world_news_24h/` as a distinct production (**SH-11**) separate from `projects/india_last_24h/` (**SH-09**).
+   - **SH-11 Specifications:** 58.00 seconds, 1,740 frames, 30 fps, 1080×1920 vertical. Stories: Germany BND arrest, France school protests, Kenya imported Ebola case, Quebec election, Physics Nobel (Halzen IceCube). Spoken ending: *"Shor nahi, source ke saath"* (approved narration). Profile A neutral/cool colour grading.
+   - **SH-09 Specifications:** 118.07 seconds, 24 fps, 1080×1920 vertical. Stories: IAF Chief AP Singh, SEBI SME IPO crackdown, Women's T20 World Cup, Rahul Gandhi Kolhapur (with NCS earthquake and weather ticker).
+
+2. **Git Tracking & Archive Boundaries (P0):**
+   - Clarified that `.mp4` video files are intentionally excluded from Git via `.gitignore` to maintain repository performance and size limits.
+   - Paths in `VIDEOS/*.mp4` and `projects/*/*.mp4` represent local rendered archive files and delivery artifacts, not tracked Git blobs or published platform releases.
+
+3. **Portfolio Count & Topic State Harmonization (P1):**
+   - Reconciled portfolio to **33 coded productions** (16 Flagships EP-01 to EP-16, 11 Shorts SH-01 to SH-11, 6 Films FL-01 to FL-06).
+   - Sona Gold (SH-08) recorded as exact runtime 53.90s (~54s). Optogenetics (FL-02) recorded as 9:16 vertical docu (~165s).
+   - Marked RBI Rate Decision and UPI topics in backlog with `[NEW ANGLE REQUIRED — EARLY PROTOTYPE EXISTS: FL-01 / SH-06]`.
+
+4. **Harmonized Rules, IDs & Coordinates (P1):**
+   - Codified stable named rule IDs (`RULE-GATE-1`, `RULE-LOGO-TOPLEFT`, `RULE-COLOR-PROFILES`, `RULE-NO-REPEAT`, `RULE-MEDIA-PER-STORY`, `RULE-REAL-MEDIA`, `RULE-UNPACKED-DELIVERABLES`, `RULE-AUTONOMOUS-FALLBACK`).
+   - Updated `START_HERE.md` §4 to enforce the 1-Gate Approval Protocol (`comp.html` preview first), removing the stale "only pause is voice audition" clause.
+   - Unified logo coordinates: Top-Left safe area, CSS `top: 36px; left: 32px` on 1080×1920 (canvas `x: 32–55px, y: 30–40px`). Created alias `brand/benaqaab_os_logo.png` pointing to canonical `brand/logo.png`.
+   - Framerates: 60 fps for interactive browser preview; 24 or 30 fps for exported MP4.
+   - Deliverables: Canonical `delivery/` folder with root mirrors. Segment timestamps for Shorts (<60s), formal chapters for longform (>2m). Headline length: 3 to 4 words.
+
+5. **QA Tool Scope Clarification (P1):**
+   - Clarified that `tools/peak_detail_gate.py` is preproduction structural plan validation, distinct from encoded motion/freeze checks (`viz/motion.py`), FFmpeg decode integrity, and EBU R128 audio metering (`-14 ±1.0 LUFS`, `-1.0 dBTP` ceiling).
+
+6. **World News Delivery Package Completed:**
+   - Generated 16:9 landscape thumbnail (`thumbnail_1280x720.jpg`) with bold text and uncropped layout.
+   - Setup vertical cover (`cover_vertical_1080x1920.jpg`).
+   - Created 3 title variants (<60 chars) in `title.txt`.
+   - Created standalone `hashtags_and_tags.txt` and `pinned_comment.txt`.
+   - Added segment timestamps to `description.txt`.
+   - Standardized subtitles as `headline_captions.srt`.
 
 
 ---

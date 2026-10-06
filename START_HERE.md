@@ -89,32 +89,30 @@ PY
 
 ## 4. HOW TO DO A TASK
 
-**Before anything else, on every new-video request: wipe the last video.** Delete the previous
-film's project folder, its rendered MP4, its audio master and its QA/scratch caches, then start
-**fresh topic research** — never recycle the last topic's material unless the user asks for a
-sequel or a re-cut. If the user names a topic, use it, but the wipe still comes first. Record the
-wipe in `MEMORY.md`. This is law **L16** (Part I §2).
+**Before anything else, on every new-video request: verify topic status.** Check `CENTRAL_TOPICS_MASTER.md`
+and `MASTER_AGENT_DISPATCH.md` to ensure the topic is NOT covered (`RULE-NO-REPEAT`). Clean any temporary
+scratch caches, create a dedicated project folder in `projects/<topic_slug>/`, and start **fresh primary-source
+research** — never recycle old scripts unless the user explicitly orders a new angle. Record new projects in `MEMORY.md`.
 
-Then, when the user gives a topic, follow **Part I §4 of the compact file** (the 11-step pipeline):
-research → sources → concept → script → voice → film HTML → QA loop → audio master → full render
-→ verify the encoded file → deliver. The quickstart run sheet is Part I §18; copy-paste templates
-are §17.
+Then, when the user gives or approves a topic, follow **Part I §4 of the compact file** (the 11-step pipeline):
+research → sources → concept → script → voice (Master Clock) → film HTML (`comp.html`) → preview QA loop →
+**[1-GATE APPROVAL PROTOCOL: present interactive preview for user approval]** → full render upon command
+→ verify the encoded file → unpacked deliverables (`delivery/` and root).
 
 **The ten non-negotiables (never break these):**
-1. Finish the work — topic in, finished film out; decide everything yourself. The only pause is the
-   narrator voice audition.
-2. Frame = pure function of time — deterministic, seeded, re-renderable one second at a time.
-3. No dead frames — motion at three scales; `motion_report` freezes = none.
-4. Never slideshow — animate the real mechanism, not text over a zooming photo.
-5. Facts or nothing — sourced and dated; disagreements shown, never averaged; claims labelled.
-6. Sound is measured — the narration is the master clock; loudness measured on the muxed file.
-7. Text must fit — Hindi is wider than Latin; measure, shrink, wrap; no overflow or collisions.
-8. Cuts are a craft — official transition names/durations; captions above the composite; no
-   snap-back.
-9. Verification before claims — inspect frames from the encoded file, run the gates, report real
-   numbers, state what is unknown.
-10. Protect the record — never delete the protected files listed in Part I §2 (L3); MEMORY.md only
-    grows; superseded rules get `[OLD vX]`.
+1. **Finish the work through the preview gate (`RULE-GATE-1`)** — topic in, complete interactive preview out;
+   decide visual mechanisms and audio yourself. The mandatory pause is the **1-Gate Preview Approval**: present
+   `comp.html` for review, and only render the full MP4 when the user explicitly instructs *"render the video"*.
+2. **Frame = pure function of time** — deterministic, seeded, re-renderable one second at a time.
+3. **No dead frames** — motion at three scales; `motion_report` freezes = none.
+4. **Never slideshow** — animate the real mechanism, not text over a zooming photo. Use real news stills + AI images (`RULE-REAL-MEDIA`).
+5. **Facts or nothing** — sourced and dated; disagreements shown, never averaged; claims labelled.
+6. **Sound is measured** — the narration is the master clock; loudness measured to -14 LUFS (±1.0 LU), -1.0 dBTP ceiling.
+7. **Text must fit** — Hindi is wider than Latin; measure, shrink, wrap; no overflow or collisions.
+8. **Cuts are a craft** — official transition names/durations; captions above the composite; no snap-back.
+9. **Verification before claims** — inspect frames from the encoded file, run the QA checks, report real numbers, state what is unknown.
+10. **Protect the record** — never delete protected files; MEMORY.md only grows; superseded rules get marked `[SUPERSEDED]`.
+11. **Brand & Colour Standards** — Top-Left logo safe area with gold glow (`RULE-LOGO-TOPLEFT`); assign project to Profile A, B, or C (`RULE-COLOR-PROFILES`). Produce dedicated visual media for every story in a lineup (`RULE-MEDIA-PER-STORY`). Provide unpacked root/delivery assets (`RULE-UNPACKED-DELIVERABLES`).
 
 **Reporting style the user expects:** concise Hinglish; delivery first (file + specs), then the
 decisions you made, then what was **not** verified. Never say "looks great" — give numbers.

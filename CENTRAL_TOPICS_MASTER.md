@@ -62,9 +62,10 @@
 | **SH-05** | Deeper Than Everest | Science Short | **52s** | `MEMORY.md` §123, §124 | Challenger Deep (10,994m) depth scale vs Mt Everest |
 | **SH-06** | UPI: How India Moves ₹314 Lakh Cr | Infra Short | **55s** | `projects/upi_explained_short/` • `MEMORY.md` §130 | 4-party model, 3,729 TPS & zero-MDR banking switch |
 | **SH-07** | Voter List Mein Naam Missing? (SIR) | Civic Short | **101s** (1m 41s) | `projects/voter_list_sir/` • `MEMORY.md` §149 | 2026 Special Intensive Revision, Form 6 controversy, SC hearing |
-| **SH-08** | Sona ₹1.5 Lakh: Asli Showroom Bill | Finance Short | **57s** | `projects/gold_150k/` • `MEMORY.md` §150 | 24K spot vs 22K jewelry, +3% GST, 15% making charges, ETF contrast |
-| **SH-09** | India Last 24 Hours: Sabse Important Kya Badla? | News Roundup | **118s** (1m 58s) | `projects/india_last_24h/` • `VIDEOS/10_India_Last_24H_SHORT_118s.mp4` | 14 scenes, official DRI/ECI/PIB/NCS/BCCI cards, timed narration, Profile A neutral grade |
+| **SH-08** | Sona ₹1.5 Lakh: Asli Showroom Bill | Finance Short | **53.90s** (~54s) | `projects/gold_150k/` • `VIDEOS/09_Sona_150k_Bill_SHORT_54s.mp4` | 24K spot vs 22K jewelry, +3% GST, 15% making charges, ETF contrast |
+| **SH-09** | India Last 24 Hours: Sabse Important Kya Badla? | News Roundup | **118.07s** (1m 58s) | `projects/india_last_24h/` • `VIDEOS/10_India_Last_24H_SHORT_118s.mp4` | 14 scenes, official DRI/ECI/PIB/NCS/BCCI cards, timed narration, Profile A neutral grade |
 | **SH-10** | India–Japan JCM: Carbon Credits Kise Milenge? | Climate Tech | **107s** (1m 47s) | `projects/india_japan_jcm/` • `VIDEOS/11_India_Japan_JCM_SHORT_107s.mp4` | Article 6.2 bilateral credits, corresponding adjustments, double counting prevention |
+| **SH-11** | World News 24 Hours: 5 Global Developments | News Roundup | **58.00s** (58s) | `projects/world_news_24h/` • `delivery/Benaqaab_World_News_07_Oct_2026.mp4` | Germany BND arrest, France school protests, Kenya Ebola case, Quebec election, Physics Nobel (Halzen IceCube). Profile A neutral grade. Spoken closing: *Shor nahi, source ke saath*. |
 
 ---
 
@@ -72,8 +73,8 @@
 
 | Serial # | Film Title | Format | Duration | Primary File / Workspace Path | Key Theme & Subject |
 |---|---|---|---|---|---|
-| **FL-01** | RBI Rate Decision & EMI Short | Finance Short | ~170s | `MEMORY.md` §143 | Repo rate +25 bps hike mechanism & home loan EMI impact |
-| **FL-02** | Nobel Prize 2026: Optogenetics | Science Docu | ~165s | `MEMORY.md` §145 | Karolinska announcement, light-controlled neuron discovery |
+| **FL-01** | RBI Rate Decision & EMI Short | Finance Short (9:16) | ~170s | `MEMORY.md` §143 | Repo rate +25 bps hike mechanism & home loan EMI impact |
+| **FL-02** | Nobel Prize 2026: Optogenetics | Science Docu (9:16) | ~165s | `MEMORY.md` §145 | Karolinska announcement, light-controlled neuron discovery |
 | **FL-03** | Plan Bee — 255 Haathi, Ek AI | Wildlife / Rail | ~170s | `MEMORY.md` §147 | Northeast Frontier Railway AI acoustic DAS fiber sensor network |
 | **FL-04** | Flight Surcharge: IndiGo ATF Hike | Aviation Short | **2m 56s** (176s) | `projects/flight_surcharge/Flight_Surcharge_Short.mp4` | ATF +14%, distance tiers ₹1,375–₹11,300, Brent crude $100+ |
 | **FL-05** | Kagaz Ki Machine: Teen Scams, Ek Hi Model | Film (16:9) | **12m 40s** | `projects/kagaz_ki_machine/` | ED ₹734 Cr fake ITC racket, 135 shell entities, scrap book recycling |
@@ -93,7 +94,7 @@
 
 ---
 
-### 1. ⏳ RBI Rate Decision & Your EMI
+### 1. ⏳ RBI Rate Decision & Your EMI [NEW ANGLE REQUIRED — EARLY PROTOTYPE EXISTS: FL-01]
 * **Category:** Economy / Personal Finance  
 * **Time Window:** **Decision date 7 October 2026** (Time-sensitive)  
 * **Hook:** *"Kal aapki EMI badh sakti hai — aur ek bada kaaran hai: baarish."*  
@@ -296,7 +297,7 @@
 
 ---
 
-### 16. 🔬 UPI: How India Moves ₹314 Lakh Crore on Almost Nothing
+### 16. 🔬 UPI: How India Moves ₹314 Lakh Crore on Almost Nothing [NEW ANGLE REQUIRED — EARLY PROTOTYPE EXISTS: SH-06]
 * **Hook:** *"Ek second me 3,729 payments. Uptime 99.99%. Aur duniya ke aadhe real-time payments India me — par ye chalta kaise hai?"*  
 * **Angle:** The 4-party model (Payer App ➔ PSP Bank ➔ NPCI IMPS Switch ➔ Beneficiary Bank) operating at zero merchant fee (MDR) on an ultra-low operating cost base of ~₹500 crore.
 * **Verified Data:** FY 2025–26: 24,162 crore transactions worth ₹314 lakh crore. 3,729 TPS peak. 86% merchant payments under ₹500.

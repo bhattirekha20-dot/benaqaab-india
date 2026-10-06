@@ -1,0 +1,280 @@
+{
+  "scope": "HTML screenshot motion probe; not encoded MP4 and not the unmodified repository motion_report",
+  "sample_fps": 10,
+  "frames": 580,
+  "thresholds": {
+    "pixel_change": 0.02,
+    "fraction_pixels": 0.002,
+    "freeze_seconds": 0.8
+  },
+  "freezes": [
+    [
+      0.0,
+      2.5
+    ],
+    [
+      2.6,
+      5.1
+    ],
+    [
+      5.2,
+      7.6
+    ],
+    [
+      8.0,
+      10.5
+    ],
+    [
+      10.6,
+      13.3
+    ],
+    [
+      16.5,
+      18.3
+    ],
+    [
+      18.4,
+      19.4
+    ],
+    [
+      22.9,
+      26.3
+    ],
+    [
+      26.4,
+      28.9
+    ],
+    [
+      29.0,
+      30.0
+    ],
+    [
+      30.1,
+      33.8
+    ],
+    [
+      34.2,
+      36.7
+    ],
+    [
+      36.8,
+      38.9
+    ],
+    [
+      39.6,
+      42.3
+    ],
+    [
+      42.7,
+      45.7
+    ],
+    [
+      46.0,
+      49.0
+    ],
+    [
+      49.1,
+      52.3
+    ],
+    [
+      52.7,
+      54.2
+    ],
+    [
+      54.3,
+      56.1
+    ],
+    [
+      56.2,
+      57.9
+    ]
+  ],
+  "still_ratio": 0.846,
+  "js_errors": [],
+  "repeat_seek_pixel_identical": true,
+  "layout_checks": [
+    {
+      "width": 1000,
+      "t": 0,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 8.5,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 13.9,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 17,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 20,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 25,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 30,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 35,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 40,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 44,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 49,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 53,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 1000,
+      "t": 57.7,
+      "textClear": true,
+      "phoneWidth": 410,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 0,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 8.5,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 13.9,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 17,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 20,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 25,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 30,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 35,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 40,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 44,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 49,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 53,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    },
+    {
+      "width": 375,
+      "t": 57.7,
+      "textClear": true,
+      "phoneWidth": 347,
+      "images": true
+    }
+  ],
+  "audio_duration": 58
+}

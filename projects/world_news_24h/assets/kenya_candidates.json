@@ -1,0 +1,310 @@
+{
+  "batchcomplete": "",
+  "continue": {
+    "gsroffset": 3,
+    "continue": "gsroffset||"
+  },
+  "query": {
+    "pages": {
+      "824311": {
+        "pageid": 824311,
+        "ns": 6,
+        "title": "File:Ebola Virus TEM PHIL 1832 lores.jpg",
+        "index": 3,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Ebola_Virus_TEM_PHIL_1832_lores.jpg/1920px-Ebola_Virus_TEM_PHIL_1832_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 644,
+            "responsiveUrls": {
+              "2": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Ebola_Virus_TEM_PHIL_1832_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Ebola_Virus_TEM_PHIL_1832_lores.jpg/1920px-Ebola_Virus_TEM_PHIL_1832_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 644,
+              "srcset": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Ebola_Virus_TEM_PHIL_1832_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Ebola_Virus_TEM_PHIL_1832_lores.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ebola_Virus_TEM_PHIL_1832_lores.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=824311",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2010-11-18 21:39:07",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Ebola Virus TEM PHIL 1832 lores",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Zaire ebolavirus|Images from the CDC Public Health Image Library|PD US HHS CDC|Featured pictures on Wikipedia, Persian|Files with Assessments template missing SDC Commons no value quality assessment|Transmission electron microscopic images of Ebolavirus|Micrographs for Microworld Exhibition",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Transmission electron microscopic image which demonstrates the filamentous, branching structure of an Ebola virus particle.",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/120px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"100\" height=\"76\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/250px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"723\" data-file-height=\"546\"></span></span>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=CDC-PHIL id%3D1832\">\u00a0</span>\n<p>This media comes from the <a href=\"https://en.wikipedia.org/wiki/Centers_for_Disease_Control_and_Prevention\" class=\"extiw\" title=\"w:Centers for Disease Control and Prevention\">Centers for Disease Control and Prevention</a>'s <a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/\">Public Health Image Library</a> (PHIL), with identification number <b><a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/details.aspx?pid=1832\">#1832</a></b>.\n</p>\n<div style=\"font-size:smaller;\">\n<p><b>Note:</b> Not all PHIL images are public domain; be sure to check copyright status and credit authors and content providers.\n</p>\n</div>\n<hr>\n<p><span style=\"font-size:x-small;line-height:140%\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\">\u0627\u0644\u0639\u0631\u0628\u064a\u0629</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\">Deutsch</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\">English</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\">\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\">sloven\u0161\u010dina</a>\u00a0| <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\">+/\u2212</a></small></span>\n</p>\n</td></tr></tbody></table>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<ul><li>Photo Credit: Cynthia Goldsmith</li>\n<li>Content Providers(s): CDC/ Cynthia Goldsmith</li></ul>",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "None - This image is in the public domain and thus free of any copyright restrictions. As a matter of courtesy we request that the content provider be credited and notified in any public or private usage of this image.",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "4068632": {
+        "pageid": 4068632,
+        "ns": 6,
+        "title": "File:Ebola virus em.jpg",
+        "index": 1,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Ebola_virus_em.jpg/1920px-Ebola_virus_em.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 1978,
+            "responsiveUrls": {
+              "2": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Ebola_virus_em.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Ebola_virus_em.jpg/1920px-Ebola_virus_em.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 1978,
+              "srcset": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Ebola_virus_em.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Ebola_virus_em.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=4068632",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2008-05-18 08:45:46",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Ebola virus em",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Zaire ebolavirus|Images from the CDC Public Health Image Library|PD US HHS CDC|Featured pictures on Wikipedia, Persian|Files with Assessments template missing SDC Commons no value quality assessment|Transmission electron microscopic images of Ebolavirus",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Transmission Electron Micrograph of the Ebola Virus. Hemorrhagic Fever, RNA Virus.",
+                "source": "commons-desc-page"
+              },
+              "DateTimeOriginal": {
+                "value": "1976",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/120px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"100\" height=\"76\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/250px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"723\" data-file-height=\"546\"></span></span>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=CDC-PHIL id%3D1833\">\u00a0</span>\n<p>This media comes from the <a href=\"https://en.wikipedia.org/wiki/Centers_for_Disease_Control_and_Prevention\" class=\"extiw\" title=\"w:Centers for Disease Control and Prevention\">Centers for Disease Control and Prevention</a>'s <a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/\">Public Health Image Library</a> (PHIL), with identification number <b><a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/details.aspx?pid=1833\">#1833</a></b>.\n</p>\n<div style=\"font-size:smaller;\">\n<p><b>Note:</b> Not all PHIL images are public domain; be sure to check copyright status and credit authors and content providers.\n</p>\n</div>\n<hr>\n<p><span style=\"font-size:x-small;line-height:140%\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\">\u0627\u0644\u0639\u0631\u0628\u064a\u0629</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\">Deutsch</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\">English</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\">\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\">sloven\u0161\u010dina</a>\u00a0| <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\">+/\u2212</a></small></span>\n</p>\n</td></tr></tbody></table>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "<ul><li>Photo Credit: \tDr. Frederick Murphy</li>\n<li>Content Providers(s): CDC/ Dr. Frederick A. Murphy</li></ul>",
+                "source": "commons-desc-page"
+              },
+              "Permission": {
+                "value": "None - This image is in the public domain and thus free of any copyright restrictions. As a matter of courtesy we request that the content provider be credited and notified in any public or private usage of this image.",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      },
+      "16504278": {
+        "pageid": 16504278,
+        "ns": 6,
+        "title": "File:Ebola virus virion.jpg",
+        "index": 2,
+        "imagerepository": "local",
+        "imageinfo": [
+          {
+            "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ebola_virus_virion.jpg/1920px-Ebola_virus_virion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "thumbwidth": 1400,
+            "thumbheight": 644,
+            "responsiveUrls": {
+              "2": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ebola_virus_virion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+            },
+            "thumbattribs": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Ebola_virus_virion.jpg/1920px-Ebola_virus_virion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "decoding": "async",
+              "loading": "lazy",
+              "width": 1400,
+              "height": 644,
+              "srcset": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ebola_virus_virion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+            },
+            "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ebola_virus_virion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+            "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ebola_virus_virion.jpg",
+            "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=16504278",
+            "extmetadata": {
+              "DateTime": {
+                "value": "2011-09-15 23:53:34",
+                "source": "mediawiki-metadata",
+                "hidden": ""
+              },
+              "ObjectName": {
+                "value": "Ebola virus virion",
+                "source": "mediawiki-metadata"
+              },
+              "CommonsMetadataExtension": {
+                "value": 1.2,
+                "source": "extension",
+                "hidden": ""
+              },
+              "Categories": {
+                "value": "Zaire ebolavirus|Centers for Disease Control and Prevention|Images from the CDC Public Health Image Library|PD US HHS CDC|Featured pictures on Wikipedia, Persian|Files with Assessments template missing SDC Commons no value quality assessment|Transmission electron microscopic images of Ebolavirus|Micrographs for Microworld Exhibition|Laboratory photos for Microworld Exhibition Micrographs for Microworld Exhibition Scientific diagrams and illustrations for Microworld Exhibition Videos for Microworld Exhibition",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "Assessments": {
+                "value": "",
+                "source": "commons-categories",
+                "hidden": ""
+              },
+              "ImageDescription": {
+                "value": "Ebola virus virion. Created by GC microbiologist Cynthia Goldsmith, this colorized transmission electron micrograph (TEM) revealed some of the ultrastructural morphology displayed by an Ebola virus virion.",
+                "source": "commons-desc-page"
+              },
+              "Credit": {
+                "value": "<p>Public Health Image Library, #10816\n</p>\n<table class=\"layouttemplate sourcetemplate\" style=\"width:100%; clear:both; text-align:center; margin:0.5em auto; box-sizing: border-box; padding: 0; border-spacing: 8px; background-color: var(--background-color-neutral-subtle, #f6f7f5); color: var(--color-base, #202122); border: var(--border-subtle, 1px solid #555555);\" dir=\"ltr\" lang=\"en\">\n<tbody><tr>\n<td><span typeof=\"mw:File\"><span><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/120px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"100\" height=\"76\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/US_CDC_logo.svg/250px-US_CDC_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"723\" data-file-height=\"546\"></span></span>\n</td>\n<td><span class=\"layouttemplateargs\" style=\"display:none;speak:none;\" title=\"template=CDC-PHIL id%3D10816\">\u00a0</span>\n<p>This media comes from the <a href=\"https://en.wikipedia.org/wiki/Centers_for_Disease_Control_and_Prevention\" class=\"extiw\" title=\"w:Centers for Disease Control and Prevention\">Centers for Disease Control and Prevention</a>'s <a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/\">Public Health Image Library</a> (PHIL), with identification number <b><a rel=\"nofollow\" class=\"external text\" href=\"https://phil.cdc.gov/details.aspx?pid=10816\">#10816</a></b>.\n</p>\n<div style=\"font-size:smaller;\">\n<p><b>Note:</b> Not all PHIL images are public domain; be sure to check copyright status and credit authors and content providers.\n</p>\n</div>\n<hr>\n<p><span style=\"font-size:x-small;line-height:140%\" class=\"plainlinks noprint\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/ar\">\u0627\u0644\u0639\u0631\u0628\u064a\u0629</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/de\">Deutsch</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/en\">English</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/mk\">\u043c\u0430\u043a\u0435\u0434\u043e\u043d\u0441\u043a\u0438</a>\u00a0| <a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\" href=\"https://commons.wikimedia.org/wiki/Template:CDC-PHIL/i18n/sl\">sloven\u0161\u010dina</a>\u00a0| <small class=\"plainlinks\"><a class=\"external text\" data-mw-original-href=\"//commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\" href=\"https://commons.wikimedia.org/w/index.php?title=Template:CDC-PHIL/lang&amp;action=edit\">+/\u2212</a></small></span>\n</p>\n</td></tr></tbody></table>",
+                "source": "commons-desc-page"
+              },
+              "Artist": {
+                "value": "CDC/Cynthia Goldsmith",
+                "source": "commons-desc-page"
+              },
+              "LicenseShortName": {
+                "value": "Public domain",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "UsageTerms": {
+                "value": "Public domain",
+                "source": "commons-desc-page"
+              },
+              "AttributionRequired": {
+                "value": "false",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Copyrighted": {
+                "value": "False",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "Restrictions": {
+                "value": "",
+                "source": "commons-desc-page",
+                "hidden": ""
+              },
+              "License": {
+                "value": "pd",
+                "source": "commons-templates",
+                "hidden": ""
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "duration": 58.0,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "assets": {
+    "germany": {
+      "path": "assets/photo_germany.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Olaf Kosinsky; CC BY-SA 3.0 de; https://commons.wikimedia.org/wiki/File:2019-08-30_BND_Zentrale_Berlin_OK_0322.jpg"
+    },
+    "france": {
+      "path": "assets/photo_france.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Plaqueminier; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Facade_lyc%C3%A9e_Carnot.jpg"
+    },
+    "kenya": {
+      "path": "assets/photo_kenya.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Photo Credit: \tDr. Frederick Murphy\nContent Providers(s): CDC/ Dr. Frederick A. Murphy; Public domain; https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg"
+    },
+    "quebec": {
+      "path": "assets/photo_quebec.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Wilfredor; CC0; https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_du_Qu%C3%A9bec,_Canada.jpg"
+    },
+    "science": {
+      "path": "assets/photo_science.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Mauro.mezzetto; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Halzen-Neutel.jpg"
+    },
+    "icecube": {
+      "path": "assets/photo_icecube.jpg",
+      "role": "Archival/reference source photo; not a current event image",
+      "rights_note": "Christopher Michel; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:IceCube_Neutrino_Observatory_in_2023_02.jpg"
+    },
+    "ai_world": {
+      "path": "assets/ai_world.jpg",
+      "role": "Labelled original conceptual illustration",
+      "rights_note": "AI-generated; not evidence or an actual event photograph"
+    },
+    "ai_investigation": {
+      "path": "assets/ai_investigation.jpg",
+      "role": "Labelled original conceptual illustration",
+      "rights_note": "AI-generated; not evidence or an actual event photograph"
+    },
+    "ai_classroom": {
+      "path": "assets/ai_classroom.jpg",
+      "role": "Labelled original conceptual illustration",
+      "rights_note": "AI-generated; not evidence or an actual event photograph"
+    },
+    "ai_health": {
+      "path": "assets/ai_health.jpg",
+      "role": "Labelled original conceptual illustration",
+      "rights_note": "AI-generated; not evidence or an actual event photograph"
+    },
+    "ai_ballot": {
+      "path": "assets/ai_ballot.jpg",
+      "role": "Labelled original conceptual illustration",
+      "rights_note": "AI-generated; not evidence or an actual event photograph"
+    },
+    "logo": {
+      "path": "repo_reference/brand/logo.png",
+      "role": "Unaltered channel logo",
+      "rights_note": "User-designated repository brand asset"
+    },
+    "audio": {
+      "path": "preview_audio.mp3",
+      "role": "Narration master plus original soft edit cues",
+      "rights_note": "Previously selected synthetic voice voice-02; original sound cues"
+    }
+  },
+  "claims": {
+    "c1": {
+      "statement": "August Hanning arrested on espionage suspicion; allegations unproven.",
+      "unit": "dated news development",
+      "qualification": "6 October 2026 report; archive images are not event evidence. See FACT_LEDGER.md.",
+      "source_url": "https://www.presseportal.de/blaulicht/pm/14981/6365655"
+    },
+    "c2": {
+      "statement": "Students, teachers and parents protested over school conditions in France.",
+      "unit": "dated news development",
+      "qualification": "6 October 2026 report; archive images are not event evidence. See FACT_LEDGER.md.",
+      "source_url": "https://www.usnews.com/news/world/articles/2026-10-06/france-braces-for-day-of-school-blockades-and-street-protests"
+    },
+    "c3": {
+      "statement": "Kenya announced an imported Ebola case; patient died and contacts were traced.",
+      "unit": "dated news development",
+      "qualification": "6 October 2026 report; archive images are not event evidence. See FACT_LEDGER.md.",
+      "source_url": "https://www.ksat.com/health/2026/10/06/kenya-confirms-first-ebola-case-imported-from-congo-after-patient-dies-in-nairobi/"
+    },
+    "c4": {
+      "statement": "Parti Québécois election victory without a majority does not establish independence.",
+      "unit": "dated news development",
+      "qualification": "6 October 2026 report; archive images are not event evidence. See FACT_LEDGER.md.",
+      "source_url": "https://www.cnn.com/2026/10/06/americas/quebec-separatist-party-elections-result-win-intl-hnk"
+    },
+    "c5": {
+      "statement": "Francis Halzen received the 2026 Physics Nobel for IceCube and cosmic-neutrino work.",
+      "unit": "dated news development",
+      "qualification": "6 October 2026 report; archive images are not event evidence. See FACT_LEDGER.md.",
+      "source_url": "https://www.nobelprize.org/prizes/physics/2026/press-release/"
+    }
+  },
+  "shots": [
+    {
+      "id": "s0",
+      "start": 0,
+      "end": 7.7,
+      "purpose": "Question-led opening",
+      "hero": "ai_world",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [],
+      "assets": [
+        "ai_world",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s1",
+      "start": 7.7,
+      "end": 16.22,
+      "purpose": "Explain GERMANY / INTELLIGENCE",
+      "hero": "germany",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [
+        "c1"
+      ],
+      "assets": [
+        "germany",
+        "ai_investigation",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s2",
+      "start": 16.22,
+      "end": 22.58,
+      "purpose": "Explain FRANCE / EDUCATION",
+      "hero": "france",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [
+        "c2"
+      ],
+      "assets": [
+        "france",
+        "ai_classroom",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s3",
+      "start": 22.58,
+      "end": 33.86,
+      "purpose": "Explain KENYA / PUBLIC HEALTH",
+      "hero": "kenya",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [
+        "c3"
+      ],
+      "assets": [
+        "kenya",
+        "ai_health",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s4",
+      "start": 33.86,
+      "end": 42.4,
+      "purpose": "Explain CANADA / QUEBEC",
+      "hero": "quebec",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [
+        "c4"
+      ],
+      "assets": [
+        "quebec",
+        "ai_ballot",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s5",
+      "start": 42.4,
+      "end": 52.4,
+      "purpose": "Explain SCIENCE / PHYSICS NOBEL",
+      "hero": "science",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [
+        "c5"
+      ],
+      "assets": [
+        "science",
+        "icecube",
+        "logo",
+        "audio"
+      ]
+    },
+    {
+      "id": "s6",
+      "start": 52.4,
+      "end": 58.0,
+      "purpose": "Explain BENAQAAB INDIA",
+      "hero": "ai_world",
+      "start_state": "Current story imagery only, source and archive/AI label visible",
+      "end_state": "Qualified concise headline and narration complete",
+      "primary_motion": "Time-driven semantic rail follows the current topic; content-matched source-to-illustration cut",
+      "secondary_motion": "Restrained camera drift and indicator pulse",
+      "camera": "Slow forward scale on AI plate, contained source photos with small translation",
+      "audio": "Selected narration master with measured audio levels and subtle original cut cue",
+      "transition": "Hard Cut between stories; no cross-story overlap",
+      "acceptance": "At 375px, all images load; text stays inside safe width; repeated seek returns identical frame",
+      "asset_roles": [
+        "Source photo or labelled concept, not fabricated evidence",
+        "Single headline layer and separate source note"
+      ],
+      "detail_choices": [
+        "Native logo aspect ratio and colour",
+        "No source badge pill or scene counter",
+        "Archive-versus-event distinction stays visible"
+      ],
+      "claims": [],
+      "assets": [
+        "ai_world",
+        "logo",
+        "audio"
+      ]
+    }
+  ]
+}
