@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>BENAQAAB OS — Channel Intelligence & Video Production SaaS Studio</title>
-  <meta name="description" content="Production-grade Channel Operations, Topic Intelligence Radar, Video Theater, and Forensic QA Platform for Benaqaab India.">
+  <meta name="description" content="Production-grade Channel Operations, Topic Intelligence Radar, Video Theater, Teleprompter, Financial Calculator, and Forensic QA Platform for Benaqaab India.">
   <link rel="icon" type="image/png" href="assets/logo.png">
 
   <!-- Core Stylesheets -->
@@ -41,6 +41,10 @@
           <div class="nav-icon">📊</div>
           <span>Command HUD</span>
         </li>
+        <li class="nav-item" data-tab="kanban">
+          <div class="nav-icon">📋</div>
+          <span>Kanban Pipeline</span>
+        </li>
         <li class="nav-item" data-tab="productions">
           <div class="nav-icon">🎬</div>
           <span>Productions</span>
@@ -58,21 +62,50 @@
         </li>
         <li class="nav-item" data-tab="thumbnails">
           <div class="nav-icon">🖼️</div>
-          <span>CTR Studio</span>
+          <span>Thumbnail Lab</span>
+        </li>
+        <li class="nav-item" data-tab="teleprompter">
+          <div class="nav-icon">🎙️</div>
+          <span>Teleprompter</span>
+        </li>
+        <li class="nav-item" data-tab="calculator">
+          <div class="nav-icon">🧮</div>
+          <span>Forensic Math</span>
+        </li>
+        <li class="nav-item" data-tab="packager">
+          <div class="nav-icon">🏷️</div>
+          <span>SEO Packager</span>
         </li>
         <li class="nav-item" data-tab="auditor">
           <div class="nav-icon">🛡️</div>
           <span>QA Auditor</span>
+        </li>
+        <li class="nav-item" data-tab="evidence">
+          <div class="nav-icon">📌</div>
+          <span>Forensic Pinboard</span>
+          <span class="nav-count" id="countCases">3</span>
+        </li>
+        <li class="nav-item" data-tab="voiceover">
+          <div class="nav-icon">🎙️</div>
+          <span>Audio &amp; VO Lab</span>
+        </li>
+        <li class="nav-item" data-tab="retention">
+          <div class="nav-icon">⏱️</div>
+          <span>Retention Sequencer</span>
+        </li>
+        <li class="nav-item" data-tab="prompts">
+          <div class="nav-icon">🎬</div>
+          <span>B-Roll Prompts</span>
         </li>
       </ul>
 
       <div class="sidebar-footer">
         <div class="system-status-pill">
           <div class="pulse-dot"></div>
-          <span>SYSTEM READY • -14 LUFS</span>
+          <span>STUDIO READY • -14 LUFS</span>
         </div>
-        <button class="btn btn-secondary" style="font-size: 11px; width: 100%; justify-content: center;" onclick="window.os.exportData()">
-          💾 Export Database
+        <button class="btn btn-secondary" style="font-size: 11px; width: 100%; justify-content: center;" onclick="window.os.openBackupModal()">
+          💾 Backup &amp; Restore
         </button>
       </div>
     </aside>
@@ -164,15 +197,15 @@
             <div class="radar-badge">⚡ LIVE NEWS RADAR • OCTOBER 2026</div>
             <h2 style="font-size: 22px; color: #fff; margin-bottom: 8px;">RBI Repo Rate Decision & Your EMI</h2>
             <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; max-width: 680px;">
-              Decision Date: <strong>7 October 2026</strong>. Weak monsoon (12.6% deficit) ➔ Mandi food inflation ➔ Crude >$100 & Rupee ~96 ➔ RBI expected +25 bps hike to 5.50%. First rate hike since Feb 2023.
+              Decision Date: <strong>7 October 2026</strong>. Weak monsoon (12.6% deficit) ➔ Mandi food inflation ➔ Crude &gt;$100 &amp; Rupee ~96 ➔ RBI expected +25 bps hike to 5.50%. First rate hike since Feb 2023.
             </p>
             <div style="display: flex; gap: 10px;">
-              <button class="btn btn-primary" onclick="window.os.switchTab('topics')">Inspect Research Ledger</button>
-              <button class="btn btn-secondary" onclick="window.os.switchTab('productions')">View Sona ₹1.5L Short</button>
+              <button class="btn btn-primary" onclick="window.os.switchTab('calculator')">Open EMI Calculator</button>
+              <button class="btn btn-secondary" onclick="window.os.switchTab('topics')">Inspect Research Ledger</button>
             </div>
           </div>
 
-          <!-- Channel Identity Bento Card (4-Col) -->
+          <!-- Brand Directives Card (Bento 4-Col) -->
           <div class="bento-card col-4">
             <div class="metric-label" style="margin-bottom: 12px;">
               <span>Brand Directives</span>
@@ -195,16 +228,73 @@
         </div>
       </section>
 
-      <!-- VIEW 2: PRODUCTIONS TRACKER -->
+      <!-- VIEW 2: KANBAN PRODUCTION PIPELINE -->
+      <section id="view-kanban" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Production Pipeline Kanban</h1>
+            <p>Track every film through the strict 5-stage Benaqaab India approval pipeline.</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.os.openNewTopicModal()">+ Add New Pitch</button>
+        </div>
+
+        <div class="kanban-board">
+          <!-- Col 1: Ideation -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">💡 1. Ideation &amp; Pitch</span>
+              <span class="nav-count" id="kanban-count-ideation">0</span>
+            </div>
+            <div class="kanban-card-list" id="kanban-list-ideation"></div>
+          </div>
+
+          <!-- Col 2: Fact Ledger -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">📑 2. Fact Ledger</span>
+              <span class="nav-count" id="kanban-count-fact_ledger">0</span>
+            </div>
+            <div class="kanban-card-list" id="kanban-list-fact_ledger"></div>
+          </div>
+
+          <!-- Col 3: Script & VO -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">🎙️ 3. Script &amp; VO</span>
+              <span class="nav-count" id="kanban-count-script_vo">0</span>
+            </div>
+            <div class="kanban-card-list" id="kanban-list-script_vo"></div>
+          </div>
+
+          <!-- Col 4: 1-Gate HTML Preview -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">👁️ 4. 1-Gate Preview</span>
+              <span class="nav-count" id="kanban-count-preview_gate">0</span>
+            </div>
+            <div class="kanban-card-list" id="kanban-list-preview_gate"></div>
+          </div>
+
+          <!-- Col 5: Master Published -->
+          <div class="kanban-col">
+            <div class="kanban-col-head">
+              <span class="kanban-col-title">🚀 5. Published</span>
+              <span class="nav-count" id="kanban-count-published">0</span>
+            </div>
+            <div class="kanban-card-list" id="kanban-list-published"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: PRODUCTIONS TRACKER -->
       <section id="view-productions" class="view-container">
         <div class="section-head">
           <div>
-            <h1>Episode & Short Production Tracker</h1>
+            <h1>Episode &amp; Short Production Tracker</h1>
             <p>Every longform explainer, vertical short, and rapid-response film.</p>
           </div>
         </div>
 
-        <!-- Filter Bar -->
         <div class="filter-bar">
           <div class="filter-pill active" onclick="window.os.setProductionFilter('all', this)">All Productions</div>
           <div class="filter-pill" onclick="window.os.setProductionFilter('shorts', this)">📱 Shorts (9:16)</div>
@@ -212,15 +302,14 @@
           <div class="filter-pill" onclick="window.os.setProductionFilter('delivered', this)">✅ Delivered</div>
         </div>
 
-        <!-- Productions Grid -->
         <div class="production-grid" id="productionsGrid"></div>
       </section>
 
-      <!-- VIEW 3: TOPIC INTELLIGENCE RADAR -->
+      <!-- VIEW 4: TOPIC RADAR -->
       <section id="view-topics" class="view-container">
         <div class="section-head">
           <div>
-            <h1>Master Topic Radar & Research Matrix</h1>
+            <h1>Master Topic Radar &amp; Research Matrix</h1>
             <p>Pre-researched topics with 3-layer retention hooks and verified factual ledgers.</p>
           </div>
           <button class="btn btn-primary" onclick="window.os.openNewTopicModal()">+ Propose Topic</button>
@@ -229,7 +318,7 @@
         <div class="bento-grid" id="topicsGrid"></div>
       </section>
 
-      <!-- VIEW 4: VIDEO VAULT & THEATER -->
+      <!-- VIEW 5: VIDEO VAULT -->
       <section id="view-vault" class="view-container">
         <div class="section-head">
           <div>
@@ -241,23 +330,70 @@
         <div class="production-grid" id="vaultGrid"></div>
       </section>
 
-      <!-- VIEW 5: THUMBNAIL STUDIO & CTR LAB -->
+      <!-- VIEW 6: THUMBNAILS & CANVAS CUSTOMIZER -->
       <section id="view-thumbnails" class="view-container">
         <div class="section-head">
           <div>
-            <h1>Thumbnail Studio & Real-World CTR Simulator</h1>
-            <p>Preview and test your thumbnails in live YouTube mobile and desktop UI mockups before publishing.</p>
+            <h1>Thumbnail Studio &amp; Typography Canvas</h1>
+            <p>Design, customize typography in real time, and simulate click-through rates before publishing.</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.os.exportCustomThumbnailJpg()">⬇ Download 1080x1920 JPG</button>
+        </div>
+
+        <!-- Canvas Studio & Live Customizer -->
+        <div class="canvas-studio-grid" style="margin-bottom: 32px;">
+          <!-- Left: Canvas Viewport -->
+          <div class="canvas-viewport-wrap">
+            <canvas id="customThumbCanvas"></canvas>
+          </div>
+
+          <!-- Right: Typography Controls -->
+          <div class="bento-card" style="display: flex; flex-direction: column; gap: 14px;">
+            <h3 style="color: #fff; font-size: 16px;">🎨 Live Thumbnail Editor</h3>
+            
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 4px;">Main Hook Headline</label>
+              <input type="text" id="thInputHeadline" value="SONA ₹1.5 LAKH?" class="calc-input" oninput="window.os.renderCustomThumbnailCanvas()">
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <span style="font-size: 10px; color: var(--text-muted);">Y-Position:</span>
+                <input type="range" id="thSliderHeadY" min="60" max="300" value="120" style="flex: 1;" oninput="window.os.renderCustomThumbnailCanvas()">
+              </div>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 700; color: var(--rose); margin-bottom: 4px;">Red Warning Badge Text</label>
+              <input type="text" id="thInputBadge" value="ASLI BILL = ₹1.82 LAKH!" class="calc-input" oninput="window.os.renderCustomThumbnailCanvas()">
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <span style="font-size: 10px; color: var(--text-muted);">Y-Position:</span>
+                <input type="range" id="thSliderBadgeY" min="180" max="500" value="260" style="flex: 1;" oninput="window.os.renderCustomThumbnailCanvas()">
+              </div>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 4px;">Curiosity Callout Strip</label>
+              <input type="text" id="thInputCallout" value="₹31,000 EXTRA KAHAN GAYA?" class="calc-input" oninput="window.os.renderCustomThumbnailCanvas()">
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                <span style="font-size: 10px; color: var(--text-muted);">Y-Position:</span>
+                <input type="range" id="thSliderCalloutY" min="300" max="650" value="390" style="flex: 1;" oninput="window.os.renderCustomThumbnailCanvas()">
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 12px; margin-top: 6px;">
+              <label style="display: block; font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 6px;">Upload Custom Background Plate (9:16)</label>
+              <input type="file" accept="image/*" onchange="window.os.loadCustomBasePlate(event)" style="font-size: 12px; color: var(--text-muted);">
+            </div>
+
+            <button class="btn btn-primary" style="margin-top: auto;" onclick="window.os.exportCustomThumbnailJpg()">
+              🚀 Export Final Thumbnail JPG
+            </button>
           </div>
         </div>
 
-        <!-- Simulator Pane -->
+        <!-- Real-World Simulator -->
+        <h2 style="font-size: 18px; color: #fff; margin-bottom: 14px;">Feed Mockup Simulators</h2>
         <div class="sim-container">
-          <!-- Mobile Shorts Feed Simulator -->
           <div class="sim-pane">
             <h3 style="margin-bottom: 6px; color: #fff;">📱 YouTube Shorts Feed Simulator</h3>
-            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
-              Checks 9:16 legibility and retention impact at mobile scale.
-            </p>
             <div class="phone-mockup">
               <div class="phone-screen">
                 <img id="simShortsImg" src="../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg" alt="Shorts Simulator">
@@ -274,21 +410,13 @@
               </div>
             </div>
             <div style="display: flex; gap: 8px; margin-top: 18px;">
-              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg', true)">
-                Curiosity Text
-              </button>
-              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1080x1920.jpg', true)">
-                Clean Plate
-              </button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg', true)">Curiosity Text</button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1080x1920.jpg', true)">Clean Plate</button>
             </div>
           </div>
 
-          <!-- Desktop Search Card Simulator -->
           <div class="sim-pane">
             <h3 style="margin-bottom: 6px; color: #fff;">💻 YouTube Desktop Search Simulator</h3>
-            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
-              Checks 16:9 click-through rate, contrast, and visual clarity against dark feed.
-            </p>
             <div class="desktop-card-mockup">
               <img id="simDeskImg" src="../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg" alt="Desktop Card">
               <div class="desktop-meta">
@@ -302,22 +430,268 @@
               </div>
             </div>
             <div style="display: flex; gap: 8px; margin-top: 18px;">
-              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg', false)">
-                Curiosity Text
-              </button>
-              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1280x720.jpg', false)">
-                Clean Plate
-              </button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg', false)">Curiosity Text</button>
+              <button class="btn btn-secondary" onclick="window.os.setSimulatorImage('../projects/gold_150k/thumbnail_clean_base_1280x720.jpg', false)">Clean Plate</button>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- VIEW 6: FORENSIC QA AUDITOR -->
+      <!-- VIEW 7: TELEPROMPTER & WORD-BUDGET LAB -->
+      <section id="view-teleprompter" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Voiceover Word-Budget &amp; Live Teleprompter</h1>
+            <p>Prevents audio overruns with live speech pace meters and auto-scrolling prompter.</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-secondary" onclick="window.os.loadPresetScript('SH-08')">Load Sona ₹1.5L</button>
+            <button class="btn btn-secondary" onclick="window.os.loadPresetScript('SH-07')">Load Voter List</button>
+            <button class="btn btn-secondary" onclick="window.os.loadPresetScript('FL-04')">Load Flight Surcharge</button>
+          </div>
+        </div>
+
+        <div class="teleprompter-grid">
+          <!-- Left: Script Editor & Budget Meter -->
+          <div class="bento-card" style="display: flex; flex-direction: column;">
+            <div class="budget-meter-wrap">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 800; font-size: 12px; color: #fff;">Shorts 60-Second Budget Gauge</span>
+                <span id="prompterBudgetStatus" style="font-size: 11px; font-weight: 700;"></span>
+              </div>
+              <div class="budget-bar-bg">
+                <div class="budget-bar-fill" id="prompterBudgetFill" style="width: 80%;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
+                <span>Words: <strong id="prompterWordCount" style="color:#fff;">0</strong> / 155</span>
+                <span>Chars: <strong id="prompterCharCount" style="color:#fff;">0</strong></span>
+                <span>At 170 WPM: <strong id="prompterTime170" style="color:var(--gold);">0s</strong></span>
+                <span>Fast (+12%): <strong id="prompterTimeFast" style="color:var(--emerald);">0s</strong></span>
+              </div>
+            </div>
+
+            <textarea id="prompterScriptInput" class="calc-input" style="flex: 1; min-height: 260px; font-size: 15px; line-height: 1.6;" placeholder="Type or paste your Hinglish script here to monitor timing..." oninput="window.os.updateWordBudget()"></textarea>
+
+            <div style="display: flex; gap: 10px; margin-top: 14px;">
+              <button class="btn btn-primary" id="btnPrompterPlay" onclick="window.os.togglePrompter()">
+                ▶ Start Prompter (Space)
+              </button>
+              <button class="btn btn-secondary" onclick="window.os.resetPrompter()">
+                ↺ Reset
+              </button>
+              <button class="btn btn-secondary" onclick="window.os.togglePrompterMirror()">
+                🪞 Mirror Mode
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Teleprompter Display Stage -->
+          <div class="bento-card" style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--text-muted);">Speed:</span>
+                <input type="range" min="30" max="220" value="90" oninput="window.os.setPrompterSpeed(this.value)">
+                <span id="prompterSpeedLabel" style="font-family: var(--font-mono); font-size: 11px; color: var(--gold);">90 px/s</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 11px; color: var(--text-muted);">Size:</span>
+                <input type="range" min="20" max="52" value="32" oninput="window.os.setPrompterFontSize(this.value)">
+                <span id="prompterSizeLabel" style="font-family: var(--font-mono); font-size: 11px; color: var(--sky);">32px</span>
+              </div>
+            </div>
+
+            <div class="teleprompter-stage" id="prompterContainer">
+              <div class="teleprompter-cue"></div>
+              <div class="teleprompter-scroll-text" id="prompterScrollText">
+                Type or paste your script on the left to begin teleprompter display...
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 8: FORENSIC FINANCIAL CALCULATOR -->
+      <section id="view-calculator" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Forensic Financial Math Lab</h1>
+            <p>Compute verified numbers and copy mathematical script beats directly into voiceover.</p>
+          </div>
+        </div>
+
+        <div class="calc-grid">
+          <!-- Calculator 1: Gold Showroom Reality -->
+          <div class="calc-box">
+            <h2 style="font-size: 18px; color: #fff; margin-bottom: 4px;">🪙 Gold Showroom Bill Calculator</h2>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 18px;">
+              Exposes statutory GST, making markups, and melting wastage vs pure bullion spot rate.
+            </p>
+
+            <div class="calc-row">
+              <label><span>Base 24K Spot Rate (₹ / 10g)</span><span style="color:var(--gold);">IBJA Benchmark</span></label>
+              <input type="number" id="calcGoldRate" value="150280" class="calc-input" oninput="window.os.calcGoldBill()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Weight (Grams)</span></label>
+              <input type="number" id="calcGoldGrams" value="10" step="0.5" class="calc-input" oninput="window.os.calcGoldBill()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Making Charges (%)</span><span id="labelMaking">15%</span></label>
+              <input type="range" id="calcMakingPct" min="5" max="30" value="15" style="width: 100%;" oninput="document.getElementById('labelMaking').innerText = this.value + '%'; window.os.calcGoldBill()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Wastage / Melting Loss (%)</span><span id="labelWastage">3%</span></label>
+              <input type="range" id="calcWastagePct" min="0" max="10" value="3" style="width: 100%;" oninput="document.getElementById('labelWastage').innerText = this.value + '%'; window.os.calcGoldBill()">
+            </div>
+
+            <div class="calc-result-card">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+                <span>Pure Metal Spot Value:</span>
+                <span id="resGoldBase" style="color: #fff; font-family: var(--font-mono);">₹1,50,280</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+                <span>Making Charges:</span>
+                <span id="resGoldMaking" style="color: var(--rose); font-family: var(--font-mono);">₹22,542</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+                <span>Wastage Loss:</span>
+                <span id="resGoldWastage" style="color: var(--rose); font-family: var(--font-mono);">₹4,508</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">
+                <span>GST (+3% Flat):</span>
+                <span id="resGoldGst" style="color: var(--sky); font-family: var(--font-mono);">₹5,320</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 900; color: #fff; border-top: 1px solid var(--border-subtle); padding-top: 8px;">
+                <span>Real Showroom Total:</span>
+                <span id="resGoldTotal" style="color: var(--gold); font-family: var(--font-mono);">₹1,82,650</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-top: 4px;">
+                <span style="color: var(--rose);">Hidden Premium Over Spot:</span>
+                <span id="resGoldExtra" style="color: var(--rose); font-family: var(--font-mono);">+₹32,370 (+21.5%)</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-top: 14px; justify-content: center;" onclick="window.os.copyGoldBeatToClipboard()">
+              📋 Copy Gold Beat to Script
+            </button>
+          </div>
+
+          <!-- Calculator 2: RBI Repo Rate EMI Shock -->
+          <div class="calc-box">
+            <h2 style="font-size: 18px; color: #fff; margin-bottom: 4px;">📈 RBI Repo Rate EMI Calculator</h2>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 18px;">
+              Calculates monthly EMI jump and 20-year cumulative interest compounding.
+            </p>
+
+            <div class="calc-row">
+              <label><span>Home Loan Principal (₹)</span></label>
+              <input type="number" id="calcEmiLoan" value="5000000" step="100000" class="calc-input" oninput="window.os.calcEmiShock()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Current Interest Rate (%)</span></label>
+              <input type="number" id="calcEmiRate" value="8.5" step="0.05" class="calc-input" oninput="window.os.calcEmiShock()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Expected RBI Hike (bps)</span><span id="labelHike">+25 bps (0.25%)</span></label>
+              <input type="range" id="calcEmiHike" min="10" max="100" value="25" step="5" style="width: 100%;" oninput="document.getElementById('labelHike').innerText = '+' + this.value + ' bps (' + (this.value/100).toFixed(2) + '%)'; window.os.calcEmiShock()">
+            </div>
+
+            <div class="calc-row">
+              <label><span>Loan Tenure (Years)</span></label>
+              <input type="number" id="calcEmiTenure" value="20" class="calc-input" oninput="window.os.calcEmiShock()">
+            </div>
+
+            <div class="calc-result-card">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+                <span>Current Monthly EMI:</span>
+                <span id="resEmiCurrent" style="color: #fff; font-family: var(--font-mono);">₹43,391 / mo</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">
+                <span>New Monthly EMI:</span>
+                <span id="resEmiNew" style="color: var(--rose); font-family: var(--font-mono);">₹44,186 / mo</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 800; color: #fff; border-top: 1px solid var(--border-subtle); padding-top: 6px;">
+                <span>Monthly Jump:</span>
+                <span id="resEmiDiff" style="color: var(--gold); font-family: var(--font-mono);">+₹795 / mo</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-top: 4px;">
+                <span style="color: var(--rose);">Total Extra Interest Paid:</span>
+                <span id="resEmiTotalExtra" style="color: var(--rose); font-family: var(--font-mono);">+₹1,90,750</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-top: 14px; justify-content: center;" onclick="window.os.copyEmiBeatToClipboard()">
+              📋 Copy EMI Beat to Script
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 9: YOUTUBE SEO METADATA PACKAGER -->
+      <section id="view-packager" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>YouTube SEO Metadata &amp; Upload Packager</h1>
+            <p>1-click copy-ready titles, timestamps, hashtags, and pinned comments formatted for YouTube Studio.</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.os.downloadFullUploadPack()">📦 Download Full Pack (.txt)</button>
+        </div>
+
+        <div class="bento-card" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <label style="font-weight: 800; color: #fff; font-size: 14px;">Select Production:</label>
+            <select id="packagerProdSelect" class="calc-input" style="max-width: 440px;" onchange="window.os.renderPackager()"></select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <!-- Left: Titles & Pinned Comment -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="bento-card">
+              <h3 style="font-size: 15px; color: #fff; margin-bottom: 10px;">🎯 High-CTR YouTube Titles (5 Variations)</h3>
+              <div id="packagerTitlesList"></div>
+            </div>
+
+            <div class="bento-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="font-size: 15px; color: #fff;">📌 Engaging Pinned Comment</h3>
+                <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="window.os.copyPackagerField('packagerPinnedArea', 'Pinned comment')">📋 Copy</button>
+              </div>
+              <textarea id="packagerPinnedArea" class="calc-input" rows="4" style="line-height: 1.5; font-size: 13px;"></textarea>
+            </div>
+          </div>
+
+          <!-- Right: Description & Tags -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="bento-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="font-size: 15px; color: #fff;">📝 SEO Description &amp; Timestamps</h3>
+                <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="window.os.copyPackagerField('packagerDescArea', 'Description')">📋 Copy</button>
+              </div>
+              <textarea id="packagerDescArea" class="calc-input" rows="12" style="line-height: 1.5; font-size: 12px; font-family: var(--font-body);"></textarea>
+            </div>
+
+            <div class="bento-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="font-size: 15px; color: #fff;">🏷️ Comma-Separated Video Tags</h3>
+                <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 11px;" onclick="window.os.copyPackagerField('packagerTagsArea', 'Tags')">📋 Copy</button>
+              </div>
+              <textarea id="packagerTagsArea" class="calc-input" rows="3" style="line-height: 1.5; font-size: 12px; font-family: var(--font-mono);"></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 10: FORENSIC QA AUDITOR -->
       <section id="view-auditor" class="view-container">
         <div class="section-head">
           <div>
-            <h1>Forensic QA Matrix & Compliance Auditor</h1>
+            <h1>Forensic QA Matrix &amp; Compliance Auditor</h1>
             <p>10-point production quality standards checking audio loudness, visual staging, and fact ledgers.</p>
           </div>
         </div>
@@ -327,13 +701,344 @@
             <thead>
               <tr>
                 <th style="width: 70px;">ID</th>
-                <th>Quality Pillar & Description</th>
+                <th>Quality Pillar &amp; Description</th>
                 <th>Standard Specification</th>
                 <th style="width: 120px;">Status</th>
               </tr>
             </thead>
             <tbody id="qaTableBody"></tbody>
           </table>
+        </div>
+      </section>
+
+      <!-- VIEW 11: FORENSIC EVIDENCE PINBOARD & RED-STRING CANVAS -->
+      <section id="view-evidence" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Forensic Evidence Pinboard &amp; Crime-Board Canvas</h1>
+            <p>Interactive network with draggable evidence cards, live connecting red string Béziers, pushpins, and primary source citations.</p>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <select id="caseSelect" class="calc-input" style="max-width: 280px;" onchange="window.os.switchEvidenceCase(this.value)">
+              <option value="case-gold">Case: Gold Showroom 1.5L</option>
+              <option value="case-flight">Case: Aviation Surcharge Web</option>
+              <option value="case-voter">Case: Voter Roll SIR Audit</option>
+            </select>
+            <button class="btn btn-primary" onclick="window.os.openNewNodeModal()">+ Pin Evidence</button>
+            <button class="btn btn-secondary" onclick="window.os.toggleRedStrings()">🧵 Toggle Strings</button>
+            <button class="btn btn-secondary" onclick="window.os.downloadPinboardPNG()">📥 Export PNG</button>
+            <button class="btn btn-secondary" onclick="window.os.exportCaseDossier()">📋 Copy Dossier</button>
+          </div>
+        </div>
+
+        <div class="pinboard-container">
+          <!-- Interactive Stage -->
+          <div class="pinboard-stage" id="pinboardStage">
+            <canvas id="evidenceCanvas" class="pinboard-canvas-layer"></canvas>
+            <div id="pinboardNodesLayer" class="pinboard-nodes-layer"></div>
+          </div>
+
+          <!-- Forensic Node Inspector -->
+          <div class="node-inspector-panel" id="nodeInspector">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+              <h3 style="font-size: 15px; color: #fff;">Forensic Inspector</h3>
+              <span id="inspectCategory" class="status-tag status-delivered" style="font-size: 10px;">Select Node</span>
+            </div>
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Node Label</label>
+              <input type="text" id="inspectLabel" class="calc-input" placeholder="Click any pinboard card..." oninput="window.os.updateActiveNode('label', this.value)">
+            </div>
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Forensic Value / Stat</label>
+              <input type="text" id="inspectVal" class="calc-input" placeholder="e.g. ₹1,50,280 / 10g" oninput="window.os.updateActiveNode('val', this.value)">
+            </div>
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Investigation Notes &amp; Citation</label>
+              <textarea id="inspectNote" class="calc-input" rows="5" placeholder="Document source, regulatory citation..." oninput="window.os.updateActiveNode('note', this.value)"></textarea>
+            </div>
+            <div style="margin-top: auto; border-top: 1px solid var(--border-subtle); padding-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+                💡 <strong>Tip:</strong> Drag cards across the canvas to reposition. Connected red strings automatically update Bézier curve tension!
+              </div>
+              <button class="btn btn-secondary" style="font-size: 11px; justify-content: center;" onclick="window.os.resetCasePositions()">
+                🔄 Reset Node Layout
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 12: AUDIO & VOICEOVER LAB WITH LIVE OSCILLOSCOPE -->
+      <section id="view-voiceover" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Audio &amp; Voiceover Studio (-14 LUFS)</h1>
+            <p>Speech synthesis narration rehearsal, live Web Audio API oscilloscope, and browser microphone recorder with dB volume meter.</p>
+          </div>
+          <div class="system-status-pill">
+            <div class="pulse-dot"></div>
+            <span>BROADCAST STANDARD: -14.0 LUFS</span>
+          </div>
+        </div>
+
+        <div class="audio-studio-grid">
+          <!-- Left: Narration Engine & TTS Rehearsal -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="bento-card">
+              <h3 style="font-size: 16px; color: #fff; margin-bottom: 12px;">🎙️ Hinglish Narration Rehearsal (TTS)</h3>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                <div>
+                  <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Browser Voice Engine</label>
+                  <select id="ttsVoiceSelect" class="calc-input" style="font-size: 12px;"></select>
+                </div>
+                <div>
+                  <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Speech Rate (<span id="ttsRateVal">1.05x</span>)</label>
+                  <input type="range" id="ttsRateSlider" min="0.8" max="1.6" step="0.05" value="1.05" style="width: 100%; accent-color: var(--gold);" oninput="document.getElementById('ttsRateVal').textContent = this.value + 'x'">
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+                <button class="btn btn-secondary" style="font-size: 11px; padding: 4px 10px;" onclick="window.os.loadTtsPreset('SH-08')">⚡ Load Sona 1.5L Hook</button>
+                <button class="btn btn-secondary" style="font-size: 11px; padding: 4px 10px;" onclick="window.os.loadTtsPreset('SH-07')">⚡ Load Voter SIR Hook</button>
+                <button class="btn btn-secondary" style="font-size: 11px; padding: 4px 10px;" onclick="window.os.loadTtsPreset('FL-04')">⚡ Load Flight Fuel Hook</button>
+              </div>
+
+              <textarea id="ttsScriptArea" class="calc-input" rows="5" placeholder="Enter Hinglish narration text to test cadence, phonetic timing, and delivery..."></textarea>
+
+              <div style="display: flex; gap: 10px; margin-top: 14px;">
+                <button class="btn btn-primary" id="ttsPlayBtn" onclick="window.os.speakText()">▶ Play Voiceover</button>
+                <button class="btn btn-secondary" onclick="window.os.pauseSpeaking()">⏸ Pause</button>
+                <button class="btn btn-secondary" onclick="window.os.stopSpeaking()">⏹ Stop</button>
+              </div>
+            </div>
+
+            <!-- YouTube Audio Calibration Standard -->
+            <div class="bento-card">
+              <h3 style="font-size: 15px; color: #fff; margin-bottom: 10px;">🛡️ YouTube Master Audio Standards</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+                  <div style="color: var(--gold); font-weight: 700; margin-bottom: 4px;">Integrated Loudness</div>
+                  <div style="font-family: var(--font-mono); font-size: 14px; color: #fff;">-14.0 LUFS (±1.0 LU)</div>
+                  <div style="color: var(--text-muted); font-size: 11px; margin-top: 4px;">Target for zero YouTube normalization compression.</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+                  <div style="color: var(--sky); font-weight: 700; margin-bottom: 4px;">True Peak Ceiling</div>
+                  <div style="font-family: var(--font-mono); font-size: 14px; color: #fff;">&lt;= -1.0 dBFS</div>
+                  <div style="color: var(--text-muted); font-size: 11px; margin-top: 4px;">Prevents inter-sample clipping on AAC transcodes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Web Audio Oscilloscope & Mic Recorder -->
+          <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="bento-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="font-size: 16px; color: #fff;">📈 Live Web Audio Spectrum &amp; Oscilloscope</h3>
+                <span id="visualizerStatus" class="status-tag status-delivered" style="font-size: 11px;">Active Engine</span>
+              </div>
+
+              <div class="audio-visualizer-container">
+                <canvas id="audioVisualizerCanvas" class="audio-visualizer-canvas"></canvas>
+                
+                <div class="audio-meter-wrap">
+                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">dB Meter:</span>
+                  <div class="meter-bar">
+                    <div class="meter-fill" id="audioMeterFill"></div>
+                    <div class="meter-lufs-target" title="Target: -14 LUFS"></div>
+                  </div>
+                  <span id="audioDbReadout" style="font-size: 11px; font-family: var(--font-mono); color: var(--gold); min-width: 46px;">-24 dB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- In-Browser Microphone Voiceover Recorder -->
+            <div class="bento-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="font-size: 16px; color: #fff;">🎙️ Microphone VO Recording Lab</h3>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="rec-pulse-indicator" id="recPulse"></span>
+                  <span id="recTimer" style="font-family: var(--font-mono); font-size: 13px; color: var(--rose); font-weight: 700;">00:00 / 00:60</span>
+                </div>
+              </div>
+
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 14px;">
+                Record voiceover takes directly in your browser. Generates an instant audio preview and downloadable high-quality WebM track.
+              </p>
+
+              <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                <button class="btn btn-primary" id="recStartBtn" onclick="window.os.toggleMicRecording()">
+                  🔴 Start Recording VO
+                </button>
+                <button class="btn btn-secondary" id="recCancelBtn" style="display: none;" onclick="window.os.cancelMicRecording()">
+                  Cancel Take
+                </button>
+              </div>
+
+              <div id="recordedPlayerWrap" style="display: none; background: rgba(255,255,255,0.04); padding: 14px; border-radius: 8px; border: 1px solid var(--border-subtle);">
+                <label style="font-size: 11px; font-weight: 700; color: var(--gold); display: block; margin-bottom: 6px;">Latest Voiceover Take Preview:</label>
+                <audio id="recordedAudioPlayer" controls style="width: 100%; margin-bottom: 10px; height: 38px;"></audio>
+                <a id="recordedDownloadBtn" href="#" download="benaqaab_vo_take.webm" class="btn btn-primary" style="text-decoration: none; justify-content: center; width: 100%;">
+                  ⬇ Download Recorded VO (.webm)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 13: 60-SECOND SHORTS RETENTION SEQUENCER -->
+      <section id="view-retention" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>60-Second Shorts Retention Sequencer</h1>
+            <p>Retain viewer attention through 5 psychological retention beats: Frame-0 Hook, Problem Anomaly, Math Evidence, The Twist, and Loop CTA.</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <select id="retentionSelect" class="calc-input" style="max-width: 320px;" onchange="window.os.switchRetentionBlueprint(this.value)">
+              <option value="BP-01">Sona ₹1.5L Showroom Bill (SH-08)</option>
+              <option value="BP-02">Voter List Missing Name (SH-07)</option>
+            </select>
+            <button class="btn btn-primary" onclick="window.os.copyRetentionBeatSheet()">📋 Copy Video Beat Sheet</button>
+          </div>
+        </div>
+
+        <!-- Retention Pacing Meter -->
+        <div class="bento-grid" style="margin-bottom: 24px;">
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label"><span>Total Spoken Words</span><span>📝</span></div>
+            <div class="metric-value" id="retTotalWords">129</div>
+            <div class="metric-sub"><span class="metric-delta delta-positive">Word Budget</span><span>Target &lt; 155</span></div>
+          </div>
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label"><span>Estimated Runtime</span><span>⏱️</span></div>
+            <div class="metric-value" id="retTotalSec">54.0s</div>
+            <div class="metric-sub"><span class="metric-delta delta-positive">Under 60s Cap</span><span>Safe from shorts cut</span></div>
+          </div>
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label"><span>Average Speech Pacing</span><span>⚡</span></div>
+            <div class="metric-value" id="retAvgWpm">143 WPM</div>
+            <div class="metric-sub"><span class="metric-delta delta-gold">Conversational</span><span>130 - 160 WPM ideal</span></div>
+          </div>
+          <div class="bento-card col-3 metric-card">
+            <div class="metric-label"><span>Drop-off Risk</span><span>🛡️</span></div>
+            <div class="metric-value" id="retRiskScore" style="color: var(--emerald);">LOW</div>
+            <div class="metric-sub"><span class="metric-delta delta-positive">94% Retention Score</span><span>Strong Frame-0</span></div>
+          </div>
+        </div>
+
+        <!-- 60-Second Interactive Visual Timeline -->
+        <div class="retention-timeline-wrap">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 13px; font-weight: 700; color: #fff;">Interactive 60s Retention Distribution Bar:</span>
+            <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">Click any beat card below to inspect</span>
+          </div>
+
+          <div class="retention-timeline-bar" id="retTimelineBar">
+            <div class="retention-zone-pill zone-hook" title="0s - 3s: Frame-0 Hook">0-3s</div>
+            <div class="retention-zone-pill zone-problem" title="3s - 15s: Problem Statement">3-15s: Problem</div>
+            <div class="retention-zone-pill zone-proof" title="15s - 35s: Forensic Evidence">15-35s: Forensic Proof</div>
+            <div class="retention-zone-pill zone-twist" title="35s - 50s: The Twist">35-50s: Twist</div>
+            <div class="retention-zone-pill zone-cta" title="50s - 60s: Loop CTA">50-60s: Loop</div>
+          </div>
+        </div>
+
+        <!-- 5-Zone Beat Cards -->
+        <div class="retention-beats-grid" id="retentionBeatsContainer"></div>
+      </section>
+
+      <!-- VIEW 14: CINEMATIC B-ROLL PROMPT SYNTHESIZER -->
+      <section id="view-prompts" class="view-container">
+        <div class="section-head">
+          <div>
+            <h1>Investigative AI B-Roll &amp; Visual Prompt Synthesizer</h1>
+            <p>Generate cinema-grade Midjourney v6, Kling, and Runway camera prompts with authentic documentary lighting and aspect ratios.</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="window.os.randomizePrompt()">🎲 Randomize Subject</button>
+            <button class="btn btn-primary" onclick="window.os.copyCurrentPrompt()">📋 Copy Active Prompt</button>
+          </div>
+        </div>
+
+        <div class="prompt-studio-grid">
+          <!-- Left: Prompt Generator Controls -->
+          <div class="bento-card" style="display: flex; flex-direction: column; gap: 16px;">
+            <h3 style="font-size: 16px; color: #fff;">⚙️ Camera &amp; Scene Composer</h3>
+
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Subject / Forensic Focus</label>
+              <select id="promptSubjectSelect" class="calc-input" onchange="window.os.updatePromptBuilder()">
+                <option value="gold_ingot">Molten 24K Gold Ingot &amp; Smelting Crucible</option>
+                <option value="showroom_bill">Jewelry Invoice with Fluorescent Highlighter Marker</option>
+                <option value="boeing_turbine">Commercial Airliner Engine Turbine &amp; Fuel Gauge</option>
+                <option value="supreme_court">Supreme Court Gavel, Law Books &amp; Confidential Dossier</option>
+                <option value="evm_microchip">Electronic Voting Machine Microprocessor &amp; Green Circuit</option>
+                <option value="kavach_train">Vande Bharat Train Cockpit with Kavach 4.0 Telemetry</option>
+                <option value="lithium_rock">Lithium Spodumene Core Ore Sample with Field Scale</option>
+                <option value="stock_ticker">Financial Trading Terminal with Compounding LED Ticker</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Visual Aesthetic Archetype</label>
+              <select id="promptStyleSelect" class="calc-input" onchange="window.os.updatePromptBuilder()">
+                <option value="macro_forensic">Macro Forensic (35mm f/1.8, Shallow DOF, Volumetric Dust)</option>
+                <option value="archive_documentary">Documentary Archive (Kodak Vision3 500T, Warm Desk Lamp)</option>
+                <option value="infographic_3d">Isometric 3D High-Tech (Emerald/Cyan Glassmorphic HUD)</option>
+                <option value="surveillance_cctv">Surveillance / Fast Paced (Desaturated Slate, Motion Blur)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Atmosphere &amp; Lighting</label>
+              <select id="promptLightingSelect" class="calc-input" onchange="window.os.updatePromptBuilder()">
+                <option value="rim_light">Volumetric Moody Rim Light with Ambient Glow</option>
+                <option value="interrogation">Harsh Directional Interrogation Spotlight</option>
+                <option value="cinematic_dusk">Twilight Dusk with Cold Slate and Amber Edge</option>
+                <option value="clean_lab">Clean High-Key Laboratory Scientific Lighting</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">Target Aspect Ratio</label>
+              <div style="display: flex; gap: 10px;">
+                <label style="flex: 1; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); padding: 8px 12px; border-radius: 6px; cursor: pointer;">
+                  <input type="radio" name="aspectRatio" value="9:16" checked onchange="window.os.updatePromptBuilder()">
+                  <span style="font-size: 12px; font-weight: 700; color: #fff;">9:16 Shorts</span>
+                </label>
+                <label style="flex: 1; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); padding: 8px 12px; border-radius: 6px; cursor: pointer;">
+                  <input type="radio" name="aspectRatio" value="16:9" onchange="window.os.updatePromptBuilder()">
+                  <span style="font-size: 12px; font-weight: 700; color: #fff;">16:9 Cinema</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">Generated Production Prompt</label>
+                <div>
+                  <span class="param-badge" id="promptArBadge">--ar 9:16</span>
+                  <span class="param-badge">--v 6.1</span>
+                  <span class="param-badge">--style raw</span>
+                </div>
+              </div>
+              <div class="prompt-output-box" id="generatedPromptOutput"></div>
+            </div>
+
+            <button class="btn btn-primary" style="justify-content: center;" onclick="window.os.copyCurrentPrompt()">
+              📋 Copy Prompt to Clipboard
+            </button>
+          </div>
+
+          <!-- Right: Curated Production Prompt Library -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+              <h3 style="font-size: 16px; color: #fff;">📚 Verified Benaqaab B-Roll Prompt Library</h3>
+              <span class="status-tag status-delivered" style="font-size: 11px;">8 Tested Presets</span>
+            </div>
+            <div class="prompt-cards-grid" id="promptCardsContainer"></div>
+          </div>
         </div>
       </section>
 
@@ -375,22 +1080,22 @@
       <form id="newTopicForm" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
         <div>
           <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Topic Title</label>
-          <input type="text" name="topicTitle" required placeholder="e.g. Lithium in J&K: 5.9M Tonnes Auction Update" style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
+          <input type="text" name="topicTitle" required placeholder="e.g. Lithium in J&amp;K: 5.9M Tonnes Auction Update" style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
         </div>
         <div>
           <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Category</label>
           <input type="text" name="topicCategory" placeholder="e.g. Economy / Mining / Tech" style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
         </div>
         <div>
-          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">First-Second Retention Hook (Spoken & Visual)</label>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">First-Second Retention Hook (Spoken &amp; Visual)</label>
           <textarea name="topicHook" required rows="2" placeholder="The exact words that hook the viewer at Frame-0..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
         </div>
         <div>
-          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Investigation Angle & Thesis</label>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Investigation Angle &amp; Thesis</label>
           <textarea name="topicAngle" rows="2" placeholder="The hidden mechanism, conflict, or counter-intuitive reality..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
         </div>
         <div>
-          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Verified Numbers & Primary Ledger (1 per line)</label>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 6px;">Verified Numbers &amp; Primary Ledger (1 per line)</label>
           <textarea name="topicData" rows="3" placeholder="GSI G3 stage estimation&#10;800-1000 ppm concentration..." style="width: 100%; padding: 10px 14px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; outline: none;"></textarea>
         </div>
         <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
@@ -398,6 +1103,86 @@
           <button type="submit" class="btn btn-primary">Save to Ledger</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD EVIDENCE NODE -->
+  <div class="modal-backdrop" id="newNodeModal">
+    <div class="cinema-modal" style="width: min(540px, 94vw);">
+      <div class="modal-header">
+        <h3 class="modal-title">Pin New Evidence Node onto Canvas</h3>
+        <button class="modal-close" onclick="window.os.closeModals()">✕</button>
+      </div>
+      <form id="newNodeForm" style="padding: 24px; display: flex; flex-direction: column; gap: 14px;" onsubmit="event.preventDefault(); window.os.handleCreateNode(this);">
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">Node Label</label>
+          <input type="text" name="nodeLabel" required placeholder="e.g. AERA Regulatory Tariff Order" class="calc-input">
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">Category</label>
+          <select name="nodeCategory" class="calc-input">
+            <option value="Benchmark">Benchmark / Official Index</option>
+            <option value="Statutory">Statutory / Regulatory Rule</option>
+            <option value="Discretionary">Discretionary / Hidden Fee</option>
+            <option value="Consumer Impact">Consumer Impact / Bill Total</option>
+            <option value="Financial Bypass">Financial Bypass / Remedy</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">Numerical Value / Metric</label>
+          <input type="text" name="nodeVal" placeholder="e.g. +₹2,100 Surcharge" class="calc-input">
+        </div>
+        <div>
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px;">Evidence Notes &amp; Primary Citation</label>
+          <textarea name="nodeNote" rows="3" placeholder="Source document, official gazette or RTI reference..." class="calc-input"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 10px;">
+          <button type="button" class="btn btn-secondary" onclick="window.os.closeModals()">Cancel</button>
+          <button type="submit" class="btn btn-primary">📌 Pin to Board</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: STUDIO BACKUP & RESTORE CENTER -->
+  <div class="modal-backdrop" id="backupModal">
+    <div class="cinema-modal" style="width: min(600px, 94vw);">
+      <div class="modal-header">
+        <h3 class="modal-title">💾 Local &amp; Cloud Studio Data Center</h3>
+        <button class="modal-close" onclick="window.os.closeModals()">✕</button>
+      </div>
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: #fff;">
+            <span>Browser LocalStorage Quota Usage:</span>
+            <span id="backupStorageText" style="color: var(--gold); font-family: var(--font-mono);">-- KB / 5120 KB</span>
+          </div>
+          <div class="storage-meter">
+            <div class="storage-bar-fill" id="backupStorageFill"></div>
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+            All your topic proposals, kanban card progressions, teleprompter notes, and auditor checkmarks are saved locally in your browser.
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+          <h4 style="font-size: 14px; color: #fff;">📤 Export Studio Backup</h4>
+          <p style="font-size: 12px; color: var(--text-secondary);">Download complete JSON snapshot of all productions, backlog topics, pinboard layouts, and QA checklists.</p>
+          <button class="btn btn-primary" onclick="window.os.exportFullBackup()">📦 Download Studio Snapshot (.json)</button>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+          <h4 style="font-size: 14px; color: #fff;">📥 Restore Studio Backup</h4>
+          <p style="font-size: 12px; color: var(--text-secondary);">Upload a previously downloaded JSON snapshot to restore your studio on any machine.</p>
+          <input type="file" id="backupFileInput" accept=".json" style="display: none;" onchange="window.os.importBackupFile(this)">
+          <button class="btn btn-secondary" onclick="document.getElementById('backupFileInput').click()">📂 Select Backup File (.json)</button>
+        </div>
+
+        <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; color: var(--rose);">Danger Zone:</span>
+          <button class="btn btn-secondary" style="color: var(--rose); border-color: rgba(244,63,94,0.3);" onclick="window.os.resetData()">🔄 Reset to Factory Defaults</button>
+        </div>
+      </div>
     </div>
   </div>
 

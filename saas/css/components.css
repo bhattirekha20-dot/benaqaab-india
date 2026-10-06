@@ -834,6 +834,614 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* 8. Kanban Pipeline Board */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+}
+
+.kanban-col {
+  background: rgba(12, 16, 25, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+}
+
+.kanban-col-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.kanban-col-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kanban-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.kanban-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  transition: all var(--transition-fast);
+  cursor: grab;
+}
+
+.kanban-card:hover {
+  border-color: var(--border-glass);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.kanban-card-serial {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--sky);
+}
+
+.kanban-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin: 6px 0;
+  line-height: 1.3;
+}
+
+.kanban-nav-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-arrow {
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+.btn-arrow:hover {
+  background: var(--gold);
+  color: #000;
+}
+
+/* 9. Teleprompter & Word-Budgeting Studio */
+.teleprompter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+
+.teleprompter-stage {
+  background: #000;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+}
+
+.teleprompter-cue {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 10px var(--gold-glow);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.teleprompter-scroll-text {
+  padding: 240px 32px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1.6;
+  font-weight: 700;
+  text-align: center;
+  transition: transform 100ms linear;
+  user-select: none;
+}
+
+.teleprompter-mirror {
+  transform: scaleX(-1);
+}
+
+.budget-meter-wrap {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.budget-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  background: var(--emerald);
+  transition: width var(--transition-fast), background var(--transition-fast);
+}
+
+/* 10. Financial Math & Compounding Lab */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.calc-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.calc-row {
+  margin-bottom: 16px;
+}
+
+.calc-row label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.calc-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  outline: none;
+}
+
+.calc-input:focus {
+  border-color: var(--gold);
+}
+
+.calc-result-card {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin-top: 18px;
+}
+
+/* 11. Thumbnail Canvas Studio */
+.canvas-studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.canvas-viewport-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #040508;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+}
+
+#customThumbCanvas {
+  max-height: 540px;
+  aspect-ratio: 9/16;
+  border-radius: 18px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.85);
+  background: #000;
+}
+
+/* ==========================================================================
+   MODULE 11: FORENSIC EVIDENCE PINBOARD & RED-STRING CANVAS
+   ========================================================================== */
+.pinboard-container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  min-height: 640px;
+  position: relative;
+}
+
+.pinboard-stage {
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #0d121f 0%, #05070b 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-height: 620px;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+.pinboard-canvas-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pinboard-nodes-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.evidence-node {
+  position: absolute;
+  width: 200px;
+  background: rgba(14, 18, 28, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  cursor: grab;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast), transform 0.05s linear;
+  user-select: none;
+}
+
+.evidence-node:active {
+  cursor: grabbing;
+  transform: scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 20px rgba(244, 63, 94, 0.3);
+  border-color: var(--rose);
+  z-index: 10 !important;
+}
+
+.evidence-node.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.4), 0 12px 32px rgba(0, 0, 0, 0.8);
+}
+
+.evidence-pin {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff6b81, #d63031);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7), 0 0 8px rgba(244, 63, 94, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 3;
+}
+
+.evidence-node-category {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.evidence-node-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.evidence-node-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  padding: 3px 6px;
+  background: rgba(251, 191, 36, 0.08);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.node-inspector-panel {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(20px);
+}
+
+/* ==========================================================================
+   MODULE 12: AUDIO & VOICEOVER LAB WITH LIVE OSCILLOSCOPE
+   ========================================================================== */
+.audio-studio-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+.audio-visualizer-container {
+  background: #04060a;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-visualizer-canvas {
+  width: 100%;
+  height: 160px;
+  display: block;
+  border-radius: var(--radius-md);
+  background: radial-gradient(circle at 50% 50%, #070e1b 0%, #020306 100%);
+}
+
+.audio-meter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.meter-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-subtle);
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #34d399 0%, #38bdf8 65%, #fbbf24 85%, #f43f5e 100%);
+  transition: width 0.08s ease;
+  border-radius: 999px;
+}
+
+.meter-lufs-target {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 70%; /* -14 LUFS marker */
+  width: 2px;
+  background: #fff;
+  box-shadow: 0 0 6px #fff;
+  z-index: 2;
+}
+
+.rec-pulse-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 12px var(--rose);
+  animation: pulseRec 1s infinite;
+  display: none;
+}
+
+.rec-pulse-indicator.active {
+  display: inline-block;
+}
+
+@keyframes pulseRec {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   MODULE 13: 60-SECOND SHORTS RETENTION SEQUENCER
+   ========================================================================== */
+.retention-timeline-wrap {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.retention-timeline-bar {
+  display: flex;
+  height: 38px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.retention-zone-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.retention-zone-pill:hover {
+  filter: brightness(1.25);
+}
+
+.retention-zone-pill.active {
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.zone-hook { background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); width: 5%; } /* 3s / 60s */
+.zone-problem { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); width: 20%; } /* 12s */
+.zone-proof { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); width: 33.3%; } /* 20s */
+.zone-twist { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); width: 25%; } /* 15s */
+.zone-cta { background: linear-gradient(135deg, #059669 0%, #047857 100%); width: 16.7%; } /* 10s */
+
+.retention-beats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.beat-card {
+  background: rgba(14, 18, 28, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 140px 1fr 240px 110px;
+  gap: 20px;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.beat-card:hover {
+  background: rgba(18, 24, 38, 0.85);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateX(4px);
+}
+
+.pacing-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.pacing-opt { background: rgba(52, 211, 153, 0.15); color: var(--emerald); border: 1px solid rgba(52, 211, 153, 0.3); }
+.pacing-fast { background: rgba(244, 63, 94, 0.15); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+.pacing-slow { background: rgba(251, 191, 36, 0.15); color: var(--gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+
+/* ==========================================================================
+   MODULE 14: CINEMATIC B-ROLL PROMPT SYNTHESIZER
+   ========================================================================== */
+.prompt-studio-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+}
+
+.prompt-output-box {
+  background: #030407;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #e2e8f0;
+  position: relative;
+  min-height: 120px;
+  word-break: break-word;
+}
+
+.param-badge {
+  display: inline-block;
+  padding: 2px 7px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: var(--sky);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-right: 6px;
+}
+
+.prompt-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.prompt-item-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all var(--transition-fast);
+}
+
+.prompt-item-card:hover {
+  background: var(--bg-glass-active);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MODULE 15: BACKUP & LOCAL DATA CENTER
+   ========================================================================== */
+.storage-meter {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 12px 0 6px 0;
+}
+
+.storage-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--emerald) 0%, var(--gold) 100%);
+  width: 15%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .sidebar {
@@ -857,8 +1465,11 @@
   .col-4 { grid-column: span 6; }
   .col-6 { grid-column: span 6; }
   .col-8 { grid-column: span 6; }
-  .sim-container {
+  .sim-container, .teleprompter-grid, .calc-grid, .canvas-studio-grid {
     grid-template-columns: 1fr;
+  }
+  .kanban-board {
+    grid-template-columns: repeat(5, 260px);
   }
 }
 
@@ -892,3 +1503,4 @@
     grid-column: span 1;
   }
 }
+
