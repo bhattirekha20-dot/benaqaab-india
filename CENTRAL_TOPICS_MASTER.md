@@ -24,39 +24,62 @@
 
 ---
 
-## 🔴 SECTION 1: COVERED TOPICS (NEVER REPEAT)
+## 🔴 SECTION 1: COVERED TOPICS (NEVER REPEAT — MASTER SERIAL REGISTRY)
 
 *These topics have already been delivered as full documentaries or shorts. Rule L16 strictly forbids repeating them unless explicitly ordered by the user with a radically new angle.*
 
-### A. Original 6 Blacklisted Scams & Topics
+### 📑 Master Serial Index of All Delivered Productions
+
+| Serial # | Episode / Production Title | Format / Ratio | Duration | Primary File / Workspace Path | Key Theme & Subject |
+|---|---|---|---|---|---|
+| **EP-01** | The 10,000mAh War | Explainer (16:9) | ~40s | `MEMORY.md` §32 | Smartphone battery capacity race & anode chemistry |
+| **EP-02** | Master Video Pipeline Pilot | Explainer (16:9) | ~45s | `MEMORY.md` §41 | Timeline calibration, color grading & motion pipeline |
+| **EP-03** | 1 in 4 AI Users on Earth is Indian | Explainer (16:9) | ~45s | `MEMORY.md` §45 | India's ~26% global AI adoption and compute boom |
+| **EP-04** | Digital Arrest Exposed | Docu (16:9) | 5m 21s | `Digital_Arrest_Exposed.html` | Cyber extortion, fake police stations & money mule network |
+| **EP-05** | NEET Gen Z Protest & Paper Leak | Docu (16:9) | ~4m 10s | `MEMORY.md` §9 | Exam corruption syndicate, solver gangs & Grace marks |
+| **EP-06** | Air Pollution & The Toxic Smog | Explainer (16:9) | ~3m 50s | `MEMORY.md` §9 | Air Quality Index, stubble burning & industrial emissions |
+| **EP-07** | News Desk & Presenter Stage | Host PIP (16:9) | ~2m 30s | `viz/recipes/ep7_comp.html` | Chroma green host presenter keyed over live news desk |
+| **EP-08** | Kal Se Badle Ye Niyam (1 Oct Rules) | Explainer (16:9) | ~3m 15s | `viz/recipes/ep8_comp.html` | 1 October 2026 financial, tax & banking regulatory rules |
+| **EP-09** | Chenab Bridge Engineering | Explainer (16:9) | ~3m 20s | `MEMORY.md` §80 | World's highest arch rail bridge (359m, Reasi, J&K) |
+| **EP-10** | India's Last 24 Hours Top News | Wiredesk (16:9) | ~3m 10s | `viz/recipes/ep10_comp_wiredesk.html` | Real-time news ticker desk with dynamic clip inserts |
+| **EP-11** | Market & Economic Tickerboard | Ticker (16:9) | ~3m 05s | `viz/recipes/ep11_comp_tickerboard.html` | Dynamic market board with multi-asset financial counters |
+| **EP-12** | NavIC — India Ka Apna GPS | Flagship (16:9) | **3m 21s** | `projects/ep12_navic/` • `VIDEOS/01_NavIC_3m21s.mp4` | 7 satellites, L5/S band, 1500 km civilian & defense buffer |
+| **EP-13** | Monsoon 2026 & El Niño | Flagship (16:9) | **3m 26s** | `projects/ep13_monsoon/` • `VIDEOS/02_Monsoon_ElNino_3m26s.mp4` | Rain ledger, 12.6% deficit, El Niño vs positive IOD |
+| **EP-14** | Bullet Train 2027 (Mumbai–Ahmedabad) | Flagship (16:9) | **2m 57s** | `projects/ep14_bullet/` • `VIDEOS/03_Bullet_Train_2m57s.mp4` | 508 km corridor, B28/E10 trainsets, 21km undersea tunnel |
+| **EP-15** | Rupee 96 vs USD | Flagship (16:9) | **3m 11s** | `projects/ep15_rupee/` • `VIDEOS/04_Rupee_96_3m11s.mp4` | Exchange board, crude >$100, forex reserves & import inflation |
+| **EP-16** | Made-in-India Chips | Flagship (16:9) | **3m 47s** | `projects/ep16_chips/` • `VIDEOS/05_Made_in_India_Chips_3m47s.mp4` | Tata Dholera 28nm fab, Assam OSAT, Micron Sanand fab |
+
+---
+
+### 📱 Master Serial Index of YouTube Shorts Series (9:16 Vertical)
+
+| Serial # | Short Title | Format | Duration | Primary File / Workspace Path | Key Theme & Subject |
+|---|---|---|---|---|---|
+| **SH-01** | Neon Blade | Anime Edit | **47s** | `projects/anime_edit_01/` • `VIDEOS/06_Neon_Blade_SHORT_47s.mp4` | Cyberpunk katana & neon rain (1080x1920) |
+| **SH-02** | Laal Chaand | Anime Edit | **48s** | `projects/anime_edit_02/` • `VIDEOS/07_Laal_Chaand_SHORT_48s.mp4` | Crimson moon, sakura blossom & oni aesthetic |
+| **SH-03** | Safed Raat | Anime Edit | **53s** | `projects/anime_edit_03/` • `VIDEOS/08_Safed_Raat_SHORT_53s.mp4` | Blizzard ice, yuki-onna spirit aesthetic |
+| **SH-04** | Lightning: Physics of the Bolt | Science Short | **45s** | `MEMORY.md` §121 | Stepped leader, return stroke & ionization mechanism |
+| **SH-05** | Deeper Than Everest | Science Short | **52s** | `MEMORY.md` §123, §124 | Challenger Deep (10,994m) depth scale vs Mt Everest |
+| **SH-06** | UPI: How India Moves ₹314 Lakh Cr | Infra Short | **55s** | `projects/upi_explained_short/` • `MEMORY.md` §130 | 4-party model, 3,729 TPS & zero-MDR banking switch |
+
+---
+
+### 🎥 Master Serial Index of Standalone Rapid-Response Films (October 2026)
+
+| Serial # | Film Title | Format | Duration | Primary File / Workspace Path | Key Theme & Subject |
+|---|---|---|---|---|---|
+| **FL-01** | RBI Rate Decision & EMI Short | Finance Short | ~170s | `MEMORY.md` §143 | Repo rate +25 bps hike mechanism & home loan EMI impact |
+| **FL-02** | Nobel Prize 2026: Optogenetics | Science Docu | ~165s | `MEMORY.md` §145 | Karolinska announcement, light-controlled neuron discovery |
+| **FL-03** | Plan Bee — 255 Haathi, Ek AI | Wildlife / Rail | ~170s | `MEMORY.md` §147 | Northeast Frontier Railway AI acoustic DAS fiber sensor network |
+| **FL-04** | Flight Surcharge: IndiGo ATF Hike | Aviation Short | **2m 56s** (176s) | `projects/flight_surcharge/Flight_Surcharge_Short.mp4` | ATF +14%, distance tiers ₹1,375–₹11,300, Brent crude $100+ |
+
+---
+
+### 🚫 The 4 Original Blacklisted Ponzi & Cyber Schemes (Never Repeat)
 1. 🔴 **Shootspace / GIFT City Cloud-Storage Ponzi**
 2. 🔴 **Task-Based / Part-Time Telegram Job Scam**
-3. 🔴 **Digital Arrest Scam** (`Digital_Arrest_Exposed.html` - 5:21)
-4. 🔴 **Paper Leak / NEET Gen Z Protest**
-5. 🔴 **AI Deepfake & Voice-Cloning Scams**
-6. 🔴 **Air Pollution (Generic Overview)**
-
-### B. Delivered Flagship Long-Form Episodes (in `/VIDEOS/`)
-* **EP12:** 🔴 **NavIC — India Ka Apna GPS** (`01_NavIC_3m21s.mp4`, 3:21) — 7 satellites, L5/S band, 1500 km buffer.
-* **EP13:** 🔴 **Monsoon 2026 & El Niño** (`02_Monsoon_ElNino_3m26s.mp4`, 3:26) — Rain ledger, 12.6% deficit, IOD mechanism.
-* **EP14:** 🔴 **Bullet Train 2027** (`03_Bullet_Train_2m57s.mp4`, 2:57) — Mumbai–Ahmedabad 508 km, B28/E10 Shinkansen, undersea tunnel.
-* **EP15:** 🔴 **Rupee 96 vs USD** (`04_Rupee_96_3m11s.mp4`, 3:11) — Forex reserves, crude price pressure, import bill impact.
-* **EP16:** 🔴 **Made-in-India Chips** (`05_Made_in_India_Chips_3m47s.mp4`, 3:47) — Tata Dholera 28nm fab, Assam OSAT, Micron Sanand.
-
-### C. Delivered YouTube Shorts (in `/VIDEOS/` & Projects)
-* **Short 01:** 🔴 **Neon Blade** (`06_Neon_Blade_SHORT_47s.mp4`, 47s) — Cyberpunk anime motion.
-* **Short 02:** 🔴 **Laal Chaand** (`07_Laal_Chaand_SHORT_48s.mp4`, 48s) — Sakura & oni theme anime motion.
-* **Short 03:** 🔴 **Safed Raat** (`08_Safed_Raat_SHORT_53s.mp4`, 53s) — Yuki-onna snow theme anime motion.
-* **Science Short 01:** 🔴 **Lightning Mechanism** — 2D vector + AI images.
-* **Science Short 02:** 🔴 **Deeper Than Everest** — Challenger Deep Mariana Trench depth scale.
-
-### D. Delivered Standalone Fast-Response Films (Oct 2026)
-* 🔴 **Flight Surcharge (IndiGo Fuel Surcharge)**: Delivered 6 Oct 2026 (`projects/flight_surcharge/Flight_Surcharge_Short.mp4`, 176s). ATF hike +14%, distance tiers ₹1,375–₹11,300, Brent crude $100+.
-* 🔴 **Plan Bee ("255 Haathi, Ek AI")**: Delivered 5 Oct 2026 (`MEMORY.md` § 147). Northeast Frontier Railway AI-based DAS optical fiber acoustic sensor network saving wild elephants.
-* 🔴 **Nobel Prize 2026 (Optogenetics)**: Delivered 5 Oct 2026 (`MEMORY.md` § 145).
-* 🔴 **Chenab Bridge (EP9)**: World's highest arch railway bridge (359m, J&K).
-* 🔴 **10,000mAh Battery War (EP1)**: Smartphone battery capacity evolution.
-* 🔴 **1 in 4 AI Users on Earth is Indian (EP3)**: India’s ~26% AI adoption wave.
+3. 🔴 **AI Deepfake & Voice-Cloning Scams**
+4. 🔴 **Air Pollution (Generic Overview)**
 
 ---
 
