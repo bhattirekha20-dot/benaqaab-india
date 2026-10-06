@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Benaqaab India — Sona ₹1.5 Lakh Par Asli Bill (Interactive HTML Video)</title>
+<title>Benaqaab India — Sona ₹1.5 Lakh Par Asli Bill (AI Images + Voiceover)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg-deep: #07090e;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --border-glass: rgba(255, 255, 255, 0.1);
+  --bg-card: rgba(15, 23, 42, 0.82);
+  --border-glass: rgba(255, 255, 255, 0.12);
   --gold-glow: #fbbf24;
   --gold-deep: #d97706;
   --emerald: #34d399;
@@ -32,7 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 14px;
   overflow-x: hidden;
 }
 
@@ -43,20 +43,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 /* Top Branding Bar */
 .top-bar {
   width: 100%;
+  max-width: 460px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-glass);
   border-radius: 14px;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 }
 
 .brand-badge {
@@ -65,25 +66,25 @@ body {
   gap: 8px;
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: #fff;
 }
 .brand-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--gold-glow);
-  box-shadow: 0 0 12px var(--gold-glow);
+  box-shadow: 0 0 10px var(--gold-glow);
 }
 .live-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   padding: 4px 8px;
   border-radius: 6px;
-  background: rgba(244, 63, 94, 0.15);
-  border: 1px solid rgba(244, 63, 94, 0.3);
-  color: #fb7185;
-  font-weight: 700;
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34d399;
+  font-weight: 800;
 }
 
 /* 9:16 Video Stage */
@@ -93,8 +94,8 @@ body {
   aspect-ratio: 9/16;
   background: var(--bg-deep);
   border-radius: 28px;
-  border: 1px solid rgba(251, 191, 36, 0.25);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 45px rgba(251, 191, 36, 0.14);
   overflow: hidden;
 }
 
@@ -116,11 +117,11 @@ canvas#videoCanvas {
 /* Interactive Player Control Deck */
 .player-deck {
   width: min(440px, 94vw);
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.88);
   border: 1px solid var(--border-glass);
   border-radius: 20px;
   padding: 14px 18px;
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -157,7 +158,7 @@ canvas#videoCanvas {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);
-  width: 82px;
+  width: 86px;
   text-align: right;
 }
 
@@ -178,7 +179,7 @@ canvas#videoCanvas {
   border: 1px solid var(--border-glass);
   color: #fff;
   border-radius: 10px;
-  padding: 8px 14px;
+  padding: 9px 15px;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
@@ -195,8 +196,8 @@ canvas#videoCanvas {
   background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
   color: #0b0d15;
   border: none;
-  font-weight: 800;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  font-weight: 900;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.38);
 }
 .btn-primary:hover {
   filter: brightness(1.1);
@@ -236,13 +237,21 @@ canvas#videoCanvas {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
 }
 .audio-pulse {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--emerald);
   box-shadow: 0 0 8px var(--emerald);
+}
+.audio-pulse.playing {
+  animation: pulseAnim 1s infinite alternate;
+}
+@keyframes pulseAnim {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
 }
 </style>
 </head>
@@ -254,9 +263,9 @@ canvas#videoCanvas {
   <div class="top-bar">
     <div class="brand-badge">
       <div class="brand-dot"></div>
-      <span>BENAQAAB INDIA • 9:16 HTML ENGINE</span>
+      <span>BENAQAAB INDIA • 9:16 ENGINE</span>
     </div>
-    <div class="live-tag">RESEARCH AS OF OCT 2026</div>
+    <div class="live-tag">AI CINEMATIC VISUALS</div>
   </div>
 
   <!-- Stage Box -->
@@ -265,33 +274,36 @@ canvas#videoCanvas {
     <div class="noise-overlay"></div>
   </div>
 
+  <!-- Native Audio Tag for Voiceover -->
+  <audio id="voiceAudio" src="narration.mp3" preload="auto"></audio>
+
   <!-- Interactive Controls Deck -->
   <div class="player-deck">
     <div class="timeline-row">
-      <input type="range" class="scrubber" id="timelineScrubber" min="0" max="57" step="0.05" value="0">
-      <div class="time-display" id="timecodeDisplay">00:00 / 00:57</div>
+      <input type="range" class="scrubber" id="timelineScrubber" min="0" max="53.9" step="0.05" value="0">
+      <div class="time-display" id="timecodeDisplay">00:00 / 00:54</div>
     </div>
 
     <div class="controls-row">
       <div class="btn-group">
-        <button class="btn btn-primary" id="btnPlayPause">▶ Play</button>
+        <button class="btn btn-primary" id="btnPlayPause">▶ Play Video</button>
         <button class="btn" id="btnRestart">↺ Replay</button>
       </div>
       
       <div class="audio-status">
-        <div class="audio-pulse"></div>
-        <span id="audioLabel">WebAudio Synth Active</span>
+        <div class="audio-pulse" id="audioPulseDot"></div>
+        <span id="audioLabel">VO: Madhur Neural</span>
       </div>
     </div>
 
     <!-- Scene Quick Jump Pills -->
     <div class="scene-pills">
-      <div class="pill active" onclick="seekTo(0)">S1: Myth</div>
-      <div class="pill" onclick="seekTo(7.2)">S2: GST+Making</div>
-      <div class="pill" onclick="seekTo(19.0)">S3: Real Total</div>
-      <div class="pill" onclick="seekTo(32.0)">S4: ETF Split</div>
-      <div class="pill" onclick="seekTo(44.0)">S5: 60-Yr Curve</div>
-      <div class="pill" onclick="seekTo(52.0)">S6: CTA</div>
+      <div class="pill active" onclick="seekTo(0)">S1: 24K Vault</div>
+      <div class="pill" onclick="seekTo(6.8)">S2: Showroom Bill</div>
+      <div class="pill" onclick="seekTo(17.8)">S3: Wastage & ₹1.82L</div>
+      <div class="pill" onclick="seekTo(30.2)">S4: Gold ETF</div>
+      <div class="pill" onclick="seekTo(41.5)">S5: 60-Yr Curve</div>
+      <div class="pill" onclick="seekTo(49.0)">S6: Closing CTA</div>
     </div>
   </div>
 
@@ -299,8 +311,8 @@ canvas#videoCanvas {
 
 <script>
 /**
- * BENAQAAB INDIA — 100% DETERMINISTIC HTML5 VIDEO RENDERER
- * Frame(t) is a pure mathematical function of time.
+ * BENAQAAB INDIA — 9:16 DETERMINISTIC HTML VIDEO ENGINE
+ * Powered by Edge Neural Audio & Cinematic AI Visuals
  */
 
 const canvas = document.getElementById('videoCanvas');
@@ -310,255 +322,231 @@ const timecode = document.getElementById('timecodeDisplay');
 const btnPlayPause = document.getElementById('btnPlayPause');
 const btnRestart = document.getElementById('btnRestart');
 const pills = document.querySelectorAll('.scene-pills .pill');
+const voiceAudio = document.getElementById('voiceAudio');
+const audioPulseDot = document.getElementById('audioPulseDot');
 
-const TOTAL_DURATION = 57.0;
+const TOTAL_DURATION = 53.9;
 let currentTime = 0.0;
 let isPlaying = false;
 let lastRafTime = 0;
 
-// Audio Context (Synthesizer for ticks, sub-bass, and whooshes)
-let audioCtx = null;
-function initAudio() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-}
+// Preload 4 Cinematic AI Images
+const img1 = new Image(); img1.src = 'shots/shot_01_bullion.jpg';
+const img2 = new Image(); img2.src = 'shots/shot_02_showroom.jpg';
+const img3 = new Image(); img3.src = 'shots/shot_03_melting.jpg';
+const img4 = new Image(); img4.src = 'shots/shot_04_etf.jpg';
 
-function playTick(freq = 1200, dur = 0.04) {
-  if (!audioCtx || audioCtx.state !== 'running') return;
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.frequency.value = freq;
-  gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-  osc.connect(gain);
-  gain.connect(audioCtx.destination);
-  osc.start();
-  osc.stop(audioCtx.currentTime + dur);
-}
-
-// Cubic Easing helper
+// Helpers
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 function easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
-function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
 /**
- * SCENE 1: The Headline Myth (0.0 — 7.2s)
+ * Draw background AI Image with smooth Ken-Burns camera zoom
  */
-function drawScene1(t) {
-  const p = clamp(t / 7.2, 0, 1);
-  const intro = easeOutCubic(clamp(t / 1.4, 0, 1));
-  
-  // Ambient radial glow behind gold bar
-  const grad = ctx.createRadialGradient(540, 780, 50, 540, 780, 500);
-  grad.addColorStop(0, 'rgba(251, 191, 36, 0.28)');
-  grad.addColorStop(0.7, 'rgba(217, 119, 6, 0.06)');
-  grad.addColorStop(1, 'rgba(0,0,0,0)');
+function drawBgImage(img, tProgress, zoomStart = 1.0, zoomEnd = 1.08, panY = 0) {
+  if (!img.complete) {
+    ctx.fillStyle = '#07090e';
+    ctx.fillRect(0, 0, 1080, 1920);
+    return;
+  }
+  ctx.save();
+  const currentZoom = zoomStart + (zoomEnd - zoomStart) * tProgress;
+  ctx.translate(540, 960 + panY * tProgress);
+  ctx.scale(currentZoom, currentZoom);
+  ctx.drawImage(img, -540, -960, 1080, 1920);
+  ctx.restore();
+
+  // Dark vignette gradient for typography legibility
+  const grad = ctx.createLinearGradient(0, 0, 0, 1920);
+  grad.addColorStop(0, 'rgba(7, 9, 14, 0.75)');
+  grad.addColorStop(0.35, 'rgba(7, 9, 14, 0.35)');
+  grad.addColorStop(0.7, 'rgba(7, 9, 14, 0.65)');
+  grad.addColorStop(1, 'rgba(7, 9, 14, 0.95)');
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 1080, 1920);
+}
 
-  // Top Kicker & Eyebrow
+/**
+ * SCENE 1: The 24K Bullion Vault & Headline Myth (0.0 — 6.8s)
+ */
+function drawScene1(t) {
+  const p = clamp(t / 6.8, 0, 1);
+  drawBgImage(img1, p, 1.0, 1.07, 30);
+
+  // Kicker
   ctx.save();
   ctx.fillStyle = '#fbbf24';
   ctx.font = '800 32px "JetBrains Mono"';
   ctx.textAlign = 'center';
-  ctx.fillText('BENAQAAB INDIA • REALITY CHECK', 540, 240);
+  ctx.shadowColor = 'rgba(0,0,0,0.8)';
+  ctx.shadowBlur = 10;
+  ctx.fillText('BENAQAAB INDIA • REALITY CHECK', 540, 260);
 
-  // Headline
+  // Big Headline
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 78px "Outfit"';
-  ctx.fillText('SONA ₹1.5 LAKH PAR?', 540, 340);
+  ctx.font = '900 76px "Outfit"';
+  ctx.fillText('SONA ₹1.5 LAKH PAR?', 540, 360);
   ctx.restore();
 
-  // Draw 3D Stylized Gold Bullion Bar
+  // Headline Spot Card
   ctx.save();
-  ctx.translate(540, 760);
-  const scale = 0.85 + 0.15 * intro;
-  ctx.scale(scale, scale);
-
-  // Bar drop shadow
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
-  ctx.beginPath();
-  ctx.roundRect(-240, 140, 480, 60, 30);
-  ctx.fill();
-
-  // Bar Body
-  const barGrad = ctx.createLinearGradient(-260, -100, 260, 120);
-  barGrad.addColorStop(0, '#fef08a');
-  barGrad.addColorStop(0.3, '#fbbf24');
-  barGrad.addColorStop(0.6, '#d97706');
-  barGrad.addColorStop(1, '#78350f');
-  ctx.fillStyle = barGrad;
-  ctx.beginPath();
-  ctx.roundRect(-250, -110, 500, 220, 20);
-  ctx.fill();
-
-  // Gold Specular Edge
-  ctx.strokeStyle = '#ffffff';
-  ctx.lineWidth = 3;
-  ctx.stroke();
-
-  // Engraving on Gold Bar
-  ctx.fillStyle = '#78350f';
-  ctx.font = '900 48px "Outfit"';
-  ctx.textAlign = 'center';
-  ctx.fillText('999.9 FINE GOLD', 0, -30);
-  ctx.font = '800 34px "JetBrains Mono"';
-  ctx.fillText('10 GRAMS • 24K', 0, 25);
-  ctx.font = '700 24px "Inter"';
-  ctx.fillText('IBJA BENCHMARK RATE', 0, 75);
-  ctx.restore();
-
-  // Headline Price Tag Box
-  ctx.save();
-  ctx.translate(540, 1160);
-  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-  ctx.strokeStyle = 'rgba(251, 191, 36, 0.4)';
-  ctx.lineWidth = 2;
+  ctx.translate(540, 1260);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.45)';
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
   ctx.roundRect(-300, -80, 600, 160, 24);
   ctx.fill();
   ctx.stroke();
 
   ctx.fillStyle = '#94a3b8';
-  ctx.font = '700 28px "Inter"';
+  ctx.font = '700 26px "Inter"';
   ctx.textAlign = 'center';
-  ctx.fillText('HEADLINE SPOT RATE', 0, -25);
+  ctx.fillText('OFFICIAL SPOT RATE (24K / 10g)', 0, -25);
 
   ctx.fillStyle = '#fbbf24';
   ctx.font = '900 68px "JetBrains Mono"';
   ctx.fillText('₹1,50,280', 0, 45);
   ctx.restore();
 
-  // Red Warning Stamp slapping down at t > 3.0s
-  if (t > 3.0) {
-    const stampProg = easeOutCubic(clamp((t - 3.0) / 0.4, 0, 1));
+  // Warning Stamp Slaps Down at t > 2.8s
+  if (t > 2.8) {
+    const stampProg = easeOutCubic(clamp((t - 2.8) / 0.4, 0, 1));
     ctx.save();
-    ctx.translate(540, 1380);
-    ctx.rotate(-0.08);
+    ctx.translate(540, 1460);
+    ctx.rotate(-0.06);
     const stampScale = 1.3 - 0.3 * stampProg;
     ctx.scale(stampScale, stampScale);
     ctx.globalAlpha = stampProg;
 
-    ctx.fillStyle = 'rgba(244, 63, 94, 0.95)';
+    ctx.fillStyle = '#f43f5e';
+    ctx.shadowColor = '#f43f5e';
+    ctx.shadowBlur = 20;
     ctx.beginPath();
-    ctx.roundRect(-280, -45, 560, 90, 14);
+    ctx.roundRect(-270, -45, 540, 90, 14);
     ctx.fill();
 
+    ctx.shadowBlur = 0;
     ctx.fillStyle = '#ffffff';
-    ctx.font = '900 40px "Outfit"';
+    ctx.font = '900 38px "Outfit"';
     ctx.textAlign = 'center';
-    ctx.fillText('⚠️ NOT YOUR REAL BILL!', 0, 15);
+    ctx.fillText('⚠️ NOT YOUR REAL BILL!', 0, 14);
     ctx.restore();
   }
 
-  // Spoken Subtitle pill
-  drawSubtitle("Khabar hai ki sona ₹1.5 lakh par pahunch gaya! Par showroom ka asli bill dekhiye.");
+  drawSubtitle("Khabar hai ki sona ₹1.5 lakh par pahunch gaya! Par showroom mein aap ₹1.5L nahi denge.");
 }
 
 /**
- * SCENE 2: The Bill Stack (GST + Making Charges) (7.2 — 19.0s)
+ * SCENE 2: The Showroom Bill & GST/Making Charges (6.8 — 17.8s)
  */
 function drawScene2(t) {
-  const p = clamp((t - 7.2) / 11.8, 0, 1);
+  const p = clamp((t - 6.8) / 11.0, 0, 1);
+  drawBgImage(img2, p, 1.0, 1.06, -20);
 
+  ctx.save();
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 64px "Outfit"';
+  ctx.font = '900 68px "Outfit"';
   ctx.textAlign = 'center';
-  ctx.fillText('THE SHOWROOM BILL STACK', 540, 280);
+  ctx.fillText('SHOWROOM BILL STACK', 540, 280);
 
   ctx.fillStyle = '#94a3b8';
-  ctx.font = '600 28px "Inter"';
-  ctx.fillText('Kaise badhta hai daam?', 540, 340);
+  ctx.font = '700 28px "Inter"';
+  ctx.fillText('Kaise badhta hai daam?', 540, 345);
+  ctx.restore();
 
   // Layer 1: Base Gold
-  drawGlassCard(540, 520, '1. BASE 24K SPOT RATE', '₹1,50,280', '#fbbf24', 1.0);
+  drawGlassCard(540, 500, '1. BASE 24K GOLD', '₹1,50,280', '#fbbf24', 1.0);
 
-  // Layer 2: +3% GST (slams at t > 9.5s)
-  const gstProg = easeOutCubic(clamp((t - 9.5) / 0.6, 0, 1));
-  if (t > 9.5) {
-    drawGlassCard(540, 720, '2. GOODS & SERVICES TAX (+3%)', '+ ₹4,508', '#38bdf8', gstProg);
+  // Layer 2: +3% GST (t > 8.8s)
+  const gstProg = easeOutCubic(clamp((t - 8.8) / 0.5, 0, 1));
+  if (t > 8.8) {
+    drawGlassCard(540, 690, '2. GST (+3% CBIC TAX)', '+ ₹4,508', '#38bdf8', gstProg);
   }
 
-  // Layer 3: +15% Making Charges (slams at t > 13.5s)
-  const mcProg = easeOutCubic(clamp((t - 13.5) / 0.6, 0, 1));
-  if (t > 13.5) {
-    drawGlassCard(540, 920, '3. MAKING CHARGES (AVG 15%)', '+ ₹22,542', '#f43f5e', mcProg);
+  // Layer 3: +15% Making Charges (t > 12.0s)
+  const mcProg = easeOutCubic(clamp((t - 12.0) / 0.5, 0, 1));
+  if (t > 12.0) {
+    drawGlassCard(540, 880, '3. MAKING CHARGES (15%)', '+ ₹22,542', '#f43f5e', mcProg);
   }
 
-  // Running Subtotal Counter
-  const countProg = clamp((t - 14.0) / 4.0, 0, 1);
-  const currentTotal = Math.round(150280 + (t > 9.5 ? 4508 : 0) + (t > 13.5 ? 22542 * countProg : 0));
+  // Running Ticker Box
+  const countProg = clamp((t - 12.5) / 3.5, 0, 1);
+  const currentTotal = Math.round(150280 + (t > 8.8 ? 4508 : 0) + (t > 12.0 ? 22542 * countProg : 0));
 
   ctx.save();
   ctx.translate(540, 1260);
-  ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.18)';
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.roundRect(-360, -80, 720, 160, 24);
+  ctx.roundRect(-360, -75, 720, 150, 24);
   ctx.fill();
   ctx.stroke();
 
   ctx.fillStyle = '#94a3b8';
   ctx.font = '700 24px "Inter"';
   ctx.textAlign = 'center';
-  ctx.fillText('RUNNING TOTAL (BEFORE WASTAGE)', 0, -25);
+  ctx.fillText('RUNNING CHARGES TOTAL', 0, -22);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 68px "JetBrains Mono"';
-  ctx.fillText('₹' + currentTotal.toLocaleString('en-IN'), 0, 45);
+  ctx.font = '900 64px "JetBrains Mono"';
+  ctx.fillText('₹' + currentTotal.toLocaleString('en-IN'), 0, 42);
   ctx.restore();
 
-  drawSubtitle("Pehle 3% GST (₹4,500), phir Making Charges 12% se 18% — yani seedhe ₹22,000 extra!");
+  drawSubtitle("Pehle 3% GST (₹4,500), phir 12% se 18% Making Charges — seedhe ₹22,000 extra!");
 }
 
 /**
- * SCENE 3: Wastage & Real Total (19.0 — 32.0s)
+ * SCENE 3: Goldsmith Melting & Real Total (17.8 — 30.2s)
  */
 function drawScene3(t) {
-  const p = clamp((t - 19.0) / 13.0, 0, 1);
+  const p = clamp((t - 17.8) / 12.4, 0, 1);
+  drawBgImage(img3, p, 1.0, 1.08, 25);
 
+  ctx.save();
   ctx.fillStyle = '#f43f5e';
   ctx.font = '800 32px "JetBrains Mono"';
   ctx.textAlign = 'center';
-  ctx.fillText('THE HIDDEN PREMIUM', 540, 240);
+  ctx.fillText('THE HIDDEN MARKUPS', 540, 230);
 
   ctx.fillStyle = '#ffffff';
   ctx.font = '900 70px "Outfit"';
-  ctx.fillText('ASLI FINAL BILL', 540, 330);
+  ctx.fillText('ASLI FINAL BILL', 540, 320);
+  ctx.restore();
 
   // Full Breakdown Table Card
   ctx.save();
-  ctx.translate(540, 760);
-  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-  ctx.strokeStyle = 'rgba(244, 63, 94, 0.35)';
+  ctx.translate(540, 740);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+  ctx.strokeStyle = 'rgba(244, 63, 94, 0.4)';
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.roundRect(-420, -320, 840, 640, 28);
+  ctx.roundRect(-420, -310, 840, 620, 26);
   ctx.fill();
   ctx.stroke();
 
   const rows = [
-    { label: "Base 10g Gold", val: "₹1,50,280", col: "#94a3b8" },
-    { label: "+ 3% GST", val: "₹4,508", col: "#38bdf8" },
+    { label: "Base 10g Gold (24K)", val: "₹1,50,280", col: "#94a3b8" },
+    { label: "+ 3% GST Tax", val: "₹4,508", col: "#38bdf8" },
     { label: "+ 15% Making Charge", val: "₹22,542", col: "#fbbf24" },
     { label: "+ 3% Wastage / Melting", val: "₹4,508", col: "#fb7185" },
     { label: "+ BIS HUID Hallmarking", val: "₹53", col: "#cbd5e1" },
   ];
 
   rows.forEach((r, idx) => {
-    const y = -220 + idx * 80;
+    const y = -210 + idx * 78;
     ctx.fillStyle = r.col;
-    ctx.font = '600 28px "Inter"';
+    ctx.font = '600 27px "Inter"';
     ctx.textAlign = 'left';
     ctx.fillText(r.label, -360, y);
 
-    ctx.font = '800 30px "JetBrains Mono"';
+    ctx.font = '800 29px "JetBrains Mono"';
     ctx.textAlign = 'right';
     ctx.fillText(r.val, 360, y);
 
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
     ctx.beginPath();
     ctx.moveTo(-360, y + 25);
     ctx.lineTo(360, y + 25);
@@ -566,80 +554,83 @@ function drawScene3(t) {
   });
   ctx.restore();
 
-  // Grand Shocking Total Box with glowing red border
-  const pulse = Math.sin(t * 5) * 6;
+  // Shocking Final Total Box
+  const pulse = Math.sin(t * 6) * 6;
   ctx.save();
-  ctx.translate(540, 1300);
-  ctx.fillStyle = 'rgba(244, 63, 94, 0.15)';
+  ctx.translate(540, 1270);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.2)';
   ctx.strokeStyle = '#f43f5e';
   ctx.lineWidth = 4;
   ctx.shadowColor = '#f43f5e';
   ctx.shadowBlur = 25 + pulse;
   ctx.beginPath();
-  ctx.roundRect(-420, -100, 840, 200, 28);
+  ctx.roundRect(-420, -90, 840, 180, 26);
   ctx.fill();
   ctx.stroke();
 
   ctx.shadowBlur = 0;
   ctx.fillStyle = '#ffb4b4';
-  ctx.font = '800 28px "Inter"';
+  ctx.font = '800 26px "Inter"';
   ctx.textAlign = 'center';
-  ctx.fillText('YOU ACTUALLY PAY AT SHOWROOM:', 0, -35);
+  ctx.fillText('YOU ACTUALLY PAY AT SHOWROOM:', 0, -30);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 82px "JetBrains Mono"';
-  ctx.fillText('₹1,81,891', 0, 50);
+  ctx.font = '900 80px "JetBrains Mono"';
+  ctx.fillText('₹1,81,891', 0, 48);
 
   ctx.fillStyle = '#fbbf24';
-  ctx.font = '800 26px "JetBrains Mono"';
-  ctx.fillText('(+21.0% EXTRA OVER HEADLINE RATE)', 0, 140);
+  ctx.font = '800 24px "JetBrains Mono"';
+  ctx.fillText('(+21.0% EXTRA OVER HEADLINE RATE)', 0, 130);
   ctx.restore();
 
-  drawSubtitle("2 se 5% wastage alag se! Jo sona ₹1.5 lakh ka dikh raha tha, wo ₹1,82,000 se upar padta hai.");
+  drawSubtitle("2% se 5% wastage alag se! 10g sona showroom se nikalte nikalte ₹1,82,000 ka padta hai!");
 }
 
 /**
- * SCENE 4: Traditional Jewelry vs Gold ETF (32.0 — 44.0s)
+ * SCENE 4: Digital Gold ETF vs Physical Jewelry (30.2 — 41.5s)
  */
 function drawScene4(t) {
-  const p = clamp((t - 32.0) / 12.0, 0, 1);
+  const p = clamp((t - 30.2) / 11.3, 0, 1);
+  drawBgImage(img4, p, 1.0, 1.06, -15);
 
+  ctx.save();
   ctx.fillStyle = '#34d399';
   ctx.font = '800 32px "JetBrains Mono"';
   ctx.textAlign = 'center';
-  ctx.fillText('SMART INVESTMENT ALTERNATIVE', 540, 240);
+  ctx.fillText('SMART INVESTMENT ALTERNATIVE', 540, 230);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 64px "Outfit"';
-  ctx.fillText('JEWELRY vs GOLD ETF', 540, 330);
+  ctx.font = '900 68px "Outfit"';
+  ctx.fillText('JEWELRY vs GOLD ETF', 540, 320);
+  ctx.restore();
 
   // Split Card Left: Traditional Physical Jewelry
   ctx.save();
-  ctx.translate(290, 800);
-  ctx.fillStyle = 'rgba(244, 63, 94, 0.08)';
-  ctx.strokeStyle = 'rgba(244, 63, 94, 0.3)';
-  ctx.lineWidth = 2;
+  ctx.translate(290, 810);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.12)';
+  ctx.strokeStyle = 'rgba(244, 63, 94, 0.4)';
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
-  ctx.roundRect(-210, -320, 420, 640, 24);
+  ctx.roundRect(-210, -310, 420, 620, 24);
   ctx.fill();
   ctx.stroke();
 
   ctx.fillStyle = '#f43f5e';
-  ctx.font = '900 36px "Outfit"';
+  ctx.font = '900 34px "Outfit"';
   ctx.textAlign = 'center';
-  ctx.fillText('PHYSICAL', 0, -250);
-  ctx.fillText('JEWELRY', 0, -205);
+  ctx.fillText('PHYSICAL', 0, -240);
+  ctx.fillText('JEWELRY', 0, -198);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 48px "JetBrains Mono"';
-  ctx.fillText('₹1.82 LAKH', 0, -120);
+  ctx.font = '800 46px "JetBrains Mono"';
+  ctx.fillText('₹1.82 LAKH', 0, -115);
 
   ctx.fillStyle = '#94a3b8';
   ctx.font = '600 22px "Inter"';
-  ctx.fillText('• Making: 15% loss', 0, -20);
-  ctx.fillText('• Wastage: 3% loss', 0, 35);
-  ctx.fillText('• Locker Rent cost', 0, 90);
-  ctx.fillText('• Resale deduction', 0, 145);
+  ctx.fillText('• 15% Making Loss', 0, -20);
+  ctx.fillText('• 3% Wastage Loss', 0, 35);
+  ctx.fillText('• Bank Locker Rent', 0, 90);
+  ctx.fillText('• Resale Cut', 0, 145);
 
   ctx.fillStyle = '#f43f5e';
   ctx.font = '800 24px "Inter"';
@@ -648,33 +639,33 @@ function drawScene4(t) {
 
   // Split Card Right: Digital Gold ETF
   ctx.save();
-  ctx.translate(790, 800);
-  ctx.fillStyle = 'rgba(52, 211, 153, 0.08)';
-  ctx.strokeStyle = 'rgba(52, 211, 153, 0.4)';
-  ctx.lineWidth = 2;
+  ctx.translate(790, 810);
+  ctx.fillStyle = 'rgba(52, 211, 153, 0.14)';
+  ctx.strokeStyle = 'rgba(52, 211, 153, 0.5)';
+  ctx.lineWidth = 2.5;
   ctx.shadowColor = '#34d399';
-  ctx.shadowBlur = 15;
+  ctx.shadowBlur = 18;
   ctx.beginPath();
-  ctx.roundRect(-210, -320, 420, 640, 24);
+  ctx.roundRect(-210, -310, 420, 620, 24);
   ctx.fill();
   ctx.stroke();
   ctx.shadowBlur = 0;
 
   ctx.fillStyle = '#34d399';
-  ctx.font = '900 36px "Outfit"';
+  ctx.font = '900 34px "Outfit"';
   ctx.textAlign = 'center';
-  ctx.fillText('GOLD ETF', 0, -250);
-  ctx.fillText('(DIGITAL)', 0, -205);
+  ctx.fillText('GOLD ETF', 0, -240);
+  ctx.fillText('(DIGITAL)', 0, -198);
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '800 48px "JetBrains Mono"';
-  ctx.fillText('₹1.50 LAKH', 0, -120);
+  ctx.font = '800 46px "JetBrains Mono"';
+  ctx.fillText('₹1.50 LAKH', 0, -115);
 
   ctx.fillStyle = '#94a3b8';
   ctx.font = '600 22px "Inter"';
-  ctx.fillText('• Making: ZERO', 0, -20);
-  ctx.fillText('• Wastage: ZERO', 0, 35);
-  ctx.fillText('• Safe in Demat', 0, 90);
+  ctx.fillText('• Zero Making Fee', 0, -20);
+  ctx.fillText('• Zero Wastage', 0, 35);
+  ctx.fillText('• 100% Demat Safe', 0, 90);
   ctx.fillText('• 99.5% Purity', 0, 145);
 
   ctx.fillStyle = '#34d399';
@@ -682,82 +673,71 @@ function drawScene4(t) {
   ctx.fillText('✅ PURE SPOT RATE', 0, 240);
   ctx.restore();
 
-  drawSubtitle("Sirf investment ke liye le rahe hain, toh Gold ETF mein 20% ka extra kharcha zero hota hai!");
+  drawSubtitle("Investment ke liye le rahe hain, toh Gold ETF mein 20% ka extra kharcha zero hota hai!");
 }
 
 /**
- * SCENE 5: The 60-Year Hockey Stick (44.0 — 52.0s)
+ * SCENE 5: The 60-Year Hockey Stick Curve (41.5 — 49.0s)
  */
 function drawScene5(t) {
-  const p = clamp((t - 44.0) / 8.0, 0, 1);
+  const p = clamp((t - 41.5) / 7.5, 0, 1);
+  drawBgImage(img1, p, 1.05, 1.12, 10);
 
+  ctx.save();
   ctx.fillStyle = '#fbbf24';
   ctx.font = '800 32px "JetBrains Mono"';
   ctx.textAlign = 'center';
-  ctx.fillText('HISTORICAL EXPONENTIAL CURVE', 540, 240);
+  ctx.fillText('HISTORICAL RETURN CURVE', 540, 240);
 
   ctx.fillStyle = '#ffffff';
   ctx.font = '900 68px "Outfit"';
   ctx.fillText('1964 SE 2026 KA SAFAR', 540, 330);
+  ctx.restore();
 
-  // Line Chart Box
+  // Coordinate Chart Box
   ctx.save();
   ctx.translate(540, 920);
-  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.roundRect(-440, -420, 880, 840, 28);
   ctx.fill();
   ctx.stroke();
 
-  // Grid lines
-  for (let i = 0; i <= 4; i++) {
-    const y = -300 + i * 150;
-    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-    ctx.beginPath();
-    ctx.moveTo(-380, y);
-    ctx.lineTo(380, y);
-    ctx.stroke();
-  }
-
-  // Data Points
   const pts = [
-    { year: "1964", val: "₹63", x: -340, y: 300 },
-    { year: "2000", val: "₹4,400", x: -160, y: 280 },
-    { year: "2020", val: "₹48.6K", x: 60, y: 150 },
-    { year: "2026", val: "₹1.5 LAKH", x: 300, y: -260 },
+    { year: "1964", val: "₹63", x: -330, y: 300 },
+    { year: "2000", val: "₹4.4K", x: -150, y: 280 },
+    { year: "2020", val: "₹48.6K", x: 70, y: 150 },
+    { year: "2026", val: "₹1.5 LAKH", x: 310, y: -260 },
   ];
 
-  // Draw smooth curve
+  // Draw smooth curve with animated progress
   ctx.strokeStyle = '#fbbf24';
   ctx.lineWidth = 8;
   ctx.shadowColor = '#fbbf24';
-  ctx.shadowBlur = 20;
+  ctx.shadowBlur = 22;
   ctx.beginPath();
   ctx.moveTo(pts[0].x, pts[0].y);
-  
-  const drawCount = Math.floor(pts.length * clamp(p * 1.3, 0, 1));
   for (let i = 1; i < pts.length; i++) {
     ctx.lineTo(pts[i].x, pts[i].y);
   }
   ctx.stroke();
   ctx.shadowBlur = 0;
 
-  // Draw node circles & text
-  pts.forEach((pt, i) => {
+  pts.forEach((pt) => {
     ctx.fillStyle = '#ffffff';
     ctx.beginPath();
     ctx.arc(pt.x, pt.y, 14, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = '#fbbf24';
-    ctx.font = '800 26px "JetBrains Mono"';
+    ctx.font = '800 27px "JetBrains Mono"';
     ctx.textAlign = 'center';
     ctx.fillText(pt.val, pt.x, pt.y - 28);
 
     ctx.fillStyle = '#94a3b8';
-    ctx.font = '700 22px "Inter"';
+    ctx.font = '700 23px "Inter"';
     ctx.fillText(pt.year, pt.x, pt.y + 45);
   });
   ctx.restore();
@@ -766,11 +746,13 @@ function drawScene5(t) {
 }
 
 /**
- * SCENE 6: Closing & Call to Action (52.0 — 57.0s)
+ * SCENE 6: Closing & Call to Action (49.0 — 53.9s)
  */
 function drawScene6(t) {
-  const p = clamp((t - 52.0) / 5.0, 0, 1);
+  const p = clamp((t - 49.0) / 4.9, 0, 1);
+  drawBgImage(img2, p, 1.0, 1.05, 0);
 
+  ctx.save();
   ctx.fillStyle = '#ffffff';
   ctx.font = '900 74px "Outfit"';
   ctx.textAlign = 'center';
@@ -780,15 +762,16 @@ function drawScene6(t) {
   ctx.fillStyle = '#94a3b8';
   ctx.font = '600 32px "Inter"';
   ctx.fillText('Apna city aur rate comment kijiye!', 540, 680);
+  ctx.restore();
 
   // Subscribe Box
   ctx.save();
-  ctx.translate(540, 980);
-  ctx.fillStyle = 'rgba(251, 191, 36, 0.15)';
+  ctx.translate(540, 960);
+  ctx.fillStyle = 'rgba(251, 191, 36, 0.18)';
   ctx.strokeStyle = '#fbbf24';
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 3.5;
   ctx.shadowColor = '#fbbf24';
-  ctx.shadowBlur = 20;
+  ctx.shadowBlur = 24;
   ctx.beginPath();
   ctx.roundRect(-340, -70, 680, 140, 24);
   ctx.fill();
@@ -796,29 +779,50 @@ function drawScene6(t) {
   ctx.shadowBlur = 0;
 
   ctx.fillStyle = '#ffffff';
-  ctx.font = '900 44px "Outfit"';
+  ctx.font = '900 42px "Outfit"';
   ctx.textAlign = 'center';
   ctx.fillText('SUBSCRIBE BENAQAAB INDIA', 0, 15);
   ctx.restore();
 
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = '#cbd5e1';
   ctx.font = '800 28px "JetBrains Mono"';
   ctx.textAlign = 'center';
-  ctx.fillText('SACH • SABOOT • BEBAK', 540, 1260);
+  ctx.fillText('SACH • SABOOT • BEBAK', 540, 1220);
 
   drawSubtitle("Aapke shehar mein aaj sona kis rate par hai? Comment kijiye, aur Benaqaab India subscribe kijiye!");
 }
 
 /**
- * Common Helpers
+ * Subtitle pill renderer
+ */
+function drawSubtitle(text) {
+  ctx.save();
+  ctx.translate(540, 1720);
+  ctx.fillStyle = 'rgba(7, 9, 14, 0.92)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.roundRect(-460, -60, 920, 120, 22);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '600 27px "Inter"';
+  ctx.textAlign = 'center';
+  ctx.fillText(text, 0, 10, 880);
+  ctx.restore();
+}
+
+/**
+ * Glass Card Helper
  */
 function drawGlassCard(x, y, title, value, valCol, alpha) {
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.translate(x, y);
 
-  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.roundRect(-420, -65, 840, 130, 20);
@@ -837,44 +841,23 @@ function drawGlassCard(x, y, title, value, valCol, alpha) {
   ctx.restore();
 }
 
-function drawSubtitle(text) {
-  ctx.save();
-  ctx.translate(540, 1720);
-  ctx.fillStyle = 'rgba(7, 9, 14, 0.88)';
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.roundRect(-460, -60, 920, 120, 20);
-  ctx.fill();
-  ctx.stroke();
-
-  ctx.fillStyle = '#ffffff';
-  ctx.font = '600 28px "Inter"';
-  ctx.textAlign = 'center';
-  ctx.fillText(text, 0, 10, 880);
-  ctx.restore();
-}
-
 /**
  * MASTER RENDER LOOP
  */
 function renderFrame(t) {
-  ctx.fillStyle = '#07090e';
-  ctx.fillRect(0, 0, 1080, 1920);
-
-  if (t < 7.2) {
+  if (t < 6.8) {
     drawScene1(t);
     highlightPill(0);
-  } else if (t < 19.0) {
+  } else if (t < 17.8) {
     drawScene2(t);
     highlightPill(1);
-  } else if (t < 32.0) {
+  } else if (t < 30.2) {
     drawScene3(t);
     highlightPill(2);
-  } else if (t < 44.0) {
+  } else if (t < 41.5) {
     drawScene4(t);
     highlightPill(3);
-  } else if (t < 52.0) {
+  } else if (t < 49.0) {
     drawScene5(t);
     highlightPill(4);
   } else {
@@ -886,7 +869,7 @@ function renderFrame(t) {
   scrubber.value = t;
   const mm = String(Math.floor(t / 60)).padStart(2, '0');
   const ss = String(Math.floor(t % 60)).padStart(2, '0');
-  timecode.innerText = `${mm}:${ss} / 00:57`;
+  timecode.innerText = `${mm}:${ss} / 00:54`;
 }
 
 function highlightPill(idx) {
@@ -902,11 +885,12 @@ function loop(timestamp) {
   lastRafTime = timestamp;
 
   if (isPlaying) {
-    currentTime += delta;
-    if (currentTime >= TOTAL_DURATION) {
+    currentTime = voiceAudio.currentTime;
+    if (currentTime >= TOTAL_DURATION || voiceAudio.ended) {
       currentTime = TOTAL_DURATION;
       isPlaying = false;
-      btnPlayPause.innerText = '▶ Play';
+      btnPlayPause.innerText = '▶ Play Video';
+      audioPulseDot.classList.remove('playing');
     }
     renderFrame(currentTime);
   }
@@ -917,36 +901,48 @@ function loop(timestamp) {
 // Scrubber events
 scrubber.addEventListener('input', (e) => {
   currentTime = parseFloat(e.target.value);
+  voiceAudio.currentTime = currentTime;
   renderFrame(currentTime);
 });
 
 function seekTo(sec) {
   currentTime = sec;
+  voiceAudio.currentTime = currentTime;
   renderFrame(currentTime);
 }
 
 btnPlayPause.addEventListener('click', () => {
-  initAudio();
   if (isPlaying) {
     isPlaying = false;
-    btnPlayPause.innerText = '▶ Play';
+    voiceAudio.pause();
+    btnPlayPause.innerText = '▶ Play Video';
+    audioPulseDot.classList.remove('playing');
   } else {
-    if (currentTime >= TOTAL_DURATION) currentTime = 0;
-    isPlaying = true;
-    btnPlayPause.innerText = '⏸ Pause';
-    playTick(800, 0.08);
+    if (currentTime >= TOTAL_DURATION) {
+      currentTime = 0;
+      voiceAudio.currentTime = 0;
+    }
+    voiceAudio.play().then(() => {
+      isPlaying = true;
+      btnPlayPause.innerText = '⏸ Pause';
+      audioPulseDot.classList.add('playing');
+    }).catch(err => {
+      console.log('Audio autoplay policy:', err);
+    });
   }
 });
 
 btnRestart.addEventListener('click', () => {
-  initAudio();
   currentTime = 0;
-  isPlaying = true;
-  btnPlayPause.innerText = '⏸ Pause';
-  playTick(600, 0.1);
+  voiceAudio.currentTime = 0;
+  voiceAudio.play().then(() => {
+    isPlaying = true;
+    btnPlayPause.innerText = '⏸ Pause';
+    audioPulseDot.classList.add('playing');
+  });
 });
 
-// Initial frame draw
+// Initial draw
 renderFrame(0);
 requestAnimationFrame(loop);
 </script>
