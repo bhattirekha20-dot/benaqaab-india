@@ -61,6 +61,7 @@
 | **SH-04** | Lightning: Physics of the Bolt | Science Short | **45s** | `MEMORY.md` §121 | Stepped leader, return stroke & ionization mechanism |
 | **SH-05** | Deeper Than Everest | Science Short | **52s** | `MEMORY.md` §123, §124 | Challenger Deep (10,994m) depth scale vs Mt Everest |
 | **SH-06** | UPI: How India Moves ₹314 Lakh Cr | Infra Short | **55s** | `projects/upi_explained_short/` • `MEMORY.md` §130 | 4-party model, 3,729 TPS & zero-MDR banking switch |
+| **SH-07** | Voter List Mein Naam Missing? (SIR) | Civic Short | **101s** (1m 41s) | `projects/voter_list_sir/` • `MEMORY.md` §149 | 2026 Special Intensive Revision, Form 6 controversy, SC hearing |
 
 ---
 

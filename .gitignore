@@ -17,6 +17,7 @@ projects/**/*.mp4
 *.m4a
 projects/**/vo/
 vo/
+projects/voter_list_sir/comp.html
 
 # ─── Private user uploads & phone screenshots ─
 uploads/

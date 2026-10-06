@@ -5270,3 +5270,31 @@ amber + cyan), new scene kit, new SFX kit, new thumbnails; only the shared engin
 **Post-stills fixes (both verified before the render):** the S1 plane's climb was retimed
 (`clamp(t/11.0)`) with the fuel droplets moved to 8.2 s so they fall once it is on screen; the S7
 ambient plane moved to y 1516 / scale 0.36 to clear the recall chips and the caption plate.
+
+---
+
+## § 149 — SIR VOTER LIST CONTROVERSY (HANDOVER PACKAGE INTEGRATED) — 2026-10-06
+
+**Trigger:** Unified single-file handover package `BENAQAAB_HANDOVER_PACKAGE.md` received from another AI session and integrated into `projects/voter_list_sir/`.
+
+**Topic:** "Voter List Mein Naam Missing? SIR Controversy Explained" (India's 2026 Special Intensive Revision, 13+ crore reported draft-roll entries, Form 6 declaration dispute, Supreme Court 5 Oct clarification, and internal ECI objections).
+
+**Delivered Assets in Workspace:**
+- `projects/voter_list_sir/comp.html`: Complete self-contained 1080x1920 preview with inlined assets (26.9 MB, local only).
+- `projects/voter_list_sir/SCRIPT_AND_SOURCES.md`: 101.38s Hinglish script with full ECI/Supreme Court/Indian Express citations.
+- `projects/voter_list_sir/captions.srt`: Full time-coded English subtitle track.
+- `projects/voter_list_sir/render.py`: PIL + imageio-ffmpeg python frame-by-frame renderer.
+- `projects/voter_list_sir/METADATA.md`: 5 titles, SEO description, hashtags, and pinned comment.
+- `projects/voter_list_sir/HANDOVER_NOTES.md`: Forensic bug log, root-cause research, and 10x improvement roadmap.
+
+**User Directives Logged (Behavioral Memory):**
+1. *"ok now first make the html vidoe then approve by me for the final ok"* -> Reaffirms standing non-negotiable: HTML preview gate is mandatory before rendering MP4.
+2. *"do render it good and please give me title desription and capion and more with # includeed in text ok"* -> Reaffirms requirement for full metadata pack with hashtags.
+3. *"stop the render ok i will do my slef ok"* -> User preference for fast previews and control over heavy render pipelines.
+
+**Forensic Lessons & Permanent Fixes (Learned from Agent):**
+1. `imageio_ffmpeg` missing in background worker -> Pre-flight environment check required in `setup.sh`.
+2. First VO overrun (2:35 vs 2:00 cap) -> Pre-synthesis word-budgeting mandatory (must be <270 words for 100s).
+3. PIL canvas allocations (8 fps render) -> Move to headless Chromium/GPU canvas export or cached PIL buffers.
+4. Partial MP4 after process cancellation -> Always render to `.mp4.part` and rename atomically only upon exit code 0.
+5. Inlined Data URLs create 26MB+ HTML files -> Exclude huge base64 HTML from public Git to maintain repository speed (<20MB).
