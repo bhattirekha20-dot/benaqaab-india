@@ -5298,3 +5298,23 @@ ambient plane moved to y 1516 / scale 0.36 to clear the recall chips and the cap
 3. PIL canvas allocations (8 fps render) -> Move to headless Chromium/GPU canvas export or cached PIL buffers.
 4. Partial MP4 after process cancellation -> Always render to `.mp4.part` and rename atomically only upon exit code 0.
 5. Inlined Data URLs create 26MB+ HTML files -> Exclude huge base64 HTML from public Git to maintain repository speed (<20MB).
+
+---
+
+## § 150 — SHORT SH-08: GOLD AT ₹1.5 LAKH (THE REAL SHOWROOM BILL) BUILT — 2026-10-06
+
+**Trigger:** User selected Topic 4 ("Gold at ₹1.5 Lakh: The Real Showroom Bill (Making charges, GST & ETF contrast)") from the 4-candidate shortlist.
+
+**Topic:** Personal finance & consumer awareness explainer on headline spot rate vs physical showroom reality (24K ₹1,50,280/10g spot ➔ +3% GST ➔ +15% making charges ➔ +3% wastage ➔ ₹1,81,891 showroom total vs Gold ETF ₹1.50L pure cost).
+
+**Delivered Assets in `projects/gold_150k/`:**
+- `comp.html`: Interactive, deterministic HTML5 Canvas 9:16 vertical video player (1080x1920) with embedded Web Audio synthesizer (sub-bass drone, tick cues), interactive scrubber, scene pills, and live ticking price counter.
+- `SCRIPT.md`: 148-word Hinglish script with scene timings, audio notes, and 56.5s audio budget.
+- `SOURCES.md`: Verified factual ledger with citations from IBJA, Groww, BIS (HUID schedule), CBIC GST Council, and WGC.
+- `TIMELINE.json`: 6-scene animation timeline with camera easing parameters and transitions.
+- `METADATA.md`: 5 high-CTR YouTube titles, complete SEO description, tags, pinned comment, and thumbnail concept.
+
+**Pipeline Compliance:**
+- 1-Gate HTML approval workflow respected: HTML preview generated and presented for user review before MP4 export.
+- Pure function of time `renderFrame(t)`: Deterministic 60fps canvas loop.
+- Zero dead frames: Physical gold bar shimmer, glass card slam animations, counter increments, and split-screen comparison.

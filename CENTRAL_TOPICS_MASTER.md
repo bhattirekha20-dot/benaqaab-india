@@ -62,6 +62,7 @@
 | **SH-05** | Deeper Than Everest | Science Short | **52s** | `MEMORY.md` §123, §124 | Challenger Deep (10,994m) depth scale vs Mt Everest |
 | **SH-06** | UPI: How India Moves ₹314 Lakh Cr | Infra Short | **55s** | `projects/upi_explained_short/` • `MEMORY.md` §130 | 4-party model, 3,729 TPS & zero-MDR banking switch |
 | **SH-07** | Voter List Mein Naam Missing? (SIR) | Civic Short | **101s** (1m 41s) | `projects/voter_list_sir/` • `MEMORY.md` §149 | 2026 Special Intensive Revision, Form 6 controversy, SC hearing |
+| **SH-08** | Sona ₹1.5 Lakh: Asli Showroom Bill | Finance Short | **57s** | `projects/gold_150k/` • `MEMORY.md` §150 | 24K spot vs 22K jewelry, +3% GST, 15% making charges, ETF contrast |
 
 ---
 

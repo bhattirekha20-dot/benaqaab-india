@@ -1,0 +1,77 @@
+{
+  "project": "gold_at_150k_real_bill",
+  "format": "9:16",
+  "resolution": [1080, 1920],
+  "fps": 30,
+  "duration_sec": 57.0,
+  "lead_padding_sec": 0.3,
+  "tail_padding_sec": 1.2,
+  "scenes": [
+    {
+      "id": 1,
+      "title": "The Headline Myth",
+      "start": 0.0,
+      "end": 7.2,
+      "camera": { "action": "crash_zoom", "scale": [1.15, 1.0], "ease": "cubic-bezier(0.16, 1, 0.3, 1)" },
+      "transition": { "type": "wipe_down", "duration": 0.4 },
+      "narration_cue": "Khabar hai ki sona ₹1.5 lakh par pahunch gaya! Par agar aap showroom jayenge, toh aap ₹1,50,000 nahi denge. Asli bill dekhiye.",
+      "on_screen_hero": "GOLD AT ₹1.5 LAKH?",
+      "sub_text": "NOT YOUR REAL BILL"
+    },
+    {
+      "id": 2,
+      "title": "GST & Making Charges",
+      "start": 7.2,
+      "end": 19.0,
+      "camera": { "action": "dolly_in", "scale": [1.0, 1.08], "ease": "ease-out" },
+      "transition": { "type": "slide_left", "duration": 0.45 },
+      "narration_cue": "Pehle lagta hai 3% GST — yani ₹4,500. Phir aate hain Making Charges — jo design ke naam par 12% se 18% tak jode jaate hain, yani seedhe ₹22,000 se zyada!",
+      "on_screen_hero": "+3% GST & +15% MAKING",
+      "sub_text": "₹4,500 + ₹22,500 MARKUP"
+    },
+    {
+      "id": 3,
+      "title": "Wastage & Real Total",
+      "start": 19.0,
+      "end": 32.0,
+      "camera": { "action": "shake_pulse", "intensity": 0.04, "ease": "spring" },
+      "transition": { "type": "flash_white", "duration": 0.35 },
+      "narration_cue": "Aur kai jagah 2 se 5% wastage alag se! 10 gram 24K gold jo ₹1.5 lakh ka dikh raha tha, showroom se nikalte nikalte ₹1,82,000 se ₹1,89,000 ka padta hai!",
+      "on_screen_hero": "REAL BILL: ₹1,82,000+",
+      "sub_text": "+21% EXTRA OVER SPOT PRICE"
+    },
+    {
+      "id": 4,
+      "title": "The ETF Alternative",
+      "start": 32.0,
+      "end": 44.0,
+      "camera": { "action": "split_pan", "ease": "cubic-bezier(0.16, 1, 0.3, 1)" },
+      "transition": { "type": "smooth_dissolve", "duration": 0.5 },
+      "narration_cue": "Agar aap pehne ke liye nahi, sirf investment ke liye le rahe hain, toh Gold ETF ya Digital Gold mein ye 20% ka extra kharcha zero hota hai — bina kisi making charge ke.",
+      "on_screen_hero": "JEWELRY vs GOLD ETF",
+      "sub_text": "SAVE ₹30,000 ON INVESTMENT"
+    },
+    {
+      "id": 5,
+      "title": "The 60-Year Curve",
+      "start": 44.0,
+      "end": 52.0,
+      "camera": { "action": "tilt_up", "ease": "ease-out" },
+      "transition": { "type": "wipe_right", "duration": 0.4 },
+      "narration_cue": "1964 mein sona sirf ₹63 tha 10 gram. Aaj ₹1.5 lakh par hai — 2,300 guna ki chhalang!",
+      "on_screen_hero": "1964: ₹63 ➔ 2026: ₹1.5 LAKH",
+      "sub_text": "2,370x HISTORICAL RETURN"
+    },
+    {
+      "id": 6,
+      "title": "Closing Question & CTA",
+      "start": 52.0,
+      "end": 57.0,
+      "camera": { "action": "steady_glow", "ease": "ease-in-out" },
+      "transition": { "type": "fade_out", "duration": 0.6 },
+      "narration_cue": "Aapke shehar mein aaj sona kis rate par bik raha hai? Comment kijiye, aur sach ke liye Benaqaab India subscribe kijiye!",
+      "on_screen_hero": "APNA SHEHAR COMMENT KIJIYE",
+      "sub_text": "SUBSCRIBE • BENAQAAB INDIA"
+    }
+  ]
+}

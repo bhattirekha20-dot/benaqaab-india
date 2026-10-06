@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Benaqaab India — Sona ₹1.5 Lakh Par Asli Bill (Interactive HTML Video)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-deep: #07090e;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --gold-glow: #fbbf24;
+  --gold-deep: #d97706;
+  --emerald: #34d399;
+  --rose: #f43f5e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: #040508;
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+/* Outer layout wrapper */
+.app-container {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Top Branding Bar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-glow);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.live-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fb7185;
+  font-weight: 700;
+}
+
+/* 9:16 Video Stage */
+.stage-container {
+  position: relative;
+  width: min(440px, 94vw);
+  aspect-ratio: 9/16;
+  background: var(--bg-deep);
+  border-radius: 28px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(251, 191, 36, 0.12);
+  overflow: hidden;
+}
+
+canvas#videoCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Organic Noise Texture Overlay */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Interactive Player Control Deck */
+.player-deck {
+  width: min(440px, 94vw);
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 14px 18px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scrubber {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  cursor: pointer;
+}
+.scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold-glow);
+  box-shadow: 0 0 10px var(--gold-glow);
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+.time-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 82px;
+  text-align: right;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #0b0d15;
+  border: none;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.scene-pills {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+.scene-pills::-webkit-scrollbar { display: none; }
+
+.pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pill.active {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: var(--gold-glow);
+  color: var(--gold-glow);
+}
+
+/* Audio Status Pill */
+.audio-status {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.audio-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 8px var(--emerald);
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Header Bar -->
+  <div class="top-bar">
+    <div class="brand-badge">
+      <div class="brand-dot"></div>
+      <span>BENAQAAB INDIA • 9:16 HTML ENGINE</span>
+    </div>
+    <div class="live-tag">RESEARCH AS OF OCT 2026</div>
+  </div>
+
+  <!-- Stage Box -->
+  <div class="stage-container" id="stageWrapper">
+    <canvas id="videoCanvas" width="1080" height="1920"></canvas>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Interactive Controls Deck -->
+  <div class="player-deck">
+    <div class="timeline-row">
+      <input type="range" class="scrubber" id="timelineScrubber" min="0" max="57" step="0.05" value="0">
+      <div class="time-display" id="timecodeDisplay">00:00 / 00:57</div>
+    </div>
+
+    <div class="controls-row">
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btnPlayPause">▶ Play</button>
+        <button class="btn" id="btnRestart">↺ Replay</button>
+      </div>
+      
+      <div class="audio-status">
+        <div class="audio-pulse"></div>
+        <span id="audioLabel">WebAudio Synth Active</span>
+      </div>
+    </div>
+
+    <!-- Scene Quick Jump Pills -->
+    <div class="scene-pills">
+      <div class="pill active" onclick="seekTo(0)">S1: Myth</div>
+      <div class="pill" onclick="seekTo(7.2)">S2: GST+Making</div>
+      <div class="pill" onclick="seekTo(19.0)">S3: Real Total</div>
+      <div class="pill" onclick="seekTo(32.0)">S4: ETF Split</div>
+      <div class="pill" onclick="seekTo(44.0)">S5: 60-Yr Curve</div>
+      <div class="pill" onclick="seekTo(52.0)">S6: CTA</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/**
+ * BENAQAAB INDIA — 100% DETERMINISTIC HTML5 VIDEO RENDERER
+ * Frame(t) is a pure mathematical function of time.
+ */
+
+const canvas = document.getElementById('videoCanvas');
+const ctx = canvas.getContext('2d');
+const scrubber = document.getElementById('timelineScrubber');
+const timecode = document.getElementById('timecodeDisplay');
+const btnPlayPause = document.getElementById('btnPlayPause');
+const btnRestart = document.getElementById('btnRestart');
+const pills = document.querySelectorAll('.scene-pills .pill');
+
+const TOTAL_DURATION = 57.0;
+let currentTime = 0.0;
+let isPlaying = false;
+let lastRafTime = 0;
+
+// Audio Context (Synthesizer for ticks, sub-bass, and whooshes)
+let audioCtx = null;
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+function playTick(freq = 1200, dur = 0.04) {
+  if (!audioCtx || audioCtx.state !== 'running') return;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start();
+  osc.stop(audioCtx.currentTime + dur);
+}
+
+// Cubic Easing helper
+function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+function easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+/**
+ * SCENE 1: The Headline Myth (0.0 — 7.2s)
+ */
+function drawScene1(t) {
+  const p = clamp(t / 7.2, 0, 1);
+  const intro = easeOutCubic(clamp(t / 1.4, 0, 1));
+  
+  // Ambient radial glow behind gold bar
+  const grad = ctx.createRadialGradient(540, 780, 50, 540, 780, 500);
+  grad.addColorStop(0, 'rgba(251, 191, 36, 0.28)');
+  grad.addColorStop(0.7, 'rgba(217, 119, 6, 0.06)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  // Top Kicker & Eyebrow
+  ctx.save();
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '800 32px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('BENAQAAB INDIA • REALITY CHECK', 540, 240);
+
+  // Headline
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 78px "Outfit"';
+  ctx.fillText('SONA ₹1.5 LAKH PAR?', 540, 340);
+  ctx.restore();
+
+  // Draw 3D Stylized Gold Bullion Bar
+  ctx.save();
+  ctx.translate(540, 760);
+  const scale = 0.85 + 0.15 * intro;
+  ctx.scale(scale, scale);
+
+  // Bar drop shadow
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+  ctx.beginPath();
+  ctx.roundRect(-240, 140, 480, 60, 30);
+  ctx.fill();
+
+  // Bar Body
+  const barGrad = ctx.createLinearGradient(-260, -100, 260, 120);
+  barGrad.addColorStop(0, '#fef08a');
+  barGrad.addColorStop(0.3, '#fbbf24');
+  barGrad.addColorStop(0.6, '#d97706');
+  barGrad.addColorStop(1, '#78350f');
+  ctx.fillStyle = barGrad;
+  ctx.beginPath();
+  ctx.roundRect(-250, -110, 500, 220, 20);
+  ctx.fill();
+
+  // Gold Specular Edge
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Engraving on Gold Bar
+  ctx.fillStyle = '#78350f';
+  ctx.font = '900 48px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('999.9 FINE GOLD', 0, -30);
+  ctx.font = '800 34px "JetBrains Mono"';
+  ctx.fillText('10 GRAMS • 24K', 0, 25);
+  ctx.font = '700 24px "Inter"';
+  ctx.fillText('IBJA BENCHMARK RATE', 0, 75);
+  ctx.restore();
+
+  // Headline Price Tag Box
+  ctx.save();
+  ctx.translate(540, 1160);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.4)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-300, -80, 600, 160, 24);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '700 28px "Inter"';
+  ctx.textAlign = 'center';
+  ctx.fillText('HEADLINE SPOT RATE', 0, -25);
+
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '900 68px "JetBrains Mono"';
+  ctx.fillText('₹1,50,280', 0, 45);
+  ctx.restore();
+
+  // Red Warning Stamp slapping down at t > 3.0s
+  if (t > 3.0) {
+    const stampProg = easeOutCubic(clamp((t - 3.0) / 0.4, 0, 1));
+    ctx.save();
+    ctx.translate(540, 1380);
+    ctx.rotate(-0.08);
+    const stampScale = 1.3 - 0.3 * stampProg;
+    ctx.scale(stampScale, stampScale);
+    ctx.globalAlpha = stampProg;
+
+    ctx.fillStyle = 'rgba(244, 63, 94, 0.95)';
+    ctx.beginPath();
+    ctx.roundRect(-280, -45, 560, 90, 14);
+    ctx.fill();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '900 40px "Outfit"';
+    ctx.textAlign = 'center';
+    ctx.fillText('⚠️ NOT YOUR REAL BILL!', 0, 15);
+    ctx.restore();
+  }
+
+  // Spoken Subtitle pill
+  drawSubtitle("Khabar hai ki sona ₹1.5 lakh par pahunch gaya! Par showroom ka asli bill dekhiye.");
+}
+
+/**
+ * SCENE 2: The Bill Stack (GST + Making Charges) (7.2 — 19.0s)
+ */
+function drawScene2(t) {
+  const p = clamp((t - 7.2) / 11.8, 0, 1);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 64px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('THE SHOWROOM BILL STACK', 540, 280);
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 28px "Inter"';
+  ctx.fillText('Kaise badhta hai daam?', 540, 340);
+
+  // Layer 1: Base Gold
+  drawGlassCard(540, 520, '1. BASE 24K SPOT RATE', '₹1,50,280', '#fbbf24', 1.0);
+
+  // Layer 2: +3% GST (slams at t > 9.5s)
+  const gstProg = easeOutCubic(clamp((t - 9.5) / 0.6, 0, 1));
+  if (t > 9.5) {
+    drawGlassCard(540, 720, '2. GOODS & SERVICES TAX (+3%)', '+ ₹4,508', '#38bdf8', gstProg);
+  }
+
+  // Layer 3: +15% Making Charges (slams at t > 13.5s)
+  const mcProg = easeOutCubic(clamp((t - 13.5) / 0.6, 0, 1));
+  if (t > 13.5) {
+    drawGlassCard(540, 920, '3. MAKING CHARGES (AVG 15%)', '+ ₹22,542', '#f43f5e', mcProg);
+  }
+
+  // Running Subtotal Counter
+  const countProg = clamp((t - 14.0) / 4.0, 0, 1);
+  const currentTotal = Math.round(150280 + (t > 9.5 ? 4508 : 0) + (t > 13.5 ? 22542 * countProg : 0));
+
+  ctx.save();
+  ctx.translate(540, 1260);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-360, -80, 720, 160, 24);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '700 24px "Inter"';
+  ctx.textAlign = 'center';
+  ctx.fillText('RUNNING TOTAL (BEFORE WASTAGE)', 0, -25);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 68px "JetBrains Mono"';
+  ctx.fillText('₹' + currentTotal.toLocaleString('en-IN'), 0, 45);
+  ctx.restore();
+
+  drawSubtitle("Pehle 3% GST (₹4,500), phir Making Charges 12% se 18% — yani seedhe ₹22,000 extra!");
+}
+
+/**
+ * SCENE 3: Wastage & Real Total (19.0 — 32.0s)
+ */
+function drawScene3(t) {
+  const p = clamp((t - 19.0) / 13.0, 0, 1);
+
+  ctx.fillStyle = '#f43f5e';
+  ctx.font = '800 32px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('THE HIDDEN PREMIUM', 540, 240);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 70px "Outfit"';
+  ctx.fillText('ASLI FINAL BILL', 540, 330);
+
+  // Full Breakdown Table Card
+  ctx.save();
+  ctx.translate(540, 760);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  ctx.strokeStyle = 'rgba(244, 63, 94, 0.35)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-420, -320, 840, 640, 28);
+  ctx.fill();
+  ctx.stroke();
+
+  const rows = [
+    { label: "Base 10g Gold", val: "₹1,50,280", col: "#94a3b8" },
+    { label: "+ 3% GST", val: "₹4,508", col: "#38bdf8" },
+    { label: "+ 15% Making Charge", val: "₹22,542", col: "#fbbf24" },
+    { label: "+ 3% Wastage / Melting", val: "₹4,508", col: "#fb7185" },
+    { label: "+ BIS HUID Hallmarking", val: "₹53", col: "#cbd5e1" },
+  ];
+
+  rows.forEach((r, idx) => {
+    const y = -220 + idx * 80;
+    ctx.fillStyle = r.col;
+    ctx.font = '600 28px "Inter"';
+    ctx.textAlign = 'left';
+    ctx.fillText(r.label, -360, y);
+
+    ctx.font = '800 30px "JetBrains Mono"';
+    ctx.textAlign = 'right';
+    ctx.fillText(r.val, 360, y);
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath();
+    ctx.moveTo(-360, y + 25);
+    ctx.lineTo(360, y + 25);
+    ctx.stroke();
+  });
+  ctx.restore();
+
+  // Grand Shocking Total Box with glowing red border
+  const pulse = Math.sin(t * 5) * 6;
+  ctx.save();
+  ctx.translate(540, 1300);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.15)';
+  ctx.strokeStyle = '#f43f5e';
+  ctx.lineWidth = 4;
+  ctx.shadowColor = '#f43f5e';
+  ctx.shadowBlur = 25 + pulse;
+  ctx.beginPath();
+  ctx.roundRect(-420, -100, 840, 200, 28);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = '#ffb4b4';
+  ctx.font = '800 28px "Inter"';
+  ctx.textAlign = 'center';
+  ctx.fillText('YOU ACTUALLY PAY AT SHOWROOM:', 0, -35);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 82px "JetBrains Mono"';
+  ctx.fillText('₹1,81,891', 0, 50);
+
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '800 26px "JetBrains Mono"';
+  ctx.fillText('(+21.0% EXTRA OVER HEADLINE RATE)', 0, 140);
+  ctx.restore();
+
+  drawSubtitle("2 se 5% wastage alag se! Jo sona ₹1.5 lakh ka dikh raha tha, wo ₹1,82,000 se upar padta hai.");
+}
+
+/**
+ * SCENE 4: Traditional Jewelry vs Gold ETF (32.0 — 44.0s)
+ */
+function drawScene4(t) {
+  const p = clamp((t - 32.0) / 12.0, 0, 1);
+
+  ctx.fillStyle = '#34d399';
+  ctx.font = '800 32px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('SMART INVESTMENT ALTERNATIVE', 540, 240);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 64px "Outfit"';
+  ctx.fillText('JEWELRY vs GOLD ETF', 540, 330);
+
+  // Split Card Left: Traditional Physical Jewelry
+  ctx.save();
+  ctx.translate(290, 800);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.08)';
+  ctx.strokeStyle = 'rgba(244, 63, 94, 0.3)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-210, -320, 420, 640, 24);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#f43f5e';
+  ctx.font = '900 36px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('PHYSICAL', 0, -250);
+  ctx.fillText('JEWELRY', 0, -205);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 48px "JetBrains Mono"';
+  ctx.fillText('₹1.82 LAKH', 0, -120);
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 22px "Inter"';
+  ctx.fillText('• Making: 15% loss', 0, -20);
+  ctx.fillText('• Wastage: 3% loss', 0, 35);
+  ctx.fillText('• Locker Rent cost', 0, 90);
+  ctx.fillText('• Resale deduction', 0, 145);
+
+  ctx.fillStyle = '#f43f5e';
+  ctx.font = '800 24px "Inter"';
+  ctx.fillText('❌ ₹31,000 EXTRA', 0, 240);
+  ctx.restore();
+
+  // Split Card Right: Digital Gold ETF
+  ctx.save();
+  ctx.translate(790, 800);
+  ctx.fillStyle = 'rgba(52, 211, 153, 0.08)';
+  ctx.strokeStyle = 'rgba(52, 211, 153, 0.4)';
+  ctx.lineWidth = 2;
+  ctx.shadowColor = '#34d399';
+  ctx.shadowBlur = 15;
+  ctx.beginPath();
+  ctx.roundRect(-210, -320, 420, 640, 24);
+  ctx.fill();
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  ctx.fillStyle = '#34d399';
+  ctx.font = '900 36px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('GOLD ETF', 0, -250);
+  ctx.fillText('(DIGITAL)', 0, -205);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 48px "JetBrains Mono"';
+  ctx.fillText('₹1.50 LAKH', 0, -120);
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 22px "Inter"';
+  ctx.fillText('• Making: ZERO', 0, -20);
+  ctx.fillText('• Wastage: ZERO', 0, 35);
+  ctx.fillText('• Safe in Demat', 0, 90);
+  ctx.fillText('• 99.5% Purity', 0, 145);
+
+  ctx.fillStyle = '#34d399';
+  ctx.font = '800 24px "Inter"';
+  ctx.fillText('✅ PURE SPOT RATE', 0, 240);
+  ctx.restore();
+
+  drawSubtitle("Sirf investment ke liye le rahe hain, toh Gold ETF mein 20% ka extra kharcha zero hota hai!");
+}
+
+/**
+ * SCENE 5: The 60-Year Hockey Stick (44.0 — 52.0s)
+ */
+function drawScene5(t) {
+  const p = clamp((t - 44.0) / 8.0, 0, 1);
+
+  ctx.fillStyle = '#fbbf24';
+  ctx.font = '800 32px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('HISTORICAL EXPONENTIAL CURVE', 540, 240);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 68px "Outfit"';
+  ctx.fillText('1964 SE 2026 KA SAFAR', 540, 330);
+
+  // Line Chart Box
+  ctx.save();
+  ctx.translate(540, 920);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-440, -420, 880, 840, 28);
+  ctx.fill();
+  ctx.stroke();
+
+  // Grid lines
+  for (let i = 0; i <= 4; i++) {
+    const y = -300 + i * 150;
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath();
+    ctx.moveTo(-380, y);
+    ctx.lineTo(380, y);
+    ctx.stroke();
+  }
+
+  // Data Points
+  const pts = [
+    { year: "1964", val: "₹63", x: -340, y: 300 },
+    { year: "2000", val: "₹4,400", x: -160, y: 280 },
+    { year: "2020", val: "₹48.6K", x: 60, y: 150 },
+    { year: "2026", val: "₹1.5 LAKH", x: 300, y: -260 },
+  ];
+
+  // Draw smooth curve
+  ctx.strokeStyle = '#fbbf24';
+  ctx.lineWidth = 8;
+  ctx.shadowColor = '#fbbf24';
+  ctx.shadowBlur = 20;
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, pts[0].y);
+  
+  const drawCount = Math.floor(pts.length * clamp(p * 1.3, 0, 1));
+  for (let i = 1; i < pts.length; i++) {
+    ctx.lineTo(pts[i].x, pts[i].y);
+  }
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Draw node circles & text
+  pts.forEach((pt, i) => {
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, 14, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '800 26px "JetBrains Mono"';
+    ctx.textAlign = 'center';
+    ctx.fillText(pt.val, pt.x, pt.y - 28);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '700 22px "Inter"';
+    ctx.fillText(pt.year, pt.x, pt.y + 45);
+  });
+  ctx.restore();
+
+  drawSubtitle("1964 mein sona sirf ₹63 tha 10 gram. Aaj ₹1.5 lakh par — 2,300 guna ki chhalang!");
+}
+
+/**
+ * SCENE 6: Closing & Call to Action (52.0 — 57.0s)
+ */
+function drawScene6(t) {
+  const p = clamp((t - 52.0) / 5.0, 0, 1);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 74px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('AAPKE SHEHAR MEIN', 540, 480);
+  ctx.fillText('KYA RATE HAI?', 540, 570);
+
+  ctx.fillStyle = '#94a3b8';
+  ctx.font = '600 32px "Inter"';
+  ctx.fillText('Apna city aur rate comment kijiye!', 540, 680);
+
+  // Subscribe Box
+  ctx.save();
+  ctx.translate(540, 980);
+  ctx.fillStyle = 'rgba(251, 191, 36, 0.15)';
+  ctx.strokeStyle = '#fbbf24';
+  ctx.lineWidth = 3;
+  ctx.shadowColor = '#fbbf24';
+  ctx.shadowBlur = 20;
+  ctx.beginPath();
+  ctx.roundRect(-340, -70, 680, 140, 24);
+  ctx.fill();
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 44px "Outfit"';
+  ctx.textAlign = 'center';
+  ctx.fillText('SUBSCRIBE BENAQAAB INDIA', 0, 15);
+  ctx.restore();
+
+  ctx.fillStyle = '#64748b';
+  ctx.font = '800 28px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('SACH • SABOOT • BEBAK', 540, 1260);
+
+  drawSubtitle("Aapke shehar mein aaj sona kis rate par hai? Comment kijiye, aur Benaqaab India subscribe kijiye!");
+}
+
+/**
+ * Common Helpers
+ */
+function drawGlassCard(x, y, title, value, valCol, alpha) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.translate(x, y);
+
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.roundRect(-420, -65, 840, 130, 20);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = '700 26px "Inter"';
+  ctx.textAlign = 'left';
+  ctx.fillText(title, -370, 10);
+
+  ctx.fillStyle = valCol;
+  ctx.font = '800 40px "JetBrains Mono"';
+  ctx.textAlign = 'right';
+  ctx.fillText(value, 370, 12);
+  ctx.restore();
+}
+
+function drawSubtitle(text) {
+  ctx.save();
+  ctx.translate(540, 1720);
+  ctx.fillStyle = 'rgba(7, 9, 14, 0.88)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.roundRect(-460, -60, 920, 120, 20);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '600 28px "Inter"';
+  ctx.textAlign = 'center';
+  ctx.fillText(text, 0, 10, 880);
+  ctx.restore();
+}
+
+/**
+ * MASTER RENDER LOOP
+ */
+function renderFrame(t) {
+  ctx.fillStyle = '#07090e';
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  if (t < 7.2) {
+    drawScene1(t);
+    highlightPill(0);
+  } else if (t < 19.0) {
+    drawScene2(t);
+    highlightPill(1);
+  } else if (t < 32.0) {
+    drawScene3(t);
+    highlightPill(2);
+  } else if (t < 44.0) {
+    drawScene4(t);
+    highlightPill(3);
+  } else if (t < 52.0) {
+    drawScene5(t);
+    highlightPill(4);
+  } else {
+    drawScene6(t);
+    highlightPill(5);
+  }
+
+  // Update Scrubber and timecode
+  scrubber.value = t;
+  const mm = String(Math.floor(t / 60)).padStart(2, '0');
+  const ss = String(Math.floor(t % 60)).padStart(2, '0');
+  timecode.innerText = `${mm}:${ss} / 00:57`;
+}
+
+function highlightPill(idx) {
+  pills.forEach((p, i) => {
+    if (i === idx) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+}
+
+function loop(timestamp) {
+  if (!lastRafTime) lastRafTime = timestamp;
+  const delta = (timestamp - lastRafTime) / 1000;
+  lastRafTime = timestamp;
+
+  if (isPlaying) {
+    currentTime += delta;
+    if (currentTime >= TOTAL_DURATION) {
+      currentTime = TOTAL_DURATION;
+      isPlaying = false;
+      btnPlayPause.innerText = '▶ Play';
+    }
+    renderFrame(currentTime);
+  }
+
+  requestAnimationFrame(loop);
+}
+
+// Scrubber events
+scrubber.addEventListener('input', (e) => {
+  currentTime = parseFloat(e.target.value);
+  renderFrame(currentTime);
+});
+
+function seekTo(sec) {
+  currentTime = sec;
+  renderFrame(currentTime);
+}
+
+btnPlayPause.addEventListener('click', () => {
+  initAudio();
+  if (isPlaying) {
+    isPlaying = false;
+    btnPlayPause.innerText = '▶ Play';
+  } else {
+    if (currentTime >= TOTAL_DURATION) currentTime = 0;
+    isPlaying = true;
+    btnPlayPause.innerText = '⏸ Pause';
+    playTick(800, 0.08);
+  }
+});
+
+btnRestart.addEventListener('click', () => {
+  initAudio();
+  currentTime = 0;
+  isPlaying = true;
+  btnPlayPause.innerText = '⏸ Pause';
+  playTick(600, 0.1);
+});
+
+// Initial frame draw
+renderFrame(0);
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

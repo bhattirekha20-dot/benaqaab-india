@@ -131,6 +131,7 @@ viz/                             ← Rendering engine & visual tools
 └── recipes/                     ← Episode composition recipes (ep7–ep11)
 
 projects/                        ← Production projects (source files)
+├── gold_150k/                   ← Sona ₹1.5 Lakh Asli Bill (57s Short, comp.html + script + sources)
 ├── voter_list_sir/              ← SIR voter list controversy (101s Short, preview + script + audit)
 ├── flight_surcharge/            ← Flight surcharge Short (full pipeline)
 ├── ep12_navic/                  ← EP12 NavIC explainer
