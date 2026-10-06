@@ -36,6 +36,42 @@ body {
   overflow-x: hidden;
 }
 
+/* Headless Render Mode (1080x1920 Fullscreen Canvas) */
+body.render-mode {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  width: 1080px !important;
+  height: 1920px !important;
+}
+body.render-mode .app-container {
+  max-width: none !important;
+  width: 1080px !important;
+  height: 1920px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+}
+body.render-mode .top-bar,
+body.render-mode .player-deck {
+  display: none !important;
+}
+body.render-mode .stage-container {
+  width: 1080px !important;
+  height: 1920px !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.render-mode canvas#videoCanvas {
+  width: 1080px !important;
+  height: 1920px !important;
+}
+
+
 /* Outer layout wrapper */
 .app-container {
   width: 100%;
@@ -940,6 +976,42 @@ btnRestart.addEventListener('click', () => {
     btnPlayPause.innerText = '⏸ Pause';
     audioPulseDot.classList.add('playing');
   });
+});
+
+// Headless Renderer Contracts & Determinism
+window.DURATION = TOTAL_DURATION;
+window.FPS = 30;
+window.WIDTH = 1080;
+window.HEIGHT = 1920;
+window.seek = function(t) {
+  renderFrame(Number(t));
+};
+
+if (window.location.search.includes('render=1')) {
+  document.body.classList.add('render-mode');
+}
+
+let loadedImgCount = 0;
+function checkAllReady() {
+  loadedImgCount++;
+  if (loadedImgCount >= 4) {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        window.ready = true;
+        renderFrame(0);
+      });
+    } else {
+      window.ready = true;
+      renderFrame(0);
+    }
+  }
+}
+[img1, img2, img3, img4].forEach(im => {
+  if (im.complete && im.naturalWidth > 0) checkAllReady();
+  else {
+    im.onload = checkAllReady;
+    im.onerror = checkAllReady;
+  }
 });
 
 // Initial draw

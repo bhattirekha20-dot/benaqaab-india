@@ -5318,3 +5318,39 @@ ambient plane moved to y 1516 / scale 0.36 to clear the recall chips and the cap
 - 1-Gate HTML approval workflow respected: HTML preview generated and presented for user review before MP4 export.
 - Pure function of time `renderFrame(t)`: Deterministic 60fps canvas loop.
 - Zero dead frames: Physical gold bar shimmer, glass card slam animations, counter increments, and split-screen comparison.
+
+---
+
+## § 151 — SHORT SH-08 RENDERED & FULL PACK DELIVERED (VIDEOS + THUMBNAILS + METADATA) — 2026-10-06
+
+**Trigger:** User approved preview: *"ok render the video and make description tile and thumbnilok"* + *"when evr you make the thumbnila ok i will use this image and add final toucehs to it and make it thumbnila ok add rtts on it ok and i want that by seeing the thumbnial the curiocity must be created on the viewer mind ok"*. User also attached handover zip `workspace-01a1121e-b862-7b42-a5e2-9416fd257416.zip`.
+
+**Render Specifications & Verification:**
+- Output Path 1: `projects/gold_150k/Gold_150k_Short.mp4` (17.95 MB)
+- Output Path 2: `VIDEOS/09_Sona_150k_Bill_SHORT_54s.mp4` (17.95 MB)
+- Resolution: 1080×1920 (9:16 Vertical Shorts standard)
+- Frame Rate: 30.0 fps (1617 total frames)
+- Duration: 53.90s (Shorts compliant, < 60s)
+- Video Codec: H.264 High Profile (CRF 19, yuv420p)
+- Audio Codec: AAC (192 kbps, 96 kHz mono from Edge Neural `hi-IN-MadhurNeural`)
+- Loudness Measured: `-15.1 LUFS` Integrated, `LRA: 3.0 LU` (Perfect compliance with YouTube mobile audio guidelines).
+
+**Thumbnail Architecture Delivered:**
+1. **Clean Base Plates (for User Custom Editing in Photoshop/Canva):**
+   - Vertical (1080×1920): `projects/gold_150k/thumbnail_clean_base_1080x1920.jpg`
+   - Landscape (1280×720): `projects/gold_150k/thumbnail_clean_base_1280x720.jpg`
+2. **Curiosity-First Finished Thumbnails (Ready for Direct Upload):**
+   - Vertical (1080×1920): `projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg`
+     - Hero Typography: `SONA ₹1.5 LAKH?` in massive Anton font with dark glowing drop shadow.
+     - Crimson Warning Badge: `ASLI BILL = ₹1.82 LAKH!` with specular border.
+     - Curiosity Callout: `₹31,000 EXTRA KAHAN GAYA?` in high-contrast amber pill.
+     - Disclosure: `AI ILLUSTRATIVE · BENAQAAB INDIA` pill in bottom corner.
+   - Landscape (1280×720): `projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg`
+     - Split composition: 24K gold bullion + jewelry left, showroom tax invoice with red stamp right.
+     - Headline: `SONA ₹1.5 LAKH?` | Badge: `ASLI BILL = ₹1.82 LAKH!` | Strip: `MAKING CHARGES EXPOSED: +₹31,000`.
+
+**User Handoff Directives Integrated (from `workspace-01a1121e...zip`):**
+- Channel identity: **Benaqaab India** (`SACH · SABOOT · BEBAK`), user in Jammu, J&K.
+- Language: Conversational Hinglish; full-screen visuals; zero permanent bottom reels/HUDs.
+- Thumbnail rules: Must convey full core idea with large readable text, no clipping, high curiosity gap, clean plates provided for user polish.
+

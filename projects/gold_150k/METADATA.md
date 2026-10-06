@@ -30,6 +30,14 @@ Is Short mein Benaqaab India explain karta hai gold khareedte waqt lagne wale hi
 
 Agar aap sirf investment ke liye le rahe hain, toh Digital Gold ya Gold ETF mein ye ₹30,000+ ka making charge kharcha ZERO hota hai.
 
+⏱️ TIMESTAMPS:
+0:00 Sona ₹1.5 Lakh Par Asli Showroom Bill
+0:07 Base Bullion Rate vs 3% GST
+0:18 Making Charges aur Wastage Ka Sach
+0:30 ₹1,82,000 Ka Reality Shock
+0:41 Physical Sona vs Gold ETF
+0:49 Sach • Saboot • Bebak (Subscribe)
+
 Aapke shehar mein aaj sona kis rate par bik raha hai? Comment karke batayein!
 
 Source Citations:
@@ -41,6 +49,7 @@ Source Citations:
 Video useful lage toh Like karein, Share karein aur Sach • Saboot • Bebak ke liye Benaqaab India ko SUBSCRIBE karein!
 
 #BenaqaabIndia #GoldRate #GoldPrice #Sona #GoldInvestment #Jewellery #MakingCharges #GoldETF #FinanceHindi #IndiaEconomy #DiwaliShopping
+
 
 ---
 
