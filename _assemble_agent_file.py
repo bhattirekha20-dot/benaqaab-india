@@ -7,7 +7,7 @@ Output: BENAQAAB_AI_AGENT_MASTER_SKILL.md (v3.0, complete edition)
 """
 import hashlib, pathlib
 
-ROOT = pathlib.Path('/home/user')
+ROOT = pathlib.Path(__file__).parent.resolve()
 # NEVER read the merged output as the core: that recursed once and doubled the file.
 CORE = ROOT / '_core_operational.md'          # pristine Part I, extracted from the compact file
 
@@ -51,7 +51,7 @@ def sha(p: pathlib.Path) -> str:
 def lines(p: pathlib.Path) -> int:
     return p.read_text(encoding='utf-8', errors='replace').count('\n') + 1
 
-core = CORE.read_text()
+core = CORE.read_text(encoding='utf-8', errors='replace')
 rows, banners = [], []
 for letter, title, rel, why in APPENDICES:
     src = ROOT / rel
@@ -129,15 +129,15 @@ The appendices follow in the order of the index. Each is byte-for-byte the sourc
 
 out = ROOT / 'BENAQAAB_AI_AGENT_MASTER_SKILL.md'   # the merged deliverable
 tmp = ROOT / '_merged.md'
-tmp.write_text(header)
-final = tmp.read_text()
-print(f'assembled: {final.count(chr(10))+1:,} lines · {len(final.encode())/1024/1024:.2f} MB')
+tmp.write_text(header, encoding='utf-8')
+final = tmp.read_text(encoding='utf-8', errors='replace')
+print(f'assembled: {final.count(chr(10))+1:,} lines · {len(final.encode("utf-8"))/1024/1024:.2f} MB')
 
 # integrity: every appendix banner + a marker from each source must be present
 ok = True
 for letter, title, rel, why in APPENDICES:
     src = ROOT / rel
-    marker = next((ln.strip() for ln in src.read_text(errors='replace').splitlines() if len(ln.strip()) > 30), '')
+    marker = next((ln.strip() for ln in src.read_text(encoding='utf-8', errors='replace').splitlines() if len(ln.strip()) > 30), '')
     if f'APPENDIX {letter} —' not in final:
         print(f'FAIL banner missing: {letter}'); ok = False
     elif marker and marker[:60] not in final:

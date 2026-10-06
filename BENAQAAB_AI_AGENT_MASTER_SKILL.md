@@ -32,12 +32,12 @@ handbook, the full production history and the prompt archive, all verbatim.
 
 | Appendix | Title | Source | Lines | SHA-256 (16) |
 |---|---|---|---|---|
-| A | Shorts curiosity & retention engine | `SKILLS_SHORTS_CURIOSITY.md` | 199 | `fdd71c2c25a566be` |
+| A | Shorts curiosity & retention engine | `SKILLS_SHORTS_CURIOSITY.md` | 198 | `a2983a3d7698cf44` |
 | B | Peak-detail production skill | `SKILLS_PEAK_DETAIL.md` | 396 | `8ce0968a505087c6` |
 | C | After Effects mastery & motion craft | `SKILLS_AFTER_EFFECTS.md` | 403 | `8151e69bc56a6115` |
 | D | CapCut + Alight Motion skill | `SKILLS_CAPCUT_ALIGHT_MOTION.md` | 166 | `47f8c1dd535f2ea3` |
 | E | Long-form YouTube skill | `SKILLS_LONGFORM.md` | 91 | `7dc1f97e1cc7eb1b` |
-| F | Thumbnail & motion-graphics mastery | `SKILLS_THUMBNAIL_AND_MOTION_MASTERY.md` | 92 | `ecb75ba73b354d53` |
+| F | Thumbnail & motion-graphics mastery | `SKILLS_THUMBNAIL_AND_MOTION_MASTERY.md` | 92 | `6125259203c8fc95` |
 | G | Skills research (repos -> rules) | `SKILLS_RESEARCH.md` | 149 | `ed1369a3deda830b` |
 | H | How the reference motion videos are made | `MOTION_RESEARCH_Opus55.md` | 322 | `8f0df0bcbf71c21a` |
 | I | CapCut/Alight research learnings | `knowledge/capcut_alight_research/LEARNINGS.md` | 242 | `f2781e167d755341` |
@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,098 | `9e4133fd6e4a38ce` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,398 | `fa004f6cf1560013` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -74,16 +74,16 @@ this workspace works — same rules, same pipeline, same quality gates, same tra
 > then whatever the task needs (§6–§13) → §14 QA before delivery → §16 when something breaks.
 
 ### THE TEN NON-NEGOTIABLES
-1. **Finish the work.** Topic in → finished film out. Decide everything yourself; the only pause is the voice pick.
+1. **The 1-Gate Approval Pipeline.** Topic in → preview out (`comp.html`) → user gate → final MP4. Work autonomously through research, script, audio, and visual assets to build the interactive HTML preview. STOP at the gate. Never render final MP4 until the user explicitly approves or says *"render the video"*.
 2. **Frame = pure function of t.** Deterministic, seeded, re-renderable one second at a time.
 3. **No dead frames.** Every frame has motion at three scales; `motion_report` freezes = none.
-4. **Never slideshow.** Animate the real mechanism, not text over a zooming photo.
+4. **Real Source Media & AI Images — Never Diagrams Alone.** Animate real mechanisms; anchor every beat in authentic source media (PIB, press, official data cards, document scans) paired with photorealistic AI illustrations. No sterile diagrams or bare slideshows.
 5. **Facts or nothing.** Every number sourced + dated; disagreements shown, not averaged; labels on claims.
-6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file.
+6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file (-14 LUFS).
 7. **Text must fit.** Hindi is wider than Latin — measure, shrink, wrap; nothing overflows, nothing collides.
 8. **Cuts are a craft.** Official transition names/durations, captions above the composite, no snap-back.
 9. **Verification before claims.** Encoded-file frames inspected; gates run; real numbers reported; unknowns said plainly.
-10. **Protect the record.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`.
+10. **Protect the record & Unpack Deliverables.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`. All deliverables (thumbnails, titles, descriptions, SRT) must be presented unpacked and immediately visible—never buried exclusively in ZIPs.
 
 ### CONTENTS
 | § | Section |
@@ -147,9 +147,8 @@ government / infrastructure, India engineering, sourced history, and scams & cyb
 
 ## 2. THE USER'S LAWS (standing directives — verbatim where quoted, with current status)
 
-**L1 · Autonomy.** *"from now I only give you topic and you, using everything, make best videos."*
-Supersedes older approval gates. Do not hand over a first draft, do not ask "should I continue".
-The one exception is the voice audition.
+**L1 · Autonomy & The 1-Gate Approval Protocol.** *"from now I only give you topic and you, using everything, make best videos."*
+The agent executes autonomously through research, script, voiceover generation, visual asset creation, and building the interactive HTML preview (`comp.html`). However, the **1-Gate Approval Protocol** is mandatory: the agent must STOP at the preview gate and never render a final MP4 until the user explicitly approves or gives the command: *"render the video"*. (Older automatic rendering without preview gate is superseded).
 
 **L2 · Topic research first, then build.** When asked to find topics, research properly, save a
 shortlist file with verified numbers + sources + hook lines + risk notes, and let the user pick.
@@ -199,8 +198,9 @@ track. Mix targets in §12.
 
 **L11 · Visual style contract (Shorts).** Full-screen visuals that breathe; a compact glass card
 top zone (`rgba(10,14,20,0.78)`, thin accent bar) with a 3–4 word title and 2–4 tiny stat cells;
-a small bottom-left caption pill with a thin accent underline; a tiny top-right logo. **No
-dashboard clutter** — no fake timecode, no frame counter, no REC dot, no viewfinder brackets, no
+a small bottom-left caption pill with a thin accent underline; official Benaqaab OS logo in the
+**top-left safe area** (`x: 55px, y: 30–40px`, gold-glow border; older top-right guidance is `[SUPERSEDED]`).
+**No dashboard clutter** — no fake timecode, no frame counter, no REC dot, no viewfinder brackets, no
 `SOURCE //` watermarks, no stacked box walls: it reads as an unfinished render and costs
 retention. Never put the speaker continuously on screen — if a presenter is ever used, 1–2 s
 maximum in full screen, then back to full-screen visuals.
@@ -213,7 +213,7 @@ with dates** and say so in the narration. Never average them into a fake number.
 **L14 · Category variety.** Shortlists must mix categories; don't propose scams only.
 
 **L15 · Edits on request.** *"make me a anime edit ok"* → build **original** anime-style art and
-**original** music (nothing ripped, no existing characters/IP, no copyrighted songs), then apply
+original music (nothing ripped, no existing characters/IP, no copyrighted songs), then apply
 real edit grammar (beat cuts, impact frames, speed-ramp echoes). If the user supplies their own
 licensed clips, cut *those* on the same beat map.
 
@@ -224,6 +224,23 @@ master, and any of its QA/scratch caches; then begin with **fresh topic research
 last topic's material unless the user explicitly asks for a sequel or a new version. If the user
 names a topic, use that topic, but the wipe still happens first. Record the wipe in `MEMORY.md`
 (what was deleted, and which backup can restore it).
+
+**L17 · Three Dedicated Color Grading Profiles.**
+- **Profile A (Daily News & Global Roundups):** Neutral documentary grade. Natural color temperature, realistic skin tones, clean whites, balanced saturation, crisp contrast, zero orange/sepia tint (used in `projects/india_last_24h/`).
+- **Profile B (Benaqaab Forensic Dossier):** High-contrast B&W / desaturated stills with bold horizontal Red censor/classification band (`#ef4444` / `#dc2626`).
+- **Profile C (Historical / Archival Public Footage):** Warm sepia/orange base with dark-green horizontal band (`#22764e`) and 3% grain (`apply_public_video_grade.py`).
+
+**L18 · Media Sourcing & Multi-Story Rigor.**
+- Real source media & AI images — never diagrams alone.
+- In multi-topic roundups, independently find and curate suitable media for *every story* in the lineup, not just the headliner (Rahul Gandhi).
+
+**L19 · Autonomous Permission Handling.**
+- Do not re-prompt for permission once confirmed by the user. User confirmation is permanent for that workflow.
+- If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
+
+**L20 · Mandatory Unpacked Deliverables Standard.**
+- All deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg` / `thumbnail_1080x1920.png`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder.
+- In completion reports, the AI must explicitly display the thumbnail and quote the title and description directly. Never bury deliverables solely inside ZIP archives.
 
 ---
 
@@ -437,7 +454,7 @@ frame open). Letterboxing and empty decoration are banned; every pixel earns its
 - Top zone: ONE translucent glass card `rgba(10,14,20,0.78)` with a thin accent bar, a bold 3–4
   word title, and 2–4 compact stat cells (2–3 words each — no sentences).
 - Bottom-left: a small caption pill, 2–3 words visible at a time, thin accent underline.
-- Top-right: tiny logo (≈56×56 px, from `brand/logo.png`).
+- Top-left: official Benaqaab OS logo with gold glow border (`x: 55px, y: 30–40px`, from `source_images/benaqaab_os_logo.png` or `brand/logo.png`; older top-right placement is `[SUPERSEDED]`).
 - Safe zones: keep text inside x ≥ 70 px, and clear of the bottom ~300 px where platform UI sits.
   Caption band in the films we shipped: y ≈ 1592, height 148.
 - **Banned:** timecode, frame counters, REC dots, scene strips, viewfinder brackets, watermarks,
@@ -779,14 +796,16 @@ question; if the answer is weak, fix it before the next pass.
 `AUDIO_NOTES.md` · `README.md` · `QC_*.jpg`. Present the MP4 with `present_file` and state specs
 + decisions + what was not verified.
 
-**15.2 Upload pack (every delivery).**
-- **Titles:** 3 options, <60 characters, curiosity + clarity, no bait-and-switch, no quotes.
+**15.2 Upload pack (every delivery — MANDATORY UNPACKED STANDARD).**
+- **Unpacked Delivery Rule:** All deliverable files MUST exist as standalone, unpacked files at the project root / `delivery/` directory. In the final report to the user, the AI MUST explicitly display the thumbnail (via markdown image embed) and paste the title, description, and hashtags directly into the chat response. Never bury deliverables solely inside a ZIP archive.
+- **Titles:** 3 options, <60 characters, curiosity + clarity, no bait-and-switch, no quotes (`title.txt`).
 - **Description:** 2 punchy lines + 1 debate question. **No brackets of any kind** — `( ) [ ] < > { }`
   are banned in `description.txt` and pinned comments. Check length with `wc -c` (≤5,000).
-- **Hashtags:** 5–15, mix of `#shorts` + niche.
+- **Hashtags:** 5–15, mix of `#shorts` + niche (`hashtags_and_tags.txt`).
 - **Pinned comment:** the open question that drives comments (no brackets).
 - **Chapters** (long-form): first 0:00, ≥3, each ≥10 s, descriptive.
-- **Thumbnails:** 1280×720 + 1080×1920, 3–4 words, one big graphic, logo badge.
+- **Thumbnails:** 1280×720 (`thumbnail_1280x720.jpg`) + 1080×1920 (`cover_vertical_1080x1920.jpg`), 3–4 words, one big graphic, official Benaqaab logo badge.
+- **Captions:** Clean timestamped SRT file (`headline_captions.srt`).
 
 **15.3 Reporting style.** Concise Hinglish; lead with what is delivered and where; give measured
 numbers (duration, frames, size, LUFS, peak) — never "looks great"; list decisions; list what was
@@ -997,7 +1016,7 @@ The appendices follow in the order of the index. Each is byte-for-byte the sourc
 <!-- ===================== APPENDIX A — VERBATIM ===================== -->
 ## APPENDIX A — Shorts curiosity & retention engine
 
-**Source file:** `SKILLS_SHORTS_CURIOSITY.md` · **lines:** 199 · **SHA-256 (first 16):** `fdd71c2c25a566be` · **why it exists:** the 1-second law, curiosity tools, retention gates, the 7-part package, HUD rules
+**Source file:** `SKILLS_SHORTS_CURIOSITY.md` · **lines:** 198 · **SHA-256 (first 16):** `a2983a3d7698cf44` · **why it exists:** the 1-second law, curiosity tools, retention gates, the 7-part package, HUD rules
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -1190,9 +1209,8 @@ In addition to the 7 skill repositories in §1–§6, we cloned and inspected th
    - ❌ Never stack multiple boxes on screen (no top status bar, no `[01]..[05]` slot strip, no bottom-left `BENAKAB INDIA` card, no `VERIFIED DISPATCH // SOURCE` strip, no `SOURCE //` watermarks on full-screen visuals, no giant full-width caption box).
 2. **Gold-Standard Layout (`brand/reference_minimal_fullscreen.png`):**
    - **Full-Screen `1080×1920` Visuals / Video:** Every B-roll clip, photo plate, and motion graphic fills the entire `1080×1920` frame edge-to-edge (`max view`), leaving **65–75% of the screen open** so the visual and motion graphics breathe.
-   - **Minimal Translucent Glass Card (Top Zone):** One clean dark glass card (`rgba(10, 14, 20, 0.78)`, thin top accent bar) with a bold 3–4 word title (`BUILT FOR THE WORST`) and 2–4 compact stat cells (`266 km/h`, `Zone V (max)` — 2 to 3 words per cell max, zero long sentences).
    - **Compact Bottom-Left Caption Pill:** Small tight dark pill at bottom-left (`chal sakti`) showing 2–3 words at a time with a thin orange/gold underline.
-   - **Tiny Top-Right Logo Only:** Small circular logo in top-right (`56×56px`).
+   - **Official Top-Left Logo:** Official Benaqaab OS logo in the top-left safe area (`x: 55px, y: 30–40px`, gold-glow border; older top-right placement is `[SUPERSEDED]`).
 3. **Speaker Visibility — 1 to 2 Seconds MAX in Full Screen:**
    - Do **NOT** keep the speaker continuously in the corner. Show the speaker **only for 1 to 2 seconds max** in full screen, and keep the rest of the Short 100% full-screen visuals & motion graphics.
 4. **HTML-First Approval Gate (`comp.html` BEFORE Final MP4 Render):**
@@ -2300,7 +2318,7 @@ has independent confirmation from a second tool's documentation.
 <!-- ===================== APPENDIX F — VERBATIM ===================== -->
 ## APPENDIX F — Thumbnail & motion-graphics mastery
 
-**Source file:** `SKILLS_THUMBNAIL_AND_MOTION_MASTERY.md` · **lines:** 92 · **SHA-256 (first 16):** `ecb75ba73b354d53` · **why it exists:** thumbnail archetypes, the signature motion techniques
+**Source file:** `SKILLS_THUMBNAIL_AND_MOTION_MASTERY.md` · **lines:** 92 · **SHA-256 (first 16):** `6125259203c8fc95` · **why it exists:** thumbnail archetypes, the signature motion techniques
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -2315,7 +2333,7 @@ has independent confirmation from a second tool's documentation.
 
 | File Path | What It Shows | When to Use |
 |---|---|---|
-| `brand/reference_minimal_fullscreen.png` | **Chenab Bridge Full-Screen Minimal Short Layout:** 100% full-screen vertical visual, 1 translucent dark glass card at top (`BUILT FOR THE WORST` + 4 clean 2–3 word cells + thin `#f97316` orange top bar), tiny top-right circular logo, compact bottom-left 2-word caption pill (`chal sakti`) with orange underline. | **Every YouTube Short (`comp.html`) base layout** — zero dashboard clutter, 65–75% open screen. |
+| `brand/reference_minimal_fullscreen.png` | **Chenab Bridge Full-Screen Minimal Short Layout:** 100% full-screen vertical visual, 1 translucent dark glass card at top (`BUILT FOR THE WORST` + 4 clean 2–3 word cells + thin `#f97316` orange top bar), official top-left circular logo with gold glow, compact bottom-left 2-word caption pill (`chal sakti`) with orange underline. | **Every YouTube Short (`comp.html`) base layout** — zero dashboard clutter, 65–75% open screen. |
 | `brand/ref_investigative_1.png` | **(Left)** Back-lit investigator silhouette facing a dark evidence wall with a **glowing neon-gold India map** + newspaper clippings (`KYA AISA SCAM AAJ BHI...`). **(Right)** High-impact `VS` conflict board (`DO-KAUDI KE TEACHERS vs GODI MEDIA?`) with plunging 3D red bar chart (`80% CRASH`) + stamped evidence cards (`[VULNERABLE]`, `[BLACKLISTED]`, `[MISSING]`). | **Investigative Corkboard / Neon India Map scenes** & **Conflict / Whistleblower Thumbnails**. |
 | `brand/ref_investigative_2.png` | **(1)** `ALIENS YA JHOOTH?` — Top Secret manila folder + `[DECLASSIFIED]` stamp + newspaper clipping + magnifying glass + bottom agency seal bar. **(2)** `SHOOT SPACE SCAM` — B&W + blood-red rocket launch with giant `[SCAM]` rubber stamp + `-74.3%` red crash line. **(3)** `₹50 CRORE KA SCAM?` — Shocked Indian man holding phone with floating burning ₹500 notes + WhatsApp/Telegram popups + red curved arrows. | **Dossier / Declassified Motion Scenes** & **Emotional + Prop-Driven AI Thumbnails**. |
 | `brand/ref_investigative_3.png` | **(Left)** `₹4,000+ CRORES / SCAM EXPOSED` — Close-up investigator pointing right at a crumbling 3D red pyramid + flying notes + tilted red `[SCAM EXPOSED]` ribbon. **(Right)** `₹5 Cr ➔ ₹4000 Cr! / 800X LIE? SCAM!` — Visual math multiplier equation with arrow + presenter pointing. | **Multiplier Equation Motion Graphics (`A ➔ B = NX`)** & **Shorts/Longform Exposé Thumbnails**. |
@@ -2392,7 +2410,7 @@ To make our videos stand out and trend while keeping the screen **clean and uncl
   1. **100% Full-Screen (`1080×1920`) moving visual / 2.5D scene** (65–75% of screen open).
   2. **At most ONE minimal translucent glass card** (`rgba(12, 16, 22, 0.78)` + `6px` `#f97316` top accent line + 2–4 compact 2-word cells) OR **one kinetic center-screen equation/stamp**.
   3. **Compact bottom-left 2–3 word caption pill** (`chal sakti` style with `5px` orange underline).
-  4. **Tiny top-right circular channel logo (`64×64px`)**.
+  4. **Official top-left circular channel logo (`64×64px` with gold glow; older top-right placement is `[SUPERSEDED]`)**.
   5. **Speaker shown ONLY 1–2 seconds max in full screen** (never parked in the corner).
   6. **Always show `comp.html` first and wait for user approval before rendering the final MP4!**
 
@@ -29225,7 +29243,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,098 · **SHA-256 (first 16):** `9e4133fd6e4a38ce` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,398 · **SHA-256 (first 16):** `fa004f6cf1560013` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34326,6 +34344,304 @@ User requested a 30-sec short combining 3D motion, motion graphics and AI images
 - **Why it fits the existing practice:** this is the pattern the user has enforced three times already (§133, §136, §138) — old videos go, knowledge stays. It is now an explicit go-forward workflow rule instead of a one-off request, and it removes the ambiguity that used to need a standing assumption.
 - **Workspace restored after the §138 full wipe**, because the rule can only be honoured by a working workspace: all 198 non-zip files were extracted from `BENAQAAB_COMPLETE_BACKUP_2026-10-04.zip` (MEMORY, every SKILLS file, MASTER handbook, PROMPT_LIBRARY, MOTION_RESEARCH, the two agent handover files, START_HERE, AI_HANDOVER_PROMPT, motion.py, setup.sh, viz/, tools/ with the CapCut catalogues, brand/ with fonts and logo, knowledge/, helper scripts). The six nested backup zips stay inside `BENAQAAB_COMPLETE_BACKUP_2026-10-04.zip` and were deliberately not extracted again. **No video files were restored — the films stay deleted, as the user asked.**
 - Consequence for the next film: the environment needs `bash setup.sh` (ffmpeg + Playwright + Chromium + fonts) and the previous project's folder must be confirmed gone before research starts.
+
+## §140 — Clean slate executed for a new video, fresh research delivered (rule L16 applied for the first time)
+- User: *"delete full workspace i want to make a new videos ok first delete ok"*. Applied **L16** exactly as written: (1) deleted the previous video's files and all scratch — `projects/` was already empty, and `.agents/`, `.config/`, `.cache/`, the deletion manifests and helper scratch were removed; **zero video files remain anywhere**; (2) started **fresh topic research** instead of reusing anything.
+- Fresh research run (5 Oct 2026) delivered as `knowledge/topic_ideas/NEW_TOPIC_SHORTLIST_2026-10-05.md` with three timely candidates, each with verified numbers, dates, source links, hooks, animation plans and honest risk notes — plus a backups table of the six still-unused earlier candidates.
+  1. **RBI rate decision and your EMI — recommended, time-critical**: MPC meets 5–7 Oct, decision **7 Oct**; repo 5.25 % with +25 bps to 5.50 % expected (Reuters poll 35/61, BS poll 8/10); CPI 4.82 % Aug vs 4.45 % Jul, third month above 4 %; Brent >$100; rupee ~96/USD, −6 % YTD; first hike since Feb 2023; Union Bank sees 5.75–6.00 % through FY27; Reuters calls it possibly the shallowest cycle in a decade; monsoon ended 12.6 % below normal is the food-price link; BoB's Sabnavis dissents expecting no change.
+  2. **Gaganyaan first uncrewed flight**: targeted Q4 2026 with Vyommitra; three uncrewed missions before the crewed flight in 2028; ₹20,193 crore for eight missions; 8,000+ ground tests; CE-20 hot-fired 8,810 s vs 6,350 s minimum; TV-D1 flown, TV-D2 next; Arabian Sea splashdown with 48 backup sites; BAS-01 approved for a 2035 station.
+  3. **Driest monsoon in 13 years + how withdrawal is declared**: season 12.6 % below normal, 14.9 % at withdrawal start (both must be shown with dates); NE India lowest since 1901, Odisha +30 %; the three-part IMD withdrawal test (5 dry days, 850 hPa anticyclone, moisture drop); full withdrawal ~10 Oct, northeast monsoon after 15 Oct; El Niño strong with a positive IOD.
+- Workspace kept: knowledge core (skills, memory, tools, viz, brand, knowledge) + the two archives. Nothing film-related restored — that is what L16 demands.
+
+## §141 — Round-2 topic search: 10 fresh candidates delivered
+- User asked again for **new topics** ("serach for new topics to make the video o k") after skipping the topic-picker. Ran a wider fresh search (space / economy / health / tech / weather / astronomy / sports, 10 queries) and delivered `knowledge/topic_ideas/NEW_TOPICS_ROUND2_2026-10-05.md` — every entry with verified numbers, dates, sources, hook, animation plan and honesty notes. Ranked list:
+  1. **Nobel week 2026** (announcements 5–12 Oct, live now; SEK 12 M per prize; schedule Medicine Oct 5 → Economics Oct 12) — recommended as the this-week pick; mechanism film now, winners as plug-in beats.
+  2. **Semaglutide ₹1,290/month** (patent expired 20 Mar 2026; 40+ generics; ₹8,800–11,175 → ₹325/week; Eris ₹880/mo pen; Novo cuts 36–48%; market ₹1,000–1,200 cr → ₹4,500–5,000 cr by 2030; Dr. Reddy's 87 countries; US patents to 2031/2038/2041; GLP-1 mechanism) — best evergreen.
+  3. **Artemis II** (launched 1 Apr 2026 22:35 UTC, 9 d 1 h 32 m, splashdown 10–11 Apr; first crewed beyond LEO since Apollo 17; crew Wiseman/Glover/Koch/Hansen; capsule Integrity; 2 scrubs; $93 B programme) — best wow, zero risk.
+  4. RBI/EMI (round 1, 7 Oct) · 5. **India chip fab** (Dholera $11 B/28 nm/50,000 wafers-mo, first silicon late 2026–27; ASML deal 16 May 2026; Assam OSAT ₹27,000 cr/48 M chips-day; Kaynes 31 Mar 2026; ₹1.6 trn commitments/10 units; 50,000 jobs; "40 years" quote) · 6. **GDP 7.8% Q1 FY27** (₹81.36 lakh cr real; +10.3% nominal; GVA 8.2%; investment +11.9%; FDI $30.7 B best in 15 yrs; India 7.8 vs China 4.3 vs US 1.5 vs Japan 1.1; per-capita $2,813 ≈149th; dissent BMI 6.6%, methodology questions) · 7. **Cyclones Oct–Dec** (ISRO-SAC 8 Sep: 3 possible; PDI 13.06 vs 44-yr 7.15 ×10⁶ knots³; "possible ≠ will hit" honesty spine) · 8. **October sky** (Draconids 8–9 Oct near new moon; Orionids 21–22 Oct, Halley debris, 66 km/s; Saturn opposition 4 Oct; Hunter's Moon 25–26 Oct) · 9. **Olympics 2036 Ahmedabad** (bid lodged Lausanne; IOC paused under Coventry; no decision date; rivals SA/Qatar/Indonesia/Turkey/Chile) · 10. **AI September wave** (Gemini 4 Argon 30 Sep 1 M output; GPT-6.1 Sol; Claude 5.5s; Grok 4.7; MiMo-V2.6 open weights; DeepSeek V4.1-Flash KV ¼; 119× spread, $0.10 floor; Fermat→Lean; Navier–Stokes claim + credit dispute; sandbox escape + White House pledge).
+- No topic chosen by the user yet. Standing: when they name one, run the full pipeline (research → script → VO → film → render → upload pack). Workspace unchanged otherwise: no video files, both archives intact.
+
+## §142 — Round-3 topic search: 8 more candidates (user re-asked for new topics; L16 re-affirmed by the user in the same message)
+- User: *"find new topics to make the video and once the vidoe is make and the next time i request for new video delet all the dat aof old videos ok"* — i.e. **L16 restated** (already in the books since §139; no new rule needed) + another topic search. Delivered `knowledge/topic_ideas/NEW_TOPICS_ROUND3_2026-10-05.md` (8 topics, ranked, each with verified numbers/dates/sources/animation plan/honesty notes).
+- The 8: **1. Census 2027** (16th census, 8th post-independence; ₹11,718.24 cr; Phase-I HLO Apr–Sep 2026 with 15-day self-enumeration window, 33 questions; Phase-II Feb 2027 incl. caste — first since 1931; reference date 1 Mar 2027 00:00, snow-bound J&K/Ladakh/HP/Uttarakhand 1 Oct 2026 00:00 with enumeration Sept 2026 = happening now; se.census.gov.in 16 languages, 16-digit SE ID; 3.2–3.4 M field staff; PM+President self-enumerated day 1) — **recommended pick, local J&K hook**. **2. World Cup 2026** (Spain 1–0 Argentina AET, Ferran Torres 106', 19 Jul MetLife; Spain 2nd title, 38-match unbeaten, first champion conceding 1 goal; 48 teams/104 matches/3 hosts first time; $50M-$33M prizes; Messi 8g+4a, tears, likely last WC; England 6-4 France 3rd place; 1.8M Madrid parade; first WC-final halftime show; Trump & Infantino booed). **3. Bullet train** (508 km; ~80% done per Vaishnaw 4 Jul 2026; first section Aug 2027 — sources split Surat–Bilimora ~50 km vs Surat–Vapi 97 km → show both; full line 2029; <2 h vs 6 h; 320 design/280-250 B28 indigenous, prototype Mar 2027; ₹5,400 cr train deal; 21 km tunnel + first undersea rail tunnel; $17 B, 81% JICA; ETCS Siemens; CWG 2030 target). **4. Gold** (Groww 2 Oct 2026: 24K ₹1,50,280/10g; GST 3% ₹4,508; making 12–18% ₹18,034–27,050; wastage 2–5%; real cost ₹1,75,863–1,89,553 vs ETF ₹1,51,031; $4,222/oz; 1964 ₹63.25 → 2020 ₹48,651 → 2024 ₹77,913 → 2026 ~₹1.5L; Aug 2026 range ₹1,40,977–1,64,571). **5. COP31** (9–20 Nov 2026 Antalya; Türkiye hosts w/ Murat Kurum, Australia leads negotiations w/ Chris Bowen — role created at Belém; Leaders' Summit 11–12 Nov; ~100,000 participants; pre-COP 5–8 Oct Fiji/Tuvalu; agenda NDC 3.0/2035 gap, $300B of $1.3T finance, Loss & Damage, Article 6, 11,000 GW by 2030; 12 thematic days). **6. Tigers** (NTCA 2022–23: 3,682, range 3,167–3,925, ~70–75% of world; 1,411→1,706→2,226→3,682; ~5.8%/yr; MP 785, Karnataka 563, Uttarakhand 560, Maharashtra 444, TN 306, Assam 227; camera-trap capture-recapture + DNA; next count results pending). **7. Bitcoin** (ATH $126,210.50 on 6 Oct 2025; Feb 2026 low ~$60,074; 2026 high $97,860; ~$84,745 on 3 Oct 2026; MVRV 1.8; ≥77% past bear precedent ≈ $29K; post-halving window through Oct 2026; forecast gulf $29K–$160K → show both ends). **8. Quantum** — with an explicit reliability warning: most 2026 sources are content farms with contradictory numbers; solid anchors only Willow 105-qubit below-threshold, IBM Condor 1,000+/Heron quality shift/Nighthawk 120 targeting advantage by end-2026, Microsoft topological pairs; RSA-2048 break not before 2035–40.
+- Also flagged in the file: Nobel week (5–12 Oct, live) and RBI (7 Oct) remain the most time-critical open topics; Draconids peak 8–9 Oct.
+- No topic chosen yet. Workspace otherwise unchanged (no video files; both zips intact).
+
+## §143 — RBI/EMI Short built (topic chosen by the user over Census; full 11-step pipeline; final render running)
+- **L16 applied twice in this film's lifetime**: (1) at the start of the turn — verified clean slate (no projects/, no media) then created `projects/rbi_emi/`; (2) when the user switched topic from Census 2027 to RBI — deleted the Census WIP entirely before starting RBI.
+- **Topic**: "RBI aur aapki EMI" — the chain from the driest monsoon in 13 years → food inflation → repo rate → EMI. Time-critical: decision 7 Oct. Film is written so only S6's headline/last caption + one chip need updating after the decision.
+- **Research**: PIB/RBI/Reuters/BS/Times Now/Whalesbook/Bhaskar — full source list with dates in `projects/rbi_emi/SOURCES.md`; PLAN.json carries 11 claims with qualifications. Show-disagreement rule: Reuters 35/61 + BS 8/10 expect a hike; BoB Sabnavis dissents; Reuters "shallowest cycle in a decade" quoted as quote.
+- **Own arithmetic (gotcha caught mid-build)**: I announced EMI ₹44,166/+₹775/₹1.86L before checking — exact math is **₹44,185.54 → ₹44,186; +₹794.37/mo; +₹1,90,650 over 240 months** (8.50%→8.75% on ₹50L/20y; 8.50% EMI ₹43,391.16 → ₹43,391). VO re-synthesised with the right numbers; formula + "our calculation" tag on screen.
+- **Voice**: auditioned Hindi masculine (user picked option 03; voice-03 used for all 7 clips). TTS limit 10/turn hit while shortening vo_6 — worked around with uniform **atempo 1.0475** (pitch preserved) instead of a new synth.
+- **Timing**: raw read 188.4 s → silence-trim (−45 dBFS, 120 ms pad) + atempo + tightened constants (lead 0.55 / gap 0.85 / tail 2.60) → **178.164 s = 2:58.2** (Shorts-safe). TIMELINE.json measured; injected into the film's `T` (the first build had WRONG assumed values — caught by comparing stills; always inject measured timings).
+- **Film**: `projects/rbi_emi/RBI_EMI_Short.html` — canvas, 7 scenes (dial / rate+CPI / monsoon chain / lever mechanism / EMI math / honest disagreement / CTA), motion_library grade stack + CamCap-named transitions (Signal Glitch 2, Fold Over, Push Away 2, Zoom to Change, Dissolve, White Flash).
+- **Defects found and fixed (this is the valuable part)**:
+  1. Dial overshot 5.50 (spring + quiver) → clamped + damped; stills re-verified 5.500%.
+  2. S3 bar labels (−25.7/−28.5) overflowed the frame → labels flip inside the bar.
+  3. **Dead frames**: first render's motion_report flagged freezes [8.1-9.37, 46.9-47.7, 56.47-57.9, 104.67-105.73] → ambience strengthened (motes 64→120 & brighter, sweep .04→.062, glows alpha up, grain .055→.12, rain 40→60). Probe: min changed-pixel fraction rose to 1.26-5.07% (was 0.0-0.99%).
+  4. **Stray pop at 69.33 s** traced to the library's **Push Away 2 ending with the incoming frame at 0.88 scale** (direct path then jumps to 1.0). Also **Fold Over** left its fold panel visible at u=1. Both patched in `viz/motion_library.js` (B settles at scale 1; panel fades by (1-u)); all six cut ends verified continuous (pre→post delta < natural motion delta). Backup: `viz/motion_library.js.bak`.
+- **Audio**: `build_audio.py` (vectorized numpy; FFT filters) — VO + 6 distinct cut SFX + rain bed (S1) + 240-tick train (S5) + accents + 55/82.5 bed, sidechain duck 0.25, −2.0 dBFS peak; loudnorm: linear pass was TP-limited at −15.2 LUFS → added gentle `acompressor` then two-pass linear → **I −14.8 LUFS, TP −1.5, LRA 2.9**, verified on the muxed file.
+- **Render**: ~25-30 min per pass (5,345 frames, adaptive blur, avg samples ~1.5-3). v1 tuned, v3 = final (ambience + transitions fixed). `[ok] determinism check passed` on the final run (an earlier probe's 435-px flake was bisected to ~2/2,073,600 px run-to-run raster jitter — library has no mutable state).
+- **Deliverables in `projects/rbi_emi/`**: MP4, HTML, audio/, TIMELINE.json, PLAN.json, SCRIPT.md, SOURCES.md, MOTION_PASS.md, AUDIO_NOTES.md, README.md, build_audio.py, UPLOAD_PACK.md, description.txt, pinned_comment.txt, _qa/ + _qa2/ contact sheets, render logs.
+- **§143 addendum — final render (v4) delivered**: `freezes: [] · pops: [] · still_ratio: 0.0` — every gate clean. MP4 128.2 MB · 178.167 s · 5,345 frames · H.264 1080×1920@30 ~5.5 Mbps · AAC 192k; muxed audio **I −14.8 LUFS / TP −1.3 dBFS / LRA 2.8**; decode clean. Fix chain that got it there: (a) ambience strengthened, (b) **embers layer** (34 fast 2.4–4 px high-contrast motes, 220–380 px/s) added — this is what finally registered on the 90×160 dead-frame detector, (c) Push Away 2 / Fold Over patched to end exactly on the incoming frame (pops → none). Probe method worth keeping: replay the exact `motion_report` detector (90×160 gray, >0.02, 0.2 % threshold, 0.8 s) over in-page captures BEFORE a full render — ~90 s per window vs ~27 min per render.
+
+## §144 — L16 applied again: RBI film wiped; new video started from fresh research
+- User: *"start doing resarch and make the video ok"* → treated as a **new-video request**: applied **L16** — deleted the entire `projects/rbi_emi/` (MP4 128.2 MB, HTML film, all audio, QA sheets, docs; user confirmed earlier they had downloaded everything), cleared scratch. Zero media files remain.
+- Fresh research for the new topic begins in this section's turn; build follows under the same 11-step pipeline. MEMORY §143 remains the full record of the RBI film for rebuild reference.
+
+## §145 — Nobel 2026 optogenetics film: BUILT, RENDERED, gates clean (5 Oct 2026 evening)
+
+**Trigger:** *"start doing resarch and make the video ok"* (no topic named) → L16 wipe of the RBI film first (§144) → research picked the live topic of the day: the **2026 Nobel Prize in Physiology or Medicine**, announced that same morning for light-gated ion channels / optogenetics — **Deisseroth, Hegemann, Nagel**.
+
+**Project (kept):** `projects/nobel_optogenetics/` — film title *"Nobel 2026: दिमाग़ की चाबी, एक शैवाल से"*.
+
+**Delivery:** `Nobel_Optogenetics_Short.mp4` — 1080×1920 · 30 fps · **5169 frames · 172.3 s (2:52.3) · 117.3 MB** · H.264 crf 18 + AAC 192k · muxed audio **I −14.8 LUFS / LRA 2.4 / peak −1.48 dBFS**.
+**Gates:** `motion_report` **freezes [] · pops [] · still_ratio 0.0**; `tools/peak_detail_gate.py` structural PASS; determinism **0 px** repeat-diff.
+**Files:** `SOURCES.md` (N1–N7 + how disagreements were handled) · `SCRIPT.md` · `PLAN.json` · `TIMELINE.json` · `MOTION_PASS.md` · `AUDIO_NOTES.md` · `README.md` · `build_audio.py` · `captions_hi.srt` · `thumbnail_1280x720.jpg` + `thumbnail_1080x1920.jpg` · upload pack `description.txt` / `pinned.txt` / `titles.txt` (no brackets) · `_qa/` (stills, QC_map, QC_cuts, PLAN_GATE.json, render_v2.log).
+
+**Timing:** 7 Hindi VOs (voice-03) measured → raw 181.8 s → two VOs (3, 5) rewritten shorter, then **uniform atempo 1.0567 on all seven** (never cut mid-sentence) → total **172.289 s**; scene starts `[0, 22.001, 49.994, 78.672, 104.161, 131.94, 151.271]`, narration_at `[0.55, 22.551, 50.544, 79.222, 104.711, 132.49, 151.821]`.
+
+**THREE NEW ENGINE LESSONS — all fixed, all reusable:**
+1. **Font-load gate (critical).** A `@font-face` that has never been drawn stays *unloaded*, so `document.fonts.ready` can resolve before the faces exist → the first draws measure with fallback metrics and later draws with the real ones (**layout drift**, non-reproducible frames; here the prize chip changed size between two draws of the same t). Fix: `await Promise.all(weights × families × document.fonts.load(w+' 100px "F"'))` and only then `document.fonts.ready` → release `window.ready`. Diagnose with `[...document.fonts].map(f=>f.family+':'+f.status)` inside the page.
+2. **Never camera-transform the background.** Transforming the whole frame made the outermost pixel columns history-dependent (up to 9,925 px differing at t=165; 3,715 px at t=40). Fix: draw `bg()` **1:1 untransformed**, apply the camera only to scene content. After 1+2: **0 px repeat-diff at every sampled time** (was 10,630 px).
+3. **`Signal Glitch 2` has hard edges** — full-strength slices on its first frame, a hard A→B flip at u=0.5, and a hard stop at u=0.85 → pops `[78.133, 78.7]` once the neighbours are calm. Fix **in the film, library untouched**: alpha-ramp 0→0.20 over A, crossfade the flip 0.42–0.58 using two offscreen composites (pinned u), alpha-ramp out 0.62→1.0 over B. Segment test (76.5–80 s): pops [].
+Render cost: **~33 min** for 172 s at `--max-samples 8` (9,366 captures, avg 1.81 samples).
+
+**Step-1 method note:** measure VOs → compute total → if over the 174 s budget, first rewrite the longest VOs shorter (cheap, better quality) and only then apply a *small* uniform atempo; cap atempo ≈1.06 to protect prosody.
+
+**L16 compliance:** nothing reused from earlier films — new palette (violet + electric blue + bio-green), new scene set, new SFX kit, new thumbnails; only the shared engine `viz/motion_library.js` was inherited, as designed.
+
+## §146 — Workspace cleanup on user request: backups and stale duplicates removed (5 Oct 2026, night)
+
+**User:** *"i think thier is excess data in our worksapase remove all the unwanted back and evry thing ok and keep only important things and remove all the old video pic, codes, data ok"* → cleanup of **stale/duplicate data only**; current film sources + the protected system set kept.
+
+**Found on entry (sandbox had reset again):** the Nobel film's **MP4, all VO/master wavs and the whole `_qa/` image set had already left the sandbox** — same platform behaviour as the RBI film (§144): large media do not persist between sessions. The user's download is the only copy of the delivered video; nothing was lost by the cleanup itself.
+
+**Deleted (≈67 MB):**
+- `BENAQAAB_COMPLETE_BACKUP_2026-10-04.zip` (58 MB complete backup) — **explicit user instruction ("remove all the unwanted back")**; this retires the §138-era rule that the workspace must always hold the complete backup. No local backup zip remains; the protected core files live in the workspace and persist as small files. The anime-edit/UPI restorability that depended on this backup is gone (user holds downloads).
+- `BENAQAAB_WORKSPACE_FULL_2026-10-04.zip` (9.4 MB, the stale handover zip) — rebuild with `_build_handover_zip.py` if a handoff is ever asked for.
+- `viz/motion_library.js.bak` (pre-patch library copy; the patched live file is proven across two films).
+- `projects/nobel_optogenetics/_timeline_js.txt` (scratch), `.sudo_as_admin_successful`.
+
+**Checked and deliberately KEPT:**
+- The five root↔`knowledge/` duplicate skill/prompt files were briefly deduped, then **restored** — MEMORY §64/codex documents them as the canonical paths ("883 unique prompts, verbatim, in `knowledge/PROMPT_LIBRARY_opus55.md`"), and `knowledge/MEMORY.md` is documented as an intentional historical copy (master skill Appendix A08). ~700 KB of documented redundancy is not "unwanted".
+- `MASTER_VIDEO_GENERATION_SKILLS.md` (1.7 MB) and the whole protected set (MEMORY, all SKILLS_*, PROMPT_LIBRARY, MOTION_RESEARCH, motion.py, setup.sh, knowledge/, brand/, viz/, tools/, core docs).
+- `projects/nobel_optogenetics/` — the current film's source of truth (HTML, TIMELINE, PLAN, SOURCES, SCRIPT, docs, upload pack, thumbnails). No new-video frame → no L16 wipe.
+
+**Repairs made during cleanup:**
+- `PLAN.json` audio asset re-anchored from the vanished `audio/master.wav` to `AUDIO_NOTES.md` (provenance doc) so `tools/peak_detail_gate.py` passes again — **PASS** (`_qa/PLAN_GATE.json`).
+- New `_qa/GATES.md`: the final verified render gate numbers in text form (freezes/pops/still_ratio, determinism, decode, loudness), replacing the QC images that left with the media.
+- README/AUDIO_NOTES/MOTION_PASS updated to state the media reality and the rebuild path (pull narration from the delivered MP4, or re-synthesise from SCRIPT.md before `build_audio.py`).
+
+**Result:** workspace **87 MB → 20 MB** (no zips, no media, no scratch; core system ~19 MB + current film sources ~0.6 MB).
+
+## §147 — "video" → L16 wipe + new film: 255 हाथी, एक AI (Plan Bee / NFR) — BUILT, DELIVERED
+
+**Trigger:** user's single word *"video"* → new-video request → **L16 wipe first** (deleted `projects/nobel_optogenetics/` — 17 files / 528 KB; media had already left the sandbox), then fresh topic research. No topic named → my pick.
+
+**Topic chosen (fresh news, 4–5 Oct 2026):** Northeast Frontier Railway claims **255 elephants saved from train collisions, Jan–Sep 2026**, using an **AI Intrusion Detection System on Distributed Acoustic Sensing (DAS) fibre**, the **'Plan Bee'** honeybee-sound device (since Nov 2017) and human patrolling. Honesty layer built in: the count is the railway's own (no independent verification), elephants reportedly habituating to the bee sound, the Dec-2025 Hojai accident (7 elephants, 5 coaches), and Tamil Nadu's camera-based **'Gajraj AI'** as the working counter-example (7,100+ alerts, 9,481 crossings, 0 deaths in ~2.5 years).
+
+**Delivery:** `projects/plan_bee/Plan_Bee_Short.mp4` — 1080×1920 · 30 fps · **5277 frames · 175.9 s (2:55.9) · 122.4 MB** · H.264 crf18 + AAC 192k.
+**Gates: ALL PASS FIRST RENDER** — `freezes [] · pops [] · still_ratio 0.0`; structural gate PASS; determinism 0 px; decode clean; audio **I −14.9 LUFS / peak −1.49 dBFS**, narration 16 dB over the night-forest bed.
+**Timing:** VO 3 rewritten shorter (33.1 → 27.8 s), uniform `atempo 1.06`, gaps 0.75 s, tail 2.4 s; scene starts `[0, 19.172, 44.891, 73.459, 97.904, 125.405, 151.381]`, narration at `[0.55, 19.722, 45.441, 74.009, 98.454, 125.955, 151.931]`.
+**Files:** SOURCES.md (N1–N10 + disagreements table + film rules) · SCRIPT.md (narration + on-screen facts + transition map + visual plan) · PLAN.json (12 claims, 7 shots — gate PASS) · TIMELINE.json · MOTION_PASS.md · AUDIO_NOTES.md · README.md · build_audio.py · captions_hi.srt · thumbnails 1280×720 + 1080×1920 · description/pinned/titles (no brackets, titles 35–40 chars) · `_qa/` (19 pre-render stills, scene/cut/fix sheets, QC_map, QC_cuts, PLAN_GATE.json, render_v1.log).
+
+**NEW ENGINE LESSON (§147):** `White Flash` in the library **blows the frame to full white at u=0.5** (pops + a dead-white frame). Fixed **in the film, library untouched**: crossfade A→B under a white veil that peaks at **72 %** and reaches zero exactly at both ends — official name + 0.40 s kept. With that + the §145 Signal-Glitch wrapper, this render needed **no re-render** (first film ever to pass gates on v1). Also refined: the 1280×720 thumbnail needs a **custom crop band** (`crop=(y0=270, y1=878)` on the S1 hero) plus `scrim_frac` 0.36, otherwise the band either hides the herd or covers the counter.
+
+**Draw-in-code scene kit reused this time:** `rails()` perspective track, `elephant()` side-profile silhouette with animated trunk/legs, `trainFront()` headlight, `beeDevice()` + expanding sound rings, `speedo()`, and `DAS fiber` node chain with travelling phase.
+
+**L16 compliance:** nothing reused from the Nobel film — new palette (night-forest green + railway amber), new scene kit, new SFX (incl. a descending comic buzz for the failed pet-elephant test), new thumbnails; only the shared engine was inherited by design.
+
+## §148 — "video" → L16 wipe + film: फ्लाइट क्यों महँगी (IndiGo fuel surcharge, 6 Oct 2026) — BUILT, DELIVERED
+
+**Trigger:** the user's single word *"video"* (second time) → new-video request → **L16 wipe first**
+(`projects/plan_bee/` deleted; media had already left the sandbox), then fresh topic research.
+
+**Topic chosen (live that morning):** IndiGo re-introduced a **fuel surcharge from 00:01 hrs on
+6 October 2026** — **₹375–₹1,300 domestic** (five distance tiers) and **₹1,000–₹10,000 international** —
+after ATF jumped **more than 14 % month-on-month** to a decade high, driven by the West Asia war and
+Brent back over $100. Picked because it was hours old, it lands in the festive booking season, the
+numbers are precise, and it carries a real honesty layer.
+
+**Delivery:** `projects/flight_surcharge/Flight_Surcharge_Short.mp4` — 1080×1920 · 30 fps ·
+**5285 frames · 176.167 s (2:56.2) · 115.5 MB** · H.264 CRF 18 + AAC 192 kbps.
+**Gates: ALL PASS on the first render (second film in a row)** — `freezes [] · pops [] ·
+still_ratio 0.0`; structural PLAN gate PASS; determinism `[ok]`; decode clean; audio on the **muxed**
+file **I −14.0 LUFS / LRA 2.4 LU / true peak −1.6 dBFS**; narration sits 16+ dB over the beds.
+
+**Timing:** measured VO pass 1 was **209.0 s** raw (atempo 1.06 still 197.4 s → rejected), scene 3/4/5
+re-synthesised shorter, scene 6 could not be re-synthesised (the turn's 10-clip TTS limit), so pass 3
+went **uniform atempo 1.10 with LEAD/GAP/TAIL 0.55/0.65/2.2** → 176.167 s. `TIMELINE.json` holds
+`narration_at [0.55, 21.75, 46.322, 74.514, 100.713, 120.606, 154.681]` and
+`start [0, 21.2, 45.772, 73.964, 100.163, 120.056, 154.131]`.
+
+**Transitions (official names, native rebuilds):** Zoom to Change 0.80 · Signal Glitch 2 0.67 ·
+White Flash 0.40 (72 % veil wrapper) · Dissolve 0.50 · Fold Over 1.00 · Light Leaks 1.00.
+The §145 and §147 engine fixes were carried in again and both were needed — no re-render.
+
+**Audio (numpy, `build_audio.py`):** narration at measured times; pad (110/164.81/220/329.63/82.41 Hz)
++ air + 55 Hz heart pulse + tick beds (2100 Hz tiers, 1750 Hz ladder); **six distinct cut SFX** —
+riser/snap, gated glitch stutter, reversed whoosh + thump, airy swell, flutter fold, shimmer rise —
+measured peaks −1.5 to −2.8 dBFS and centroids 3.0–7.5 kHz, i.e. distinct and never above the voice;
+scene accents (fuel drips, war rumble, tanker horns, $100 ding, card swooshes, festive bell, UI ticks,
+question motif); envelope-follower duck (beds −75 %, SFX −55 %); tanh glue; −2.0 dBFS numpy peak;
+two-pass **linear** loudnorm.
+
+**NEW AUDIO LESSON (§148):** the first mux measured **−1.1 dBFS true peak** on the delivered file
+even though the master had passed at −1.5 — **AAC encoding overshoots the loudnorm ceiling by ~0.4 dB**.
+Fix: re-run the linear pass with **`TP=-2.0`**, then **re-mux with `-c:v copy`** and confirm the video
+stream MD5 is unchanged (it was: `f71dab0d…`) → muxed **−1.6 dBFS**. Apply the −2.0 dB TP target from
+the start on the next film. Also: the linear pass writes a **float WAV (~136 MB at 3 min)** — the
+master WAVs are regenerable from `build_audio.py` in ~20 s, so they are deleted after delivery.
+
+**Facts discipline (see `SOURCES.md`):** ₹425 in one report treated as a typo against three sources
+saying ₹375; **Africa's ₹6,000 omitted** because sources describe it differently; the ATF ladder
+carries its own on-screen source tag because it is single-source; Brent uses **~$101 (5 Oct)** for the
+present and the $115.73 peak only for the war spike; distances marked approximate; the surcharge is
+**IndiGo's**, never "the industry's" or "the government's"; "सिर्फ़ नई बुकिंग पर लागू" is spoken *and*
+on screen; the March→July precedent and the cooling crude are inside the film.
+
+**Files:** `SOURCES.md` · `SCRIPT.md` · `PLAN.json` (7 shots, 14 claims — gate PASS) · `TIMELINE.json` ·
+`README.md` · `AUDIO_NOTES.md` · `MOTION_PASS.md` · `build_audio.py` · `captions_hi.srt` ·
+`thumbnail_1280x720.jpg` + `thumbnail_1080x1920.jpg` · `description.txt` / `pinned_comment.txt` /
+`titles.txt` (no brackets) · `_qa/` (pre-render stills contact sheet, fix-probe sheet, render_frames +
+cuts montage, PLAN_GATE.json, QC_render.json, GATES.md, render_v1.log).
+
+**Draw-in-code scene kit (new this film):** the plane (fuselage + swept wings + tail fin + blinking
+beacon), falling fuel droplets, a staircase ATF ladder with a springing +14 % stamp, a cost gauge,
+an abstract Hormuz strait with a tanker traverse, a Brent sparkline with a dashed $100 line, and
+route cards with a travelling plane glyph. No photographs, no airline logos.
+
+**L16 compliance:** nothing reused from the Plan Bee film — new palette (night-sky navy + kerosene
+amber + cyan), new scene kit, new SFX kit, new thumbnails; only the shared engine
+`viz/motion_library.js` was inherited by design.
+
+**Post-stills fixes (both verified before the render):** the S1 plane's climb was retimed
+(`clamp(t/11.0)`) with the fuel droplets moved to 8.2 s so they fall once it is on screen; the S7
+ambient plane moved to y 1516 / scale 0.36 to clear the recall chips and the caption plate.
+
+---
+
+## § 149 — SIR VOTER LIST CONTROVERSY (HANDOVER PACKAGE INTEGRATED) — 2026-10-06
+
+**Trigger:** Unified single-file handover package `BENAQAAB_HANDOVER_PACKAGE.md` received from another AI session and integrated into `projects/voter_list_sir/`.
+
+**Topic:** "Voter List Mein Naam Missing? SIR Controversy Explained" (India's 2026 Special Intensive Revision, 13+ crore reported draft-roll entries, Form 6 declaration dispute, Supreme Court 5 Oct clarification, and internal ECI objections).
+
+**Delivered Assets in Workspace:**
+- `projects/voter_list_sir/comp.html`: Complete self-contained 1080x1920 preview with inlined assets (26.9 MB, local only).
+- `projects/voter_list_sir/SCRIPT_AND_SOURCES.md`: 101.38s Hinglish script with full ECI/Supreme Court/Indian Express citations.
+- `projects/voter_list_sir/captions.srt`: Full time-coded English subtitle track.
+- `projects/voter_list_sir/render.py`: PIL + imageio-ffmpeg python frame-by-frame renderer.
+- `projects/voter_list_sir/METADATA.md`: 5 titles, SEO description, hashtags, and pinned comment.
+- `projects/voter_list_sir/HANDOVER_NOTES.md`: Forensic bug log, root-cause research, and 10x improvement roadmap.
+
+**User Directives Logged (Behavioral Memory):**
+1. *"ok now first make the html vidoe then approve by me for the final ok"* -> Reaffirms standing non-negotiable: HTML preview gate is mandatory before rendering MP4.
+2. *"do render it good and please give me title desription and capion and more with # includeed in text ok"* -> Reaffirms requirement for full metadata pack with hashtags.
+3. *"stop the render ok i will do my slef ok"* -> User preference for fast previews and control over heavy render pipelines.
+
+**Forensic Lessons & Permanent Fixes (Learned from Agent):**
+1. `imageio_ffmpeg` missing in background worker -> Pre-flight environment check required in `setup.sh`.
+2. First VO overrun (2:35 vs 2:00 cap) -> Pre-synthesis word-budgeting mandatory (must be <270 words for 100s).
+3. PIL canvas allocations (8 fps render) -> Move to headless Chromium/GPU canvas export or cached PIL buffers.
+4. Partial MP4 after process cancellation -> Always render to `.mp4.part` and rename atomically only upon exit code 0.
+5. Inlined Data URLs create 26MB+ HTML files -> Exclude huge base64 HTML from public Git to maintain repository speed (<20MB).
+
+---
+
+## § 150 — SHORT SH-08: GOLD AT ₹1.5 LAKH (THE REAL SHOWROOM BILL) BUILT — 2026-10-06
+
+**Trigger:** User selected Topic 4 ("Gold at ₹1.5 Lakh: The Real Showroom Bill (Making charges, GST & ETF contrast)") from the 4-candidate shortlist.
+
+**Topic:** Personal finance & consumer awareness explainer on headline spot rate vs physical showroom reality (24K ₹1,50,280/10g spot ➔ +3% GST ➔ +15% making charges ➔ +3% wastage ➔ ₹1,81,891 showroom total vs Gold ETF ₹1.50L pure cost).
+
+**Delivered Assets in `projects/gold_150k/`:**
+- `comp.html`: Interactive, deterministic HTML5 Canvas 9:16 vertical video player (1080x1920) with embedded Web Audio synthesizer (sub-bass drone, tick cues), interactive scrubber, scene pills, and live ticking price counter.
+- `SCRIPT.md`: 148-word Hinglish script with scene timings, audio notes, and 56.5s audio budget.
+- `SOURCES.md`: Verified factual ledger with citations from IBJA, Groww, BIS (HUID schedule), CBIC GST Council, and WGC.
+- `TIMELINE.json`: 6-scene animation timeline with camera easing parameters and transitions.
+- `METADATA.md`: 5 high-CTR YouTube titles, complete SEO description, tags, pinned comment, and thumbnail concept.
+
+**Pipeline Compliance:**
+- 1-Gate HTML approval workflow respected: HTML preview generated and presented for user review before MP4 export.
+- Pure function of time `renderFrame(t)`: Deterministic 60fps canvas loop.
+- Zero dead frames: Physical gold bar shimmer, glass card slam animations, counter increments, and split-screen comparison.
+
+---
+
+## § 151 — SHORT SH-08 RENDERED & FULL PACK DELIVERED (VIDEOS + THUMBNAILS + METADATA) — 2026-10-06
+
+**Trigger:** User approved preview: *"ok render the video and make description tile and thumbnilok"* + *"when evr you make the thumbnila ok i will use this image and add final toucehs to it and make it thumbnila ok add rtts on it ok and i want that by seeing the thumbnial the curiocity must be created on the viewer mind ok"*. User also attached handover zip `workspace-01a1121e-b862-7b42-a5e2-9416fd257416.zip`.
+
+**Render Specifications & Verification:**
+- Output Path 1: `projects/gold_150k/Gold_150k_Short.mp4` (17.95 MB)
+- Output Path 2: `VIDEOS/09_Sona_150k_Bill_SHORT_54s.mp4` (17.95 MB)
+- Resolution: 1080×1920 (9:16 Vertical Shorts standard)
+- Frame Rate: 30.0 fps (1617 total frames)
+- Duration: 53.90s (Shorts compliant, < 60s)
+- Video Codec: H.264 High Profile (CRF 19, yuv420p)
+- Audio Codec: AAC (192 kbps, 96 kHz mono from Edge Neural `hi-IN-MadhurNeural`)
+- Loudness Measured: `-15.1 LUFS` Integrated, `LRA: 3.0 LU` (Perfect compliance with YouTube mobile audio guidelines).
+
+**Thumbnail Architecture Delivered:**
+1. **Clean Base Plates (for User Custom Editing in Photoshop/Canva):**
+   - Vertical (1080×1920): `projects/gold_150k/thumbnail_clean_base_1080x1920.jpg`
+   - Landscape (1280×720): `projects/gold_150k/thumbnail_clean_base_1280x720.jpg`
+2. **Curiosity-First Finished Thumbnails (Ready for Direct Upload):**
+   - Vertical (1080×1920): `projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg`
+     - Hero Typography: `SONA ₹1.5 LAKH?` in massive Anton font with dark glowing drop shadow.
+     - Crimson Warning Badge: `ASLI BILL = ₹1.82 LAKH!` with specular border.
+     - Curiosity Callout: `₹31,000 EXTRA KAHAN GAYA?` in high-contrast amber pill.
+     - Disclosure: `AI ILLUSTRATIVE · BENAQAAB INDIA` pill in bottom corner.
+   - Landscape (1280×720): `projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg`
+     - Split composition: 24K gold bullion + jewelry left, showroom tax invoice with red stamp right.
+     - Headline: `SONA ₹1.5 LAKH?` | Badge: `ASLI BILL = ₹1.82 LAKH!` | Strip: `MAKING CHARGES EXPOSED: +₹31,000`.
+
+**User Handoff Directives Integrated (from `workspace-01a1121e...zip`):**
+- Channel identity: **Benaqaab India** (`SACH · SABOOT · BEBAK`), user in Jammu, J&K.
+- Language: Conversational Hinglish; full-screen visuals; zero permanent bottom reels/HUDs.
+- Thumbnail rules: Must convey full core idea with large readable text, no clipping, high curiosity gap, clean plates provided for user polish.
+
+---
+
+## § 152 — NEW PRODUCTIONS AUDITED & ENROLLED IN CANONICAL REPO — 2026-10-07
+
+The following 4 productions from local workspace archives were audited and catalogued in the central repository:
+1. **SH-09: India Last 24 Hours (Worldwide News Roundup):** 118.07s Short (9:16 · 1080×1920 · 24fps) at `VIDEOS/10_India_Last_24H_SHORT_118s.mp4`. 14 scenes, official DRI/ECI/PIB/NCS/BCCI cards, timed dual narration audio stems (`narration_01.mp3`, `narration_02.mp3`), Profile A neutral color grade.
+2. **SH-10: India–Japan JCM Carbon Credits:** 107s Short (9:16 · 1080×1920) at `VIDEOS/11_India_Japan_JCM_SHORT_107s.mp4`. Article 6.2 bilateral credit accounting, corresponding adjustments, and anti-double-counting mechanics.
+3. **FL-05: Kagaz Ki Machine (Teen Scams, Ek Hi Model):** 12m 40s Film (16:9) at `projects/kagaz_ki_machine/`. ED ₹734 Cr fake ITC invoicing, 135 shell entities, scrap book recycling, 0.88% wapsi hawala network.
+4. **FL-06: Hugging Face AI Model Supply Chain Hack:** 4m 12s Film (16:9) at `projects/ai_hf_hack/`. Pickle deserialization vulnerability, 100+ stolen weights.
+
+---
+
+## § 153 — RECONCILED PRODUCTION STANDARDS & CONFLICT RESOLUTIONS — 2026-10-07
+
+Based on user review against repo revision `4f90f83`, all operational conflicts and missing standards have been formally resolved:
+
+1. **Three Project Color Grading Profiles (Resolving Color Conflict):**
+   - **Profile A (Daily News & Worldwide Roundups):** Neutral documentary grade with natural whites, true skin tones, balanced saturation, and crisp contrast. Strictly avoids artificial orange/sepia warmth on modern news and official charts (`projects/india_last_24h/`).
+   - **Profile B (Benaqaab Forensic Dossier):** High-contrast B&W / desaturated base with signature horizontal Red censor band (`#ef4444`). Used for corruption investigations and financial crime exposés (`projects/voter_list_sir/`, `projects/kagaz_ki_machine/`).
+   - **Profile C (Historical / Archival Public Footage):** Warm sepia/orange base with dark-green horizontal band (`#22764e`) and 3% grain (`apply_public_video_grade.py`). Reserved specifically for archival/retro footage; does NOT overwrite Profile A.
+
+2. **1-Gate Approval Protocol vs Automatic Rendering (Resolving Rendering Conflict):**
+   - The **1-Gate Approval Protocol** is the supreme law. Older compact instructions to "proceed automatically to final MP4 without stopping" are `[DEPRECATED & SUPERSEDED]`.
+   - Agents work autonomously through research, script, voiceover, visual asset production, and the interactive HTML preview (`comp.html`).
+   - At the preview gate, the agent MUST STOP and present `comp.html` to the user. Final MP4 rendering occurs ONLY upon explicit user command (*"render the video"*).
+
+3. **Top-Left Logo Placement (Resolving Logo Conflict):**
+   - The official Benaqaab OS logo must be positioned in the **Top-Left Safe Area** (`x: 55px, y: 30–40px` in 9:16; `x: 55px, y: 35px` in 16:9) with its native proportions and gold glow. All older "top-right" mentions are `[SUPERSEDED]`.
+
+4. **Mandatory Unpacked Deliverables Standard (Recording Prior Friction):**
+   - In October 2026 audits, deliverables (thumbnails, descriptions, tags, SRT) were buried inside nested ZIP archives, creating severe friction and delay in verification.
+   - Henceforth, all deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder AND displayed directly to the user in chat reports.
+
+5. **Visual Sourcing & Multi-Story Rigor:**
+   - **Real Source Media & AI Images — Never Diagrams Alone.**
+   - In multi-topic roundups, independently source and curate suitable media for *every story* in the lineup, not just the headliner (Rahul Gandhi).
+
+6. **Autonomous Permission Handling:**
+   - Do not re-prompt for permission once confirmed by the user. If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
 
 
 ---

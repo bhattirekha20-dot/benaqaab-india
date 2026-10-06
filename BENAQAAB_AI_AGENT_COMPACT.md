@@ -7,16 +7,16 @@ documents into their operative rules. §INDEX at the end points into the complet
 (`BENAQAAB_AI_AGENT_MASTER_SKILL.md`, 2.90 MB) where every appendix sits in full.
 
 **THE TEN NON-NEGOTIABLES**
-1. Finish the work — topic in, finished film out; decide everything yourself (only pause: the voice pick).
+1. The 1-Gate Approval Pipeline — topic in, interactive preview (`comp.html`) out; wait for user approval before rendering final MP4.
 2. Frame = pure function of t — deterministic, seeded, re-renderable one second at a time.
 3. No dead frames — motion at three scales; `motion_report` freezes = none.
-4. Never slideshow — animate the real mechanism, not text over a zooming photo.
+4. Real Source Media & AI Images — never diagrams alone; anchor every beat in authentic source media and photorealistic AI art.
 5. Facts or nothing — sourced + dated; disagreements shown, never averaged; claims labelled.
-6. Sound is measured — VO is the master clock; loudness measured on the muxed file.
+6. Sound is measured — VO is the master clock; loudness measured on the muxed file (-14 LUFS).
 7. Text must fit — Hindi is wider than Latin; measure, shrink, wrap; no overflow, no collisions.
 8. Cuts are a craft — official transition names/durations; captions above the composite; no snap-back.
 9. Verification before claims — encoded frames inspected, gates run, real numbers, unknowns stated.
-10. Protect the record — protected files never deleted; MEMORY grows; superseded rules get [OLD vX].
+10. Protect the record & Unpack Deliverables — protected files never deleted; deliverables always unpacked and visible, never buried in ZIPs.
 
 ---
 
@@ -37,16 +37,16 @@ this workspace works — same rules, same pipeline, same quality gates, same tra
 > then whatever the task needs (§6–§13) → §14 QA before delivery → §16 when something breaks.
 
 ### THE TEN NON-NEGOTIABLES
-1. **Finish the work.** Topic in → finished film out. Decide everything yourself; the only pause is the voice pick.
+1. **The 1-Gate Approval Pipeline.** Topic in → preview out (`comp.html`) → user gate → final MP4. Work autonomously through research, script, audio, and visual assets to build the interactive HTML preview. STOP at the gate. Never render final MP4 until the user explicitly approves or says *"render the video"*.
 2. **Frame = pure function of t.** Deterministic, seeded, re-renderable one second at a time.
 3. **No dead frames.** Every frame has motion at three scales; `motion_report` freezes = none.
-4. **Never slideshow.** Animate the real mechanism, not text over a zooming photo.
+4. **Real Source Media & AI Images — Never Diagrams Alone.** Animate real mechanisms; anchor every beat in authentic source media (PIB, press, official data cards, document scans) paired with photorealistic AI illustrations. No sterile diagrams or bare slideshows.
 5. **Facts or nothing.** Every number sourced + dated; disagreements shown, not averaged; labels on claims.
-6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file.
+6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file (-14 LUFS).
 7. **Text must fit.** Hindi is wider than Latin — measure, shrink, wrap; nothing overflows, nothing collides.
 8. **Cuts are a craft.** Official transition names/durations, captions above the composite, no snap-back.
 9. **Verification before claims.** Encoded-file frames inspected; gates run; real numbers reported; unknowns said plainly.
-10. **Protect the record.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`.
+10. **Protect the record & Unpack Deliverables.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`. All deliverables (thumbnails, titles, descriptions, SRT) must be presented unpacked and immediately visible—never buried exclusively in ZIPs.
 
 ### CONTENTS
 | § | Section |
@@ -110,9 +110,8 @@ government / infrastructure, India engineering, sourced history, and scams & cyb
 
 ## 2. THE USER'S LAWS (standing directives — verbatim where quoted, with current status)
 
-**L1 · Autonomy.** *"from now I only give you topic and you, using everything, make best videos."*
-Supersedes older approval gates. Do not hand over a first draft, do not ask "should I continue".
-The one exception is the voice audition.
+**L1 · Autonomy & The 1-Gate Approval Protocol.** *"from now I only give you topic and you, using everything, make best videos."*
+The agent executes autonomously through research, script, voiceover generation, visual asset creation, and building the interactive HTML preview (`comp.html`). However, the **1-Gate Approval Protocol** is mandatory: the agent must STOP at the preview gate and never render a final MP4 until the user explicitly approves or gives the command: *"render the video"*. (Older automatic rendering without preview gate is superseded).
 
 **L2 · Topic research first, then build.** When asked to find topics, research properly, save a
 shortlist file with verified numbers + sources + hook lines + risk notes, and let the user pick.
@@ -162,8 +161,9 @@ track. Mix targets in §12.
 
 **L11 · Visual style contract (Shorts).** Full-screen visuals that breathe; a compact glass card
 top zone (`rgba(10,14,20,0.78)`, thin accent bar) with a 3–4 word title and 2–4 tiny stat cells;
-a small bottom-left caption pill with a thin accent underline; a tiny top-right logo. **No
-dashboard clutter** — no fake timecode, no frame counter, no REC dot, no viewfinder brackets, no
+a small bottom-left caption pill with a thin accent underline; official Benaqaab OS logo in the
+**top-left safe area** (`x: 55px, y: 30–40px`, gold-glow border; older top-right guidance is `[SUPERSEDED]`).
+**No dashboard clutter** — no fake timecode, no frame counter, no REC dot, no viewfinder brackets, no
 `SOURCE //` watermarks, no stacked box walls: it reads as an unfinished render and costs
 retention. Never put the speaker continuously on screen — if a presenter is ever used, 1–2 s
 maximum in full screen, then back to full-screen visuals.
@@ -176,7 +176,7 @@ with dates** and say so in the narration. Never average them into a fake number.
 **L14 · Category variety.** Shortlists must mix categories; don't propose scams only.
 
 **L15 · Edits on request.** *"make me a anime edit ok"* → build **original** anime-style art and
-**original** music (nothing ripped, no existing characters/IP, no copyrighted songs), then apply
+original music (nothing ripped, no existing characters/IP, no copyrighted songs), then apply
 real edit grammar (beat cuts, impact frames, speed-ramp echoes). If the user supplies their own
 licensed clips, cut *those* on the same beat map.
 
@@ -187,6 +187,23 @@ master, and any of its QA/scratch caches; then begin with **fresh topic research
 last topic's material unless the user explicitly asks for a sequel or a new version. If the user
 names a topic, use that topic, but the wipe still happens first. Record the wipe in `MEMORY.md`
 (what was deleted, and which backup can restore it).
+
+**L17 · Three Dedicated Color Grading Profiles.**
+- **Profile A (Daily News & Global Roundups):** Neutral documentary grade. Natural color temperature, realistic skin tones, clean whites, balanced saturation, crisp contrast, zero orange/sepia tint (used in `projects/india_last_24h/`).
+- **Profile B (Benaqaab Forensic Dossier):** High-contrast B&W / desaturated stills with bold horizontal Red censor/classification band (`#ef4444` / `#dc2626`).
+- **Profile C (Historical / Archival Public Footage):** Warm sepia/orange base with dark-green horizontal band (`#22764e`) and 3% grain (`apply_public_video_grade.py`).
+
+**L18 · Media Sourcing & Multi-Story Rigor.**
+- Real source media & AI images — never diagrams alone.
+- In multi-topic roundups, independently find and curate suitable media for *every story* in the lineup, not just the headliner (Rahul Gandhi).
+
+**L19 · Autonomous Permission Handling.**
+- Do not re-prompt for permission once confirmed by the user. User confirmation is permanent for that workflow.
+- If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
+
+**L20 · Mandatory Unpacked Deliverables Standard.**
+- All deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg` / `thumbnail_1080x1920.png`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder.
+- In completion reports, the AI must explicitly display the thumbnail and quote the title and description directly. Never bury deliverables solely inside ZIP archives.
 
 ---
 
@@ -400,7 +417,7 @@ frame open). Letterboxing and empty decoration are banned; every pixel earns its
 - Top zone: ONE translucent glass card `rgba(10,14,20,0.78)` with a thin accent bar, a bold 3–4
   word title, and 2–4 compact stat cells (2–3 words each — no sentences).
 - Bottom-left: a small caption pill, 2–3 words visible at a time, thin accent underline.
-- Top-right: tiny logo (≈56×56 px, from `brand/logo.png`).
+- Top-left: official Benaqaab OS logo with gold glow border (`x: 55px, y: 30–40px`, from `source_images/benaqaab_os_logo.png` or `brand/logo.png`; older top-right placement is `[SUPERSEDED]`).
 - Safe zones: keep text inside x ≥ 70 px, and clear of the bottom ~300 px where platform UI sits.
   Caption band in the films we shipped: y ≈ 1592, height 148.
 - **Banned:** timecode, frame counters, REC dots, scene strips, viewfinder brackets, watermarks,
@@ -742,14 +759,16 @@ question; if the answer is weak, fix it before the next pass.
 `AUDIO_NOTES.md` · `README.md` · `QC_*.jpg`. Present the MP4 with `present_file` and state specs
 + decisions + what was not verified.
 
-**15.2 Upload pack (every delivery).**
-- **Titles:** 3 options, <60 characters, curiosity + clarity, no bait-and-switch, no quotes.
+**15.2 Upload pack (every delivery — MANDATORY UNPACKED STANDARD).**
+- **Unpacked Delivery Rule:** All deliverable files MUST exist as standalone, unpacked files at the project root / `delivery/` directory. In the final report to the user, the AI MUST explicitly display the thumbnail (via markdown image embed) and paste the title, description, and hashtags directly into the chat response. Never bury deliverables solely inside a ZIP archive.
+- **Titles:** 3 options, <60 characters, curiosity + clarity, no bait-and-switch, no quotes (`title.txt`).
 - **Description:** 2 punchy lines + 1 debate question. **No brackets of any kind** — `( ) [ ] < > { }`
   are banned in `description.txt` and pinned comments. Check length with `wc -c` (≤5,000).
-- **Hashtags:** 5–15, mix of `#shorts` + niche.
+- **Hashtags:** 5–15, mix of `#shorts` + niche (`hashtags_and_tags.txt`).
 - **Pinned comment:** the open question that drives comments (no brackets).
 - **Chapters** (long-form): first 0:00, ≥3, each ≥10 s, descriptive.
-- **Thumbnails:** 1280×720 + 1080×1920, 3–4 words, one big graphic, logo badge.
+- **Thumbnails:** 1280×720 (`thumbnail_1280x720.jpg`) + 1080×1920 (`cover_vertical_1080x1920.jpg`), 3–4 words, one big graphic, official Benaqaab logo badge.
+- **Captions:** Clean timestamped SRT file (`headline_captions.srt`).
 
 **15.3 Reporting style.** Concise Hinglish; lead with what is delivered and where; give measured
 numbers (duration, frames, size, LUFS, peak) — never "looks great"; list decisions; list what was

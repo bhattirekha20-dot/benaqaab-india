@@ -9,7 +9,7 @@
 
 | File Path | What It Shows | When to Use |
 |---|---|---|
-| `brand/reference_minimal_fullscreen.png` | **Chenab Bridge Full-Screen Minimal Short Layout:** 100% full-screen vertical visual, 1 translucent dark glass card at top (`BUILT FOR THE WORST` + 4 clean 2–3 word cells + thin `#f97316` orange top bar), tiny top-right circular logo, compact bottom-left 2-word caption pill (`chal sakti`) with orange underline. | **Every YouTube Short (`comp.html`) base layout** — zero dashboard clutter, 65–75% open screen. |
+| `brand/reference_minimal_fullscreen.png` | **Chenab Bridge Full-Screen Minimal Short Layout:** 100% full-screen vertical visual, 1 translucent dark glass card at top (`BUILT FOR THE WORST` + 4 clean 2–3 word cells + thin `#f97316` orange top bar), official top-left circular logo with gold glow, compact bottom-left 2-word caption pill (`chal sakti`) with orange underline. | **Every YouTube Short (`comp.html`) base layout** — zero dashboard clutter, 65–75% open screen. |
 | `brand/ref_investigative_1.png` | **(Left)** Back-lit investigator silhouette facing a dark evidence wall with a **glowing neon-gold India map** + newspaper clippings (`KYA AISA SCAM AAJ BHI...`). **(Right)** High-impact `VS` conflict board (`DO-KAUDI KE TEACHERS vs GODI MEDIA?`) with plunging 3D red bar chart (`80% CRASH`) + stamped evidence cards (`[VULNERABLE]`, `[BLACKLISTED]`, `[MISSING]`). | **Investigative Corkboard / Neon India Map scenes** & **Conflict / Whistleblower Thumbnails**. |
 | `brand/ref_investigative_2.png` | **(1)** `ALIENS YA JHOOTH?` — Top Secret manila folder + `[DECLASSIFIED]` stamp + newspaper clipping + magnifying glass + bottom agency seal bar. **(2)** `SHOOT SPACE SCAM` — B&W + blood-red rocket launch with giant `[SCAM]` rubber stamp + `-74.3%` red crash line. **(3)** `₹50 CRORE KA SCAM?` — Shocked Indian man holding phone with floating burning ₹500 notes + WhatsApp/Telegram popups + red curved arrows. | **Dossier / Declassified Motion Scenes** & **Emotional + Prop-Driven AI Thumbnails**. |
 | `brand/ref_investigative_3.png` | **(Left)** `₹4,000+ CRORES / SCAM EXPOSED` — Close-up investigator pointing right at a crumbling 3D red pyramid + flying notes + tilted red `[SCAM EXPOSED]` ribbon. **(Right)** `₹5 Cr ➔ ₹4000 Cr! / 800X LIE? SCAM!` — Visual math multiplier equation with arrow + presenter pointing. | **Multiplier Equation Motion Graphics (`A ➔ B = NX`)** & **Shorts/Longform Exposé Thumbnails**. |
@@ -86,6 +86,6 @@ To make our videos stand out and trend while keeping the screen **clean and uncl
   1. **100% Full-Screen (`1080×1920`) moving visual / 2.5D scene** (65–75% of screen open).
   2. **At most ONE minimal translucent glass card** (`rgba(12, 16, 22, 0.78)` + `6px` `#f97316` top accent line + 2–4 compact 2-word cells) OR **one kinetic center-screen equation/stamp**.
   3. **Compact bottom-left 2–3 word caption pill** (`chal sakti` style with `5px` orange underline).
-  4. **Tiny top-right circular channel logo (`64×64px`)**.
+  4. **Official top-left circular channel logo (`64×64px` with gold glow; older top-right placement is `[SUPERSEDED]`)**.
   5. **Speaker shown ONLY 1–2 seconds max in full screen** (never parked in the corner).
   6. **Always show `comp.html` first and wait for user approval before rendering the final MP4!**

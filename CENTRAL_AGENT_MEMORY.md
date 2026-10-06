@@ -25,16 +25,16 @@ sourced history, and scams & cyber-safety.
 
 ## §2 — THE TEN NON-NEGOTIABLES (never break these)
 
-1. **Finish the work.** Topic in → finished film out. Decide everything yourself; the only pause is the voice pick.
+1. **The 1-Gate Approval Pipeline.** Topic in → preview out (`comp.html`) → user gate → final MP4. Work autonomously through research, script, audio, and visual assets to build the interactive HTML preview. STOP at the gate. Never render final MP4 until the user explicitly approves or says *"render the video"*.
 2. **Frame = pure function of t.** Deterministic, seeded, re-renderable one second at a time.
 3. **No dead frames.** Every frame has motion at three scales; `motion_report` freezes = none.
-4. **Never slideshow.** Animate the real mechanism, not text over a zooming photo.
+4. **Real Source Media & AI Images — Never Diagrams Alone.** Animate real mechanisms; anchor every beat in authentic source media (PIB releases, official data cards, press photos, document scans) paired with photorealistic AI illustrations. No sterile diagrams or bare slideshows.
 5. **Facts or nothing.** Every number sourced + dated; disagreements shown, not averaged; labels on claims.
 6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file.
 7. **Text must fit.** Hindi is wider than Latin — measure, shrink, wrap; nothing overflows, nothing collides.
 8. **Cuts are a craft.** Official transition names/durations, captions above the composite, no snap-back.
 9. **Verification before claims.** Encoded-file frames inspected; gates run; real numbers reported; unknowns said plainly.
-10. **Protect the record.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`.
+10. **Protect the record & Unpack Deliverables.** Never delete protected files; `MEMORY.md` grows, superseded rules get `[OLD vX]`. All deliverables (thumbnails, titles, descriptions, SRT) must be presented unpacked and immediately visible—never buried exclusively in ZIPs.
 
 ---
 
@@ -194,43 +194,58 @@ Each skill file is a self-contained domain manual. **Never alter their code or l
 
 ---
 
-## §8 — THE 11-STEP PIPELINE (summary)
+## §8 — THE 11-STEP PIPELINE (1-Gate Approval Workflow)
 
 1. **Wipe** previous project (L16)
-2. **Research** the topic (verified facts, dated sources)
-3. **Sources** — build fact ledger
-4. **Concept** — scene-by-scene plan with timings
-5. **Script** — Hinglish narration with phonetic TTS marks
+2. **Research** the topic (verified facts, two dated primary sources)
+3. **Sources** — build fact ledger (`RESEARCH_FACT_LEDGER.md`, `SOURCES.md`)
+4. **Concept** — scene-by-scene plan with character-weighted timings
+5. **Script** — Hinglish narration with phonetic TTS marks and Frame-0 question hook
 6. **Voice** — narrator voice audition (the one pause)
-7. **Film HTML** — self-contained, deterministic, code-drawn
-8. **QA loop** — motion_report, peak detail gates, text overflow check
-9. **Audio master** — VO as master clock, measured loudness
-10. **Full render** — ffmpeg, verified from encoded file
-11. **Deliver** — MP4 + SRT + thumbnail + title + description + pinned comment
+7. **Visual Assets & HTML Preview** — source media + AI illustrations; assemble self-contained `comp.html`
+8. **GATE 1: USER PREVIEW APPROVAL (MANDATORY)** — Stop. Present interactive preview to user. No MP4 render without explicit greenlight.
+9. **Audio Master** — VO as master clock, measured loudness (-14 LUFS)
+10. **Full Render** — ffmpeg render executed ONLY upon user command (*"render the video"*), verified from encoded file
+11. **Deliver Unpacked** — Standalone root files (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) + optional backup ZIP. Display immediately to user.
 
-*Full details in `BENAQAAB_AI_AGENT_COMPACT.md` §4.*
+*Full details in `BENAQAAB_AI_AGENT_COMPACT.md` §4 and `MASTER_LESSONS_AND_CORRECTIONS_LOG.md` Part 5.*
 
 ---
 
-## §9 — VISUAL IDENTITY STANDARDS
+## §9 — VISUAL IDENTITY & PRODUCTION STANDARDS
 
+- **Logo Placement (Mandatory Standard):** Official Benaqaab OS logo placed in the **Top-Left Safe Area** of every frame (`x: 55px, y: 30–40px` in 9:16; `x: 55px, y: 35px` in 16:9). Retain native proportions and gold glow. All older "top-right" references are superseded.
+- **Three Dedicated Color Grading Profiles:**
+  - **Profile A (Daily News & Global Roundups):** Neutral documentary grade. Natural whites, authentic skin tones, crisp contrast, zero orange/sepia tint (used in `projects/india_last_24h/`).
+  - **Profile B (Benaqaab Forensic Dossier):** High-contrast B&W / desaturated stills with bold horizontal Red censor/classification band (`#ef4444` / `#dc2626`).
+  - **Profile C (Historical / Archival Public Footage):** Warm sepia/orange base with dark-green horizontal band (`#22764e`) and 3% grain (`apply_public_video_grade.py`).
+- **Media Sourcing Law:**
+  - **Real Source Media & AI Images — Never Diagrams Alone.**
+  - **Exhaustive Multi-Story Sourcing:** Find and assign suitable media for *every story* in a roundup, not just the headliner (Rahul Gandhi).
+- **Autonomous Execution Contract:**
+  - Do not re-prompt for permission once confirmed by the user.
+  - If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
+- **Unpacked Deliverables Standard:** Never bury thumbnails and descriptions solely inside ZIPs; always provide them unpacked at root and display directly in chat.
 - **Typography pairing:** Space Grotesk / Outfit / Syne (headlines) + Inter (body) + JetBrains Mono (code/data)
 - **Hindi text:** NotoSansDevanagari
-- **Color philosophy:** Deep chromatic slate/obsidian base (`#07090E`), frosted glass surfaces, vibrant accent per episode (each episode gets a unique "look")
 - **Motion:** GPU compositor-only (`transform`, `opacity`), 60fps target, spring deceleration, 3-scale ambient motion in every frame
 - **Frosted glass:** `backdrop-filter: blur(16px) saturate(180%)` with specular borders
 - **Organic grain:** SVG noise at 3–4% opacity across viewports
-- **Source footage style:** B&W with red-band accent (see `brand/style_refs/`)
 
 ---
 
 ## §10 — DELIVERED EPISODES REGISTRY
 
-| # | Title | Format | Duration | Look | Status |
+| # | Title | Format | Duration | Look / Grade | Status |
 |---|---|---|---|---|---|
+| SH-08 | Sona ₹1.5 Lakh Asli Bill (Gold Making Charges) | Short 9:16 | 0:57 | Profile A / Fin-Gold | ✅ Delivered |
+| SH-09 | India Last 24 Hours: Sabse Important Kya Badla? | Short 9:16 | 1:58 (118s) | Profile A (Neutral News) | ✅ Delivered |
+| SH-10 | India–Japan JCM: Carbon Credits Kise Milenge? | Short 9:16 | 1:47 (107s) | Profile A / Climate Tech | ✅ Delivered |
+| FL-05 | Kagaz Ki Machine: Teen Scams, Ek Hi Model | Film 16:9 | 12:40 | Profile B (Forensic Dossier) | ✅ Delivered |
+| FL-06 | Hugging Face AI Model Supply Chain Hack | Film 16:9 | 4:12 | Profile B (Cyber Forensic) | ✅ Delivered |
 | EP12 | NavIC: India ka apna GPS | Long-form 16:9 | 3:21 | ORBIT LEDGER | ✅ Delivered |
 | EP13 | Monsoon El Niño | Long-form 16:9 | 3:26 | RAIN LEDGER | ✅ Delivered |
-| EP14 | Bullet Train 2027 | Long-form 16:9 | 2:57 | — | ✅ Delivered |
+| EP14 | Bullet Train 2027 | Long-form 16:9 | 2:57 | HIGH SPEED RAIL | ✅ Delivered |
 | EP15 | Rupee 96 | Long-form 16:9 | 3:11 | EXCHANGE BOARD | ✅ Delivered |
 | EP16 | Made-in-India Chips | Long-form 16:9 | 3:47 | SILICON WAFER | ✅ Delivered |
 | S01 | Neon Blade (anime edit) | Short 9:16 | 0:47 | Neon anime | ✅ Delivered |

@@ -104,3 +104,99 @@ The following 5 leads from `NEW_TOPICS_2026-10-06.md` have been verified with pr
 5. **Topic E — Train Kavach 4.0 RDSO Specifications**
    - *Hook:* "Do train ek hi track par 130 km/h par aati hain — bina driver ke brake kaise lagta hai?"
    - *Data:* RDSO Kavach 4.0 certified; 10,000 locomotives; auto-braking reaction time under 0.1s.
+
+---
+
+## ⚖️ PART 5: RECONCILED PRODUCTION STANDARDS & CONFLICT RESOLUTIONS
+
+*Codified on 07 October 2026 to resolve all contradictions between historical project memory, compact guidelines, and current production practice.*
+
+### 5.1 Three Dedicated Project Color Grading Profiles (Resolving Color Conflict)
+
+Contradictory global rules regarding color grading have been permanently eliminated. All productions must specify and apply one of three dedicated profiles:
+
+| Profile | Target Genre | Color Palette & Visual Treatment | Technical Specification | Example Projects |
+|---|---|---|---|---|
+| **Profile A: Daily News & Global Roundup** *(The Clean Neutral Standard)* | Fast-paced daily news, roundups, policy bulletins, economic snapshots | **Neutral, modern, authentic documentary grade.** Natural color temperature, realistic skin tones, clean whites, balanced saturation, and crisp contrast. **Zero artificial warm, orange, or sepia cast.** Avoids muddy, dated looks on contemporary news photos and charts. | Clean source pass-through, neutral balanced levels, subtle lower-third gradient, edge-to-edge staging (`build_frames.py`). | `projects/india_last_24h/` (India Last 24 Hours / Worldwide Roundup) |
+| **Profile B: Benaqaab Forensic Dossier** *(The Investigative Standard)* | Investigative exposés, political controversies, corruption scandals, financial scams | **High-contrast monochrome / desaturated plate with a vibrant Red censor/classification band.** Dark obsidian slate base (`#07090E`), deep blacks, stark highlights, and signature horizontal red banner (`#ef4444` / `#dc2626`). | Luminance conversion + contrast boost + horizontal red accent band + 4% organic grain (`brand/ref_investigative_2.png`). | `projects/voter_list_sir/`, `projects/kagaz_ki_machine/` |
+| **Profile C: Historical & Archival Footage** *(The Retro Public Video Standard)* | Historical flashbacks, declassified archival footage, vintage public records | **Warm filmic sepia/orange base with a dark-green horizontal glitch band.** Evokes analog tape and archival government records without altering facial geometry or speech clarity. | BGR to luminance -> warm sepia map (RGB 182, 106, 58) + floating dark green band (`#22764e`) + Gaussian noise (`apply_public_video_grade.py`). | Retrospective archival segments, historical flashbacks |
+
+> **Directive:** Do NOT apply Profile C's warm sepia/orange grading to Profile A daily news roundups. The latest correction on the worldwide news preview explicitly mandates **Profile A (Neutral Grade)** to preserve crisp contemporary realism.
+
+---
+
+### 5.2 Conflict Resolution 1: Rendering Gate (Preview First vs. Automatic Render)
+
+- **Old Compact Rule:** *"Finish the work — topic in, finished film out; proceed automatically without stopping."* `[DEPRECATED & SUPERSEDED]`
+- **Official Reconciled Rule:** **The 1-Gate Approval Protocol is Mandatory.**
+- **The Execution Contract:**
+  1. **Phase 1 (Autonomous):** Research topic, build verified two-source fact ledger, write conversational Hinglish script, record/synthesize narration audio with phonetic marks, produce all visual assets (source media + AI illustrations), and build the self-contained interactive HTML preview (`comp.html`).
+  2. **Phase 2 (The Gate):** **STOP.** Present the interactive preview (`comp.html`), audio timestamps, and visual proof to the user.
+  3. **Phase 3 (Authorization):** Render the final `.mp4` video via FFmpeg/canvas **ONLY** when the user explicitly commands: *"render the video"*, *"approved"*, or *"proceed to render"*.
+  4. If the user previously stated *"do not render until I tell you"*, that instruction remains active across all turns until explicitly lifted.
+
+---
+
+### 5.3 Conflict Resolution 2: Logo Placement (Top-Left Standard)
+
+- **Old Guidance:** Early templates occasionally referenced a *"tiny top-right logo"*. `[SUPERSEDED]`
+- **Official Reconciled Rule:** **Official Benaqaab OS Logo in Top-Left Safe Area.**
+- **Placement Parameters:**
+  - **Vertical (9:16 · 1080×1920):** Top-Left corner at `x: 55px, y: 30–40px`.
+  - **Widescreen (16:9 · 1920×1080):** Top-Left corner at `x: 55px, y: 35px`.
+  - **Asset:** Must use the authentic `source_images/benaqaab_os_logo.png` / `brand/logo.png`.
+  - **Styling:** Retain native circular proportions and the signature gold-glow border. Never crop, recolor, distort, or replace the logo with plain typed text.
+
+---
+
+### 5.4 Mandatory Unpacked Deliverables Standard & Immediate Display
+
+- **Historical Incident Recorded:** In October 2026 audits, critical deliverables (thumbnails, titles, descriptions, tags, SRT) were left buried exclusively inside ZIP archives (`workspace-*.zip`, `Benaqaab_India_COMPLETE_PACKAGE.zip`), causing severe friction, lost time, and verification failures for agents and the user.
+- **Mandatory Deliverables Standard:**
+  1. Every completed production must generate and store standalone, **unpacked files** in the project `delivery/` directory and/or project root:
+     - `thumbnail_1280x720.jpg` — 16:9 high-contrast landscape thumbnail.
+     - `cover_vertical_1080x1920.jpg` or `thumbnail_1080x1920.png` — 9:16 Shorts thumbnail with curiosity sharpener text.
+     - `title.txt` — Primary video title and approved high-CTR variants.
+     - `description.txt` — Full YouTube description with timestamps, sources, and disclosures.
+     - `hashtags_and_tags.txt` — Keyword tags and SEO hashtags.
+     - `headline_captions.srt` — Timestamped caption file.
+  2. **Immediate Presentation in Chat:** In the final report, the AI must explicitly display the thumbnail (using markdown image embeds `![Thumbnail](...)`), quote the title and description directly, and link to the files. **Never say "the deliverables are inside the ZIP".** A ZIP bundle may be provided as an optional archive, but the deliverables must always be immediately visible and accessible outside the ZIP.
+
+---
+
+### 5.5 Visual Sourcing & Multi-Story Rigor (Prominent Checklist)
+
+- **Real Source Media & AI Images — Never Diagrams Alone:**
+  - Benaqaab India is a hard-hitting visual investigative documentary channel. Abstract geometric diagrams, sterile UI mockups, or lone infographic charts are NOT acceptable as the primary visual.
+  - The visual spine must always be **real source media** (official government releases, PIB infographics, press conference photos, agency stills, satellite imagery, verified document scans, news coverage) combined with **photorealistic, high-detail AI-generated illustrations**. Diagrams and motion graphics are supporting layers, never the sole visual presentation.
+- **Exhaustive Multi-Story Visual Sourcing (Independent Curation):**
+  - In multi-topic roundups (such as daily news digests), the AI must independently locate, curate, or create distinct, high-quality visual assets for *every single story* in the lineup.
+  - Sourcing must not be concentrated solely on one high-profile personality (e.g. Rahul Gandhi). Equal editorial care and visual proof must be given to economic funds, infrastructure, defence appointments, enforcement seizures, scientific data, weather, and sports.
+  - Every story beat must have its own assigned visual proof plate and clear attribution.
+
+---
+
+### 5.6 Autonomous Execution vs. Retrieval Feasibility
+
+- **Rule on User Permission:**
+  - Once the user gives confirmation or direction (e.g., *"I have reuse permission for all clips"* or *"proceed with these sources"*), that confirmation is permanent for the workflow. The AI must **never repeatedly re-prompt the user for permission**.
+- **Rule on Retrieval Feasibility (Technical Failures):**
+  - A technical failure to download third-party files (e.g. HTTP 403, Cloudflare/bot challenge, login wall, private account) is entirely separate from user permission.
+  - If a file cannot be retrieved due to technical barriers, do NOT stall the production and do NOT ask for permission again. Immediately and autonomously fall back to verified public stills, official data cards, and high-resolution agency releases, documenting the technical reason in the asset audit ledger (`PUBLIC_VIDEO_AUDIT.md`).
+
+---
+
+### 5.7 Current Worldwide & India 24H Production Dossier
+
+The complete production assets for `projects/india_last_24h/` are verified and tracked:
+- **Project Path:** `projects/india_last_24h/`
+- **Topic:** India & Worldwide 24-Hour Intelligence Roundup (7 October 2026).
+- **Format:** 9:16 Shorts · 1080×1920 · 24fps · Duration: 118.07 seconds.
+- **Master Video:** `VIDEOS/10_India_Last_24H_SHORT_118s.mp4`.
+- **Narration Audio Stems:** `narration_01.mp3` (65.38s) + `narration_02.mp3` (53.50s) -> `delivery/narration_final.wav`.
+- **Scene Timings:** 14 scenes synchronized via character-weighted narration timestamps (`narration_timing.json` & `delivery/scene_timing.json`).
+- **Images:** 14 full-bleed plates (`preview_bg_01.jpg` through `14.jpg`, `render_frame_01.jpg` through `14.jpg`), incorporating official PIB SME graphics, ITLA transport charter, Air Chief portrait, DRI gold seizure photos, NCS earthquake seismograph, and BCCI scorecard.
+- **Color Grading:** **Profile A (Neutral Documentary Grade)** — crisp natural contrast, clean whites, zero orange/sepia tint.
+- **Source Ledger:** `RESEARCH_FACT_LEDGER.md`, `SOURCES.md`, `PUBLIC_ASSET_MANIFEST.md`, `PUBLIC_VIDEO_AUDIT.md`.
+- **QA Results:** `delivery/TECHNICAL_QC.txt` (Full decode test passed, 0 freeze frames, -14.2 LUFS integrated loudness).
+

@@ -5354,3 +5354,44 @@ ambient plane moved to y 1516 / scale 0.36 to clear the recall chips and the cap
 - Language: Conversational Hinglish; full-screen visuals; zero permanent bottom reels/HUDs.
 - Thumbnail rules: Must convey full core idea with large readable text, no clipping, high curiosity gap, clean plates provided for user polish.
 
+---
+
+## § 152 — NEW PRODUCTIONS AUDITED & ENROLLED IN CANONICAL REPO — 2026-10-07
+
+The following 4 productions from local workspace archives were audited and catalogued in the central repository:
+1. **SH-09: India Last 24 Hours (Worldwide News Roundup):** 118.07s Short (9:16 · 1080×1920 · 24fps) at `VIDEOS/10_India_Last_24H_SHORT_118s.mp4`. 14 scenes, official DRI/ECI/PIB/NCS/BCCI cards, timed dual narration audio stems (`narration_01.mp3`, `narration_02.mp3`), Profile A neutral color grade.
+2. **SH-10: India–Japan JCM Carbon Credits:** 107s Short (9:16 · 1080×1920) at `VIDEOS/11_India_Japan_JCM_SHORT_107s.mp4`. Article 6.2 bilateral credit accounting, corresponding adjustments, and anti-double-counting mechanics.
+3. **FL-05: Kagaz Ki Machine (Teen Scams, Ek Hi Model):** 12m 40s Film (16:9) at `projects/kagaz_ki_machine/`. ED ₹734 Cr fake ITC invoicing, 135 shell entities, scrap book recycling, 0.88% wapsi hawala network.
+4. **FL-06: Hugging Face AI Model Supply Chain Hack:** 4m 12s Film (16:9) at `projects/ai_hf_hack/`. Pickle deserialization vulnerability, 100+ stolen weights.
+
+---
+
+## § 153 — RECONCILED PRODUCTION STANDARDS & CONFLICT RESOLUTIONS — 2026-10-07
+
+Based on user review against repo revision `4f90f83`, all operational conflicts and missing standards have been formally resolved:
+
+1. **Three Project Color Grading Profiles (Resolving Color Conflict):**
+   - **Profile A (Daily News & Worldwide Roundups):** Neutral documentary grade with natural whites, true skin tones, balanced saturation, and crisp contrast. Strictly avoids artificial orange/sepia warmth on modern news and official charts (`projects/india_last_24h/`).
+   - **Profile B (Benaqaab Forensic Dossier):** High-contrast B&W / desaturated base with signature horizontal Red censor band (`#ef4444`). Used for corruption investigations and financial crime exposés (`projects/voter_list_sir/`, `projects/kagaz_ki_machine/`).
+   - **Profile C (Historical / Archival Public Footage):** Warm sepia/orange base with dark-green horizontal band (`#22764e`) and 3% grain (`apply_public_video_grade.py`). Reserved specifically for archival/retro footage; does NOT overwrite Profile A.
+
+2. **1-Gate Approval Protocol vs Automatic Rendering (Resolving Rendering Conflict):**
+   - The **1-Gate Approval Protocol** is the supreme law. Older compact instructions to "proceed automatically to final MP4 without stopping" are `[DEPRECATED & SUPERSEDED]`.
+   - Agents work autonomously through research, script, voiceover, visual asset production, and the interactive HTML preview (`comp.html`).
+   - At the preview gate, the agent MUST STOP and present `comp.html` to the user. Final MP4 rendering occurs ONLY upon explicit user command (*"render the video"*).
+
+3. **Top-Left Logo Placement (Resolving Logo Conflict):**
+   - The official Benaqaab OS logo must be positioned in the **Top-Left Safe Area** (`x: 55px, y: 30–40px` in 9:16; `x: 55px, y: 35px` in 16:9) with its native proportions and gold glow. All older "top-right" mentions are `[SUPERSEDED]`.
+
+4. **Mandatory Unpacked Deliverables Standard (Recording Prior Friction):**
+   - In October 2026 audits, deliverables (thumbnails, descriptions, tags, SRT) were buried inside nested ZIP archives, creating severe friction and delay in verification.
+   - Henceforth, all deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder AND displayed directly to the user in chat reports.
+
+5. **Visual Sourcing & Multi-Story Rigor:**
+   - **Real Source Media & AI Images — Never Diagrams Alone.**
+   - In multi-topic roundups, independently source and curate suitable media for *every story* in the lineup, not just the headliner (Rahul Gandhi).
+
+6. **Autonomous Permission Handling:**
+   - Do not re-prompt for permission once confirmed by the user. If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
+
+

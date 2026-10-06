@@ -19,6 +19,11 @@ projects/**/vo/
 vo/
 projects/voter_list_sir/comp.html
 
+# Whitelist essential lightweight project audio and retrieval audit logs
+!projects/india_last_24h/*.mp3
+!projects/india_last_24h/video_assets/*.log
+!projects/india_japan_jcm/*.mp3
+
 # ─── Private user uploads & phone screenshots ─
 uploads/
 uploads/*
@@ -68,3 +73,4 @@ build/
 
 # ─── Logs ────────────────────────────────────
 *.log
+!projects/india_last_24h/video_assets/*.log

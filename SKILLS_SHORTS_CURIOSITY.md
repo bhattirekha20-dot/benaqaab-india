@@ -187,9 +187,8 @@ In addition to the 7 skill repositories in §1–§6, we cloned and inspected th
    - ❌ Never stack multiple boxes on screen (no top status bar, no `[01]..[05]` slot strip, no bottom-left `BENAKAB INDIA` card, no `VERIFIED DISPATCH // SOURCE` strip, no `SOURCE //` watermarks on full-screen visuals, no giant full-width caption box).
 2. **Gold-Standard Layout (`brand/reference_minimal_fullscreen.png`):**
    - **Full-Screen `1080×1920` Visuals / Video:** Every B-roll clip, photo plate, and motion graphic fills the entire `1080×1920` frame edge-to-edge (`max view`), leaving **65–75% of the screen open** so the visual and motion graphics breathe.
-   - **Minimal Translucent Glass Card (Top Zone):** One clean dark glass card (`rgba(10, 14, 20, 0.78)`, thin top accent bar) with a bold 3–4 word title (`BUILT FOR THE WORST`) and 2–4 compact stat cells (`266 km/h`, `Zone V (max)` — 2 to 3 words per cell max, zero long sentences).
    - **Compact Bottom-Left Caption Pill:** Small tight dark pill at bottom-left (`chal sakti`) showing 2–3 words at a time with a thin orange/gold underline.
-   - **Tiny Top-Right Logo Only:** Small circular logo in top-right (`56×56px`).
+   - **Official Top-Left Logo:** Official Benaqaab OS logo in the top-left safe area (`x: 55px, y: 30–40px`, gold-glow border; older top-right placement is `[SUPERSEDED]`).
 3. **Speaker Visibility — 1 to 2 Seconds MAX in Full Screen:**
    - Do **NOT** keep the speaker continuously in the corner. Show the speaker **only for 1 to 2 seconds max** in full screen, and keep the rest of the Short 100% full-screen visuals & motion graphics.
 4. **HTML-First Approval Gate (`comp.html` BEFORE Final MP4 Render):**
