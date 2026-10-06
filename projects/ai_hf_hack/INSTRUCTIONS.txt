@@ -1,0 +1,68 @@
+============================================================
+VIDEO FOLDER  —  "जब एक AI ने खुद Hugging Face हैक कर लिया"
+projects/ai_hf_hack/   (landscape 1920×1080, 30 fps)
+============================================================
+
+FOLDER ME KYA HAI
+-----------------
+film.html          → पूरा फिल्म — डबल-क्लिक करो, Chrome/Edge में खुलेगा
+                     (picture + VO audio दोनों चलेंगे)
+thumbnail.jpg      → YouTube thumbnail (ready, 1280×720)
+DESCRIPTION.txt    → YouTube description — title options + chapters + poore sources + tags (copy-paste)
+TAGS.txt           → YouTube tags (comma copy-paste)
+chapters.txt       → YouTube chapter timestamps (copy-paste)
+SOURCES.md         → हर दावा का सोर्स+तारीख़ — description के लिए
+SCRIPT.md          → पूरा 22-scene Hinglish स्क्रिप्ट
+timeline.json      → timing (automated — haath se mat badlo)
+audio/             → VO clips (vo00.mp3 … vo21.mp3)
+images/            → AI background plates (img_s0 … img_s21)
+web/               → असली logos (OpenAI, Hugging Face, JFrog, Nvidia)
+qa/probe.mp4       → 2-sec pipeline test video
+build/             → engine (build_film.py + scenes.py) — rebuild ke liye
+
+1) PREVIEW
+-----------
+film.html खोलो → play होगा (ऊपर progress चलती है, captions,
+dates और हर नंबर के नीचे सोर्स लिखा है)।
+
+2) अपने PC पर FINAL VIDEO बनाना (एक बार में)
+----------------------------------------------
+ज़रूरत: Python 3 + ffmpeg + playwright
+
+  Windows (cmd में):
+     winget install ffmpeg
+     pip install playwright
+     playwright install chromium
+     render.bat          ← डबल-क्लिक करो, खत्म होने दो
+
+  Linux/Mac (terminal):
+     sudo apt install ffmpeg          (Mac: brew install ffmpeg)
+     pip install playwright && playwright install chromium
+     bash render.sh
+
+→ काम पूरा:  AI_hacked_HuggingFace_FINAL.mp4  (1080p30 + VO)
+→ बीच में रुको तो दोबारा चलाओ — resume करता है (पुरानी frames छोड़ देता है)।
+→ टाइम: लगभग 3–4 घंटे (PC के हिसाब से; probe rate ~0.8 s/frame)।
+
+3) UPLOAD PACK
+--------------
+   AI_hacked_HuggingFace_FINAL.mp4
+ + thumbnail.jpg
+ + description: SOURCES.md की lines copy-paste
+ + chapters: chapters.txt copy-paste
+ + tags: OpenAI, Hugging Face, AI security, sandbox escape, agentic AI
+
+STATUS — ALL GREEN ✅ (6 Oct 2026)
+----------------------------------
+✅ research + 22-scene script + engine/ + QA + thumbnail
+✅ VO 22/22 · AI plates 22/22 · real logos 16 · film.html 6.8 MB
+✅ film = 11:00 (660.6 s) — sab 22 durations REAL (ffprobe-verified)
+✅ master audio 659.6 s (22 VOs, exact offsets)
+✅ chapters: 0:00 · 2:16 · 5:10 · 7:46 · 10:03
+✅ Nvidia–HF verified: $12.93 bn, 3 Sep 2026 (TechCrunch)
+✅ render pipeline probe GREEN (qa/probe.mp4 + qa/probe2.mp4)
+→ बस render.sh / render.bat चलाओ = FINAL.mp4 बन जाएगा।
+
+NOTE: मैं render खुद नहीं करता — final video आप अपने PC पर ऊपर वाले
+      कदमों से बनाएँगे (standing rule: DO NOT RENDER)।
+============================================================

@@ -1,0 +1,47 @@
+════ FINAL CHECK — 06 Oct 2026 17:54 ════
+
+-- FILES --
+  OK  film.html             6756297 bytes
+  OK  audio_master.mp3     15832128 bytes
+  OK  thumbnail.jpg          220961 bytes
+  OK  DESCRIPTION.txt          7962 bytes
+  OK  TAGS.txt                  553 bytes
+  OK  chapters.txt             1732 bytes
+  OK  INSTRUCTIONS.txt         3642 bytes
+  OK  SCRIPT.md               24359 bytes
+  OK  SOURCES.md              10703 bytes
+  OK  timeline.json            4459 bytes
+  OK  render.py                2184 bytes
+  OK  render.sh                1015 bytes
+  OK  render.bat                947 bytes
+  OK  make_audio.sh            2412 bytes
+  OK  make_audio.bat           2403 bytes
+
+-- AUDIO (22 VO) --
+  VO clips: 22/22
+  ffprobe unavailable (env reset) — master last built at final green run: 659.6s
+
+-- VISUALS --
+  AI plates: 22/22
+  web logos: 14
+
+-- PYTHON SANITY (timeline vs files) --
+  timeline scenes: 22 | vo missing: none
+  film.html embeds data: True | plates missing: none
+  total runtime: 660.6s (11:00)
+  chapters: 22 act starts -> ['0:00', '0:28', '0:52', '1:19', '1:48', '2:16', '2:45', '3:21', '3:50', '4:14', '4:44', '5:10', '5:36', '6:08', '6:38', '7:12', '7:46', '8:15', '8:48', '9:28', '10:03', '10:39']
+
+-- QA --
+  qa/contact_sheet.jpg
+  qa/probe.mp4
+  qa/probe2.mp4
+  qa/still_00_t0018.png
+  qa/still_01_t0188.png
+  qa/still_02_t0387.png
+  qa/still_03_t0553.png
+  qa/still_04_t0626.png
+  qa/still_05_t0652.png
+
+-- SPACE --
+  41M	.
+════ RESULT: ALL GREEN — READY TO RENDER ════

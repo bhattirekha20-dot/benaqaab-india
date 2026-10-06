@@ -64,10 +64,69 @@ class BenaqaabOS {
     const def = JSON.parse(JSON.stringify(window.BENAQAAB_DATABASE));
     if (!state) return def;
 
-    // Defensive merge for new feature modules
-    if (!state.evidenceCases || state.evidenceCases.length === 0) state.evidenceCases = def.evidenceCases;
-    if (!state.retentionBlueprints || state.retentionBlueprints.length === 0) state.retentionBlueprints = def.retentionBlueprints;
-    if (!state.promptTemplates || state.promptTemplates.length === 0) state.promptTemplates = def.promptTemplates;
+    // Defensive merge for productions
+    if (state.productions && Array.isArray(state.productions)) {
+      def.productions.forEach(dp => {
+        const existing = state.productions.find(sp => sp.id === dp.id);
+        if (!existing) {
+          state.productions.push(dp);
+        } else {
+          // Sync media links and project paths if missing
+          if (!existing.videoFile && dp.videoFile) existing.videoFile = dp.videoFile;
+          if (!existing.thumbnailCuriosity && dp.thumbnailCuriosity) existing.thumbnailCuriosity = dp.thumbnailCuriosity;
+          if (!existing.thumbnailClean && dp.thumbnailClean) existing.thumbnailClean = dp.thumbnailClean;
+          if (!existing.thumbnailLandscape && dp.thumbnailLandscape) existing.thumbnailLandscape = dp.thumbnailLandscape;
+          if (!existing.projectPath && dp.projectPath) existing.projectPath = dp.projectPath;
+          if (!existing.htmlComp && dp.htmlComp) existing.htmlComp = dp.htmlComp;
+        }
+      });
+    } else {
+      state.productions = def.productions;
+    }
+
+    // Defensive merge for topics
+    if (state.topics && Array.isArray(state.topics)) {
+      def.topics.forEach(dt => {
+        if (!state.topics.some(st => st.id === dt.id)) {
+          state.topics.push(dt);
+        }
+      });
+    } else {
+      state.topics = def.topics;
+    }
+
+    // Defensive merge for evidence cases
+    if (state.evidenceCases && Array.isArray(state.evidenceCases)) {
+      def.evidenceCases.forEach(dc => {
+        if (!state.evidenceCases.some(sc => sc.id === dc.id)) {
+          state.evidenceCases.push(dc);
+        }
+      });
+    } else {
+      state.evidenceCases = def.evidenceCases;
+    }
+
+    // Defensive merge for retention blueprints
+    if (state.retentionBlueprints && Array.isArray(state.retentionBlueprints)) {
+      def.retentionBlueprints.forEach(db => {
+        if (!state.retentionBlueprints.some(sb => sb.id === db.id)) {
+          state.retentionBlueprints.push(db);
+        }
+      });
+    } else {
+      state.retentionBlueprints = def.retentionBlueprints;
+    }
+
+    // Defensive merge for prompt templates
+    if (state.promptTemplates && Array.isArray(state.promptTemplates)) {
+      def.promptTemplates.forEach(dp => {
+        if (!state.promptTemplates.some(sp => sp.id === dp.id)) {
+          state.promptTemplates.push(dp);
+        }
+      });
+    } else {
+      state.promptTemplates = def.promptTemplates;
+    }
 
     return state;
   }

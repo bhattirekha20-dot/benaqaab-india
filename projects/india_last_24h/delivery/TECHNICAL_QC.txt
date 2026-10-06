@@ -1,0 +1,47 @@
+Full audio/video decode test. Exit code: 0
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/user/india_last_24h_short/delivery/Benaqaab_India_07_Oct_2026.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.1.100
+  Duration: 00:01:58.08, start: 0.000000, bitrate: 548 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920 [SAR 1:1 DAR 9:16], 347 kb/s, 24 fps, 24 tbr, 12288 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 96000 Hz, mono, fltp, 194 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.1.100
+  Stream #0:0(und): Video: wrapped_avframe, yuv420p(progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 200 kb/s, 24 fps, 24 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 wrapped_avframe
+  Stream #0:1(und): Audio: pcm_s16le, 96000 Hz, mono, s16, 1536 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 pcm_s16le
+frame=  306 fps=0.0 q=-0.0 size=N/A time=00:00:12.75 bitrate=N/A speed=25.5x    
+frame=  641 fps=641 q=-0.0 size=N/A time=00:00:26.70 bitrate=N/A speed=26.7x    
+frame=  988 fps=659 q=-0.0 size=N/A time=00:00:41.16 bitrate=N/A speed=27.4x    
+frame= 1329 fps=664 q=-0.0 size=N/A time=00:00:55.37 bitrate=N/A speed=27.7x    
+frame= 1659 fps=663 q=-0.0 size=N/A time=00:01:09.12 bitrate=N/A speed=27.6x    
+frame= 1999 fps=666 q=-0.0 size=N/A time=00:01:23.33 bitrate=N/A speed=27.8x    
+frame= 2283 fps=652 q=-0.0 size=N/A time=00:01:35.12 bitrate=N/A speed=27.2x    
+frame= 2604 fps=651 q=-0.0 size=N/A time=00:01:48.50 bitrate=N/A speed=27.1x    
+[out#0/null @ 0x2bf6bf00] video:1218KiB audio:22134KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 2834 fps=656 q=-0.0 Lsize=N/A time=00:01:58.07 bitrate=N/A speed=27.3x    

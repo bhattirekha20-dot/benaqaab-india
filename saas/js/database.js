@@ -24,6 +24,278 @@ const BENAQAAB_DATABASE = {
   // 1. All Registered Channel Productions & Pipeline Stages
   productions: [
     {
+      id: "SH-09",
+      serial: "SH-09",
+      title: "India Last 24 Hours: Sabse Important Kya Badla?",
+      format: "Shorts (9:16)",
+      duration: "118s",
+      category: "Daily Intelligence / Current Affairs",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-07",
+      videoFile: "../VIDEOS/10_India_Last_24H_SHORT_118s.mp4",
+      projectPath: "projects/india_last_24h/",
+      htmlComp: "../projects/india_last_24h/comp.html",
+      thumbnailCuriosity: "../projects/india_last_24h/thumbnail_curiosity_text_1080x1920.png",
+      thumbnailClean: "../projects/india_last_24h/thumbnail_curiosity_text_1080x1920.png",
+      thumbnailLandscape: "../projects/india_last_24h/thumbnail_curiosity_text_1080x1920.png",
+      lufs: -14.2,
+      hook: "Pichhle 24 ghanton mein desh mein kya badla? 4 badi khabrein jinka asar aapki jeb aur zindagi par padega.",
+      sources: ["Election Commission SIR Notification", "DRI ₹10,000 Cr Gold Seizure Report", "National Centre for Seismology", "BCCI Official / WTC Table"],
+      description: "Daily intelligence roundup: 1. ECI voter list SIR controversy and Form 6 declarations, 2. DRI busts ₹10,000 Crore international gold syndicate, 3. Delhi-NCR felt 4.3 magnitude earthquake tremors, 4. India women's cricket team sets 172-run target against West Indies.",
+      scriptText: "Pichhle 24 ghanton mein desh mein kya badla? Char aisi badi khabrein jo aapko pata honi chahiye. Pehli badi khabar — Election Commission ne shuru kiya hai Special Intensive Revision yani SIR. 13 crore naamon ke delete hone ki afwaah ke beech Supreme Court ne saaf kiya ki draft roll ka matlab final deletion nahi hota. Dusri badi khabar — DRI ne Mumbai aur Surat mein mara chhaapa aur 10,000 crore rupaye ke illegal gold smuggling syndicate ka bhandaphod kiya. Teesri khabar — Delhi-NCR aur uttar Bharat ke kai ilaqon mein der raat 4.3 magnitude ke bhukamp ke jhatke mehsoos kiye gaye. Epicenter Haryana ke paas tha. Chauthi khabar — India women cricket team ne West Indies ke khilaaf 171 run banakar 172 ka target diya aur thrilling match jeeta. Inmein se kis mudde par aap full explainer chahte hain? Comment kijiye aur Benaqaab India follow kijiye!",
+      titles: [
+        "INDIA 24 HOURS: KYA BADLA? 4 Badi Khabrein",
+        "Last 24 Hours in India: Vote Row, 10,000 Cr Gold, Earthquake",
+        "24 Ghante Mein Bharat: Kya Badla Aapki Zindagi Mein?",
+        "ECI Voter Row to Gold Syndicate Bust: 24H Roundup",
+        "4 Big News in 24 Hours: Benaqaab Daily Intelligence"
+      ],
+      seoDescription: "Pichhle 24 ghanton mein desh mein kya badla? Benaqaab India presents the daily investigative roundup.\n\n1. ECI Voter List SIR Revision Update & Supreme Court Hearing\n2. DRI Busts ₹10,000 Crore Gold Smuggling Syndicate\n3. Delhi-NCR Earthquake Tremors (Magnitude 4.3)\n4. India Women vs West Indies Cricket Victory (Target 172)\n\n⏱️ TIMESTAMPS:\n0:00 24 Ghante Mein Desh Mein Kya Badla?\n0:12 1. ECI Voter List SIR Controversy\n0:38 2. DRI ₹10,000 Crore Gold Syndicate Bust\n1:08 3. Delhi-NCR Earthquake Report\n1:32 4. India vs West Indies Cricket Finish\n1:50 Comment Your Choice & Subscribe\n\n#IndiaNews #DailyRoundup #ECI #GoldSmuggling #DRI #Earthquake #Cricket #BenaqaabIndia #Shorts",
+      pinnedComment: "In 4 khabron mein se kis mudde par aapko detail mein Benaqaab India documentary chahiye? Comment karke batayein!",
+      tags: ["BenaqaabIndia", "IndiaNews", "DailyRoundup", "ECI", "VoterList", "GoldSmuggling", "DRI", "Earthquake", "Cricket", "Shorts"],
+      viewsEstimate: "180K Target",
+      qaScore: 100
+    },
+    {
+      id: "SH-10",
+      serial: "SH-10",
+      title: "India-Japan JCM: Carbon Credits Kise Milenge?",
+      format: "Shorts (9:16)",
+      duration: "107s",
+      category: "Climate Diplomacy / Energy",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-06",
+      videoFile: "../VIDEOS/11_India_Japan_JCM_SHORT_107s.mp4",
+      projectPath: "projects/india_japan_jcm/",
+      htmlComp: "../projects/india_japan_jcm/comp.html",
+      thumbnailCuriosity: "../projects/gold_150k/thumbnail_curiosity_text_1080x1920.jpg",
+      thumbnailClean: "../projects/gold_150k/thumbnail_clean_base_1080x1920.jpg",
+      thumbnailLandscape: "../projects/gold_150k/thumbnail_curiosity_text_1280x720.jpg",
+      lufs: -14.0,
+      hook: "CREDIT KISE MILEGA? Kya ek carbon emission cut do baar count ho sakta hai?",
+      sources: ["Article 6.2 Paris Agreement", "Joint Crediting Mechanism (JCM) Bilateral Treaty", "Ministry of Environment, Forest and Climate Change (MoEFCC)"],
+      description: "India and Japan sign landmark bilateral Joint Crediting Mechanism (JCM) under Article 6.2 of the Paris Agreement. Decodes how carbon credits are verified, priced, and split without double-counting.",
+      scriptText: "CREDIT KISE MILEGA? Kya ek carbon emission cut do baar count ho sakta hai? India aur Japan ke beech ek aisi deal sign hui hai jo climate finance ko badal degi. Iska naam hai Joint Crediting Mechanism yani JCM. Article 6.2 ke tehat, Japan India ke solar aur green hydrogen projects mein tech aur investment lagayega. Badle mein jo carbon emission kam hoga, uska credit dono deshon ke beech bat-ta hai. Par sabse bada sawal hai: corresponding adjustment ka rule kaise ensure karega ki double-counting na ho? Paris Agreement ka kanoon saaf kehta hai ki ek tonne CO2 bachat sirf ek hi desh apne climate target mein count kar sakta hai.",
+      titles: [
+        "India-Japan JCM Deal: Carbon Credits Kise Milenge?",
+        "Article 6.2 Explained: Tokyo-Delhi Climate Treaty",
+        "Double Counting Ka Jhol? Joint Crediting Mechanism Decoded",
+        "Green Hydrogen & Solar: India-Japan Carbon Math",
+        "Who Owns India's Carbon Credits? Benaqaab Explainer"
+      ],
+      seoDescription: "India-Japan bilateral Joint Crediting Mechanism (JCM) explainer under Article 6.2 of the Paris Agreement.\n\n#IndiaJapan #CarbonCredits #ClimateChange #GreenHydrogen #ParisAgreement #BenaqaabIndia #Shorts",
+      pinnedComment: "Kya Bharat ko apne carbon credits videshi deshon ko transfer karne chahiye ya apne NDC targets ke liye bachane chahiye? Comment karein!",
+      tags: ["BenaqaabIndia", "IndiaJapan", "CarbonCredits", "JCM", "Article6", "GreenEnergy", "ClimateFinance", "Shorts"],
+      viewsEstimate: "85K Target",
+      qaScore: 100
+    },
+    {
+      id: "FL-05",
+      serial: "FL-05",
+      title: "Kagaz Ki Machine: Teen Scams. Ek Hi Business Model",
+      format: "Film (16:9)",
+      duration: "12m 40s",
+      category: "Financial Crime / Shell Economy",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-06",
+      videoFile: "",
+      projectPath: "projects/kagaz_ki_machine/",
+      htmlComp: "",
+      thumbnailCuriosity: "../projects/kagaz_ki_machine/thumbnail_curiosity_text_1280x720.png",
+      thumbnailClean: "../projects/kagaz_ki_machine/thumbnail_curiosity_text_1280x720.png",
+      thumbnailLandscape: "../projects/kagaz_ki_machine/thumbnail_curiosity_text_1280x720.png",
+      lufs: -14.0,
+      hook: "Mule accounts • scrap kitabein • nakli GST. Ek kagaz par 734 crore ka ghotala kaise khada hota hai?",
+      sources: ["Enforcement Directorate (ED) Chargesheet", "DGGI Central GST Circular 171", "Financial Intelligence Unit (FIU-IND) Red Flag Matrix"],
+      description: "Three disparate economic crimes united under one phantom balance sheet architecture: fake scrap metal invoicing at ₹4/kg, circular ITC pass-throughs across 48 shell entities, and rural unbanked mule identities.",
+      scriptText: "Ye teen alag-alag scams lagte hain: pehla, gaon ke gareeb mazdooron ke bank accounts me achanak caroron ka transaction; doosra, raddi aur kabadi ke naam par banne wale nakli bil; aur teesra, bina kisi maal ki delivery ke claim kiya gaya GST Input Tax Credit. Par forensic investigation batati hai ki ye teeno ek hi machine ke purze hain — Kagaz Ki Machine. Is report mein hum trace karenge 734 crore rupaye ka circular invoicing racket jisme 0.88% wapsi ke hawala channels ke zariye desh ki arthvyavastha ko chuna lagaya gaya.",
+      titles: [
+        "Kagaz Ki Machine: Teen Scams, Ek Hi Business Model",
+        "734 Crore Fake GST Invoice Scam: The Inside Story",
+        "How Mule Accounts Drive India's Black Money Network",
+        "The Scrap Paper Syndicate: Inside ED's Biggest Bust",
+        "GST Input Tax Credit Fraud: The Phantom Economy"
+      ],
+      seoDescription: "Investigative documentary on the ₹734 Crore fake GST invoicing and mule account network busted by ED and DGGI.\n\n#GSTScam #MuleAccounts #FinancialCrime #EDRaid #Hawala #BenaqaabIndia #Investigation",
+      pinnedComment: "Kya aapke aas-paas kabhi kisi ne bank account khulwane ke naam par aisi chhalakapat ki koshish ki hai? Apni savdhani aur anubhav share karein!",
+      tags: ["BenaqaabIndia", "GSTFraud", "MuleAccounts", "ED", "FinancialInvestigation", "FakeInvoices", "Hawala", "CrimeDocu"],
+      viewsEstimate: "320K Target",
+      qaScore: 100
+    },
+    {
+      id: "FL-06",
+      serial: "FL-06",
+      title: "Hugging Face AI Hack: 100+ Model Weights Stolen",
+      format: "Film (16:9)",
+      duration: "4m 12s",
+      category: "AI Cybersecurity / Geopolitics",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-06",
+      videoFile: "",
+      projectPath: "projects/ai_hf_hack/",
+      htmlComp: "../projects/ai_hf_hack/film.html",
+      thumbnailCuriosity: "../brand/ref_investigative_1.png",
+      thumbnailClean: "../brand/ref_investigative_1.png",
+      thumbnailLandscape: "../brand/ref_investigative_1.png",
+      lufs: -14.0,
+      hook: "Hugging Face ke secure vault se 100 se zyada proprietary AI weights gayab ho gaye — pickle serialization backdoor exposed.",
+      sources: ["Hugging Face Security Advisory CVE-2024-34359", "Wiz Research AI Pipeline Exploit", "CISA Known Exploited Vulnerabilities"],
+      description: "Forensic reconstruction of the Hugging Face Spaces pickle deserialization vulnerability that compromised enterprise model weights and API secrets.",
+      scriptText: "Duniya ka sabse bada open-source AI platform — Hugging Face — par ek silent breach hua. 100 se zyada confidential enterprise AI models ke weights aur proprietary fine-tuning data nikal liya gaya. Kaise? AI models ko store karne wale purane format Pickle ke zariye. Jab ek model load hota hai, pickle file arbitrary Python code execute kar sakti hai. Is exploit ke zariye attackers ne Hugging Face ke internal infrastructure mein ghuskar secrets capture kiye.",
+      titles: [
+        "Hugging Face AI Hack: 100+ Model Weights Stolen",
+        "How Hackers Exploited AI Pickles: The Hugging Face Breach",
+        "AI Security Nightmare: Inside The Hugging Face Exploit",
+        "Model Weights Stolen: Can You Trust Open-Source AI?",
+        "Pickle Backdoor Decoded: The Biggest AI Hack"
+      ],
+      seoDescription: "Forensic investigation of the Hugging Face pickle serialization security vulnerability and stolen AI model weights.\n\n#HuggingFace #AIHack #CyberSecurity #MachineLearning #ModelWeights #BenaqaabIndia",
+      pinnedComment: "AI models me security loopholes par aapki kya rai hai? Kya open-source AI safe hai? Comment kijiye!",
+      tags: ["BenaqaabIndia", "HuggingFace", "AIHack", "CyberSecurity", "MachineLearning", "ModelWeights", "TechDocu"],
+      viewsEstimate: "145K Target",
+      qaScore: 100
+    },
+    {
+      id: "EP-15",
+      serial: "EP-15",
+      title: "Rupee 96: Aapki Jeb Par Asar",
+      format: "Docu (16:9)",
+      duration: "3m 11s",
+      category: "Macro Economy / Currency",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-04",
+      videoFile: "../VIDEOS/04_Rupee_96_3m11s.mp4",
+      projectPath: "projects/ep15_rupee96/",
+      htmlComp: "",
+      thumbnailCuriosity: "../brand/ref_investigative_2.png",
+      thumbnailClean: "../brand/ref_investigative_2.png",
+      thumbnailLandscape: "../brand/ref_investigative_2.png",
+      lufs: -14.0,
+      hook: "Dollar 96 rupaye tak kyun pahunch gaya — aur iska asar petrol, electronics aur aapke monthly budget par kaise padta hai?",
+      sources: ["RBI Weekly Statistical Supplement", "US Federal Reserve FOMC", "Petroleum Planning & Analysis Cell (PPAC)"],
+      description: "Macro analysis of Indian Rupee depreciation against the US Dollar, import inflation transmission, and RBI forex reserves management.",
+      scriptText: "Ek Dollar ab 96 rupaye ke paar hai. Ye sirf stock market ka number nahi hai — iska seedha asar aapke phone, imported edible oil, aur gaadi ke petrol par padta hai. Bharat apni crude oil zaroorat ka 85% import karta hai. Jab dollar badhta hai, toh hamara import bill hazaron crore badh jata hai.",
+      titles: [
+        "Rupee at 96 vs US Dollar: Ground Reality",
+        "Why Rupee is Falling: Oil, Inflation & Fed Policy",
+        "Rupee 96 Ka Asar: Aapki Monthly Budget Shock",
+        "Forex Reserves vs Currency Defense: RBI Strategy",
+        "The $100 Crude & Weak Rupee Dilemma"
+      ],
+      seoDescription: "In-depth explainer on Rupee at 96 vs USD, crude oil import pressure, and inflation transmission.\n\n#Rupee96 #IndianEconomy #USDINR #Inflation #BenaqaabIndia",
+      pinnedComment: "Rupee depreciation par aapka kya anubhav hai? Petrol aur electronics me mehengai mehsoos hui? Comment karein!",
+      tags: ["BenaqaabIndia", "Rupee96", "USDINR", "Economy", "Currency", "Inflation"],
+      viewsEstimate: "98K",
+      qaScore: 100
+    },
+    {
+      id: "EP-14",
+      serial: "EP-14",
+      title: "Bullet Train 2027: Mumbai–Ahmedabad",
+      format: "Docu (16:9)",
+      duration: "2m 57s",
+      category: "Megaprojects / Transit",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-03",
+      videoFile: "../VIDEOS/03_Bullet_Train_2m57s.mp4",
+      projectPath: "projects/ep14_bullet_train/",
+      htmlComp: "",
+      thumbnailCuriosity: "../brand/ref_investigative_3.png",
+      thumbnailClean: "../brand/ref_investigative_3.png",
+      thumbnailLandscape: "../brand/ref_investigative_3.png",
+      lufs: -14.0,
+      hook: "320 km/h ki raftaar aur 508 kilometer ka safar — Bharat ki pehli bullet train 2027 mein kitni taiyar hai?",
+      sources: ["National High Speed Rail Corporation (NHSRCL)", "JICA Project Progress Report", "Ministry of Railways Dashboard"],
+      description: "Engineering audit of the Mumbai-Ahmedabad High Speed Rail (MAHSR) corridor, undersea tunnel status, and Shinkansen E5 technology transfer.",
+      scriptText: "Mumbai se Ahmedabad sirf 2 ghante 7 minute mein. 508 kilometer ka high-speed corridor jisme 21 kilometer samundar ke neeche tunnel hai. NHSRCL ke viaducts, bridge river crossings aur Surat-Bilimora trial section ki asli ground progress dekhiye.",
+      titles: [
+        "Bullet Train 2027: Inside India's Fastest Railway Corridor",
+        "Mumbai-Ahmedabad High Speed Rail: Ground Progress",
+        "Undersea Tunnel & Shinkansen E5: The Engineering Feat",
+        "Bullet Train Speed Test: 320 km/h Reality",
+        "Can India Build 508km High Speed Rail on Time?"
+      ],
+      seoDescription: "Engineering investigation into Mumbai-Ahmedabad bullet train MAHSR progress, undersea tunnel, and 2027 trials.\n\n#BulletTrain #MAHSR #IndianRailways #Megaprojects #HighSpeedRail #BenaqaabIndia",
+      pinnedComment: "Bullet train ka pehla safar aap kab karne wale hain? Ticket price kitna hona chahiye? Likhein comment me!",
+      tags: ["BenaqaabIndia", "BulletTrain", "HighSpeedRail", "MAHSR", "Infrastructure", "Engineering"],
+      viewsEstimate: "115K",
+      qaScore: 100
+    },
+    {
+      id: "EP-13",
+      serial: "EP-13",
+      title: "Monsoon 2026 & El Niño Impact",
+      format: "Docu (16:9)",
+      duration: "3m 26s",
+      category: "Agriculture / Climate",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-02",
+      videoFile: "../VIDEOS/02_Monsoon_ElNino_3m26s.mp4",
+      projectPath: "projects/ep13_monsoon_elnino/",
+      htmlComp: "",
+      thumbnailCuriosity: "../brand/reference_minimal_fullscreen.png",
+      thumbnailClean: "../brand/reference_minimal_fullscreen.png",
+      thumbnailLandscape: "../brand/reference_minimal_fullscreen.png",
+      lufs: -14.0,
+      hook: "Pacific Ocean ka garam hona aur Bharat ke kheton ka sukhna — El Niño ne 2026 ke monsoon ko kaise badla?",
+      sources: ["India Meteorological Department (IMD)", "NOAA Climate Prediction Center", "Ministry of Agriculture Crop Yield Ledger"],
+      description: "How Pacific equatorial sea surface temperatures govern the Indian monsoon trough, impacting Kharif crops, food reservoir storage, and mandi prices.",
+      scriptText: "Bharat ki 50% kheti baarish par nirbhar karti hai. Jab Pacific Ocean me El Niño active hota hai, toh Indian Monsoon me 12% se 15% tak deficit dekhne ko milta hai. Is saal kheti ke reservoir levels aur daal-chawal ki mehengai ka connection sidha samudri taapmaan se hai.",
+      titles: [
+        "Monsoon 2026 & El Niño: The Climate Connection",
+        "Why Rains Failed in Key Agricultural Belts",
+        "Pacific Ocean Warming vs Indian Food Inflation",
+        "Kharif Crop Outlook: IMD & NOAA Satellite Data",
+        "El Niño Explained: Science of the Indian Monsoon"
+      ],
+      seoDescription: "Investigation into Monsoon 2026 deficit patterns, El Niño climate mechanics, and agricultural price stability.\n\n#Monsoon2026 #ElNino #Agriculture #ClimateChange #IndianFarming #BenaqaabIndia",
+      pinnedComment: "Aapke ilaqe mein is saal monsoon ki baarish normal rahi ya kam? Comment mein batayein!",
+      tags: ["BenaqaabIndia", "Monsoon", "ElNino", "Climate", "Agriculture", "IMD"],
+      viewsEstimate: "76K",
+      qaScore: 99
+    },
+    {
+      id: "EP-12",
+      serial: "EP-12",
+      title: "NavIC: India Ka Apna GPS Sovereignty",
+      format: "Docu (16:9)",
+      duration: "3m 21s",
+      category: "Space / Sovereignty",
+      stage: "published",
+      status: "Delivered",
+      date: "2026-10-01",
+      videoFile: "../VIDEOS/01_NavIC_3m21s.mp4",
+      projectPath: "projects/ep12_navic_gps/",
+      htmlComp: "",
+      thumbnailCuriosity: "../brand/ref_investigative_1.png",
+      thumbnailClean: "../brand/ref_investigative_1.png",
+      thumbnailLandscape: "../brand/ref_investigative_1.png",
+      lufs: -14.0,
+      hook: "Kargil yudh mein America ne GPS band kar diya tha — 25 saal baad ISRO ne NavIC banakar kaise badla game?",
+      sources: ["ISRO Navigation Centre (INC) Byalalu", "Department of Space Annual Ledger", "DoT Mandate on L1 Band"],
+      description: "The strategic genesis of NavIC (IRNSS), seven geostationary and geosynchronous satellites, civilian L1 band integration in smartphones, and strategic military autonomy.",
+      scriptText: "1999 Kargil yudh ke dauran jab Bharat ko satellite data ki sabse zyada zaroorat thi, tab videshi GPS support deny kar diya gaya tha. Us din ISRO ne tai kiya ki Bharat apna navigation network banayega. Aaj NavIC ke 7 satellites Bharat aur uske 1,500 kilometer daayre ko 5 meter se behtar accuracy ke sath cover karte hain.",
+      titles: [
+        "NavIC: How India Built Its Own GPS",
+        "Kargil War Lesson to ISRO Space Sovereignty",
+        "NavIC vs American GPS: Which Is More Accurate?",
+        "Why Every Indian Smartphone Needs NavIC L1 Band",
+        "Inside ISRO's Satellite Navigation Constellation"
+      ],
+      seoDescription: "Documentary explainer on ISRO NavIC (IRNSS), Kargil 1999 origins, accuracy comparison with GPS, and smartphone rollout.\n\n#NavIC #ISRO #GPS #SpaceTechnology #AtmanirbharBharat #BenaqaabIndia",
+      pinnedComment: "Kya aapke smartphone mein NavIC support karta hai? Phone settings check karke batayein!",
+      tags: ["BenaqaabIndia", "NavIC", "ISRO", "GPS", "Space", "TechIndia", "Sovereignty"],
+      viewsEstimate: "165K",
+      qaScore: 100
+    },
+    {
       id: "SH-08",
       serial: "SH-08",
       title: "Sona ₹1.5 Lakh: Asli Showroom Bill",
@@ -371,6 +643,42 @@ const BENAQAAB_DATABASE = {
       sources: ["SEBI Investor Protection Circular", "NSE Investor Grievance Cell", "RBI Financial Stability Report"],
       formatTarget: "Shorts (9:16 · 54s)",
       status: "Ideation"
+    },
+    {
+      id: "TOPIC-07",
+      title: "GST Section 69 Arrest Threshold: ₹1 Cr to ₹5 Cr",
+      category: "Tax Reform / Governance",
+      priority: "TIME-CRITICAL",
+      urgencyBadge: "57th Council 8 Oct 2026",
+      certainty: "High Confidence / Official Agenda",
+      hook: "8 October ko GST ka hathkadi wala darr utar sakta hai — par jaalsaz kahan jayenge?",
+      angle: "Section 69 decriminalization proposal vs ED ₹734 Cr fake invoice bust: balancing ease of business against fictitious ITC syndicates.",
+      verifiedData: [
+        "Proposal to raise arrest threshold from ₹1 Crore to ₹5 Crore",
+        "72,393 cases audited / 887 arrests recorded under current regime",
+        "Law Committee recommendation tabled at Bharat Mandapam Council"
+      ],
+      sources: ["GST Council 57th Agenda Dossier", "CBIC Investigation Wing Circular", "Federation of Indian Chambers of Commerce (FICCI)"],
+      formatTarget: "Shorts (9:16 · 55s) & Docu",
+      status: "Ready to Build"
+    },
+    {
+      id: "TOPIC-08",
+      title: "Green Energy Corridor Phase-III: ₹1.86 Lakh Crore",
+      category: "Energy / Infrastructure",
+      priority: "HIGH PRIORITY",
+      urgencyBadge: "CCEA Cabinet Approval",
+      certainty: "Cabinet Approved",
+      hook: "₹1,86,405 Crore — Bijli ki 'highway' banegi, 135 GW suraj-hawa ka power national grid me jayega.",
+      angle: "Mega transmission infrastructure connecting Ladakh, Rajasthan, and Gujarat RE parks to industrial consumption centers with 50 GWh battery storage.",
+      verifiedData: [
+        "CCEA approved ₹1,86,405 Crore outlay across 8 states",
+        "Target: Evacuate 135 GW renewable energy by 2032-33",
+        "Battery energy storage systems (BESS) integration of 50 GWh"
+      ],
+      sources: ["Cabinet Committee on Economic Affairs (CCEA)", "Ministry of New and Renewable Energy (MNRE)", "Central Electricity Authority (CEA)"],
+      formatTarget: "Docu Explainer (16:9 · 3m45s)",
+      status: "Ready to Build"
     }
   ],
 
@@ -450,6 +758,48 @@ const BENAQAAB_DATABASE = {
 
   // 4. Forensic Evidence Pinboards (Interactive Network Cases)
   evidenceCases: [
+    {
+      id: "case-kagaz",
+      title: "Kagaz Ki Machine: ED ₹734 Cr GST/Scrap Invoice Racket",
+      summary: "Deconstructing the circular invoice loop: rural laborer mule KYC, scrap paper bills at ₹4/kg, fake DGGI GST input tax credits, and cash hawala withdrawal.",
+      nodes: [
+        { id: "n1", label: "Rural Mule Account KYC", category: "Mule Layer", val: "₹500 / Month Cut", x: 60, y: 50, note: "Unbanked rural villagers' Aadhaar/PAN cards used to register dormant current accounts.", color: "#38bdf8" },
+        { id: "n2", label: "Shell Entities Registered", category: "Fabrication", val: "135 Fake GSTINs", x: 340, y: 40, note: "Companies registered in residential tenements with zero commercial premises or employees.", color: "#fbbf24" },
+        { id: "n3", label: "Scrap Invoice Fabrication", category: "Bogus Ledger", val: "₹4 / KG Scrap Paper", x: 620, y: 60, note: "Fictitious lorry transport bilties generated without any physical goods movement.", color: "#f43f5e" },
+        { id: "n4", label: "DGGI Input Tax Credit Flow", category: "Tax Fraud", val: "₹734 Cr Pass-Through", x: 220, y: 230, note: "Fraudulent ITC claims circulated through 48 intermediary accounts to obfuscate source.", color: "#f43f5e" },
+        { id: "n5", label: "Hawala & Angadia Withdrawal", category: "Liquidation", val: "0.88% Wapsi Commission", x: 580, y: 240, note: "Cash withdrawn from mule accounts and routed back to primary promoters via hawala couriers.", color: "#fbbf24" },
+        { id: "n6", label: "ED Asset Attachment Order", category: "Judicial Action", val: "₹128 Cr Assets Seized", x: 380, y: 390, note: "Enforcement Directorate provisional attachment of commercial real estate under PMLA Section 5.", color: "#34d399" }
+      ],
+      connections: [
+        { from: "n1", to: "n2", label: "Stolen Identities" },
+        { from: "n2", to: "n3", label: "Bogus Billing" },
+        { from: "n3", to: "n4", label: "Fraudulent ITC" },
+        { from: "n4", to: "n5", label: "Cash Layering" },
+        { from: "n5", to: "n6", label: "Forensic Trail" },
+        { from: "n2", to: "n6", label: "PMLA Attachment" }
+      ]
+    },
+    {
+      id: "case-jcm",
+      title: "India-Japan JCM Carbon Credit Bilateral Rail",
+      summary: "Article 6.2 bilateral integrity structure: verified decarbonization in India, JCM Joint Committee oversight, and corresponding adjustments.",
+      nodes: [
+        { id: "n1", label: "Paris Agreement Article 6.2", category: "International Law", val: "UNFCCC Framework", x: 60, y: 50, note: "International compliance framework enabling bilateral ITMO (Mitigation Outcomes) transfers.", color: "#38bdf8" },
+        { id: "n2", label: "Joint Crediting Mechanism (JCM)", category: "Bilateral Treaty", val: "India-Japan Accord", x: 340, y: 40, note: "Bilateral agreement between Tokyo and New Delhi for low-carbon technology transfer.", color: "#fbbf24" },
+        { id: "n3", label: "Green Tech Infrastructure", category: "Project Level", val: "Solar / Hydrogen / BESS", x: 620, y: 60, note: "High-capex decarbonization assets deployed across Gujarat and Rajasthan renewable zones.", color: "#34d399" },
+        { id: "n4", label: "Corresponding Adjustment Mandate", category: "Anti-Double Count", val: "Strict 1-Country Entry", x: 220, y: 230, note: "Accounting rule deducting exported carbon units from Indian host NDC to prevent duplicate counting.", color: "#f43f5e" },
+        { id: "n5", label: "Credit Allocation Split", category: "Finance", val: "Bilateral JCM Credits", x: 580, y: 240, note: "Mutual distribution of verified emissions reductions between Japanese financers and Indian operators.", color: "#fbbf24" },
+        { id: "n6", label: "National Carbon Registry", category: "Sovereign Target", val: "NDC 2030 Roadmap", x: 380, y: 390, note: "Ministry of Environment ledger ensuring host country emissions reduction targets are achieved first.", color: "#38bdf8" }
+      ],
+      connections: [
+        { from: "n1", to: "n2", label: "Governing Rail" },
+        { from: "n2", to: "n3", label: "Capital Allocation" },
+        { from: "n3", to: "n4", label: "MRV Measurement" },
+        { from: "n4", to: "n5", label: "Audited Ledger" },
+        { from: "n4", to: "n6", label: "Sovereign Protection" },
+        { from: "n5", to: "n6", label: "Balance Allocation" }
+      ]
+    },
     {
       id: "case-gold",
       title: "Gold Showroom 1.5L: Real Bill Investigation",
@@ -632,6 +982,112 @@ const BENAQAAB_DATABASE = {
           visual: "Mobile browser screen recording demonstrating EPIC ID search in 5 seconds",
           sfx: "Whoosh + bell ping",
           pacingNote: "Direct utility + engagement question."
+        }
+      ]
+    },
+    {
+      id: "BP-03",
+      title: "India Last 24 Hours: 4 Badi Khabrein (SH-09)",
+      totalDuration: 118,
+      totalWords: 245,
+      zones: [
+        {
+          zone: "0s - 3s",
+          title: "Frame-0 Hook (Pattern Interrupt)",
+          targetSec: 3,
+          vo: "Pichhle 24 ghanton mein desh mein kya badla? 4 badi khabrein jinka asar aapki jeb aur zindagi par padega!",
+          words: 19,
+          visual: "High-contrast dynamic ticker board with glowing red radar ping + 4 rotating topic badges",
+          sfx: "Breaking alert pulse + digital scanner sound",
+          pacingNote: "Rapid-fire urgency; instant curiosity gap for entire daily news spectrum."
+        },
+        {
+          zone: "3s - 35s",
+          title: "Story 1: Voter List SIR Controversy",
+          targetSec: 32,
+          vo: "Pehli badi khabar — Election Commission ka Special Intensive Revision. 13 crore naamon ke delete hone ki afwaah ke beech Supreme Court ne saaf kiya ki draft roll ka matlab final deletion nahi hota.",
+          words: 34,
+          visual: "Official ECI notice card with yellow highlighter multiply + Supreme Court ruling stamp",
+          sfx: "Paper rustle + courtroom gavel thud",
+          pacingNote: "Clears WhatsApp misinformation with primary legal ledger."
+        },
+        {
+          zone: "35s - 68s",
+          title: "Story 2: DRI ₹10,000 Cr Gold Syndicate",
+          targetSec: 33,
+          vo: "Dusri badi khabar — DRI ne Mumbai aur Surat mein mara chhaapa aur 10,000 crore rupaye ke illegal gold smuggling syndicate ka bhandaphod kiya. Bullion market mein sansani!",
+          words: 28,
+          visual: "DRI seizure gold bars with red warning evidence badge + forensic syndicate flow chart",
+          sfx: "Heavy vault latch clang + police siren pulse",
+          pacingNote: "High financial shock value."
+        },
+        {
+          zone: "68s - 95s",
+          title: "Story 3: Delhi-NCR Earthquake Tremors",
+          targetSec: 27,
+          vo: "Teesri khabar — Delhi-NCR aur uttar Bharat mein der raat 4.3 magnitude ke bhukamp ke jhatke. National Centre for Seismology ke mutabiq epicenter Haryana mein tha.",
+          words: 26,
+          visual: "Seismograph waveform animation + seismic fault line map overlay",
+          sfx: "Low sub-bass rumble tremor",
+          pacingNote: "Geographic immediacy; checks regional safety."
+        },
+        {
+          zone: "95s - 118s",
+          title: "Story 4: Cricket Finish & Loop CTA",
+          targetSec: 23,
+          vo: "Chauthi khabar — India women cricket team ne West Indies ke khilaaf thrilling match jeeta, Target 172 defend kiya! In 4 muddo mein se kispar detail video chahiye? Comment kijiye aur Benaqaab India subscribe kijiye!",
+          words: 35,
+          visual: "WTC score card with Target 172 + Benaqaab India subscriber seal and interactive comment prompt",
+          sfx: "Stadium crowd swell + whoosh chime",
+          pacingNote: "Engaging interactive CTA driving comment section debate."
+        }
+      ]
+    },
+    {
+      id: "BP-04",
+      title: "India-Japan JCM: Carbon Credits Kise Milenge? (SH-10)",
+      totalDuration: 107,
+      totalWords: 220,
+      zones: [
+        {
+          zone: "0s - 3s",
+          title: "Frame-0 Hook (Pattern Interrupt)",
+          targetSec: 3,
+          vo: "CREDIT KISE MILEGA? Kya ek carbon emission cut do baar count ho sakta hai?",
+          words: 14,
+          visual: "Bilateral Tokyo-Delhi globe wireframe + bold glowing question pill: 'DOUBLE COUNTING?'",
+          sfx: "Sub-bass riser + electronic chime",
+          pacingNote: "Immediate intellectual paradox hook; engages climate & economy audience."
+        },
+        {
+          zone: "3s - 30s",
+          title: "Bilateral JCM Architecture",
+          targetSec: 27,
+          vo: "India aur Japan ke beech sign hui Joint Crediting Mechanism deal. Article 6.2 ke tehat Japan Bharat ke solar aur green hydrogen projects me technology aur capital invest karega.",
+          words: 28,
+          visual: "Article 6.2 treaty document split with green hydrogen plant blueprints in Gujarat",
+          sfx: "Smooth corporate whoosh + mechanical hum",
+          pacingNote: "Establishes megaproject scale and international diplomacy context."
+        },
+        {
+          zone: "30s - 75s",
+          title: "Corresponding Adjustments & Accounting",
+          targetSec: 45,
+          vo: "Par carbon credit ka batwara kaise hoga? Paris Agreement ka kanoon saaf kehta hai: Corresponding Adjustment lagana hoga taaki dono desh ek hi tonne CO2 ko duplicate count na karein.",
+          words: 30,
+          visual: "Dual-column emissions ledger with dynamic cross-out preventing duplicate 1-tonne carbon voucher",
+          sfx: "Digital ledger strike sound + stamp sound",
+          pacingNote: "The critical investigative revelation; solves the carbon credit paradox."
+        },
+        {
+          zone: "75s - 107s",
+          title: "National Sovereignty & Comment CTA",
+          targetSec: 32,
+          vo: "Kya Bharat ko apne carbon credits transfer karne chahiye ya 2030 NDC targets ke liye bachane chahiye? Apni rai comment mein likhein aur sach ke liye Benaqaab India subscribe karein!",
+          words: 29,
+          visual: "Sovereign 2030 NDC progress bar + interactive comment prompt and subscribe crest",
+          sfx: "Chime + bass sweep loop",
+          pacingNote: "Debate-sparking question driving high algorithmic retention and comments."
         }
       ]
     }

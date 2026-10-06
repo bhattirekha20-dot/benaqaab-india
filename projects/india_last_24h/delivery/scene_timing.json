@@ -1,0 +1,128 @@
+[
+  {
+    "scene": 1,
+    "start": 0.0,
+    "end": 11.083333333333334,
+    "k": "INDIA LAST 24 HOURS",
+    "h": "SABSE IMPORTANT KYA BADLA?",
+    "s": "Vote row · ₹10,000 crore · earthquake · cricket",
+    "src": "Verified snapshot · 7 Oct 2026"
+  },
+  {
+    "scene": 2,
+    "start": 11.083333333333334,
+    "end": 16.583333333333332,
+    "k": "DEMOCRACY · ECI ROW",
+    "h": "WHAT HAPPENED?",
+    "s": "Political parties marched; SIR and voter-roll objections remain ongoing",
+    "src": "Public image: Congress via The Indian Express"
+  },
+  {
+    "scene": 3,
+    "start": 16.583333333333332,
+    "end": 35.416666666666664,
+    "k": "ECI OFFICIAL VERSION",
+    "h": "PROTOCOL DISPUTE",
+    "s": "ECI says no request before 4 PM; later a 240-MP delegation sought a meeting",
+    "src": "ECI statement via PIB · 6 Oct 2026 · 9:44 PM"
+  },
+  {
+    "scene": 4,
+    "start": 35.416666666666664,
+    "end": 39.541666666666664,
+    "k": "ECONOMY",
+    "h": "₹10,000 CRORE SME FUND",
+    "s": "Cabinet-approved growth equity plan for high-potential SMEs",
+    "src": "Cabinet decision · official PIB source"
+  },
+  {
+    "scene": 5,
+    "start": 39.541666666666664,
+    "end": 50.75,
+    "k": "SME FUND · PURPOSE",
+    "h": "WHAT IS IT FOR?",
+    "s": "Scale, technology, manufacturing and employment",
+    "src": "PIB factsheet · 6 Oct 2026"
+  },
+  {
+    "scene": 6,
+    "start": 50.75,
+    "end": 65.33333333333333,
+    "k": "INFRASTRUCTURE",
+    "h": "NEW TRANSPORT AUTHORITY",
+    "s": "10-year-plus master plan · ₹500 crore-plus project appraisal",
+    "src": "ITLA · official PIB factsheet"
+  },
+  {
+    "scene": 7,
+    "start": 65.33333333333333,
+    "end": 72.5,
+    "k": "DEFENCE UPDATE",
+    "h": "NEW AIR CHIEF · 31 OCT",
+    "s": "Air Marshal Ashutosh Dixit will be the 29th Chief of the Air Staff",
+    "src": "PIB Defence release · 6 Oct 2026"
+  },
+  {
+    "scene": 8,
+    "start": 72.5,
+    "end": 81.66666666666667,
+    "k": "ENFORCEMENT",
+    "h": "8.3 KG GOLD SEIZED",
+    "s": "Foreign-origin gold valued at approximately ₹12.37 crore",
+    "src": "DRI / Ministry of Finance via PIB · 6 Oct 2026"
+  },
+  {
+    "scene": 9,
+    "start": 81.66666666666667,
+    "end": 84.91666666666667,
+    "k": "ENFORCEMENT",
+    "h": "4 ARRESTED · PROBE ON",
+    "s": "The DRI release says investigation into the network continues",
+    "src": "Official DRI release via PIB · 6 Oct 2026"
+  },
+  {
+    "scene": 10,
+    "start": 84.91666666666667,
+    "end": 94.33333333333333,
+    "k": "EARTHQUAKE ALERT",
+    "h": "M4.9 CHAMOLI",
+    "s": "NCS recorded the event at 10:23 PM; check local advisories",
+    "src": "NCS public feed · local advisories"
+  },
+  {
+    "scene": 11,
+    "start": 94.33333333333333,
+    "end": 104.125,
+    "k": "WEATHER UPDATE",
+    "h": "NORTHWEST ALERTS",
+    "s": "IMD forecast covers parts of J&K, Himachal, Uttarakhand and nearby areas",
+    "src": "IMD bulletin · 6 Oct 2026"
+  },
+  {
+    "scene": 12,
+    "start": 104.125,
+    "end": 107.58333333333333,
+    "k": "SPORTS",
+    "h": "INDIA BEAT WI BY 8 WICKETS",
+    "s": "WI 171 · India 172/2 in 14.4 overs · Target 172",
+    "src": "BCCI official scorecard + highlights · 6 Oct 2026"
+  },
+  {
+    "scene": 13,
+    "start": 107.58333333333333,
+    "end": 109.79166666666667,
+    "k": "SPORTS · THE SCORE",
+    "h": "172/2 IN 14.4 OVERS",
+    "s": "India won by 8 wickets · Lucknow",
+    "src": "BCCI official scorecard · 6 Oct 2026"
+  },
+  {
+    "scene": 14,
+    "start": 109.79166666666667,
+    "end": 118.08333333333333,
+    "k": "BENAQAAB INDIA",
+    "h": "SHOR NAHI, SOURCE KE SAATH",
+    "s": "Khabar tez ho sakti hai. Sach ki speed source se aati hai.",
+    "src": "Follow for verified India explainers"
+  }
+]
