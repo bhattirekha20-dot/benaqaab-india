@@ -9,12 +9,12 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 
 ## 🚀 Quick Start for Any AI Agent
 
-1. **Read [`CENTRAL_AGENT_MEMORY.md`](CENTRAL_AGENT_MEMORY.md)** — the single source of truth.
-2. **Consult [`CENTRAL_TOPICS_MASTER.md`](CENTRAL_TOPICS_MASTER.md)** — the single master registry for all video topics.
+1. **Read [`MASTER_AGENT_DISPATCH.md`](MASTER_AGENT_DISPATCH.md)** — the **definitive single-file operating dossier**: complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline.
+2. **Consult [`CENTRAL_AGENT_MEMORY.md`](CENTRAL_AGENT_MEMORY.md)** and **[`CENTRAL_TOPICS_MASTER.md`](CENTRAL_TOPICS_MASTER.md)** for detailed topic registry breakdowns.
 3. Then read [`BENAQAAB_AI_AGENT_COMPACT.md`](BENAQAAB_AI_AGENT_COMPACT.md) — your full operating manual.
 4. Then follow the reading order in [`START_HERE.md`](START_HERE.md).
 
-> **Rule of precedence:** `CENTRAL_AGENT_MEMORY.md` + `CENTRAL_TOPICS_MASTER.md` + the compact file outrank everything else.
+> **Rule of precedence:** `MASTER_AGENT_DISPATCH.md` + `CENTRAL_AGENT_MEMORY.md` + `CENTRAL_TOPICS_MASTER.md` outrank everything else.
 > `MEMORY.md` is append-only history. The master skill file is a look-up reference, not a linear read.
 
 ---
@@ -23,6 +23,7 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 
 | Folder/File | Purpose |
 |---|---|
+| `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — all topics with videos, backlog, laws, colour profiles & production rules |
 | `CENTRAL_AGENT_MEMORY.md` | **Centralised memory** — all agents read this first |
 | `CENTRAL_TOPICS_MASTER.md` | **Centralised topics registry** — covered blacklist, live cycles & ready backlog |
 | `BENAQAAB_AI_AGENT_COMPACT.md` | Operating manual (pipeline, gates, templates) |
@@ -33,8 +34,8 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | `knowledge/` | Research data, catalogues, topic ideas |
 | `tools/` | Quality gates, CapCut/Alight project writers |
 | `viz/` | Rendering engine, motion libraries, episode recipes |
-| `projects/` | 9 production projects (EP12–EP16 + 3 anime edits + Flight Surcharge) |
-| `VIDEOS/` | Delivered MP4s (8 videos + gallery page) |
+| `projects/` | 15 production projects (EP12–EP16, anime edits, Flight Surcharge, India 24H, etc.) |
+| `VIDEOS/` | Delivered MP4s (11 videos + gallery page) |
 
 ---
 

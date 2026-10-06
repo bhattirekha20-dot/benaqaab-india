@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,398 | `fa004f6cf1560013` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,416 | `0dae6556a3223573` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29243,7 +29243,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,398 · **SHA-256 (first 16):** `fa004f6cf1560013` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,416 · **SHA-256 (first 16):** `0dae6556a3223573` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34642,6 +34642,23 @@ Based on user review against repo revision `4f90f83`, all operational conflicts 
 
 6. **Autonomous Permission Handling:**
    - Do not re-prompt for permission once confirmed by the user. If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
+
+---
+
+## 154. Master Agent Dispatch Created (Single-File Operating Dossier) — 07 Oct 2026
+
+**Context & Purpose:**  
+To eliminate fragmentation across multiple reference guides and registries, created `MASTER_AGENT_DISPATCH.md` as the unified, single-file operating dossier for the entire channel. Any AI agent (or human producer) reading this single document immediately obtains:
+1. Complete inventory of all 28 topics with existing videos and workspaces (EP-01 to EP-16, SH-01 to SH-10, FL-01 to FL-06).
+2. Topic Status Registry: Covered (never repeat), live October 2026 cycles (RBI Rate Decision, Census 2027, Gaganyaan, Halley's Dust), and high-priority backlog (Semaglutide, Artemis II, GDP 7.8%, Olympics 2036, Tigers).
+3. Brand Identity, Hinglish narration master clock, and Top-Left logo standard.
+4. The 10 Non-Negotiables & 20 Operating Laws (L1–L20).
+5. The 3 Codified Colour Grading Profiles (A: Neutral News, B: Forensic Dossier, C: Archival Sepia + Green).
+6. Deterministic HTML/Canvas toolchain (`viz/hrender.py`, Playwright, FFmpeg, loudnorm -14 LUFS, peak detail gate).
+7. Mandatory Unpacked Deliverables Standard (root placement + direct chat presentation).
+8. 11-step execution flow from topic selection to published delivery.
+
+`README.md`, `START_HERE.md`, and `AI_HANDOVER_PROMPT.md` have been updated to designate `MASTER_AGENT_DISPATCH.md` as the primary reading step.
 
 
 ---

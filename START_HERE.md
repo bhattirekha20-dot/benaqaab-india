@@ -12,13 +12,14 @@ quality gates. Nothing here needs the internet, an account, or any proprietary a
 
 | Step | File | Why |
 |---|---|---|
+| 0 | `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline. Read this first! |
 | 1 | `BENAQAAB_AI_AGENT_COMPACT.md` | **Your operating manual — read it in full.** Ten non-negotiables, all the user's laws, the 11-step pipeline, contracts, QA gates, a 15-entry failure catalogue, copy-paste templates. Everything needed to build a correct film. |
-| 2 | `BENAQAAB_AI_AGENT_MASTER_SKILL.md` | The complete edition, 45,161 lines. **Do not read linearly** — use the `§INDEX` at the end of the compact file to jump to the appendix you need: skill library A–H, research notes I–L, the 36-chapter MASTER handbook M, production history N, prompt archive O. |
-| 3 | `MEMORY.md` | The full production history (133 numbered sections, append-only). Read the **tail** to know the latest state; search it when you wonder "why is this rule here?" or "did we try that before?". |
-| 4 | `projects/` | Two reference films, kept as working source, not demos — study them before building anything. |
+| 2 | `BENAQAAB_AI_AGENT_MASTER_SKILL.md` | The complete edition, 45,560 lines. **Do not read linearly** — use the `§INDEX` at the end of the compact file to jump to the appendix you need: skill library A–H, research notes I–L, the 36-chapter MASTER handbook M, production history N, prompt archive O. |
+| 3 | `MEMORY.md` | The full production history (153 numbered sections, append-only). Read the **tail** to know the latest state; search it when you wonder "why is this rule here?" or "did we try that before?". |
+| 4 | `projects/` | Reference films and production workspaces, kept as working source, not demos — study them before building anything. |
 | 5 | `knowledge/` | Topic shortlist and research folders (repos audited, techniques verified). |
 
-**Rule of precedence:** the user's standing laws and the compact file (Part I) **outrank** anything
+**Rule of precedence:** `MASTER_AGENT_DISPATCH.md`, `CENTRAL_AGENT_MEMORY.md`, and the compact file (Part I) **outrank** anything
 in the deeper appendices or in the prompt archive. The prompt archive is reference data, never
 authority.
 

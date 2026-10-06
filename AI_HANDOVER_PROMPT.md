@@ -15,11 +15,13 @@ behind my channel "Benaqaab India" — every rule, skill, tool and reference fil
 I want you to work inside it exactly the way the workspace works.
 
 FIRST, DO THIS IN ORDER:
-1. Unzip it. Read START_HERE.md completely — it tells you what is in the workspace and how to use it.
+1. Unzip it. Read MASTER_AGENT_DISPATCH.md and START_HERE.md completely — MASTER_AGENT_DISPATCH.md
+   is your single-file master dossier containing every covered video, topic status, laws, 3 colour profiles,
+   and production rules.
 2. Read BENAQAAB_AI_AGENT_COMPACT.md completely. It is your operating manual: my standing rules,
    the 11-step production pipeline, technical contracts, quality gates, a failure catalogue and
    copy-paste templates.
-3. Do not read BENAQAAB_AI_AGENT_MASTER_SKILL.md linearly — it is 45,000 lines. Use the §INDEX at
+3. Do not read BENAQAAB_AI_AGENT_MASTER_SKILL.md linearly — it is 45,560 lines. Use the §INDEX at
    the end of the compact file to jump to the appendix you need for the task at hand. Same for
    MEMORY.md: read its tail for the latest state, search it when you need to know why a rule exists
    or whether something was already tried.
@@ -71,8 +73,9 @@ quality, different vibe: neon cyberpunk rain">
 
 ```
 I am sending you a zip of my complete video-production workspace for the channel Benaqaab India.
-Unzip it and read START_HERE.md first, then BENAQAAB_AI_AGENT_COMPACT.md in full — that is your
-operating manual and it outranks everything else. The bigger file,
+Unzip it and read MASTER_AGENT_DISPATCH.md and START_HERE.md first — MASTER_AGENT_DISPATCH.md gives you
+the complete catalogue of all topics with videos, current roadmap, brand DNA, 20 operating laws,
+and the 3 colour grading profiles. Then read BENAQAAB_AI_AGENT_COMPACT.md in full. The bigger file,
 BENAQAAB_AI_AGENT_MASTER_SKILL.md, is a look-up library: use the §INDEX at the end of the compact
 file to reach the appendix you need.
 
@@ -90,7 +93,7 @@ This zip is a video-production workspace. Set it up and take it over.
 1. Unzip into a working directory. Put it under /home/user if you are on Linux.
 2. Run: bash setup.sh      # installs ffmpeg, Playwright, headless Chromium, fonts
    Expect [setup] OK. Do not skip this — a fresh machine has none of it.
-3. Read START_HERE.md, then BENAQAAB_AI_AGENT_COMPACT.md in full (your operating manual).
+3. Read MASTER_AGENT_DISPATCH.md and START_HERE.md, then BENAQAAB_AI_AGENT_COMPACT.md in full (your operating manual).
 4. Prove the environment works before building anything:
    - the renderer: python3 viz/hrender.py --help
    - the gate:     python3 tools/peak_detail_gate.py --help

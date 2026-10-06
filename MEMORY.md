@@ -5394,4 +5394,22 @@ Based on user review against repo revision `4f90f83`, all operational conflicts 
 6. **Autonomous Permission Handling:**
    - Do not re-prompt for permission once confirmed by the user. If a clip cannot be downloaded (403/captcha/bot blocks), autonomously fall back to verified public stills and official data cards without stalling.
 
+---
+
+## 154. Master Agent Dispatch Created (Single-File Operating Dossier) — 07 Oct 2026
+
+**Context & Purpose:**  
+To eliminate fragmentation across multiple reference guides and registries, created `MASTER_AGENT_DISPATCH.md` as the unified, single-file operating dossier for the entire channel. Any AI agent (or human producer) reading this single document immediately obtains:
+1. Complete inventory of all 28 topics with existing videos and workspaces (EP-01 to EP-16, SH-01 to SH-10, FL-01 to FL-06).
+2. Topic Status Registry: Covered (never repeat), live October 2026 cycles (RBI Rate Decision, Census 2027, Gaganyaan, Halley's Dust), and high-priority backlog (Semaglutide, Artemis II, GDP 7.8%, Olympics 2036, Tigers).
+3. Brand Identity, Hinglish narration master clock, and Top-Left logo standard.
+4. The 10 Non-Negotiables & 20 Operating Laws (L1–L20).
+5. The 3 Codified Colour Grading Profiles (A: Neutral News, B: Forensic Dossier, C: Archival Sepia + Green).
+6. Deterministic HTML/Canvas toolchain (`viz/hrender.py`, Playwright, FFmpeg, loudnorm -14 LUFS, peak detail gate).
+7. Mandatory Unpacked Deliverables Standard (root placement + direct chat presentation).
+8. 11-step execution flow from topic selection to published delivery.
+
+`README.md`, `START_HERE.md`, and `AI_HANDOVER_PROMPT.md` have been updated to designate `MASTER_AGENT_DISPATCH.md` as the primary reading step.
+
+
 
