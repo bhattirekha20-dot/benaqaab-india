@@ -8,10 +8,19 @@ _temp_extract/
 tmp/
 temp/
 
-# ─── Rendered videos (too large for Git) ──────
+# ─── Rendered videos & audio (too large / private for Git) ───
 VIDEOS/*.mp4
 projects/**/*.mp4
 *.mp4
+*.mp3
+*.wav
+*.m4a
+projects/**/vo/
+vo/
+
+# ─── Private user uploads & phone screenshots ─
+uploads/
+uploads/*
 
 # ─── Environment variables & secrets ──────────
 .env
