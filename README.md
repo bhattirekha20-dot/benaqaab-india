@@ -10,10 +10,11 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 ## 🚀 Quick Start for Any AI Agent
 
 1. **Read [`CENTRAL_AGENT_MEMORY.md`](CENTRAL_AGENT_MEMORY.md)** — the single source of truth.
-2. Then read [`BENAQAAB_AI_AGENT_COMPACT.md`](BENAQAAB_AI_AGENT_COMPACT.md) — your full operating manual.
-3. Then follow the reading order in [`START_HERE.md`](START_HERE.md).
+2. **Consult [`CENTRAL_TOPICS_MASTER.md`](CENTRAL_TOPICS_MASTER.md)** — the single master registry for all video topics.
+3. Then read [`BENAQAAB_AI_AGENT_COMPACT.md`](BENAQAAB_AI_AGENT_COMPACT.md) — your full operating manual.
+4. Then follow the reading order in [`START_HERE.md`](START_HERE.md).
 
-> **Rule of precedence:** `CENTRAL_AGENT_MEMORY.md` + the compact file outrank everything else.
+> **Rule of precedence:** `CENTRAL_AGENT_MEMORY.md` + `CENTRAL_TOPICS_MASTER.md` + the compact file outrank everything else.
 > `MEMORY.md` is append-only history. The master skill file is a look-up reference, not a linear read.
 
 ---
@@ -23,6 +24,7 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | Folder/File | Purpose |
 |---|---|
 | `CENTRAL_AGENT_MEMORY.md` | **Centralised memory** — all agents read this first |
+| `CENTRAL_TOPICS_MASTER.md` | **Centralised topics registry** — covered blacklist, live cycles & ready backlog |
 | `BENAQAAB_AI_AGENT_COMPACT.md` | Operating manual (pipeline, gates, templates) |
 | `BENAQAAB_AI_AGENT_MASTER_SKILL.md` | 45K-line complete reference (use §INDEX) |
 | `MEMORY.md` | Full production history (append-only) |

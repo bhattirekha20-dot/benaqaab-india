@@ -44,6 +44,7 @@ sourced history, and scams & cyber-safety.
 |---|---|---|
 | 🔴 **1st** | **This file** (`CENTRAL_AGENT_MEMORY.md`) | Understand the owner, rules, and repository map |
 | 🔴 **2nd** | `BENAQAAB_AI_AGENT_COMPACT.md` | Full operating manual — 10 non-negotiables, 11-step pipeline, QA gates, failure catalogue, templates |
+| 🟢 **Topics**| `CENTRAL_TOPICS_MASTER.md` | Single master registry for all video topics (covered blacklist, time-critical cycles, ready backlog) |
 | 🟡 **3rd** | `START_HERE.md` | The original workspace handover guide (reading order + integrity check) |
 | 🟡 **4th** | `MEMORY.md` | Full production history (130+ numbered sections, append-only). Read the **tail** for latest state |
 | 🟢 **5th** | `BENAQAAB_AI_AGENT_MASTER_SKILL.md` | Complete 45,000-line edition — use the `§INDEX` to look up specific appendices |
@@ -56,6 +57,7 @@ sourced history, and scams & cyber-safety.
 
 ```
 CENTRAL_AGENT_MEMORY.md          ← THIS FILE: single source of truth for all agents
+CENTRAL_TOPICS_MASTER.md         ← SINGLE MASTER FILE for topics (covered blacklist & ready backlog)
 BENAQAAB_AI_AGENT_COMPACT.md     ← Operating manual (read in full)
 BENAQAAB_AI_AGENT_MASTER_SKILL.md ← Complete 45K-line reference (look up by §INDEX)
 MASTER_VIDEO_GENERATION_SKILLS.md ← 36-chapter handbook + archives
