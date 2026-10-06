@@ -1,0 +1,405 @@
+<!doctype html>
+<!-- Benaqaab India · Ep10 "India: last 24 hours" (news roundup, 29 Sep 13:40 → 30 Sep 13:40 IST)
+     Look: WIRE DESK. Ink #0b0d11 + paper #f3f1ec + ONE wire-red accent #ff3b30. Bricolage Grotesque (condensed 800) + Geist + Geist Mono.
+     Layout: 24-hour time rail (top) · 16:9 SOURCE WINDOW with real, credited media · 2-line headline · left fact column · presenter RIGHT · captions.
+     Motion: each story PUSHES IN FROM THE RIGHT (time moves forward) while the rail fill advances to that story's tick.
+     Loop: frame 0 = six-story grid + table of contents. Story 1 expands out of cell 1; story 6 collapses back into cell 6 → last frame = frame 0. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Brico; src: url('../../brand/fonts/BricolageGrotesque.ttf'); font-weight: 200 800; font-stretch: 75% 100%; }
+  @font-face { font-family: Geist; src: url('../../brand/fonts/Geist.ttf'); font-weight: 100 900; }
+  @font-face { font-family: GMono; src: url('../../brand/fonts/GeistMono.ttf'); font-weight: 100 900; }
+  :root { --ink:#0b0d11; --paper:#f3f1ec; --red:#ff3b30; --mute:#9aa3b1; --line:rgba(243,241,236,.18); }
+  html, body { margin:0; background:#000; }
+  #root { position:relative; width:1080px; height:1920px; overflow:hidden; background:linear-gradient(180deg,#0f131a 0%,#0a0c10 55%,#07080b 100%); font-family:Geist; color:var(--paper); }
+  .brico { font-family:Brico; font-weight:800; font-stretch:75%; text-transform:uppercase; line-height:.98; letter-spacing:.3px; }
+  .mono { font-family:GMono; font-weight:600; letter-spacing:2px; text-transform:uppercase; }
+  .fit { white-space:nowrap; }
+  .abs { position:absolute; }
+  #topLab { position:absolute; left:48px; top:50px; font-size:24px; }
+  #topLab b { color:var(--red); font-weight:700; }
+  #logo { position:absolute; left:990px; top:32px; width:60px; height:60px; border-radius:50%; }
+  #ai { position:absolute; right:102px; top:55px; font-size:15px; color:rgba(243,241,236,.58); letter-spacing:1.5px; }
+  /* 24-hour rail */
+  #rail { position:absolute; left:48px; top:118px; width:984px; height:56px; }
+  #railBase { position:absolute; left:0; top:12px; width:984px; height:2px; background:var(--line); }
+  #railFill { position:absolute; left:0; top:11px; height:4px; width:0; background:var(--red); }
+  .tick { position:absolute; top:5px; width:2px; height:16px; margin-left:-1px; background:rgba(243,241,236,.42); }
+  #railL, #railR { position:absolute; top:-20px; font-size:15px; color:var(--mute); letter-spacing:1.5px; white-space:nowrap; }
+  #railR { right:0; }
+  #tickLab { position:absolute; top:28px; font-size:19px; color:var(--red); white-space:nowrap; opacity:0; }
+  /* source window */
+  #win { position:absolute; left:0; top:184px; width:1080px; height:608px; overflow:hidden; background:#000; }
+  .cell, .shot { position:absolute; overflow:hidden; background:#0b0d11; }
+  .cell img, .shot img { position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; }
+  .cell .n { position:absolute; left:12px; top:12px; font-size:21px; padding:7px 10px 6px; background:rgba(11,13,17,.84); color:var(--paper); letter-spacing:1px; }
+  .shot { left:0; top:0; width:1080px; height:608px; display:none; }
+  .shade { position:absolute; left:0; top:0; width:100%; height:100%; background:#000; opacity:0; }
+  .txtcard { position:absolute; left:0; top:0; width:1080px; height:608px; background:radial-gradient(130% 100% at 15% 0%, #1b212c 0%, #0b0d11 70%); }
+  .txtcard > div { position:absolute; }
+  #chip { position:absolute; left:24px; top:22px; display:flex; opacity:0; }
+  #chipN { font-size:23px; background:var(--red); color:#fff; padding:9px 12px 8px; letter-spacing:1px; }
+  #chipT { font-size:20px; background:rgba(11,13,17,.86); color:var(--paper); padding:11px 14px 10px; }
+  #tag { position:absolute; right:24px; top:22px; font-size:17px; color:var(--paper); background:rgba(11,13,17,.86); border:2px solid var(--red); padding:8px 12px 7px; opacity:0; white-space:nowrap; }
+  #credit { position:absolute; left:24px; bottom:18px; font-family:GMono; font-weight:500; font-size:17px; letter-spacing:.4px; color:rgba(243,241,236,.94); background:rgba(11,13,17,.8); padding:7px 12px 6px; opacity:0; white-space:nowrap; }
+  /* headline */
+  .hl { position:absolute; left:48px; width:984px; font-size:62px; }
+  .hl.l2 { color:var(--red); }
+  /* left column */
+  #col { position:absolute; left:48px; top:968px; width:440px; height:500px; }
+  .toc { position:absolute; left:0; width:440px; height:56px; border-top:1px solid var(--line); padding-top:11px; display:flex; align-items:baseline; }
+  .toc .k { font-family:GMono; font-weight:700; font-size:23px; color:var(--red); width:58px; flex:none; letter-spacing:1px; }
+  .toc .v { font-weight:600; font-size:30px; width:370px; }
+  .card { position:absolute; left:0; width:440px; box-sizing:border-box; padding:10px 16px 12px 19px; background:rgba(21,25,34,.95); border-left:5px solid var(--red); opacity:0; }
+  .card .lab { font-family:GMono; font-weight:600; font-size:16px; letter-spacing:1.5px; color:var(--mute); text-transform:uppercase; white-space:nowrap; }
+  .card .val { font-family:Brico; font-weight:800; font-stretch:75%; font-size:48px; line-height:1; margin-top:6px; width:400px; }
+  .card .badge { display:inline-block; font-family:GMono; font-weight:700; font-size:16px; letter-spacing:1px; color:#fff; background:var(--red); padding:5px 8px 4px; margin-left:12px; vertical-align:middle; position:relative; top:-6px; }
+  .src { position:absolute; left:0; width:440px; font-weight:500; font-size:19px; line-height:1.35; color:var(--mute); opacity:0; }
+  .pill { position:absolute; left:0; font-family:GMono; font-weight:700; font-size:22px; letter-spacing:1.5px; padding:10px 16px 9px; background:var(--red); color:#fff; opacity:0; white-space:nowrap; }
+  /* presenter + captions */
+  #host { position:absolute; left:0; top:0; width:932px; height:1248px; }
+  #host img { position:absolute; left:0; top:0; width:932px; height:1248px; opacity:0; }
+  #cap { position:absolute; left:48px; top:1466px; width:984px; height:130px; }
+  #cap .line2 { position:absolute; left:0; top:0; padding:12px 22px 16px 27px; white-space:nowrap; font:700 56px/1.12 Geist; letter-spacing:-.6px; color:var(--paper); opacity:0; }
+  #cap .line2 .bg { position:absolute; left:0; top:0; bottom:0; width:0; background:rgba(11,13,17,.93); border-left:6px solid var(--red); box-sizing:border-box; }
+  #cap .line2.q { color:var(--ink); }
+  #cap .line2.q .bg { background:var(--paper); }
+  #cap .w { position:relative; display:inline-block; margin-right:.24em; opacity:0; }
+  #cap .w:last-child { margin-right:0; }
+  #cap .w.key { color:var(--red); }
+  #qlab { position:absolute; left:48px; top:1428px; font-size:18px; color:var(--red); opacity:0; white-space:nowrap; }
+</style></head>
+<body><div id="root">
+  <div id="topLab" class="mono">INDIA · LAST <b>24</b> HOURS</div>
+  <div id="ai" class="mono">AI PRESENTER</div>
+  <img id="logo" src="../../brand/logo.png">
+  <div id="rail">
+    <div id="railL" class="mono">29 SEP · 1:40 PM</div><div id="railR" class="mono">30 SEP · 1:40 PM IST</div>
+    <div id="railBase"></div><div id="railFill"></div>
+    <div id="ticks"></div>
+    <div id="tickLab" class="mono"></div>
+  </div>
+
+  <div id="win">
+    <div id="grid"></div>
+    <div id="shots"></div>
+    <div id="chip"><div id="chipN" class="mono"></div><div id="chipT" class="mono"></div></div>
+    <div id="tag" class="mono"></div>
+    <div id="credit"></div>
+  </div>
+
+  <div id="heads"></div>
+  <div id="col"></div>
+
+  <div id="host">
+    <img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">
+  </div>
+  <div id="qlab" class="mono">MEA SPOKESPERSON · ORIGINAL AUDIO</div>
+  <div id="cap"></div>
+</div>
+
+<!-- text cards shown inside the source window (no footage exists / no footage used) -->
+<template id="tpl-erd">
+  <div class="txtcard">
+    <div class="mono" style="left:64px; top:74px; font-size:22px; color:var(--mute)">UN GENERAL ASSEMBLY · NEW YORK</div>
+    <div class="brico fit" style="left:64px; top:120px; width:952px; font-size:72px">TURKEY’S PRESIDENT ERDOGAN:</div>
+    <div style="left:64px; top:222px; width:930px; font-size:40px; line-height:1.3; font-weight:500">“In South Asia, it is important that all disputes, <span style="color:var(--red)">including the Kashmir issue</span>, be addressed through dialogue…”</div>
+    <div class="mono" style="left:64px; top:476px; font-size:17px; color:var(--mute)">AS QUOTED BY THE STATESMAN · ANI · 29 SEP 2026</div>
+  </div>
+</template>
+<template id="tpl-kat">
+  <div class="txtcard">
+    <div class="mono" style="left:64px; top:86px; font-size:23px; color:var(--mute)">KATHUA · JAMMU &amp; KASHMIR</div>
+    <div class="brico fit" style="left:64px; top:136px; width:952px; font-size:96px">SEWA-II HYDRO PROJECT</div>
+    <div class="brico fit" style="left:64px; top:232px; width:952px; font-size:96px; color:var(--red)">CISF CAMP</div>
+    <div style="left:64px; top:360px; width:110px; height:4px; background:var(--red)"></div>
+    <div class="mono" style="left:64px; top:392px; font-size:22px">29 SEP 2026 · ~7:30 PM · PER OFFICIALS</div>
+    <div style="left:64px; top:440px; width:940px; font-size:28px; font-weight:500; color:var(--mute)">Being treated as fratricide. Motive not yet known.</div>
+  </div>
+</template>
+
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script src="work/frames.js"></script>
+<script>
+(async () => {
+const TL = window.__TL, FRN = window.__FR;
+const { SETTLE, SWEEP, appear, clamp01 } = Motion;
+window.DURATION = TL.total; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = TL.total, X = TL.ext, XW = TL.ext_words;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const word = (txt, para, nth = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === txt); if (!m.length) throw new Error('word not found: ' + txt + ' @P' + (para + 1)); return (m[nth] || m[0]).t0; };
+const xword = (txt) => { const m = XW.filter(w => norm(w.w) === txt); if (!m.length) throw new Error('ext word not found: ' + txt); return m[0].t0; };
+const $ = (id) => document.getElementById(id);
+const lerp = (a, b, k) => a + (b - a) * k;
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const TR = 0.5, EXP = 0.6;
+// segment starts: 0 intro · 1..6 stories · 7 outro
+const A = [0, P(1) - 0.25, P(2) - 0.25, P(3) - 0.25, P(4) - 0.25, P(5) - 0.25, P(6) - 0.25, P(7) - 0.25, END];
+const XA = X[0], XB = X[1], XEND = XB.start + XB.dur;
+const IMG = '../../.cache/ep10/img1080/', FR = '../../.cache/ep10/frames/';
+
+const ST = [null,
+  { n: '01', cat: 'SUPREME COURT',   date: '29 SEP', f: 0.168, toc: 'Supreme Court: drug prices' },
+  { n: '02', cat: 'FOREIGN AFFAIRS', date: '29 SEP', f: 0.200, toc: 'India replies to Turkey' },
+  { n: '03', cat: 'JAMMU & KASHMIR', date: '29 SEP', f: 0.243, toc: 'Kathua camp firing' },
+  { n: '04', cat: 'BIHAR FLOODS',    date: '30 SEP', f: 0.597, toc: 'Bihar: Gandak floods' },
+  { n: '05', cat: 'ASIAN GAMES',     date: '30 SEP', f: 0.736, toc: 'Asian Games archery' },
+  { n: '06', cat: 'POLITICS',        date: '30 SEP', f: 0.931, toc: 'INDIA bloc vs EC' }];
+const HEADS = [
+  ['6 STORIES · 24 HOURS', 'EVERY FACT SOURCED'],
+  ['SC: 10× MARKUP ON CANCER DRUG', 'IS “CARNAGE”'],
+  ['INDIA REJECTS ERDOGAN’S', 'KASHMIR REMARK AT THE UN'],
+  ['KATHUA: 4 CISF PERSONNEL', 'KILLED IN CAMP FIRING'],
+  ['BIHAR: GANDAK HITS RECORD,', 'EMBANKMENTS BREACHED'],
+  ['ASIAN GAMES: INDIA SWEEPS', 'ALL 3 COMPOUND TEAM GOLDS'],
+  ['INDIA BLOC MEETS,', 'DEMANDS CEC’S REMOVAL'],
+  ['WHICH ONE MATTERS MOST?', 'COMMENT 1–6']];
+const MEA_CREDIT = 'VIDEO · Ministry of External Affairs · YouTube @MEAIndia · briefing, 29 Sep 2026';
+const ARCH_CREDIT = 'FILE · Archery World Cup Final 2019 · Voltmetro · CC0 · Wikimedia Commons';
+const SHOTS = [
+  { id: 'sc',   st: 1, kind: 'img', src: IMG + 'sc.jpg', t0: A[1], t1: A[2], punch: [word('carnage', 1) - 0.15, '540px 170px'], credit: 'PHOTO · Supreme Court of India · Subhashish Panigrahi · CC BY-SA 4.0 · Wikimedia Commons' },
+  { id: 'erd',  st: 2, kind: 'card', tpl: 'tpl-erd', t0: A[2], t1: XA.start, tag: 'QUOTE' },
+  { id: 'meaA', st: 2, kind: 'seq', dir: FR + 'meaA', n: FRN.meaA, s: XA.start, t0: XA.start, t1: XB.start, tag: 'OFFICIAL VIDEO · EXCERPT', credit: MEA_CREDIT },
+  { id: 'meaB', st: 2, kind: 'seq', dir: FR + 'meaB', n: FRN.meaB, s: XB.start, t0: XB.start, t1: A[3], tag: 'OFFICIAL VIDEO · EXCERPT', credit: MEA_CREDIT },
+  { id: 'kat',  st: 3, kind: 'card', tpl: 'tpl-kat', t0: A[3], t1: A[4] },
+  { id: 'gan',  st: 4, kind: 'img', src: IMG + 'gandak.jpg', t0: A[4], t1: A[5], punch: [word('9125', 4) - 0.15, '540px 300px'], tag: 'FILE PHOTO', credit: 'FILE · Gandak Barrage, Valmikinagar · Abkhanal · CC BY 3.0 · Wikimedia Commons' },
+  { id: 'arT',  st: 5, kind: 'seq', dir: FR + 'archTen', n: FRN.archTen, s: A[5], t0: A[5], t1: A[5] + 5.0, tag: 'FILE FOOTAGE · NOT FROM ASIAN GAMES', credit: ARCH_CREDIT },
+  { id: 'arP',  st: 5, kind: 'seq', dir: FR + 'archPerf', n: FRN.archPerf, s: A[5] + 5.0, t0: A[5] + 5.0, t1: word('mahila', 5) - 0.12, tag: 'FILE FOOTAGE · NOT FROM ASIAN GAMES', credit: ARCH_CREDIT },
+  { id: 'arj',  st: 5, kind: 'img', src: IMG + 'arjuna.jpg', t0: word('mahila', 5) - 0.12, t1: A[6], tag: 'FILE PHOTO · 2017', credit: 'FILE 2017 · Jyothi Surekha Vennam gets the Arjuna Award · President’s Secretariat · GODL-India' },
+  { id: 'eci',  st: 6, kind: 'img', src: IMG + 'eci.jpg', t0: A[6], t1: END, punch: [word('maang', 6) - 0.15, '540px 260px'], tag: 'FILE PHOTO', credit: 'FILE · Election Commission of India, New Delhi · Ramesh Lalwani · CC BY 2.0 · Wikimedia Commons' }];
+const CARDS = [
+  { st: 1, t: word('₹2700', 1),   lab: 'Price to retailer',      val: '₹2,700' },
+  { st: 1, t: word('₹27000', 1),  lab: 'MRP (printed price)',    val: '₹27,000', badge: '10×' },
+  { st: 1, t: word('16', 1),      lab: 'SC suggests, all drugs', val: '16% margin' },
+  { st: 1, t: word('12', 1),      lab: 'Next hearing',           val: '12 October' },
+  { st: 2, t: word('erdogan', 2), lab: 'Turkey’s President at UN', val: 'Raised Kashmir' },
+  { st: 2, t: XA.start + 0.25,    lab: 'India’s reply · MEA',    val: '“Unwarranted”' },
+  { st: 2, t: xword('locus'),     lab: 'On Turkey’s role',       val: '“No locus standi”' },
+  { st: 3, t: word('cisf', 3),    lab: 'Per officials, fired by', val: 'A colleague' },
+  { st: 3, t: word('4', 3),       lab: 'Killed',                 val: '4 CISF personnel' },
+  { st: 3, t: word('aaropi', 3),  lab: 'Accused head constable', val: 'Arrested' },
+  { st: 3, t: word('court', 3),   lab: 'CISF HQ ordered',        val: 'Court of Inquiry' },
+  { st: 4, t: word('gandak', 4),  lab: 'After heavy rain in Nepal', val: 'Gandak in spate' },
+  { st: 4, t: word('9125', 4),    lab: 'Gandak at Bagaha',       val: '91.25 m', badge: 'RECORD' },
+  { st: 4, t: word('9125', 4) + 1.0, lab: 'Old record (2024)',   val: '90.90 m' },
+  { st: 4, t: word('gopalganj', 4), lab: 'Embankments breached', val: 'Gopalganj · Saran' },
+  { st: 5, t: word('teeno', 5),   lab: 'Compound team golds',    val: '3 of 3' },
+  { st: 5, t: word('238', 5),     lab: 'Women beat China',       val: '238–234', badge: '= WORLD RECORD' },
+  { st: 5, t: word('2028', 5),    lab: 'Mixed team also won',    val: 'LA 2028 quota' },
+  { st: 6, t: word('india', 6),   lab: 'INDIA bloc met · Delhi', val: '30 September' },
+  { st: 6, t: word('maang', 6),   lab: 'Opposition demand',      val: 'Remove the CEC' },
+  { st: 6, t: word('chunav', 6),  lab: 'EC says its orders are', val: 'Fully legal' }];
+const SRCS = { 1: 'Source: The Hindu, PTI, Onmanorama · 29 Sep 2026', 2: 'Source: MEA briefing (YouTube), The Statesman · 29 Sep 2026',
+  3: 'Source: India Today, Mathrubhumi · 29 Sep 2026', 4: 'Source: Bihar WRD via New Indian Express, UNI · 29–30 Sep 2026',
+  5: 'Source: The Hindu, Business Standard, Sportstar · 30 Sep 2026', 6: 'Source: PTI (via Siasat), ThePrint · 26–30 Sep 2026' };
+
+// ---------- build DOM ----------
+ST.forEach((s, i) => { if (!s) return; const tk = el('div', 'tick'); tk.style.left = (984 * s.f).toFixed(1) + 'px'; s.tick = tk; $('ticks').appendChild(tk); });
+const CW = 356, CH = 301, GX = [0, 362, 724], GY = [0, 307], FULL = { x: 0, y: 0, w: 1080, h: 608 };
+const cellRect = (i) => ({ x: GX[i % 3], y: GY[Math.floor(i / 3)], w: CW, h: CH });
+const lerpRect = (a, b, k) => ({ x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), w: lerp(a.w, b.w, k), h: lerp(a.h, b.h, k) });
+const setRect = (e, r) => { e.style.left = r.x.toFixed(2) + 'px'; e.style.top = r.y.toFixed(2) + 'px'; e.style.width = r.w.toFixed(2) + 'px'; e.style.height = r.h.toFixed(2) + 'px'; };
+const CELLIMG = [IMG + 'sc.jpg', FR + 'meaA/f_0060.jpg', null, IMG + 'gandak.jpg', IMG + 'arjuna.jpg', IMG + 'eci.jpg'];
+const cells = CELLIMG.map((src, i) => {
+  const c = el('div', 'cell'); setRect(c, cellRect(i));
+  if (src) { const im = el('img'); im.src = src; c.appendChild(im); }
+  else c.innerHTML = '<div class="txtcard" style="width:100%;height:100%"></div><div class="brico abs" style="left:26px; top:112px; font-size:72px">KATHUA</div><div class="mono abs" style="left:28px; top:190px; font-size:19px; color:var(--mute)">JAMMU &amp; KASHMIR</div>';
+  c.appendChild(el('div', 'n mono', ST[i + 1].n)); $('grid').appendChild(c); return c; });
+SHOTS.forEach(s => {
+  const d = el('div', 'shot'); s.el = d;
+  if (s.kind === 'img') { const im = el('img'); im.src = s.src; d.appendChild(im); s.img = im; if (s.punch) im.style.transformOrigin = s.punch[1]; }
+  if (s.kind === 'seq') { const im = el('img'); im.src = s.dir + '/f_0001.jpg'; d.appendChild(im); s.img = im; s.cur = im.src; }
+  if (s.kind === 'card') d.appendChild($(s.tpl).content.cloneNode(true));
+  s.shade = el('div', 'shade'); d.appendChild(s.shade); $('shots').appendChild(d);
+});
+const heads = HEADS.map((h, k) => {
+  const a = el('div', 'hl brico fit', h[0]), b = el('div', 'hl l2 brico fit', h[1]);
+  a.style.top = '806px'; b.style.top = '870px'; $('heads').appendChild(a); $('heads').appendChild(b); return [a, b]; });
+const tocs = ST.slice(1).map((s, i) => { const r = el('div', 'toc', `<div class="k">${s.n}</div><div class="v fit">${s.toc}</div>`); r.style.top = (i * 68) + 'px'; $('col').appendChild(r); return r; });
+CARDS.forEach(c => { c.el = el('div', 'card', `<div class="lab">${c.lab}</div><div class="val fit">${c.val}${c.badge ? `<span class="badge">${c.badge}</span>` : ''}</div>`); $('col').appendChild(c.el); });
+const srcEls = {}; Object.entries(SRCS).forEach(([k, v]) => { srcEls[k] = el('div', 'src', v); $('col').appendChild(srcEls[k]); });
+const pill = el('div', 'pill', 'LIKE + SUBSCRIBE'); pill.style.top = (6 * 68 + 14) + 'px'; $('col').appendChild(pill);
+
+// ---------- captions (Ep7–Ep9 engine) + official-quote captions ----------
+const KEY = new Set(['0:24', '0:6', '1:₹2700', '1:₹27000', '1:carnage', '1:16', '1:12', '2:kashmir', '2:mea', '3:4', '3:cisf', '4:9125', '4:gandak',
+  '5:teeno', '5:gold', '5:238', '5:2028', '6:sir', '6:india', '7:comment', '7:like', '7:subscribe', 'x:rejects', 'x:unwarranted', 'x:locus', 'x:standi']);
+const MAXC = 22, lines = [];
+function build(ws, q) {
+  const phrases = []; let ph = null;
+  ws.forEach(w => { const p = q ? 'x' : w.p; if (!ph || p !== ph.p || (q && w.seg !== ph.seg)) { ph = { p, seg: w.seg, words: [] }; phrases.push(ph); } ph.words.push({ ...w, p }); if (w.b) ph = null; });
+  phrases.forEach(ph => {
+    const wsx = ph.words, n = wsx.length, L = wsx.map(w => w.w.length);
+    const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+    const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+    const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+    for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) {
+      const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m];
+    }
+    const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+    cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, seg: ph.seg, q, words: wsx.slice(i0, i1) }));
+  });
+}
+build(W, false); build(XW, true);
+lines.sort((a, b) => a.words[0].t0 - b.words[0].t0);
+const segEnd = (L) => L.q ? (X.find(e => e.name === L.seg).start + X.find(e => e.name === L.seg).dur) : PE(L.p);
+lines.forEach(L => {
+  L.el = el('div', 'line2' + (L.q ? ' q' : '')); L.bg = el('div', 'bg'); L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = el('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el);
+});
+lines.forEach((L, k) => { const nx = lines[k + 1]; const same = nx && nx.p === L.p && nx.seg === L.seg;
+  L.t1 = same ? nx.t0 - 0.02 : Math.min(segEnd(L) + 0.25, nx ? nx.t0 - 0.02 : END); });
+window.__lines = lines.map(L => (L.q ? '[Q] ' : '') + L.words.map(w => w.w).join(' '));
+
+// ---------- timing helpers ----------
+const firstOf = (st) => SHOTS.find(s => s.st === st), lastOf = (st) => SHOTS.filter(s => s.st === st).pop();
+function shotGeom(s, t) {                                    // null = hidden
+  const isFirst = firstOf(s.st) === s, isLast = lastOf(s.st) === s;
+  const tEnd = isLast ? (s.st < 6 ? A[s.st + 1] + TR : A[7] + EXP) : s.t1;
+  if (t < s.t0 || t >= tEnd) return null;
+  let x = 0, shade = 0, rect = FULL;
+  if (isFirst && s.st >= 2) x = 1080 * (1 - SWEEP(clamp01((t - s.t0) / TR)));
+  if (isLast && s.st < 6 && t >= A[s.st + 1]) { const k = SWEEP(clamp01((t - A[s.st + 1]) / TR)); x = -320 * k; shade = 0.6 * k; }
+  if (s.st === 1 && isFirst && t < A[1] + EXP) rect = lerpRect(cellRect(0), FULL, SETTLE(clamp01((t - A[1]) / EXP)));
+  if (s.st === 6 && isLast && t >= A[7]) rect = lerpRect(FULL, cellRect(5), SETTLE(clamp01((t - A[7]) / EXP)));
+  return { x, shade, rect };
+}
+function storyAt(t) { let k = 0; for (let i = 1; i <= 6; i++) if (t >= A[i] + (i === 1 ? 0 : TR / 2)) k = i; return t >= A[7] ? 7 : k; }
+function ovAlpha(t) {                                        // chip / tag / credit master alpha
+  if (t < A[1] + EXP - 0.3) return 0;
+  if (t < A[1] + EXP) return SETTLE(clamp01((t - (A[1] + EXP - 0.3)) / 0.3));
+  if (t >= A[7]) return 1 - SETTLE(clamp01((t - A[7]) / 0.2));
+  for (let i = 2; i <= 6; i++) if (t >= A[i] && t < A[i] + TR) return Math.abs(1 - 2 * (t - A[i]) / TR);
+  return 1;
+}
+const reveal = (e, t, t0, d = 0.36) => { const k = SWEEP(clamp01((t - t0) / d)); e.style.clipPath = `inset(-12px ${((1 - k) * 100).toFixed(2)}% -12px 0)`; return k; };
+const wipeOut = (e, t, t0, d = 0.22) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.clipPath = `inset(-12px 0 -12px ${(k * 100).toFixed(2)}%)`; return 1 - k; };
+const HBACK = END - 0.8;                                     // outro headline leaves; the intro headline returns = loop
+function headVis(k, t) {                                     // 0 hidden .. drawn; sets clip on both lines
+  const [a, b] = heads[k];
+  const tin = k === 0 ? (t >= HBACK ? HBACK + 0.18 : -1e9) : A[k] + 0.14;
+  const tout = k === 0 ? (t >= HBACK ? 1e9 : A[1]) : k < 7 ? A[k + 1] : HBACK;
+  const on = t >= tin && t < tout + 0.24;
+  a.style.display = b.style.display = on ? 'block' : 'none';
+  if (!on) return;
+  if (t < tout) { reveal(a, t, tin); reveal(b, t, tin + 0.08); } else { wipeOut(a, t, tout); wipeOut(b, t, tout); }
+}
+const HX = 208, HY = 756;
+const hostImgs = [...document.querySelectorAll('#host img')];
+$('host').style.transform = `translate(${HX}px, ${HY}px)`;
+
+// ---------- seek ----------
+window.seek = async (t) => {
+  const pend = [];
+  // grid
+  cells.forEach((c, i) => {
+    // shared-element move: tiles stay solid; the expanding / collapsing shot covers and uncovers them (never a black window)
+    let o = 1;
+    if (t >= A[1] + EXP && t < A[7]) o = 0;
+    if (i === 0 && t >= A[1] && t < A[7]) o = 0;
+    if (i === 5 && t >= A[1] + EXP && t < A[7] + EXP) o = 0;
+    c.style.opacity = o.toFixed(3); c.style.display = o > 0 ? 'block' : 'none';
+  });
+  // shots
+  SHOTS.forEach(s => {
+    const g = shotGeom(s, t);
+    s.el.style.display = g ? 'block' : 'none'; if (!g) return;
+    setRect(s.el, g.rect); s.el.style.transform = `translateX(${g.x.toFixed(2)}px)`; s.shade.style.opacity = g.shade.toFixed(3);
+    if (s.punch) { const z = s.st === 6 && t >= A[7] ? 1 + 0.07 * (1 - SETTLE(clamp01((t - A[7]) / EXP))) : 1 + 0.07 * SETTLE(clamp01((t - s.punch[0]) / 0.6)); s.img.style.transform = `scale(${z.toFixed(4)})`; }
+    if (s.kind === 'seq') {
+      const idx = Math.max(0, Math.min(s.n - 1, Math.floor((t - s.s) * 30 + 1e-6)));
+      const src = s.dir + '/f_' + String(idx + 1).padStart(4, '0') + '.jpg';
+      if (s.cur !== src) { s.cur = src; s.img.src = src; pend.push(s.img.decode().catch(() => {})); }
+    }
+  });
+  // overlays
+  const k = storyAt(t), oa = ovAlpha(t);
+  const sk = Math.min(6, Math.max(1, k));
+  const sh = SHOTS.find(s => s.st === sk && t >= s.t0 && t < s.t1) || lastOf(sk);
+  $('chipN').textContent = ST[sk].n; $('chipT').textContent = ST[sk].cat;
+  $('chip').style.opacity = oa.toFixed(3);
+  $('tag').textContent = sh.tag || ''; $('tag').style.opacity = sh.tag ? oa.toFixed(3) : 0;
+  $('credit').textContent = sh.credit || ''; $('credit').style.opacity = sh.credit ? oa.toFixed(3) : 0;
+  // rail
+  let fill = 0;
+  if (t >= A[1] && t < A[7]) { let i = 1; for (let j = 1; j <= 6; j++) if (t >= A[j]) i = j;
+    const from = i === 1 ? 0 : ST[i - 1].f; fill = lerp(from, ST[i].f, SETTLE(clamp01((t - A[i]) / (i === 1 ? EXP : TR)))); }
+  if (t >= A[7]) fill = ST[6].f * (1 - SETTLE(clamp01((t - A[7]) / 0.9)));
+  $('railFill').style.width = (984 * fill).toFixed(2) + 'px';
+  ST.forEach((s, i) => { if (!s) return; const on = k === i; s.tick.style.background = on ? 'var(--red)' : 'rgba(243,241,236,.42)'; s.tick.style.height = on ? '26px' : '16px'; s.tick.style.top = on ? '0px' : '5px'; });
+  if (k >= 1 && k <= 6) { $('tickLab').textContent = ST[k].date; const x = 984 * ST[k].f; $('tickLab').style.left = Math.max(0, x - 34).toFixed(1) + 'px'; $('tickLab').style.opacity = oa.toFixed(3); }
+  else $('tickLab').style.opacity = 0;
+  // headlines
+  heads.forEach((_, i) => headVis(i, t));
+  // left column: table of contents (intro + outro) and fact cards
+  tocs.forEach((r, i) => {
+    let o = t < A[1] ? 1 : t < A[1] + 0.25 ? 1 - SETTLE((t - A[1]) / 0.25) : 0;
+    if (t >= A[7]) o = SETTLE(clamp01((t - A[7] - 0.35 - 0.06 * i) / 0.3));
+    r.style.opacity = o.toFixed(3); r.style.transform = `translateX(${((1 - o) * -18).toFixed(2)}px)`;
+  });
+  CARDS.forEach(c => {
+    const tEnd = A[c.st + 1];
+    if (t < c.t || t >= tEnd + 0.22) { c.el.style.opacity = 0; return; }
+    const o = t < tEnd ? SETTLE(clamp01((t - c.t) / 0.22)) : 1 - SETTLE(clamp01((t - tEnd) / 0.22));
+    c.el.style.opacity = o.toFixed(3); if (t < tEnd) reveal(c.el, t, c.t - 0.02, 0.3);
+  });
+  Object.entries(srcEls).forEach(([st, e]) => {
+    const t0 = CARDS.find(c => c.st === +st).t + 0.4, tEnd = A[+st + 1];
+    const o = t < t0 || t >= tEnd + 0.22 ? 0 : t < tEnd ? SETTLE(clamp01((t - t0) / 0.3)) : 1 - SETTLE(clamp01((t - tEnd) / 0.22));
+    e.style.opacity = o.toFixed(3);
+  });
+  const tl = word('like', 7), po = t < tl - 0.05 ? 0 : t < END - 0.8 ? SETTLE(clamp01((t - tl + 0.05) / 0.25)) : 1 - SETTLE(clamp01((t - (END - 0.8)) / 0.25));
+  pill.style.opacity = po.toFixed(3); if (po > 0 && t < END - 0.8) reveal(pill, t, tl - 0.05, 0.3);
+  // presenter (mouth driven by the VO-only envelope: closed during the official MEA audio)
+  const f = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30)));
+  const v = (t < P(0) || t > PE(7) + 0.02) ? 0 : VIS[f];
+  hostImgs.forEach((im, i) => { im.style.opacity = i === v ? 1 : 0; });
+  // official-quote label
+  const qo = t < XA.start - 0.15 || t > XEND + 0.35 ? 0 : t < XA.start ? SETTLE((t - XA.start + 0.15) / 0.15) : t > XEND + 0.2 ? 1 - (t - XEND - 0.2) / 0.15 : 1;
+  $('qlab').style.opacity = Math.max(0, qo).toFixed(3);
+  // captions
+  lines.forEach(L => {
+    const on = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = on ? 1 : 0;
+    if (on) {
+      let wdt = 0;
+      L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const kk = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prev = i ? L.words[i - 1].right : 0; wdt = prev + (w.right - prev) * kk; } });
+      L.bg.style.width = (wdt + 22).toFixed(1) + 'px';
+      L.words.forEach(w => { const kk = appear(t, w.t0 - 0.03); w.el.style.opacity = kk > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, kk)) * 14).toFixed(2)}px)`; });
+    }
+  });
+  if (pend.length) await Promise.all(pend);
+};
+
+// fastest on-screen motion (px/s) -> adaptive motion blur in hrender
+window.speed = (t) => {
+  const d = 1 / 240; let v = 0;
+  SHOTS.forEach(s => { const a = shotGeom(s, t - d), b = shotGeom(s, t + d);
+    if (a && b) v = Math.max(v, Math.abs(b.x - a.x) / (2 * d), Math.abs(b.rect.w - a.rect.w) / (2 * d), Math.abs(b.rect.x - a.rect.x) / (2 * d)); });
+  return v;
+};
+
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(e => {
+  const d0 = e.style.display; e.style.display = 'block';
+  let fs = parseFloat(getComputedStyle(e).fontSize), guard = 0;
+  while (e.scrollWidth > e.clientWidth + 1 && guard++ < 80) { fs -= 2; e.style.fontSize = fs + 'px'; }
+  e.dataset.fs = fs; e.style.display = d0;
+});
+window.__fits = [...document.querySelectorAll('.fit')].map(e => e.textContent.trim().slice(0, 26) + ':' + e.dataset.fs);
+// stack each story's cards at fixed positions (no reflow while they appear); source line under the last card
+const tops = [];
+for (let st = 1; st <= 6; st++) {
+  let y = 0; CARDS.filter(c => c.st === st).forEach(c => { c.el.style.top = y + 'px'; y += c.el.offsetHeight + 10; });
+  tops.push(st + ':' + y);
+}
+const SRC_Y = Math.max(...tops.map(x => +x.split(':')[1])) + 4;
+Object.values(srcEls).forEach(e => { e.style.top = SRC_Y + 'px'; });
+tops.push('SRC_Y:' + SRC_Y + ' bottom:' + Math.max(...Object.values(srcEls).map(e => SRC_Y + e.offsetHeight)));
+window.__colBottoms = tops;
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+await window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>

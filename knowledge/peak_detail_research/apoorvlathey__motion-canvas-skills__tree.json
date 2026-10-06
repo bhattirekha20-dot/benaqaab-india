@@ -1,0 +1,21 @@
+{
+  "repo": "apoorvlathey/motion-canvas-skills",
+  "tree_sha": "5cdaf357753df114bf2c50a99be4b58f05589692",
+  "truncated": false,
+  "paths": [
+    ".agents/skills/skill-creator/LICENSE.txt",
+    ".agents/skills/skill-creator/SKILL.md",
+    ".agents/skills/skill-creator/references/output-patterns.md",
+    ".agents/skills/skill-creator/references/workflows.md",
+    ".agents/skills/skill-creator/scripts/init_skill.py",
+    ".agents/skills/skill-creator/scripts/package_skill.py",
+    ".agents/skills/skill-creator/scripts/quick_validate.py",
+    ".claude/skills/skill-creator",
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "SKILL.md",
+    "references/api-reference.md",
+    "references/patterns.md"
+  ]
+}

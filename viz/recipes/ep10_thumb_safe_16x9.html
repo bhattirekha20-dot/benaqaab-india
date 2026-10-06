@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* SAFE thumbnail: only free-licence photos/footage (Commons CC0 / CC BY / CC BY-SA, GODL-India) + our own graphics. */
+@font-face { font-family: Brico; src: url('../../../brand/fonts/BricolageGrotesque.ttf'); font-weight: 200 800; font-stretch: 75% 100%; }
+@font-face { font-family: GMono; src: url('../../../brand/fonts/GeistMono.ttf'); font-weight: 100 900; }
+html,body{margin:0;background:#000}
+#r{position:relative;width:1280px;height:720px;overflow:hidden;background:#0b0d11;color:#f3f1ec}
+.b{font-family:Brico;font-weight:800;font-stretch:75%;text-transform:uppercase;line-height:.9;white-space:nowrap}
+.m{font-family:GMono;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.g{position:absolute;overflow:hidden;background:radial-gradient(130% 100% at 15% 0%,#1b212c,#0b0d11)}.g img{width:100%;height:100%;object-fit:cover;display:block}
+</style></head><body><div id="r">
+<div id="grid" style="position:absolute;left:560px;top:0;width:720px;height:720px"></div>
+<div style="position:absolute;left:0;top:0;width:760px;height:720px;background:linear-gradient(90deg,#0b0d11 72%,rgba(11,13,17,0))"></div>
+<div class="m" style="position:absolute;left:44px;top:40px;font-size:24px">INDIA · LAST <span style="color:#ff3b30">24</span> HOURS · 29–30 SEP</div>
+<div class="b" style="position:absolute;left:40px;top:92px;font-size:150px">6 STORIES</div>
+<div class="b" style="position:absolute;left:40px;top:226px;font-size:150px;color:#ff3b30">YOU MISSED</div>
+<div class="m" style="position:absolute;left:44px;top:392px;font-size:30px;background:#ff3b30;color:#fff;padding:14px 18px 12px">₹2,700 DRUG → ₹27,000 MRP?</div>
+<div class="m" style="position:absolute;left:44px;top:480px;font-size:19px;color:#9aa3b1;line-height:1.7">SUPREME COURT · MEA vs TURKEY · KATHUA<br>BIHAR FLOODS · ASIAN GAMES · INDIA BLOC</div>
+<img src="../../../brand/host/host_rgba_1.png" style="position:absolute;left:760px;top:196px;width:560px;height:750px">
+<img src="../../../brand/logo.png" style="position:absolute;left:44px;top:618px;width:64px;height:64px;border-radius:50%">
+</div><script>
+const IMG='../../../.cache/ep10/img1080/';
+const src=[IMG+'sc.jpg',null,IMG+'gandak.jpg',IMG+'arjuna.jpg',IMG+'eci.jpg',IMG+'archery.jpg'];
+src.forEach((s,i)=>{const d=document.createElement('div');d.className='g';d.style.left=[0,362][i%2]+'px';d.style.top=[0,242,484][Math.floor(i/2)]+'px';d.style.width='358px';d.style.height='236px';
+ d.innerHTML=s?`<img src="${s}">`:`<div class="b" style="position:absolute;left:26px;top:40px;font-size:62px">INDIA vs</div><div class="b" style="position:absolute;left:26px;top:98px;font-size:62px;color:#ff3b30">TURKEY</div><div class="m" style="position:absolute;left:28px;top:166px;font-size:15px;color:#9aa3b1">MEA · UNGA</div>`;document.getElementById('grid').appendChild(d);});
+window.DURATION=1;window.FPS=30;window.WIDTH=1280;window.HEIGHT=720;window.seek=()=>{};
+(async()=>{await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));await document.fonts.ready;window.ready=true;})();
+</script></body></html>

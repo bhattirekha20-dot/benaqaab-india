@@ -1,0 +1,352 @@
+<!doctype html>
+<!-- Benaqaab India · Ep8 "Kal se badle ye niyam" (new rules from 1 Oct 2026)
+     Look: navy ink + white paper + ONE yellow highlighter accent. Calendar page -> 4 rule cards -> question -> calendar (loop).
+     Direction of travel: UP (pages turn upward). -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Brico; src: url('../../brand/fonts/BricolageGrotesque.ttf'); font-weight: 200 800; font-stretch: 75% 100%; }
+  @font-face { font-family: Geist; src: url('../../brand/fonts/Geist.ttf'); font-weight: 100 900; }
+  @font-face { font-family: GMono; src: url('../../brand/fonts/GeistMono.ttf'); font-weight: 100 900; }
+  :root { --ink:#0e1726; --paper:#fbfaf7; --hl:#ffd60a; --slate:#5b6b82; }
+  html, body { margin:0; background:var(--ink); }
+  #root { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--ink); }
+  .plate { position:absolute; left:0; top:0; width:1080px; height:1920px; transform-origin:540px 960px; }
+  .plate img { width:1080px; height:1920px; display:block; }
+  #shadeTop { position:absolute; left:0; top:0; width:1080px; height:1050px; background:linear-gradient(#0e1726d9 0%, #0e172680 55%, #0e172600 100%); }
+  #shadeBot { position:absolute; left:0; bottom:0; width:1080px; height:700px; background:linear-gradient(#0e172600 0%, #0e172666 60%, #0e1726b3 100%); }
+  #host { position:absolute; left:0; top:0; width:932px; height:1248px; }
+  #host img { position:absolute; left:0; top:0; width:932px; height:1248px; opacity:0; }
+  #card { position:absolute; left:0; top:0; background:var(--paper); overflow:hidden; box-shadow:0 30px 80px #0009; }
+  #calStrip { position:absolute; left:0; top:0; right:0; height:96px; background:var(--ink); opacity:0; }
+  #calStrip .t { position:absolute; left:0; right:0; top:34px; text-align:center; font:600 26px/1 GMono; letter-spacing:6px; color:#fff; }
+  #calStrip i { position:absolute; top:-14px; width:22px; height:44px; border-radius:11px; background:#c9ced6; box-shadow:inset 0 -6px 0 #9aa3af; }
+  #logo { position:absolute; width:58px; height:58px; border-radius:50%; top:24px; }
+  .grp { position:absolute; left:0; top:0; opacity:0; color:var(--ink); }
+  .fit { white-space:nowrap; }
+  .lab { font:600 26px/1.2 GMono; letter-spacing:2px; text-transform:uppercase; color:var(--slate); }
+  .src { font:500 21px/1.3 GMono; color:#7a8699; letter-spacing:.3px; }
+  .hdr { display:flex; align-items:center; gap:18px; height:60px; }
+  .num { font:800 34px/1 Brico; color:var(--ink); background:var(--hl); border-radius:12px; padding:10px 14px 8px; }
+  .h2 { font:800 70px/1.06 Brico; font-stretch:92%; letter-spacing:-1px; }
+  .big { font:800 190px/0.95 Brico; font-stretch:90%; letter-spacing:-4px; }
+  .line { font:700 40px/1.2 Geist; letter-spacing:-.3px; }
+  .hl { background-image:linear-gradient(var(--hl), var(--hl)); background-repeat:no-repeat; background-position:0 88%; background-size:0% 44%; padding:0 6px; margin:0 -6px; }
+  .chip { display:inline-block; font:700 30px/1 Geist; background:var(--ink); color:#fff; border-radius:40px; padding:14px 22px 12px; }
+  .chip b { color:var(--hl); }
+  .pill { display:inline-block; font:700 28px/1 Geist; border:3px solid var(--ink); border-radius:40px; padding:12px 20px 10px; margin-right:12px; }
+  .bar { position:relative; height:58px; margin-bottom:14px; }
+  .bar .bf { position:absolute; left:0; top:0; height:58px; border-radius:12px; width:0; }
+  .bar .bl { position:absolute; left:18px; top:15px; font:700 26px/1 Geist; color:#fff; white-space:nowrap; z-index:2; }
+  .bar .bv { position:absolute; top:10px; font:800 40px/1 Brico; white-space:nowrap; }
+  #dots10 { display:flex; gap:16px; margin:6px 0 0; }
+  #dots10 i { width:52px; height:52px; border-radius:50%; background:var(--ink); box-sizing:border-box; border:5px solid var(--ink); }
+  .seg { position:absolute; top:0; height:150px; border-radius:16px; box-sizing:border-box; padding:18px 18px; border:4px solid #d6dbe3; background:#fff; }
+  .seg b { display:block; font:800 38px/1 Brico; margin-bottom:12px; }
+  .seg span { display:block; font:700 25px/1.2 Geist; color:var(--slate); }
+  .seg.on { border-color:var(--ink); background:var(--hl); }
+  .seg.on span { color:var(--ink); }
+  #tag4 { position:absolute; left:0; top:0; background:var(--hl); color:var(--ink); font:800 30px/1 Geist; border-radius:14px; padding:14px 22px 12px; opacity:0; box-shadow:0 12px 30px #0007; white-space:nowrap; }
+  #cap { position:absolute; left:80px; top:1452px; width:920px; height:130px; }
+  #cap .line2 { position:absolute; left:0; top:0; padding:14px 24px 16px; white-space:nowrap;
+               font:800 62px/1.1 Geist; letter-spacing:-.8px; color:var(--ink); opacity:0; }
+  #cap .line2 .bg { position:absolute; left:0; top:0; bottom:0; width:0; background:#fbfaf7; border-radius:18px; box-shadow:0 14px 40px #0006; }
+  #cap .w { position:relative; display:inline-block; margin-right:.25em; opacity:0; }
+  #cap .w:last-child { margin-right:0; }
+  #cap .w.key { background-image:linear-gradient(var(--hl), var(--hl)); background-repeat:no-repeat; background-position:0 86%; background-size:0% 46%; }
+</style></head>
+<body><div id="root">
+  <div id="plates"></div>
+  <div id="shadeTop"></div><div id="shadeBot"></div>
+  <div id="host">
+    <img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">
+  </div>
+  <div id="card">
+    <div id="calStrip"><i style="left:130px"></i><i style="right:130px"></i><div class="t">OCTOBER 2026</div></div>
+    <img id="logo" src="../../brand/logo.png">
+    <!-- calendar (frame 0 + loop) -->
+    <div class="grp" id="gCal" style="text-align:center">
+      <div style="height:96px"></div>
+      <div style="font:800 250px/0.9 Brico; font-stretch:88%; letter-spacing:-6px; margin-top:26px">1</div>
+      <div class="lab" style="margin-top:14px">From tomorrow</div>
+      <div class="fit" style="font:800 58px/1.15 Brico; font-stretch:92%; margin-top:8px"><span class="hl" id="hlRules">4 RULES</span> CHANGE</div>
+      <div class="src" style="margin-top:22px">Info only · not financial advice<br>as of 30 Sep 2026</div>
+    </div>
+    <!-- 01 LPG -->
+    <div class="grp" id="gLPG">
+      <div class="hdr" id="hdrLPG"><span class="num">01</span><span class="lab">LPG subsidy</span></div>
+      <div class="h2 fit" id="l1" style="margin-top:22px">Biometric Aadhaar check</div>
+      <div class="h2 fit" id="l2">is now <span class="hl" id="hlMand">mandatory</span></div>
+      <div style="margin-top:24px" id="c90row"><span class="chip" id="c90"><b>89.9%</b> already done · 27.43 crore</span></div>
+      <div id="bars" style="margin-top:26px">
+        <div class="bar"><div class="bf" id="b1" style="background:var(--ink)"></div><span class="bl">Regulated price</span><span class="bv" id="v1">₹942</span></div>
+        <div class="bar"><div class="bf" id="b2" style="background:#e0a800"></div><span class="bl" style="color:var(--ink)">Market price</span><span class="bv" id="v2">₹1,600+</span></div>
+        <div class="src" id="bsrc">Delhi · June 2026 · 14.2 kg cylinder · without the check: no subsidised refill</div>
+      </div>
+      <div style="margin-top:22px" id="how"><span class="pill" id="h1">At delivery</span><span class="pill" id="h2">Distributor</span><span class="pill" id="h3">OMC app</span></div>
+      <div class="src" id="lpgSrc" style="margin-top:18px">MoPNG via BusinessLine · 19 Sep 2026</div>
+    </div>
+    <!-- 02 SBI -->
+    <div class="grp" id="gSBI">
+      <div class="hdr" id="hdrSBI"><span class="num">02</span><span class="lab">SBI · salary accounts</span></div>
+      <div class="line" id="s1" style="margin-top:20px">Free transactions a month at <u>other banks'</u> ATMs</div>
+      <div class="big" style="margin-top:6px"><span id="n10" style="position:relative">10<i id="strike" style="position:absolute; left:-6px; top:48%; height:14px; width:0; background:var(--ink); border-radius:7px"></i></span><span id="arr" style="font-size:120px; margin:0 26px; vertical-align:30px">→</span><span id="n5" class="hl">5</span></div>
+      <div id="dots10"></div>
+      <div class="line" id="s23" style="margin-top:26px">Then <span class="hl" id="hl23">₹23 + GST</span> per cash withdrawal</div>
+      <div class="line" id="sB" style="margin-top:14px; font-size:34px; color:var(--slate)">Basic (BSBD) account: 4 free, then <span class="hl" id="hl15" style="color:var(--ink)">₹15 + GST</span></div>
+      <div class="src" id="sbiSrc" style="margin-top:20px">SBI via Livemint · 4 Sep 2026</div>
+    </div>
+    <!-- 03 Birth & death registration -->
+    <div class="grp" id="gReg">
+      <div class="hdr" id="hdrReg"><span class="num">03</span><span class="lab">Birth &amp; death registration</span></div>
+      <div class="h2 fit" id="r1" style="margin-top:22px">Registered <span class="hl" id="hlLate">late?</span></div>
+      <div id="tl" style="position:relative; height:150px; margin-top:34px">
+        <div class="seg" id="sg1" style="left:0; width:236px"><b>Up to 1 yr</b><span>Normal process</span></div>
+        <div class="seg" id="sg2" style="left:252px; width:262px"><b>1–2 yrs</b><span>DM / SDM order</span></div>
+        <div class="seg" id="sg3" style="left:530px; width:298px"><b>2+ yrs</b><span>Judicial Magistrate order</span></div>
+      </div>
+      <div class="line" id="tip" style="margin-top:30px">Register on <span class="hl" id="hlTime">time.</span></div>
+      <div class="src" id="regSrc" style="margin-top:18px">RBD (Amendment) Act 2026 · RGI notification, 16 Sep 2026</div>
+    </div>
+    <!-- 04 UPI -->
+    <div class="grp" id="gUPI">
+      <div class="hdr" id="hdrUPI"><span class="num">04</span><span class="lab">UPI <span id="u0">· from Oct 15</span></span></div>
+      <div class="line" id="u1" style="margin-top:20px">Shop (merchant) payments above ₹2,000</div>
+      <div class="big" id="u04" style="margin-top:4px"><span class="hl" id="hl04">0.4%</span><span style="font-size:70px; letter-spacing:0; margin-left:18px">fee</span></div>
+      <div class="line" id="u2" style="margin-top:14px">Paid by the <span class="hl" id="hlMer">merchant</span>, not you*</div>
+      <div style="margin-top:24px; line-height:62px" id="u3"><span class="pill" id="p1">Friends &amp; family: FREE</span><span class="pill" id="p2">Up to ₹2,000: FREE</span><br><span class="pill" id="p3">Max fee ₹300</span></div>
+      <div class="src" id="upiSrc" style="margin-top:16px">*Banks told to stop merchants passing it on · NPCI via TOI, 15 Sep 2026</div>
+    </div>
+    <!-- question -->
+    <div class="grp" id="gAsk">
+      <div class="lab">Your turn · comment below</div>
+      <div class="h2 fit" style="margin-top:18px; font-size:84px">Which rule hits</div>
+      <div class="h2 fit" id="askH2" style="font-size:84px"><span class="hl" id="hlYou">you</span> the most?</div>
+      <div style="margin-top:30px; line-height:64px" id="askChips"><span class="pill">LPG</span><span class="pill">SBI ATM</span><span class="pill">Birth reg.</span><span class="pill">UPI</span></div>
+    </div>
+  </div>
+  <div id="tag4">#4 is the most confusing ↓</div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { Morph, SETTLE, SWEEP, handoff, appear, leave, clamp01 } = Motion;
+window.DURATION = TL.total; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = TL.total;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const word = (txt, para, nth = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === txt); if (!m.length) throw new Error('word not found: ' + txt + ' @P' + (para + 1)); return (m[nth] || m[0]).t0; };
+const $ = (id) => document.getElementById(id);
+
+// ---------- plates: one per paragraph; every seam pushes UP (pages turn); slow push inside a shot ----------
+const PLATES = ['s0_dawn', 's1_lpg', 's2_atm', 's3_registry', 's4_upi', 's0_dawn'];
+const TR = 0.46, seam = (i) => P(i) - 0.18;
+const plateEls = PLATES.map(n => { const d = document.createElement('div'); d.className = 'plate'; d.innerHTML = `<img src="img/1080/${n}.jpg">`; $('plates').appendChild(d); return d; });
+function plateY(i, t) {
+  const inK = i === 0 ? 1 : SWEEP(clamp01((t - seam(i)) / TR));
+  const outK = i === PLATES.length - 1 ? 0 : SWEEP(clamp01((t - seam(i + 1)) / TR));
+  return (1 - inK) * 1920 - outK * 1920;
+}
+function plateZoom(i, t) {        // log-space push; the final plate pulls back to 1.0 so the last frame == frame 0
+  const last = i === PLATES.length - 1, t0 = i === 0 ? 0 : seam(i), t1 = last ? END : seam(i + 1) + TR;
+  const k = clamp01((t - t0) / (t1 - t0));
+  return Math.exp(Math.log(1.06) * (last ? 1 - k : k));
+}
+
+// ---------- host: centred; P1 (from frame 0), P4 opening line, P6. Moves with her page; in P4 she steps down out of frame ----------
+const HOST_X = 74, HOST_Y = 676;
+const OUT_P4 = word('janm', 3) - 0.35;
+function hostY(t) {
+  if (t < seam(1) + TR) return HOST_Y + plateY(0, t);                            // leaves with page 0 (up)
+  if (t >= seam(3) && t < OUT_P4 + TR) {                                          // arrives with page 3, then steps down
+    const inY = plateY(3, t), down = SWEEP(clamp01((t - OUT_P4) / TR)) * 1300;
+    return HOST_Y + inY + down;
+  }
+  if (t >= seam(5)) return HOST_Y + plateY(5, t);                                 // arrives with the last page
+  return null;
+}
+const hostImgs = [...document.querySelectorAll('#host img')];
+
+// ---------- the card: ONE shape carried through every beat ----------
+const S = {
+  cal:  { x: 240, y: 196, w: 600, h: 600, r: 26 },
+  r1:   { x: 70,  y: 196, w: 940, h: 760, r: 30 },
+  r2:   { x: 70,  y: 196, w: 940, h: 740, r: 30 },
+  r3a:  { x: 70,  y: 196, w: 940, h: 250, r: 30 },
+  r3b:  { x: 70,  y: 196, w: 940, h: 640, r: 30 },
+  r4:   { x: 70,  y: 196, w: 940, h: 760, r: 30 },
+  ask:  { x: 110, y: 214, w: 860, h: 560, r: 30 } };
+const T = { r1: P(1) - 0.06, r2: P(2) - 0.06, r3a: P(3) - 0.06, r4: P(4) - 0.06, ask: P(5) - 0.06, cal: PE(5) + 0.1 };
+const G = [['gCal', 'cal', -9, T.r1], ['gLPG', 'r1', T.r1, T.r2], ['gSBI', 'r2', T.r2, T.r3a], ['gReg', 'r3b', T.r3a, T.r4],
+           ['gUPI', 'r4', T.r4, T.ask], ['gAsk', 'ask', T.ask, T.cal], ['gCal', 'cal', T.cal, END + 9]];
+let card = null, TAGW = 430;
+const PAD = 56;
+G.forEach(([id, st]) => { $(id).style.width = (S[st].w - 2 * PAD) + 'px'; $(id).style.transform = `translate(${PAD}px, ${id === 'gCal' ? 0 : PAD}px)`; });
+$('gCal').style.transform = `translate(${PAD}px, 0px)`;
+for (let i = 0; i < 10; i++) $('dots10').appendChild(document.createElement('i'));
+const dots = [...$('dots10').children];
+
+// ---------- captions: phrases end at the aligner's pause flags; balanced lines; key words get the highlighter ----------
+const KEY = new Set(['0:4', '0:confusion', '1:biometric', '1:aadhaar', '1:90', '2:10', '2:5', '2:₹23', '2:₹15', '3:dm', '3:sdm', '3:judicial', '3:magistrate',
+                     '4:04', '4:₹2000', '4:dukandaar', '4:free', '5:comment']);
+const phrases = []; let ph = null;
+W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+const MAXC = 21, lines = [];
+phrases.forEach(ph => {
+  const ws = ph.words, n = ws.length, L = ws.map(w => w.w.length);
+  const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+  const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+  const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+  for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) {
+    const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m];
+  }
+  const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+  cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) }));
+});
+lines.forEach(L => {
+  L.el = document.createElement('div'); L.el.className = 'line2';
+  L.bg = document.createElement('div'); L.bg.className = 'bg'; L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = document.createElement('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el);
+});
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 - 0.02 : Math.min(PE(L.p) + 0.25, nx ? nx.t0 - 0.02 : END); });
+window.__lines = lines.map(L => L.words.map(w => w.w).join(' '));
+
+// ---------- helpers ----------
+const fadeIn = (t, t0, d = 0.35) => appear(t, t0, d, SETTLE);
+const show = (id, t, t0, dy = 16) => { const k = fadeIn(t, t0); const el = $(id); el.style.opacity = k.toFixed(3); el.style.transform = `translateY(${((1 - k) * dy).toFixed(2)}px)`; return k; };
+const sweep = (id, t, t0, d = 0.45) => { const k = SWEEP(clamp01((t - t0) / d)); $(id).style.backgroundSize = `${(k * 100).toFixed(1)}% 44%`; return k; };
+const A = {
+  rules: word('4', 0), tag: word('aakhri', 0),
+  l1: word('biometric', 1), l2: word('zaroori', 1), c90: word('90', 1), bars: word('nahi', 1), h1: word('delivery', 1), h2: word('distributor', 1), h3: word('app', 1),
+  s1: word('free', 2), n10: word('10', 2), strike: word('sirf', 2), n5: word('5', 2), s23: word('₹23', 2), sB: word('basic', 2), s15: word('₹15', 2),
+  r1: word('registration', 3), late: word('late', 3), sg1: word('ek', 3), sg2: word('dm', 3), sg3: word('judicial', 3), tip: word('isliye', 3),
+  u0: word('15', 4), u1: word('₹2000', 4), u04: word('04', 4), u2: word('dukandaar', 4), p1: word('dost', 4),
+  you: word('asar', 5), chips: word('comment', 5) };
+const BAR_MAX = 520;
+
+window.seek = (t) => {
+  plateEls.forEach((el, i) => {
+    const y = plateY(i, t), vis = y > -1920 && y < 1920;
+    el.style.display = vis ? 'block' : 'none';
+    if (vis) el.style.transform = `translateY(${y.toFixed(2)}px) scale(${plateZoom(i, t).toFixed(5)})`;
+  });
+  const hy = hostY(t);
+  $('host').style.display = (hy === null || hy > 1920) ? 'none' : 'block';
+  if (hy !== null && hy <= 1920) {
+    $('host').style.transform = `translate(${HOST_X}px, ${hy.toFixed(2)}px)`;
+    const f = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30)));
+    const v = (t < P(0) || t > PE(5) + 0.02) ? 0 : VIS[f];
+    hostImgs.forEach((im, k) => { im.style.opacity = k === v ? 1 : 0; });
+  }
+  // card
+  const s = card.at(t), cd = $('card');
+  cd.style.transform = `translate(${s.x.toFixed(2)}px, ${s.y.toFixed(2)}px)`;
+  cd.style.width = s.w.toFixed(2) + 'px'; cd.style.height = s.h.toFixed(2) + 'px'; cd.style.borderRadius = s.r.toFixed(2) + 'px';
+  $('logo').style.left = (s.w - 82).toFixed(2) + 'px';
+  const calA = t < T.r1 ? leave(t, T.r1 - 0.22, 0.2) : (t >= T.cal ? SETTLE(clamp01((t - T.cal - 0.1) / 0.3)) : 0);
+  $('calStrip').style.opacity = calA.toFixed(3); $('logo').style.opacity = (1 - calA).toFixed(3);
+  const alpha = {};
+  G.forEach(([id, st, a, b]) => {
+    if (t < a || t >= b) return;
+    const out = handoff(t, b - 0.20, b + 0.05, 0.16)[0], inn = a < 0 ? 1 : handoff(t, a - 0.3, a + 0.14, 0.16)[1];
+    alpha[id] = Math.max(alpha[id] || 0, Math.min(out, inn));
+  });
+  ['gCal', 'gLPG', 'gSBI', 'gReg', 'gUPI', 'gAsk'].forEach(id => { $(id).style.opacity = (alpha[id] || 0).toFixed(3); });
+  // P1: the 4 gets highlighted; tag teases #4
+  if (t < T.r1) sweep('hlRules', t, A.rules); else $('hlRules').style.backgroundSize = '0% 44%';   // loop: back to the frame-0 state
+  const tg = (t >= A.tag && t < T.r1) ? fadeIn(t, A.tag) * leave(t, T.r1 - 0.25, 0.2) : 0;
+  $('tag4').style.opacity = tg.toFixed(3);
+  $('tag4').style.transform = `translate(${(540 - TAGW / 2).toFixed(0)}px, ${(s.y + s.h - 26 + (1 - Math.min(1, tg)) * 14).toFixed(2)}px) rotate(-2deg)`;
+  // 01 LPG
+  show('l1', t, A.l1); show('l2', t, A.l2); sweep('hlMand', t, A.l2 + 0.25);
+  show('c90', t, A.c90);
+  const bk = SETTLE(clamp01((t - A.bars) / 0.7)), bk2 = SETTLE(clamp01((t - A.bars - 0.25) / 0.7));
+  $('bars').style.opacity = (t >= A.bars ? 1 : 0);
+  $('b1').style.width = (BAR_MAX * 942 / 1600 * bk).toFixed(1) + 'px'; $('b2').style.width = (BAR_MAX * bk2).toFixed(1) + 'px';
+  $('v1').style.left = (BAR_MAX * 942 / 1600 * bk + 16).toFixed(1) + 'px'; $('v2').style.left = (BAR_MAX * bk2 + 16).toFixed(1) + 'px';
+  $('v1').style.opacity = clamp01((bk - 0.6) / 0.4).toFixed(3); $('v2').style.opacity = clamp01((bk2 - 0.6) / 0.4).toFixed(3);
+  $('bsrc').style.opacity = fadeIn(t, A.bars + 0.8).toFixed(3);
+  show('h1', t, A.h1, 10); show('h2', t, A.h2, 10); show('h3', t, A.h3, 10);
+  // 02 SBI
+  show('s1', t, A.s1);
+  const k10 = fadeIn(t, A.n10); $('n10').style.opacity = k10.toFixed(3);
+  $('dots10').style.opacity = k10.toFixed(3);
+  $('strike').style.width = (SWEEP(clamp01((t - A.strike) / 0.35)) * 170).toFixed(1) + 'px';
+  const k5 = fadeIn(t, A.n5); $('arr').style.opacity = k5.toFixed(3); $('n5').style.opacity = k5.toFixed(3); sweep('n5', t, A.n5 + 0.1);
+  dots.forEach((d, i) => { const off = i >= 5 ? SETTLE(clamp01((t - A.n5 - i * 0.04) / 0.3)) : 0; d.style.background = off > 0.5 ? 'transparent' : 'var(--ink)'; d.style.opacity = (1 - 0.55 * off).toFixed(3); });
+  show('s23', t, A.s23); sweep('hl23', t, A.s23 + 0.15);
+  show('sB', t, A.sB); sweep('hl15', t, A.s15);
+  // 03 registration
+  show('r1', t, A.r1); sweep('hlLate', t, A.late);
+  $('tl').style.opacity = fadeIn(t, A.sg1).toFixed(3);
+  [['sg1', A.sg1, 0], ['sg2', A.sg2, 1], ['sg3', A.sg3, 2]].forEach(([id, tt, k]) => {
+    const on = t >= tt && (k === 0 ? t < A.sg2 : k === 1 ? t < A.sg3 : true);
+    $(id).classList.toggle('on', on);
+  });
+  show('tip', t, A.tip); sweep('hlTime', t, A.tip + 0.3);
+  // 04 UPI
+  $('u0').style.opacity = fadeIn(t, A.u0).toFixed(3);
+  show('u1', t, A.u1); show('u04', t, A.u04); sweep('hl04', t, A.u04 + 0.1);
+  show('u2', t, A.u2); sweep('hlMer', t, A.u2 + 0.15);
+  show('p1', t, A.p1, 10); show('p2', t, A.p1 + 0.7, 10); show('p3', t, A.p1 + 1.4, 10);
+  // question
+  sweep('hlYou', t, A.you); $('askChips').style.opacity = fadeIn(t, A.chips).toFixed(3);
+  // captions
+  lines.forEach(L => {
+    const on = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = on ? 1 : 0;
+    if (on) {                                                    // plate grows to the newest word
+      let wdt = 0;
+      L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const k = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prev = i ? L.words[i - 1].right : 0; wdt = prev + (w.right - prev) * k; } });
+      L.bg.style.width = (wdt + 24).toFixed(1) + 'px';
+    }
+    if (on) L.words.forEach(w => {
+      const k = appear(t, w.t0 - 0.03); w.el.style.opacity = k > 0 ? 1 : 0;
+      w.el.style.transform = `translateY(${((1 - Math.min(1, k)) * 16).toFixed(2)}px)`;
+      if (w.key) w.el.style.backgroundSize = `${(SWEEP(clamp01((t - w.t0) / 0.3)) * 100).toFixed(1)}% 46%`;
+    });
+  });
+};
+
+// fastest on-screen motion (px/s) -> adaptive motion blur in hrender
+window.speed = (t) => {
+  const d = 1 / 240; let v = card.speed(t);
+  plateEls.forEach((_, i) => { v = Math.max(v, Math.abs(plateY(i, t + d) - plateY(i, t - d)) / (2 * d)); });
+  const h1 = hostY(t + d), h0 = hostY(t - d); if (h1 !== null && h0 !== null) v = Math.max(v, Math.abs(h1 - h0) / (2 * d));
+  const bv = (t0, dur) => { const a = (t - t0) / dur; return a > 0 && a < 1 ? BAR_MAX * 1.2 / dur * 3 * (1 - a) ** 2 : 0; };
+  v = Math.max(v, bv(A.bars, 0.7), bv(A.bars + 0.25, 0.7));
+  return v;
+};
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(el => {
+  let fs = parseFloat(getComputedStyle(el).fontSize), guard = 0;
+  while (el.scrollWidth > el.clientWidth + 1 && guard++ < 80) { fs -= 2; el.style.fontSize = fs + 'px'; }
+  el.dataset.fs = fs;
+});
+window.__fits = [...document.querySelectorAll('.fit')].map(e => e.textContent.trim().slice(0, 24) + ':' + e.dataset.fs);
+// card heights grow with content: each step = (time, element that must now fit)
+const STEPS = [
+  ['gLPG', 'r1', [[T.r1, 'hdrLPG'], [A.l1 - 0.12, 'l2'], [A.c90 - 0.12, 'c90row'], [A.bars - 0.12, 'bars'], [A.h1 - 0.12, 'lpgSrc']]],
+  ['gSBI', 'r2', [[T.r2, 'hdrSBI'], [A.s1 - 0.12, 's1'], [A.n10 - 0.12, 'dots10'], [A.s23 - 0.12, 's23'], [A.sB - 0.12, 'sbiSrc']]],
+  ['gReg', 'r3b', [[T.r3a, 'hdrReg'], [A.r1 - 0.25, 'r1'], [A.sg1 - 0.12, 'tl'], [A.tip - 0.12, 'regSrc']]],
+  ['gUPI', 'r4', [[T.r4, 'hdrUPI'], [A.u1 - 0.12, 'u1'], [A.u04 - 0.12, 'u04'], [A.u2 - 0.12, 'u2'], [A.p1 - 0.12, 'upiSrc']]],
+  ['gAsk', 'ask', [[T.ask, 'askH2'], [A.chips - 0.12, 'askChips']]] ];
+card = new Morph({ ...S.cal, color: [251, 250, 247] });
+const heights = [];
+STEPS.forEach(([gid, st, steps]) => {
+  const gTop = $(gid).getBoundingClientRect().top;
+  steps.forEach(([tt, eid]) => {
+    const r = $(eid).getBoundingClientRect(), h = Math.round(PAD + (r.bottom - gTop) + 48);
+    card.to(tt, { ...S[st], h }); heights.push(gid + ':' + eid + '=' + h);
+  });
+});
+card.to(T.cal, S.cal);
+window.__heights = heights; TAGW = $('tag4').offsetWidth;
+// caption word right edges (for the growing plate)
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>

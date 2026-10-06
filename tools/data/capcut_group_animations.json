@@ -1,0 +1,858 @@
+[
+ {
+  "api_name": "三分割",
+  "display_name": "三分割",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6874467891899535873",
+  "effect_id": "6874467891899535873"
+ },
+ {
+  "api_name": "上升旋转",
+  "display_name": "上升旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6813965595915063815",
+  "effect_id": "6813965595915063815"
+ },
+ {
+  "api_name": "下降向右",
+  "display_name": "下降向右",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6781683518222111239",
+  "effect_id": "6781683518222111239"
+ },
+ {
+  "api_name": "下降向左",
+  "display_name": "下降向左",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6759351225772151303",
+  "effect_id": "6759351225772151303"
+ },
+ {
+  "api_name": "中间分割",
+  "display_name": "中间分割",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6856970350270353928",
+  "effect_id": "6856970350270353928"
+ },
+ {
+  "api_name": "中间分割_II",
+  "display_name": "中间分割 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6856970411352003080",
+  "effect_id": "6856970411352003080"
+ },
+ {
+  "api_name": "分身",
+  "display_name": "分身",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6885172172587799041",
+  "effect_id": "6885172172587799041"
+ },
+ {
+  "api_name": "分身_II",
+  "display_name": "分身 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6885172192766595585",
+  "effect_id": "6885172192766595585"
+ },
+ {
+  "api_name": "叠叠乐_III",
+  "display_name": "叠叠乐 III",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6836319781004513805",
+  "effect_id": "6836319781004513805"
+ },
+ {
+  "api_name": "右拉镜",
+  "display_name": "右拉镜",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6772415374165021191",
+  "effect_id": "6772415374165021191"
+ },
+ {
+  "api_name": "向右下降",
+  "display_name": "向右下降",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6781683438396117517",
+  "effect_id": "6781683438396117517"
+ },
+ {
+  "api_name": "向右缩小",
+  "display_name": "向右缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6772415063216099848",
+  "effect_id": "6772415063216099848"
+ },
+ {
+  "api_name": "向左下降",
+  "display_name": "向左下降",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6760223716392571395",
+  "effect_id": "6760223716392571395"
+ },
+ {
+  "api_name": "向左缩小",
+  "display_name": "向左缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6772415148423385607",
+  "effect_id": "6772415148423385607"
+ },
+ {
+  "api_name": "哈哈镜",
+  "display_name": "哈哈镜",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6832226792556728846",
+  "effect_id": "6832226792556728846"
+ },
+ {
+  "api_name": "哈哈镜_II",
+  "display_name": "哈哈镜 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6832226909875606029",
+  "effect_id": "6832226909875606029"
+ },
+ {
+  "api_name": "四格翻转",
+  "display_name": "四格翻转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6865578846393995784",
+  "effect_id": "6865578846393995784"
+ },
+ {
+  "api_name": "回弹伸缩",
+  "display_name": "回弹伸缩",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6795425591014199822",
+  "effect_id": "6795425591014199822"
+ },
+ {
+  "api_name": "小火车",
+  "display_name": "小火车",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6860405888784536072",
+  "effect_id": "6860405888784536072"
+ },
+ {
+  "api_name": "小火车_II",
+  "display_name": "小火车 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6860406007160377863",
+  "effect_id": "6860406007160377863"
+ },
+ {
+  "api_name": "小火车_III",
+  "display_name": "小火车 III",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6860406091700769293",
+  "effect_id": "6860406091700769293"
+ },
+ {
+  "api_name": "小火车_IV",
+  "display_name": "小火车 IV",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6860406196130550286",
+  "effect_id": "6860406196130550286"
+ },
+ {
+  "api_name": "小陀螺",
+  "display_name": "小陀螺",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6876994577786475010",
+  "effect_id": "6876994577786475010"
+ },
+ {
+  "api_name": "小陀螺_II",
+  "display_name": "小陀螺 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6876994663325110786",
+  "effect_id": "6876994663325110786"
+ },
+ {
+  "api_name": "左右分割_II",
+  "display_name": "左右分割 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6887447494821679617",
+  "effect_id": "6887447494821679617"
+ },
+ {
+  "api_name": "左拉镜",
+  "display_name": "左拉镜",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6772415248973435395",
+  "effect_id": "6772415248973435395"
+ },
+ {
+  "api_name": "弹入旋转",
+  "display_name": "弹入旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6810286558826992136",
+  "effect_id": "6810286558826992136"
+ },
+ {
+  "api_name": "形变右缩",
+  "display_name": "形变右缩",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6851395907804467720",
+  "effect_id": "6851395907804467720"
+ },
+ {
+  "api_name": "形变左缩",
+  "display_name": "形变左缩",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6851395726937690637",
+  "effect_id": "6851395726937690637"
+ },
+ {
+  "api_name": "形变缩小",
+  "display_name": "形变缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6777260789263766030",
+  "effect_id": "6777260789263766030"
+ },
+ {
+  "api_name": "悠悠球",
+  "display_name": "悠悠球",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6821451358101574152",
+  "effect_id": "6821451358101574152"
+ },
+ {
+  "api_name": "悠悠球_II",
+  "display_name": "悠悠球 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6821451462904648200",
+  "effect_id": "6821451462904648200"
+ },
+ {
+  "api_name": "扭曲拉伸",
+  "display_name": "扭曲拉伸",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032223355365233154",
+  "effect_id": "7032223355365233154"
+ },
+ {
+  "api_name": "抖入放大",
+  "display_name": "抖入放大",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6761360765925462536",
+  "effect_id": "6761360765925462536"
+ },
+ {
+  "api_name": "拉伸扭曲",
+  "display_name": "拉伸扭曲",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032223224863658497",
+  "effect_id": "7032223224863658497"
+ },
+ {
+  "api_name": "放大弹动",
+  "display_name": "放大弹动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032223659116728833",
+  "effect_id": "7032223659116728833"
+ },
+ {
+  "api_name": "斜转",
+  "display_name": "斜转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6847734302193488392",
+  "effect_id": "6847734302193488392"
+ },
+ {
+  "api_name": "旋入晃动",
+  "display_name": "旋入晃动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6789167874511475207",
+  "effect_id": "6789167874511475207"
+ },
+ {
+  "api_name": "旋出渐隐",
+  "display_name": "旋出渐隐",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6824302025698710024",
+  "effect_id": "6824302025698710024"
+ },
+ {
+  "api_name": "旋转上升",
+  "display_name": "旋转上升",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6813965670716281352",
+  "effect_id": "6813965670716281352"
+ },
+ {
+  "api_name": "旋转伸缩",
+  "display_name": "旋转伸缩",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6795425422046663182",
+  "effect_id": "6795425422046663182"
+ },
+ {
+  "api_name": "旋转回吸",
+  "display_name": "旋转回吸",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6810286613898203661",
+  "effect_id": "6810286613898203661"
+ },
+ {
+  "api_name": "旋转缩小",
+  "display_name": "旋转缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6759046644462785037",
+  "effect_id": "6759046644462785037"
+ },
+ {
+  "api_name": "旋转降落",
+  "display_name": "旋转降落",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6759046515521491464",
+  "effect_id": "6759046515521491464"
+ },
+ {
+  "api_name": "晃动旋出",
+  "display_name": "晃动旋出",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6789167998700622350",
+  "effect_id": "6789167998700622350"
+ },
+ {
+  "api_name": "水晶_II",
+  "display_name": "水晶 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6857333869541069325",
+  "effect_id": "6857333869541069325"
+ },
+ {
+  "api_name": "波动滑出",
+  "display_name": "波动滑出",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032223862586610178",
+  "effect_id": "7032223862586610178"
+ },
+ {
+  "api_name": "海盗船",
+  "display_name": "海盗船",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6830302168751280648",
+  "effect_id": "6830302168751280648"
+ },
+ {
+  "api_name": "海盗船_II",
+  "display_name": "海盗船 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6830302282995732999",
+  "effect_id": "6830302282995732999"
+ },
+ {
+  "api_name": "海盗船_III",
+  "display_name": "海盗船 III",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6830302335047045639",
+  "effect_id": "6830302335047045639"
+ },
+ {
+  "api_name": "海盗船_IV",
+  "display_name": "海盗船 IV",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6830302424826122765",
+  "effect_id": "6830302424826122765"
+ },
+ {
+  "api_name": "滑入波动",
+  "display_name": "滑入波动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032224062973678082",
+  "effect_id": "7032224062973678082"
+ },
+ {
+  "api_name": "滑滑梯",
+  "display_name": "滑滑梯",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6828829568879563271",
+  "effect_id": "6828829568879563271"
+ },
+ {
+  "api_name": "滑滑梯_II",
+  "display_name": "滑滑梯 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6828829741013799432",
+  "effect_id": "6828829741013799432"
+ },
+ {
+  "api_name": "百叶窗",
+  "display_name": "百叶窗",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7425512249630002437",
+  "effect_id": "7425512249630002437"
+ },
+ {
+  "api_name": "绕圈圈",
+  "display_name": "绕圈圈",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6850287838441771534",
+  "effect_id": "6850287838441771534"
+ },
+ {
+  "api_name": "绕圈圈_II",
+  "display_name": "绕圈圈 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6850287920255865357",
+  "effect_id": "6850287920255865357"
+ },
+ {
+  "api_name": "缩小弹动",
+  "display_name": "缩小弹动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "7032223526635442690",
+  "effect_id": "7032223526635442690"
+ },
+ {
+  "api_name": "缩小旋转",
+  "display_name": "缩小旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6760119657429996046",
+  "effect_id": "6760119657429996046"
+ },
+ {
+  "api_name": "缩放",
+  "display_name": "缩放",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6759078592740594184",
+  "effect_id": "6759078592740594184"
+ },
+ {
+  "api_name": "缩放_II",
+  "display_name": "缩放 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6779083172429697544",
+  "effect_id": "6779083172429697544"
+ },
+ {
+  "api_name": "翻转",
+  "display_name": "翻转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6843309964732142094",
+  "effect_id": "6843309964732142094"
+ },
+ {
+  "api_name": "翻转_II",
+  "display_name": "翻转 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6843310029689328135",
+  "effect_id": "6843310029689328135"
+ },
+ {
+  "api_name": "荡秋千",
+  "display_name": "荡秋千",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6811007755785081357",
+  "effect_id": "6811007755785081357"
+ },
+ {
+  "api_name": "荡秋千_II",
+  "display_name": "荡秋千 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6811007833069326862",
+  "effect_id": "6811007833069326862"
+ },
+ {
+  "api_name": "转入转出",
+  "display_name": "转入转出",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6805012562174808590",
+  "effect_id": "6805012562174808590"
+ },
+ {
+  "api_name": "转入转出_II",
+  "display_name": "转入转出 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6818747242258633224",
+  "effect_id": "6818747242258633224"
+ },
+ {
+  "api_name": "转圈圈",
+  "display_name": "转圈圈",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6829129745226011144",
+  "effect_id": "6829129745226011144"
+ },
+ {
+  "api_name": "过山车",
+  "display_name": "过山车",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6872233216867045890",
+  "effect_id": "6872233216867045890"
+ },
+ {
+  "api_name": "过山车_II",
+  "display_name": "过山车 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6872233274891047426",
+  "effect_id": "6872233274891047426"
+ },
+ {
+  "api_name": "降落旋转",
+  "display_name": "降落旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6759075297091392007",
+  "effect_id": "6759075297091392007"
+ },
+ {
+  "api_name": "三分割_II",
+  "display_name": "三分割 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6874466931919819266",
+  "effect_id": "6874466931919819266"
+ },
+ {
+  "api_name": "上下分割",
+  "display_name": "上下分割",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6876994436950135298",
+  "effect_id": "6876994436950135298"
+ },
+ {
+  "api_name": "上下分割_II",
+  "display_name": "上下分割 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6876994486052852225",
+  "effect_id": "6876994486052852225"
+ },
+ {
+  "api_name": "动感摇晃_I",
+  "display_name": "动感摇晃 I",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7173924533798179330",
+  "effect_id": "7173924533798179330"
+ },
+ {
+  "api_name": "动感摇晃_II",
+  "display_name": "动感摇晃 II",
+  "paid": true,
+  "duration_s": 100.0,
+  "resource_id": "7175162171884573185",
+  "effect_id": "7175162171884573185"
+ },
+ {
+  "api_name": "叠叠乐",
+  "display_name": "叠叠乐",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6836319728038842894",
+  "effect_id": "6836319728038842894"
+ },
+ {
+  "api_name": "叠叠乐_II",
+  "display_name": "叠叠乐 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6836319649844433415",
+  "effect_id": "6836319649844433415"
+ },
+ {
+  "api_name": "叠叠乐_IV",
+  "display_name": "叠叠乐 IV",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6836319828656001550",
+  "effect_id": "6836319828656001550"
+ },
+ {
+  "api_name": "叠叠乐_V",
+  "display_name": "叠叠乐 V",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6836319888827486728",
+  "effect_id": "6836319888827486728"
+ },
+ {
+  "api_name": "四格翻转_II",
+  "display_name": "四格翻转 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6865579178599649806",
+  "effect_id": "6865579178599649806"
+ },
+ {
+  "api_name": "四格转动",
+  "display_name": "四格转动",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6894449368728867329",
+  "effect_id": "6894449368728867329"
+ },
+ {
+  "api_name": "四格转动_II",
+  "display_name": "四格转动 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6894449215796154882",
+  "effect_id": "6894449215796154882"
+ },
+ {
+  "api_name": "坠落",
+  "display_name": "坠落",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7237001049809097217",
+  "effect_id": "7237001049809097217"
+ },
+ {
+  "api_name": "夹心饼干",
+  "display_name": "夹心饼干",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6868146033247916558",
+  "effect_id": "6868146033247916558"
+ },
+ {
+  "api_name": "夹心饼干_II",
+  "display_name": "夹心饼干 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6868146123710665223",
+  "effect_id": "6868146123710665223"
+ },
+ {
+  "api_name": "左右分割",
+  "display_name": "左右分割",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6887447635439915522",
+  "effect_id": "6887447635439915522"
+ },
+ {
+  "api_name": "弹动冲屏",
+  "display_name": "弹动冲屏",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7200310408559727105",
+  "effect_id": "7200310408559727105"
+ },
+ {
+  "api_name": "手机",
+  "display_name": "手机",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6861892418334102030",
+  "effect_id": "6861892418334102030"
+ },
+ {
+  "api_name": "手机_II",
+  "display_name": "手机 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6862918279183208973",
+  "effect_id": "6862918279183208973"
+ },
+ {
+  "api_name": "手机_III",
+  "display_name": "手机 III",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6862918366550561294",
+  "effect_id": "6862918366550561294"
+ },
+ {
+  "api_name": "斜转_II",
+  "display_name": "斜转 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6847734360636920327",
+  "effect_id": "6847734360636920327"
+ },
+ {
+  "api_name": "方片转动",
+  "display_name": "方片转动",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6900760492877287938",
+  "effect_id": "6900760492877287938"
+ },
+ {
+  "api_name": "方片转动_II",
+  "display_name": "方片转动 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6900760591321797121",
+  "effect_id": "6900760591321797121"
+ },
+ {
+  "api_name": "水晶",
+  "display_name": "水晶",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6857333749718192654",
+  "effect_id": "6857333749718192654"
+ },
+ {
+  "api_name": "波动吸收",
+  "display_name": "波动吸收",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7131931653739385345",
+  "effect_id": "7131931653739385345"
+ },
+ {
+  "api_name": "波动放大",
+  "display_name": "波动放大",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7131932201968472578",
+  "effect_id": "7131932201968472578"
+ },
+ {
+  "api_name": "碎块滑动",
+  "display_name": "碎块滑动",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6778405418969338382",
+  "effect_id": "6778405418969338382"
+ },
+ {
+  "api_name": "立方体",
+  "display_name": "立方体",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6837352063496622599",
+  "effect_id": "6837352063496622599"
+ },
+ {
+  "api_name": "立方体_II",
+  "display_name": "立方体 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6841793224663634446",
+  "effect_id": "6841793224663634446"
+ },
+ {
+  "api_name": "立方体_III",
+  "display_name": "立方体 III",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6841793140949520910",
+  "effect_id": "6841793140949520910"
+ },
+ {
+  "api_name": "红酒摇晃",
+  "display_name": "红酒摇晃",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7205090911947067905",
+  "effect_id": "7205090911947067905"
+ },
+ {
+  "api_name": "缩小转出",
+  "display_name": "缩小转出",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6805018974070247950",
+  "effect_id": "6805018974070247950"
+ },
+ {
+  "api_name": "跳跳糖",
+  "display_name": "跳跳糖",
+  "paid": true,
+  "duration_s": 0.7,
+  "resource_id": "7200264254790832642",
+  "effect_id": "7200264254790832642"
+ },
+ {
+  "api_name": "闪光放大",
+  "display_name": "闪光放大",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7203605406977888770",
+  "effect_id": "7203605406977888770"
+ },
+ {
+  "api_name": "闪光放大_II",
+  "display_name": "闪光放大 II",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7203605267454366209",
+  "effect_id": "7203605267454366209"
+ },
+ {
+  "api_name": "魔方",
+  "display_name": "魔方",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6872233360521957890",
+  "effect_id": "6872233360521957890"
+ }
+]

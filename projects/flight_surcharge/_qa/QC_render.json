@@ -1,0 +1,28 @@
+{
+  "container": {
+    "duration": 176.166667,
+    "size_mb": 115.51,
+    "video": "h264 1080x1920 yuv420p 30/1",
+    "audio": "aac 48000Hz 2ch"
+  },
+  "motion_report": {
+    "frames": 5285,
+    "fps": 30.0,
+    "duration": 176.167,
+    "freezes": [],
+    "pops": [],
+    "still_ratio": 0.0
+  },
+  "loudness": {
+    "I": "-14.0 LUFS",
+    "LRA": "2.4 LU",
+    "true_peak": "-1.6 dBFS"
+  },
+  "decode_errors": "none",
+  "frame_count": 5285,
+  "still_vs_render_mean_abs_diff": {
+    "5.0": 2.76,
+    "66.0": 2.06,
+    "145.0": 1.99
+  }
+}

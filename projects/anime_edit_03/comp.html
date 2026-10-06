@@ -1,0 +1,181 @@
+<!doctype html>
+<!-- Benaqaab · SHORT: "SAFED RAAT" — anime edit (original AI art), 1080×1920 vertical, 30 fps.
+     Look: frost-noir — ice #3fa9ff / pale frost #dff4ff accents, film grain, vignette, white flash cuts,
+     glitch bars on action cuts, scene labels (Anton), word-timed captions, top progress bar. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Anton; src: url('../../brand/fonts/Anton.ttf'); font-weight: 400; }
+  @font-face { font-family: Gro; src: url('../../brand/fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+  @font-face { font-family: JBM; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  *{box-sizing:border-box} html,body{margin:0;background:#000}
+  #root{position:relative;width:1080px;height:1920px;overflow:hidden;color:#fff;font-family:Inter;background:#05070a}
+  .abs{position:absolute}
+  .sc{position:absolute;left:0;top:0;width:1080px;height:1920px;display:none;overflow:hidden}
+  .ph{position:absolute;left:-40px;top:-40px;width:1160px;height:2000px;background-size:cover;background-position:center;will-change:auto}
+  #grain{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none;opacity:.5;
+         background:repeating-linear-gradient(0deg, rgba(255,255,255,.030) 0px, rgba(255,255,255,.030) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 3px)}
+  #vig{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none;
+       background:radial-gradient(115% 90% at 50% 46%, rgba(0,0,0,0) 42%, rgba(0,0,0,.55) 82%, rgba(0,0,0,.85) 100%)}
+  #flash{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#fff;opacity:0;pointer-events:none}
+  #bars{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}
+  #prog{position:absolute;left:0;top:0;height:8px;background:linear-gradient(90deg,#3fa9ff,#dff4ff);width:0;z-index:40}
+  #tag{position:absolute;left:44px;top:54px;font-size:20px;letter-spacing:2.6px;color:rgba(255,255,255,.82);z-index:30}
+  #cnt{position:absolute;right:44px;top:54px;font-size:20px;letter-spacing:2.6px;color:rgba(255,255,255,.6);z-index:30}
+  .lab{position:absolute;left:52px;font-family:Anton;font-size:112px;line-height:.95;letter-spacing:1px;opacity:0;z-index:20;
+       text-shadow:0 6px 30px rgba(0,0,0,.75)}
+  .lab .un{display:block;width:120px;height:10px;background:#3fa9ff;margin-top:14px;border-radius:2px}
+  #cap{position:absolute;left:0;right:0;bottom:250px;text-align:center;z-index:30}
+  #cap .line2{position:absolute;left:50%;transform:translateX(-50%);padding:16px 28px 18px 32px;white-space:nowrap;
+              font:800 56px/1.15 Inter;letter-spacing:-.2px;opacity:0}
+  #cap .line2 .bg{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(4,6,9,.86);border-left:8px solid #3fa9ff}
+  #cap .w{position:relative;display:inline-block;margin-right:.26em;opacity:0} #cap .w:last-child{margin-right:0}
+  #cap .w.key{color:#bfe9ff}
+  .cta{position:absolute;left:50%;transform:translateX(-50%);font-family:JBM;font-weight:800;font-size:30px;letter-spacing:2px;
+       padding:18px 26px 16px;border-radius:12px;opacity:0;z-index:32;white-space:nowrap}
+  #c1{background:#ff3b3b;color:#fff} #c2{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);color:#fff}
+  #cred{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:JBM;font-size:19px;letter-spacing:2px;
+        color:rgba(255,255,255,.55);opacity:0;z-index:31}
+  /* title card */
+  #ttl{position:absolute;left:0;right:0;top:620px;text-align:center;z-index:22}
+  #ttl .h{font-family:Anton;font-size:190px;line-height:.9;letter-spacing:2px;text-shadow:0 10px 44px rgba(0,0,0,.8)}
+  #ttl .s{margin-top:26px;font-size:34px;color:#e7edf2;letter-spacing:1px;font-weight:600;text-shadow:0 4px 18px rgba(0,0,0,.8)}
+  #ttl .u{width:220px;height:12px;background:#3fa9ff;margin:30px auto 0;border-radius:3px}
+  #ttl .c{margin-top:30px;display:inline-block;font-family:JBM;font-size:22px;letter-spacing:3px;padding:12px 20px 10px;
+          border:2px solid rgba(255,255,255,.45);border-radius:10px;color:rgba(255,255,255,.9)}
+</style></head>
+<body><div id="root">
+  <div id="scenehost"></div>
+  <div id="bars"></div>
+  <div id="vig"></div>
+  <div id="grain"></div>
+  <div id="flash"></div>
+  <div id="tag" class="mono">SAFED RAAT · A SHORT FILM</div>
+  <div id="cnt" class="mono">01 / 09</div>
+  <div id="prog"></div>
+  <div id="ttl">
+    <div class="h">SAFED<br>RAAT</div>
+    <div class="u"></div>
+    <div class="s">Ek raat. Ek yuki onna. Ek talwar.</div>
+    <div class="c">ORIGINAL AI ANIME ART</div>
+  </div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { SETTLE, clamp01, appear } = Motion;
+const EXTRA = 2.0;
+window.DURATION = Math.round((TL.total + EXTRA) * 1000) / 1000; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = window.DURATION;
+const $ = (id) => document.getElementById(id);
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const SET = (e, t, t0, d = 0.4) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.opacity = k.toFixed(3); e.style.transform = `translateY(${(1 - k) * 30}px)`; return k; };
+
+const SHOTS = ['1','2','3','4','5','6','7','8','9'];
+const LABELS = ['BARF', 'SAFAR', 'KADAM', 'AURAT', 'YUKI', 'GUFA', 'VAAR', 'SUBAH', 'TORII'];
+const KEN = [[1.06,1.15,-24,22], [1.10,1.04,20,-16], [1.04,1.12,0,-22], [1.11,1.05,-18,14],
+             [1.05,1.14,-26,10], [1.06,1.12,16,-12], [1.08,1.15,-12,6], [1.05,1.12,-14,-6], [1.06,1.12,6,18]];
+
+const SRC_T0 = END; // no sources card in a short
+const BND = [0].concat(C.slice(1).map(c => c.start - 0.18), [END]);
+const sceneAt = (t) => { let k = 0; for (let i = 0; i < BND.length; i++) if (t >= BND[i]) k = i; return k; };
+const N = 9;
+const HOST = $('scenehost'), SCENES = [];
+for (let i = 0; i < N; i++) { const s = el('div', 'sc'); s.id = 's' + i;
+  const ph = el('div', 'ph'); ph.style.backgroundImage = `url('../../.cache/anime3/frame/${SHOTS[i]}.png')`;
+  s.appendChild(ph);
+  const lab = el('div', 'lab', LABELS[i] + '<span class="un"></span>'); lab.style.top = (i === 0 ? 1180 : 1210) + 'px';
+  s.appendChild(lab);
+  HOST.appendChild(s); SCENES.push({ s, ph, lab }); }
+
+/* glitch bars (seeded, t-driven) */
+let seed = 99; const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+const GB = []; { let sh = ''; for (let i = 0; i < 6; i++) { const y = 200 + rnd() * 1500, h = 10 + rnd() * 60;
+  GB.push({ y, h, o: 0.35 + rnd() * 0.4, sp: 400 + rnd() * 900, col: i % 2 ? '#dff4ff' : '#3fa9ff' }); } 
+  GB.forEach(g => { const d = el('div', 'abs'); d.style.top = g.y + 'px'; d.style.height = g.h + 'px'; d.style.left = '0'; d.style.width = '1080px';
+    d.style.background = g.col; d.style.opacity = '0'; d.style.mixBlendMode = 'screen'; $('bars').appendChild(d); g.e = d; }); }
+
+/* CTA on last scene */
+const c1 = el('div', 'cta'); c1.id = 'c1'; c1.textContent = 'PART 2 CHAHIYE? COMMENT "BARF"'; c1.style.bottom = '470px'; $('root').appendChild(c1);
+const c2 = el('div', 'cta'); c2.id = 'c2'; c2.textContent = 'SUBSCRIBE · BENAQAAB INDIA'; c2.style.bottom = '380px'; $('root').appendChild(c2);
+/* falling snow (deterministic, t-driven) */
+const PT = []; { for (let i = 0; i < 14; i++) { const d = el('div', 'abs'); const sz = 5 + (i % 4) * 2;
+  d.style.width = sz + 'px'; d.style.height = sz + 'px';
+  d.style.background = 'radial-gradient(circle, rgba(255,255,255,.95), rgba(255,255,255,.15))';
+  d.style.borderRadius = '50%'; if (i % 3 === 0) d.style.filter = 'blur(1px)';
+  d.style.opacity = '0.0'; d.style.zIndex = '21'; $('root').appendChild(d);
+  PT.push({ e: d, x: (i * 79) % 1020, sp: 90 + (i % 5) * 46, ph: i * 181, sw: 34 + (i % 4) * 26 }); } }
+const cred = el('div'); cred.id = 'cred'; cred.textContent = 'ORIGINAL AI ANIME ART · MADE WITH AI · BENAQAAB INDIA 2026'; $('root').appendChild(cred);
+
+/* captions */
+const KEY = new Set(['0:barf','1:talwar','1:vaada','2:kadam','3:aankhon','4:yuki','4:toofan','5:talwar','6:khamoshi','8:bachi']);
+const MAXC = 20, lines = [];
+{ const phrases = []; let ph = null;
+  W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+  phrases.forEach(ph => { const ws = ph.words, n = ws.length, L = ws.map(w => Math.max(3, w.w.length));
+    const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+    const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+    const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+    for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) { const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m]; }
+    const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+    cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) })); }); }
+lines.forEach(L => { L.el = el('div', 'line2'); L.bg = el('div', 'bg'); L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = el('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el); });
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 - 0.02 : Math.min(C[L.p].start + C[L.p].dur + 0.35, nx ? nx.t0 - 0.02 : END); });
+
+window.seek = (t) => {
+  const k = sceneAt(t), t0 = BND[k], t1 = BND[k + 1];
+  SCENES.forEach((S, i) => { if (i === k) { S.s.style.display = 'block';
+      const local = t - t0, dur = t1 - t0;
+      const [sc0, sc1, px0, px1] = KEN[i]; const u = clamp01(local / dur);
+      S.ph.style.transform = `scale(${(sc0 + (sc1 - sc0) * u).toFixed(4)}) translateX(${(px0 + (px1 - px0) * u).toFixed(1)}px)`;
+    } else S.s.style.display = 'none'; });
+  $('cnt').textContent = String(k + 1).padStart(2, '0') + ' / 09';
+  /* flash on cut */
+  const ft = t - t0; $('flash').style.opacity = (ft < 0.14 ? (0.85 * (1 - ft / 0.14)) : 0).toFixed(3);
+  /* glitch bars on action scenes */
+  const act = (k >= 5 && k <= 6);
+  GB.forEach((g, i) => { if (!act) { g.e.style.opacity = '0'; return; }
+    const u = clamp01((t - t0) / 0.6);
+    const ph = ((t * g.sp + i * 137) % 1500) - 400;
+    g.e.style.transform = `translateX(${ph.toFixed(0)}px)`;
+    g.e.style.opacity = (u > 0 ? (g.o * (1 - (t - t0) / 6)).toFixed(3) : '0'); });
+  /* scene label */
+  const lab = SCENES[k].lab; const lk = SETTLE(clamp01((t - t0 - 0.10) / 0.5));
+  lab.style.opacity = (k === 0 ? lk * 0.0 : lk).toFixed(3); lab.style.transform = `translateY(${(1 - lk) * 34}px)`;
+  /* title card + CTA */
+  const tk = k === 0 ? SETTLE(clamp01((t - 0.35) / 0.8)) : 0;
+  $('ttl').style.opacity = k === 0 ? (tk * Math.min(1, clamp01((t1 - t - 0.25) / 0.4))).toFixed(3) : 0;
+  $('ttl').style.transform = `translateY(${(1 - tk) * 40}px)`;
+  const last = k === 8;
+  const cc = last ? SETTLE(clamp01((t - t0 - 2.4) / 0.5)) : 0;
+  c1.style.opacity = cc.toFixed(3); c2.style.opacity = (last ? SETTLE(clamp01((t - t0 - 3.1) / 0.5)).toFixed(3) : 0);
+  cred.style.opacity = (last ? SETTLE(clamp01((t - t0 - 3.6) / 0.6)).toFixed(3) : 0);
+  /* snow */
+  PT.forEach((p, i) => { const y = ((t * p.sp + p.ph) % 2060) - 70;
+    p.e.style.transform = `translate(${(p.x + Math.sin(t * 0.55 + i) * p.sw).toFixed(0)}px, ${y.toFixed(0)}px) rotate(${(t * 70 + i * 40) % 360}deg)`;
+    p.e.style.opacity = (0.55 * Math.min(1, clamp01(y / 220)) * (1 - clamp01((y - 1650) / 300))).toFixed(3); });
+  /* progress + grain + tag */
+  $('prog').style.width = (clamp01(t / END) * 1080).toFixed(1) + 'px';
+  $('grain').style.transform = `translateY(${((t * 137) % 3).toFixed(1)}px)`;
+  $('tag').style.opacity = '0.82';
+  /* captions */
+  lines.forEach(L => { const vis = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = vis ? 1 : 0;
+    if (!vis) return; let wdt = 0;
+    L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const kk = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prv = i ? L.words[i - 1].right : 0; wdt = prv + (w.right - prv) * kk; } });
+    L.bg.style.width = (wdt + 28).toFixed(1) + 'px';
+    L.words.forEach(w => { const kk = appear(t, w.t0 - 0.03); w.el.style.opacity = kk > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, kk)) * 14).toFixed(2)}px)`; }); });
+};
+window.speed = () => 0;
+
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>

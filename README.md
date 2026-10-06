@@ -1,25 +1,51 @@
-# Central Private Vault & AI Skills Repository
+# Benaqaab India — Central Private Repository
 
-This is the centralized private repository for custom AI bot skills, private workflows, automation scripts, and reference projects.
+> **SACH · SABOOT · BEBAK** (truth · proof · outspoken)
 
----
-
-## 📁 Repository Structure
-
-```text
-├── skills/           # AI bot skills, prompt templates, and custom behaviors
-├── workflows/        # Automation scripts, tools, and execution pipelines
-├── configs/          # Custom configurations and settings templates
-├── docs/             # Private notes, design specs, and documentation
-├── projects/         # Individual sub-projects and private codebases
-├── .gitignore        # Guardrails against leaking tokens, .env, and local temp files
-└── README.md         # Repository documentation
-```
+This is the **single, centralised, private repository** for all Benaqaab India video-production
+assets, AI agent skills, production tools, brand identity, knowledge base, and delivered projects.
 
 ---
 
-## 🔒 Security Best Practices
+## 🚀 Quick Start for Any AI Agent
 
-1. **Never commit raw credentials**: Store all API tokens, keys, and passwords in `.env` files (which are ignored by default).
-2. **Use environment variables**: Always read secrets from system environments or secure key vaults.
-3. **Keep remote private**: Ensure GitHub/GitLab repository visibility is strictly set to **Private**.
+1. **Read [`CENTRAL_AGENT_MEMORY.md`](CENTRAL_AGENT_MEMORY.md)** — the single source of truth.
+2. Then read [`BENAQAAB_AI_AGENT_COMPACT.md`](BENAQAAB_AI_AGENT_COMPACT.md) — your full operating manual.
+3. Then follow the reading order in [`START_HERE.md`](START_HERE.md).
+
+> **Rule of precedence:** `CENTRAL_AGENT_MEMORY.md` + the compact file outrank everything else.
+> `MEMORY.md` is append-only history. The master skill file is a look-up reference, not a linear read.
+
+---
+
+## 📁 Structure Overview
+
+| Folder/File | Purpose |
+|---|---|
+| `CENTRAL_AGENT_MEMORY.md` | **Centralised memory** — all agents read this first |
+| `BENAQAAB_AI_AGENT_COMPACT.md` | Operating manual (pipeline, gates, templates) |
+| `BENAQAAB_AI_AGENT_MASTER_SKILL.md` | 45K-line complete reference (use §INDEX) |
+| `MEMORY.md` | Full production history (append-only) |
+| `SKILLS_*.md` | Domain-specific skill files |
+| `brand/` | Logo, fonts (11 faces), presenter cutouts, style refs |
+| `knowledge/` | Research data, catalogues, topic ideas |
+| `tools/` | Quality gates, CapCut/Alight project writers |
+| `viz/` | Rendering engine, motion libraries, episode recipes |
+| `projects/` | 9 production projects (EP12–EP16 + 3 anime edits + Flight Surcharge) |
+| `VIDEOS/` | Delivered MP4s (8 videos + gallery page) |
+
+---
+
+## 🔒 Security
+
+- All credentials, API keys, and `.env` files are excluded via `.gitignore`.
+- This repository is intended to remain **private**.
+- Rendered MP4s are `.gitignore`d (too large for Git).
+
+---
+
+## 📋 Maintenance
+
+- After every delivery → append to `MEMORY.md`
+- After editing skills → run `python3 _assemble_agent_file.py`
+- Never delete protected files (listed in `CENTRAL_AGENT_MEMORY.md` §11)

@@ -1,0 +1,251 @@
+<!doctype html>
+<!-- Benaqaab India · Ep7 "Bank account on rent" (mule accounts)
+     Look: passbook paper + ink + ONE vermilion accent (key numbers only). One card carried through every beat. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Archivo; src: url('../../brand/fonts/Archivo.ttf'); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  @font-face { font-family: JBMono; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  :root { --ink:#0d0e11; --paper:#f3efe6; --red:#ff4a1c; }
+  html, body { margin:0; background:var(--ink); }
+  #root { position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--ink); }
+  .plate { position:absolute; left:0; top:0; width:1080px; height:1920px; transform-origin:540px 960px; }
+  .plate img { width:1080px; height:1920px; display:block; }
+  #shadeTop { position:absolute; left:0; top:0; width:1080px; height:1000px; background:linear-gradient(#000a 0%, #0006 50%, #0000 100%); }
+  #shadeBot { position:absolute; left:0; bottom:0; width:1080px; height:760px; background:linear-gradient(#0000 0%, #0006 60%, #000a 100%); }
+  #host { position:absolute; left:0; top:0; width:932px; height:1248px; }
+  #host img { position:absolute; left:0; top:0; width:932px; height:1248px; opacity:0; }
+  #card { position:absolute; left:0; top:0; background:var(--paper); overflow:hidden; box-shadow:0 30px 80px #0009; }
+  #ledgerLines { position:absolute; left:0; top:0; right:0; bottom:0; opacity:.55;
+     background:repeating-linear-gradient(#0000 0 55px, #0d0e1112 55px 57px); }
+  #frameRed { position:absolute; left:0; top:0; right:0; bottom:0; border:10px solid var(--red); border-radius:inherit; opacity:0; }
+  .grp { position:absolute; left:0; top:0; opacity:0; color:var(--ink); }
+  .big { font:800 150px/0.92 Archivo; font-stretch:108%; letter-spacing:-3px; }
+  .mid { font:800 92px/0.98 Archivo; font-stretch:108%; letter-spacing:-1.5px; }
+  .sm  { font:800 60px/1.02 Archivo; font-stretch:104%; }
+  .lab { font:600 27px/1.25 JBMono; letter-spacing:1.5px; text-transform:uppercase; color:#3a3f47; }
+  .src { font:500 22px/1.3 JBMono; color:#5b626c; letter-spacing:.5px; }
+  .red { color:var(--red); }
+  .fit { white-space:nowrap; }
+  .mask { display:block; overflow:hidden; padding:4px 0 8px; margin:-4px 0 -8px; }
+  .mask > span { display:inline-block; }
+  #logo { position:absolute; width:64px; height:64px; border-radius:50%; top:28px; }
+  #dots { position:absolute; left:0; top:232px; display:grid; grid-template-columns:repeat(22, 26px); gap:9px; }
+  #dots i { width:26px; height:26px; border-radius:50%; background:#0d0e1120; }
+  #dots i.on { background:var(--red); }
+  #tail { position:absolute; left:0; top:0; width:0; height:0; border-left:34px solid transparent; border-right:34px solid transparent; border-top:40px solid var(--paper); opacity:0; }
+  .stamp { position:absolute; font:900 88px/1 Archivo; font-stretch:112%; color:var(--red); border:9px solid var(--red); border-radius:18px; padding:12px 26px 6px; letter-spacing:2px; white-space:nowrap; transform-origin:50% 50%; }
+  .row { display:flex; align-items:center; gap:26px; height:86px; margin-bottom:20px; }
+  .ico { width:92px; height:62px; border-radius:12px; border:5px solid var(--ink); position:relative; flex:none; box-sizing:border-box; }
+  #chip { position:absolute; left:90px; top:0; background:var(--ink); color:var(--paper); border-radius:22px; padding:20px 28px; opacity:0;
+          font:700 27px/1.3 JBMono; letter-spacing:.5px; box-shadow:0 20px 50px #0008; max-width:844px; box-sizing:border-box; }
+  #chip .src { color:#aab3bd; display:block; margin-top:8px; }
+  #cap { position:absolute; left:90px; top:1418px; width:900px; height:140px; }
+  #cap .line { position:absolute; left:0; top:0; background:#000000c4; border-radius:18px; padding:14px 24px 16px; white-space:nowrap;
+               font:800 64px/1.1 Inter; letter-spacing:-.5px; color:#fff; opacity:0; }
+  #cap .w { display:inline-block; margin-right:.26em; opacity:0; }
+  #cap .w:last-child { margin-right:0; }
+  #cap .w.key { color:var(--red); }
+</style></head>
+<body><div id="root">
+  <div id="plates"></div>
+  <div id="shadeTop"></div><div id="shadeBot"></div>
+  <div id="host">
+    <img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">
+  </div>
+  <div id="card"><div id="ledgerLines"></div><div id="frameRed"></div>
+    <img id="logo" src="../../brand/logo.png">
+    <div class="grp" id="gTitle"><div class="lab" style="margin-bottom:22px">Benaqaab India · Sach · Saboot</div>
+      <div class="mid fit">BANK ACCOUNT</div><div class="mid red fit">ON RENT?</div></div>
+    <div class="grp" id="gHook">
+      <div class="mask sm"><span id="h1">3 DAYS</span></div>
+      <div class="mask big red fit"><span id="h2">₹8 CRORE</span></div>
+      <div class="mask sm fit"><span id="h3">1 BANK ACCOUNT</span></div>
+      <div class="src" id="h4" style="margin-top:22px">Kanpur Police via TOI · 25 Sep 2026</div></div>
+    <div class="grp" id="gLedger">
+      <div class="lab">Complaints linked to that one account</div>
+      <div class="big red" id="n115" style="margin-top:14px">0</div>
+      <div id="dots"></div>
+      <div class="src" id="l4" style="position:absolute; left:0; top:464px">Kanpur Police · NCRP data · TOI, 25 Sep 2026</div></div>
+    <div class="grp" id="gOffer"><div class="lab">Message from an unknown number</div>
+      <div class="mask mid fit" style="margin-top:18px; font-size:78px"><span id="o1">Apna account do.</span></div>
+      <div class="mask mid red fit" style="font-size:78px"><span id="o2">Commission lo.</span></div></div>
+    <div class="grp" id="gCase"><div class="lab">Cyber cell · money trail</div>
+      <div class="sm" style="position:absolute; left:0; top:52px; font-size:50px; white-space:nowrap">VICTIM → ACCOUNT → ???</div>
+      <div class="sm" style="position:absolute; left:0; top:178px; font-size:44px; color:#3a3f47">ACCOUNT<br>HOLDER:</div>
+      <div class="stamp" id="you" style="left:300px; top:150px">YOU</div>
+      <div class="src" id="c5" style="position:absolute; left:0; top:312px; width:788px; font-size:26px; color:var(--ink)">UP: 20-year-old student arrested</div>
+      <div class="src" id="c6" style="position:absolute; left:0; top:358px">Siddharthnagar Police · The420, 14 Jul 2026</div></div>
+    <div class="grp" id="gRule"><div class="lab" style="margin-bottom:24px">Never rent out your</div>
+      <div class="row" id="r1"><div class="ico"></div><div class="sm">BANK ACCOUNT</div></div>
+      <div class="row" id="r2"><div class="ico" style="border-radius:8px"><i style="position:absolute;left:6px;right:6px;top:12px;height:10px;background:var(--ink)"></i></div><div class="sm">ATM CARD</div></div>
+      <div class="row" id="r3"><div class="ico" style="width:66px;height:84px;margin:0 13px;border-radius:10px 26px 10px 10px"></div><div class="sm">SIM CARD</div></div>
+      <div class="stamp" id="nfr" style="left:96px; top:392px; font-size:66px">NOT FOR RENT</div>
+      <div class="src" id="r5" style="position:absolute; left:0; top:528px; width:788px">24.7 lakh+ suspected mule accounts flagged · I4C, early 2026</div></div>
+    <div class="grp" id="gAsk"><div class="lab" style="margin-bottom:18px">Your turn · comment below</div>
+      <div class="mid fit">AAPKO AISA</div><div class="mid red fit">OFFER AAYA?</div></div>
+  </div>
+  <div id="tail"></div>
+  <div id="chip">JAIPUR · students lured at chai stalls<span class="src">Jaipur Police · Dainik Bhaskar, 27 Sep 2026</span></div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { Morph, SETTLE, SWEEP, handoff, appear, leave, clamp01 } = Motion;
+window.DURATION = TL.total; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = TL.total;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const word = (txt, para, nth = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === txt); if (!m.length) throw new Error('word not found: ' + txt + ' @P' + (para + 1)); return (m[nth] || m[0]).t0; };
+const $ = (id) => document.getElementById(id);
+
+// ---------- plates: one per paragraph; every seam pushes LEFT (the current); slow push inside a shot ----------
+const PLATES = ['s1_handover', 's2_cybercell', 's3_chai_offer', 's4_handcuffs', 's5_kit', 's1_handover'];
+const TR = 0.42, seam = (i) => P(i) - 0.16;
+const plateEls = PLATES.map(n => { const d = document.createElement('div'); d.className = 'plate'; d.innerHTML = `<img src="img/1080/${n}.jpg">`; $('plates').appendChild(d); return d; });
+function plateX(i, t) {
+  const inK = i === 0 ? 1 : SWEEP(clamp01((t - seam(i)) / TR));
+  const outK = i === PLATES.length - 1 ? 0 : SWEEP(clamp01((t - seam(i + 1)) / TR));
+  return (1 - inK) * 1080 - outK * 1080;
+}
+function plateZoom(i, t) {        // log-space push; the final plate pulls back to 1.0 (arrival) so the last frame == frame 0
+  const last = i === PLATES.length - 1, t0 = i === 0 ? 0 : seam(i), t1 = last ? END : seam(i + 1) + TR;
+  const k = clamp01((t - t0) / (t1 - t0));
+  return Math.exp(Math.log(1.07) * (last ? 1 - k : k));
+}
+
+// ---------- host: P1 (from frame 0), first sentence of P4, P6; enters/exits with the current ----------
+const HOST_X = 4, HOST_Y = 676;
+const HOST_OUT_P4 = word('up', 3) - 0.30;
+const hostSpans = [[-1, seam(1)], [seam(3), HOST_OUT_P4], [seam(5), END + 9]];
+function hostX(t) {
+  for (const [a, b] of hostSpans) if (t >= a && t < b + TR) {
+    const inK = a < 0 ? 1 : SWEEP(clamp01((t - a) / TR)), outK = SWEEP(clamp01((t - b) / TR));
+    return HOST_X + (1 - inK) * 1080 - outK * 1080;
+  }
+  return null;
+}
+const hostImgs = [...document.querySelectorAll('#host img')];
+
+// ---------- the card: ONE shape carried through every beat ----------
+const S = {
+  title:  { x: 90, y: 290, w: 900, h: 360, r: 36 }, hook:  { x: 90, y: 262, w: 900, h: 470, r: 36 },
+  ledger: { x: 90, y: 250, w: 900, h: 610, r: 28 }, offer: { x: 90, y: 330, w: 900, h: 350, r: 48 },
+  cse:    { x: 90, y: 262, w: 900, h: 500, r: 14 }, rule:  { x: 90, y: 250, w: 900, h: 680, r: 28 },
+  ask:    { x: 90, y: 300, w: 900, h: 360, r: 36 } };
+const T = { hook: word('3', 0) - 0.02, ledger: P(1) - 0.05, offer: P(2) - 0.05, chip: word('jaipur', 2) - 0.05,
+            cse: P(3) - 0.05, rule: P(4) - 0.05, ask: P(5) - 0.05, title: PE(5) + 0.05 };
+const card = new Morph({ ...S.title, color: [243, 239, 230] });
+['hook', 'ledger', 'offer', 'cse', 'rule', 'ask', 'title'].forEach(k => card.to(T[k], S[k]));
+// content groups [element, state, from, to]; out-before-in handoff while the shape morphs
+const G = [['gTitle', 'title', -9, T.hook], ['gHook', 'hook', T.hook, T.ledger], ['gLedger', 'ledger', T.ledger, T.offer],
+           ['gOffer', 'offer', T.offer, T.cse], ['gCase', 'cse', T.cse, T.rule], ['gRule', 'rule', T.rule, T.ask],
+           ['gAsk', 'ask', T.ask, T.title], ['gTitle', 'title', T.title, END + 9]];
+const PAD = 56;
+G.forEach(([id, st]) => { $(id).style.width = (S[st].w - 2 * PAD) + 'px'; $(id).style.transform = `translate(${PAD}px, ${PAD}px)`; });
+
+const dotEls = []; for (let i = 0; i < 115; i++) { const d = document.createElement('i'); $('dots').appendChild(d); dotEls.push(d); }
+
+// ---------- captions: one line at a time, each word lands on its timestamp ----------
+const KEY = new Set(['0:₹8', '0:crore', '0:ek', '1:115', '2:commission', '2:lo', '3:aapka', '3:arrest', '4:rent']);
+// phrases end at punctuation/dash pauses (b flag from the aligner); long phrases split into balanced lines (no orphans)
+const phrases = []; let ph = null;
+W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+const MAXC = 21, lines = [];
+phrases.forEach(ph => {
+  const ws = ph.words, n = ws.length, L = ws.map(w => w.w.length);
+  const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);        // chars of words i..j-1
+  const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+  const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+  for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) {
+    const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m];
+  }
+  const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+  cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) }));
+});
+lines.forEach(L => {
+  L.el = document.createElement('div'); L.el.className = 'line';
+  L.words.forEach(w => { const s = document.createElement('span'); s.className = 'w' + (KEY.has(w.p + ':' + norm(w.w)) ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el);
+});
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 : Math.min(PE(L.p) + 0.25, nx ? nx.t0 : END); });
+window.__lines = lines.map(L => L.words.map(w => w.w).join(' '));
+
+function rise(el, t, t0) { const k = appear(t, t0); el.style.transform = `translateY(${(1 - k) * 105}%)`; el.style.opacity = k > 0 ? 1 : 0; }
+const fadeIn = (t, t0) => appear(t, t0, 0.4, SETTLE);
+function stamp(el, t, t0, rot) { const k = appear(t, t0 - 0.04, 0.34, SETTLE); el.style.opacity = k > 0 ? 1 : 0; el.style.transform = `rotate(${rot * k}deg) scale(${1.6 - 0.6 * k})`; }
+const A = { you: word('aapka', 3), rent: word('rent', 4) };
+
+window.seek = (t) => {
+  plateEls.forEach((el, i) => {
+    const x = plateX(i, t), vis = x > -1080 && x < 1080;
+    el.style.display = vis ? 'block' : 'none';
+    if (vis) el.style.transform = `translateX(${x.toFixed(2)}px) scale(${plateZoom(i, t).toFixed(5)})`;
+  });
+  const hx = hostX(t);
+  $('host').style.display = hx === null ? 'none' : 'block';
+  if (hx !== null) {
+    $('host').style.transform = `translate(${hx.toFixed(2)}px, ${HOST_Y}px)`;
+    const f = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30)));
+    const v = (t < P(0) || t > PE(5) + 0.02) ? 0 : VIS[f];
+    hostImgs.forEach((im, k) => { im.style.opacity = k === v ? 1 : 0; });
+  }
+  const s = card.at(t), cd = $('card');
+  cd.style.transform = `translate(${s.x.toFixed(2)}px, ${s.y.toFixed(2)}px)`;
+  cd.style.width = s.w.toFixed(2) + 'px'; cd.style.height = s.h.toFixed(2) + 'px'; cd.style.borderRadius = s.r.toFixed(2) + 'px';
+  $('logo').style.left = (s.w - 92).toFixed(2) + 'px';
+  $('frameRed').style.opacity = (t >= T.cse && t < T.rule) ? SETTLE(clamp01((t - T.cse) / 0.3)) * leave(t, T.rule - 0.2, 0.2) : 0;
+  const tailA = (t >= T.offer + 0.25 && t < T.cse) ? SETTLE(clamp01((t - T.offer - 0.25) / 0.2)) * leave(t, T.cse - 0.22, 0.2) : 0;
+  $('tail').style.opacity = tailA; $('tail').style.transform = `translate(${(s.x + 90).toFixed(2)}px, ${(s.y + s.h - 2).toFixed(2)}px)`;
+  const alpha = {};
+  G.forEach(([id, st, a, b]) => {
+    if (t < a || t >= b) return;
+    const out = handoff(t, b - 0.20, b + 0.05, 0.16)[0], inn = a < 0 ? 1 : handoff(t, a - 0.3, a + 0.14, 0.16)[1];
+    alpha[id] = Math.max(alpha[id] || 0, Math.min(out, inn));
+  });
+  ['gTitle', 'gHook', 'gLedger', 'gOffer', 'gCase', 'gRule', 'gAsk'].forEach(id => { $(id).style.opacity = (alpha[id] || 0).toFixed(3); });
+  // P1 hook rows land on their words
+  rise($('h1'), t, word('3', 0)); rise($('h2'), t, word('₹8', 0)); rise($('h3'), t, word('ek', 0)); $('h4').style.opacity = fadeIn(t, word('ek', 0) + 0.25);
+  // P2: 115 counts up with the dots
+  const n = Math.round(115 * SETTLE(clamp01((t - word('115', 1)) / 1.1)));
+  $('n115').textContent = n; dotEls.forEach((d, i) => { d.className = i < n ? 'on' : ''; });
+  $('l4').style.opacity = fadeIn(t, word('115', 1) + 0.6);
+  // P3: the offer, then the Jaipur chip
+  rise($('o1'), t, word('apna', 2)); rise($('o2'), t, word('commission', 2));
+  const chA = (t >= T.chip && t < T.cse) ? SETTLE(clamp01((t - T.chip) / 0.3)) * leave(t, T.cse - 0.22, 0.2) : 0;
+  $('chip').style.opacity = chA; $('chip').style.transform = `translateY(${(s.y + s.h + 64 + (1 - chA) * 30).toFixed(2)}px)`;
+  // P4: YOU stamps on "AAPKA"; the arrest line on "UP"
+  stamp($('you'), t, A.you, -6); $('c5').style.opacity = fadeIn(t, word('up', 3)); $('c6').style.opacity = fadeIn(t, word('up', 3) + 0.3);
+  // P5: rule rows on their words, stamp on "rent"
+  [['r1', word('account', 4)], ['r2', word('atm', 4)], ['r3', word('sim', 4)]].forEach(([id, tt]) => {
+    const k = appear(t, tt); $(id).style.opacity = k > 0 ? Math.min(1, k * 1.4) : 0; $(id).style.transform = `translateX(${((1 - k) * -60).toFixed(2)}px)`; });
+  stamp($('nfr'), t, A.rent, -9); $('r5').style.opacity = fadeIn(t, A.rent + 0.35);
+  // captions
+  lines.forEach(L => {
+    const on = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = on ? 1 : 0;
+    if (on) L.words.forEach(w => { const k = appear(t, w.t0 - 0.03); w.el.style.opacity = k > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, k)) * 18).toFixed(2)}px)`; });
+  });
+};
+
+// fastest on-screen motion (px/s) -> adaptive motion blur in hrender
+window.speed = (t) => {
+  const d = 1 / 240; let v = card.speed(t);
+  plateEls.forEach((_, i) => { v = Math.max(v, Math.abs(plateX(i, t + d) - plateX(i, t - d)) / (2 * d)); });
+  const h1 = hostX(t + d), h0 = hostX(t - d); if (h1 !== null && h0 !== null) v = Math.max(v, Math.abs(h1 - h0) / (2 * d));
+  for (const tt of [A.you - 0.04, A.rent - 0.04]) { const a = clamp01((t - tt) / 0.34); if (a > 0 && a < 1) v = Math.max(v, 0.6 * 320 * 3 * (1 - a) ** 2 / 0.34); }
+  return v;
+};
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(el => {            // shrink single-line headlines until they fit their group
+  let fs = parseFloat(getComputedStyle(el).fontSize), guard = 0;
+  while (el.scrollWidth > el.clientWidth + 1 && guard++ < 80) { fs -= 2; el.style.fontSize = fs + 'px'; }
+  el.dataset.fs = fs;
+});
+window.__fits = [...document.querySelectorAll('.fit')].map(e => e.textContent + ':' + e.dataset.fs);
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); });
+</script></body></html>

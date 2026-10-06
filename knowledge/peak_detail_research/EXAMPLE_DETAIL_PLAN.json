@@ -1,0 +1,53 @@
+{
+  "status": "Proposed six-second hero-proof plan; not a new rendered video",
+  "duration": 6,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "assets": {
+    "storm": {
+      "path": "projects/lightning_science_short/assets/storm.jpg",
+      "role": "Atmospheric illustrative background",
+      "rights_note": "Previously generated AI illustration; not documentary evidence."
+    }
+  },
+  "claims": {
+    "thunder_mechanism": {
+      "statement": "Rapid heating and expansion of air from lightning produce thunder.",
+      "unit": "Mechanism; no numerical unit",
+      "qualification": "Particle size and wave spacing are schematic, not to scale.",
+      "source_url": "https://www.weather.gov/safety/lightning-science-thunder"
+    }
+  },
+  "shots": [
+    {
+      "id": "pressure_proof",
+      "start": 0,
+      "end": 6,
+      "purpose": "Explain a pressure disturbance from rapid heating",
+      "hero": "One labelled magnified lightning channel",
+      "start_state": "Cool schematic air before the heat event",
+      "end_state": "Expanded air and a fading outward pressure front",
+      "primary_motion": "A single heat event drives outward response",
+      "secondary_motion": "Small local particle displacement; no decorative global wobble",
+      "camera": "Stable explanatory framing",
+      "asset_roles": [
+        "Storm is context, not evidence"
+      ],
+      "detail_choices": [
+        "Common effect origin",
+        "Sharp protected captions",
+        "Subordinate atmospheric layer"
+      ],
+      "assets": [
+        "storm"
+      ],
+      "claims": [
+        "thunder_mechanism"
+      ],
+      "audio": "A restrained transient at the cause, then a quiet explanatory hold",
+      "transition": "Motivated cut to a travel-speed schematic",
+      "acceptance": "Mechanism can be described from the moving visual without narration"
+    }
+  ]
+}

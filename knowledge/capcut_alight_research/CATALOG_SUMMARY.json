@@ -1,0 +1,42 @@
+{
+  "transitions": {
+    "count": 1137,
+    "free": 152,
+    "paid": 985
+  },
+  "video_intros": {
+    "count": 0,
+    "free": 0,
+    "paid": 0
+  },
+  "video_outros": {
+    "count": 0,
+    "free": 0,
+    "paid": 0
+  },
+  "scene_effects": {
+    "count": 1582,
+    "free": 314,
+    "paid": 1268
+  },
+  "character_effects": {
+    "count": 251,
+    "free": 120,
+    "paid": 131
+  },
+  "group_animations": {
+    "count": 0,
+    "free": 0,
+    "paid": 0
+  },
+  "filters": {
+    "count": 454,
+    "free": 112,
+    "paid": 342
+  },
+  "text_intros": {
+    "count": 0,
+    "free": 0,
+    "paid": 0
+  }
+}

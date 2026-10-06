@@ -1,0 +1,26 @@
+[
+  {
+    "repo": "kuchingneko28/alight-motion-docs",
+    "path": "docs/authoring.md",
+    "downloaded": true,
+    "bytes": 20595,
+    "sha256": "86d8a36ca55b32b3483657b0fe867446883452b06765a041a3954054ddbe4139",
+    "source_url": "https://github.com/kuchingneko28/alight-motion-docs/blob/main/docs/authoring.md"
+  },
+  {
+    "repo": "kuchingneko28/alight-motion-docs",
+    "path": "docs/guide.md",
+    "downloaded": true,
+    "bytes": 10198,
+    "sha256": "10453f3d9d828fbaec05deec31a8b75ec3a68933e495a04fc4102bbc4ed70505",
+    "source_url": "https://github.com/kuchingneko28/alight-motion-docs/blob/main/docs/guide.md"
+  },
+  {
+    "repo": "kuchingneko28/alight-motion-docs",
+    "path": "README.md",
+    "downloaded": true,
+    "bytes": 3225,
+    "sha256": "594754f5010fdfe2a327247934f53a1cdaebb1a89cfb75dcaf83850476d8fde9",
+    "source_url": "https://github.com/kuchingneko28/alight-motion-docs/blob/main/README.md"
+  }
+]

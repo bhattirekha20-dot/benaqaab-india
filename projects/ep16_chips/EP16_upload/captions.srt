@@ -1,0 +1,547 @@
+1
+00:00:00,250 --> 00:00:01,540
+India mein bane chip,
+
+2
+00:00:01,580 --> 00:00:03,160
+ab duniya tak pahunch rahe hain.
+
+3
+00:00:03,450 --> 00:00:05,240
+September 2026 tak,
+
+4
+00:00:05,320 --> 00:00:07,050
+12 approved units mein se paanch
+
+5
+00:00:07,090 --> 00:00:08,770
+commercial production kar rahi hain.
+
+6
+00:00:09,010 --> 00:00:10,840
+Lekin asli test abhi baaki hai:
+
+7
+00:00:10,970 --> 00:00:13,240
+India ka pehla bada silicon fab.
+
+8
+00:00:13,430 --> 00:00:13,970
+Chaliye,
+
+9
+00:00:14,010 --> 00:00:15,353
+chip by chip samajhte hain.
+
+10
+00:00:15,603 --> 00:00:16,793
+Aaj samjhenge:
+
+11
+00:00:16,973 --> 00:00:19,083
+India ka chip plan kitna bada hai,
+
+12
+00:00:19,253 --> 00:00:20,893
+abhi kitne plant chalu hain,
+
+13
+00:00:21,073 --> 00:00:23,343
+Dholera ka fab kab tak chip banayega,
+
+14
+00:00:23,573 --> 00:00:24,933
+aur sabse bada sawaal,
+
+15
+00:00:25,043 --> 00:00:26,503
+hum abhi bhi itna import
+
+16
+00:00:26,543 --> 00:00:27,243
+kyun kar rahe hain.
+
+17
+00:00:27,493 --> 00:00:28,263
+Aakhir mein:
+
+18
+00:00:28,353 --> 00:00:30,021
+aapke liye iska kya matlab hai.
+
+19
+00:00:30,271 --> 00:00:31,891
+Kahani shuru hoti hai India
+
+20
+00:00:31,931 --> 00:00:33,401
+Semiconductor Mission se.
+
+21
+00:00:33,631 --> 00:00:34,700
+Pehle phase mein 12
+
+22
+00:00:34,740 --> 00:00:36,651
+manufacturing units approve hue,
+
+23
+00:00:36,811 --> 00:00:38,991
+kul investment 1.64 lakh
+
+24
+00:00:39,031 --> 00:00:40,531
+crore rupaye se zyada.
+
+25
+00:00:40,771 --> 00:00:42,341
+Inme ek silicon fab,
+
+26
+00:00:42,381 --> 00:00:43,971
+ek silicon carbide fab,
+
+27
+00:00:44,041 --> 00:00:46,411
+ek gallium nitride micro-LED fab,
+
+28
+00:00:46,491 --> 00:00:47,631
+aur nau packaging aur
+
+29
+00:00:47,671 --> 00:00:48,741
+testing units hain.
+
+30
+00:00:48,991 --> 00:00:51,191
+Aur July 2026 mein cabinet ne
+
+31
+00:00:51,231 --> 00:00:54,131
+Semicon do point zero approve kiya:
+
+32
+00:00:54,171 --> 00:00:55,711
+1.27 lakh crore rupaye,
+
+33
+00:00:55,751 --> 00:00:57,345
+jo pehle phase ke 76 hazaar
+
+34
+00:00:57,385 --> 00:00:59,081
+crore se lagbhag dugna hai.
+
+35
+00:00:59,331 --> 00:01:00,651
+Abhi kitna chalu hai?
+
+36
+00:01:00,891 --> 00:01:02,131
+Paanch units commercial
+
+37
+00:01:02,171 --> 00:01:03,441
+production kar rahi hain.
+
+38
+00:01:03,561 --> 00:01:04,831
+Jaise Gujarat ke Surat
+
+39
+00:01:04,871 --> 00:01:06,401
+mein Suchi Semicon,
+
+40
+00:01:06,441 --> 00:01:08,941
+aur Punjab ke Mohali mein C D I L.
+
+41
+00:01:09,161 --> 00:01:11,511
+Sanand mein Micron ka packaging plant,
+
+42
+00:01:11,581 --> 00:01:13,591
+C G Semi aur Kaynes Semicon
+
+43
+00:01:13,631 --> 00:01:15,021
+bhi chip ship kar rahe hain.
+
+44
+00:01:15,191 --> 00:01:15,621
+Matlab:
+
+45
+00:01:15,661 --> 00:01:17,011
+packaging aur testing ka kaam
+
+46
+00:01:17,051 --> 00:01:18,471
+India mein hone laga hai.
+
+47
+00:01:18,671 --> 00:01:20,591
+Par chip banane wala asli fab
+
+48
+00:01:20,631 --> 00:01:22,631
+abhi bhi ek hi bada daav hai.
+
+49
+00:01:22,681 --> 00:01:23,473
+Dholera.
+
+50
+00:01:23,773 --> 00:01:25,233
+Dholera,
+
+51
+00:01:25,463 --> 00:01:25,748
+Gujarat.
+
+52
+00:01:25,788 --> 00:01:28,213
+Tata aur Taiwan ki Powerchip ka fab,
+
+53
+00:01:28,253 --> 00:01:29,933
+91 hazaar crore rupaye ka.
+
+54
+00:01:30,173 --> 00:01:32,413
+Yahan 28 se 110 nanometer
+
+55
+00:01:32,453 --> 00:01:33,643
+tak ke chip banenge.
+
+56
+00:01:33,783 --> 00:01:35,303
+Wahi chips jo car,
+
+57
+00:01:35,343 --> 00:01:36,343
+washing machine,
+
+58
+00:01:36,383 --> 00:01:37,563
+power electronics aur
+
+59
+00:01:37,603 --> 00:01:38,873
+I O T mein lagte hain.
+
+60
+00:01:39,163 --> 00:01:39,834
+Capacity:
+
+61
+00:01:39,874 --> 00:01:42,093
+mahine ke 50 hazaar wafers.
+
+62
+00:01:42,313 --> 00:01:43,273
+August tak aadha se
+
+63
+00:01:43,313 --> 00:01:44,443
+zyada ban chuka tha.
+
+64
+00:01:44,643 --> 00:01:46,033
+Trials December 2026
+
+65
+00:01:46,073 --> 00:01:47,433
+ke target par hain,
+
+66
+00:01:47,553 --> 00:01:48,653
+aur commercial production ki
+
+67
+00:01:48,693 --> 00:01:50,953
+khabrein mid 2028 ki hain.
+
+68
+00:01:51,063 --> 00:01:53,823
+Yaani pehle bataye gaye 2026 se aage.
+
+69
+00:01:54,123 --> 00:01:55,643
+Sirf ek fab nahi.
+
+70
+00:01:55,753 --> 00:01:57,663
+Odisha ke Bhubaneswar mein India
+
+71
+00:01:57,703 --> 00:01:59,403
+ka pehla commercial silicon
+
+72
+00:01:59,443 --> 00:02:00,973
+carbide fab ban raha hai.
+
+73
+00:02:01,133 --> 00:02:03,423
+2,066 crore ka project,
+
+74
+00:02:03,463 --> 00:02:04,353
+jo E V,
+
+75
+00:02:04,393 --> 00:02:05,323
+fast chargers,
+
+76
+00:02:05,363 --> 00:02:06,723
+solar aur defence ke
+
+77
+00:02:06,763 --> 00:02:07,983
+power chips banayega.
+
+78
+00:02:08,233 --> 00:02:09,133
+Production target:
+
+79
+00:02:09,173 --> 00:02:10,983
+2027-28.
+
+80
+00:02:11,393 --> 00:02:12,803
+Rajasthan ko bhi apna pehla
+
+81
+00:02:12,843 --> 00:02:14,263
+semiconductor plant mila,
+
+82
+00:02:14,403 --> 00:02:16,223
+aur May 2026 mein do
+
+83
+00:02:16,263 --> 00:02:17,713
+aur units approve hue.
+
+84
+00:02:17,983 --> 00:02:20,103
+Design side par 105 startups
+
+85
+00:02:20,143 --> 00:02:21,709
+pehle se chip bana rahi hain.
+
+86
+00:02:21,959 --> 00:02:22,219
+Ab asli sawaal:
+
+87
+00:02:22,259 --> 00:02:23,659
+phir bhi import itna kyun?
+
+88
+00:02:24,059 --> 00:02:26,676
+2024-25 mein India ne 30.3 billion
+
+89
+00:02:26,716 --> 00:02:27,411
+dollar ke semiconductor import kiye.
+
+90
+00:02:27,451 --> 00:02:28,126
+2025-26 mein electronics ka
+
+91
+00:02:28,166 --> 00:02:28,897
+kul import bill 116 billion
+
+92
+00:02:28,937 --> 00:02:29,689
+dollar cross kar gaya,
+
+93
+00:02:29,969 --> 00:02:31,719
+pichle saal se 18 percent zyada.
+
+94
+00:02:31,759 --> 00:02:32,178
+Manufacturing equipment
+
+95
+00:02:32,218 --> 00:02:32,579
+ka 90 percent se zyada,
+
+96
+00:02:32,619 --> 00:02:33,283
+aur specialty chemicals
+
+97
+00:02:33,323 --> 00:02:34,541
+ka 85 se 90 percent,
+
+98
+00:02:34,581 --> 00:02:35,929
+abhi bhi import hota hai.
+
+99
+00:02:36,039 --> 00:02:39,825
+Domestic value addition
+
+100
+00:02:39,865 --> 00:02:44,894
+sirf 18 se 20 percent hai.
+
+101
+00:02:44,934 --> 00:02:47,763
+Fab ek din chalega,
+
+102
+00:02:47,803 --> 00:02:50,632
+par supply chain banne
+
+103
+00:02:50,672 --> 00:02:53,363
+mein saal lagenge.
+
+104
+00:02:53,663 --> 00:02:55,463
+Aapke liye kyun matter karta hai?
+
+105
+00:02:55,713 --> 00:02:56,223
+Ek:
+
+106
+00:02:56,463 --> 00:02:57,883
+chip har cheez mein hai.
+
+107
+00:02:58,083 --> 00:02:59,243
+Phone,
+
+108
+00:02:59,283 --> 00:02:59,973
+gaadi,
+
+109
+00:03:00,013 --> 00:03:00,373
+A C,
+
+110
+00:03:00,413 --> 00:03:01,943
+aur ab AI data centres bhi.
+
+111
+00:03:02,273 --> 00:03:02,783
+Do:
+
+112
+00:03:03,013 --> 00:03:05,313
+ek fab hazaaron naukriyan banata hai,
+
+113
+00:03:05,383 --> 00:03:07,373
+aur naye skills ki demand badhata hai.
+
+114
+00:03:07,513 --> 00:03:08,543
+Process engineering,
+
+115
+00:03:08,583 --> 00:03:09,823
+equipment maintenance,
+
+116
+00:03:09,863 --> 00:03:10,533
+quality.
+
+117
+00:03:10,953 --> 00:03:11,308
+Teen:
+
+118
+00:03:11,348 --> 00:03:13,213
+jab supply chain ghar par ho,
+
+119
+00:03:13,253 --> 00:03:14,183
+to global shortage ka
+
+120
+00:03:14,223 --> 00:03:15,518
+jhatka kam lagta hai.
+
+121
+00:03:15,817 --> 00:03:17,197
+To aage kya dekhna hai?
+
+122
+00:03:17,407 --> 00:03:17,907
+Ek:
+
+123
+00:03:18,007 --> 00:03:20,837
+Dholera ke trials December 2026 mein,
+
+124
+00:03:20,877 --> 00:03:22,697
+aur 2028 mein commercial output.
+
+125
+00:03:22,737 --> 00:03:23,867
+Do:
+
+126
+00:03:23,907 --> 00:03:25,197
+Semicon do point zero
+
+127
+00:03:25,237 --> 00:03:26,437
+ke naye projects.
+
+128
+00:03:26,577 --> 00:03:27,107
+Teen:
+
+129
+00:03:27,157 --> 00:03:28,277
+equipment aur materials
+
+130
+00:03:28,317 --> 00:03:29,517
+ka local production,
+
+131
+00:03:29,627 --> 00:03:31,407
+kyunki asli azadi wahan hai.
+
+132
+00:03:31,677 --> 00:03:32,577
+India ka chip safar ab
+
+133
+00:03:32,617 --> 00:03:34,127
+factory ke floor par hai.
+
+134
+00:03:34,247 --> 00:03:35,307
+Aapko kya lagta hai,
+
+135
+00:03:35,387 --> 00:03:37,977
+2030 tak India kitna aage pahunchega?
+
+136
+00:03:38,097 --> 00:03:39,147
+Comment mein bataiye,
+
+137
+00:03:39,187 --> 00:03:40,334
+aur subscribe kijiye.

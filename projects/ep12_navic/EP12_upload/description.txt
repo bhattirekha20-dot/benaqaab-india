@@ -1,0 +1,31 @@
+NavIC Kyun Band Pada Hai? India Ka Apna GPS | 4 Chahiye, 3 Hain
+
+India ne apna khud ka satellite navigation system banaya — NavIC. Lekin aaj woh aapki location akela nahi bata sakta. Sarkar ne yeh baat khud Parliament mein maani hai (Lok Sabha reply, 29 July 2026). Is video mein: NavIC bana kyun, kaam kaise karta hai, kyun sirf 3 satellite bache, aur aage kya hone wala hai (NVS-03).
+
+Video 3 minute 20 second ka hai. Har fact on-screen source ke saath hai.
+
+CHAPTERS
+0:00 Cold open — sarkar ne kya maana
+0:11 The promise — 4 chapter, 3 minute
+0:19 1999: Kargil mein GPS roka gaya
+0:45 Kaam kaise karta hai — 4 satellite, 1 clock
+1:17 Kya tootaa — 3 satellite bache, NVS-02 stuck
+1:52 Yeh kyun matter karta hai — armed forces ka encrypted signal
+2:13 Kya abhi bhi chal raha hai (aur kya nahi)
+2:36 Aage kya — NVS-03, 15–20 October (reported)
+2:58 Outro — sawaal aapke liye
+3:13 Sources
+
+SOURCES
+- Lok Sabha written reply, MoS (Space) — "cannot provide standalone positioning service; timing service is functional" — via India Today, 29–30 July 2026
+- Timing users (power grids, telecom, banking, IST) aur 30,000+ fishing vessels — Gadgets Now, 30 July 2026
+- NVS-02 failure: apex committee on the pyro valve signal — ISRO via Indian Defence News / CORS, Sep 2026
+- NVS-03 launch window 15–20 October 2026 (reported, not officially announced) — Times of India via CORS, 21–22 Sep 2026
+- NVS-03 spec: 2,250 kg, I-2K, L1/L5/S bands + C-band ranging — The Week, 29 Sep 2026
+- 3 of 11 satellites operational; 4 needed for positioning, 7 for full strength — Times Now, 28 Sep 2026
+- Kargil 1999 origin aur 2006 approval — ThePrint / Drishti IAS · 1 microsecond ≈ 300 m — India Today, 30 July 2026
+
+NOTE
+Yeh ek independent explainer hai. ISRO ya Government of India se koi affiliation nahi hai. Sab facts public reports se hain aur screen par attributed hain. Data 2 October 2026 tak ka hai.
+
+Banaya gaya: Benaqaab India · Ep 12

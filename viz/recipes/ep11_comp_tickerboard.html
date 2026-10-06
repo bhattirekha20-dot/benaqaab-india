@@ -1,0 +1,350 @@
+<!doctype html>
+<!-- Benaqaab India · Ep11 "Market kyun gir raha hai? 5 wajah" (data as of 30 Sep 2026 close)
+     Look: TICKER BOARD. Near-black board, amber numbers (#ffb000), red = falls (#ff453a), green = buying (#30d158).
+     Archivo condensed (heads, numbers; has ₹) + JetBrains Mono (labels only, no ₹) + Inter (captions, sources).
+     Layout: 1080×680 board panel (own charts from sourced data + free-licence photos) · headline · presenter LEFT · number cards RIGHT · captions.
+     Motion: each reason REFRESHES the board: the new panel reveals top→down behind an amber scan line; bars grow from the baseline.
+     Loop: frame 0 = Nifty drawdown chart + "₹17 LAKH CR"; the ending refreshes back to exactly that. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Arch; src: url('../../brand/fonts/Archivo.ttf'); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: JBM; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  :root { --pan:#0f1318; --amb:#ffb000; --red:#ff453a; --grn:#30d158; --txt:#f2f1ec; --mut:#8b93a1; }
+  html, body { margin:0; background:#000; }
+  #root { position:relative; width:1080px; height:1920px; overflow:hidden; background:linear-gradient(180deg,#0b0e13 0%,#06070a 60%,#040506 100%); font-family:Inter; color:var(--txt); }
+  .arch { font-family:Arch; font-weight:800; font-stretch:72%; text-transform:uppercase; line-height:.96; letter-spacing:.2px; }
+  .mono { font-family:JBM; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; }
+  .fit { white-space:nowrap; }
+  .abs { position:absolute; }
+  #top { position:absolute; left:48px; top:40px; font-size:24px; }
+  #top b { color:var(--amb); font-weight:700; }
+  #disc { position:absolute; left:48px; top:80px; font-size:15px; color:var(--mut); letter-spacing:1.2px; }
+  #logo { position:absolute; left:990px; top:28px; width:60px; height:60px; border-radius:50%; }
+  #ai { position:absolute; right:30px; top:98px; font-size:14px; color:rgba(242,241,236,.55); letter-spacing:1.2px; }
+  #panel { position:absolute; left:0; top:136px; width:1080px; height:680px; overflow:hidden; background:var(--pan); }
+  .pn { position:absolute; left:0; top:0; width:1080px; height:680px; overflow:hidden; display:none; background:var(--pan); }
+  .pn > img { position:absolute; left:0; top:0; width:1080px; height:680px; object-fit:cover; }
+  #scan { position:absolute; left:0; top:0; width:1080px; height:4px; background:var(--amb); display:none; }
+  .src { position:absolute; left:24px; bottom:16px; font-family:Inter; font-weight:500; font-size:16px; color:rgba(242,241,236,.88); background:rgba(7,9,12,.8); padding:6px 10px 5px; white-space:nowrap; }
+  .chip { position:absolute; font-family:JBM; font-weight:700; font-size:18px; letter-spacing:1.2px; padding:8px 12px 7px; background:rgba(7,9,12,.86); color:var(--txt); white-space:nowrap; }
+  .big { font-family:Arch; font-weight:800; font-stretch:76%; font-variant-numeric:tabular-nums; line-height:.95; white-space:nowrap; }
+  .hl { position:absolute; left:48px; width:984px; font-size:60px; }
+  .hl.l2 { color:var(--amb); }
+  #col { position:absolute; left:660px; top:976px; width:380px; height:476px; }
+  .card { position:absolute; left:0; width:380px; box-sizing:border-box; padding:10px 14px 12px 16px; background:rgba(15,19,24,.96); border-left:5px solid var(--amb); opacity:0; }
+  .card.red { border-left-color:var(--red); } .card.grn { border-left-color:var(--grn); }
+  .card .lab { font-family:JBM; font-weight:600; font-size:15px; letter-spacing:1.3px; color:var(--mut); text-transform:uppercase; white-space:nowrap; }
+  .card .val { font-family:Arch; font-weight:800; font-stretch:78%; font-variant-numeric:tabular-nums; font-size:52px; line-height:1; margin-top:6px; width:350px; white-space:nowrap; }
+  .card.red .val { color:var(--red); } .card.grn .val { color:var(--grn); } .card.amb .val { color:var(--amb); }
+  .card .sub { font-family:Inter; font-weight:500; font-size:17px; color:var(--mut); margin-top:5px; white-space:nowrap; }
+  #host { position:absolute; left:0; top:0; width:932px; height:1248px; }
+  #host img { position:absolute; left:0; top:0; width:932px; height:1248px; opacity:0; }
+  #cap { position:absolute; left:48px; top:1466px; width:984px; height:130px; }
+  #cap .line2 { position:absolute; left:0; top:0; padding:12px 22px 16px 27px; white-space:nowrap; font:700 56px/1.12 Inter; letter-spacing:-.6px; color:var(--txt); opacity:0; }
+  #cap .line2 .bg { position:absolute; left:0; top:0; bottom:0; width:0; background:rgba(7,9,12,.93); border-left:6px solid var(--amb); box-sizing:border-box; }
+  #cap .w { position:relative; display:inline-block; margin-right:.24em; opacity:0; }
+  #cap .w:last-child { margin-right:0; }
+  #cap .w.key { color:var(--amb); }
+</style></head>
+<body><div id="root">
+  <div id="top" class="mono">INDIA MARKETS · <b>30 SEP 2026</b></div>
+  <div id="disc" class="mono">NOT INVESTMENT ADVICE · DATA AS OF 30 SEP CLOSE</div>
+  <img id="logo" src="../../brand/logo.png">
+  <div id="ai" class="mono">AI PRESENTER</div>
+
+  <div id="panel">
+    <!-- B0 / loop: Nifty drawdown (key closes only) -->
+    <div class="pn" id="pChart">
+      <svg width="1080" height="680" style="position:absolute;left:0;top:0">
+        <g stroke="rgba(242,241,236,.09)" stroke-width="2">
+          <line x1="70" y1="512" x2="1010" y2="512"/><line x1="70" y1="424" x2="1010" y2="424"/><line x1="70" y1="336" x2="1010" y2="336"/><line x1="70" y1="248" x2="1010" y2="248"/>
+        </g>
+        <g font-family="JBM" font-size="15" fill="#8b93a1" letter-spacing="1">
+          <text x="14" y="517">23K</text><text x="14" y="429">24K</text><text x="14" y="341">25K</text><text x="14" y="253">26K</text>
+          <text x="70" y="636">JAN</text><text x="177" y="636">FEB</text><text x="274" y="636">MAR</text><text x="381" y="636">APR</text><text x="485" y="636">MAY</text>
+          <text x="592" y="636">JUN</text><text x="696" y="636">JUL</text><text x="803" y="636">AUG</text><text x="910" y="636">SEP</text>
+        </g>
+        <polygon id="ddArea" points="83.8,215.2 336.1,518.2 906.3,417 1003.1,531.3 1010,545.4 1010,215.2" fill="rgba(255,69,58,.16)"/>
+        <line x1="83.8" y1="215.2" x2="1010" y2="215.2" stroke="#ffb000" stroke-width="2.5" stroke-dasharray="10 9" opacity=".8"/>
+        <polyline points="83.8,215.2 336.1,518.2 906.3,417 1003.1,531.3 1010,545.4" fill="none" stroke="#f2f1ec" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        <g fill="#f2f1ec"><circle cx="83.8" cy="215.2" r="9" fill="#ffb000"/><circle cx="336.1" cy="518.2" r="7"/><circle cx="906.3" cy="417" r="7"/><circle cx="1003.1" cy="531.3" r="7"/><circle cx="1010" cy="545.4" r="9" fill="#ff453a"/></g>
+        <g font-family="JBM" font-weight="700" letter-spacing="1">
+          <text x="104" y="198" font-size="19" fill="#ffb000">PEAK 26,373 · 5 JAN</text>
+          <text x="352" y="556" font-size="15" fill="#8b93a1">22,930 · 19 MAR</text>
+          <text x="840" y="402" font-size="15" fill="#8b93a1">24,080 · 31 AUG</text>
+          <text x="1000" y="585" font-size="19" fill="#ff453a" text-anchor="end">22,620 · 30 SEP</text>
+          <text x="70" y="664" font-size="13" fill="#8b93a1" opacity=".0">.</text>
+        </g>
+        <g id="bracket" opacity="0">
+          <line x1="1040" y1="215.2" x2="1040" y2="545.4" stroke="#ff453a" stroke-width="4"/>
+          <line x1="1028" y1="215.2" x2="1052" y2="215.2" stroke="#ff453a" stroke-width="4"/><line x1="1028" y1="545.4" x2="1052" y2="545.4" stroke="#ff453a" stroke-width="4"/>
+        </g>
+      </svg>
+      <div class="big abs" style="right:40px; top:34px; font-size:118px; color:var(--amb)">₹17 LAKH CR</div>
+      <div class="mono abs" style="right:42px; top:150px; font-size:20px">WIPED OUT IN ONE MONTH</div>
+      <div id="ddLab" class="big abs" style="right:66px; top:282px; font-size:84px; color:var(--red); opacity:0">−14.2%</div>
+      <div id="ddSub" class="mono abs" style="right:68px; top:364px; font-size:16px; color:var(--red); opacity:0">FROM THE JANUARY PEAK</div>
+      <div class="mono abs" style="left:74px; top:584px; font-size:14px; color:var(--mut); opacity:.9">NIFTY 50 · KEY CLOSES</div>
+      <div class="src">Source: NSE closes via India Today (30 Sep) · peak: Wright Research · ₹17.17 lakh cr: PTI (month to 28 Sep)</div>
+    </div>
+    <!-- B1: crude -->
+    <div class="pn" id="pCrude">
+      <img src="../../.cache/ep11/img/tanker.jpg">
+      <div class="abs" style="left:0;top:0;width:1080px;height:260px;background:linear-gradient(180deg,rgba(7,9,12,.82),rgba(7,9,12,0))"></div>
+      <div class="mono abs" style="left:40px; top:34px; font-size:20px">BRENT CRUDE · 30 SEP</div>
+      <div class="big abs" style="left:36px; top:66px; font-size:150px; color:var(--amb)">$103.4</div>
+      <div class="mono abs" style="left:40px; top:212px; font-size:18px; color:var(--txt)">PER BARREL · CROSSED $107 ON 28 SEP</div>
+      <div class="src">Photo: Jordanroderick, CC0 · Brent: India Today (30 Sep), Business Today (28 Sep)</div>
+    </div>
+    <!-- B2: FII selling bars -->
+    <div class="pn" id="pFII">
+      <div class="mono abs" style="left:40px; top:34px; font-size:20px">FII NET SELLING · CASH MARKET</div>
+      <div class="mono abs" style="left:40px; top:64px; font-size:15px; color:var(--mut)">RS CRORE · NSE PROVISIONAL DATA</div>
+      <div class="abs" style="left:60px; top:150px; width:960px; height:2px; background:rgba(242,241,236,.4)"></div>
+      <div id="bars"></div>
+      <div id="bigDay" class="chip" style="left:700px; top:96px; background:var(--red); color:#fff; opacity:0">BIGGEST DAY IN 6 MONTHS</div>
+      <div class="src">Source: NSE provisional data via Moneycontrol (29 Sep 2026)</div>
+    </div>
+    <!-- B3: rupee -->
+    <div class="pn" id="pRupee">
+      <img src="../../.cache/ep11/img/bse.jpg" style="filter:brightness(.38) saturate(.7)">
+      <div class="mono abs" style="left:40px; top:40px; font-size:20px">RUPEES FOR ONE US DOLLAR · 30 SEP</div>
+      <div class="big abs" style="left:34px; top:84px; font-size:260px; color:var(--amb)">95.82</div>
+      <div class="chip" style="left:40px; top:380px; font-size:20px">SENSEX IN DOLLAR TERMS · 2026: <span style="color:var(--red)">−20%+</span></div>
+      <div class="chip" style="left:40px; top:432px; font-size:17px; color:var(--mut)">WORST IN 15 YEARS · 2ND WORST AFTER INDONESIA</div>
+      <div class="src">Photo: BSEINDIA, CC BY-SA 3.0 · rupee: India Today (30 Sep) · Sensex in $: Economic Times (30 Sep)</div>
+    </div>
+    <!-- B4a: US rates -->
+    <div class="pn" id="pFed">
+      <img src="../../.cache/ep11/img/fed.jpg">
+      <div class="abs" style="left:0;top:0;width:1080px;height:250px;background:linear-gradient(180deg,rgba(7,9,12,.8),rgba(7,9,12,0))"></div>
+      <div class="mono abs" style="left:40px; top:34px; font-size:20px">US FEDERAL RESERVE · WASHINGTON</div>
+      <div class="arch abs" style="left:38px; top:70px; font-size:96px">HIGH RATES</div>
+      <div class="arch abs" style="left:38px; top:160px; font-size:62px; color:var(--amb)">+ HIGH BOND YIELDS</div>
+      <div class="src">Photo: Federal Reserve (public domain) · PTI (28 Sep): elevated yields, signals of Fed tightening</div>
+    </div>
+    <!-- B4b: monsoon gauge + IPO rush -->
+    <div class="pn" id="pHome">
+      <div class="abs" style="left:540px; top:40px; width:2px; height:560px; background:rgba(242,241,236,.12)"></div>
+      <div class="mono abs" style="left:40px; top:34px; font-size:20px">MONSOON 2026 · IMD</div>
+      <div class="abs" style="left:70px; top:120px; width:120px; height:440px; border:2px solid rgba(242,241,236,.3); box-sizing:border-box"></div>
+      <div id="gauge" class="abs" style="left:72px; top:122px; width:116px; height:0; background:linear-gradient(0deg,#1f6fd1,#5aa9ff)"></div>
+      <div class="abs" style="left:56px; top:120px; width:148px; height:3px; background:var(--amb)"></div>
+      <div class="mono abs" style="left:212px; top:108px; font-size:16px; color:var(--amb)">NORMAL = 100%</div>
+      <div class="big abs" style="left:210px; top:200px; font-size:110px">87%</div>
+      <div class="mono abs" style="left:214px; top:310px; font-size:16px; color:var(--mut)">OF NORMAL RAIN</div>
+      <div id="mDef" class="big abs" style="left:210px; top:360px; font-size:110px; color:var(--red); opacity:0">−13%</div>
+      <div id="mSub" class="mono abs" style="left:214px; top:470px; font-size:15px; color:var(--red); opacity:0">4TH WEAKEST SINCE 2001</div>
+      <div class="mono abs" style="left:580px; top:34px; font-size:20px">IPO RUSH · 2026</div>
+      <div id="ipoBig" class="big abs" style="left:576px; top:120px; font-size:108px; color:var(--amb); opacity:0">₹48,550 CR</div>
+      <div id="ipoSub1" class="abs" style="left:580px; top:236px; width:440px; font-size:26px; font-weight:600; line-height:1.3; opacity:0">foreign money put into IPOs this year, while it sold listed shares</div>
+      <div class="src">Source: IMD via India Today, UNI (30 Sep) · IPOs: NSDL via Economic Times (to 19 Sep)</div>
+    </div>
+    <!-- B5: FII vs DII tug -->
+    <div class="pn" id="pTug">
+      <div class="mono abs" style="left:40px; top:34px; font-size:20px">SEPTEMBER 2026 · NET BUY / SELL</div>
+      <div class="mono abs" style="left:40px; top:64px; font-size:15px; color:var(--mut)">RS CRORE · NSE PROVISIONAL DATA, TO 29 SEP</div>
+      <div class="abs" style="left:430px; top:130px; width:3px; height:430px; background:rgba(242,241,236,.45)"></div>
+      <div class="mono abs" style="left:60px; top:196px; font-size:22px; color:var(--red)">FOREIGN (FII)</div>
+      <div id="barF" class="abs" style="right:650px; top:236px; width:0; height:96px; background:var(--red)"></div>
+      <div id="valF" class="big abs" style="left:60px; top:346px; font-size:72px; color:var(--red); opacity:0">−33,864</div>
+      <div class="mono abs" style="left:452px; top:196px; font-size:22px; color:var(--grn)">INDIAN (DII)</div>
+      <div id="barD" class="abs" style="left:433px; top:236px; width:0; height:96px; background:var(--grn)"></div>
+      <div id="valD" class="big abs" style="left:452px; top:346px; font-size:72px; color:var(--grn); opacity:0">+64,759</div>
+      <div id="allDays" class="chip" style="left:452px; top:452px; background:var(--grn); color:#06140a; opacity:0">BOUGHT ON ALL 20 TRADING DAYS</div>
+      <div class="src">Source: NSE provisional data via Moneycontrol (29 Sep 2026)</div>
+    </div>
+    <!-- B6: question -->
+    <div class="pn" id="pQ">
+      <img src="../../.cache/ep11/img/nse.jpg" style="filter:brightness(.34) saturate(.6)">
+      <div class="mono abs" style="left:40px; top:40px; font-size:20px">YOUR TURN</div>
+      <div class="arch abs" style="left:38px; top:90px; font-size:112px">WILL IT RECOVER</div>
+      <div class="arch abs" style="left:38px; top:196px; font-size:112px; color:var(--amb)">IN OCTOBER?</div>
+      <div class="chip" style="left:40px; top:340px; font-size:24px">COMMENT: YES / NO</div>
+      <div class="src">Photo: 312user, CC BY-SA 4.0 (NSE building, Mumbai)</div>
+    </div>
+    <div id="scan"></div>
+  </div>
+
+  <div id="heads"></div>
+  <div id="col"></div>
+  <div id="host">
+    <img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">
+  </div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { SETTLE, SWEEP, appear, clamp01 } = Motion;
+window.DURATION = TL.total; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = TL.total;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const word = (txt, para, nth = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === txt); if (!m.length) throw new Error('word not found: ' + txt + ' @P' + (para + 1)); return (m[nth] || m[0]).t0; };
+const $ = (id) => document.getElementById(id);
+const lerp = (a, b, k) => a + (b - a) * k;
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+const TR = 0.45;
+
+// ---------- beats ----------
+const B = [
+  { id: 'b0', t0: 0,                          pn: 'pChart', h: ['₹17 LAKH CRORE GONE IN A MONTH', 'WHY IS THE MARKET FALLING?'] },
+  { id: 'b1', t0: P(1) - 0.25,                pn: 'pCrude', h: ['1 · CRUDE OIL ABOVE $100', 'INDIA IMPORTS 88.7% OF ITS OIL'] },
+  { id: 'b2', t0: P(2) - 0.25,                pn: 'pFII',   h: ['2 · FOREIGN INVESTORS SELLING', '₹9,980 CRORE IN ONE DAY'] },
+  { id: 'b3', t0: P(3) - 0.25,                pn: 'pRupee', h: ['3 · RUPEE NEAR 96 PER DOLLAR', 'SENSEX −20% IN DOLLAR TERMS'] },
+  { id: 'b4', t0: P(4) - 0.25,                pn: 'pFed',   h: ['4 · HIGH INTEREST RATES IN US', 'MONEY FLOWS TO AMERICA'] },
+  { id: 'b5', t0: word('paanchvi', 4) - 0.2,  pn: 'pHome',  h: ['5 · WEAK MONSOON + IPO RUSH', 'PRESSURE AT HOME'] },
+  { id: 'b6', t0: P(5) - 0.25,                pn: 'pTug',   h: ['BUT INDIAN INVESTORS KEPT BUYING', 'ON ALL 20 DAYS OF SEPTEMBER'] },
+  { id: 'b7', t0: word('aapko', 5) - 0.25,    pn: 'pQ',     h: ['WILL THE MARKET RECOVER?', 'COMMENT YOUR VIEW'] },
+  { id: 'b8', t0: word('yaad', 5) - 0.3,      pn: 'pChart', h: ['₹17 LAKH CRORE GONE IN A MONTH', 'WHY IS THE MARKET FALLING?'] },
+];
+B.forEach((b, i) => { b.t1 = i + 1 < B.length ? B[i + 1].t0 : 1e9; b.el = $(b.pn); });
+const beatAt = (t) => { let k = 0; B.forEach((b, i) => { if (t >= b.t0) k = i; }); return k; };
+
+// FII daily bars (25, 28, 29 Sep)
+const FII = [['25 SEP', 3693.93], ['28 SEP', 5353.22], ['29 SEP', 9980.22]];
+const bars = FII.map(([d, v], i) => {
+  const x = 170 + i * 280, hmax = 390 * v / 9980.22;
+  const bar = el('div', 'abs'); Object.assign(bar.style, { left: x + 'px', top: '152px', width: '170px', height: '0px', background: i === 2 ? 'var(--red)' : 'rgba(255,69,58,.55)' });
+  const lab = el('div', 'mono abs', d); Object.assign(lab.style, { left: x + 'px', top: '112px', width: '170px', textAlign: 'center', fontSize: '18px', color: 'var(--txt)' });
+  const val = el('div', 'big abs', '−' + Math.round(v).toLocaleString('en-IN')); Object.assign(val.style, { left: (x - 30) + 'px', width: '230px', textAlign: 'center', fontSize: '50px', color: 'var(--red)', opacity: 0 });
+  $('bars').append(bar, lab, val); return { bar, val, hmax, x };
+});
+
+// ---------- headlines ----------
+const heads = B.map((b) => {
+  const a = el('div', 'hl arch fit', b.h[0]), c = el('div', 'hl l2 arch fit', b.h[1]);
+  a.style.top = '836px'; c.style.top = '898px'; $('heads').append(a, c); return [a, c]; });
+const reveal = (e, t, t0, d = 0.36) => { const k = SWEEP(clamp01((t - t0) / d)); e.style.clipPath = `inset(-14px ${((1 - k) * 100).toFixed(2)}% -14px 0)`; return k; };
+const wipeOut = (e, t, t0, d = 0.22) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.clipPath = `inset(-14px 0 -14px ${(k * 100).toFixed(2)}%)`; };
+function headVis(i, t) {
+  const [a, c] = heads[i], b = B[i];
+  const tin = i === 0 ? -1e9 : b.t0 + 0.12, tout = b.t1;
+  const on = t >= tin && t < tout + 0.24; a.style.display = c.style.display = on ? 'block' : 'none'; if (!on) return;
+  if (t < tout) { reveal(a, t, tin); reveal(c, t, tin + 0.08); } else { wipeOut(a, t, tout); wipeOut(c, t, tout); }
+}
+
+// ---------- number cards (right column) ----------
+const CARDS = [
+  { b: [0, 8], t: -1,                     cls: 'amb', lab: 'Nifty 50 · 30 Sep close', val: '22,620', sub: '−95.75 (−0.42%) · 3rd fall in a row' },
+  { b: [0, 8], t: -1,                     cls: 'red', lab: 'September 2026',          val: '−5.9%',  sub: 'worst month since March' },
+  { b: [0],    t: word('14', 0),          cls: 'red', lab: 'From 5 Jan peak',         val: '−14.2%', sub: 'peak 26,373 → 22,620' },
+  { b: [1],    t: word('100', 1),         cls: 'amb', lab: 'Brent crude · 30 Sep',    val: '$103.4', sub: 'crossed $107 on 28 Sep' },
+  { b: [1],    t: word('88', 1),          cls: 'red', lab: 'Oil imported · FY26',     val: '88.7%',  sub: 'record high (Govt data)' },
+  { b: [2],    t: word('₹33864', 2),      cls: 'red', lab: 'FII · September',         val: '−₹33,864 cr', sub: 'net sellers on 15 of 20 days' },
+  { b: [2],    t: word('₹9980', 2),       cls: 'red', lab: 'FII · 29 Sep',            val: '−₹9,980 cr',  sub: 'biggest day in 6 months' },
+  { b: [3],    t: word('₹96', 3),         cls: 'amb', lab: 'Rupee per dollar',        val: '95.82',  sub: 'imports get costlier' },
+  { b: [3],    t: word('20', 3),          cls: 'red', lab: 'Sensex in dollars · 2026', val: '−20%+', sub: 'worst in 15 years' },
+  { b: [4],    t: word('america', 4),     cls: 'amb', lab: 'United States',           val: 'High rates', sub: '+ high bond yields' },
+  { b: [5],    t: word('13', 4),          cls: 'red', lab: 'Monsoon 2026 · IMD',      val: '−13%',   sub: '4th weakest since 2001' },
+  { b: [5],    t: word('ipo', 4),         cls: 'amb', lab: 'FPI money into IPOs',     val: '₹48,550 cr', sub: '2026, to 19 Sep (NSDL)' },
+  { b: [6],    t: word('₹64000', 5),      cls: 'grn', lab: 'DII · September',         val: '+₹64,759 cr', sub: 'bought on all 20 days' },
+  { b: [6],    t: word('salah', 5),       cls: 'amb', lab: 'Remember',                val: 'Not advice', sub: 'information only, not a tip' },
+  { b: [7],    t: word('comment', 5),     cls: 'amb', lab: 'Your turn',               val: 'Comment',    sub: 'yes or no?' },
+  { b: [7],    t: word('subscribe', 5),   cls: 'amb', lab: 'More saboot',             val: 'Subscribe',  sub: 'data-first explainers' },
+];
+CARDS.forEach(c => { c.el = el('div', 'card ' + c.cls, `<div class="lab">${c.lab}</div><div class="val fit">${c.val}</div><div class="sub">${c.sub}</div>`); $('col').appendChild(c.el); });
+
+// ---------- captions ----------
+const KEY = new Set(['0:₹17', '0:14', '0:5', '1:100', '1:88', '2:₹33864', '2:₹9980', '2:6', '3:₹96', '3:20', '3:15', '4:13', '4:ipo', '5:₹64000', '5:salah', '5:comment', '5:subscribe']);
+const MAXC = 22, lines = [];
+{ const phrases = []; let ph = null;
+  W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+  phrases.forEach(ph => {
+    const ws = ph.words, n = ws.length, L = ws.map(w => w.w.length);
+    const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+    const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+    const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+    for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) { const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m]; }
+    const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+    cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) }));
+  }); }
+lines.forEach(L => {
+  L.el = el('div', 'line2'); L.bg = el('div', 'bg'); L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = el('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el);
+});
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 - 0.02 : Math.min(PE(L.p) + 0.25, nx ? nx.t0 - 0.02 : END); });
+window.__lines = lines.map(L => L.words.map(w => w.w).join(' '));
+
+const HX = 4, HY = 756, hostImgs = [...document.querySelectorAll('#host img')];
+$('host').style.transform = `translate(${HX}px, ${HY}px)`;
+
+// ---------- seek ----------
+window.seek = (t) => {
+  const k = beatAt(t);
+  // panels: current beat fully visible; during the first TR of a beat the previous panel stays underneath
+  B.forEach(b => { b.el.style.display = 'none'; b.el.style.clipPath = 'none'; b.el.style.zIndex = 0; });
+  const cur = B[k], prev = k > 0 ? B[k - 1] : null, kr = k === 0 ? 1 : SWEEP(clamp01((t - cur.t0) / TR));
+  if (prev && kr < 1) { prev.el.style.display = 'block'; prev.el.style.zIndex = 1; }
+  cur.el.style.display = 'block'; cur.el.style.zIndex = 2;
+  if (kr < 1) { cur.el.style.clipPath = `inset(0 0 ${((1 - kr) * 100).toFixed(2)}% 0)`; $('scan').style.display = 'block'; $('scan').style.transform = `translateY(${(kr * 680 - 2).toFixed(1)}px)`; }
+  else $('scan').style.display = 'none';
+  $('scan').style.zIndex = 3;
+  // chart: drawdown bracket only in beat 0 after "14" (hidden again on the loop return)
+  const bk = k === 0 ? SETTLE(clamp01((t - word('14', 0) + 0.05) / 0.3)) : 0;
+  $('bracket').setAttribute('opacity', bk.toFixed(3)); $('ddLab').style.opacity = bk.toFixed(3); $('ddSub').style.opacity = bk.toFixed(3);
+  // FII bars grow from the baseline
+  bars.forEach((b, i) => { const g = SETTLE(clamp01((t - B[2].t0 - 0.35 - 0.22 * i) / 0.5)); b.bar.style.height = (b.hmax * g).toFixed(1) + 'px';
+    b.val.style.top = (164 + b.hmax * g).toFixed(1) + 'px'; b.val.style.opacity = g > 0.9 ? 1 : 0; });
+  $('bigDay').style.opacity = SETTLE(clamp01((t - word('₹9980', 2)) / 0.25)).toFixed(3);
+  // monsoon gauge + IPO
+  const gg = SETTLE(clamp01((t - B[5].t0 - 0.3) / 0.7)); $('gauge').style.height = (436 * 0.87 * gg).toFixed(1) + 'px'; $('gauge').style.top = (122 + 436 * (1 - 0.87 * gg)).toFixed(1) + 'px';
+  const md = SETTLE(clamp01((t - word('13', 4)) / 0.3)); $('mDef').style.opacity = md.toFixed(3); $('mSub').style.opacity = md.toFixed(3);
+  const ip = SETTLE(clamp01((t - word('ipo', 4)) / 0.3)); $('ipoBig').style.opacity = ip.toFixed(3); $('ipoSub1').style.opacity = ip.toFixed(3);
+  // FII vs DII tug
+  const tg = (d) => SETTLE(clamp01((t - B[6].t0 - d) / 0.6));
+  $('barF').style.width = (560 * 33864 / 64759 * tg(0.35)).toFixed(1) + 'px'; $('barD').style.width = (560 * tg(0.55)).toFixed(1) + 'px';   // same scale for both bars
+  $('valF').style.opacity = tg(0.35) > 0.9 ? 1 : 0; $('valD').style.opacity = tg(0.55) > 0.9 ? 1 : 0;
+  $('allDays').style.opacity = SETTLE(clamp01((t - word('beeson', 5)) / 0.25)).toFixed(3);
+  // headlines
+  heads.forEach((_, i) => headVis(i, t));
+  // cards: stacked per beat at fixed slots; visible inside their beat(s)
+  CARDS.forEach(c => {
+    const inB = c.b.includes(k);
+    if (!inB) { // fading out right after the beat ends
+      const pb = c.b.includes(k - 1) && t < B[k].t0 + 0.22 ? 1 - SETTLE(clamp01((t - B[k].t0) / 0.22)) : 0;
+      c.el.style.opacity = pb.toFixed(3); return; }
+    const t0 = Math.max(c.t, B[k].t0 + (k === 8 ? 0.2 : 0));
+    const o = c.t < 0 && k === 0 ? 1 : SETTLE(clamp01((t - t0) / 0.24));
+    c.el.style.opacity = o.toFixed(3); if (!(c.t < 0 && k === 0)) reveal(c.el, t, t0 - 0.02, 0.3); else c.el.style.clipPath = 'none';
+  });
+  // presenter
+  const f = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30)));
+  const v = (t < P(0) || t > PE(5) + 0.02) ? 0 : VIS[f];
+  hostImgs.forEach((im, i) => { im.style.opacity = i === v ? 1 : 0; });
+  // captions
+  lines.forEach(L => {
+    const on = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = on ? 1 : 0;
+    if (on) {
+      let wdt = 0;
+      L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const kk = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prv = i ? L.words[i - 1].right : 0; wdt = prv + (w.right - prv) * kk; } });
+      L.bg.style.width = (wdt + 22).toFixed(1) + 'px';
+      L.words.forEach(w => { const kk = appear(t, w.t0 - 0.03); w.el.style.opacity = kk > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, kk)) * 14).toFixed(2)}px)`; });
+    }
+  });
+};
+window.speed = (t) => { const k = beatAt(t); if (k === 0) return 0; const d = (t - B[k].t0) / TR; if (d < 0 || d > 1) return 0; const dd = 1 / 240;
+  return Math.abs(SWEEP(clamp01((t + dd - B[k].t0) / TR)) - SWEEP(clamp01((t - dd - B[k].t0) / TR))) * 680 / (2 * dd); };
+
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(e => {
+  const d0 = e.style.display; e.style.display = 'block';
+  let fs = parseFloat(getComputedStyle(e).fontSize), guard = 0;
+  while (e.scrollWidth > e.clientWidth + 1 && guard++ < 80) { fs -= 2; e.style.fontSize = fs + 'px'; }
+  e.dataset.fs = fs; e.style.display = d0;
+});
+window.__fits = [...document.querySelectorAll('.fit')].map(e => e.textContent.trim().slice(0, 30) + ':' + e.dataset.fs);
+// stack cards per beat (fixed slots, no reflow)
+const colB = [];
+for (let k = 0; k < B.length; k++) { let y = 0; CARDS.filter(c => c.b[0] === k).forEach(c => { c.el.style.top = y + 'px'; y += c.el.offsetHeight + 10; }); colB.push(k + ':' + y); }
+window.__colBottoms = colB;
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>

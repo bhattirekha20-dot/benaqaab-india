@@ -1,0 +1,21 @@
+test_bad_end (__main__.GateTests.test_bad_end) ... ok
+test_bad_url (__main__.GateTests.test_bad_url) ... ok
+test_boolean_size (__main__.GateTests.test_boolean_size) ... ok
+test_duplicate_id (__main__.GateTests.test_duplicate_id) ... ok
+test_fractional_fps (__main__.GateTests.test_fractional_fps) ... ok
+test_gap (__main__.GateTests.test_gap) ... ok
+test_missing_asset (__main__.GateTests.test_missing_asset) ... ok
+test_missing_purpose (__main__.GateTests.test_missing_purpose) ... ok
+test_nan (__main__.GateTests.test_nan) ... ok
+test_not_an_object (__main__.GateTests.test_not_an_object) ... ok
+test_overlap (__main__.GateTests.test_overlap) ... ok
+test_path_escape (__main__.GateTests.test_path_escape) ... ok
+test_real_asset (__main__.GateTests.test_real_asset) ... ok
+test_unknown_claim (__main__.GateTests.test_unknown_claim) ... ok
+test_valid (__main__.GateTests.test_valid) ... ok
+test_whitespace_detail (__main__.GateTests.test_whitespace_detail) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.003s
+
+OK

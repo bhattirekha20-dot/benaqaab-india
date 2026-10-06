@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- Benaqaab India · Ep16 thumbnail · 1280×720 · SILICON WAFER look -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Anton; src: url('../../brand/fonts/Anton.ttf'); font-weight: 400; }
+  @font-face { font-family: Gro; src: url('../../brand/fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+  @font-face { font-family: JBM; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  *{box-sizing:border-box} html,body{margin:0;background:#000}
+  #t{position:relative;width:1280px;height:720px;overflow:hidden;font-family:Inter;color:#eef4f2;
+     background:radial-gradient(120% 130% at 10% 0%,#16262c 0%,#0b1418 46%,#04070a 100%)}
+  .abs{position:absolute}
+  .mono{font-family:JBM;font-weight:700;letter-spacing:2.6px;text-transform:uppercase}
+  .chip{display:inline-block;font-family:JBM;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+        padding:10px 16px 8px;border-radius:9px;white-space:nowrap}
+  .mnt{background:#7cf0c4;color:#062a1e} .amb{background:#ffc861;color:#241703} .red{background:#ff6b6b;color:#fff}
+</style></head>
+<body><div id="t">
+  <div class="mono abs" style="left:56px;top:44px;font-size:22px;color:#7cf0c4">INDIA SEMICONDUCTOR MISSION · SEP 2026</div>
+  <img class="abs" src="../../brand/logo.png" style="right:54px;top:36px;width:86px;height:86px;border-radius:50%">
+
+  <div class="abs" style="left:52px;top:104px;font-family:Anton;font-size:88px;line-height:1.02;color:#eef4f2">MADE IN<br>INDIA</div>
+  <div class="abs" style="left:52px;top:290px;font-family:Anton;font-size:128px;line-height:1;color:#7cf0c4">CHIPS</div>
+  <div class="abs" style="left:58px;top:444px;font-family:Gro;font-weight:700;font-size:44px;color:#93a7a7">5 <span style="font-size:26px">of 12 units live</span></div>
+
+  <span class="chip mnt abs" style="left:58px;top:512px;font-size:23px">₹1.64 LAKH CRORE APPROVED</span>
+  <span class="chip red abs" style="left:58px;top:582px;font-size:23px">DHOLERA FAB: 2026 → 2028?</span>
+
+  <svg class="abs" style="right:24px;top:150px" width="600" height="480" viewBox="0 0 600 440">
+    <g id="waf"></g>
+    <circle cx="300" cy="220" r="206" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="3"/>
+    <line x1="300" y1="6" x2="300" y2="18" stroke="rgba(255,255,255,.45)" stroke-width="4"/>
+  </svg>
+  <div class="mono abs" style="right:56px;top:664px;font-size:19px;color:rgba(238,244,242,.6)">BENAQAB INDIA · SOURCES ON SCREEN</div>
+</div>
+<script>
+{ const g=document.getElementById('waf'); let h=''; let seed=7;
+  const rnd=()=> (seed=(seed*1103515245+12345)&0x7fffffff)/0x7fffffff;
+  for(let r=-4;r<=4;r++)for(let c=-4;c<=4;c++){ const x=300+c*46,y=220+r*46;
+    if(Math.hypot(x-300,y-220)>182) continue;
+    const on = rnd()<0.55;
+    const o = on ? 0.9 : 0.10; const fill = on ? 'rgba(124,240,196,.9)' : 'rgba(255,255,255,.07)';
+    h+=`<rect x="${x-18}" y="${y-18}" width="36" height="36" rx="4" fill="${fill}" opacity="${o}" stroke="rgba(255,255,255,.16)"/>`; }
+  g.innerHTML=h; }
+window.seek=()=>{}; window.ready=true; window.DURATION=1; window.FPS=30; window.WIDTH=1280; window.HEIGHT=720;
+</script></body></html>

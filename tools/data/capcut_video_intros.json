@@ -1,0 +1,2002 @@
+[
+ {
+  "api_name": "MC爆炸",
+  "display_name": "MC爆炸",
+  "paid": false,
+  "duration_s": 2.0,
+  "resource_id": "7532328012872748304",
+  "effect_id": "7532328012872748304"
+ },
+ {
+  "api_name": "上下抖动",
+  "display_name": "上下抖动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739418390030455300",
+  "effect_id": "6739418390030455300"
+ },
+ {
+  "api_name": "光效拉丝",
+  "display_name": "光效拉丝",
+  "paid": false,
+  "duration_s": 1.0,
+  "resource_id": "7480796814837304581",
+  "effect_id": "7480796814837304581"
+ },
+ {
+  "api_name": "分屏震动",
+  "display_name": "分屏震动",
+  "paid": false,
+  "duration_s": 2.0,
+  "resource_id": "7473710409023754753",
+  "effect_id": "7473710409023754753"
+ },
+ {
+  "api_name": "动感放大",
+  "display_name": "动感放大",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6740867832570974733",
+  "effect_id": "6740867832570974733"
+ },
+ {
+  "api_name": "动感缩小",
+  "display_name": "动感缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6740868384637850120",
+  "effect_id": "6740868384637850120"
+ },
+ {
+  "api_name": "反转回正",
+  "display_name": "反转回正",
+  "paid": false,
+  "duration_s": 1.33,
+  "resource_id": "7534560142361234704",
+  "effect_id": "7534560142361234704"
+ },
+ {
+  "api_name": "向上滑动",
+  "display_name": "向上滑动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798333487523828238",
+  "effect_id": "6798333487523828238"
+ },
+ {
+  "api_name": "向上转入",
+  "display_name": "向上转入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6808401616564130312",
+  "effect_id": "6808401616564130312"
+ },
+ {
+  "api_name": "向上转入_II",
+  "display_name": "向上转入 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6818747060649464327",
+  "effect_id": "6818747060649464327"
+ },
+ {
+  "api_name": "向下滑动",
+  "display_name": "向下滑动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798333705401143816",
+  "effect_id": "6798333705401143816"
+ },
+ {
+  "api_name": "向下甩入",
+  "display_name": "向下甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739338374441603598",
+  "effect_id": "6739338374441603598"
+ },
+ {
+  "api_name": "向右上甩入",
+  "display_name": "向右上甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6740122731418751495",
+  "effect_id": "6740122731418751495"
+ },
+ {
+  "api_name": "向右下甩入",
+  "display_name": "向右下甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739395718223499787",
+  "effect_id": "6739395718223499787"
+ },
+ {
+  "api_name": "向右滑动",
+  "display_name": "向右滑动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798333076469453320",
+  "effect_id": "6798333076469453320"
+ },
+ {
+  "api_name": "向右甩入",
+  "display_name": "向右甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739338727866241539",
+  "effect_id": "6739338727866241539"
+ },
+ {
+  "api_name": "向右转入",
+  "display_name": "向右转入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6805019065761927694",
+  "effect_id": "6805019065761927694"
+ },
+ {
+  "api_name": "向左上甩入",
+  "display_name": "向左上甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6740122563692728844",
+  "effect_id": "6740122563692728844"
+ },
+ {
+  "api_name": "向左下甩入",
+  "display_name": "向左下甩入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739395445346275853",
+  "effect_id": "6739395445346275853"
+ },
+ {
+  "api_name": "向左滑动",
+  "display_name": "向左滑动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798332871267324423",
+  "effect_id": "6798332871267324423"
+ },
+ {
+  "api_name": "向左转入",
+  "display_name": "向左转入",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6816560956647150093",
+  "effect_id": "6816560956647150093"
+ },
+ {
+  "api_name": "左右抖动",
+  "display_name": "左右抖动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739418540421419524",
+  "effect_id": "6739418540421419524"
+ },
+ {
+  "api_name": "抖动下降",
+  "display_name": "抖动下降",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6995802540361126402",
+  "effect_id": "6995802540361126402"
+ },
+ {
+  "api_name": "放大",
+  "display_name": "放大",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798332733694153230",
+  "effect_id": "6798332733694153230"
+ },
+ {
+  "api_name": "旋转",
+  "display_name": "旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798334070653719054",
+  "effect_id": "6798334070653719054"
+ },
+ {
+  "api_name": "旋转开幕",
+  "display_name": "旋转开幕",
+  "paid": false,
+  "duration_s": 1.0,
+  "resource_id": "7197354677820723714",
+  "effect_id": "7197354677820723714"
+ },
+ {
+  "api_name": "模糊渐显2",
+  "display_name": "模糊渐显2",
+  "paid": false,
+  "duration_s": 2.0,
+  "resource_id": "7473710409103446545",
+  "effect_id": "7473710409103446545"
+ },
+ {
+  "api_name": "模糊渐显",
+  "display_name": "模糊渐显",
+  "paid": false,
+  "duration_s": 2.0,
+  "resource_id": "7473710410428846608",
+  "effect_id": "7473710410428846608"
+ },
+ {
+  "api_name": "液态玻璃",
+  "display_name": "液态玻璃",
+  "paid": false,
+  "duration_s": 1.2,
+  "resource_id": "7532278839972580624",
+  "effect_id": "7532278839972580624"
+ },
+ {
+  "api_name": "渐显",
+  "display_name": "渐显",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798320778182922760",
+  "effect_id": "6798320778182922760"
+ },
+ {
+  "api_name": "漩涡旋转",
+  "display_name": "漩涡旋转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6782010677520241165",
+  "effect_id": "6782010677520241165"
+ },
+ {
+  "api_name": "灰色蒙层",
+  "display_name": "灰色蒙层",
+  "paid": false,
+  "duration_s": 1.53,
+  "resource_id": "7473710409040531985",
+  "effect_id": "7473710409040531985"
+ },
+ {
+  "api_name": "电视屏扫光",
+  "display_name": "电视屏扫光",
+  "paid": false,
+  "duration_s": 2.0,
+  "resource_id": "7473710408977617424",
+  "effect_id": "7473710408977617424"
+ },
+ {
+  "api_name": "百叶窗",
+  "display_name": "百叶窗",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6782101071402635790",
+  "effect_id": "6782101071402635790"
+ },
+ {
+  "api_name": "碎块滑动",
+  "display_name": "碎块滑动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6778300107113632269",
+  "effect_id": "6778300107113632269"
+ },
+ {
+  "api_name": "缩小",
+  "display_name": "缩小",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6798332584276267527",
+  "effect_id": "6798332584276267527"
+ },
+ {
+  "api_name": "跳动边框",
+  "display_name": "跳动边框",
+  "paid": false,
+  "duration_s": 1.0,
+  "resource_id": "7460018714935562769",
+  "effect_id": "7460018714935562769"
+ },
+ {
+  "api_name": "轻微抖动",
+  "display_name": "轻微抖动",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739418227031413256",
+  "effect_id": "6739418227031413256"
+ },
+ {
+  "api_name": "轻微抖动_II",
+  "display_name": "轻微抖动 II",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6739418677910704651",
+  "effect_id": "6739418677910704651"
+ },
+ {
+  "api_name": "轻微抖动_III",
+  "display_name": "轻微抖动 III",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6781683302672634382",
+  "effect_id": "6781683302672634382"
+ },
+ {
+  "api_name": "钟摆",
+  "display_name": "钟摆",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6803260897117606414",
+  "effect_id": "6803260897117606414"
+ },
+ {
+  "api_name": "镜像翻转",
+  "display_name": "镜像翻转",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6797338697625768455",
+  "effect_id": "6797338697625768455"
+ },
+ {
+  "api_name": "雨刷",
+  "display_name": "雨刷",
+  "paid": false,
+  "duration_s": 0.5,
+  "resource_id": "6802871256849846791",
+  "effect_id": "6802871256849846791"
+ },
+ {
+  "api_name": "Chroma_Wave",
+  "display_name": "Chroma Wave",
+  "paid": true,
+  "duration_s": 0.83,
+  "resource_id": "7340951102021440001",
+  "effect_id": "7340951102021440001"
+ },
+ {
+  "api_name": "Crisscross_Shake",
+  "display_name": "Crisscross Shake",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7352928077900419585",
+  "effect_id": "7352928077900419585"
+ },
+ {
+  "api_name": "Cross_Open",
+  "display_name": "Cross Open",
+  "paid": true,
+  "duration_s": 1.1,
+  "resource_id": "7283445469601075714",
+  "effect_id": "7283445469601075714"
+ },
+ {
+  "api_name": "Cubic_Flip",
+  "display_name": "Cubic Flip",
+  "paid": true,
+  "duration_s": 1.1,
+  "resource_id": "7351355322176377345",
+  "effect_id": "7351355322176377345"
+ },
+ {
+  "api_name": "Drop_down",
+  "display_name": "Drop down",
+  "paid": true,
+  "duration_s": 1.4,
+  "resource_id": "7338706736871641601",
+  "effect_id": "7338706736871641601"
+ },
+ {
+  "api_name": "Focus",
+  "display_name": "Focus",
+  "paid": true,
+  "duration_s": 1.2,
+  "resource_id": "7340857216053809666",
+  "effect_id": "7340857216053809666"
+ },
+ {
+  "api_name": "Folding_Fan",
+  "display_name": "Folding Fan",
+  "paid": true,
+  "duration_s": 1.06,
+  "resource_id": "7345806151440667137",
+  "effect_id": "7345806151440667137"
+ },
+ {
+  "api_name": "Kira游动",
+  "display_name": "Kira游动",
+  "paid": true,
+  "duration_s": 2.267,
+  "resource_id": "7313818683288064514",
+  "effect_id": "7313818683288064514"
+ },
+ {
+  "api_name": "Lumin_Flash",
+  "display_name": "Lumin Flash",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7348016855505703425",
+  "effect_id": "7348016855505703425"
+ },
+ {
+  "api_name": "Lumin_Matrix",
+  "display_name": "Lumin Matrix",
+  "paid": true,
+  "duration_s": 1.033,
+  "resource_id": "7348367244440637954",
+  "effect_id": "7348367244440637954"
+ },
+ {
+  "api_name": "Oblique_Lines",
+  "display_name": "Oblique Lines",
+  "paid": true,
+  "duration_s": 0.667,
+  "resource_id": "7363178264090645008",
+  "effect_id": "7363178264090645008"
+ },
+ {
+  "api_name": "Out_of_Body",
+  "display_name": "Out of Body",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7436323942207361552",
+  "effect_id": "7436323942207361552"
+ },
+ {
+  "api_name": "Puzzled_up",
+  "display_name": "Puzzled up",
+  "paid": true,
+  "duration_s": 1.7,
+  "resource_id": "7350563433735000578",
+  "effect_id": "7350563433735000578"
+ },
+ {
+  "api_name": "Skew_Shake",
+  "display_name": "Skew Shake",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7496026814347857168",
+  "effect_id": "7496026814347857168"
+ },
+ {
+  "api_name": "TV_On",
+  "display_name": "TV On",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7501956824762010897",
+  "effect_id": "7501956824762010897"
+ },
+ {
+  "api_name": "TV开启",
+  "display_name": "TV开启",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7490496885338230069",
+  "effect_id": "7490496885338230069"
+ },
+ {
+  "api_name": "Tesseract",
+  "display_name": "Tesseract",
+  "paid": true,
+  "duration_s": 1.333,
+  "resource_id": "7362014299243418129",
+  "effect_id": "7362014299243418129"
+ },
+ {
+  "api_name": "X震动",
+  "display_name": "X震动",
+  "paid": true,
+  "duration_s": 0.833,
+  "resource_id": "7223670693685105154",
+  "effect_id": "7223670693685105154"
+ },
+ {
+  "api_name": "_2025",
+  "display_name": "2025",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7446316654004277777",
+  "effect_id": "7446316654004277777"
+ },
+ {
+  "api_name": "_3D手机",
+  "display_name": "3D手机",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522434265225628981",
+  "effect_id": "7522434265225628981"
+ },
+ {
+  "api_name": "三屏切闪",
+  "display_name": "三屏切闪",
+  "paid": true,
+  "duration_s": 1.04,
+  "resource_id": "7437436873951154689",
+  "effect_id": "7437436873951154689"
+ },
+ {
+  "api_name": "三重弹出",
+  "display_name": "三重弹出",
+  "paid": true,
+  "duration_s": 1.18,
+  "resource_id": "7530490270048095541",
+  "effect_id": "7530490270048095541"
+ },
+ {
+  "api_name": "专辑封面",
+  "display_name": "专辑封面",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7528080927398825269",
+  "effect_id": "7528080927398825269"
+ },
+ {
+  "api_name": "之字形闪光",
+  "display_name": "之字形闪光",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7522400074232630581",
+  "effect_id": "7522400074232630581"
+ },
+ {
+  "api_name": "仙女的彗星",
+  "display_name": "仙女的彗星",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7503828788367592765",
+  "effect_id": "7503828788367592765"
+ },
+ {
+  "api_name": "侧滑",
+  "display_name": "侧滑",
+  "paid": true,
+  "duration_s": 0.6,
+  "resource_id": "7241878375516606978",
+  "effect_id": "7241878375516606978"
+ },
+ {
+  "api_name": "便利贴",
+  "display_name": "便利贴",
+  "paid": true,
+  "duration_s": 0.9,
+  "resource_id": "7380193906119414273",
+  "effect_id": "7380193906119414273"
+ },
+ {
+  "api_name": "修复故障",
+  "display_name": "修复故障",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7529529604286074173",
+  "effect_id": "7529529604286074173"
+ },
+ {
+  "api_name": "像素拼图",
+  "display_name": "像素拼图",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7521649604924820797",
+  "effect_id": "7521649604924820797"
+ },
+ {
+  "api_name": "冰块",
+  "display_name": "冰块",
+  "paid": true,
+  "duration_s": 1.3,
+  "resource_id": "7414067724160078353",
+  "effect_id": "7414067724160078353"
+ },
+ {
+  "api_name": "冲击波入口",
+  "display_name": "冲击波入口",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7518969312594464053",
+  "effect_id": "7518969312594464053"
+ },
+ {
+  "api_name": "冲屏闪现",
+  "display_name": "冲屏闪现",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7530463994486820097",
+  "effect_id": "7530463994486820097"
+ },
+ {
+  "api_name": "冲撞",
+  "display_name": "冲撞",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7216282356447973890",
+  "effect_id": "7216282356447973890"
+ },
+ {
+  "api_name": "分割",
+  "display_name": "分割",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7342178789109010946",
+  "effect_id": "7342178789109010946"
+ },
+ {
+  "api_name": "分割嗡嗡声",
+  "display_name": "分割嗡嗡声",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7521649112182213949",
+  "effect_id": "7521649112182213949"
+ },
+ {
+  "api_name": "分屏横移",
+  "display_name": "分屏横移",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7260340259337015810",
+  "effect_id": "7260340259337015810"
+ },
+ {
+  "api_name": "分屏翻转",
+  "display_name": "分屏翻转",
+  "paid": true,
+  "duration_s": 0.7,
+  "resource_id": "7260342071582528002",
+  "effect_id": "7260342071582528002"
+ },
+ {
+  "api_name": "划水",
+  "display_name": "划水",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7227021042017899010",
+  "effect_id": "7227021042017899010"
+ },
+ {
+  "api_name": "动感拼接",
+  "display_name": "动感拼接",
+  "paid": true,
+  "duration_s": 2.04,
+  "resource_id": "7472657789907636737",
+  "effect_id": "7472657789907636737"
+ },
+ {
+  "api_name": "卡片滚动",
+  "display_name": "卡片滚动",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519566284275649853",
+  "effect_id": "7519566284275649853"
+ },
+ {
+  "api_name": "卡阵悬浮",
+  "display_name": "卡阵悬浮",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519707540419104016",
+  "effect_id": "7519707540419104016"
+ },
+ {
+  "api_name": "厚重显示器",
+  "display_name": "厚重显示器",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7510952338027253045",
+  "effect_id": "7510952338027253045"
+ },
+ {
+  "api_name": "反物质冲击波",
+  "display_name": "反物质冲击波",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7526984727312534837",
+  "effect_id": "7526984727312534837"
+ },
+ {
+  "api_name": "变色闪震",
+  "display_name": "变色闪震",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7482612449338739974",
+  "effect_id": "7482612449338739974"
+ },
+ {
+  "api_name": "叠加弹动",
+  "display_name": "叠加弹动",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7496722952331742480",
+  "effect_id": "7496722952331742480"
+ },
+ {
+  "api_name": "向上滚动",
+  "display_name": "向上滚动",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7315336764636271105",
+  "effect_id": "7315336764636271105"
+ },
+ {
+  "api_name": "向上闪入",
+  "display_name": "向上闪入",
+  "paid": true,
+  "duration_s": 0.7,
+  "resource_id": "7274915008939561473",
+  "effect_id": "7274915008939561473"
+ },
+ {
+  "api_name": "噪点拽入",
+  "display_name": "噪点拽入",
+  "paid": true,
+  "duration_s": 0.97,
+  "resource_id": "7524040398990363920",
+  "effect_id": "7524040398990363920"
+ },
+ {
+  "api_name": "噪点渐显",
+  "display_name": "噪点渐显",
+  "paid": true,
+  "duration_s": 1.88,
+  "resource_id": "7524088817683352849",
+  "effect_id": "7524088817683352849"
+ },
+ {
+  "api_name": "圆形下坠",
+  "display_name": "圆形下坠",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7531966260448447760",
+  "effect_id": "7531966260448447760"
+ },
+ {
+  "api_name": "地球变焦",
+  "display_name": "地球变焦",
+  "paid": true,
+  "duration_s": 1.7,
+  "resource_id": "7535724300028988689",
+  "effect_id": "7535724300028988689"
+ },
+ {
+  "api_name": "墨迹显现",
+  "display_name": "墨迹显现",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519564864004574517",
+  "effect_id": "7519564864004574517"
+ },
+ {
+  "api_name": "多层环形",
+  "display_name": "多层环形",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7330517134776209922",
+  "effect_id": "7330517134776209922"
+ },
+ {
+  "api_name": "多维空间",
+  "display_name": "多维空间",
+  "paid": true,
+  "duration_s": 1.38,
+  "resource_id": "7450018653912715777",
+  "effect_id": "7450018653912715777"
+ },
+ {
+  "api_name": "夜焰",
+  "display_name": "夜焰",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7501335064890953021",
+  "effect_id": "7501335064890953021"
+ },
+ {
+  "api_name": "宇宙之眼",
+  "display_name": "宇宙之眼",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7535454688808832309",
+  "effect_id": "7535454688808832309"
+ },
+ {
+  "api_name": "展开",
+  "display_name": "展开",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7221443319530787330",
+  "effect_id": "7221443319530787330"
+ },
+ {
+  "api_name": "幕布拉开",
+  "display_name": "幕布拉开",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7499729558392900917",
+  "effect_id": "7499729558392900917"
+ },
+ {
+  "api_name": "强震抖动",
+  "display_name": "强震抖动",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7525300315407584528",
+  "effect_id": "7525300315407584528"
+ },
+ {
+  "api_name": "彩震幻波",
+  "display_name": "彩震幻波",
+  "paid": true,
+  "duration_s": 1.96,
+  "resource_id": "7515280085860027649",
+  "effect_id": "7515280085860027649"
+ },
+ {
+  "api_name": "微震开幕",
+  "display_name": "微震开幕",
+  "paid": true,
+  "duration_s": 0.93,
+  "resource_id": "7498619929617337617",
+  "effect_id": "7498619929617337617"
+ },
+ {
+  "api_name": "心灵门户",
+  "display_name": "心灵门户",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7462326012588739893",
+  "effect_id": "7462326012588739893"
+ },
+ {
+  "api_name": "快抖频闪",
+  "display_name": "快抖频闪",
+  "paid": true,
+  "duration_s": 1.03,
+  "resource_id": "7509323693189844240",
+  "effect_id": "7509323693189844240"
+ },
+ {
+  "api_name": "快速缩远",
+  "display_name": "快速缩远",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7527725848254762301",
+  "effect_id": "7527725848254762301"
+ },
+ {
+  "api_name": "扫描",
+  "display_name": "扫描",
+  "paid": true,
+  "duration_s": 0.6,
+  "resource_id": "7317226228623086081",
+  "effect_id": "7317226228623086081"
+ },
+ {
+  "api_name": "抖动变焦",
+  "display_name": "抖动变焦",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7159452233052983809",
+  "effect_id": "7159452233052983809"
+ },
+ {
+  "api_name": "抖动横移",
+  "display_name": "抖动横移",
+  "paid": true,
+  "duration_s": 0.567,
+  "resource_id": "7266026841360568833",
+  "effect_id": "7266026841360568833"
+ },
+ {
+  "api_name": "报纸放大",
+  "display_name": "报纸放大",
+  "paid": true,
+  "duration_s": 1.67,
+  "resource_id": "7481548331357949239",
+  "effect_id": "7481548331357949239"
+ },
+ {
+  "api_name": "抽卡",
+  "display_name": "抽卡",
+  "paid": true,
+  "duration_s": 1.4,
+  "resource_id": "7412857043020681744",
+  "effect_id": "7412857043020681744"
+ },
+ {
+  "api_name": "拉丝滑入",
+  "display_name": "拉丝滑入",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7131932523537371649",
+  "effect_id": "7131932523537371649"
+ },
+ {
+  "api_name": "拼图",
+  "display_name": "拼图",
+  "paid": true,
+  "duration_s": 1.067,
+  "resource_id": "7372119524465709569",
+  "effect_id": "7372119524465709569"
+ },
+ {
+  "api_name": "摇一摇",
+  "display_name": "摇一摇",
+  "paid": true,
+  "duration_s": 1.03,
+  "resource_id": "7529564550333533501",
+  "effect_id": "7529564550333533501"
+ },
+ {
+  "api_name": "撕裂开启",
+  "display_name": "撕裂开启",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7524340130979646773",
+  "effect_id": "7524340130979646773"
+ },
+ {
+  "api_name": "放射性红",
+  "display_name": "放射性红",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519585141291846965",
+  "effect_id": "7519585141291846965"
+ },
+ {
+  "api_name": "故障开场",
+  "display_name": "故障开场",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7459226519219506493",
+  "effect_id": "7459226519219506493"
+ },
+ {
+  "api_name": "故障抖动",
+  "display_name": "故障抖动",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7428064597485031937",
+  "effect_id": "7428064597485031937"
+ },
+ {
+  "api_name": "故障结尾",
+  "display_name": "故障结尾",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7461900645029646849",
+  "effect_id": "7461900645029646849"
+ },
+ {
+  "api_name": "散落花瓣",
+  "display_name": "散落花瓣",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7468589098320579893",
+  "effect_id": "7468589098320579893"
+ },
+ {
+  "api_name": "数字空间",
+  "display_name": "数字空间",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7527668392711556405",
+  "effect_id": "7527668392711556405"
+ },
+ {
+  "api_name": "数学公式",
+  "display_name": "数学公式",
+  "paid": true,
+  "duration_s": 1.97,
+  "resource_id": "7523987293112159541",
+  "effect_id": "7523987293112159541"
+ },
+ {
+  "api_name": "斜切开幕",
+  "display_name": "斜切开幕",
+  "paid": true,
+  "duration_s": 1.67,
+  "resource_id": "7519375363428846864",
+  "effect_id": "7519375363428846864"
+ },
+ {
+  "api_name": "旋转光线",
+  "display_name": "旋转光线",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519017124002549009",
+  "effect_id": "7519017124002549009"
+ },
+ {
+  "api_name": "旋转火焰",
+  "display_name": "旋转火焰",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7509044604281294133",
+  "effect_id": "7509044604281294133"
+ },
+ {
+  "api_name": "旋转聚焦",
+  "display_name": "旋转聚焦",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7524230408658111797",
+  "effect_id": "7524230408658111797"
+ },
+ {
+  "api_name": "旋转进入",
+  "display_name": "旋转进入",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7516847191437233461",
+  "effect_id": "7516847191437233461"
+ },
+ {
+  "api_name": "无信号",
+  "display_name": "无信号",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7512366053381459253",
+  "effect_id": "7512366053381459253"
+ },
+ {
+  "api_name": "无限对焦",
+  "display_name": "无限对焦",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7522403014909513013",
+  "effect_id": "7522403014909513013"
+ },
+ {
+  "api_name": "时间倒计时",
+  "display_name": "时间倒计时",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7449258379584737793",
+  "effect_id": "7449258379584737793"
+ },
+ {
+  "api_name": "时间卷轴",
+  "display_name": "时间卷轴",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7506521489894690109",
+  "effect_id": "7506521489894690109"
+ },
+ {
+  "api_name": "晃落",
+  "display_name": "晃落",
+  "paid": true,
+  "duration_s": 1.3,
+  "resource_id": "7241877817066000897",
+  "effect_id": "7241877817066000897"
+ },
+ {
+  "api_name": "暴雪缩放",
+  "display_name": "暴雪缩放",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7482880459727228221",
+  "effect_id": "7482880459727228221"
+ },
+ {
+  "api_name": "暴雪隧道",
+  "display_name": "暴雪隧道",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7522408660501269813",
+  "effect_id": "7522408660501269813"
+ },
+ {
+  "api_name": "曝光放射",
+  "display_name": "曝光放射",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7160986103300755970",
+  "effect_id": "7160986103300755970"
+ },
+ {
+  "api_name": "条形展开",
+  "display_name": "条形展开",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7517122665455389968",
+  "effect_id": "7517122665455389968"
+ },
+ {
+  "api_name": "果冻I",
+  "display_name": "果冻I",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7174022041866080769",
+  "effect_id": "7174022041866080769"
+ },
+ {
+  "api_name": "果冻II",
+  "display_name": "果冻II",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7174021621462602242",
+  "effect_id": "7174021621462602242"
+ },
+ {
+  "api_name": "枫叶遮罩",
+  "display_name": "枫叶遮罩",
+  "paid": true,
+  "duration_s": 2.3,
+  "resource_id": "7438462581448118801",
+  "effect_id": "7438462581448118801"
+ },
+ {
+  "api_name": "模糊涟漪",
+  "display_name": "模糊涟漪",
+  "paid": true,
+  "duration_s": 1.15,
+  "resource_id": "7530258880744541501",
+  "effect_id": "7530258880744541501"
+ },
+ {
+  "api_name": "模糊记忆",
+  "display_name": "模糊记忆",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7511586651181714741",
+  "effect_id": "7511586651181714741"
+ },
+ {
+  "api_name": "模糊闪入",
+  "display_name": "模糊闪入",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7507508671341956368",
+  "effect_id": "7507508671341956368"
+ },
+ {
+  "api_name": "横向模糊",
+  "display_name": "横向模糊",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7302338783930749442",
+  "effect_id": "7302338783930749442"
+ },
+ {
+  "api_name": "残酷故障",
+  "display_name": "残酷故障",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7500124855308733749",
+  "effect_id": "7500124855308733749"
+ },
+ {
+  "api_name": "毛边模糊",
+  "display_name": "毛边模糊",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7507119203288124688",
+  "effect_id": "7507119203288124688"
+ },
+ {
+  "api_name": "波浪慢扭",
+  "display_name": "波浪慢扭",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7524053583835303185",
+  "effect_id": "7524053583835303185"
+ },
+ {
+  "api_name": "波浪震动",
+  "display_name": "波浪震动",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7496760929250544912",
+  "effect_id": "7496760929250544912"
+ },
+ {
+  "api_name": "波纹油画",
+  "display_name": "波纹油画",
+  "paid": true,
+  "duration_s": 0.83,
+  "resource_id": "7525582713382882577",
+  "effect_id": "7525582713382882577"
+ },
+ {
+  "api_name": "流光一瞬",
+  "display_name": "流光一瞬",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7524305850039586101",
+  "effect_id": "7524305850039586101"
+ },
+ {
+  "api_name": "流金",
+  "display_name": "流金",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7324909711814300161",
+  "effect_id": "7324909711814300161"
+ },
+ {
+  "api_name": "涂抹旋转",
+  "display_name": "涂抹旋转",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7522398173550218549",
+  "effect_id": "7522398173550218549"
+ },
+ {
+  "api_name": "温柔火焰",
+  "display_name": "温柔火焰",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7528323450130255165",
+  "effect_id": "7528323450130255165"
+ },
+ {
+  "api_name": "滋滋碰击",
+  "display_name": "滋滋碰击",
+  "paid": true,
+  "duration_s": 1.17,
+  "resource_id": "7533084778518580533",
+  "effect_id": "7533084778518580533"
+ },
+ {
+  "api_name": "滑片滑动",
+  "display_name": "滑片滑动",
+  "paid": true,
+  "duration_s": 1.4,
+  "resource_id": "7451535587820982785",
+  "effect_id": "7451535587820982785"
+ },
+ {
+  "api_name": "滚动进入",
+  "display_name": "滚动进入",
+  "paid": true,
+  "duration_s": 1.63,
+  "resource_id": "7530174983641894145",
+  "effect_id": "7530174983641894145"
+ },
+ {
+  "api_name": "漂浮拍立得",
+  "display_name": "漂浮拍立得",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522454107265797437",
+  "effect_id": "7522454107265797437"
+ },
+ {
+  "api_name": "激进故障",
+  "display_name": "激进故障",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7509755786214657333",
+  "effect_id": "7509755786214657333"
+ },
+ {
+  "api_name": "火焰冲击动画",
+  "display_name": "火焰冲击动画",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7524310945091308861",
+  "effect_id": "7524310945091308861"
+ },
+ {
+  "api_name": "灼烧出现",
+  "display_name": "灼烧出现",
+  "paid": true,
+  "duration_s": 2.88,
+  "resource_id": "7447086181751198224",
+  "effect_id": "7447086181751198224"
+ },
+ {
+  "api_name": "炫目淡入",
+  "display_name": "炫目淡入",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7472335212093984053",
+  "effect_id": "7472335212093984053"
+ },
+ {
+  "api_name": "炫酷聚焦",
+  "display_name": "炫酷聚焦",
+  "paid": true,
+  "duration_s": 1.02,
+  "resource_id": "7529547171696233781",
+  "effect_id": "7529547171696233781"
+ },
+ {
+  "api_name": "点开",
+  "display_name": "点开",
+  "paid": true,
+  "duration_s": 1.3,
+  "resource_id": "7437061999751598609",
+  "effect_id": "7437061999751598609"
+ },
+ {
+  "api_name": "烟雾弹",
+  "display_name": "烟雾弹",
+  "paid": true,
+  "duration_s": 1.2,
+  "resource_id": "7229983948141498882",
+  "effect_id": "7229983948141498882"
+ },
+ {
+  "api_name": "爆闪拉远",
+  "display_name": "爆闪拉远",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7507113147908590865",
+  "effect_id": "7507113147908590865"
+ },
+ {
+  "api_name": "爬入",
+  "display_name": "爬入",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7498265493589986577",
+  "effect_id": "7498265493589986577"
+ },
+ {
+  "api_name": "爱心信封",
+  "display_name": "爱心信封",
+  "paid": true,
+  "duration_s": 1.02,
+  "resource_id": "7470416935658721809",
+  "effect_id": "7470416935658721809"
+ },
+ {
+  "api_name": "爱心光波监测",
+  "display_name": "爱心光波监测",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7531008442744556853",
+  "effect_id": "7531008442744556853"
+ },
+ {
+  "api_name": "特写闪光",
+  "display_name": "特写闪光",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7509301800386792765",
+  "effect_id": "7509301800386792765"
+ },
+ {
+  "api_name": "玻璃切入",
+  "display_name": "玻璃切入",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7270808706739081729",
+  "effect_id": "7270808706739081729"
+ },
+ {
+  "api_name": "电光热浪",
+  "display_name": "电光热浪",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7529564240336784701",
+  "effect_id": "7529564240336784701"
+ },
+ {
+  "api_name": "电影杂乱",
+  "display_name": "电影杂乱",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7504702619496107317",
+  "effect_id": "7504702619496107317"
+ },
+ {
+  "api_name": "画出爱心",
+  "display_name": "画出爱心",
+  "paid": true,
+  "duration_s": 1.6,
+  "resource_id": "7251442043229049346",
+  "effect_id": "7251442043229049346"
+ },
+ {
+  "api_name": "画面擦除",
+  "display_name": "画面擦除",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7450390477871780353",
+  "effect_id": "7450390477871780353"
+ },
+ {
+  "api_name": "白色嗡鸣",
+  "display_name": "白色嗡鸣",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7525455037913451829",
+  "effect_id": "7525455037913451829"
+ },
+ {
+  "api_name": "盘形抽卡",
+  "display_name": "盘形抽卡",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7474865038885392913",
+  "effect_id": "7474865038885392913"
+ },
+ {
+  "api_name": "相片铺开",
+  "display_name": "相片铺开",
+  "paid": true,
+  "duration_s": 1.04,
+  "resource_id": "7476357155268858369",
+  "effect_id": "7476357155268858369"
+ },
+ {
+  "api_name": "眩晕旋转",
+  "display_name": "眩晕旋转",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522380693477805365",
+  "effect_id": "7522380693477805365"
+ },
+ {
+  "api_name": "瞬间传送",
+  "display_name": "瞬间传送",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7509687818575220021",
+  "effect_id": "7509687818575220021"
+ },
+ {
+  "api_name": "破损美元",
+  "display_name": "破损美元",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7500866971341229373",
+  "effect_id": "7500866971341229373"
+ },
+ {
+  "api_name": "破旧影片",
+  "display_name": "破旧影片",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7500954180408872253",
+  "effect_id": "7500954180408872253"
+ },
+ {
+  "api_name": "破镜重圆",
+  "display_name": "破镜重圆",
+  "paid": true,
+  "duration_s": 1.7,
+  "resource_id": "7493376219174489360",
+  "effect_id": "7493376219174489360"
+ },
+ {
+  "api_name": "砸出波纹",
+  "display_name": "砸出波纹",
+  "paid": true,
+  "duration_s": 1.56,
+  "resource_id": "7255617979604275714",
+  "effect_id": "7255617979604275714"
+ },
+ {
+  "api_name": "碰撞",
+  "display_name": "碰撞",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7508682337643695413",
+  "effect_id": "7508682337643695413"
+ },
+ {
+  "api_name": "空间扭曲",
+  "display_name": "空间扭曲",
+  "paid": true,
+  "duration_s": 1.16,
+  "resource_id": "7301248488333906433",
+  "effect_id": "7301248488333906433"
+ },
+ {
+  "api_name": "空间拉扯",
+  "display_name": "空间拉扯",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7501954871109684496",
+  "effect_id": "7501954871109684496"
+ },
+ {
+  "api_name": "空间穿梭",
+  "display_name": "空间穿梭",
+  "paid": true,
+  "duration_s": 1.67,
+  "resource_id": "7510025208405839105",
+  "effect_id": "7510025208405839105"
+ },
+ {
+  "api_name": "穿越虫洞",
+  "display_name": "穿越虫洞",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7516835133345844533",
+  "effect_id": "7516835133345844533"
+ },
+ {
+  "api_name": "立体切换",
+  "display_name": "立体切换",
+  "paid": true,
+  "duration_s": 1.1,
+  "resource_id": "7504468185651989761",
+  "effect_id": "7504468185651989761"
+ },
+ {
+  "api_name": "立体卡片",
+  "display_name": "立体卡片",
+  "paid": true,
+  "duration_s": 1.63,
+  "resource_id": "7494110414322552081",
+  "effect_id": "7494110414322552081"
+ },
+ {
+  "api_name": "立方分体",
+  "display_name": "立方分体",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7405907840788861456",
+  "effect_id": "7405907840788861456"
+ },
+ {
+  "api_name": "粒子爱心",
+  "display_name": "粒子爱心",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7464124620371661313",
+  "effect_id": "7464124620371661313"
+ },
+ {
+  "api_name": "红色镜头",
+  "display_name": "红色镜头",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7520518741289864509",
+  "effect_id": "7520518741289864509"
+ },
+ {
+  "api_name": "维度穿越",
+  "display_name": "维度穿越",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7516898408175553853",
+  "effect_id": "7516898408175553853"
+ },
+ {
+  "api_name": "缓缓下落",
+  "display_name": "缓缓下落",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7526879912318258493",
+  "effect_id": "7526879912318258493"
+ },
+ {
+  "api_name": "翻书",
+  "display_name": "翻书",
+  "paid": true,
+  "duration_s": 1.6,
+  "resource_id": "7454051318382989840",
+  "effect_id": "7454051318382989840"
+ },
+ {
+  "api_name": "翻卡",
+  "display_name": "翻卡",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7431841739125559824",
+  "effect_id": "7431841739125559824"
+ },
+ {
+  "api_name": "耀斑震动",
+  "display_name": "耀斑震动",
+  "paid": true,
+  "duration_s": 1.17,
+  "resource_id": "7515363666741447989",
+  "effect_id": "7515363666741447989"
+ },
+ {
+  "api_name": "老式显示器",
+  "display_name": "老式显示器",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7502438790967889205",
+  "effect_id": "7502438790967889205"
+ },
+ {
+  "api_name": "老电视",
+  "display_name": "老电视",
+  "paid": true,
+  "duration_s": 1.4,
+  "resource_id": "7290861007545569793",
+  "effect_id": "7290861007545569793"
+ },
+ {
+  "api_name": "聚光展入",
+  "display_name": "聚光展入",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7508902502755028241",
+  "effect_id": "7508902502755028241"
+ },
+ {
+  "api_name": "聚合",
+  "display_name": "聚合",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7309324603774472705",
+  "effect_id": "7309324603774472705"
+ },
+ {
+  "api_name": "背光",
+  "display_name": "背光",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7503766562969521469",
+  "effect_id": "7503766562969521469"
+ },
+ {
+  "api_name": "胶卷放映",
+  "display_name": "胶卷放映",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7480390166037941509",
+  "effect_id": "7480390166037941509"
+ },
+ {
+  "api_name": "脉冲",
+  "display_name": "脉冲",
+  "paid": true,
+  "duration_s": 0.9,
+  "resource_id": "7381820388411445761",
+  "effect_id": "7381820388411445761"
+ },
+ {
+  "api_name": "蓝色闪现",
+  "display_name": "蓝色闪现",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7531966260448398608",
+  "effect_id": "7531966260448398608"
+ },
+ {
+  "api_name": "虫洞入口",
+  "display_name": "虫洞入口",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7512480068396911933",
+  "effect_id": "7512480068396911933"
+ },
+ {
+  "api_name": "负片破碎",
+  "display_name": "负片破碎",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7525102858270707005",
+  "effect_id": "7525102858270707005"
+ },
+ {
+  "api_name": "转圈圈",
+  "display_name": "转圈圈",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7247032446242263553",
+  "effect_id": "7247032446242263553"
+ },
+ {
+  "api_name": "轻巧摇入",
+  "display_name": "轻巧摇入",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7507453278670556433",
+  "effect_id": "7507453278670556433"
+ },
+ {
+  "api_name": "轻微放大",
+  "display_name": "轻微放大",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "6800268825611735559",
+  "effect_id": "6800268825611735559"
+ },
+ {
+  "api_name": "边角聚焦",
+  "display_name": "边角聚焦",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7522339830244691261",
+  "effect_id": "7522339830244691261"
+ },
+ {
+  "api_name": "进入冲击波",
+  "display_name": "进入冲击波",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519835450303909173",
+  "effect_id": "7519835450303909173"
+ },
+ {
+  "api_name": "迷失方向",
+  "display_name": "迷失方向",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522399602096508213",
+  "effect_id": "7522399602096508213"
+ },
+ {
+  "api_name": "醒来",
+  "display_name": "醒来",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522381629776514357",
+  "effect_id": "7522381629776514357"
+ },
+ {
+  "api_name": "金沙",
+  "display_name": "金沙",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7441434034770547216",
+  "effect_id": "7441434034770547216"
+ },
+ {
+  "api_name": "锯齿变速放大",
+  "display_name": "锯齿变速放大",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7497093028633480465",
+  "effect_id": "7497093028633480465"
+ },
+ {
+  "api_name": "锯齿模糊",
+  "display_name": "锯齿模糊",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7516502403286338877",
+  "effect_id": "7516502403286338877"
+ },
+ {
+  "api_name": "镜头晃动",
+  "display_name": "镜头晃动",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7510153974692056373",
+  "effect_id": "7510153974692056373"
+ },
+ {
+  "api_name": "闪光光晕",
+  "display_name": "闪光光晕",
+  "paid": true,
+  "duration_s": 1.8,
+  "resource_id": "7497047817244953873",
+  "effect_id": "7497047817244953873"
+ },
+ {
+  "api_name": "闪光入场",
+  "display_name": "闪光入场",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7501961658647006481",
+  "effect_id": "7501961658647006481"
+ },
+ {
+  "api_name": "闪光弹",
+  "display_name": "闪光弹",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7526831750333369661",
+  "effect_id": "7526831750333369661"
+ },
+ {
+  "api_name": "闪屏",
+  "display_name": "闪屏",
+  "paid": true,
+  "duration_s": 1.2,
+  "resource_id": "7245171200169611778",
+  "effect_id": "7245171200169611778"
+ },
+ {
+  "api_name": "闪现",
+  "display_name": "闪现",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7520116667649658173",
+  "effect_id": "7520116667649658173"
+ },
+ {
+  "api_name": "闪电碎片",
+  "display_name": "闪电碎片",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7516840017495412029",
+  "effect_id": "7516840017495412029"
+ },
+ {
+  "api_name": "闪白缓入",
+  "display_name": "闪白缓入",
+  "paid": true,
+  "duration_s": 1.17,
+  "resource_id": "7527516298415279376",
+  "effect_id": "7527516298415279376"
+ },
+ {
+  "api_name": "闪速扯入",
+  "display_name": "闪速扯入",
+  "paid": true,
+  "duration_s": 1.97,
+  "resource_id": "7514160996982787329",
+  "effect_id": "7514160996982787329"
+ },
+ {
+  "api_name": "陨石汇聚",
+  "display_name": "陨石汇聚",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7535068697296244029",
+  "effect_id": "7535068697296244029"
+ },
+ {
+  "api_name": "隐秘手电筒",
+  "display_name": "隐秘手电筒",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7506939965364800829",
+  "effect_id": "7506939965364800829"
+ },
+ {
+  "api_name": "震动倒数",
+  "display_name": "震动倒数",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7446716887947284993",
+  "effect_id": "7446716887947284993"
+ },
+ {
+  "api_name": "震动波纹",
+  "display_name": "震动波纹",
+  "paid": true,
+  "duration_s": 1.5,
+  "resource_id": "7310107957541212673",
+  "effect_id": "7310107957541212673"
+ },
+ {
+  "api_name": "震波",
+  "display_name": "震波",
+  "paid": true,
+  "duration_s": 0.8,
+  "resource_id": "7198083811769324033",
+  "effect_id": "7198083811769324033"
+ },
+ {
+  "api_name": "震波_II",
+  "display_name": "震波 II",
+  "paid": true,
+  "duration_s": 0.833,
+  "resource_id": "7212527218889593346",
+  "effect_id": "7212527218889593346"
+ },
+ {
+  "api_name": "震波_III",
+  "display_name": "震波 III",
+  "paid": true,
+  "duration_s": 1.7,
+  "resource_id": "7291194711082013186",
+  "effect_id": "7291194711082013186"
+ },
+ {
+  "api_name": "飞行模式_2",
+  "display_name": "飞行模式 2",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7514223174851022141",
+  "effect_id": "7514223174851022141"
+ },
+ {
+  "api_name": "飞近",
+  "display_name": "飞近",
+  "paid": true,
+  "duration_s": 1.6,
+  "resource_id": "7395131740588610064",
+  "effect_id": "7395131740588610064"
+ },
+ {
+  "api_name": "马赛克",
+  "display_name": "马赛克",
+  "paid": true,
+  "duration_s": 1.0,
+  "resource_id": "7287470556373324289",
+  "effect_id": "7287470556373324289"
+ },
+ {
+  "api_name": "高亮错误",
+  "display_name": "高亮错误",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7508769251432336693",
+  "effect_id": "7508769251432336693"
+ },
+ {
+  "api_name": "魔方_III",
+  "display_name": "魔方 III",
+  "paid": true,
+  "duration_s": 1.1,
+  "resource_id": "7433998583289877009",
+  "effect_id": "7433998583289877009"
+ },
+ {
+  "api_name": "魔法出现",
+  "display_name": "魔法出现",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7462265842865048893",
+  "effect_id": "7462265842865048893"
+ },
+ {
+  "api_name": "魔法爆发",
+  "display_name": "魔法爆发",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7520112630132968765",
+  "effect_id": "7520112630132968765"
+ },
+ {
+  "api_name": "魔法睁眼",
+  "display_name": "魔法睁眼",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7522123768706174269",
+  "effect_id": "7522123768706174269"
+ },
+ {
+  "api_name": "魔法粒子I",
+  "display_name": "魔法粒子I",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7446716461734695440",
+  "effect_id": "7446716461734695440"
+ },
+ {
+  "api_name": "魔法粒子II",
+  "display_name": "魔法粒子II",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7446716461738889744",
+  "effect_id": "7446716461738889744"
+ },
+ {
+  "api_name": "黑暗震颤",
+  "display_name": "黑暗震颤",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7505024747067936061",
+  "effect_id": "7505024747067936061"
+ },
+ {
+  "api_name": "黑洞",
+  "display_name": "黑洞",
+  "paid": true,
+  "duration_s": 0.73,
+  "resource_id": "7294461978301436418",
+  "effect_id": "7294461978301436418"
+ },
+ {
+  "api_name": "黑白倒计时",
+  "display_name": "黑白倒计时",
+  "paid": true,
+  "duration_s": 3.0,
+  "resource_id": "7505099543931915581",
+  "effect_id": "7505099543931915581"
+ },
+ {
+  "api_name": "黑白快刷",
+  "display_name": "黑白快刷",
+  "paid": true,
+  "duration_s": 0.5,
+  "resource_id": "7524951415026896144",
+  "effect_id": "7524951415026896144"
+ },
+ {
+  "api_name": "黑白波纹",
+  "display_name": "黑白波纹",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7517903514031410493",
+  "effect_id": "7517903514031410493"
+ },
+ {
+  "api_name": "黑边展开",
+  "display_name": "黑边展开",
+  "paid": true,
+  "duration_s": 2.0,
+  "resource_id": "7519692247810477329",
+  "effect_id": "7519692247810477329"
+ }
+]

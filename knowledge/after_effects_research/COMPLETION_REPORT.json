@@ -1,0 +1,90 @@
+{
+  "task": "Learn Adobe After Effects and save the best repository knowledge so our videos look outstanding",
+  "completed_local_date": "2026-10-01",
+  "hard_constraint": "Adobe After Effects is proprietary, paid, Windows/macOS-only. It was NOT installed, licensed or executed in this workspace. No .aep file was created or parsed. All AE-side statements are documentation/README/source inspection; all pipeline-side statements are code that was actually run here.",
+  "repositories": {
+    "requested": 22,
+    "verified_via_github_api": 21,
+    "not_found": [
+      "adobe/CEP-Resources"
+    ],
+    "audit_file": "knowledge/after_effects_research/REPO_AUDIT.json",
+    "readmes_saved": 30,
+    "selected_source_files_inspected": 14
+  },
+  "saved_knowledge": {
+    "skill_file": {
+      "path": "SKILLS_AFTER_EFFECTS.md",
+      "bytes": 24875,
+      "sha256": "4790e7e8d13a7bb0e4e981425d3d48a6e682ea3c5a0c3abf6dc8745ac0df4786"
+    },
+    "knowledge_base": {
+      "path": "knowledge/after_effects_research/LEARNINGS.md",
+      "bytes": 14000,
+      "sha256": "cb3d935c2622edce957b3d9e8cbda42193093623d07d75b2092e21a690f6d5f7"
+    },
+    "runnable_proof": {
+      "path": "viz/ae_motion_lab.html",
+      "bytes": 15631,
+      "sha256": "e986fb2145c4bbd0ffaf42b9e3e4f778b556e17320ce20f4565ab7fc48f9726b"
+    },
+    "snapshots_dir": "knowledge/after_effects_research/source_snapshots",
+    "snapshot_files": 30
+  },
+  "runtime_tests": {
+    "motion_lab": {
+      "navigator": "headless Chromium 154.0.8037.92 via Playwright",
+      "seeks_captured": 7,
+      "shuffled_reseek_byte_identical": true,
+      "page_errors": [],
+      "raw": ".cache/ae_research/LAB_TEST.json"
+    },
+    "after_effects_execution": false,
+    "after_effects_reason": "cannot install proprietary Windows/macOS software in this Linux sandbox"
+  },
+  "defects_found_and_fixed_in_testing": [
+    "motion-blur panel: single-sample box drawn over the shutter caption -> rows/captions re-separated, panel 232->262 px",
+    "weight panel: 'weighted' label collided with the parameter note; motion trail fell through the ground plane -> label/note separated, trail clipped",
+    "grade panel: title collided with stage name, step bar overlapped the corner caption -> rebuilt as separate rows",
+    "grade panel: vignette implemented as a dark ring around the subject -> now darkens frame corners with type drawn over it"
+  ],
+  "translation_table_available": true,
+  "non_claims": [
+    "no AE installation, licence purchase, aerender run, Bodymovin export, Duik rig or nexrender job was performed",
+    "repository knowledge proves the code exists and what its authors documented - not that we ran it",
+    "'wow' remains a human judgement; the curves are grammar, not art direction",
+    "star counts and licences are a 2026-10-01 snapshot"
+  ],
+  "licence_notes": {
+    "MIT_attribution_only": [
+      "airbnb/lottie-web",
+      "airbnb/lottie",
+      "inlife/nexrender",
+      "LottieFiles/dotlottie-web",
+      "LottieFiles/lottie-player",
+      "lottiefiles/lottie-js",
+      "MysteryPancake/After-Effects-Fun",
+      "boltframe/aftereffects-aep-parser",
+      "Instrument/cyclops",
+      "Experience-Monks/ae-to-json",
+      "ae-scripting/Expressions"
+    ],
+    "copyleft": [
+      "RxLaboratory/Duik (GPL-3.0) - learn from or run as a tool, do not paste code into a closed product"
+    ],
+    "non_commercial_or_unspecified": [
+      "dataclay/example-autografs",
+      "ChenxingM/AEP-Tools",
+      "aturtur/after-effects-scripts",
+      "ae-scripting/scripting-snippets",
+      "JoeMighty/AE-Toolkit"
+    ],
+    "rejected_sources": "link-dump 'free template pack' repos pointing at cracked-CS installers - no learnable code, malware and licence risk"
+  },
+  "rejected_alternatives": [
+    "installing/emulating Adobe AE in the sandbox - impossible, and no attempt was made",
+    "treating archive/link-dump template repos as knowledge sources",
+    "adopting .aep parsing as a production path - research-grade, unnecessary for our renderer",
+    "adding a mandatory new dependency (lottie-web / GSAP) - techniques are implemented natively instead"
+  ]
+}

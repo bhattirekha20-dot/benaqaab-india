@@ -1,0 +1,729 @@
+<!doctype html>
+<!-- ============================================================================
+     फ्लाइट क्यों महँगी — ₹10,000 तक सरचार्ज (IndiGo, 6 Oct 2026)
+     1080x1920 · 30 fps · deterministic: every frame is a pure function of t.
+     Engine: viz/motion_library.js. Facts + sources: SOURCES.md. Plan: SCRIPT.md.
+     Scene times come from the measured narration — TIMELINE below.
+     No photographs, no airline logos — plane, ship, ladder, chart all drawn here.
+     ========================================================================= -->
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<title>फ्लाइट क्यों महँगी — ₹10,000 तक सरचार्ज</title>
+<style>
+  @font-face { font-family: Archivo;  src: url('../../brand/fonts/Archivo.ttf');  font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: Inter;    src: url('../../brand/fonts/Inter.ttf');    font-weight: 100 900; }
+  @font-face { font-family: JBMono;   src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Devanagari; src: url('../../brand/fonts/NotoSansDevanagari.ttf'); font-weight: 100 900; }
+  html, body { margin:0; background:#060d1c; }
+  canvas { display:block; }
+</style>
+</head>
+<body>
+<canvas id="stage" width="1080" height="1920"></canvas>
+<script src="../../viz/motion_library.js"></script>
+<script>
+(() => {
+'use strict';
+const W = 1080, H = 1920, FPS = 30;
+
+const T = /*__TIMELINE__*/ {"narration_at":[0.55,21.75,46.322,74.514,100.713,120.606,154.681],"start":[0.0,21.199979,45.772291,73.96427,100.163499,120.056166,154.131187],"dur":[21.2,24.572,28.192,26.199,19.893,34.075,22.035],"vo":[20.55,23.922,27.542,25.549,19.243,33.425,19.85],"total":176.166667};
+
+const CUTS = [
+  { i:0, name:'Zoom to Change',  dur:0.80 },
+  { i:1, name:'Signal Glitch 2', dur:0.67 },
+  { i:2, name:'White Flash',     dur:0.40 },
+  { i:3, name:'Dissolve · 叠化',  dur:0.50 },
+  { i:4, name:'Fold Over',       dur:1.00 },
+  { i:5, name:'Light Leaks',     dur:1.00 }
+];
+
+const M = window.MotionEngine;
+const { Ease, spring, clamp, lerp, mulberry, vnoise, grain, vignette } = M;
+const cvs = document.getElementById('stage');
+const ctx = cvs.getContext('2d', {alpha:false});
+const bufA = M.mk(W,H), bufB = M.mk(W,H);
+const cA = bufA.getContext('2d'), cB = bufB.getContext('2d');
+
+/* ---------------- palette: night sky + kerosene amber ---------------- */
+const C = {
+  bg0:'#060d1c', bg1:'#0c1630', panel:'#0e1a34', line:'#22335a',
+  ink:'#eef4ff', mut:'#9db0d0', dim:'#5d719c',
+  amber:'#FFAE3C', cyan:'#59C8FF', gold:'#FFD166', leaf:'#66E39B', red:'#FF7A7A', white:'#F6FAFF'
+};
+const F = { num:'Archivo', ui:'Inter', mono:'JBMono', hin:'Devanagari' };
+
+/* ---------------- background (1:1 — never camera-transformed) ---------------- */
+function bg(c){
+  const T0 = window.__T || 0;
+  const g = c.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#050b18'); g.addColorStop(.52,'#0c1630'); g.addColorStop(1,'#070f20');
+  c.fillStyle = g; c.fillRect(0,0,W,H);
+  const ax = W/2 + Math.sin(T0*0.21)*330, ay = H*0.38 + Math.cos(T0*0.17)*270;
+  const ag = c.createRadialGradient(ax,ay,40,ax,ay,830);
+  ag.addColorStop(0,'rgba(89,200,255,.055)'); ag.addColorStop(1,'rgba(89,200,255,0)');
+  c.fillStyle = ag; c.fillRect(0,0,W,H);
+  const bx = W/2 + Math.cos(T0*0.15+2.0)*360, by = H*0.64 + Math.sin(T0*0.20+1.2)*330;
+  const bg2 = c.createRadialGradient(bx,by,40,bx,by,760);
+  bg2.addColorStop(0,'rgba(255,174,60,.05)'); bg2.addColorStop(1,'rgba(255,174,60,0)');
+  c.fillStyle = bg2; c.fillRect(0,0,W,H);
+  const dx = (T0*20)%96, dy = (T0*14)%96;
+  c.strokeStyle = 'rgba(120,160,230,.045)'; c.lineWidth = 1;
+  for (let x=60-dx; x<W+96; x+=96){ c.beginPath(); c.moveTo(x,0); c.lineTo(x,H); c.stroke(); }
+  for (let y=60-dy; y<H+96; y+=96){ c.beginPath(); c.moveTo(0,y); c.lineTo(W,y); c.stroke(); }
+}
+function atmos(c){
+  const T0 = window.__T || 0;
+  c.save();
+  for (let i=0;i<70;i++){                                  // slow cabin-window motes
+    const r = mulberry(500+i);
+    const sp = 18 + r()*40, yy = r()*H, sz = 1.7 + r()*2.6, al = 0.07 + r()*0.09;
+    const x = ((r()*(W+240) + T0*sp) % (W+240)) - 120;
+    const y = (yy + Math.sin(T0*0.38 + i)*22 + H) % H;
+    c.globalAlpha = al; c.fillStyle = (i%3===0) ? C.cyan : '#cfe0ff';
+    c.beginPath(); c.arc(x,y,sz,0,6.2832); c.fill();
+  }
+  c.restore();
+  c.save();
+  for (let i=0;i<34;i++){                                  // fuel sparks — fast, the registered signal
+    const r = mulberry(2600+i);
+    const sp = 220 + r()*160, sz = 2.4 + r()*1.7;
+    const x = ((r()*(W+220) + T0*sp) % (W+220)) - 110;
+    const y = ((r()*(H+220) - T0*(sp*0.62)) % (H+220) + (H+220)) % (H+220) - 110;
+    c.globalAlpha = 0.34 + 0.4*Math.abs(Math.sin(T0*(1.5+r()*1.5) + i*1.6));
+    c.fillStyle = i%3===0 ? C.cyan : (i%4===0 ? C.gold : C.amber);
+    c.beginPath(); c.arc(x,y,sz,0,6.2832); c.fill();
+  }
+  c.restore();
+  c.save();                                                // light sweep
+  const sw = 700, span = W + 1200;
+  const sx = -600 + ((T0*400) % span);
+  c.globalCompositeOperation = 'lighter';
+  const lg = c.createLinearGradient(sx,0,sx+sw,H*0.5);
+  lg.addColorStop(0,'rgba(150,200,255,0)'); lg.addColorStop(.5,'rgba(180,215,255,.05)'); lg.addColorStop(1,'rgba(150,200,255,0)');
+  c.fillStyle = lg;
+  c.beginPath(); c.moveTo(sx,0); c.lineTo(sx+sw,0); c.lineTo(sx+sw+760,H); c.lineTo(sx+760,H); c.closePath(); c.fill();
+  c.restore();
+}
+
+/* ---------------- helpers ---------------- */
+function txt(c,s,x,y,opt){
+  opt = opt||{};
+  c.font = (opt.weight||600)+' '+(opt.size||40)+'px "'+(opt.font||F.ui)+'"';
+  c.fillStyle = opt.color||C.ink; c.textAlign = opt.align||'left'; c.textBaseline = opt.base||'alphabetic';
+  if (opt.space!==undefined && 'letterSpacing' in c) c.letterSpacing = opt.space+'px';
+  c.fillText(s,x,y);
+  if (opt.space!==undefined && 'letterSpacing' in c) c.letterSpacing = '0px';
+  return c.measureText(s).width;
+}
+function fitText(c,str,x,y,maxW,opt){
+  const o = Object.assign({},opt||{});
+  let size = o.size||40;
+  c.font=(o.weight||600)+' '+size+'px "'+(o.font||F.ui)+'"';
+  while (c.measureText(str).width>maxW && size>12){ size-=2; c.font=(o.weight||600)+' '+size+'px "'+(o.font||F.ui)+'"'; }
+  return txt(c,str,x,y,Object.assign({},o,{size:size}));
+}
+function wrapText(c,str,x,y,maxW,opt){
+  const o = Object.assign({},opt||{});
+  let s = o.size||42; const words = str.split(' '); let lines=[''], guard=0;
+  while (guard++<600){
+    c.font=(o.weight||600)+' '+s+'px "'+(o.font||F.ui)+'"';
+    lines=[''];
+    for (const w of words){ const t2 = lines[lines.length-1]? lines[lines.length-1]+' '+w : w;
+      if (c.measureText(t2).width>maxW) lines.push(w); else lines[lines.length-1]=t2; }
+    if (lines.length<=(o.maxLines||2)) break;
+    s-=2; if (s<=16) break;
+  }
+  lines.forEach((ln,i)=>txt(c,ln,x,y+i*Math.round(s*1.28),Object.assign({},o,{size:s})));
+  return {lines:lines.length,size:s};
+}
+function roundRect(c,x,y,w,h,r,fill,stroke){
+  c.beginPath(); c.roundRect(x,y,w,h,r);
+  if (fill){ c.fillStyle=fill; c.fill(); }
+  if (stroke){ c.strokeStyle=stroke; c.lineWidth=2; c.stroke(); }
+}
+function chip(c,x,y,label,color,size){
+  const s=size||30; c.font='700 '+s+'px "'+F.mono+'"';
+  const w=c.measureText(label).width+34;
+  roundRect(c,x,y,w,s+26,(s+26)/2,'rgba(8,16,34,.94)',color);
+  txt(c,label,x+17,y+s+4,{font:F.mono,size:s,color:color,weight:700});
+  return w;
+}
+function caption(c,line,alpha){
+  if (alpha<=0.01||window.__capSkip) return;
+  c.save(); c.globalAlpha=alpha;
+  roundRect(c,70,1592,W-140,148,22,'rgba(7,13,28,.93)','rgba(255,174,60,.45)');
+  c.fillStyle=C.cyan; c.fillRect(70,1592,7,148);
+  wrapText(c,line,104,1652,W-212,{font:F.hin,size:46,weight:700,color:C.ink,maxLines:2});
+  c.restore();
+}
+function sourceTag(c,s,y){ txt(c,s,74,y||1548,{font:F.mono,size:24,color:C.dim,weight:500}); }
+function brand(c){
+  txt(c,'BENAQAAB',74,132,{font:F.ui,size:44,weight:800,color:C.ink,space:2});
+  txt(c,'INDIA',74,172,{font:F.mono,size:24,weight:700,color:C.amber,space:6});
+}
+function arrow(c,x1,y1,x2,y2,color,w){
+  c.save(); c.strokeStyle=color; c.fillStyle=color; c.lineWidth=w||5; c.lineCap='round';
+  c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+  const a=Math.atan2(y2-y1,x2-x1), s=(w||5)*3;
+  c.beginPath(); c.moveTo(x2,y2); c.lineTo(x2-s*Math.cos(a-0.42),y2-s*Math.sin(a-0.42)); c.lineTo(x2-s*Math.cos(a+0.42),y2-s*Math.sin(a+0.42));
+  c.closePath(); c.fill(); c.restore();
+}
+
+/* ---------------- scene furniture ---------------- */
+function plane(c,x,y,s,flip,beacon){
+  c.save(); c.translate(x,y); if (flip) c.scale(-1,1); c.scale(s,s);
+  c.fillStyle='rgba(214,228,248,.94)';
+  c.beginPath(); c.roundRect(-190,-20,380,40,20); c.fill();                 // fuselage
+  c.beginPath(); c.moveTo(170,-14); c.quadraticCurveTo(226,-6,236,0); c.quadraticCurveTo(226,6,170,14); c.closePath(); c.fill();  // nose
+  c.beginPath(); c.moveTo(-30,0); c.lineTo(-110,-84); c.lineTo(-52,-84); c.lineTo(30,0); c.closePath(); c.fill();   // near wing
+  c.beginPath(); c.moveTo(-30,0); c.lineTo(-96,64); c.lineTo(-40,64); c.lineTo(40,10); c.closePath(); c.fill();      // far wing
+  c.beginPath(); c.moveTo(-178,-16); c.lineTo(-214,-92); c.lineTo(-166,-92); c.lineTo(-142,-16); c.closePath(); c.fill(); // tail fin
+  c.beginPath(); c.moveTo(-190,-6); c.lineTo(-232,-30); c.lineTo(-186,-14); c.closePath(); c.fill();                // tailplane
+  c.fillStyle='rgba(120,150,200,.9)';
+  c.beginPath(); c.roundRect(-8,16,44,20,10); c.fill();                     // engine pod
+  c.fillStyle='rgba(89,200,255,.85)';
+  for (let i=0;i<7;i++){ c.beginPath(); c.arc(-120+i*34,-2,4.4,0,6.2832); c.fill(); }
+  if (beacon>0){ c.fillStyle='rgba(255,122,122,'+beacon+')'; c.beginPath(); c.arc(-196,-4,6,0,6.2832); c.fill(); }
+  c.restore();
+}
+function droplet(c,x,y,r){
+  c.save();
+  c.fillStyle='rgba(255,174,60,.85)';
+  c.beginPath();
+  c.moveTo(x, y-r*1.7);
+  c.quadraticCurveTo(x+r, y-r*0.2, x+r*0.85, y+r*0.25);
+  c.arc(x, y+r*0.3, r*0.88, 0.15*Math.PI, 0.85*Math.PI);
+  c.quadraticCurveTo(x-r, y-r*0.2, x, y-r*1.7);
+  c.fill();
+  c.restore();
+}
+function ship(c,x,y,s){
+  c.save(); c.translate(x,y); c.scale(s,s);
+  c.fillStyle='rgba(230,240,255,.95)';
+  c.beginPath(); c.moveTo(-64,8); c.lineTo(64,8); c.lineTo(44,36); c.lineTo(-44,36); c.closePath(); c.fill();
+  c.fillStyle='rgba(255,174,60,.9)';
+  c.beginPath(); c.roundRect(-40,-16,56,22,4); c.fill();
+  c.beginPath(); c.roundRect(24,-10,26,16,4); c.fill();
+  c.fillStyle='rgba(140,170,220,.8)';
+  c.beginPath(); c.roundRect(-58,2,116,7,3); c.fill();
+  c.restore();
+}
+function gauge(c,cx,cy,r,frac,label){
+  c.save();
+  c.strokeStyle='rgba(140,170,220,.35)'; c.lineWidth=10;
+  c.beginPath(); c.arc(cx,cy,r,Math.PI*0.78,Math.PI*2.22); c.stroke();
+  c.strokeStyle=C.amber; c.lineWidth=10;
+  c.beginPath(); c.arc(cx,cy,r,Math.PI*0.78,Math.PI*0.78+Math.PI*1.44*clamp(frac,0,1)); c.stroke();
+  const a = Math.PI*0.78 + Math.PI*1.44*clamp(frac,0,1);
+  c.strokeStyle=C.ink; c.lineWidth=5; c.lineCap='round';
+  c.beginPath(); c.moveTo(cx,cy); c.lineTo(cx+Math.cos(a)*(r-18), cy+Math.sin(a)*(r-18)); c.stroke();
+  c.fillStyle=C.ink; c.beginPath(); c.arc(cx,cy,7,0,6.2832); c.fill();
+  if (label) txt(c,label,cx,cy+r*0.52,{font:F.hin,size:30,weight:700,color:C.mut,align:'center'});
+  c.restore();
+}
+/* dashed route with a travelling dot */
+function route(c,x1,y1,x2,y2,color,t,dash){
+  c.save(); c.strokeStyle=color; c.lineWidth=4; c.setLineDash(dash||[10,12]);
+  c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke(); c.setLineDash([]);
+  c.restore();
+}
+
+/* ============================ SCENES ============================ */
+
+/* S1 · HOOK — plane crossing, droplets, range counters */
+function S1(c,t,dur){
+  brand(c);
+  // plane flight path — climbs in from lower-left and hovers low-right (clear of text)
+  const p = clamp(t/11.0, 0, 1);
+  const px = lerp(-300, W*0.70, Ease.inOutCubic(p));
+  const py = lerp(1660, 1230, Ease.inOutCubic(p)) + Math.sin(t*1.1)*8;
+  const beacon = 0.35+0.65*Math.abs(Math.sin(t*2.6));
+  plane(c, px, py, 0.62, false, beacon);
+  // fuel droplets falling from the belly once it is on screen
+  for (let k=0;k<5;k++){
+    const u = t - (8.2 + k*1.1);
+    if (u<=0 || u>1.4) continue;
+    c.save();
+    c.globalAlpha = clamp(1.15 - u/1.4, 0, 1);
+    droplet(c, px - 30 + Math.sin(u*6+k)*10, py + 60 + u*300*Ease.outQuad(u/1.4), 8 + k);
+    c.restore();
+  }
+  // headline
+  const a1 = clamp(t/0.6,0,1);
+  c.save(); c.globalAlpha=a1;
+  txt(c,'ईंधन सरचार्ज — लाइव', 74, 300, {font:F.hin, size:52, weight:700, color:C.mut});
+  c.restore();
+  const a2 = clamp((t-0.4)/0.7,0,1);
+  if (a2>0){
+    c.save(); c.globalAlpha=a2;
+    fitText(c,'फ्लाइट टिकट महँगे', 74, 412, W-160, {font:F.hin, size:96, weight:800, color:C.ink});
+    c.restore();
+  }
+  // live stamp
+  const a3 = clamp((t-1.0)/0.5,0,1);
+  if (a3>0){
+    c.save(); c.globalAlpha=a3;
+    const dy = lerp(-26,0,Ease.outQuint(a3));
+    roundRect(c, 74, 460+dy, 392, 82, 16, 'rgba(255,174,60,.12)', C.amber);
+    txt(c,'6 अक्टूबर 2026 · 00:01', 104, 514+dy, {font:F.num, size:40, weight:800, color:C.amber});
+    c.restore();
+  }
+  // range counters
+  const ct = clamp((t-1.6)/1.8,0,1);
+  const lo = Math.round(375*Ease.outQuint(ct)), hi = Math.round(10000*Ease.outQuint(ct));
+  txt(c,'₹'+lo.toLocaleString('en-IN'), 74, 690, {font:F.num, size:104, weight:800, color:C.gold});
+  txt(c,'—', 430, 676, {font:F.num, size:88, weight:800, color:C.mut});
+  txt(c,'₹'+hi.toLocaleString('en-IN'), 530, 690, {font:F.num, size:104, weight:800, color:C.gold});
+  txt(c,'घरेलू — अंतरराष्ट्रीय', 74, 748, {font:F.hin, size:32, weight:700, color:C.mut});
+  // chips
+  const a4 = clamp((t-3.4)/0.6,0,1);
+  if (a4>0){
+    c.save(); c.globalAlpha=a4;
+    chip(c,74, 830, 'सिर्फ़ नई बुकिंग पर लागू', C.cyan, 28);
+    chip(c,74, 910, 'इंडिगो: हर 3 में से 2 घरेलू यात्री', C.mut, 28);
+    c.restore();
+  }
+  // honesty line under the chips
+  const a5 = clamp((t-13.5)/0.7,0,1);
+  if (a5>0){
+    c.save(); c.globalAlpha=a5;
+    fitText(c,'यह एयरलाइन का कदम है — सरकारी आदेश नहीं', 74, 1046, W-160, {font:F.hin, size:32, weight:700, color:C.dim});
+    c.restore();
+  }
+  sourceTag(c,'IndiGo statement · ANI / Business Standard · 5 अक्टूबर 2026', 1548);
+  caption(c,'आज से फ्लाइट टिकट महँगे', clamp((t-0.7)/0.6,0,1));
+}
+
+/* S2 · THE TIERS — five domestic bars + international chips */
+function S2(c,t,dur){
+  brand(c);
+  fitText(c,'घरेलू सरचार्ज — दूरी के पाँच स्लैब', 74, 320, W-160, {font:F.hin, size:62, weight:800, color:C.ink});
+  const ROWS = [['≤ 500 किमी',375,C.gold],['501–1,000 किमी',600,C.amber],['1,001–1,500 किमी',900,C.amber],
+                ['1,501–2,000 किमी',1150,C.cyan],['> 2,000 किमी',1300,C.cyan]];
+  const maxV = 1300, bx = 470, bwMax = W-470-210;
+  ROWS.forEach((r,i)=>{
+    const a = clamp((t-1.1-i*1.5)/0.55,0,1);
+    if (a<=0) return;
+    const y = 452 + i*146;
+    const dx = (1-Ease.outQuint(a))*70;
+    c.save(); c.globalAlpha=a;
+    fitText(c, r[0], 74-dx, y+52, 380, {font:F.hin, size:38, weight:800, color:C.ink});
+    const grow = clamp((t-1.1-i*1.5-0.32)/0.85,0,1);
+    const bw = (r[1]/maxV)*bwMax;
+    roundRect(c, bx, y, Math.max(10,bw*Ease.outCubic(grow)), 76, 14, r[2]+'26', r[2]);
+    const cnt = Math.round(r[1]*Ease.outCubic(grow));
+    txt(c,'₹'+cnt, bx+Math.max(24,bw*Ease.outCubic(grow))+20, y+56, {font:F.num, size:52, weight:800, color:r[2]});
+    c.restore();
+  });
+  // international chips
+  const a6 = clamp((t-9.6)/0.6,0,1);
+  if (a6>0){
+    c.save(); c.globalAlpha=a6;
+    txt(c,'अंतरराष्ट्रीय', 74, 1244, {font:F.hin, size:40, weight:800, color:C.mut});
+    chip(c,74, 1276, 'सार्क ₹1,000–₹3,000', C.cyan, 28);
+    chip(c,560, 1276, 'खाड़ी/SE एशिया ₹5,500', C.cyan, 28);
+    chip(c,74, 1356, 'यूरोप ₹10,000 तक', C.gold, 28);
+    c.restore();
+  }
+  const a7 = clamp((t-12.0)/0.6,0,1);
+  if (a7>0){
+    c.save(); c.globalAlpha=a7;
+    fitText(c,'ऊपर का स्लैब = ज़्यादा दूरी = बड़ा सरचार्ज', 74, 1452, W-160, {font:F.hin, size:32, weight:700, color:C.dim});
+    c.restore();
+  }
+  sourceTag(c,'इंडिगो की सूची · ANI 5 अक्टूबर 2026 · नई बुकिंग पर', 1548);
+  caption(c,'दूरी जितनी ज़्यादा — सरचार्ज उतना ज़्यादा', clamp((t-0.6)/0.6,0,1));
+}
+
+/* S3 · THE FUEL LADDER — stair bars 115→110→115→121→137 */
+function S3(c,t,dur){
+  brand(c);
+  fitText(c,'वजह: ईंधन की सीढ़ी (ATF ₹/लीटर)', 74, 320, W-160, {font:F.hin, size:62, weight:800, color:C.ink});
+  const VALS=[115,110,115,121,137], MON=['जून','जुलाई','अगस्त','सित','अक्टू'];
+  const baseY = 1160, maxH = 470;
+  const stepW = 152, pitch = (W - 148 - stepW)/4;
+  const heights = VALS.map(v => (v-100)/37*maxH);
+  // bars
+  for (let i=0;i<5;i++){
+    const a = clamp((t-1.4-i*1.5)/0.5,0,1);
+    if (a<=0) continue;
+    const x = 74 + i*pitch;
+    const grow = clamp((t-1.4-i*1.5-0.25)/0.8,0,1);
+    const h = heights[i]*Ease.outCubic(grow);
+    c.save(); c.globalAlpha=a;
+    const col = i===4 ? C.gold : (VALS[i]<VALS[i-1] ? C.leaf : C.amber);
+    roundRect(c, x, baseY-h, stepW, h, 14, col+'30', col);
+    const cnt = Math.round(100 + (VALS[i]-100)*Ease.outCubic(grow));
+    txt(c,'₹'+cnt, x+stepW/2, baseY-h-24, {font:F.num, size:46, weight:800, color:col, align:'center'});
+    txt(c,MON[i], x+stepW/2, baseY+52, {font:F.hin, size:32, weight:700, color:C.mut, align:'center'});
+    c.restore();
+  }
+  // baseline
+  c.save(); c.strokeStyle='rgba(140,170,220,.4)'; c.lineWidth=3;
+  c.beginPath(); c.moveTo(74, baseY+6); c.lineTo(W-74, baseY+6); c.stroke(); c.restore();
+  // +14% stamp
+  const a2 = clamp((t-9.4)/0.5,0,1);
+  if (a2>0){
+    c.save(); c.globalAlpha=a2;
+    const sc = 1 + 0.16*spring(clamp((t-9.4)/0.6,0,1),1,150,18);
+    c.translate(W/2, 700); c.scale(sc,sc);
+    roundRect(c, -280, -56, 560, 112, 22, 'rgba(255,122,122,.13)', C.red);
+    txt(c,'+14% से ज़्यादा — एक महीने में', 0, 12, {font:F.hin, size:40, weight:800, color:'#ffc9c9', align:'center'});
+    c.restore();
+  }
+  // decade ribbon + gauge
+  const a3 = clamp((t-11.2)/0.6,0,1);
+  if (a3>0){
+    c.save(); c.globalAlpha=a3;
+    const dy=(1-Ease.outQuint(a3))*36;
+    roundRect(c,74,1270+dy,W-148,96,18,'rgba(255,209,102,.10)',C.gold);
+    fitText(c,'इंडिगो का कहना: दाम “दशक के सबसे ऊँचे स्तर” पर',108,1332+dy,W-220,{font:F.hin,size:36,weight:800,color:'#ffe6ae'});
+    c.restore();
+  }
+  const a4 = clamp((t-16.0)/0.6,0,1);
+  if (a4>0){
+    c.save(); c.globalAlpha=a4;
+    gauge(c, 210, 1442, 64, 0.375, null);
+    fitText(c,'ईंधन = एयरलाइन की लागत का 35–40%', 320, 1452, 660, {font:F.hin, size:32, weight:700, color:C.mut});
+    c.restore();
+  }
+  sourceTag(c,'ATF दाम: New Indian Express 5 अक्टूबर · लागत हिस्सा: Business Standard', 1548);
+  caption(c,'ATF: एक महीने में +14% — दशक का सबसे ऊँचा', clamp((t-0.6)/0.6,0,1));
+}
+
+/* S4 · THE ROOT — Hormuz chokepoint + Brent sparkline */
+function S4(c,t,dur){
+  brand(c);
+  fitText(c,'जड़: पश्चिम एशिया की जंग', 74, 320, W-160, {font:F.hin, size:64, weight:800, color:C.ink});
+  // abstract gulf: two land shapes with a narrow strait
+  const a1 = clamp((t-0.8)/1.4,0,1);
+  if (a1>0){
+    c.save(); c.globalAlpha=a1*0.96;
+    c.fillStyle='rgba(28,44,78,.95)'; c.strokeStyle='rgba(120,150,220,.4)'; c.lineWidth=2;
+    c.beginPath(); c.moveTo(0,430); c.lineTo(330,430); c.quadraticCurveTo(470,560,430,760);
+    c.quadraticCurveTo(400,930,300,1010); c.lineTo(0,1010); c.closePath(); c.fill(); c.stroke();
+    c.beginPath(); c.moveTo(W,430); c.lineTo(700,430); c.quadraticCurveTo(618,555,646,700);
+    c.quadraticCurveTo(664,880,760,1010); c.lineTo(W,1010); c.closePath(); c.fill(); c.stroke();
+    c.restore();
+    // strait label pill centred above the channel + dashed pointer
+    c.save(); c.globalAlpha=a1;
+    c.font='800 28px "'+F.hin+'"';
+    const lw = c.measureText('होर्मुज़ जलडमरूमध्य').width + 44;
+    roundRect(c, 538-lw/2, 372, lw, 62, 31, 'rgba(8,22,44,.95)', C.cyan);
+    txt(c,'होर्मुज़ जलडमरूमध्य', 538, 414, {font:F.hin, size:28, weight:800, color:C.cyan, align:'center'});
+    c.setLineDash([7,9]); c.strokeStyle='rgba(89,200,255,.75)'; c.lineWidth=3;
+    c.beginPath(); c.moveTo(538,440); c.lineTo(538,592); c.stroke(); c.setLineDash([]);
+    arrow(c, 538, 640, 538, 596, C.cyan, 4);
+    c.restore();
+  }
+  // tanker sailing through the strait
+  const tp = clamp((t-3.6)/8.5,0,1);
+  if (tp>0){
+    const tx = lerp(455, 625, tp), ty = 660 - Math.sin(tp*Math.PI)*40 + 40;
+    ship(c, tx, ty, 0.62);
+  }
+  // chips
+  const a2 = clamp((t-5.0)/0.6,0,1);
+  if (a2>0){
+    c.save(); c.globalAlpha=a2;
+    chip(c,74, 1090, '28 फ़रवरी 2026 — शुरुआत', C.amber, 28);
+    chip(c,74, 1170, 'भारत: 88%+ क्रूड आयात', C.cyan, 28);
+    c.restore();
+  }
+  // Brent sparkline panel
+  const a3 = clamp((t-8.4)/0.7,0,1);
+  if (a3>0){
+    c.save(); c.globalAlpha=a3;
+    const dy=(1-Ease.outQuint(a3))*40;
+    roundRect(c,74,1250+dy,W-148,240,20,'rgba(9,18,38,.95)',C.cyan);
+    txt(c,'ब्रेंट क्रूड (प्रति बैरल)', 108, 1312+dy, {font:F.hin, size:34, weight:800, color:C.ink});
+    txt(c,'$101 · 5 अक्टूबर', W-108, 1310+dy, {font:F.mono, size:28, weight:700, color:C.gold, align:'right'});
+    // sparkline (y 1358..1458 inside the panel)
+    const x0=108, x1=940, yTop=1358+dy, yBot=1458+dy;
+    const val = u => 92 + 12*Math.sin(u*6.4) + 6*Math.sin(u*15+1.1) + 6*u;
+    const Y = v => lerp(yBot, yTop, clamp((v-74)/44, 0, 1));
+    const nSeg = 46, ph = clamp((t-9.0)/2.2, 0, 1), shown = Math.floor(nSeg*ph);
+    const y100 = Y(100);
+    c.strokeStyle='rgba(120,150,220,.5)'; c.lineWidth=2; c.setLineDash([5,7]);
+    c.beginPath(); c.moveTo(x0,y100); c.lineTo(x1,y100); c.stroke(); c.setLineDash([]);
+    txt(c,'$100', x1+10, y100+8, {font:F.mono, size:22, weight:700, color:C.dim});
+    c.strokeStyle=C.gold; c.lineWidth=4;
+    c.beginPath();
+    for (let i=0;i<=shown;i++){ const u=i/nSeg, x=lerp(x0,x1,u), y=Y(val(u));
+      if (i===0) c.moveTo(x,y); else c.lineTo(x,y); }
+    c.stroke();
+    if (shown>2){ const u=shown/nSeg; c.fillStyle=C.gold;
+      c.beginPath(); c.arc(lerp(x0,x1,u), Y(val(u)), 8, 0, 6.2832); c.fill(); }
+    c.restore();
+  }
+  sourceTag(c,'IE explainer · Trading Economics 5 अक्टूबर · ET (युद्ध-टाइमलाइन)', 1548);
+  caption(c,'ब्रेंट फिर $100 के पार — और भारत 88% आयात करता है', clamp((t-0.6)/0.6,0,1));
+}
+
+/* S5 · WHAT IT MEANS — four route cards */
+function S5(c,t,dur){
+  brand(c);
+  fitText(c,'आपकी जेब पर मतलब', 74, 320, W-160, {font:F.hin, size:72, weight:800, color:C.ink});
+  const CARDS=[['जम्मू → दिल्ली','~600 किमी','₹600',C.gold],
+               ['दिल्ली → मुंबई','~1,150 किमी','₹900',C.amber],
+               ['दिल्ली → चेन्नई','~1,750 किमी','₹1,150',C.cyan],
+               ['दिल्ली → लंदन','यूरोप','₹10,000 तक',C.gold]];
+  CARDS.forEach((cd,i)=>{
+    const a = clamp((t-1.2-i*2.0)/0.6,0,1);
+    if (a<=0) return;
+    const y = 452 + i*182;
+    const dx = (1-Ease.outQuint(a))*74;
+    c.save(); c.globalAlpha=a;
+    roundRect(c,74-dx,y,W-148,158,20,'rgba(9,18,38,.92)',cd[3]+'55');
+    // route motif
+    c.fillStyle=cd[3]; c.beginPath(); c.arc(136-dx, y+52, 9, 0, 6.2832); c.fill();
+    c.beginPath(); c.arc(316-dx, y+52, 9, 0, 6.2832); c.fill();
+    route(c,146-dx,y+52,306-dx,y+52,cd[3]+'AA',t,[8,8]);
+    // plane glyph on the route
+    const pu = (t*0.5 + i*0.3) % 1;
+    c.save(); c.translate(lerp(150-dx,305-dx,pu), y+34); c.rotate(-0.12);
+    c.fillStyle=cd[3]; c.beginPath(); c.roundRect(-14,-5,28,10,5); c.fill();
+    c.beginPath(); c.moveTo(-2,0); c.lineTo(-12,-12); c.lineTo(-4,-12); c.lineTo(6,0); c.closePath(); c.fill();
+    c.restore();
+    fitText(c, cd[0], 136-dx, y+118, 380, {font:F.hin, size:44, weight:800, color:C.ink});
+    txt(c, cd[1], 360-dx, y+52, {font:F.mono, size:28, weight:700, color:C.mut});
+    txt(c, cd[2], W-120-dx, y+112, {font:F.num, size:52, weight:800, color:cd[3], align:'right'});
+    c.restore();
+  });
+  const aN = clamp((t-9.6)/0.6,0,1);
+  if (aN>0){ c.save(); c.globalAlpha=aN;
+    txt(c,'सरचार्ज — नई बुकिंग पर, प्रति सफ़र', 74, 1240, {font:F.hin, size:32, weight:700, color:C.dim});
+    c.restore(); }
+  const aF = clamp((t-12.4)/0.6,0,1);
+  if (aF>0){
+    c.save(); c.globalAlpha=aF;
+    const dy=(1-Ease.outQuint(aF))*36;
+    roundRect(c,74,1300+dy,W-148,150,20,'rgba(255,174,60,.10)',C.amber);
+    fitText(c,'त्योहारों का सीज़न ठीक सामने',108,1362+dy,W-220,{font:F.hin,size:44,weight:800,color:'#ffd9a8'});
+    fitText(c,'ट्रेनों की वेटिंग + महँगी फ्लाइट — दोनों तरफ़ दबाव',108,1416+dy,W-220,{font:F.hin,size:28,weight:600,color:C.mut});
+    c.restore();
+  }
+  sourceTag(c,'दूरियाँ अनुमानित · सरचार्ज स्लैब: ANI 5 अक्टूबर 2026', 1548);
+  caption(c,'सरचार्ज सिर्फ़ नई बुकिंग पर', clamp((t-0.6)/0.6,0,1));
+}
+
+/* S6 · THE HONEST PART — four cards */
+function S6(c,t,dur){
+  brand(c);
+  fitText(c,'पूरी सच्चाई — चार बातें', 74, 320, W-160, {font:F.hin, size:66, weight:800, color:C.ink});
+  const CARDS=[
+    ['1 · यह पहली बार नहीं','मार्च 2026: सरचार्ज लगा  →  जुलाई 2026: तेल ठंडा हुआ, सरचार्ज हटा',C.leaf,'toggle'],
+    ['2 · तेल ठंडा हो रहा है','ब्रेंट ≈ $101 प्रति बैरल · 5 अक्टूबर — चोटी से नीचे',C.cyan,'down'],
+    ['3 · इंडिगो का दावा','“असली ईंधन बढ़त से कम ही वसूला” — कंपनी का बयान',C.amber,'quote'],
+    ['4 · बाकी एयरलाइंस','ऐलान अभी नहीं — मार्च में उन्होंने पीछा किया था',C.gold,'dots']
+  ];
+  CARDS.forEach((cd,i)=>{
+    const a = clamp((t-1.4-i*7.6)/0.6,0,1);
+    if (a<=0) return;
+    const y = 442 + i*238;
+    const dx = (1-Ease.outQuint(a))*74;
+    c.save(); c.globalAlpha=a;
+    roundRect(c,74-dx,y,W-148,206,22,'rgba(9,18,38,.93)',cd[2]+'66');
+    fitText(c, cd[0], 110-dx, y+74, W-260, {font:F.hin, size:46, weight:800, color:C.ink});
+    fitText(c, cd[1], 110-dx, y+140, W-300, {font:F.hin, size:31, weight:600, color:C.mut});
+    // motif per card
+    if (cd[3]==='toggle'){
+      const on = (Math.floor(t*0.8)%2===0);
+      roundRect(c, W-268-dx, y+40, 120, 58, 29, on?'rgba(102,227,155,.25)':'rgba(255,122,122,.18)', on?C.leaf:C.red);
+      c.fillStyle= on?C.leaf:C.red; c.beginPath(); c.arc(W-268-dx + (on?90:30), y+69, 22, 0, 6.2832); c.fill();
+    } else if (cd[3]==='down'){
+      arrow(c, W-160-dx, y+52, W-160-dx, y+118, C.leaf, 7);
+    } else if (cd[3]==='quote'){
+      txt(c,'“', W-176-dx, y+128, {font:F.ui, size:110, weight:800, color:C.amber+'88'});
+    } else {
+      for (let k=0;k<3;k++){ c.fillStyle=C.gold; c.globalAlpha=a*(0.4+0.2*k);
+        c.beginPath(); c.arc(W-232-dx+k*42, y+78, 10, 0, 6.2832); c.fill(); }
+      c.globalAlpha=a;
+    }
+    c.restore();
+  });
+  const aQ = clamp((t-31.2)/0.6,0,1);
+  if (aQ>0){
+    c.save(); c.globalAlpha=aQ;
+    fitText(c,'सरचार्ज के साथ दाम ऊपर — पर तेल गिरे तो हट भी सकता है', 74, 1418, W-160, {font:F.hin, size:33, weight:700, color:'#cfe0ff'});
+    c.restore();
+  }
+  sourceTag(c,'NIE/ET मार्च-जुलाई रिकॉर्ड · Trading Economics 5 अक्टूबर · ANI', 1548);
+  caption(c,'तेल ठंडा हुआ तो सरचार्ज भी हट सकता है', clamp((t-0.6)/0.6,0,1));
+}
+
+/* S7 · CTA */
+function S7(c,t,dur){
+  brand(c);
+  const pulse = 1 + Math.sin(t*3)*0.02;
+  c.save(); c.translate(W/2, 620); c.scale(pulse,pulse);
+  const g = c.createRadialGradient(0,0,40,0,0,380);
+  g.addColorStop(0,'rgba(255,174,60,.20)'); g.addColorStop(1,'rgba(255,174,60,0)');
+  c.fillStyle=g; c.beginPath(); c.arc(0,0,380,0,6.2832); c.fill();
+  c.restore();
+  const a1 = clamp(t/0.7,0,1);
+  c.save(); c.globalAlpha=a1;
+  fitText(c,'ट्रेन या फ्लाइट?', W/2, 560, W-200, {font:F.hin, size:110, weight:800, color:C.ink, align:'center'});
+  txt(c,'सरचार्ज का गणित अब आपके पास है', W/2, 650, {font:F.hin, size:46, weight:700, color:C.amber, align:'center'});
+  c.restore();
+  const a2 = clamp((t-1.2)/0.7,0,1);
+  if (a2>0){ c.save(); c.globalAlpha=a2;
+    fitText(c,'तेल गिरे तो क्या एयरलाइंस सरचार्ज हटा देगी?', W/2, 830, W-240, {font:F.hin, size:54, weight:800, color:C.cyan, align:'center'});
+  c.restore(); }
+  const a3 = clamp((t-2.2)/0.6,0,1);
+  if (a3>0){
+    c.save(); c.globalAlpha=a3;
+    const yj = lerp(30,0,Ease.outQuint(a3));
+    roundRect(c,130,1020+yj,820,154,28,'rgba(255,174,60,.14)',C.amber);
+    c.save(); c.beginPath(); c.rect(130,1020+yj,820,154); c.clip();
+    c.globalCompositeOperation='lighter';
+    const px = 130-300+((t*380)%1500);
+    const pg = c.createLinearGradient(px-100,0,px+100,0);
+    pg.addColorStop(0,'rgba(255,220,160,0)'); pg.addColorStop(.5,'rgba(255,220,160,.24)'); pg.addColorStop(1,'rgba(255,220,160,0)');
+    c.fillStyle=pg; c.fillRect(px-100,1020+yj,200,154); c.restore();
+    txt(c,'Like ★',200,1116+yj,{font:F.ui,size:56,weight:800,color:C.amber});
+    txt(c,'Subscribe ▶',470,1116+yj,{font:F.ui,size:56,weight:800,color:C.ink});
+    c.restore();
+  }
+  // recall row — the three numbers worth remembering
+  const a4 = clamp((t-3.6)/0.6,0,1);
+  if (a4>0){
+    c.save(); c.globalAlpha=a4;
+    const dy=(1-Ease.outQuint(a4))*30;
+    chip(c, 130, 1250+dy, 'घरेलू ₹375–₹1,300', C.gold, 26);
+    chip(c, 130, 1322+dy, 'अंतरराष्ट्रीय ₹10,000 तक', C.cyan, 26);
+    chip(c, 130, 1394+dy, 'सिर्फ़ नई बुकिंग पर', C.mut, 26);
+    c.restore();
+  }
+  // a small plane crossing the bottom, slow
+  const pp = clamp((t-1.0)/16, 0, 1);
+  plane(c, lerp(-220, W+220, pp), 1516 + Math.sin(t*0.9)*10, 0.36, false, 0.3+0.7*Math.abs(Math.sin(t*2.2)));
+  caption(c,'कमेंट में लिखिए · लाइक ★ · सब्सक्राइब ▶', clamp((t-0.4)/0.6,0,1));
+}
+const SCENES=[S1,S2,S3,S4,S5,S6,S7];
+window.CAPTIONS=[
+  'आज से फ्लाइट टिकट महँगे',
+  'दूरी जितनी ज़्यादा — सरचार्ज उतना ज़्यादा',
+  'ATF: एक महीने में +14% — दशक का सबसे ऊँचा',
+  'ब्रेंट फिर $100 के पार — और भारत 88% आयात करता है',
+  'सरचार्ज सिर्फ़ नई बुकिंग पर',
+  'तेल ठंडा हुआ तो सरचार्ज भी हट सकता है',
+  'कमेंट में लिखिए · लाइक ★ · सब्सक्राइब ▶'
+];
+
+/* ---------------- transition wiring (inherited fixes) ---------------- */
+const TRANS = M.makeTransitions(bufA, bufB);
+(() => {
+  const raw = TRANS['Signal Glitch 2'];
+  if (!raw) return;
+  const gLo = M.mk(W,H), gHi = M.mk(W,H);
+  const cLo = gLo.getContext('2d'), cHi = gHi.getContext('2d');
+  const IN = 0.20, OUT = 0.62, SW0 = 0.42, SW1 = 0.58;
+  TRANS['Signal Glitch 2'] = (c, u, w, h) => {
+    if (u < SW0){
+      c.drawImage(bufA, 0, 0, w, h);
+      const k = Ease.outQuad(clamp(u/IN, 0, 1));
+      c.save(); c.globalAlpha = k; raw(c, u, w, h); c.restore();
+    } else if (u > SW1){
+      c.drawImage(bufB, 0, 0, w, h);
+      const k = Math.pow(clamp(1-(u-OUT)/(1-OUT), 0, 1), 1.15);
+      c.save(); c.globalAlpha = k; raw(c, u, w, h); c.restore();
+    } else {
+      const m = (u - SW0)/(SW1 - SW0), e = Ease.inOutCubic(m);
+      raw(cLo, SW0, w, h); raw(cHi, SW1, w, h);
+      c.drawImage(gLo, 0, 0); c.save(); c.globalAlpha = e; c.drawImage(gHi, 0, 0); c.restore();
+    }
+  };
+})();
+(() => {
+  TRANS['White Flash'] = (c,u,w,h) => {
+    c.drawImage(bufA,0,0,w,h);
+    c.save(); c.globalAlpha = Ease.inOutCubic(clamp(u*1.15,0,1)); c.drawImage(bufB,0,0,w,h); c.restore();
+    const veil = Math.pow(Math.sin(Math.PI*clamp(u,0,1)), 1.5) * 0.72;
+    if (veil > 0.002){ c.save(); c.globalAlpha = veil; c.fillStyle = '#ffffff'; c.fillRect(0,0,w,h); c.restore(); }
+  };
+})();
+function cutWindow(cdef){ const b = T.start[cdef.i+1]; return { a: b - 0.55, b: b - 0.55 + cdef.dur }; }
+function camAt(t){ return { s: 1.006 + 0.006*(1+Math.sin(2*Math.PI*t/21.0)), x: 10*Math.sin(2*Math.PI*t/16.5+1.1), y: 8*Math.cos(2*Math.PI*t/19.0) }; }
+function renderScene(idx, c, localT, dur, tAbs){
+  bg(c);                                   // 1:1, untransformed
+  const cam = camAt(tAbs === undefined ? 0 : tAbs);
+  c.save();
+  c.translate(W/2, H/2); c.scale(cam.s, cam.s); c.translate(-W/2 + cam.x, -H/2 + cam.y);
+  SCENES[idx](c, clamp(localT,0,dur+4), dur);
+  c.restore();
+}
+function dominantIndex(t){
+  let i = 0;
+  for (let k=0;k<T.start.length;k++) if (t >= T.start[k]) i = k;
+  for (const cdef of CUTS){
+    const w = cutWindow(cdef), mid = w.a + cdef.dur*0.5, nxt = cdef.i+1;
+    if (t >= mid && t < T.start[nxt]) i = nxt;
+  }
+  return i;
+}
+function capAlpha(i, t){
+  let a = clamp((t - T.start[i] - 0.35)/0.7, 0, 1);
+  if (i > 0){
+    const lead = CUTS.find(c=>c.i === i-1);
+    if (lead){ const w = cutWindow(lead); if (t >= w.a + lead.dur*0.5) a = 1; }
+  }
+  return a;
+}
+function draw(t){
+  window.__T = t;
+  const i = dominantIndex(t);
+  let cut = null;
+  for (const cdef of CUTS){
+    const w = cutWindow(cdef);
+    if (t >= w.a && t <= w.b){ cut = {def:cdef, u:(t-w.a)/cdef.dur}; break; }
+  }
+  if (cut){
+    const a = cut.def.i, b = cut.def.i+1, u = clamp(cut.u,0,1);
+    window.__capSkip = true;
+    renderScene(a, cA, t - T.start[a], T.dur[a], t);
+    renderScene(b, cB, t - T.start[b], T.dur[b], t);
+    window.__capSkip = false;
+    ctx.fillStyle = C.bg0; ctx.fillRect(0,0,W,H);
+    const fn = TRANS[cut.def.name];
+    if (fn) fn(ctx, u, W, H); else { ctx.drawImage(bufA,0,0); ctx.globalAlpha=u; ctx.drawImage(bufB,0,0); ctx.globalAlpha=1; }
+    atmos(ctx);
+    caption(ctx, window.CAPTIONS[a], Ease.outQuad(clamp(1-(u-0.15)/0.35,0,1)));
+    caption(ctx, window.CAPTIONS[b], Ease.outQuad(clamp((u-0.40)/0.35,0,1)));
+  } else {
+    renderScene(i, ctx, t - T.start[i], T.dur[i], t);
+    atmos(ctx);
+    caption(ctx, window.CAPTIONS[i], Ease.outQuad(capAlpha(i, t)));
+  }
+  vignette(ctx, W, H, 0.40);
+  grain(ctx, W, H, Math.floor(t*FPS), 0.12);
+}
+window.speed = function(t){
+  for (const cdef of CUTS){
+    const w = cutWindow(cdef);
+    if (t >= w.a-0.05 && t <= w.b+0.05) return 900;
+  }
+  if (t < T.start[1]) return 240;                                    // plane + counters
+  if (t > T.start[1] && t < T.start[1]+13) return 240;               // tier bars
+  if (t > T.start[2] && t < T.start[2]+12) return 240;               // ladder
+  if (t > T.start[3] && t < T.start[3]+11) return 240;               // tanker + brent
+  if (t > T.start[4] && t < T.start[4]+12) return 220;               // route cards
+  if (t > T.start[5] && t < T.start[5]+25) return 220;               // honesty cards
+  if (t > T.start[6] && t < T.start[6]+3) return 200;                // question
+  return 40;
+};
+window.state = function(t){ return Math.round(t*FPS); };
+window.seek = function(t){ draw(t); return true; };
+window.DURATION = T.total;
+const PRELOAD = [];
+for (const w of [500,600,700,800]) for (const fam of ['Archivo','Inter','JBMono','Devanagari'])
+  PRELOAD.push(document.fonts.load(w+' 100px "'+fam+'"'));
+Promise.all(PRELOAD).then(()=>document.fonts.ready).then(()=>{
+  window.__fontProbe = ['Archivo','Inter','JBMono','Devanagari'].map(f=>{const o=[...document.fonts].find(x=>x.family.replace(/"/g,'')===f); return {f:f,s:o?o.status:'missing'};});
+  window.seek(0); window.ready = true;
+});
+})();
+</script>
+</body>
+</html>

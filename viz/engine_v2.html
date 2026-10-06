@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentary Engine v2</title>
+<style>
+:root{--bg:#07070d;--a:#ff5a5a;--b:#ffb84e;--fg:#fff;--mut:#9aa0b0;
+--font:"Segoe UI","Noto Sans Gujarati","Helvetica Neue",Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--bg);color:var(--fg);font-family:var(--font);overflow:hidden}
+#bg{position:fixed;inset:0;z-index:0}
+#fx{position:fixed;inset:0;z-index:1;pointer-events:none;
+ background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.75)),
+ repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 1px,transparent 1px 3px)}
+#stage{position:fixed;inset:4vh 5vw 100px 5vw;z-index:2;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;line-height:1.5}
+h1{font-size:clamp(2.2rem,7vw,5.5rem);line-height:1.15;font-weight:800;letter-spacing:.03em}
+h2{font-size:clamp(1.6rem,4.2vw,3.2rem);line-height:1.25;font-weight:700;margin-bottom:1.6rem}
+.tag{font-size:clamp(.8rem,1.4vw,1.1rem);letter-spacing:.4em;text-transform:uppercase;color:var(--mut);margin-top:1rem}
+.bar{height:4px;width:min(380px,60vw);margin:1.2rem auto;border-radius:4px;
+ background:linear-gradient(90deg,var(--a),var(--b));transform-origin:left}
+ul{list-style:none;text-align:left;max-width:900px;width:100%}
+li{font-size:clamp(1.05rem,2.2vw,1.7rem);margin:.7rem 0;padding-left:1.2rem;border-left:3px solid var(--a)}
+.num{font-size:clamp(3.5rem,13vw,10rem);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums;
+ background:linear-gradient(180deg,#fff,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+.label{font-size:clamp(1.05rem,2.2vw,1.8rem);color:#ddd;max-width:800px;margin-top:1rem}
+.row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;align-items:stretch;max-width:1200px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:14px;
+ padding:1.2rem;width:min(230px,42vw);text-align:left}
+.card b{display:block;font-size:2rem;color:var(--a)}
+.card span{font-size:clamp(.9rem,1.4vw,1.1rem)}
+.arr{width:clamp(40px,8vw,100px);align-self:center}
+.arr path{fill:none;stroke:var(--b);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1}
+.tl{max-width:900px;width:100%;text-align:left;padding-left:2.2rem;position:relative}
+.tl .line{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--a);transform-origin:top}
+.tl .ev{position:relative;margin:1rem 0}
+.tl .ev::before{content:"";position:absolute;left:-2.2rem;top:.5rem;width:13px;height:13px;margin-left:-5px;
+ border-radius:50%;background:var(--a);box-shadow:0 0 14px var(--a)}
+.tl em{font-style:normal;color:var(--b);font-weight:700;letter-spacing:.15em;display:block}
+.tl span{font-size:clamp(1rem,2vw,1.5rem)}
+blockquote{font-size:clamp(1.4rem,3.2vw,2.6rem);font-style:italic;max-width:1000px;line-height:1.5}
+blockquote u{text-decoration:none;opacity:0}
+.q{font-size:6rem;color:var(--a);line-height:.6;font-style:normal}
+cite{display:block;margin-top:1.4rem;color:var(--b);letter-spacing:.2em;font-style:normal;font-size:1.1rem}
+.small{font-size:clamp(.8rem,1.2vw,.95rem);color:var(--mut);max-width:800px;margin-top:2rem}
+#chap{position:fixed;top:3vh;left:5vw;z-index:4;font-size:.8rem;letter-spacing:.35em;text-transform:uppercase;
+ color:var(--a);border-left:4px solid var(--a);padding-left:12px}
+#lt{position:fixed;left:5vw;bottom:120px;z-index:4;background:rgba(0,0,0,.75);border-left:4px solid var(--a);
+ padding:10px 18px;border-radius:0 8px 8px 0;opacity:0}
+#lt b{display:block;font-size:1.2rem}#lt span{font-size:.9rem;color:var(--mut)}
+#cap{position:fixed;left:50%;bottom:100px;transform:translateX(-50%);z-index:5;max-width:80vw;
+ background:rgba(0,0,0,.75);padding:.5rem 1rem;border-radius:8px;text-align:center;
+ font-size:clamp(1rem,1.6vw,1.3rem);display:none}
+body.cc #cap{display:block}
+#ui{position:fixed;left:0;right:0;bottom:0;height:84px;z-index:6;background:rgba(0,0,0,.92);
+ display:flex;align-items:center;gap:10px;padding:0 14px;overflow:hidden;transition:opacity .3s}
+#ui button,#ui label,#ui select{background:#1c1c28;color:#fff;border:1px solid #444;border-radius:6px;
+ padding:.4rem .6rem;cursor:pointer;font-size:.85rem;white-space:nowrap}
+#ui button:hover,#ui label:hover{background:var(--a)}
+#ui input[type=range]{width:60px;accent-color:var(--a)}
+#prog{flex:1;min-width:80px;height:10px;background:#333;border-radius:5px;position:relative;cursor:pointer;touch-action:none}
+#fill{height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--b));border-radius:5px}
+.tick{position:absolute;top:-3px;width:2px;height:16px;background:#777;pointer-events:none}
+#time{font-variant-numeric:tabular-nums;font-size:.85rem;color:var(--mut);min-width:95px}
+#ov{position:fixed;inset:0;z-index:7;background:rgba(0,0,0,.93);display:flex;flex-direction:column;
+ align-items:center;justify-content:center;cursor:pointer;transition:opacity .5s}
+#ov.hide{opacity:0;pointer-events:none}
+#ov div{width:80px;height:80px;border:3px solid var(--a);border-radius:50%;display:flex;
+ align-items:center;justify-content:center;font-size:2.4rem}
+#ov p{margin-top:1.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
+body.clean #ui,body.clean #chap{opacity:0;pointer-events:none}
+body.clean{cursor:none}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div id="fx"></div>
+<div id="stage"></div>
+<div id="chap"></div>
+<div id="lt"><b></b><span></span></div>
+<div id="cap"></div>
+<div id="ov"><div>&#9654;</div><p>Click to start</p></div>
+<div id="ui">
+ <button id="play">&#9654; Play</button>
+ <div id="prog"><div id="fill"></div></div>
+ <span id="time">0:00 / 0:00</span>
+ <select id="sp"><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="1.5">1.5x</option><option value="2">2x</option></select>
+ <label>Music <input type="range" id="vm" min="0" max="1" step="0.05" value="0.7"></label>
+ <label>Voice <input type="range" id="vv" min="0" max="1" step="0.05" value="1"></label>
+ <label>+Music<input type="file" id="fm" accept="audio/*" hidden></label>
+ <label>+Voice<input type="file" id="fv" accept="audio/*" hidden></label>
+ <button id="bcc">CC</button><button id="bcl">Clean</button><button id="bfs">&#9974;</button>
+</div>
+
+<script>
+/* ================= EDIT YOUR CONTENT HERE =================
+   Only verified facts. Every gap stays as [FILL IN: ...].
+   Types: title, bullets, stat, steps, timeline, flow, quote, outro.
+   Optional per scene: sfx ("whoosh"|"hit"|"tick"|"chime"),
+   musicLevel (0-1 multiplier), lower {name, role}.            */
+const CONFIG={target:600,tIn:.8,tOut:.6,particles:70};
+const S=[
+ {type:"title",dur:15,chapter:"Prologue",title:"[FILL IN: CASE NAME]",tag:"Gujarat · A Documentary",
+  narr:"[FILL IN: one opening line]",sfx:"hit"},
+ {type:"bullets",dur:55,chapter:"1 · Background",head:"Who and what was involved?",
+  items:["[FILL IN: entity and what it offered]","[FILL IN: where in Gujarat]","[FILL IN: when it started]"],
+  narr:"[FILL IN]",sfx:"whoosh"},
+ {type:"stat",dur:40,chapter:"2 · The Promise",prefix:"",value:0,suffix:"%",
+  label:"[FILL IN: the return promised]",narr:"[FILL IN]",sfx:"tick"},
+ {type:"steps",dur:60,chapter:"3 · How It Worked",head:"How the scheme operated",
+  steps:["[FILL IN: step 1]","[FILL IN: step 2]","[FILL IN: step 3]","[FILL IN: step 4]"],narr:"[FILL IN]",sfx:"whoosh"},
+ {type:"timeline",dur:70,chapter:"4 · Timeline",head:"How events unfolded",
+  events:[["[YEAR]","[FILL IN]"],["[YEAR]","[FILL IN]"],["[YEAR]","[FILL IN]"],["[YEAR]","[FILL IN]"]],narr:"[FILL IN]",sfx:"whoosh"},
+ {type:"stat",dur:40,chapter:"5 · The Victims",prefix:"",value:0,suffix:"",
+  label:"[FILL IN: number per official source]",narr:"[FILL IN]",sfx:"hit"},
+ {type:"flow",dur:60,chapter:"6 · Money Trail",head:"Where did the money go?",
+  nodes:[{amount:"[FILL IN]",label:"[FILL IN: source]"},{amount:"[FILL IN]",label:"[FILL IN: middle]"},{amount:"[FILL IN]",label:"[FILL IN: destination]"}],
+  narr:"[FILL IN]",sfx:"whoosh"},
+ {type:"steps",dur:60,chapter:"7 · Investigation",head:"How it came to light",
+  steps:["[FILL IN: complaint]","[FILL IN: agency]","[FILL IN: action]","[FILL IN: evidence]"],narr:"[FILL IN]",sfx:"whoosh"},
+ {type:"timeline",dur:60,chapter:"8 · Legal Action",head:"Courts and charges",
+  events:[["[DATE]","[FILL IN: FIR / charges]"],["[DATE]","[FILL IN: arrests / bail]"],["[DATE]","[FILL IN: hearing]"],["[DATE]","[FILL IN: status as of date]"]],
+  narr:"Accused persons are presumed innocent unless convicted.",sfx:"hit"},
+ {type:"quote",dur:30,chapter:"9 · Voices",quote:"[FILL IN: real, sourced quote]",who:"[FILL IN: name, role, source]",
+  narr:"[Read the quote]",musicLevel:.4},
+ {type:"bullets",dur:50,chapter:"10 · Impact",head:"The human cost",
+  items:["[FILL IN: families]","[FILL IN: community]","[FILL IN: policy changes]"],narr:"[FILL IN]"},
+ {type:"bullets",dur:40,chapter:"11 · Stay Safe",head:"How to spot a scheme like this",
+  items:["Guaranteed high returns are a red flag","Check registration with SEBI / RBI / MCA","Never invest under pressure or secrecy","Report fraud: cybercrime.gov.in or call 1930"],
+  narr:"Here is how you can protect yourself and your family.",sfx:"chime"},
+ {type:"outro",dur:20,chapter:"Sources",head:"Sources & Disclaimer",
+  items:["[FILL IN: source 1 - link / date]","[FILL IN: source 2 - link / date]"],
+  small:"Based on public records. Individuals named are presumed innocent unless convicted by a court of law.",
+  narr:"Thank you for watching."}
+];
+
+/* ================= ENGINE (extend, don't rewrite) ================= */
+const $=id=>document.getElementById(id);
+const stage=$("stage"),chap=$("chap"),cap=$("cap"),lt=$("lt"),ov=$("ov");
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=s=>Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let acc=0;S.forEach(s=>{s.start=acc;acc+=s.dur});const TOTAL=acc;
+if(TOTAL!==CONFIG.target)console.warn("Scene durations sum to "+TOTAL+"s, target is "+CONFIG.target+"s");
+
+/* --- easing + effects: each effect is a pure function of progress --- */
+const EASE={out:x=>1-Math.pow(1-x,4),expo:x=>x>=1?1:1-Math.pow(2,-10*x),
+ back:x=>1+2.70158*Math.pow(x-1,3)+1.70158*Math.pow(x-1,2),io:x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,lin:x=>x};
+const EK={count:"expo",type:"lin",pop:"lin",draw:"io"};
+const FX={
+ rise:(el,p,e)=>{el.style.opacity=p;el.style.transform=`translateY(${(1-e)*40}px)`},
+ left:(el,p,e)=>{el.style.opacity=p;el.style.transform=`translateX(${(1-e)*-60}px)`},
+ pop:(el,p)=>{el.style.opacity=clamp(p*3);el.style.transform=`scale(${.5+.5*EASE.back(p)})`},
+ letter:(el,p,e)=>{el.style.opacity=p;el.style.transform=`translateY(${(1-e)*60}px)${RM?"":` rotateX(${(1-e)*90}deg)`}`},
+ grow:(el,p,e)=>{el.style.transform=`scaleX(${e})`},
+ growy:(el,p,e)=>{el.style.transform=`scaleY(${e})`},
+ draw:(el,p,e)=>{el.style.strokeDashoffset=1-e},
+ count:(el,p,e)=>{el.textContent=el.dataset.p+Math.round(+el.dataset.v*e).toLocaleString("en-IN")+el.dataset.s},
+ type:(el,p)=>{const t=el.dataset.text,n=Math.floor(t.length*p);el.firstChild.textContent=t.slice(0,n);el.lastChild.textContent=t.slice(n)}
+};
+
+/* --- scene renderers: return HTML; timing lives in data-at / data-d --- */
+const A=(k,at=0,d=.8)=>`data-k="${k}" data-at="${at.toFixed(2)}" data-d="${d}"`;
+const st=(s,n)=>Math.min(2.5,s.dur*.4/n);   /* spread items across first 40% of the scene */
+const R={
+ title:s=>`<h1>${[...s.title].map((c,i)=>`<span style="display:inline-block" ${A("letter",.2+i*.08,.7)}>${c===" "?" ":esc(c)}</span>`).join("")}</h1>
+  <div class="bar" ${A("grow",1.2,1)}></div><p class="tag" ${A("rise",1.6)}>${esc(s.tag)}</p>`,
+ bullets:s=>{const g=st(s,s.items.length);
+  return `<h2 ${A("rise",.1)}>${esc(s.head)}</h2><ul>${s.items.map((x,i)=>`<li ${A("left",.8+i*g)}>${esc(x)}</li>`).join("")}</ul>`},
+ stat:s=>`<div class="num" ${A("count",.3,2.5)} data-v="${+s.value}" data-p="${esc(s.prefix||"")}" data-s="${esc(s.suffix||"")}"></div>
+  <p class="label" ${A("rise",1.5)}>${esc(s.label)}</p>`,
+ steps:s=>{const g=st(s,s.steps.length);
+  return `<h2 ${A("rise",.1)}>${esc(s.head)}</h2><div class="row">${s.steps.map((x,i)=>`<div class="card" ${A("pop",.6+i*g,.6)}><b>${i+1}</b><span>${esc(x)}</span></div>`).join("")}</div>`},
+ timeline:s=>{const g=st(s,s.events.length);
+  return `<h2 ${A("rise",.1)}>${esc(s.head)}</h2><div class="tl"><div class="line" ${A("growy",.4,1.2)}></div>${
+   s.events.map((e,i)=>`<div class="ev" ${A("rise",.8+i*g,.7)}><em>${esc(e[0])}</em><span>${esc(e[1])}</span></div>`).join("")}</div>`},
+ flow:s=>{const g=st(s,s.nodes.length);
+  return `<h2 ${A("rise",.1)}>${esc(s.head)}</h2><div class="row">${s.nodes.map((n,i)=>
+   `${i?`<svg class="arr" viewBox="0 0 100 20"><path pathLength="1" style="stroke-dashoffset:1" d="M0 10H92M82 3L92 10L82 17" ${A("draw",.4+i*g,.8)}/></svg>`:""}
+   <div class="card" ${A("pop",.4+i*g+(i?.5:0),.6)}><b>${esc(n.amount)}</b><span>${esc(n.label)}</span></div>`).join("")}</div>`},
+ quote:s=>{const d=Math.min(12,Math.max(2,s.quote.length*.05));
+  return `<blockquote><div class="q" ${A("pop",0,.6)}>&ldquo;</div><span ${A("type",.8,d)} data-text="${esc(s.quote)}"><i></i><u></u></span>
+   <cite ${A("rise",1+d,.8)}>&mdash; ${esc(s.who)}</cite></blockquote>`},
+ outro:s=>R.bullets(s)+`<p class="small" ${A("rise",1.4+s.items.length*st(s,s.items.length))}>${esc(s.small)}</p>`
+};
+
+/* --- clock state --- */
+let t=0,playing=false,speed=1,last=performance.now(),cur=-1,items=[];
+const sceneAt=x=>{for(let i=S.length-1;i>=0;i--)if(x>=S[i].start)return i;return 0};
+
+function build(i){
+ const s=S[i];stage.innerHTML=R[s.type](s);
+ items=[...stage.querySelectorAll("[data-k]")].map(el=>({el,k:el.dataset.k,at:+el.dataset.at,d:+el.dataset.d}));
+ chap.textContent=s.chapter;cap.textContent=s.narr;
+ if(s.lower){lt.firstChild.textContent=s.lower.name;lt.lastChild.textContent=s.lower.role}
+}
+
+/* render(t) is a pure function of t (plus the scene DOM it rebuilds on index change) */
+function render(t){
+ const i=sceneAt(t),s=S[i],local=t-s.start;
+ if(i!==cur){const natural=playing&&i===cur+1;cur=i;build(i);if(natural&&s.sfx)sfx(s.sfx)}
+ const f=Math.min(clamp(local/CONFIG.tIn),clamp((s.dur-local)/CONFIG.tOut));
+ stage.style.opacity=f;stage.style.transform=`scale(${.97+.03*f})`;
+ for(const it of items){const p=clamp((local-it.at)/it.d);FX[it.k](it.el,p,EASE[EK[it.k]||"out"](p))}
+ const lp=s.lower?Math.min(clamp((local-1)/.6),clamp((5-local)/.5)):0;
+ lt.style.opacity=lp;lt.style.transform=`translateX(${(1-EASE.out(lp))*-40}px)`;
+ $("fill").style.width=(t/TOTAL*100)+"%";$("time").textContent=fmt(t)+" / "+fmt(TOTAL);
+ drawBG(t);
+}
+
+/* --- background: positions are sin/cos of t, so it freezes on pause and is seek-safe --- */
+const bg=$("bg"),cx=bg.getContext("2d");let W,H;const P=[];
+function rs(){W=bg.width=innerWidth;H=bg.height=innerHeight}addEventListener("resize",rs);rs();
+for(let i=0;i<(RM?20:Math.min(80,CONFIG.particles));i++)
+ P.push({x:Math.random(),y:Math.random(),ax:10+Math.random()*40,ay:10+Math.random()*30,
+  f:.1+Math.random()*.3,g:.1+Math.random()*.3,ph:Math.random()*6.28,r:1+Math.random()*1.8});
+function drawBG(t){
+ cx.clearRect(0,0,W,H);
+ const q=P.map(p=>[p.x*W+Math.sin(t*p.f+p.ph)*p.ax,p.y*H+Math.cos(t*p.g+p.ph)*p.ay,p.r]);
+ cx.fillStyle="rgba(255,90,90,.55)";
+ for(const[x,y,r]of q){cx.beginPath();cx.arc(x,y,r,0,6.283);cx.fill()}
+ cx.lineWidth=.6;
+ for(let i=0;i<q.length;i++)for(let j=i+1;j<q.length;j++){
+  const d=Math.hypot(q[i][0]-q[j][0],q[i][1]-q[j][1]);
+  if(d<130){cx.strokeStyle=`rgba(255,90,90,${(1-d/130)*.25})`;cx.beginPath();cx.moveTo(q[i][0],q[i][1]);cx.lineTo(q[j][0],q[j][1]);cx.stroke()}}
+}
+
+/* --- audio: timeline is master, audio is slave --- */
+const mus=new Audio(),voi=new Audio();let ac,sg,mv=.7,syncT=0;
+for(const a of[mus,voi])a.addEventListener("loadedmetadata",()=>{a.currentTime=Math.min(t,a.duration||0)});
+function ctx(){if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();sg=ac.createGain();sg.gain.value=.8;sg.connect(ac.destination)}
+ if(ac.state==="suspended")ac.resume();return ac}
+function driveAudio(dt){
+ const s=S[cur]||S[0],vActive=playing&&voi.src&&!voi.paused&&!voi.ended;
+ const target=+$("vm").value*(vActive?.25:1)*(s.musicLevel??1);
+ mv+=(target-mv)*Math.min(1,dt*6);mus.volume=clamp(mv);            /* smooth ducking */
+ syncT+=dt;
+ if(syncT>.5){syncT=0;if(playing)for(const a of[mus,voi])
+  if(a.src&&t<(a.duration||0)&&Math.abs(a.currentTime-t)>.25)a.currentTime=t}  /* drift correction */
+}
+function load(a,file){if(!file)return;if(a.src)URL.revokeObjectURL(a.src);
+ a.src=URL.createObjectURL(file);a.playbackRate=speed;if(playing)a.play().catch(()=>{})}
+function sfx(n){const c=ctx(),t0=c.currentTime;
+ const tone=(type,f0,f1,dur,pk,dl=0)=>{const o=c.createOscillator(),g=c.createGain();o.type=type;
+  o.frequency.setValueAtTime(f0,t0+dl);o.frequency.exponentialRampToValueAtTime(f1,t0+dl+dur);
+  g.gain.setValueAtTime(pk,t0+dl);g.gain.exponentialRampToValueAtTime(.001,t0+dl+dur);
+  o.connect(g).connect(sg);o.start(t0+dl);o.stop(t0+dl+dur)};
+ if(n==="hit")tone("sine",120,40,.6,.9);
+ if(n==="tick")tone("square",1000,900,.05,.15);
+ if(n==="chime")[523,659,784].forEach((f,i)=>tone("sine",f,f*.99,.6,.25,i*.15));
+ if(n==="whoosh"){const len=c.sampleRate*.5,b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);
+  for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*(1-i/len);
+  const src=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();src.buffer=b;f.type="bandpass";
+  f.frequency.setValueAtTime(400,t0);f.frequency.exponentialRampToValueAtTime(4000,t0+.5);
+  g.gain.setValueAtTime(.5,t0);g.gain.exponentialRampToValueAtTime(.001,t0+.5);
+  src.connect(f).connect(g).connect(sg);src.start(t0)}}
+
+/* --- transport --- */
+function setPlay(p){playing=p;$("play").innerHTML=p?"&#10074;&#10074; Pause":"&#9654; Play";
+ for(const a of[mus,voi])if(a.src){if(p){a.currentTime=t;a.playbackRate=speed;a.play().catch(()=>{})}else a.pause()}}
+function seek(x){t=clamp(x,0,TOTAL-.001);for(const a of[mus,voi])if(a.src)a.currentTime=t}
+function start(){ctx();ov.classList.add("hide");if(t>=TOTAL-.01)seek(0);setPlay(true)}
+function frame(now){
+ const dt=Math.min(.1,(now-last)/1000);last=now;
+ if(playing){t+=dt*speed;if(t>=TOTAL-.001){t=TOTAL-.001;setPlay(false)}}
+ render(t);driveAudio(dt);requestAnimationFrame(frame);
+}
+
+/* --- UI wiring --- */
+ov.onclick=start;
+$("play").onclick=()=>{if(!ov.classList.contains("hide"))return start();if(!playing&&t>=TOTAL-.01)seek(0);setPlay(!playing)};
+$("sp").onchange=e=>{speed=+e.target.value;for(const a of[mus,voi])a.playbackRate=speed};
+$("vv").oninput=e=>{voi.volume=+e.target.value};
+$("fm").onchange=e=>load(mus,e.target.files[0]);$("fv").onchange=e=>load(voi,e.target.files[0]);
+$("bcc").onclick=()=>document.body.classList.toggle("cc");
+$("bcl").onclick=()=>document.body.classList.toggle("clean");
+$("bfs").onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+S.forEach(s=>{if(!s.start)return;const d=document.createElement("div");d.className="tick";
+ d.style.left=(s.start/TOTAL*100)+"%";$("prog").appendChild(d)});
+let drag=false;const prog=$("prog");
+const pseek=e=>{const r=prog.getBoundingClientRect();seek(clamp((e.clientX-r.left)/r.width)*TOTAL)};
+prog.addEventListener("pointerdown",e=>{drag=true;prog.setPointerCapture(e.pointerId);pseek(e)});
+prog.addEventListener("pointermove",e=>{if(drag)pseek(e)});
+prog.addEventListener("pointerup",()=>{drag=false});
+addEventListener("keydown",e=>{
+ if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName))return;
+ if(e.code==="Space"){e.preventDefault();$("play").click()}
+ else if(e.key==="ArrowRight")seek(t+5);else if(e.key==="ArrowLeft")seek(t-5);
+ else if(e.key==="ArrowUp"){e.preventDefault();$("vm").value=clamp(+$("vm").value+.1)}
+ else if(e.key==="ArrowDown"){e.preventDefault();$("vm").value=clamp(+$("vm").value-.1)}
+ else if(/^h$/i.test(e.key))$("bcl").click();else if(/^c$/i.test(e.key))$("bcc").click();
+ else if(/^f$/i.test(e.key))$("bfs").click();
+ else if(/^\d$/.test(e.key)&&S[+e.key])seek(S[+e.key].start);
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&playing)setPlay(false)});
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

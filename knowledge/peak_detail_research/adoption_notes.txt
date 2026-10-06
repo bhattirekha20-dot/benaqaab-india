@@ -1,0 +1,9 @@
+Uncertain or context-bound third-party claims recorded during the audit, for transparency:
+
+1. HyperFrames motion doctrine states exit duration is about 75% of entry duration, but its own cut-the-curve technique inverts this (entry roughly 127% of exit). Recorded as a tension, not resolved by the repository.
+2. Its no-growing-entry rule and its timed entry effects that can include scale components read best as scoped to a scene's own entrance versus the matched carrier crossing a seam. Our interpretation is documented in SKILLS_PEAK_DETAIL.md section 6.
+3. The repository claims no-configuration rendering for a specific motion blur component; version and browser requirements could not be independently tested here.
+4. WhisperX README benchmark numbers were produced on different hardware and are not our measurements. The accompanying paper is a related citation rather than proof for Hinglish word timing.
+5. Remotion and its community skill describe licensing differently. The repository LICENSE.md is treated as the authority; eligibility depends on the user's entity.
+6. An agent skill's description field mainly affects when a compatible host chooses to load it. This API environment does not guarantee automatic skill loading, so the skill is also referenced explicitly and merged into the master handbook.
+7. Almost every README statement in third-party repositories is promotional or unofficial. Treating it as independent verification would repeat that mistake.

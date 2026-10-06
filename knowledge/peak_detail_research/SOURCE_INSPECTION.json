@@ -1,0 +1,190 @@
+[
+  {
+    "repo": "motion-canvas/motion-canvas",
+    "path": "packages/core/src/flow/all.ts",
+    "source_url": "https://github.com/motion-canvas/motion-canvas/blob/main/packages/core/src/flow/all.ts",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/motion-canvas__motion-canvas__packages__core__src__flow__all.ts",
+    "sha256": "b2b49258158fc1f09c9e8fbba2aad22de8834c600abeda3c52b8e37a549e5b38",
+    "bytes": 552
+  },
+  {
+    "repo": "motion-canvas/motion-canvas",
+    "path": "packages/core/src/flow/sequence.ts",
+    "source_url": "https://github.com/motion-canvas/motion-canvas/blob/main/packages/core/src/flow/sequence.ts",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/motion-canvas__motion-canvas__packages__core__src__flow__sequence.ts",
+    "sha256": "f216624486771a9f8f776a8a661378a8ac4a4a9870790bc188bbebb3b1ff312b",
+    "bytes": 874
+  },
+  {
+    "repo": "remotion-dev/skills",
+    "path": "skills/remotion-best-practices/SKILL.md",
+    "source_url": "https://github.com/remotion-dev/skills/blob/main/skills/remotion-best-practices/SKILL.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/remotion-dev__skills__skills__remotion-best-practices__SKILL.md",
+    "sha256": "3322b0b173591e91fc7618b28015666f3f95536f0a3c3a3e3c7f08e883b3dd02",
+    "bytes": 4215
+  },
+  {
+    "repo": "remotion-dev/skills",
+    "path": "skills/remotion-markup/timing.md",
+    "source_url": "https://github.com/remotion-dev/skills/blob/main/skills/remotion-markup/timing.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/remotion-dev__skills__skills__remotion-markup__timing.md",
+    "sha256": "48047e758b96aea519916479ede62b832bf51f982924978e091c37f569ab4bac",
+    "bytes": 3315
+  },
+  {
+    "repo": "remotion-dev/skills",
+    "path": "skills/remotion-captions/display-captions.md",
+    "source_url": "https://github.com/remotion-dev/skills/blob/main/skills/remotion-captions/display-captions.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/remotion-dev__skills__skills__remotion-captions__display-captions.md",
+    "sha256": "d42aa87bcd90074b1988f19a7250f9bdcfa97b4ce1717b8fd7c13ed7a5359cc4",
+    "bytes": 3331
+  },
+  {
+    "repo": "remotion-dev/skills",
+    "path": "skills/remotion-markup/motion-blur.md",
+    "source_url": "https://github.com/remotion-dev/skills/blob/main/skills/remotion-markup/motion-blur.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/remotion-dev__skills__skills__remotion-markup__motion-blur.md",
+    "sha256": "5b5d975e75f5fa46532a5dfa1ec86ba6637ce3c48e8b518b562964883b3a80ff",
+    "bytes": 1964
+  },
+  {
+    "repo": "pixijs/filters",
+    "path": "src/shockwave/ShockwaveFilter.ts",
+    "source_url": "https://github.com/pixijs/filters/blob/main/src/shockwave/ShockwaveFilter.ts",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/pixijs__filters__src__shockwave__ShockwaveFilter.ts",
+    "sha256": "110da6b0c0d34bb1efc9717b574a433bb927d6960397c0f200d3a65500504872",
+    "bytes": 7706
+  },
+  {
+    "repo": "pixijs/filters",
+    "path": "src/shockwave/shockwave.frag",
+    "source_url": "https://github.com/pixijs/filters/blob/main/src/shockwave/shockwave.frag",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/pixijs__filters__src__shockwave__shockwave.frag",
+    "sha256": "3bc88ad21c9ead258011ace7f10e2ba00d1c63be2881279a54f96fddea6d8fc9",
+    "bytes": 1909
+  },
+  {
+    "repo": "pixijs/filters",
+    "path": "src/motion-blur/MotionBlurFilter.ts",
+    "source_url": "https://github.com/pixijs/filters/blob/main/src/motion-blur/MotionBlurFilter.ts",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/pixijs__filters__src__motion-blur__MotionBlurFilter.ts",
+    "sha256": "7053ad61b8e33c59d9a47b4932e267988122f8d168421b01088fd61e71107d9c",
+    "bytes": 5739
+  },
+  {
+    "repo": "heygen-com/hyperframes",
+    "path": ".agents/skills/motion-doctrine/SKILL.md",
+    "source_url": "https://github.com/heygen-com/hyperframes/blob/main/.agents/skills/motion-doctrine/SKILL.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/heygen-com__hyperframes__.agents__skills__motion-doctrine__SKILL.md",
+    "sha256": "d4d20aa33a57784154ffe55b83424037842269e59cc1e821c1b18bd541877142",
+    "bytes": 11936
+  },
+  {
+    "repo": "heygen-com/hyperframes",
+    "path": "docs/concepts/determinism.mdx",
+    "source_url": "https://github.com/heygen-com/hyperframes/blob/main/docs/concepts/determinism.mdx",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/heygen-com__hyperframes__docs__concepts__determinism.mdx",
+    "sha256": "4652fc91ff415abdff920e18c27c30f0edbb663e1d6309c15549bf6b697ce04e",
+    "bytes": 3871
+  },
+  {
+    "repo": "apoorvlathey/motion-canvas-skills",
+    "path": "SKILL.md",
+    "source_url": "https://github.com/apoorvlathey/motion-canvas-skills/blob/main/SKILL.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/apoorvlathey__motion-canvas-skills__SKILL.md",
+    "sha256": "e44967e56df017e4829d677e84a49a76fe70ffce59188b3ac44cae78dccfbbaf",
+    "bytes": 4452
+  },
+  {
+    "repo": "haidrrrry/claude-remotion-skill",
+    "path": "SKILL.md",
+    "source_url": "https://github.com/haidrrrry/claude-remotion-skill/blob/main/SKILL.md",
+    "runtime_tested": false,
+    "downloaded": false,
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "remotion-dev/remotion",
+    "path": "LICENSE.md",
+    "source_url": "https://github.com/remotion-dev/remotion/blob/main/LICENSE.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/remotion-dev__remotion__LICENSE.md",
+    "sha256": "bd65083b940f61904f6ef298aade918a7cad72a3e35bc406e36fab365844b673",
+    "bytes": 2823
+  },
+  {
+    "repo": "greensock/GSAP",
+    "path": "package.json",
+    "source_url": "https://github.com/greensock/GSAP/blob/master/package.json",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/greensock__GSAP__package.json",
+    "sha256": "4ca16b896affd09e270d4dcf5149a02f57def55e4747ce11f68c7723fd3dedaa",
+    "bytes": 2255
+  },
+  {
+    "repo": "greensock/GSAP",
+    "path": "src/gsap-core.js",
+    "source_url": "https://github.com/greensock/GSAP/blob/master/src/gsap-core.js",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/greensock__GSAP__src__gsap-core.js",
+    "sha256": "8063816e0e7c3e6c07970fb06feafb06146fd266db5d8346419176b3d496e284",
+    "bytes": 151046
+  },
+  {
+    "repo": "m-bain/whisperX",
+    "path": "whisperx/alignment.py",
+    "source_url": "https://github.com/m-bain/whisperX/blob/main/whisperx/alignment.py",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/m-bain__whisperX__whisperx__alignment.py",
+    "sha256": "346ac19053bd841bed1162b861d2d89efc0fe3aafc83b2493fb487fbc29c6239",
+    "bytes": 22033
+  },
+  {
+    "repo": "FFmpeg/FFmpeg",
+    "path": "LICENSE.md",
+    "source_url": "https://github.com/FFmpeg/FFmpeg/blob/master/LICENSE.md",
+    "runtime_tested": false,
+    "downloaded": true,
+    "local_path": "source_snapshots/FFmpeg__FFmpeg__LICENSE.md",
+    "sha256": "e6dc72d5665a1ebd6dcc841de59278dad4ca77ecc47b03f1064a55c3e9ea8bb8",
+    "bytes": 4352
+  },
+  {
+    "repo": "haidrrrry/claude-remotion-skill",
+    "path": "remotion-motion-graphics/SKILL.md",
+    "source_url": "https://github.com/haidrrrry/claude-remotion-skill/blob/main/remotion-motion-graphics/SKILL.md",
+    "downloaded": true,
+    "runtime_tested": false,
+    "local_path": "source_snapshots/haidrrrry__claude-remotion-skill__remotion-motion-graphics__SKILL.md",
+    "sha256": "7bc57dcc03c9812feb94b32785bb2fb26ab9740f523f7def580a1b372b3b6336",
+    "bytes": 7909
+  }
+]

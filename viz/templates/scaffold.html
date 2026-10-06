@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Technical scaffold for hrender.py: the seek/ready/speed/state contract + motion.js.
+     NOT a visual template — every episode gets its own look (MEMORY §51 Finding 3). -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Archivo; src: url('../../brand/fonts/Archivo.ttf'); font-weight: 100 900; font-stretch: 62% 125%; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  @font-face { font-family: JBMono; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  html, body { margin: 0; background: #0b0f14; }
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0b0f14; }  /* opaque stage: no white flash */
+  #world { position: absolute; inset: 0; transform-origin: 0 0; }
+  .bg { position: absolute; inset: -120px;
+        background: radial-gradient(1200px 900px at 30% 22%, #1b2a3a 0%, #0b0f14 62%),
+                    #0b0f14; }
+  .dots { position: absolute; inset: -120px; opacity: .22;
+          background-image: radial-gradient(#9fb3c8 1.2px, transparent 1.3px); background-size: 36px 36px; }
+  #head { position: absolute; left: 90px; top: 250px; width: 900px; font: 800 104px/1.02 Archivo;
+          font-stretch: 112%; color: #f4f1ea; letter-spacing: -1px; }
+  #shape { position: absolute; left: 0; top: 0; }
+  #cardtext { position: absolute; left: 0; top: 0; width: 900px; color: #0b0f14; }
+  #num { font: 800 210px/1 Archivo; font-stretch: 100%; font-variant-numeric: tabular-nums; letter-spacing: -4px; }
+  #lab { font: 600 34px/1.2 JBMono; letter-spacing: 2px; text-transform: uppercase; margin-top: 18px; }
+  #pilltext { position: absolute; font: 700 34px/1 JBMono; letter-spacing: 3px; color: #0b0f14; white-space: nowrap; }
+  #cap { position: absolute; left: 90px; right: 150px; top: 1480px; font: 700 54px/1.25 Inter; color: #fff; }  /* bottom-left safe zone */
+  #cap span { opacity: 0; }
+  #cap span.on { opacity: 1; } #cap span.hot { color: #ffd23f; }
+</style></head>
+<body><div id="root">
+  <div id="world"><div class="bg"></div><div class="dots"></div>
+    <div id="head">Every frame is a function of time</div>
+    <div id="shape"></div>
+    <div id="pilltext">BUILD CHECK</div>
+    <div id="cardtext"><div id="num">0</div><div id="lab">prompts merged today</div></div>
+  </div>
+  <div id="cap"></div>
+</div>
+<script src="../motion.js"></script>
+<script>
+const { Track, Morph, Camera, appear, leave, SETTLE, springVelocity, css } = Motion;
+window.DURATION = 3.0; window.FPS = 30; window.WIDTH = 1080; window.HEIGHT = 1920;
+
+// ---- motion plan (all times in seconds; would come from VO word timestamps) ----
+const HEAD_AT = 0.25, MORPH_AT = 0.95, COUNT_AT = 1.15, COUNT_END = 2.15, CAP_AT = 0.2;
+const words = Motion.splitWords(document.getElementById('head'));
+const shape = new Morph({ x: 90, y: 1250, w: 330, h: 84, r: 42, color: [255, 210, 63] })
+  .to(MORPH_AT, { x: 90, y: 700, w: 900, h: 560, r: 44 })
+  .to(COUNT_END, { color: [63, 227, 255] });                  // colour change on the beat, CUT
+const cam = new Camera().key(0, 3.0, { zoom: 1.06, curve: x => x });   // slow push; log-space zoom
+const CAPTION = 'every frame is a pure function of time'.split(' ');
+const HOT = new Set(['pure']);
+const cap = document.getElementById('cap');
+CAPTION.forEach((w, i) => { const s = document.createElement('span'); s.textContent = w + ' '; if (HOT.has(w)) s.className = 'hot'; cap.appendChild(s); });
+const capSpans = [...cap.children];
+const num = document.getElementById('num'), card = document.getElementById('cardtext'), pill = document.getElementById('pilltext');
+
+function counterValue(t) { return Math.round(883 * (t <= COUNT_AT ? 0 : SETTLE(Math.min(1, (t - COUNT_AT) / (COUNT_END - COUNT_AT))))); }
+
+window.seek = (t) => {
+  document.getElementById('world').style.transform = cam.transform(t);
+  Motion.riseWords(words, t, HEAD_AT);
+  const s = shape.apply(document.getElementById('shape'), t);
+  // pill label leaves BEFORE the card content arrives (text handoff, never overlapping)
+  const [aOut, aIn] = Motion.handoff(t, MORPH_AT - 0.05, MORPH_AT + 0.25, 0.16);
+  pill.style.opacity = aOut; pill.style.transform = `translate(${s.x + 36}px, ${s.y + 25}px)`;
+  card.style.opacity = aIn; card.style.transform = `translate(${s.x + 60}px, ${s.y + 90 + (1 - aIn) * 24}px)`;
+  num.textContent = counterValue(t).toLocaleString('en-IN');
+  capSpans.forEach((sp, i) => sp.classList.toggle('on', t >= CAP_AT + i * 0.3));
+};
+
+// fastest on-screen motion in px/s -> hrender picks the number of blur subframes
+window.speed = (t) => {
+  const lineH = 106;
+  let v = Math.max(shape.speed(t), cam.speed(t));
+  words.forEach((_, i) => { v = Math.max(v, 1.05 * lineH * Math.abs(springVelocity(t - HEAD_AT - i * Motion.WORD_STAGGER))); });
+  return v;
+};
+// everything visible, rounded -> identical frames are rendered once
+window.state = (t) => [cam.at(t).zoom.toFixed(5), shape.signature(t),
+  words.map((_, i) => +Motion.appear(t, HEAD_AT + i * Motion.WORD_STAGGER).toFixed(3)),
+  counterValue(t), capSpans.filter(s => s.classList.contains('on')).length, +Motion.handoff(t, MORPH_AT - .05, MORPH_AT + .25, .16).map(x => x.toFixed(3)).join()];
+
+document.fonts.ready.then(() => { window.seek(0); window.ready = true; });
+</script></body></html>

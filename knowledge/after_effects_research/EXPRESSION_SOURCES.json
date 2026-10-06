@@ -1,0 +1,74 @@
+[
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/easing.js",
+    "downloaded": true,
+    "bytes": 894,
+    "sha256": "1febd268fbf25794609bc71d2872ced83e31cf131eabb89d6cca84826265ac1b",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/easing.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__easing.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/easing4.js",
+    "downloaded": true,
+    "bytes": 1133,
+    "sha256": "5f1ca07ee712695697ff651e843fba30c391b9a7c6a1063a5f6b25398e6a981b",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/easing4.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__easing4.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/loopOut.js",
+    "downloaded": true,
+    "bytes": 584,
+    "sha256": "8f10b4ef35cfd14788ea09d4701a44a8def9a27765fe223778916729979fb9be",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/loopOut.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__loopOut.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/accumulator.js",
+    "downloaded": true,
+    "bytes": 309,
+    "sha256": "1b59740d88ffa9d7a08f58a5012e516eff4c83badbdddca2eae76ae170a37927",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/accumulator.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__accumulator.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/counter.js",
+    "downloaded": true,
+    "bytes": 166,
+    "sha256": "65435962dda84b66e2b3f010a40bf2a10c1f0fed21930527e415a7193d1aee8c",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/counter.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__counter.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/pathRotation.js",
+    "downloaded": true,
+    "bytes": 533,
+    "sha256": "b8e2bfbb7629f27770d8f10157c7451292dab26e7c333c936ca9811ae6271936",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/pathRotation.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__pathRotation.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/cameraSnap.js",
+    "downloaded": true,
+    "bytes": 453,
+    "sha256": "bd910eb98e1b3b8698961d61d63a64fc70c31c0f163748bc6b18aa2e9cdac0f9",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/cameraSnap.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__cameraSnap.js"
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "expressions/polarToCartesian.js",
+    "downloaded": true,
+    "bytes": 512,
+    "sha256": "eaf0ef9adb23a206fc8cda3e233835eb1e510b385b63fbad83cdbff4fc92b5b9",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/expressions/polarToCartesian.js",
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__expressions__polarToCartesian.js"
+  }
+]

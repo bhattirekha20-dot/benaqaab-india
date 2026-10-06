@@ -1,0 +1,62 @@
+[
+  {
+    "repo": "airbnb/lottie",
+    "path": "after-effects.md",
+    "source_url": "https://github.com/airbnb/lottie/blob/master/after-effects.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/airbnb__lottie__after-effects.md",
+    "sha256": "8dca8ca913ba08f7b3860ce56a0ede6000ff24dd450b0b01100e5b26f969a4a3",
+    "bytes": 13998,
+    "runtime_tested": false
+  },
+  {
+    "repo": "MysteryPancake/After-Effects-Fun",
+    "path": "README.md",
+    "source_url": "https://github.com/MysteryPancake/After-Effects-Fun/blob/master/README.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/MysteryPancake__After-Effects-Fun__README.md",
+    "sha256": "3fc03d43eabdeee03a935f97bc73b9038043503fc09361450bdd185e9106613f",
+    "bytes": 5947,
+    "runtime_tested": false
+  },
+  {
+    "repo": "ae-scripting/scripting-snippets",
+    "path": "README.md",
+    "source_url": "https://github.com/ae-scripting/scripting-snippets/blob/master/README.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/ae-scripting__scripting-snippets__README.md",
+    "sha256": "9216d3c5a2a4fa82c123eaf08d5c12bd9385344e21940948e300bf1f60da2b14",
+    "bytes": 7121,
+    "runtime_tested": false
+  },
+  {
+    "repo": "RxLaboratory/Duik",
+    "path": "README.md",
+    "source_url": "https://github.com/RxLaboratory/Duik/blob/master/README.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/RxLaboratory__Duik__README.md",
+    "sha256": "6bb3a5e0e123829bfa00490db5141aeef8b9ec443d10390f72abb28545f0aa71",
+    "bytes": 8001,
+    "runtime_tested": false
+  },
+  {
+    "repo": "inlife/nexrender",
+    "path": "README.md",
+    "source_url": "https://github.com/inlife/nexrender/blob/master/README.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/inlife__nexrender__README.md",
+    "sha256": "1aa7c3282a50e16292369680a342da044de121c7ae233b33a7668bd70c67f262",
+    "bytes": 73768,
+    "runtime_tested": false
+  },
+  {
+    "repo": "lottiefiles/lottie-docs",
+    "path": "README.md",
+    "source_url": "https://github.com/lottiefiles/lottie-docs/blob/main/README.md",
+    "downloaded": true,
+    "local_path": "source_snapshots/lottiefiles__lottie-docs__README.md",
+    "sha256": "1a7de53a742db7b2c7d7cf2e32959d411a4b04e4e9083d85d4d8fe50cc8f31da",
+    "bytes": 1335,
+    "runtime_tested": false
+  }
+]

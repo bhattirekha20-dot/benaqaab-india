@@ -1,0 +1,14 @@
+{
+  "source": "GuanYixuan/pyCapCut metadata tables (Apache-2.0), verified 2026-10-01 via GitHub API",
+  "counts": {
+    "transitions": 1130,
+    "video_intros": 250,
+    "video_outros": 217,
+    "group_animations": 107,
+    "text_intros": 182,
+    "scene_effects": 1582,
+    "filters": 454,
+    "character_effects": 251
+  },
+  "note": "effect ids and default durations are CapCut official identifiers; behaviour is produced by CapCut itself"
+}

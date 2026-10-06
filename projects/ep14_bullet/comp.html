@@ -1,0 +1,479 @@
+<!doctype html>
+<!-- Benaqaab India · Ep14 "Bullet Train 2027: 50 km pehle, 508 km poora"
+     Look: PLATFORM 508 — graphite base, signal-lime accent (#c9f24d) for the focal point, sand (#ffd9a0) for money/facts,
+     red (#ff5a5a) for "behind schedule" items. Motif: rails + sleepers, station dots, speed streaks, progress bars.
+     1920×1080 · 30 fps · word-timed captions · presenter only in S1, S6, S8. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Anton; src: url('../../brand/fonts/Anton.ttf'); font-weight: 400; }
+  @font-face { font-family: Gro; src: url('../../brand/fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+  @font-face { font-family: JBM; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  :root { --ink:#f2f5ee; --mut:#94a3a8; --lim:#c9f24d; --snd:#ffd9a0; --red:#ff5a5a; --pan:rgba(255,255,255,.05); --lin:rgba(255,255,255,.13); }
+  *{box-sizing:border-box} html,body{margin:0;background:#000}
+  #root{position:relative;width:1920px;height:1080px;overflow:hidden;color:var(--ink);font-family:Inter;
+        background:linear-gradient(160deg,#141a1f 0%,#0b1014 48%,#06080a 100%)}
+  .abs{position:absolute} .fit{white-space:nowrap}
+  .hero{font-family:Anton;line-height:.92;letter-spacing:.5px}
+  .head{font-family:Gro;font-weight:700;line-height:1.06;letter-spacing:-.5px}
+  .mono{font-family:JBM;font-weight:600;letter-spacing:1.6px;text-transform:uppercase}
+  .big{font-family:Gro;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .panel{background:var(--pan);border:1px solid var(--lin);border-radius:16px}
+  .chip{display:inline-block;font-family:JBM;font-weight:700;font-size:17px;letter-spacing:1.4px;text-transform:uppercase;
+        padding:7px 12px 6px;border-radius:7px;background:rgba(255,255,255,.07);border:1px solid var(--lin);white-space:nowrap}
+  .chip.lim{color:#161a05;background:var(--lim);border-color:var(--lim)}
+  .chip.snd{color:#231a08;background:var(--snd);border-color:var(--snd)}
+  .chip.red{color:#fff;background:var(--red);border-color:var(--red)}
+  .rl{font-family:JBM;font-weight:600;font-size:15px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mut)}
+  #bar{position:absolute;left:64px;top:44px;font-size:19px;color:var(--mut)} #bar b{color:var(--ink)}
+  #logo{position:absolute;left:1794px;top:34px;width:62px;height:62px;border-radius:50%}
+  #ai{position:absolute;left:1700px;top:106px;font-size:14px;color:rgba(242,245,238,.5)}
+  #chipch{position:absolute;left:64px;top:88px;font-size:20px;color:var(--lim)}
+  #chipch:before{content:"";display:inline-block;width:26px;height:3px;background:var(--lim);vertical-align:middle;margin-right:12px}
+  #cap{position:absolute;left:0;right:0;top:906px;height:130px;text-align:center}
+  #cap .line2{position:absolute;left:50%;transform:translateX(-50%);padding:14px 26px 16px 30px;white-space:nowrap;
+              font:700 45px/1.14 Inter;letter-spacing:-.3px;opacity:0}
+  #cap .line2 .bg{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(5,7,9,.93);border-left:6px solid var(--lim)}
+  #cap .w{position:relative;display:inline-block;margin-right:.26em;opacity:0} #cap .w:last-child{margin-right:0}
+  #cap .w.key{color:var(--lim)}
+  #host{position:absolute;left:70px;top:142px;width:700px;height:938px}
+  #host img{position:absolute;left:0;top:0;width:700px;height:938px;opacity:0}
+  #htag{position:absolute;font-size:15px;color:rgba(242,245,238,.55)}
+  .sc{position:absolute;left:0;top:0;width:1920px;height:1080px;display:none}
+  .src{position:absolute;left:64px;bottom:26px;font-size:17px;color:rgba(242,245,238,.72);font-weight:500}
+  .rail{position:absolute;height:4px;background:rgba(255,255,255,.25)}
+  .rail.lim{background:var(--lim)}
+  .sl{position:absolute;background:rgba(255,255,255,.18)}
+  .stn{position:absolute;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.35);border:3px solid rgba(0,0,0,.5)}
+  .stn.on{background:var(--lim);box-shadow:0 0 16px rgba(201,242,77,.6)}
+  .stn.big{width:28px;height:28px}
+  .snl{position:absolute;font-family:JBM;font-weight:700;font-size:15px;letter-spacing:.6px;color:var(--mut);text-align:center}
+  .snl.big{font-size:19px;color:var(--ink)}
+</style></head>
+<body><div id="root">
+  <svg width="1920" height="1080" style="position:absolute;left:0;top:0"><g id="streaks"></g></svg>
+  <div id="bar" class="mono">BULLET TRAIN · MAHSR &nbsp;·&nbsp; <b>DATA AS OF 3 OCT 2026</b></div>
+  <img id="logo" src="../../brand/logo.png">
+  <div id="ai" class="mono">AI PRESENTER</div>
+  <div id="chipch" class="mono"></div>
+
+  <!-- S0 -->
+  <div class="sc" id="s0">
+    <div class="mono abs" style="left:98px;top:186px;font-size:22px;color:var(--lim)">MUMBAI – AHMEDABAD HIGH-SPEED RAIL · NHSRCL</div>
+    <div class="hero abs" id="s0h1" style="left:94px;top:228px;font-size:172px">BULLET TRAIN</div>
+    <div class="head abs" id="s0h2" style="left:98px;top:404px;font-size:56px">India ki pehli high-speed rail</div>
+    <div class="panel abs" id="s0p1" style="left:98px;top:496px;width:560px;height:210px;padding:26px 32px;opacity:0">
+      <div class="rl">PEHLA HISSA · 2027</div>
+      <div class="big" style="font-size:84px;margin-top:12px">50 <span style="font-size:38px;color:var(--mut)">km</span></div>
+      <div style="font-size:22px;color:var(--lim);margin-top:6px">Surat → Bilimora</div>
+    </div>
+    <div class="panel abs" id="s0p2" style="left:686px;top:496px;width:560px;height:210px;padding:26px 32px;opacity:0">
+      <div class="rl">POORA CORRIDOR</div>
+      <div class="big" style="font-size:84px;margin-top:12px">508 <span style="font-size:38px;color:var(--mut)">km</span></div>
+      <div style="font-size:22px;color:var(--mut);margin-top:6px">12 stations · Mumbai (BKC) → Ahmedabad</div>
+    </div>
+    <div class="panel abs" id="s0route" style="left:1290px;top:250px;width:560px;height:640px;padding:26px;opacity:0">
+      <div class="rl">THE LINE</div>
+      <div id="s0map" style="position:relative;margin-top:18px"></div>
+    </div>
+    <div class="chip lim abs" id="s0ck" style="left:98px;top:756px;font-size:21px;opacity:0">CIVIL WORK OF FIRST SECTION: TARGET DECEMBER 2026</div>
+    <div class="src">First section &amp; mid-2027 services: Railway Minister, 21–23 Sep 2026 (PTI / Indian Express) · corridor data: NHSRCL</div>
+  </div>
+
+  <!-- S1 -->
+  <div class="sc" id="s1">
+    <div class="head abs" style="left:890px;top:236px;font-size:62px">AAGE KYA?</div>
+    <div class="mono abs" style="left:894px;top:318px;font-size:19px;color:var(--mut)">4 CHAPTER · 4 MINUTE</div>
+    <div id="s1c"></div>
+    <div class="src">Ep14 · Bullet Train · Benaqaab India</div>
+  </div>
+
+  <!-- S2 -->
+  <div class="sc" id="s2">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">THE CORRIDOR: 508 KM · 12 STATIONS</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">MAHARASHTRA · DADRA &amp; NAGAR HAVELI · GUJARAT</div>
+    <div class="panel abs" style="left:96px;top:292px;width:1120px;height:520px;padding:26px 30px">
+      <div class="rl">ROUTE &amp; STATIONS</div>
+      <div id="s2map" style="position:relative;margin-top:16px"></div>
+    </div>
+    <div class="panel abs" id="s2a" style="left:1256px;top:292px;width:568px;height:160px;padding:24px 30px;opacity:0">
+      <div class="rl">SPEEDS</div>
+      <div class="big" style="font-size:58px;margin-top:8px">350 <span style="font-size:30px;color:var(--mut)">design</span> · <span style="color:var(--lim)">320</span> <span style="font-size:30px;color:var(--mut)">operating</span></div>
+    </div>
+    <div class="panel abs" id="s2b" style="left:1256px;top:472px;width:568px;height:160px;padding:24px 30px;opacity:0">
+      <div class="rl">TRAVEL TIME</div>
+      <div class="big" style="font-size:58px;margin-top:8px">2 h 07 m</div>
+    </div>
+    <div class="panel abs" id="s2c" style="left:1256px;top:652px;width:568px;height:160px;padding:24px 30px;opacity:0">
+      <div class="rl">ALIGNMENT</div>
+      <div class="big" style="font-size:58px;margin-top:8px">90% <span style="font-size:30px;color:var(--mut)">elevated viaduct</span></div>
+    </div>
+    <div class="src">Route, speeds, 2 h 07 m: Indian Express (21 Sep 2026) / NHSRCL · alignment composition: NHSRCL project data</div>
+  </div>
+
+  <!-- S3 -->
+  <div class="sc" id="s3">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">WHERE IT STANDS — AND WHERE IT LAGS</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">WHOLE PROJECT ~80% DONE · LAND ACQUISITION 100% COMPLETE</div>
+    <div class="panel abs" style="left:96px;top:296px;width:1120px;height:516px;padding:26px 30px">
+      <div class="rl">CONSTRUCTION DONE (SEP 2026)</div>
+      <div id="s3rows"></div>
+    </div>
+    <div class="panel abs" style="left:1256px;top:296px;width:568px;height:516px;padding:26px 30px">
+      <div class="rl">PACKAGE-WISE PROGRESS</div>
+      <div id="s3pack" style="margin-top:18px"></div>
+    </div>
+    <div class="src">80% (Jul 2026) &amp; 320 km viaduct (Sep 2026): Railway Minister (PTI / Indian Express) · package progress: NHSRCL updates via AetherIoT (May 2026)</div>
+  </div>
+
+  <!-- S4 -->
+  <div class="sc" id="s4">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">WHY MUMBAI COMES LAST</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">BKC → SHILPHATA TUNNEL · 21 KM · 7 KM UNDER THE SEA</div>
+    <svg class="abs" style="left:96px;top:300px" width="1180" height="420" id="s4svg">
+      <rect x="0" y="150" width="1180" height="120" rx="14" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.13)"/>
+      <path id="s4line" d="M80 210 H1100" stroke="rgba(255,255,255,.4)" stroke-width="8" stroke-dasharray="26 18" fill="none"/>
+      <g id="s4water">
+        <path d="M560 120 q 40 -18 80 0 q 40 18 80 0 q 40 -18 80 0 q 40 18 80 0" stroke="#4db8ff" stroke-width="3" fill="none" opacity=".7"/>
+        <rect x="560" y="132" width="320" height="16" fill="rgba(77,184,255,.18)"/>
+      </g>
+      <circle cx="80" cy="210" r="13" fill="var(--lim)"/><circle cx="1100" cy="210" r="13" fill="var(--lim)"/>
+      <text x="60" y="268" font-family="JBM" font-size="20" fill="#f2f5ee" letter-spacing="1.2">BKC · MUMBAI</text>
+      <text x="1004" y="268" font-family="JBM" font-size="20" fill="#f2f5ee" letter-spacing="1.2">SHILPHATA</text>
+      <text id="s4uw" x="572" y="106" font-family="JBM" font-size="18" fill="#4db8ff" letter-spacing="1.4" opacity="0">7 KM UNDERSEA · THANE CREEK</text>
+      <path id="s4brk" d="M700 210 v -70" stroke="var(--lim)" stroke-width="4" opacity="0"/>
+      <text id="s4brkt" x="716" y="150" font-family="JBM" font-size="18" fill="#c9f24d" letter-spacing="1.4" opacity="0">20 SEP 2026: 4.88 KM BREAKTHROUGH</text>
+    </svg>
+    <div class="panel abs" id="s4a" style="left:96px;top:756px;width:1180px;height:150px;padding:24px 30px;opacity:0">
+      <div class="rl">AT THE MUMBAI END TODAY</div>
+      <div style="font-size:26px;margin-top:12px;line-height:1.4">Two tunnel boring machines at work · the largest TBM started at Vikhroli in July 2026 · the undersea stretch is the slowest part of the corridor.</div>
+    </div>
+    <div class="panel abs" id="s4b" style="left:1316px;top:300px;width:508px;height:606px;padding:26px 30px;opacity:0">
+      <div class="rl">PHASES</div>
+      <div id="s4ph" style="margin-top:18px"></div>
+    </div>
+    <div class="src">Tunnel length, 7 km undersea, breakthrough: Indian Express (20–21 Sep 2026) · TBM at Vikhroli: NHSRCL (Jul 2026)</div>
+  </div>
+
+  <!-- S5 -->
+  <div class="sc" id="s5">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">WHICH TRAIN WILL RUN?</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">AN INDIGENOUS TRAIN FIRST · JAPAN'S E10 LATER</div>
+    <svg class="abs" style="left:96px;top:290px" width="1120" height="300">
+      <path id="s5train" d="M60 250 q 0 -110 150 -140 l 480 -20 q 200 0 300 60 l 40 40 q 12 20 12 40 v 20 z"
+            fill="rgba(201,242,77,.14)" stroke="var(--lim)" stroke-width="3"/>
+      <circle cx="240" cy="262" r="26" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="4"/>
+      <circle cx="520" cy="262" r="26" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="4"/>
+      <circle cx="860" cy="262" r="26" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="4"/>
+      <path id="s5n" d="M660 90 q 180 6 300 60" stroke="var(--snd)" stroke-width="3" fill="none" stroke-dasharray="12 10" opacity="0"/>
+    </svg>
+    <div class="panel abs" id="s5a" style="left:96px;top:620px;width:1120px;height:286px;padding:26px 30px;opacity:0">
+      <div class="rl">MAKE-IN-INDIA ROLLING STOCK</div>
+      <div style="font-size:27px;margin-top:14px;line-height:1.5">BEML got the sub-contract in September 2024 · first prototype was expected in 2026 · the car body is now in a <b style="color:var(--lim)">squeeze test</b> to prove its strength before trials.</div>
+    </div>
+    <div class="panel abs" id="s5b" style="left:1256px;top:290px;width:568px;height:270px;padding:26px 30px;opacity:0">
+      <div class="rl">JAPAN'S NEXT GENERATION</div>
+      <div class="big" style="font-size:64px;margin-top:12px">E10</div>
+      <div style="font-size:21px;color:var(--mut);margin-top:8px">Shinkansen trains planned for the early 2030s</div>
+    </div>
+    <div class="panel abs" id="s5c" style="left:1256px;top:580px;width:568px;height:326px;padding:26px 30px;opacity:0">
+      <div class="rl">SIGNALLING</div>
+      <div style="font-size:25px;margin-top:14px;line-height:1.5">Japanese high-speed control systems, aligned with the E10 — equipment already ordered to international specifications.</div>
+    </div>
+    <div class="src">BEML sub-contract &amp; prototype: NHSRCL/BEML via RoadRailInfra (Mar 2026) · squeeze test: Railway Minister, 23 Sep 2026 · E10: India–Japan talks (Jul 2026)</div>
+  </div>
+
+  <!-- S6 -->
+  <div class="sc" id="s6">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">WHO PAYS — AND HOW MUCH</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">JICA LOAN · 0.1% · 50 YEARS</div>
+    <div class="panel abs" id="s6a" style="left:96px;top:300px;width:900px;height:250px;padding:28px 34px;opacity:0">
+      <div class="rl">ORIGINAL SANCTIONED COST</div>
+      <div class="big" style="font-size:84px;margin-top:14px">₹1.08 <span style="font-size:40px;color:var(--mut)">lakh crore</span></div>
+      <div style="font-size:21px;color:var(--mut);margin-top:8px">excluding taxes (NHSRCL estimate)</div>
+    </div>
+    <div class="panel abs" id="s6b" style="left:96px;top:570px;width:900px;height:250px;padding:28px 34px;opacity:0">
+      <div class="rl">JAPAN'S SOFT LOAN</div>
+      <div class="big" style="font-size:76px;margin-top:12px">81% <span style="font-size:34px;color:var(--mut)">of cost · 0.1%</span></div>
+      <div style="font-size:21px;color:var(--mut);margin-top:8px">₹88,087 crore · 50-year repayment · 15-year grace period</div>
+    </div>
+    <div class="panel abs" id="s6c" style="left:1028px;top:300px;width:796px;height:520px;padding:28px 34px;opacity:0">
+      <div class="rl" style="color:var(--red)">REPORTED — NOT YET APPROVED</div>
+      <div class="big" style="font-size:96px;margin-top:20px">₹2 <span style="font-size:40px;color:var(--mut)">lakh crore</span></div>
+      <div style="font-size:25px;margin-top:18px;line-height:1.45">In August 2026, reports said a revised estimate of about ₹2–2.1 lakh crore was proposed for approval after delays and cost escalation.</div>
+      <div class="chip red" style="margin-top:22px">REPORTED · TREAT AS PROVISIONAL</div>
+    </div>
+    <div class="src">₹1.08 lakh cr &amp; ₹88,087 cr JICA loan at 0.1%: NHSRCL/JICA via RoadRailInfra · revised ~₹2 lakh cr: reported via InfraCapitalist (2026), proposal stage</div>
+  </div>
+
+  <!-- S7 -->
+  <div class="sc" id="s7">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">THE SCHEDULE — AND WHAT TO WATCH</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">PHASED OPENING, NOT ONE LAUNCH DAY</div>
+    <div id="s7ph"></div>
+    <div class="rl abs" style="left:1060px;top:300px">WHAT TO WATCH</div>
+    <div id="s7w"></div>
+    <div class="src">Phases: Railway Minister (Jul &amp; Sep 2026, PTI / Mathrubhumi / Indian Express) · civil completion target: December 2026</div>
+  </div>
+
+  <!-- S8 -->
+  <div class="sc" id="s8">
+    <div class="head abs" style="left:900px;top:250px;font-size:54px">50 KM PEHLE,<br>508 KM POORA</div>
+    <div id="s8mini"></div>
+    <div class="chip lim abs" id="s8c1" style="left:904px;top:660px;font-size:21px;opacity:0">COMMENT: ASLI FAYDA KYA HOGA?</div>
+    <div class="chip abs" id="s8c2" style="left:904px;top:724px;font-size:21px;opacity:0">SUBSCRIBE · DATA-FIRST EXPLAINERS</div>
+    <div id="s8host"></div>
+    <div class="src">Sources with every claim · full list in the next card</div>
+  </div>
+
+  <!-- S9 -->
+  <div class="sc" id="s9">
+    <div class="head abs" style="left:96px;top:150px;font-size:62px">SOURCES</div>
+    <div class="mono abs" style="left:100px;top:236px;font-size:19px;color:var(--mut)">EVERY CLAIM ON SCREEN IS ATTRIBUTED · DATED 3 OCT 2026</div>
+    <div id="s9list"></div>
+    <div class="mono abs" id="s9disc" style="left:100px;top:906px;font-size:18px;color:var(--mut);opacity:0">INDEPENDENT EXPLAINER · NOT AFFILIATED WITH NHSRCL, INDIAN RAILWAYS OR THE GOVERNMENT OF INDIA</div>
+  </div>
+
+  <div id="host"></div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { SETTLE, SWEEP, appear, clamp01 } = Motion;
+const EXTRA = 6.4;
+window.DURATION = Math.round((TL.total + EXTRA) * 1000) / 1000; window.FPS = 30; window.WIDTH = 1920; window.HEIGHT = 1080;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = window.DURATION;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const $ = (id) => document.getElementById(id);
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const wd = (txt, para, nth = 0, fb = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === norm(txt)); return m.length ? (m[nth] || m[0]).t0 : fb; };
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; };
+
+/* speed streaks (seeded; motion is a function of t) */
+let seed = 23; const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+const STK = []; let sh = ''; for (let i = 0; i < 44; i++) { const y = rnd() * 1080, w = 120 + rnd() * 420, o = 0.04 + rnd() * 0.10, sp = 220 + rnd() * 460, ph = rnd() * 2400;
+  STK.push({ y, w, o, sp, ph }); sh += `<rect x="-500" y="${y.toFixed(1)}" width="${w.toFixed(0)}" height="3" rx="1.5" fill="rgba(201,242,77,1)" opacity="${o.toFixed(3)}"/>`; }
+$('streaks').innerHTML = sh;
+const SEL = [...document.querySelectorAll('#streaks rect')];
+
+/* station data: 12 stations Mumbai -> Ahmedabad */
+const STATIONS = ['BKC', 'THANE', 'VIRAR', 'BOISAR', 'VAPI', 'BILIMORA', 'SURAT', 'BHARUCH', 'VADODARA', 'ANAND', 'AHMEDABAD', 'SABARMATI'];
+const FIRST = 5;                     // Bilimora index (first section = Surat–Bilimora)
+const SRC_T0 = PE(8) + 0.25;
+const BND = [0].concat(C.slice(1).map(c => c.start - 0.22), [SRC_T0, END]);
+const CHAP = ['MUMBAI–AHMEDABAD', 'THE PROMISE', 'CH 1 · THE CORRIDOR', 'CH 2 · PROGRESS', 'CH 3 · MUMBAI END',
+              'CH 4 · THE TRAIN', 'CH 5 · THE MONEY', 'CH 6 · SCHEDULE', 'OUTRO', 'SOURCES'];
+const sceneAt = (t) => { let k = 0; for (let i = 0; i < BND.length - 1; i++) if (t >= BND[i]) k = i; return k; };
+const SC = CHAP.map((_, i) => $('s' + i));
+const RISE = (e, t, t0, d = 0.55) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.opacity = k.toFixed(3); e.style.transform = `translateY(${(1 - k) * 26}px)`; return k; };
+const POP  = (e, t, t0, d = 0.5) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.opacity = Math.min(1, k * 1.6).toFixed(3); e.style.transform = `scale(${(0.72 + 0.28 * k).toFixed(3)})`; return k; };
+const DRAW = (e, t, t0, d = 0.7) => { const k = SWEEP(clamp01((t - t0) / d)); e.style.strokeDashoffset = (1 - k).toFixed(3); return k; };
+const SLIDE = (e, t, t0, d = 0.5, x = -40) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.opacity = k.toFixed(3); e.style.transform = `translateX(${(1 - k) * x}px)`; return k; };
+const WID = (e, t, t0, d = 0.7, w = 0) => { const k = SETTLE(clamp01((t - t0) / d)); e.style.width = (k * w).toFixed(1) + 'px'; return k; };
+
+/* route builder (vertical) */
+function route(cont, x, y0, gap, small) {
+  const out = { dots: [], labels: [] };
+  STATIONS.forEach((s, i) => {
+    const y = y0 + i * gap, on = (i === FIRST || i === FIRST + 1);
+    const d = el('div', 'stn' + (on ? ' on' : '') + (small ? '' : ' big'));
+    d.style.left = x + 'px'; d.style.top = (y - (small ? 10 : 14)) + 'px';
+    const l = el('div', 'snl' + (small ? '' : ' big'), s);
+    l.style.left = (x + (small ? 26 : 40)) + 'px'; l.style.top = (y - (small ? 9 : 13)) + 'px';
+    l.style.width = '150px'; l.style.textAlign = 'left'; l.style.opacity = 0;
+    cont.appendChild(d); cont.appendChild(l); out.dots.push(d); out.labels.push(l);
+  });
+  return out;
+}
+/* S0 map */
+const s0m = route($('s0map'), 40, 40, 46, true);
+/* S2 map (bigger) */
+const s2m = route($('s2map'), 70, 30, 38, false);
+
+/* S1 chips */
+const CH1 = [['1', 'THE CORRIDOR', '508 km · 12 stations · 320 km/h'], ['2', 'PROGRESS', '~80% done · Gujarat ahead'],
+             ['3', 'MUMBAI END', '21 km tunnel · 7 km undersea'], ['4', 'TRAIN + MONEY', 'indigenous first · JICA loan']];
+const s1c = CH1.map((c, i) => { const e = el('div', 'panel');
+  e.style.cssText = `position:absolute;left:890px;top:${392 + i * 116}px;width:944px;height:96px;padding:18px 24px;opacity:0`;
+  e.innerHTML = `<span class="mono" style="font-size:26px;color:var(--lim)">${c[0]}</span>
+    <span class="head" style="font-size:34px;margin-left:22px">${c[1]}</span>
+    <span style="font-size:21px;color:var(--mut);margin-left:22px">${c[2]}</span>`;
+  $('s1c').appendChild(e); return e; });
+
+/* S3 rows + packages */
+const ROWS = [['PROJECT OVERALL', '80%', 0.80, 'Jul 2026'], ['VIADUCT / BRIDGE PORTION', '320 km', 0.69, 'Sep 2026'],
+              ['TRACK BED', '206 km', 0.44, 'Sep 2026'], ['RIVER BRIDGES', '17 done', 0.71, 'Sep 2026'], ['LAND ACQUISITION', '100%', 1.0, 'complete']];
+const s3r = ROWS.map((r, i) => { const y = 44 + i * 84; const w = el('div');
+  w.style.cssText = `position:absolute;left:26px;top:${y}px;width:1068px;height:64px;opacity:0`;
+  w.innerHTML = `<div class="rl">${r[0]}</div>
+    <div style="position:absolute;left:360px;top:0;width:420px;height:26px;background:rgba(255,255,255,.09);border-radius:13px;overflow:hidden">
+      <div class="bar" style="width:0;height:26px;background:${i === 4 ? 'var(--lim)' : 'var(--lim)'};opacity:${i === 4 ? 1 : 0.85};border-radius:13px"></div></div>
+    <div class="big" style="position:absolute;left:800px;top:-8px;font-size:40px">${r[1]}</div>
+    <div class="mono" style="position:absolute;left:970px;top:8px;font-size:13px;color:var(--mut)">${r[2]}</div>`;
+  $('s3rows').appendChild(w); return { w, bar: w.querySelector('.bar'), f: r[2] }; });
+const PACK = [['C4 · Zaroli–Vadodara', 85, 'var(--lim)'], ['C6 · Vadodara–Ahmedabad', 80, 'var(--lim)'],
+              ['C1 · BKC station', 62, 'var(--snd)'], ['C3 · Shilphata–Zaroli', 40, 'var(--red)']];
+const s3p = PACK.map((p, i) => { const e = el('div'); e.style.cssText = `position:absolute;left:0;top:0;width:100%;opacity:0`;
+  const wrap = el('div'); wrap.style.cssText = `position:relative;height:96px`;
+  wrap.innerHTML = `<div style="font-size:23px;font-weight:600">${p[0]}</div>
+    <div style="position:absolute;left:0;top:44px;width:100%;height:26px;background:rgba(255,255,255,.09);border-radius:13px;overflow:hidden">
+      <div class="bar" style="width:0;height:26px;background:${p[2]};border-radius:13px"></div></div>
+    <div class="big" style="position:absolute;right:0;top:6px;font-size:34px;color:${p[2]}">${p[1]}%</div>`;
+  e.appendChild(wrap); $('s3pack').appendChild(e); return { e, bar: wrap.querySelector('.bar'), v: p[1] }; });
+
+/* S4 phases */
+const PH = [['SURAT–BILIMORA', 'mid-2027', 'var(--lim)'], ['TO THANE', '2028', 'var(--snd)'], ['TO MUMBAI (BKC)', '2029', 'var(--red)']];
+const s4p = PH.map((p, i) => { const e = el('div'); e.style.cssText = `position:relative;height:150px;opacity:0`;
+  e.innerHTML = `<div class="mono" style="font-size:15px;color:${p[2]}">PHASE ${i + 1}</div>
+    <div class="head" style="font-size:30px;margin-top:8px">${p[0]}</div>
+    <div class="big" style="font-size:56px;color:${p[2]};margin-top:6px">${p[1]}</div>`;
+  $('s4ph').appendChild(e); return e; });
+
+/* S7 phases + watch */
+const s7ph = [['MID-2027', 'Surat → Bilimora', 'first passenger service', 'var(--lim)'], ['2028', 'Extended to Thane', 'after testing & approvals', 'var(--snd)'],
+              ['2029', 'Mumbai (BKC) end', 'undersea tunnel finished', 'var(--snd)'], ['EARLY 2030s', 'Japan E10 Shinkansen', 'next-generation trainsets', 'var(--lim)']]
+  .map((p, i) => { const e = el('div', 'panel'); e.style.cssText = `position:absolute;left:96px;top:${300 + i * 132}px;width:900px;height:112px;padding:18px 26px;opacity:0`;
+    e.innerHTML = `<span class="mono" style="font-size:22px;color:${p[3]}">${p[0]}</span>
+      <span class="head" style="font-size:32px;margin-left:26px">${p[1]}</span>
+      <div style="font-size:19px;color:var(--mut);margin-top:4px">${p[2]}</div>`;
+    $('s7ph').appendChild(e); return e; });
+const WATCH = [['1', 'DECEMBER 2026', 'civil work of the first section'], ['2', 'TESTING &amp; APPROVAL', 'track, signalling, safety'],
+               ['3', 'REVISED COST DECISION', '₹2 lakh crore proposal'], ['4', 'MID-2027', 'first passenger service']]
+  .map((w, i) => { const e = el('div', 'panel'); e.style.cssText = `position:absolute;left:1060px;top:${336 + i * 100}px;width:764px;height:84px;padding:16px 24px;opacity:0`;
+    e.innerHTML = `<span class="mono" style="font-size:22px;color:var(--lim)">${w[0]}</span><span class="head" style="font-size:27px;margin-left:20px">${w[1]}</span>
+      <div style="font-size:18px;color:var(--mut);margin-top:2px">${w[2]}</div>`;
+    $('s7w').appendChild(e); return e; });
+
+/* S8 recap */
+const s8m = [['2027', 'first section: 50 km, Surat–Bilimora'], ['2028–29', 'Thane, then Mumbai end'], ['LOAN', 'JICA 81% at 0.1% for 50 years']]
+  .map((m, i) => { const e = el('div', 'panel'); e.style.cssText = `position:absolute;left:900px;top:${452 + i * 62}px;width:924px;height:52px;padding:10px 18px;opacity:0;display:flex;align-items:center;gap:18px`;
+    e.innerHTML = `<span class="mono" style="font-size:16px;color:var(--lim)">${m[0]}</span><span style="font-size:23px">${m[1]}</span>`;
+    $('s8mini').appendChild(e); return e; });
+
+/* S9 sources */
+const SOURCES = [
+ 'First section Surat–Bilimora (50 km) operational in 2027; civil work targeted by December 2026; services mid-2027 — Railway Minister, PTI via Mathrubhumi &amp; Indian Express, 21–23 Sep 2026',
+ 'Project ~80% complete (Jul 2026); phased opening Surat–Bilimora → Wapi → Ahmedabad → Thane → Mumbai — Railway Minister via WebIndia123 / ET, Jul 2026',
+ '508 km, 12 stations, 320 km/h operating (350 design), travel time 2 h 07 m, alignment 90% elevated — Indian Express / NHSRCL, Sep 2026',
+ '21 km tunnel BKC–Shilphata with a 7 km undersea stretch under Thane Creek; 4.88 km NATM breakthrough on 20 Sep 2026; two TBMs working — Indian Express, 20–21 Sep 2026',
+ 'Package progress (C4 ~85%, C6 ~80%, C3 ~40%), BKC station ~60–65%, land acquisition 100% — NHSRCL updates compiled by AetherIoT, May 2026',
+ 'BEML sub-contract (Sep 2024), first prototype expected 2026; car-body squeeze test — RoadRailInfra (Mar 2026) &amp; Railway Minister, 23 Sep 2026',
+ 'Japan E10 Shinkansen planned for the early 2030s — India–Japan discussions, Vajiram / ET, Jul 2026',
+ 'Cost: ₹1.08 lakh crore sanctioned (ex-taxes), JICA loan ₹88,087 crore at 0.1% for 50 years with a 15-year grace period — NHSRCL / JICA via RoadRailInfra',
+ 'Reported proposal for a revised estimate of about ₹2–2.1 lakh crore (2026) — InfraCapitalist, reported; not an approved figure'];
+const s9 = SOURCES.map((s, i) => { const e = el('div');
+  e.style.cssText = `position:absolute;left:104px;top:${300 + i * 62}px;width:1720px;font-size:21px;color:#d8dfd4;opacity:0`;
+  e.innerHTML = `<span class="mono" style="font-size:15px;color:var(--lim);margin-right:16px">${String(i + 1).padStart(2, '0')}</span>${s}`;
+  $('s9list').appendChild(e); return e; });
+
+/* presenter */
+$('host').innerHTML = '<img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">';
+const HOSTS = [...document.querySelectorAll('#host img')];
+const HTAG = el('div', 'mono'); HTAG.id = 'htag'; HTAG.textContent = 'AI PRESENTER'; $('root').appendChild(HTAG);
+const hostAt = (i) => i === 1 || i === 6 || i === 8;
+
+/* captions */
+const KEY = new Set(['0:2027', '0:50', '0:508', '0:pachaas', '0:paanch', '1:corridor', '1:progress', '1:mumbai', '1:train', '1:paisa',
+ '2:508', '2:12', '2:320', '2:350', '2:ghante', '2:90', '2:viaduct',
+ '3:80', '3:320', '3:206', '3:17', '3:100', '3:gujarat', '3:maharashtra',
+ '4:21', '4:7', '4:thane', '4:september', '4:2029', '4:tunnel',
+ '5:beml', '5:prototype', '5:squeeze', '5:e10', '5:shinkansen',
+ '6:1.08', '6:81', '6:jica', '6:50', '6:2', '6:report',
+ '7:december', '7:testing', '7:mid', '7:2028', '7:2029', '7:ghante',
+ '8:50', '8:508', '8:fayda', '8:comment', '8:subscribe']);
+const MAXC = 26, lines = [];
+{ const phrases = []; let ph = null;
+  W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+  phrases.forEach(ph => { const ws = ph.words, n = ws.length, L = ws.map(w => w.w.length);
+    const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+    const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+    const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+    for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) { const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m]; }
+    const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+    cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) })); }); }
+lines.forEach(L => { L.el = el('div', 'line2'); L.bg = el('div', 'bg'); L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = el('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el); });
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 - 0.02 : Math.min(PE(L.p) + 0.3, nx ? nx.t0 - 0.02 : END); });
+
+/* ---- scene renderers ---- */
+function s0f(t) { const T = BND[0];
+  RISE($('s0h1'), t, T + 0.10, 0.7); RISE($('s0h2'), t, T + 0.42, 0.6);
+  const t50 = wd('50', 0, 0, T + 3.2), t508 = wd('508', 0, 0, T + 5.6), tck = wd('508', 0, 0, T + 9.0) + 1.0;
+  POP($('s0p1'), t, t50 - 0.2, 0.5); POP($('s0p2'), t, t508 - 0.2, 0.5);
+  $('s0route').style.opacity = RISE($('s0route'), t, T + 1.2, 0.6).toFixed(3);
+  s0m.labels.forEach((l, i) => { const k = SETTLE(clamp01((t - T - 1.6 - i * 0.09) / 0.4)); l.style.opacity = k.toFixed(3); });
+  s0m.dots.forEach((d, i) => { const k = POP(d, t, T + 1.5 + i * 0.09, 0.4); });
+  POP($('s0ck'), t, tck, 0.4); }
+function s1f(t) { const T = BND[1]; const tm = [wd('project', 1, 0, T + 1.4), wd('mushkil', 1, 0, T + 3.4), wd('train', 1, 0, T + 4.6), wd('paisa', 1, 0, T + 5.6)];
+  const seq = [tm[0], tm[0] + 0.6, tm[1] - 0.2, tm[3] - 0.3]; s1c.forEach((e, i) => SLIDE(e, t, seq[i] - 0.15, 0.5, 46)); }
+function s2f(t) { const T = BND[2]; const tn = wd('12', 2, 0, T + 3.4), ts = wd('350', 2, 0, T + 7.0), tt = wd('ghante', 2, 0, T + 10.0), tv = wd('90', 2, 0, T + 13.0);
+  s2m.labels.forEach((l, i) => { const k = SETTLE(clamp01((t - T - 0.4 - i * 0.10) / 0.4)); l.style.opacity = k.toFixed(3); });
+  s2m.dots.forEach((d, i) => POP(d, t, T + 0.3 + i * 0.10, 0.4));
+  s2a: { } $('s2a').style.opacity = RISE($('s2a'), t, ts - 0.3, 0.5).toFixed(3);
+  $('s2b').style.opacity = RISE($('s2b'), t, tt - 0.3, 0.5).toFixed(3);
+  $('s2c').style.opacity = RISE($('s2c'), t, tv - 0.3, 0.5).toFixed(3); void tn; }
+function s3f(t) { const T = BND[3]; const t80 = wd('80', 3, 0, T + 3.0), t320 = wd('320', 3, 0, T + 6.6), t206 = wd('206', 3, 0, T + 8.8), t17 = wd('17', 3, 0, T + 10.4), t100 = wd('100', 3, 0, T + 12.0);
+  const tm = [t80, t320, t206, t17, t100];
+  s3r.forEach((r, i) => { RISE(r.w, t, tm[i] - 0.4, 0.5); WID(r.bar, t, tm[i] - 0.3, 0.9, 420 * r.f); });
+  s3p.forEach((p, i) => { RISE(p.e, t, t320 + 1.2 + i * 0.3, 0.5); WID(p.bar, t, t320 + 1.4 + i * 0.3, 0.8, 508 * p.v / 100); }); }
+function s4f(t) { const T = BND[4]; const t21 = wd('21', 4, 0, T + 2.6), t7 = wd('7', 4, 0, T + 5.4), tb = wd('september', 4, 0, T + 10.6), tt2 = wd('2029', 4, 0, T + 14.6);
+  const k = SWEEP(clamp01((t - t21 + 0.2) / 1.0)); $('s4line').style.strokeDashoffset = (1 - k).toFixed(3);
+  $('s4water').style.opacity = SETTLE(clamp01((t - t7) / 0.5)).toFixed(3);
+  $('s4uw').style.opacity = SETTLE(clamp01((t - t7) / 0.5)).toFixed(3);
+  $('s4brk').style.opacity = SETTLE(clamp01((t - tb) / 0.4)).toFixed(3);
+  $('s4brkt').style.opacity = SETTLE(clamp01((t - tb) / 0.5)).toFixed(3);
+  s4p.forEach((e, i) => RISE(e, t, T + 0.6 + i * 0.5, 0.5));
+  $('s4a').style.opacity = RISE($('s4a'), t, tb + 1.6, 0.5).toFixed(3);
+  $('s4b').style.opacity = RISE($('s4b'), t, T + 0.4, 0.6).toFixed(3); void tt2; }
+function s5f(t) { const T = BND[5]; const tk = wd('train', 5, 0, T + 1.6), tb = wd('beml', 5, 0, T + 4.4), tsq = wd('squeeze', 5, 0, T + 9.6), te = wd('e10', 5, 0, T + 13.4);
+  DRAW($('s5train'), t, tk - 0.2, 1.0); POP($('s5a'), t, tb - 0.3, 0.5); POP($('s5b'), t, te - 0.3, 0.5);
+  POP($('s5c'), t, te + 0.5, 0.5);
+  $('s5n').style.opacity = SETTLE(clamp01((t - tsq) / 0.4)).toFixed(3); }
+function s6f(t) { const T = BND[6]; const tm = wd('1.08', 6, 0, T + 4.0), tj = wd('jica', 6, 0, T + 8.8), tr = wd('report', 6, 0, T + 16.0);
+  POP($('s6a'), t, tm - 0.3, 0.5); POP($('s6b'), t, tj - 0.3, 0.5); POP($('s6c'), t, tr - 0.3, 0.5); }
+function s7f(t) { const T = BND[7]; const tm = [wd('december', 7, 0, T + 2.6), wd('testing', 7, 0, T + 6.0), wd('mid', 7, 0, T + 8.6), wd('ghante', 7, 0, T + 13.6)];
+  s7ph.forEach((e, i) => RISE(e, t, T + 0.5 + i * 0.45, 0.5));
+  WATCH.forEach((e, i) => SLIDE(e, t, tm[Math.min(i, 3)] - 0.2, 0.45, -40)); void tm; }
+function s8f(t) { const T = BND[8]; const tm = wd('fayda', 8, 0, T + 2.6), tc = wd('comment', 8, 0, T + 4.6);
+  s8m.forEach((e, i) => SLIDE(e, t, tm - 0.5 + i * 0.2, 0.45, 44));
+  POP($('s8c1'), t, tc - 0.1, 0.4); POP($('s8c2'), t, tc + 0.9, 0.4); }
+function s9f(t) { const T = BND[9]; s9.forEach((e, i) => RISE(e, t, T + 0.12 + i * 0.14, 0.45));
+  $('s9disc').style.opacity = SETTLE(clamp01((t - T - 1.4) / 0.5)).toFixed(3); }
+const SCF = [s0f, s1f, s2f, s3f, s4f, s5f, s6f, s7f, s8f, s9f];
+
+window.seek = (t) => {
+  const k = sceneAt(t), t0 = BND[k], t1 = BND[k + 1];
+  SC.forEach((e, i) => { if (i === k) { e.style.display = 'block';
+      const local = t - t0, dur = t1 - t0, f = Math.min(clamp01(local / 0.5), clamp01((dur - local) / 0.35));
+      e.style.opacity = f.toFixed(3); e.style.transform = 'none';
+    } else e.style.display = 'none'; });
+  $('chipch').textContent = CHAP[k];
+  SEL.forEach((r, i) => { const p = STK[i]; const x = -520 + ((p.ph + t * p.sp) % 2440);
+    r.setAttribute('x', x.toFixed(1)); r.setAttribute('opacity', (p.o * (k === 0 || k === 3 ? 1.35 : 0.8)).toFixed(3)); });
+  SCF[k](t, t0, t1);
+  const on = hostAt(k); const hf = on ? Math.min(clamp01((t - t0) / 0.45), clamp01((t1 - t - 0.3) / 0.45)) : 0;
+  $('host').style.opacity = hf.toFixed(3);
+  const fi = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30))); const v = VIS[fi] | 0;
+  HOSTS.forEach((im, i) => { im.style.opacity = i === v ? 1 : 0; });
+  HTAG.style.opacity = (hf * 0.9).toFixed(3); HTAG.style.left = '70px'; HTAG.style.top = (on ? 156 : 142) + 'px';
+  $('host').style.left = '70px';
+  lines.forEach(L => { const vis = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = vis ? 1 : 0;
+    if (!vis) return; let wdt = 0;
+    L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const kk = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prv = i ? L.words[i - 1].right : 0; wdt = prv + (w.right - prv) * kk; } });
+    L.bg.style.width = (wdt + 26).toFixed(1) + 'px';
+    L.words.forEach(w => { const kk = appear(t, w.t0 - 0.03); w.el.style.opacity = kk > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, kk)) * 12).toFixed(2)}px)`; }); });
+};
+window.speed = () => 0;
+
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(e => { let fs = parseFloat(getComputedStyle(e).fontSize), guard = 0;
+  while (e.scrollWidth > e.clientWidth + 2 && guard++ < 80) { fs -= 2; e.style.fontSize = fs + 'px'; } });
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>

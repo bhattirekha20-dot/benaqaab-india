@@ -1,0 +1,407 @@
+{
+ "title": "फ्लाइट क्यों महँगी — ₹10,000 तक सरचार्ज (IndiGo, 6 Oct 2026)",
+ "width": 1080,
+ "height": 1920,
+ "fps": 30,
+ "duration": 176.166667,
+ "assets": {
+  "html": {
+   "path": "projects/flight_surcharge/Flight_Surcharge_Short.html",
+   "role": "the whole film — one deterministic HTML, every frame a pure function of t",
+   "rights_note": "all graphics drawn in code; no photographs, no airline logos"
+  },
+  "master": {
+   "path": "projects/flight_surcharge/audio/master_loud.wav",
+   "role": "audio master (narration + 6 distinct cut SFX + bed), loudnorm'd to I -14 / TP -1.5 / LRA 2.4",
+   "rights_note": "narration is our own TTS (voice-03); bed and SFX synthesised from scratch in numpy"
+  },
+  "builder": {
+   "path": "projects/flight_surcharge/build_audio.py",
+   "role": "reproducible audio recipe",
+   "rights_note": "our own code"
+  },
+  "timeline": {
+   "path": "projects/flight_surcharge/TIMELINE.json",
+   "role": "measured narration times that drive scene windows",
+   "rights_note": "our own measurements"
+  },
+  "vo1": {
+   "path": "projects/flight_surcharge/audio/vo_1_48.wav",
+   "role": "narration scene 1 (raw clip after trim/atempo)",
+   "rights_note": "our own TTS voice-03"
+  },
+  "font_hi": {
+   "path": "brand/fonts/NotoSansDevanagari.ttf",
+   "role": "Hindi display + caption type",
+   "rights_note": "SIL Open Font License (brand/fonts/OFL.txt)"
+  },
+  "font_num": {
+   "path": "brand/fonts/Archivo.ttf",
+   "role": "rupee figures and numerals",
+   "rights_note": "SIL Open Font License"
+  },
+  "engine": {
+   "path": "viz/motion_library.js",
+   "role": "camera, grade stack, the 24 official-named transitions",
+   "rights_note": "our own code"
+  }
+ },
+ "claims": {
+  "C1": {
+   "statement": "IndiGo fuel surcharge on domestic routes: five distance tiers from Rs 375 to Rs 1,300 per sector",
+   "unit": "INR per sector, per tier",
+   "qualification": "IndiGo only, on new bookings from 00:01 on 6 Oct 2026",
+   "source_url": "https://aninews.in/news/business/indigo-hikes-fuel-charges-from-october-6-amid-rising-atf-prices20261005134239/"
+  },
+  "C2": {
+   "statement": "International fuel surcharge range Rs 1,000 to Rs 10,000",
+   "unit": "INR per sector",
+   "qualification": "IndiGo, new bookings, headline 'up to Rs 10,000' is the international ceiling",
+   "source_url": "https://www.business-standard.com/amp/industry/aviation/indigo-hikes-fuel-charges-from-oct-6-as-atf-costs-rise-over-14-126100500387_1.html"
+  },
+  "C3": {
+   "statement": "SAARC Rs 1,000 (up to 500 km) and Rs 3,000 (beyond); South-East Asia / GCC / Middle East / N&E Asia Rs 5,500",
+   "unit": "INR per sector",
+   "qualification": "IndiGo international table",
+   "source_url": "https://aninews.in/news/business/indigo-hikes-fuel-charges-from-october-6-amid-rising-atf-prices20261005134239/"
+  },
+  "C4": {
+   "statement": "Europe is the top international tier: Rs 10,000",
+   "unit": "INR per sector",
+   "qualification": "Africa's Rs 6,000 figure is omitted because sources disagree on how it is described",
+   "source_url": "https://aninews.in/news/business/indigo-hikes-fuel-charges-from-october-6-amid-rising-atf-prices20261005134239/"
+  },
+  "C5": {
+   "statement": "ATF price ladder: June Rs 115/l, July Rs 110, August Rs 115, 1 Sep Rs 121, 1 Oct Rs 137",
+   "unit": "INR per litre for domestic airlines",
+   "qualification": "single-source series (New Indian Express) — shown on screen with its own tag",
+   "source_url": "https://www.newindianexpress.com/india/2026/Oct/05/fresh-blow-to-flyers-indigo-levies-fuel-surcharge-of-up-to-rs-10000-from-oct-6-ticket-prices-to-go-up"
+  },
+  "C6": {
+   "statement": "ATF price rise of more than 14 per cent month-on-month",
+   "unit": "per cent, m/m",
+   "qualification": "as of the 1 Oct revision",
+   "source_url": "https://www.business-standard.com/amp/industry/aviation/indigo-hikes-fuel-charges-from-oct-6-as-atf-costs-rise-over-14-126100500387_1.html"
+  },
+  "C7": {
+   "statement": "Fuel is 35-40 per cent of an airline's operating cost",
+   "unit": "per cent of operating cost",
+   "qualification": "industry figure quoted in the same reports (NIE 'up to 40%')",
+   "source_url": "https://www.business-standard.com/amp/industry/aviation/indigo-hikes-fuel-charges-from-oct-6-as-atf-costs-rise-over-14-126100500387_1.html"
+  },
+  "C8": {
+   "statement": "Brent crude at about USD 101.31 a barrel on 5 October 2026",
+   "unit": "USD per barrel",
+   "qualification": "day of reporting; -0.92% d/d, +4.3% m/m",
+   "source_url": "https://tradingeconomics.com/commodity/brent-crude-oil"
+  },
+  "C9": {
+   "statement": "Brent touched USD 115.73 during the escalation phase earlier in the war",
+   "unit": "USD per barrel, peak",
+   "qualification": "earlier peak, not the current price",
+   "source_url": "https://datacenters.economictimes.indiatimes.com/news/policy-land-power/west-asia-conflict-escalates-oil-prices-impact-indias-energy-digital-infrastructure/129919298"
+  },
+  "C10": {
+   "statement": "The West Asia conflict began on 28 February 2026 with US and Israeli strikes on targets in Iran",
+   "unit": "date",
+   "qualification": "still ongoing at the time of the film",
+   "source_url": "https://datacenters.economictimes.indiatimes.com/news/policy-land-power/west-asia-conflict-escalates-oil-prices-impact-indias-energy-digital-infrastructure/129919298"
+  },
+  "C11": {
+   "statement": "India imports more than 88 per cent of its crude oil",
+   "unit": "per cent of requirement",
+   "qualification": "structural figure, unchanged by the surcharge",
+   "source_url": "https://indianexpress.com/article/explained/explained-economics/brent-beyond-100-why-oil-prices-have-surged-worry-for-india-10872027/"
+  },
+  "C12": {
+   "statement": "March 2026 precedent: Air India, IndiGo and Akasa introduced surcharges in March and cut them around July as prices stabilised",
+   "unit": "timeline",
+   "qualification": "second round since February; Akasa's March tiers were Rs 199-1,300",
+   "source_url": "https://economictimes.indiatimes.com/industry/transportation/airlines-/-aviation/akasa-air-announces-fuel-surcharge-after-air-india-indigo/articleshow/129579870.cms"
+  },
+  "C13": {
+   "statement": "As of 5 October 2026 only IndiGo had announced this round; Air India declined to comment",
+   "unit": "reporting status",
+   "qualification": "the March pattern suggests others may follow, which the film states as precedent, not fact",
+   "source_url": "https://aninews.in/news/business/indigo-hikes-fuel-charges-from-october-6-amid-rising-atf-prices20261005134239/"
+  },
+  "C14": {
+   "statement": "IndiGo carries nearly two-thirds of India's domestic air traffic",
+   "unit": "share of domestic traffic",
+   "qualification": "why this single airline's move touches most flyers",
+   "source_url": "https://www.newindianexpress.com/india/2026/Oct/05/fresh-blow-to-flyers-indigo-levies-fuel-surcharge-of-up-to-rs-10000-from-oct-6-ticket-prices-to-go-up"
+  }
+ },
+ "shots": [
+  {
+   "id": "S1",
+   "purpose": "hook: the surcharge is live as of this morning and spans Rs 375 to Rs 10,000",
+   "hero": "the range itself, counting up under a climbing plane",
+   "start_state": "night-sky gradient with brand block and kicker",
+   "end_state": "plane hovering low-right, counters parked at Rs 375 / Rs 10,000, 'new bookings only' chip live",
+   "primary_motion": "plane climbs from bottom-left on an eased path with a blinking beacon",
+   "secondary_motion": "fuel droplets fall and fade; amber/blue sparks drift; 70 cabin motes; grid drift",
+   "camera": "slow breathing zoom 1.006-1.012 with a 16-21 s orbit",
+   "audio": "distant cabin air bed; entry whoosh at 5.6 s; five fuel-drip blips 8.2-12.6 s; VO1 from 0.55 s",
+   "transition": "Zoom to Change 0.80 s",
+   "acceptance": "both rupee figures legible at full size, no collision with the plane, caption inside its plate",
+   "asset_roles": [
+    "html",
+    "master",
+    "vo1",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "counters tick up with an ease so the eye can read the final number",
+    "plane path ends clear of the counter block",
+    "rupee amounts use Archivo tabular figures; Hindi uses Noto Devanagari"
+   ],
+   "claims": [
+    "C1",
+    "C2",
+    "C14"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "vo1",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 0.0,
+   "end": 21.199979
+  },
+  {
+   "id": "S2",
+   "purpose": "the five domestic tiers and the three international tiers",
+   "hero": "five distance bars growing from the left",
+   "start_state": "title 'domestic surcharge - five distance slabs'",
+   "end_state": "all five bars parked with their rupee values plus three international chips",
+   "primary_motion": "bars wipe in one per 1.5 s with counting rupee labels",
+   "secondary_motion": "tick bed, drifting sparks, slow camera drift",
+   "camera": "breathing zoom with a slow orbit",
+   "audio": "quiet 0.5 s tick bed under the scale; VO2 from 21.75 s",
+   "transition": "Signal Glitch 2 0.67 s",
+   "acceptance": "every tier pair (distance + rupee) readable; no bar crosses the rupee column",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "bars scale with the rupee value so distance and price read as one idea",
+    "the top tier is highlighted gold as the ceiling"
+   ],
+   "claims": [
+    "C1",
+    "C3",
+    "C4"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 21.199979,
+   "end": 45.772291
+  },
+  {
+   "id": "S3",
+   "purpose": "the cause: the ATF ladder and the 14 per cent month-on-month jump",
+   "hero": "a five-step staircase of kerosene prices",
+   "start_state": "title 'why: the fuel ladder (ATF Rs/litre)'",
+   "end_state": "bars parked, +14 per cent stamp landed, decade-high ribbon and the 35-40 per cent gauge visible",
+   "primary_motion": "bars spring up one per 1.5 s; the +14 per cent stamp lands with a spring",
+   "secondary_motion": "tick bed, spark drift",
+   "camera": "breathing zoom",
+   "audio": "ladder ticks; VO3 from 46.322 s",
+   "transition": "White Flash 0.40 s (softened wrapper, veil peaks at 72 per cent)",
+   "acceptance": "the one down month is coloured differently; source tag for the single-source ladder is on screen",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "July prints green because it is the only fall in the series",
+    "the single-source ladder carries its own on-screen source tag"
+   ],
+   "claims": [
+    "C5",
+    "C6",
+    "C7"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 45.772291,
+   "end": 73.96427
+  },
+  {
+   "id": "S4",
+   "purpose": "the root: West Asia war, Hormuz, and Brent back over 100 dollars",
+   "hero": "the Hormuz chokepoint with a tanker threading it",
+   "start_state": "title 'the root: the West Asia war'",
+   "end_state": "chips parked, Brent sparkline drawn to its 101-dollar dot on the 100-dollar line",
+   "primary_motion": "tanker sails the strait on a 8.5 s traverse; sparkline draws left to right",
+   "secondary_motion": "war rumble bed, two distant horns, drifting sparks",
+   "camera": "breathing zoom with an orbit",
+   "audio": "low rumble 73.9-82.9 s, horns at 76.6/80.8 s, rising sweep and a small ding at the 100-dollar crossing; VO4 from 74.514 s",
+   "transition": "Dissolve 0.50 s",
+   "acceptance": "the 100-dollar line and the current-price dot are both visible; the map reads as a strait, not a blob",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "an abstract two-mass landform with a neck, no real map tile",
+    "the dashed 100-dollar line makes 'back over 100' checkable in one glance"
+   ],
+   "claims": [
+    "C8",
+    "C9",
+    "C10",
+    "C11"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 73.96427,
+   "end": 100.163499
+  },
+  {
+   "id": "S5",
+   "purpose": "what it means for a real ticket",
+   "hero": "four route cards with distance and surcharge",
+   "start_state": "title 'what it means for your pocket'",
+   "end_state": "four cards parked plus the festive-season warning panel",
+   "primary_motion": "cards slide in one per 2 s with a route motif and a travelling plane glyph",
+   "secondary_motion": "card swooshes, festive bell, spark drift",
+   "camera": "breathing zoom",
+   "audio": "four swooshes, bell at the festive chip; VO5 from 100.713 s",
+   "transition": "Fold Over 1.00 s",
+   "acceptance": "all four route pairs readable; distances marked approximate on screen",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "Jammu-Delhi is the first card (local relevance), Delhi-London the international anchor",
+    "the distance is drawn ASCII-free, in numerals next to the route pair"
+   ],
+   "claims": [
+    "C1",
+    "C4",
+    "C13"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 100.163499,
+   "end": 120.056166
+  },
+  {
+   "id": "S6",
+   "purpose": "the honest part - what the reports do not say",
+   "hero": "four cards, one per caveat",
+   "start_state": "title 'the whole truth - four points'",
+   "end_state": "four cards parked with the closing line about the surcharge coming off if fuel cools",
+   "primary_motion": "cards land one per 7.6 s with a motif each (toggle, falling arrow, quote, dots)",
+   "secondary_motion": "UI ticks, toggle click, a downward cooling sweep",
+   "camera": "breathing zoom",
+   "audio": "card ticks; VO6 from 120.606 s",
+   "transition": "Light Leaks 1.00 s",
+   "acceptance": "the March-July precedent and the cooling Brent are both explicit; the 'others have not announced' card is a status, not a prediction",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "the toggle switches on/off to carry the on-again/off-again history",
+    "the falling arrow carries the cooling price without a second chart"
+   ],
+   "claims": [
+    "C8",
+    "C12",
+    "C13"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 120.056166,
+   "end": 154.131187
+  },
+  {
+   "id": "S7",
+   "purpose": "close: the question and the two actions",
+   "hero": "the question in type",
+   "start_state": "brand block on the night sky",
+   "end_state": "Like/Subscribe pill with sheen, three recall chips, a small plane crossing",
+   "primary_motion": "question assembles, pill lands with a light sheen",
+   "secondary_motion": "sparkle on the pill, slow plane crossing, drift",
+   "camera": "breathing zoom",
+   "audio": "two-note question motif and a sparkle; VO7 from 154.681 s",
+   "transition": "none (end of film)",
+   "acceptance": "Like star and Subscribe play icons present and legible; final tail holds 2.2 s",
+   "asset_roles": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "detail_choices": [
+    "recall chips repeat the three hardest facts so the last screen is still useful",
+    "no external links or handles beyond the two actions"
+   ],
+   "claims": [
+    "C1",
+    "C2",
+    "C12"
+   ],
+   "assets": [
+    "html",
+    "master",
+    "font_hi",
+    "font_num",
+    "engine"
+   ],
+   "start": 154.131187,
+   "end": 176.166667
+  }
+ ]
+}

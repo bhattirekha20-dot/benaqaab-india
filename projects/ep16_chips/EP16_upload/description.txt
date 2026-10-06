@@ -1,0 +1,36 @@
+Made-in-India Chips: 5 of 12 Live, Dholera Ka Intezaar | India Semiconductor Mission
+
+India ke chip safar ki asli picture. September 2026 tak 12 approved units mein se 5 commercial production kar rahi hain — lekin wo sab packaging aur testing units hain. Chip banane wala pehla bada silicon fab Dholera mein ban raha hai: 91 hazaar crore, 28 se 110 nanometer, aur commercial output ki khabrein mid-2028 ki hain. Saath hi: Semicon 2.0 ka 1.27 lakh crore package, Odisha ka pehla silicon carbide fab — aur sabse bada sawaal: phir bhi India har saal 30 billion dollar ke chip kyun import karta hai?
+
+Video 3 minute 47 second ka hai. Har fact on-screen source ke saath hai.
+
+CHAPTERS
+0:00 Cold open — 5 of 12 units live
+0:15 The promise — 5 chapter, 4 minute
+0:30 Chapter 1: The plan — 12 units, ₹1.64 lakh crore
+0:59 Chapter 2: Abhi kya chalu hai — 5 units
+1:24 Chapter 3: Dholera — pehla bada silicon fab
+1:54 Chapter 4: Sirf ek fab nahi — SiC, Rajasthan, design
+2:22 Chapter 5: Import bill — 30.3 billion dollar, aur kyun
+2:53 Aapke liye matlab — chips, jobs, resilience
+3:16 Aage dekhna kya hai
+3:40 Sources
+
+SOURCES (all dated; every on-screen claim attributed)
+1. 5 of 12 approved units in commercial production as of Sep 2026 (Suchi Semicon, Surat & CDIL, Mohali began production on 17 Sep 2026) — Hindustan Times explainer, 17 Sep 2026
+2. 12 manufacturing units approved, cumulative investment over ₹1.64 lakh crore; 1 silicon fab, 1 SiC fab, 1 GaN micro-LED fab, 9 packaging units — govt/ISM data (Sep 2026)
+3. Semicon 2.0: ₹1,27,500 crore outlay, approved by the Union Cabinet on 15 Jul 2026; six pillars (design, equipment & materials, fabs, advanced packaging, R&D, talent) — Cabinet brief via ET / ISM
+4. ISM 1.0 launched 2021 with ₹76,000 crore; 105 design startups; PM Modi: Semicon 2.0 outlay $13.5 bn vs $8 bn in phase 1 — ET (15 Jul 2026) & Semicon India 2026 (17 Sep 2026)
+5. Dholera (Tata + Powerchip/PSMC): ₹91,000 crore; 28/40/55/110 nm; ~50,000 wafers/month; earlier indicated for end-2026, current reporting points to commercial output around mid-2028 — govt/Tata disclosures; project reporting via Cofacto (23 Sep 2026)
+6. Dholera >50% built as of Aug 2026; trials targeted Dec 2026 — Cofacto analysis (23 Sep 2026)
+7. SiCSem silicon-carbide fab, Bhubaneswar: ₹2,066 crore, 60,000 wafers/year; EVs, fast chargers, solar, railways, defence; production target 2027-28 — Hindustan Times (17 Sep 2026)
+8. Rajasthan's first semiconductor plant (May 2026); two more units (₹3,900 crore+) approved 5 May 2026 — ISM updates, ism.gov.in
+9. Semiconductor imports $30.3 bn in FY25 (23% CAGR since FY17); electronics imports $116.17 bn in FY26 (+17.8% YoY, ~15% of merchandise imports); domestic value addition 18–20% — MeitY est. via Cofacto/TradeInt; commerce ministry via The Week (Apr 2026)
+10. Fab inputs still imported: manufacturing equipment >90%, specialty chemicals 85–90%, silicon wafers nearly all — TechTimes (Aug 2026) & Cofacto (Sep 2026)
+
+NOTE
+Independent explainer — India Semiconductor Mission, MeitY ya Government of India se koi affiliation nahi. Dates aur project status 4 October 2026 tak ke public reports se; fab timelines aur costs revise ho sakte hain.
+
+Ep16 · Benaqaab India
+
+#Semiconductor #MadeInIndia #Chips #Dholera #SemiconIndia #BenaqaabIndia

@@ -1,0 +1,508 @@
+<!doctype html>
+<!-- Benaqaab India · Ep12 "NavIC: India ka apna GPS kyun band pada hai?"
+     Look: ORBIT LEDGER — deep navy (#060a14→#0b1220), saffron accent (#ffa62b) for the focal point,
+     cyan (#4dd2ff) for data, green (#3ddc97) for "working", red (#ff4d5e) for failure.
+     Anton (hero) + Space Grotesk (heads) + JetBrains Mono (labels) + Inter (body/captions).
+     1920×1080 · 30 fps · captions are word-timed from work/timeline.js · presenter only in scenes 2, 6, 9. -->
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: Anton; src: url('../../brand/fonts/Anton.ttf'); font-weight: 400; }
+  @font-face { font-family: Gro; src: url('../../brand/fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+  @font-face { font-family: JBM; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 100 800; }
+  @font-face { font-family: Inter; src: url('../../brand/fonts/Inter.ttf'); font-weight: 100 900; }
+  :root { --ink:#eef2f8; --mut:#8ea2bd; --amb:#ffa62b; --cyn:#4dd2ff; --grn:#3ddc97; --red:#ff4d5e;
+          --pan:rgba(255,255,255,.045); --lin:rgba(255,255,255,.12); }
+  *{box-sizing:border-box} html,body{margin:0;background:#000}
+  #root{position:relative;width:1920px;height:1080px;overflow:hidden;color:var(--ink);font-family:Inter;
+        background:linear-gradient(165deg,#0a1122 0%,#070b16 45%,#05070d 100%)}
+  .abs{position:absolute} .fit{white-space:nowrap}
+  .hero{font-family:Anton;line-height:.92;letter-spacing:.5px}
+  .head{font-family:Gro;font-weight:700;line-height:1.06;letter-spacing:-.5px}
+  .mono{font-family:JBM;font-weight:600;letter-spacing:1.6px;text-transform:uppercase}
+  .big{font-family:Gro;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .panel{background:var(--pan);border:1px solid var(--lin);border-radius:14px}
+  .chip{display:inline-block;font-family:JBM;font-weight:700;font-size:17px;letter-spacing:1.4px;text-transform:uppercase;
+        padding:7px 12px 6px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid var(--lin);white-space:nowrap}
+  .chip.amb{color:#0b0f16;background:var(--amb);border-color:var(--amb)}
+  .chip.cyn{color:#04121a;background:var(--cyn);border-color:var(--cyn)}
+  .chip.red{color:#fff;background:var(--red);border-color:var(--red)}
+  .chip.grn{color:#04140d;background:var(--grn);border-color:var(--grn)}
+  .rl{font-family:JBM;font-weight:600;font-size:15px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mut)}
+  /* chrome */
+  #bar{position:absolute;left:64px;top:44px;font-size:19px;color:var(--mut)} #bar b{color:var(--ink)}
+  #logo{position:absolute;left:1794px;top:34px;width:62px;height:62px;border-radius:50%}
+  #ai{position:absolute;left:1700px;top:106px;font-size:14px;color:rgba(238,242,248,.5)}
+  #chipch{position:absolute;left:64px;top:88px;font-size:20px;color:var(--amb)}
+  #chipch:before{content:"";display:inline-block;width:26px;height:3px;background:var(--amb);vertical-align:middle;margin-right:12px}
+  #cap{position:absolute;left:0;right:0;top:906px;height:130px;text-align:center}
+  #cap .line2{position:absolute;left:50%;transform:translateX(-50%);padding:14px 26px 16px 30px;white-space:nowrap;
+              font:700 45px/1.14 Inter;letter-spacing:-.3px;opacity:0}
+  #cap .line2 .bg{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(4,7,13,.92);border-left:6px solid var(--amb)}
+  #cap .w{position:relative;display:inline-block;margin-right:.26em;opacity:0} #cap .w:last-child{margin-right:0}
+  #cap .w.key{color:var(--amb)}
+  /* presenter */
+  #host{position:absolute;left:70px;top:142px;width:700px;height:938px}
+  #host img{position:absolute;left:0;top:0;width:700px;height:938px;opacity:0}
+  #htag{position:absolute;font-size:15px;color:rgba(238,242,248,.55)}
+  .sc{position:absolute;left:0;top:0;width:1920px;height:1080px;display:none}
+  .src{position:absolute;left:64px;bottom:26px;font-size:17px;color:rgba(238,242,248,.72);font-family:Inter;font-weight:500}
+  .src b{color:var(--amb);font-weight:700}
+  /* scene 0 */
+  .sat{position:absolute;width:74px;height:74px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(10,16,28,.9)}
+  .sat i{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--cyn)}
+  .sat.off i{background:#4a5568}
+  .stamp{position:absolute;left:96px;top:470px;padding:22px 30px 26px;border:5px solid var(--red);border-radius:10px;
+         background:rgba(24,8,12,.72);transform:rotate(-4.5deg);opacity:0}
+  .stamp .t1{font-family:Gro;font-weight:700;font-size:54px;line-height:1.05;color:#ffdfe4}
+  .stamp .t2{margin-top:10px;font-size:22px;color:rgba(255,223,228,.8)}
+  /* scene 2 */
+  .tl{position:absolute;left:180px;top:560px;width:1560px;height:5px;background:var(--lin);transform-origin:left}
+  .tl2{position:absolute;left:180px;top:560px;width:1560px;height:5px;background:linear-gradient(90deg,var(--amb),var(--cyn));transform-origin:left}
+  .nd{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--amb);box-shadow:0 0 18px rgba(255,166,43,.7)}
+  .ndl{position:absolute;font-family:Gro;font-weight:700;font-size:44px;color:var(--amb)}
+  .nds{position:absolute;font-size:22px;color:var(--ink);width:340px;line-height:1.25}
+  .cov{position:absolute;left:180px;top:848px;height:8px;background:var(--amb);transform-origin:left;border-radius:4px}
+  /* scene 3 */
+  .lnk{fill:none;stroke:var(--cyn);stroke-width:2.4;stroke-dasharray:10 9;opacity:.85}
+  .lnk.c4{stroke:var(--amb)} .lnk.dead{stroke:rgba(255,255,255,.25)}
+  .circ{fill:none;stroke:var(--cyn);stroke-width:2.2;opacity:.5}
+  /* scene 4 */
+  .slot{position:absolute;width:216px;height:148px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid var(--lin);
+        text-align:center;padding-top:22px}
+  .slot .nm{font-family:JBM;font-weight:700;font-size:21px;letter-spacing:1px}
+  .slot .st{margin-top:14px;font-family:JBM;font-size:16px;letter-spacing:1.2px;color:var(--mut)}
+  .slot.ok{border-color:rgba(61,220,151,.7);background:rgba(61,220,151,.10)} .slot.ok .nm{color:var(--grn)}
+  .slot.bad{border-color:rgba(255,77,94,.85);background:rgba(255,77,94,.12)} .slot.bad .nm{color:var(--red)}
+  .slot.dim{opacity:.42}
+  /* scene 6 */
+  .rw{position:absolute;height:66px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--lin)}
+  .rw .t{position:absolute;left:86px;top:9px;font-size:24px;font-weight:600}
+  .rw .s{position:absolute;left:86px;top:38px;font-size:17px;color:var(--mut)}
+  .rw .ic{position:absolute;left:18px;top:15px;width:36px;height:36px;border-radius:9px;background:rgba(61,220,151,.18);
+          border:1px solid rgba(61,220,151,.5)}
+  .rw.no .ic{background:rgba(255,77,94,.16);border-color:rgba(255,77,94,.55)}
+  /* scene 7 */
+  .slot4{position:absolute;width:196px;height:132px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid var(--lin);
+         text-align:center;padding-top:20px}
+</style></head>
+<body><div id="root">
+  <svg width="1920" height="1080" style="position:absolute;left:0;top:0" id="bgart">
+    <g id="stars" fill="rgba(255,255,255,.5)"></g>
+    <g fill="none" stroke="rgba(77,210,255,.16)" stroke-width="1.6">
+      <ellipse cx="960" cy="540" rx="1180" ry="470"/>
+      <ellipse cx="960" cy="540" rx="1500" ry="640"/>
+    </g>
+  </svg>
+  <div id="bar" class="mono">NAVIC · INDIA'S OWN GPS &nbsp;·&nbsp; <b>DATA AS OF 2 OCT 2026</b></div>
+  <img id="logo" src="../../brand/logo.png">
+  <div id="ai" class="mono">AI PRESENTER</div>
+  <div id="chipch" class="mono"></div>
+
+  <!-- ============ S0 · cold open ============ -->
+  <div class="sc" id="s0">
+    <svg width="900" height="620" style="position:absolute;left:940px;top:230px">
+      <circle id="s0r1" cx="450" cy="330" r="120" fill="none" stroke="rgba(77,210,255,.5)" stroke-width="2"/>
+      <circle id="s0r2" cx="450" cy="330" r="190" fill="none" stroke="rgba(77,210,255,.28)" stroke-width="2"/>
+      <rect x="385" y="255" width="130" height="200" rx="18" fill="rgba(10,16,28,.92)" stroke="rgba(255,255,255,.35)" stroke-width="2.4"/>
+      <path id="s0pin" d="M450 300 c 22 0 38 16 38 36 c 0 24 -38 60 -38 60 c 0 0 -38 -36 -38 -60 c 0 -20 16 -36 38 -36 z"
+            fill="rgba(255,166,43,.25)" stroke="var(--amb)" stroke-width="3"/>
+      <path id="s0ln1" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M170 110 L430 285"/>
+      <path id="s0ln2" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M450 60 L450 240"/>
+      <path id="s0ln3" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M740 120 L466 285"/>
+      <path id="s0ln4" class="lnk dead" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M860 250 L500 300"/>
+    </svg>
+    <div class="sat abs" id="s0s1" style="left:1032px;top:262px"><i></i></div>
+    <div class="sat abs" id="s0s2" style="left:1324px;top:212px"><i></i></div>
+    <div class="sat abs" id="s0s3" style="left:1596px;top:266px"><i></i></div>
+    <div class="sat off abs" id="s0s4" style="left:1722px;top:400px"><i></i></div>
+    <div class="mono abs" id="s0l4" style="left:1652px;top:486px;font-size:16px;color:rgba(255,255,255,.45);opacity:0">NO SIGNAL</div>
+    <div class="hero abs" id="s0h" style="left:96px;top:230px;font-size:210px">NAVIC</div>
+    <div class="head abs" id="s0s" style="left:100px;top:452px;font-size:46px;color:var(--mut)">India ka apna GPS</div>
+    <div class="stamp" id="s0st"><div class="t1 fit" style="width:820px">STANDALONE POSITIONING:<br>NOT AVAILABLE</div>
+      <div class="t2">Lok Sabha reply · 29 July 2026</div></div>
+    <div class="src">लोक सभा / Lok Sabha written reply, MoS (Space) — via India Today, 29–30 Jul 2026</div>
+  </div>
+
+  <!-- ============ S1 · the promise ============ -->
+  <div class="sc" id="s1">
+    <div class="head abs" style="left:890px;top:250px;font-size:62px">AAGE KYA?</div>
+    <div class="mono abs" style="left:894px;top:330px;font-size:19px;color:var(--mut)">4 CHAPTER · 3 MINUTE</div>
+    <div id="s1c"></div>
+    <div class="src">Ep12 · NavIC · Benaqaab India</div>
+  </div>
+
+  <!-- ============ S2 · ch1 Kargil ============ -->
+  <div class="sc" id="s2">
+    <div class="head abs" style="left:96px;top:180px;font-size:64px">1999: THE DAY GPS WAS DENIED</div>
+    <div class="mono abs" style="left:100px;top:268px;font-size:20px;color:var(--mut)">KARGIL WAR → INDIA'S OWN NAVIGATION</div>
+    <div class="tl"></div><div class="tl2" id="s2line"></div>
+    <div id="s2n"></div>
+    <div class="cov" id="s2cov" style="width:1440px"></div>
+    <svg class="abs" style="left:1590px;top:826px" width="90" height="52">
+      <path d="M4 26 H70 M56 10 L74 26 L56 42" fill="none" stroke="var(--amb)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="mono abs" id="s2c1" style="left:180px;top:884px;font-size:24px;color:var(--amb);opacity:0">COVERAGE: INDIA + 1,500 KM BEYOND THE BORDER</div>
+    <div class="src">Kargil 1999 &amp; 2006 approval: ThePrint / Drishti IAS · coverage: ISRO (region: India + 1,500 km)</div>
+  </div>
+
+  <!-- ============ S3 · how it works ============ -->
+  <div class="sc" id="s3">
+    <div class="head abs" style="left:96px;top:170px;font-size:56px">4 SATELLITES · ONE IS JUST A CLOCK</div>
+    <div class="mono abs" style="left:100px;top:246px;font-size:19px;color:var(--mut)">3 FOR POSITION · 1 FOR TIME</div>
+    <svg width="1780" height="700" style="position:absolute;left:70px;top:300px">
+      <path id="s3l1" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M340 90 L880 470"/>
+      <path id="s3l2" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M760 60 L920 452"/>
+      <path id="s3l3" class="lnk" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1210 70 L980 456"/>
+      <path id="s3l4" class="lnk c4" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1" d="M1590 110 L1040 462"/>
+      <circle id="s3c1" class="circ" cx="960" cy="470" r="300"/>
+      <circle id="s3c2" class="circ" cx="960" cy="470" r="230"/>
+      <circle id="s3c3" class="circ" cx="960" cy="470" r="160"/>
+      <rect x="900" y="440" width="120" height="66" rx="14" fill="rgba(10,16,28,.95)" stroke="rgba(255,255,255,.4)" stroke-width="2.4"/>
+      <circle cx="960" cy="473" r="13" fill="var(--amb)"/>
+    </svg>
+    <div class="sat abs" id="s3s1" style="left:330px;top:330px"><i></i></div>
+    <div class="sat abs" id="s3s2" style="left:786px;top:306px"><i></i></div>
+    <div class="sat abs" id="s3s3" style="left:1246px;top:316px"><i></i></div>
+    <div class="sat abs" id="s3s4" style="left:1626px;top:356px"><i style="background:var(--amb)"></i></div>
+    <div class="chip amb abs" id="s3ck" style="left:1560px;top:452px;opacity:0">CLOCK · 1 µs</div>
+    <div class="panel abs" id="s3card" style="left:1332px;top:562px;width:520px;height:212px;padding:24px 28px;opacity:0">
+      <div class="rl">ATOMIC CLOCK ERROR</div>
+      <div class="big fit" style="font-size:96px;margin-top:14px;width:464px">1 µs <span style="font-size:44px;color:var(--mut)">→</span> <span style="color:var(--amb)">300 m</span></div>
+      <div style="font-size:19px;color:var(--mut);margin-top:6px">1 microsecond of clock error = 300 m on the ground</div>
+    </div>
+    <div class="panel abs" id="s3orb" style="left:1332px;top:170px;width:520px;height:330px;padding:22px 26px;opacity:0">
+      <div class="rl">CONSTELLATION</div>
+      <div class="big fit" style="font-size:76px;margin-top:10px;width:468px">7 SATELLITES</div>
+      <div style="font-size:21px;color:var(--mut);margin-top:2px">3 geostationary · 4 geosynchronous</div>
+      <svg width="330" height="150" style="margin-top:10px">
+        <ellipse cx="165" cy="80" rx="150" ry="42" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+        <circle cx="15" cy="80" r="9" fill="var(--cyn)"/><circle cx="165" cy="38" r="9" fill="var(--cyn)"/><circle cx="315" cy="80" r="9" fill="var(--cyn)"/>
+        <circle cx="80" cy="60" r="8" fill="var(--amb)"/><circle cx="240" cy="60" r="8" fill="var(--amb)"/>
+        <circle cx="110" cy="112" r="8" fill="var(--amb)"/><circle cx="222" cy="112" r="8" fill="var(--amb)"/>
+      </svg>
+    </div>
+    <div class="src">Signals &amp; clock maths: India Today, 30 Jul 2026 (1 µs ≈ 300 m) · Constellation: ISRO / Drishti IAS</div>
+  </div>
+
+  <!-- ============ S4 · what broke ============ -->
+  <div class="sc" id="s4">
+    <div class="head abs" style="left:96px;top:150px;font-size:58px">7 SLOTS · 4 NEEDED TO FIX A POSITION</div>
+    <div class="mono abs" style="left:100px;top:230px;font-size:19px;color:var(--mut)">POSITIONING NEEDS LAT, LONG, ALTITUDE + CLOCK</div>
+    <div id="s4slots"></div>
+    <div class="panel abs" id="s4n2" style="left:150px;top:600px;width:1030px;height:236px;padding:24px 30px;opacity:0">
+      <div class="rl" style="color:var(--red)">29 JAN 2025 · ISRO'S 100TH LAUNCH FROM SRIHARIKOTA</div>
+      <div class="big fit" style="font-size:62px;margin-top:12px;width:970px">NVS-02 <span style="font-size:30px;color:var(--mut)">· GSLV-F15 · 2,250 kg</span></div>
+      <div style="font-size:23px;margin-top:12px">Satellite reached space — but its <b style="color:var(--red)">engine never fired</b>.</div>
+      <div style="font-size:21px;color:var(--mut);margin-top:6px">Drive signal never reached the pyro valve on the fuel (oxidiser) line.</div>
+      <svg class="abs" style="left:900px;top:52px" width="90" height="120">
+        <rect x="18" y="8" width="54" height="74" rx="8" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+        <line x1="45" y1="82" x2="45" y2="106" stroke="rgba(255,255,255,.5)" stroke-width="4"/>
+        <line x1="12" y1="20" x2="88" y2="96" stroke="var(--red)" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="panel abs" id="s4ck" style="left:640px;top:600px;width:540px;height:236px;padding:24px 30px;opacity:0">
+      <div class="rl">1ST-GENERATION FAULT</div>
+      <div class="big fit" style="font-size:44px;margin-top:14px;width:480px">ATOMIC CLOCKS</div>
+      <div style="font-size:21px;color:var(--mut);margin-top:8px">Imported clocks failed one after another across the first-generation satellites.</div>
+    </div>
+    <div class="panel abs" id="s4cnt" style="left:1240px;top:600px;width:536px;height:236px;padding:24px 30px;opacity:0">
+      <div class="rl">TODAY'S NAVIC</div>
+      <div class="big fit" style="font-size:78px;margin-top:10px;width:476px"><span style="color:var(--grn)">3</span> <span style="color:var(--mut);font-size:44px">of</span> <span style="color:var(--red)">4</span></div>
+      <div style="font-size:20px;color:var(--mut);margin-top:8px">3 of 11 launched satellites are operational (Times Now, 28 Sep 2026)</div>
+    </div>
+    <div class="src">NVS-02 failure &amp; apex-committee findings: ISRO via Indian Defence News / CORS (Sep 2026) · operational count: Times Now, 28 Sep 2026</div>
+  </div>
+
+  <!-- ============ S5 · why it matters ============ -->
+  <div class="sc" id="s5">
+    <div class="head abs" style="left:96px;top:200px;font-size:58px">AN ENCRYPTED SIGNAL<br>FOR THE ARMED FORCES</div>
+    <div class="mono abs" style="left:100px;top:352px;font-size:19px;color:var(--mut)">CIVILIAN OPEN SIGNAL + MILITARY SERVICE</div>
+    <div class="rw abs" id="s5r1" style="left:96px;top:420px;width:840px;opacity:0"><div class="ic"></div><div class="t">MISSILE NAVIGATION</div><div class="s">indigenous positioning, no foreign network</div></div>
+    <div class="rw abs" id="s5r2" style="left:96px;top:500px;width:840px;opacity:0"><div class="ic"></div><div class="t">WARSHIP COORDINATION</div><div class="s">fleet movement and precision at sea</div></div>
+    <div class="rw abs" id="s5r3" style="left:96px;top:580px;width:840px;opacity:0"><div class="ic"></div><div class="t">TROOP MOVEMENT</div><div class="s">timing and positioning in the field</div></div>
+    <div class="rw abs" id="s5r4" style="left:96px;top:660px;width:840px;opacity:0"><div class="ic"></div><div class="t">COMBAT AIRCRAFT OPS</div><div class="s">navigation independent of GPS</div></div>
+    <div class="chip amb abs" id="s5ck" style="left:96px;top:764px;font-size:20px;opacity:0">NVS-03: NOT A LUXURY — A NECESSITY</div>
+    <div id="s5host"></div>
+    <div class="src">NavIC's encrypted military service: The Week, 29 Sep 2026 · impact on forces: Indian Defence News, 28 Sep 2026</div>
+  </div>
+
+  <!-- ============ S6 · what still works ============ -->
+  <div class="sc" id="s6">
+    <div class="head abs" style="left:96px;top:150px;font-size:56px">WHAT STILL WORKS — AND WHAT DOESN'T</div>
+    <div class="mono abs" style="left:100px;top:228px;font-size:19px;color:var(--mut)">STRAIGHT FROM THE GOVERNMENT'S OWN REPLY</div>
+    <div class="abs" id="s6div" style="left:960px;top:280px;width:3px;height:600px;background:var(--lin);transform-origin:top"></div>
+    <div class="rl abs" style="left:120px;top:300px;color:var(--grn)">✓ STILL WORKING</div>
+    <div class="rw abs" id="s6a1" style="left:110px;top:346px;width:790px;opacity:0"><div class="ic"></div><div class="t">TIMING SERVICE</div><div class="s">power grids · telecom · banking · India's standard time</div></div>
+    <div class="rw abs" id="s6a2" style="left:110px;top:426px;width:790px;opacity:0"><div class="ic"></div><div class="t">30,000+ FISHING VESSELS</div><div class="s">use NavIC short messaging at sea</div></div>
+    <div class="rw abs" id="s6a3" style="left:110px;top:506px;width:790px;opacity:0"><div class="ic"></div><div class="t">GAGAN · AVIATION</div><div class="s">a separate system, already in service</div></div>
+    <div class="rl abs" style="left:1040px;top:300px;color:var(--red)">✕ NOT AVAILABLE</div>
+    <div class="rw no abs" id="s6b1" style="left:1030px;top:346px;width:790px;opacity:0"><div class="ic"></div><div class="t">STANDALONE POSITIONING</div><div class="s">a fix from NavIC alone — not possible right now</div></div>
+    <div class="panel abs" id="s6b2" style="left:1030px;top:560px;width:790px;height:190px;padding:20px 26px;opacity:0">
+      <div class="rl">GOVERNMENT'S POSITION</div>
+      <div style="font-size:25px;margin-top:12px;line-height:1.35">"No vulnerability" — phones already use <b style="color:var(--cyn)">GPS + other GNSS</b> alongside NavIC.</div>
+    </div>
+    <div class="src">Lok Sabha reply via India Today (29–30 Jul 2026) · timing users &amp; 30,000+ vessels: Gadgets Now, 30 Jul 2026 · GAGAN: ISRO</div>
+  </div>
+
+  <!-- ============ S7 · what next ============ -->
+  <div class="sc" id="s7">
+    <div class="head abs" style="left:96px;top:150px;font-size:60px">NVS-03: THE 4th SATELLITE</div>
+    <div class="mono abs" style="left:100px;top:232px;font-size:19px;color:var(--mut)">GSLV-F18 · SATISH DHAWAN SPACE CENTRE, SRIHARIKOTA</div>
+    <div class="panel abs" id="s7card" style="left:96px;top:300px;width:900px;height:390px;padding:30px 36px;opacity:0">
+      <div class="rl">REPORTED LAUNCH WINDOW — NOT YET OFFICIAL</div>
+      <div class="big fit" style="font-size:118px;margin-top:18px;width:828px">15–20 <span style="color:var(--amb)">OCT</span></div>
+      <div style="font-size:26px;margin-top:14px">2,250 kg · L1 / L5 / S bands + C-band ranging</div>
+      <div style="font-size:22px;color:var(--mut);margin-top:10px">L1 = the band ordinary phones and smartwatches already use.</div>
+      <div class="chip cyn abs" style="left:560px;top:-18px">REPORTED · TOI / CORS, 21–22 SEP 2026</div>
+    </div>
+    <div id="s7slots"></div>
+    <div class="panel abs" id="s7r" style="left:1060px;top:300px;width:764px;height:390px;padding:26px 30px;opacity:0">
+      <div class="rl">WHY IT MATTERS</div>
+      <div style="font-size:27px;margin-top:16px;line-height:1.4">A 4th working satellite restores <b style="color:var(--amb)">basic standalone positioning</b> — and the constellation crosses its minimum strength again.</div>
+      <div style="font-size:22px;color:var(--mut);margin-top:16px">Then NVS-04 and NVS-05, already at an advanced stage (Lok Sabha, Jul 2026).</div>
+      <div class="chip abs" id="s7off" style="left:30px;top:322px">OFFICIALS: COULD SLIP TO NOVEMBER (Times Now, 28 Sep)</div>
+    </div>
+    <div class="src">Launch window: TOI via CORS (21–22 Sep 2026) · satellite spec: The Week (29 Sep 2026) · NVS-04/05: Lok Sabha reply, Jul 2026</div>
+  </div>
+
+  <!-- ============ S8 · outro ============ -->
+  <div class="sc" id="s8">
+    <div class="head abs" style="left:900px;top:250px;font-size:54px">1999 MEIN SHURU<br>2026 MEIN INTEZAAR</div>
+    <div id="s8mini"></div>
+    <div class="chip amb abs" id="s8c1" style="left:904px;top:640px;font-size:21px;opacity:0">COMMENT: KITNA DEPEND KARNA CHAHIYE?</div>
+    <div class="chip abs" id="s8c2" style="left:904px;top:704px;font-size:21px;opacity:0">SUBSCRIBE · DATA-FIRST EXPLAINERS</div>
+    <div id="s8host"></div>
+    <div class="src">Sources with every claim · Full list in the next card</div>
+  </div>
+
+  <!-- ============ S9 · sources ============ -->
+  <div class="sc" id="s9">
+    <div class="head abs" style="left:96px;top:150px;font-size:62px">SOURCES</div>
+    <div class="mono abs" style="left:100px;top:236px;font-size:19px;color:var(--mut)">EVERY CLAIM ON SCREEN IS ATTRIBUTED · DATED 2 OCT 2026</div>
+    <div id="s9list"></div>
+    <div class="mono abs" id="s9disc" style="left:100px;top:906px;font-size:18px;color:var(--mut);opacity:0">INDEPENDENT EXPLAINER · NOT AFFILIATED WITH ISRO OR THE GOVERNMENT OF INDIA</div>
+  </div>
+
+  <div id="host"></div>
+  <div id="cap"></div>
+</div>
+<script src="../../viz/motion.js"></script>
+<script src="work/timeline.js"></script>
+<script>
+(async () => {
+const TL = window.__TL;
+const { SETTLE, SWEEP, appear, clamp01 } = Motion;
+const EXTRA = 7.2;
+window.DURATION = Math.round((TL.total + EXTRA) * 1000) / 1000; window.FPS = 30; window.WIDTH = 1920; window.HEIGHT = 1080;
+const W = TL.words, C = TL.clips, VIS = TL.visemes, END = window.DURATION;
+const P = (i) => C[i].start, PE = (i) => C[i].start + C[i].dur;
+const $ = (id) => document.getElementById(id);
+const norm = (s) => s.replace(/[^\p{L}\p{N}₹]/gu, '').toLowerCase();
+const wd = (txt, para, nth = 0, fb = 0) => { const m = W.filter(w => w.p === para && norm(w.w) === norm(txt)); return m.length ? (m[nth] || m[0]).t0 : fb; };
+
+/* ---------- chrome: seeded stars (static, deterministic) ---------- */
+let seed = 7; const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+let stars = ''; for (let i = 0; i < 90; i++) { const x = (rnd() * 1920).toFixed(0), y = (rnd() * 1080).toFixed(0), r = (0.7 + rnd() * 1.9).toFixed(2);
+  stars += `<circle cx="${x}" cy="${y}" r="${r}" opacity="${(0.15 + rnd() * 0.5).toFixed(2)}"/>`; }
+$('stars').innerHTML = stars;
+
+/* ---------- scene windows ---------- */
+const SRC_T0 = PE(8) + 0.25;
+const BND = [0].concat(C.slice(1).map(c => c.start - 0.22), [SRC_T0, END]);
+const CHAP = ['NAVIC', 'THE PROMISE', 'CH 1 · 1999', 'CH 2 · HOW IT WORKS', 'CH 3 · WHAT BROKE', 'WHY IT MATTERS',
+              'CH 4 · WHAT STILL WORKS', 'CH 5 · WHAT NEXT', 'OUTRO', 'SOURCES'];
+const sceneAt = (t) => { let k = 0; for (let i = 0; i < BND.length - 1; i++) if (t >= BND[i]) k = i; return k; };
+const SC = CHAP.map((_, i) => $('s' + i));
+
+/* ---------- helpers ---------- */
+const RISE = (el, t, t0, d = 0.55) => { const k = SETTLE(clamp01((t - t0) / d)); el.style.opacity = k.toFixed(3); el.style.transform = `translateY(${(1 - k) * 26}px)`; return k; };
+const POP  = (el, t, t0, d = 0.5) => { const k = SETTLE(clamp01((t - t0) / d)); el.style.opacity = Math.min(1, k * 1.6).toFixed(3); el.style.transform = `scale(${(0.72 + 0.28 * k).toFixed(3)})`; return k; };
+const DRAW = (el, t, t0, d = 0.7) => { const k = SWEEP(clamp01((t - t0) / d)); el.style.strokeDashoffset = (1 - k).toFixed(3); return k; };
+const SLIDE = (el, t, t0, d = 0.5, x = -40) => { const k = SETTLE(clamp01((t - t0) / d)); el.style.opacity = k.toFixed(3); el.style.transform = `translateX(${(1 - k) * x}px)`; return k; };
+
+/* ---------- S1 chips ---------- */
+const CH1 = [['1', 'KARGIL 1999', 'why India built its own'], ['2', 'HOW IT WORKS', '4 satellites · 1 clock'],
+             ['3', 'WHAT BROKE', 'clocks · valves · orbits'], ['4', 'WHAT NEXT', 'NVS-03 · Oct 2026']];
+const s1c = CH1.map((c, i) => { const e = document.createElement('div'); e.className = 'panel';
+  e.style.cssText = `position:absolute;left:890px;top:${392 + i * 116}px;width:944px;height:96px;padding:18px 24px;opacity:0`;
+  e.innerHTML = `<span class="mono" style="font-size:26px;color:var(--amb)">${c[0]}</span>
+    <span class="head" style="font-size:34px;margin-left:22px">${c[1]}</span>
+    <span style="font-size:21px;color:var(--mut);margin-left:22px">${c[2]}</span>`;
+  $('s1c').appendChild(e); return e; });
+
+/* ---------- S2 timeline nodes ---------- */
+const ND = [['1999', 'Kargil war: the US denies GPS data to India', 120], ['2006', 'India approves its own navigation system', 520],
+            ['2013', 'First navigation satellites reach orbit', 980], ['TODAY', 'Three working satellites — need four', 1420]];
+const s2n = ND.map((n, i) => { const d = document.createElement('div'); const x = 180 + n[2];
+  d.innerHTML = `<div class="nd" style="left:${x}px;top:548px"></div>
+    <div class="ndl" style="left:${x + 24}px;top:${i % 2 ? 470 : 600}px">${n[0]}</div>
+    <div class="nds" style="left:${x + 24}px;top:${i % 2 ? 520 : 650}px;${i % 2 ? '' : ''}">${n[1]}</div>`;
+  [...d.children].forEach(c => { c.style.opacity = 0; c.classList.add('abs'); });
+  $('s2n').appendChild(d); return [...d.children]; });
+
+/* ---------- S4 slots ---------- */
+const S4 = [['IRNSS-1B', 'ok', 'OPERATIONAL'], ['IRNSS-1I', 'ok', 'OPERATIONAL'], ['NVS-01', 'ok', 'OPERATIONAL'],
+            ['—', 'dim', ''], ['—', 'dim', ''], ['—', 'dim', ''], ['NVS-02', 'bad', 'STUCK IN GTO']];
+const s4 = S4.map((s, i) => { const e = document.createElement('div'); e.className = 'slot ' + s[1];
+  e.style.left = (150 + i * 234) + 'px'; e.style.top = '300px';
+  e.innerHTML = `<div class="nm">${s[0]}</div><div class="st">${s[2]}</div>`;
+  $('s4slots').appendChild(e); return e; });
+
+/* ---------- S7 slots (4th relights) ---------- */
+const s7 = [0, 1, 2, 3].map(i => { const e = document.createElement('div'); e.className = 'slot4';
+  e.style.left = (96 + i * 216) + 'px'; e.style.top = '740px';
+  e.innerHTML = `<div class="nm" style="font-family:JBM;font-weight:700;font-size:20px">${['1B', '1I', 'NVS-01', 'NVS-03'][i]}</div>
+                 <div class="st" id="s7st${i}" style="margin-top:12px;font-family:JBM;font-size:15px;letter-spacing:1px;color:var(--mut)">${i < 3 ? 'LIVE' : '?'}</div>`;
+  $('s7slots').appendChild(e); return e; });
+
+/* ---------- S8 recap ---------- */
+const s8 = [['1999', 'GPS denied at Kargil'], ['2006–13', 'NavIC built · satellites launched'], ['OCT 2026', 'NVS-03 ready at Sriharikota']].map((m, i) => {
+  const e = document.createElement('div'); e.className = 'panel';
+  e.style.cssText = `position:absolute;left:900px;top:${456 + i * 62}px;width:924px;height:52px;padding:10px 18px;opacity:0;display:flex;align-items:center;gap:18px`;
+  e.innerHTML = `<span class="mono" style="font-size:17px;color:var(--amb)">${m[0]}</span>
+    <span style="font-size:23px;color:var(--ink)">${m[1]}</span>`;
+  $('s8mini').appendChild(e); return e; });
+
+/* ---------- S9 sources ---------- */
+const SOURCES = [
+ 'Lok Sabha written reply (MoS Space) — "cannot provide standalone positioning" — via India Today, 29–30 Jul 2026',
+ 'Timing users, grids/banking/telecom, 30,000+ fishing vessels — Gadgets Now, 30 Jul 2026',
+ 'NVS-02 failure: apex committee on the pyro valve signal — ISRO via Indian Defence News, 28 Sep 2026',
+ 'NVS-03 launch window 15–20 Oct 2026 (reported) — Times of India via CORS, 21–22 Sep 2026',
+ 'NVS-03 spec (2,250 kg · L1/L5/S + C-band) — The Week, 29 Sep 2026',
+ '3 of 11 satellites operational — Times Now, 28 Sep 2026',
+ 'Kargil 1999 origin &amp; 2006 approval — ThePrint / Drishti IAS · 1 µs ≈ 300 m — India Today, 30 Jul 2026'];
+const s9 = SOURCES.map((s, i) => { const e = document.createElement('div');
+  e.style.cssText = `position:absolute;left:104px;top:${312 + i * 72}px;width:1700px;font-size:23px;color:#cfd9e6;opacity:0`;
+  e.innerHTML = `<span class="mono" style="font-size:16px;color:var(--amb);margin-right:16px">${String(i + 1).padStart(2, '0')}</span>${s}`;
+  $('s9list').appendChild(e); return e; });
+
+/* ---------- presenter ---------- */
+$('host').innerHTML = '<img src="../../brand/host/host_rgba_0.png"><img src="../../brand/host/host_rgba_1.png"><img src="../../brand/host/host_rgba_2.png">';
+const HOSTS = [...document.querySelectorAll('#host img')];
+const HTAG = document.createElement('div'); HTAG.id = 'htag'; HTAG.className = 'mono'; HTAG.textContent = 'AI PRESENTER';
+document.getElementById('root').appendChild(HTAG);
+const hostAt = (i) => i === 1 || i === 5 || i === 8;
+
+/* ---------- captions ---------- */
+const KEY = new Set(['0:navic', '0:akela', '0:parliament', '0:wajah', '1:kargil', '1:toota', '1:aage',
+ '2:1999', '2:kargil', '2:2006', '2:2013', '2:navic', '2:pandrah',
+ '3:chaar', '3:teen', '3:chautha', '3:microsecond', '3:atomic', '3:saat',
+ '4:clocks', '4:january', '4:nvs02', '4:valve', '4:teen', '4:chaar',
+ '5:encrypted', '5:missile', '5:warship', '5:troop', '5:nvs03', '5:zaroorat',
+ '6:timing', '6:banking', '6:gagan', '6:standalone', '6:khatra', '6:gps',
+ '7:nvs03', '7:pandrah', '7:october', '7:chautha', '7:nvs04',
+ '8:navic', '8:chaathe', '8:comment', '8:subscribe']);
+const MAXC = 26, lines = [];
+{ const phrases = []; let ph = null;
+  W.forEach(w => { if (!ph || w.p !== ph.p) { ph = { p: w.p, words: [] }; phrases.push(ph); } ph.words.push(w); if (w.b) ph = null; });
+  phrases.forEach(ph => { const ws = ph.words, n = ws.length, L = ws.map(w => w.w.length);
+    const span = (i, j) => L.slice(i, j).reduce((x, y) => x + y, 0) + (j - i - 1);
+    const k = Math.max(1, Math.ceil(span(0, n) / MAXC));
+    const best = [...Array(n + 1)].map(() => Array(k + 1).fill([1e9, -1])); best[0][0] = [0, -1];
+    for (let j = 1; j <= k; j++) for (let i = 1; i <= n; i++) for (let m = j - 1; m < i; m++) { const c = Math.max(best[m][j - 1][0], span(m, i)); if (c < best[i][j][0]) best[i][j] = [c, m]; }
+    const cuts = []; for (let i = n, j = k; j > 0; j--) { const m = best[i][j][1]; cuts.unshift([m, i]); i = m; }
+    cuts.forEach(([i0, i1]) => lines.push({ p: ph.p, words: ws.slice(i0, i1).map(w => ({ ...w })) })); }); }
+lines.forEach(L => { L.el = document.createElement('div'); L.el.className = 'line2'; L.bg = document.createElement('div'); L.bg.className = 'bg'; L.el.appendChild(L.bg);
+  L.words.forEach(w => { const s = document.createElement('span'); w.key = KEY.has(w.p + ':' + norm(w.w)); s.className = 'w' + (w.key ? ' key' : ''); s.textContent = w.w; w.el = s; L.el.appendChild(s); });
+  L.t0 = L.words[0].t0; $('cap').appendChild(L.el); });
+lines.forEach((L, k) => { const nx = lines[k + 1]; L.t1 = nx && nx.p === L.p ? nx.t0 - 0.02 : Math.min(PE(L.p) + 0.3, nx ? nx.t0 - 0.02 : END); });
+
+/* ---------- per-scene dynamic render ---------- */
+function s0(t, a, b) {
+  const T = BND[0];
+  RISE($('s0h'), t, T + 0.12, 0.7); RISE($('s0s'), t, T + 0.5, 0.6);
+  ['s0s1', 's0s2', 's0s3'].forEach((id, i) => { const k = POP($(id), t, T + 0.9 + i * 0.22, 0.55); });
+  POP($('s0s4'), t, T + 1.6, 0.55);
+  DRAW($('s0ln1'), t, T + 1.05, 0.5); DRAW($('s0ln2'), t, T + 1.27, 0.5); DRAW($('s0ln3'), t, T + 1.49, 0.5); DRAW($('s0ln4'), t, T + 1.7, 0.5);
+  $('s0l4').style.opacity = SETTLE(clamp01((t - T - 2.1) / 0.4)).toFixed(3);
+  const ring = Math.sin(t * 2.4), r1 = 120 + 26 * (1 + ring) / 2, r2 = 190 + 34 * (1 - ring) / 2;
+  $('s0r1').setAttribute('r', r1.toFixed(1)); $('s0r2').setAttribute('r', r2.toFixed(1));
+  $('s0r1').setAttribute('stroke-opacity', (0.25 + 0.45 * (1 - ring) / 2).toFixed(3));
+  $('s0r2').setAttribute('stroke-opacity', (0.12 + 0.3 * (1 + ring) / 2).toFixed(3));
+  const st = POP($('s0st'), t, wd('akela', 0, 0, T + 6.2), 0.42);
+  $('s0st').style.transform = `rotate(-4.5deg) scale(${(0.6 + 0.4 * st).toFixed(3)})`;
+}
+function s1f(t) { const T = BND[1]; const tm = [wd('navic', 1, 0, T + 1.4), wd('kaam', 1, 0, T + 3.4), wd('toota', 1, 0, T + 5.2) , wd('aage', 1, 0, T + 6.2)];
+  s1c.forEach((e, i) => SLIDE(e, t, tm[i] - 0.15, 0.5, 46)); }
+function s2f(t) { const T = BND[2]; const tm = [wd('kargil', 2, 0, T + 4.6), wd('2006', 2, 0, T + 12.2), wd('2013', 2, 0, T + 16.6), wd('pandrah', 2, 0, T + 22.4)];
+  $('s2line').style.transform = `scaleX(${SWEEP(clamp01((t - T + 0.4) / 1.0)).toFixed(3)})`;
+  s2n.forEach((parts, i) => { const kk = Math.max(POP(parts[0], t, tm[i], 0.45), RISE(parts[1], t, tm[i] + 0.08, 0.5) * RISE(parts[2], t, tm[i] + 0.16, 0.5));
+    parts.forEach(p => p.style.display = kk > 0 ? 'block' : 'none'); });
+  const k = SWEEP(clamp01((t - tm[3] + 0.1) / 1.1)); $('s2cov').style.transform = `scaleX(${k.toFixed(3)})`;
+  $('s2c1').style.opacity = SETTLE(clamp01((t - tm[3] + 0.1) / 0.4)).toFixed(3); }
+function s3f(t) { const T = BND[3]; const t0 = wd('chaar', 3, 0, T + 2.2), t3 = wd('teen', 3, 0, T + 4.6), t4 = wd('chautha', 3, 0, T + 8.4),
+    tm = wd('microsecond', 3, 0, T + 14.6), t7 = wd('saat', 3, 0, T + 20.6);
+  ['s3s1', 's3s2', 's3s3', 's3s4'].forEach((id, i) => POP($(id), t, t0 + i * 0.2, 0.5));
+  DRAW($('s3l1'), t, t0 + 0.55, 0.55); DRAW($('s3l2'), t, t0 + 0.7, 0.55); DRAW($('s3l3'), t, t0 + 0.85, 0.55); DRAW($('s3l4'), t, t4 + 0.5, 0.6);
+  const kk = clamp01((t - t3) / 0.7); ['s3c1', 's3c2', 's3c3'].forEach((id, i) => { $(id).style.opacity = (kk * 1.4 * (1 - i * 0.18)).toFixed(3); });
+  $('s3ck').style.opacity = POP($('s3ck'), t, t4 + 0.35, 0.45).toFixed(3);
+  $('s3card').style.opacity = RISE($('s3card'), t, tm - 0.25, 0.6).toFixed(3);
+  $('s3orb').style.opacity = RISE($('s3orb'), t, t7 - 0.25, 0.6).toFixed(3); }
+function s4f(t) { const T = BND[4]; const tc = wd('clocks', 4, 0, T + 3.6), tj = wd('january', 4, 0, T + 8.0), tv = wd('valve', 4, 0, T + 13.0),
+    tt = wd('teen', 4, 1, T + 25.0), tch = wd('chaar', 4, 0, T + 30.0);
+  s4.forEach((e, i) => { const k = SETTLE(clamp01((t - T - 0.25 - i * 0.07) / 0.4)); e.style.opacity = k.toFixed(3); e.style.transform = `translateY(${(1 - k) * 22}px)`; });
+  const okk = SETTLE(clamp01((t - tt) / 0.5)); s4.forEach((e, i) => { if (i < 3) { e.style.boxShadow = `0 0 ${(22 * okk).toFixed(1)}px rgba(61,220,151,${(0.5 * okk).toFixed(2)})`; } });
+  $('s4n2').style.opacity = RISE($('s4n2'), t, tj + 0.1, 0.55).toFixed(3);
+  $('s4ck').style.opacity = RISE($('s4ck'), t, tc - 0.2, 0.55).toFixed(3);
+  const vv = SETTLE(clamp01((t - tv + 0.05) / 0.35)); const svg = $('s4n2').querySelector('svg'); svg.style.opacity = vv.toFixed(3);
+  $('s4cnt').style.opacity = RISE($('s4cnt'), t, tch - 0.15, 0.5).toFixed(3); }
+function s5f(t) { const T = BND[5]; const tm = [wd('missile', 5, 0, T + 4.4), wd('warship', 5, 0, T + 6.2), wd('troop', 5, 0, T + 7.8), wd('nirbhar', 5, 0, T + 9.6), wd('zaroorat', 5, 0, T + 17.4)];
+  ['s5r1', 's5r2', 's5r3', 's5r4'].forEach((id, i) => SLIDE($(id), t, tm[i] - 0.1, 0.45, -44));
+  $('s5ck').style.opacity = POP($('s5ck'), t, tm[4] - 0.1, 0.4).toFixed(3); }
+function s6f(t) { const T = BND[6]; const tm = [wd('timing', 6, 0, T + 1.2), wd('hazaar', 6, 0, T + 7.6), wd('gagan', 6, 0, T + 12.0), wd('standalone', 6, 0, T + 15.6), wd('khatra', 6, 0, T + 20.6)];
+  $('s6div').style.transform = `scaleY(${SWEEP(clamp01((t - T + 0.2) / 0.8)).toFixed(3)})`;
+  ['s6a1', 's6a2', 's6a3'].forEach((id, i) => SLIDE($(id), t, tm[i] - 0.1, 0.45, -40));
+  SLIDE($('s6b1'), t, tm[3] - 0.1, 0.45, 40);
+  $('s6b2').style.opacity = RISE($('s6b2'), t, tm[4] - 0.1, 0.5).toFixed(3); }
+function s7f(t) { const T = BND[7]; const tn = wd('nvs03', 7, 0, T + 2.2), tw = wd('pandrah', 7, 0, T + 4.0), tc = wd('chautha', 7, 0, T + 10.6), t4 = wd('nvs04', 7, 0, T + 16.2);
+  $('s7card').style.opacity = RISE($('s7card'), t, tn - 0.15, 0.6).toFixed(3);
+  $('s7r').style.opacity = RISE($('s7r'), t, tw - 0.15, 0.6).toFixed(3);
+  const k = SETTLE(clamp01((t - tc) / 0.6)); s7[3].style.background = `rgba(255,166,43,${(0.16 * k).toFixed(3)})`;
+  s7[3].style.borderColor = `rgba(255,166,43,${(0.85 * k).toFixed(3)})`;
+  $('s7st3').textContent = t >= tc ? '4th · LAUNCHING' : '?'; $('s7st3').style.color = t >= tc ? 'var(--amb)' : 'var(--mut)';
+  $('s7off').style.opacity = SETTLE(clamp01((t - t4) / 0.4)).toFixed(3); }
+function s8f(t) { const T = BND[8]; const tm = [wd('chaathe', 8, 0, T + 2.2), wd('depend', 8, 0, T + 6.0), wd('comment', 8, 0, T + 7.4)];
+  s8.forEach((e, i) => SLIDE(e, t, tm[0] - 0.1 + i * 0.18, 0.45, 44));
+  $('s8c1').style.opacity = POP($('s8c1'), t, tm[1] - 0.1, 0.4).toFixed(3);
+  $('s8c2').style.opacity = POP($('s8c2'), t, tm[2] + 0.6, 0.4).toFixed(3); }
+function s9f(t) { const T = BND[9]; s9.forEach((e, i) => RISE(e, t, T + 0.15 + i * 0.16, 0.5));
+  $('s9disc').style.opacity = SETTLE(clamp01((t - T - 1.5) / 0.5)).toFixed(3); }
+const SCF = [s0, s1f, s2f, s3f, s4f, s5f, s6f, s7f, s8f, s9f];
+
+/* ---------- seek ---------- */
+window.seek = (t) => {
+  const k = sceneAt(t), t0 = BND[k], t1 = BND[k + 1];
+  SC.forEach((e, i) => { if (i === k) { e.style.display = 'block';
+      const local = t - t0, dur = t1 - t0;
+      const f = Math.min(clamp01(local / 0.5), clamp01((dur - local) / 0.35));
+      e.style.opacity = f.toFixed(3); e.style.transform = 'none';
+    } else e.style.display = 'none'; });
+  $('chipch').textContent = CHAP[k];
+  SCF[k](t, t0, t1);
+  // presenter
+  const on = hostAt(k); const hf = on ? Math.min(clamp01((t - t0) / 0.45), clamp01((t1 - t - 0.3) / 0.45)) : 0;
+  $('host').style.opacity = hf.toFixed(3);
+  const f = Math.min(VIS.length - 1, Math.max(0, Math.round(t * 30)));
+  const v = VIS[f] | 0;
+  HOSTS.forEach((im, i) => { im.style.opacity = i === v ? 1 : 0; });
+  HTAG.style.opacity = (hf * 0.9).toFixed(3);
+  HTAG.style.left = (k === 5 ? 1150 : 70) + 'px'; HTAG.style.top = (on ? 156 : 142) + 'px';
+  $('host').style.left = (k === 5 ? 1150 : 70) + 'px';
+  // captions
+  lines.forEach(L => { const vis = t >= L.t0 - 0.02 && t < L.t1; L.el.style.opacity = vis ? 1 : 0;
+    if (!vis) return; let wdt = 0;
+    L.words.forEach((w, i) => { if (t >= w.t0 - 0.11) { const kk = SETTLE(clamp01((t - w.t0 + 0.11) / 0.09)); const prv = i ? L.words[i - 1].right : 0; wdt = prv + (w.right - prv) * kk; } });
+    L.bg.style.width = (wdt + 26).toFixed(1) + 'px';
+    L.words.forEach(w => { const kk = appear(t, w.t0 - 0.03); w.el.style.opacity = kk > 0 ? 1 : 0; w.el.style.transform = `translateY(${((1 - Math.min(1, kk)) * 12).toFixed(2)}px)`; }); });
+};
+window.speed = () => 0;
+
+await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+await document.fonts.ready;
+document.querySelectorAll('.fit').forEach(e => { let fs = parseFloat(getComputedStyle(e).fontSize), guard = 0;
+  while (e.scrollWidth > e.clientWidth + 2 && guard++ < 80) { fs -= 2; e.style.fontSize = fs + 'px'; } });
+lines.forEach(L => { L.el.style.opacity = 1; L.words.forEach(w => { w.right = w.el.offsetLeft + w.el.offsetWidth; }); L.el.style.opacity = 0; });
+window.seek(0); window.ready = true;
+})().catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__err = String(e); });
+</script></body></html>
