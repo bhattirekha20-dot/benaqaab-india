@@ -44,15 +44,17 @@ In Benaqaab India, **no image is decorative wallpaper**. Every single image in t
 
 ---
 
-## 📁 3. Copyright Protection & Forensic MEA Stylization (5 assets)
+## 📁 3. Copyright Protection & Forensic Stylization (Local Reference Assets)
+
+> **Security & Privacy Boundary:** The reference frames in this section are kept strictly local in the creator's workspace and are ignored by `.gitignore` to protect sensitive imagery. The code filter implementations and methodology are documented in [`brand/style_refs/README.md`](brand/style_refs/README.md).
 
 | Asset Path | Dim | Archetype | Factual Significance & Narrative Context | Profile | Agent Usage Directive |
 |---|---|---|---|---|---|
-| [`source_footage_ref.png`](brand/style_refs/source_footage_ref.png) | `535x863` | **Broadcast Video Copyright Protection Standard** | Demonstrates the official Benaqaab newsprint halftone filter + red redaction bar applied to government and broadcast clips to defeat automated copyright strikes while establishing an unmistakable investigative look. | `Profile B (Forensic Dossier)` | When incorporating external news or MEA footage, apply halftone dot grid and red horizontal bar (#ef4444 at 65% opacity) over eyes/face as demonstrated in this reference. |
-| [`source_footage_style_demo.jpg`](brand/style_refs/source_footage_style_demo.jpg) | `1532x800` | **Broadcast Video Copyright Protection Standard** | Demonstrates the official Benaqaab newsprint halftone filter + red redaction bar applied to government and broadcast clips to defeat automated copyright strikes while establishing an unmistakable investigative look. | `Profile B (Forensic Dossier)` | When incorporating external news or MEA footage, apply halftone dot grid and red horizontal bar (#ef4444 at 65% opacity) over eyes/face as demonstrated in this reference. |
-| [`17907894618037945566553074676453.jpg`](uploads/17907894618037945566553074676453.jpg) | `2400x1800` | **Creator Operational Directives** | Historic direct instructions from the channel creator commanding: (1) source video protection via visual treatment, and (2) absolute preservation of motion.py and rendering tools. | `Historical Record` | Read instructions embedded in this image to understand the creator's non-negotiable intent regarding toolchain stability and copyright safety. |
-| [`1790789533330895784964793774051.jpg`](uploads/1790789533330895784964793774051.jpg) | `2400x1800` | **Creator Operational Directives** | Historic direct instructions from the channel creator commanding: (1) source video protection via visual treatment, and (2) absolute preservation of motion.py and rendering tools. | `Historical Record` | Read instructions embedded in this image to understand the creator's non-negotiable intent regarding toolchain stability and copyright safety. |
-| [`image-1.png`](uploads/image-1.png) | `535x863` | **Clean Reference Capture** | High-resolution digital master of the visual treatment requested by the creator for all source footage integration. | `Profile B (Forensic Dossier)` | Use as reference when implementing the dynamic broadcast filter in canvas or PIL pipeline. |
+| `brand/style_refs/source_footage_ref.png` | `535x863` | **Local Broadcast Reference (Gitignored)** | Local reference demonstrating newsprint halftone filter + red redaction bar applied to broadcast footage. | `Profile B (Forensic Dossier)` | Local visual reference only (not tracked in Git). Apply procedural code filter in `comp.html` canvas. |
+| `brand/style_refs/source_footage_style_demo.jpg` | `1532x800` | **Local Broadcast Reference (Gitignored)** | Local comparison of broadcast video treatment across 9:16 Shorts and 16:9 documentary formats. | `Profile B (Forensic Dossier)` | Local visual reference only (not tracked in Git). Adhere to aspect ratio guidelines. |
+| `uploads/17907894618037945566553074676453.jpg` | `2400x1800` | **Local Creator Directive (Gitignored)** | Historic creator instruction commanding source video protection via visual filtering. | `Historical Record` | Local workspace record. Apply fair-use filter stack to all external clips. |
+| `uploads/1790789533330895784964793774051.jpg` | `2400x1800` | **Local Creator Directive (Gitignored)** | Historic creator instruction mandating permanence of motion.py and rendering tools. | `Historical Record` | Local workspace record. Never remove core motion graphics tools. |
+| `uploads/image-1.png` | `535x863` | **Local Reference Capture (Gitignored)** | Local digital capture of the red censorship stripe halftone styling. | `Profile B (Forensic Dossier)` | Local workspace record. |
 
 ---
 

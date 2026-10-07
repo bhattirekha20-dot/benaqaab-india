@@ -32,6 +32,8 @@ projects/voter_list_sir/comp.html
 # ─── Private user uploads & phone screenshots ─
 uploads/
 uploads/*
+brand/style_refs/*.png
+brand/style_refs/*.jpg
 
 # ─── Environment variables & secrets ──────────
 .env

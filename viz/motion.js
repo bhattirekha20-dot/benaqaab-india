@@ -323,10 +323,97 @@
     ctx.restore();
   }
 
+  function drawCalloutPin(ctx, t, startT, targetX, targetY, elbowX, elbowY, labelEn, labelHi, tagColor = '#38bdf8') {
+    if (t < startT) return;
+    const p = Math.min(1, Math.max(0, (t - startT) / 0.5));
+    const reticleScale = Math.min(1.2, 1 - Math.exp(-p * 8) * Math.cos(p * 10));
+    
+    ctx.save();
+    ctx.strokeStyle = tagColor;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.arc(targetX, targetY, 14 * reticleScale, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    const ping = (t - startT) % 1.5;
+    if (ping < 1.0) {
+      ctx.strokeStyle = tagColor;
+      ctx.globalAlpha = 1.0 - ping;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(targetX, targetY, 14 + ping * 24, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    }
+
+    ctx.fillStyle = tagColor;
+    ctx.beginPath();
+    ctx.arc(targetX, targetY, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (p > 0.1) {
+      const lineP = Math.min(1, (p - 0.1) / 0.5);
+      const currElbowX = targetX + (elbowX - targetX) * lineP;
+      const currElbowY = targetY + (elbowY - targetY) * lineP;
+      
+      ctx.strokeStyle = tagColor;
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(targetX, targetY);
+      ctx.lineTo(currElbowX, currElbowY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      if (lineP >= 0.8) {
+        const badgeP = Math.min(1, (lineP - 0.8) / 0.2);
+        const badgeScale = 0.8 + 0.2 * badgeP;
+        const dir = elbowX >= targetX ? 1 : -1;
+        const badgeW = 340;
+        const badgeH = 76;
+        const bx = dir > 0 ? elbowX : elbowX - badgeW;
+        const by = elbowY - badgeH / 2;
+
+        ctx.save();
+        ctx.translate(elbowX, elbowY);
+        ctx.scale(badgeScale, badgeScale);
+        ctx.translate(-elbowX, -elbowY);
+
+        ctx.fillStyle = 'rgba(10, 15, 24, 0.94)';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+        ctx.shadowBlur = 18;
+        ctx.beginPath();
+        ctx.roundRect(bx, by, badgeW, badgeH, 10);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        ctx.strokeStyle = tagColor;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = tagColor;
+        ctx.beginPath();
+        ctx.roundRect(bx, by, 6, badgeH, [10, 0, 0, 10]);
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '700 20px -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(labelEn, bx + 18, by + 30);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '600 16px sans-serif';
+        ctx.fillText(labelHi, bx + 18, by + 56);
+        ctx.restore();
+      }
+    }
+    ctx.restore();
+  }
+
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
     readTime, splitWords, riseWords,
-    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp };
+    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
