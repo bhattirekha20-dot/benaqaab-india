@@ -46,8 +46,12 @@ const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  // Default routes -> Dashboard
-  if (pathname === '/' || pathname === '/dashboard' || pathname === '/dashboard/') {
+  // Root redirect -> /dashboard/ for clean relative path resolution
+  if (pathname === '/') {
+    res.writeHead(302, { 'Location': '/dashboard/' });
+    return res.end();
+  }
+  if (pathname === '/dashboard' || pathname === '/dashboard/') {
     pathname = '/dashboard/index.html';
   }
 
@@ -57,11 +61,16 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      // Check if directory with index.html
-      if (stats && stats.isDirectory()) {
+      // Fallback 1: check if file exists directly under dashboard/
+      const dashCandidate = path.join(ROOT_DIR, 'dashboard', safePath);
+      if (fs.existsSync(dashCandidate) && fs.statSync(dashCandidate).isFile()) {
+        filePath = dashCandidate;
+        stats = fs.statSync(dashCandidate);
+      } else if (stats && stats.isDirectory()) {
         const candidate = path.join(filePath, 'index.html');
         if (fs.existsSync(candidate)) {
           filePath = candidate;
+          stats = fs.statSync(candidate);
         } else {
           res.writeHead(404, { 'Content-Type': 'text/plain' });
           return res.end('404 Not Found');
