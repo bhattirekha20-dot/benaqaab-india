@@ -5450,6 +5450,33 @@ Addressed all findings and gaps from the 7 October 2026 repository audit review 
    - Added segment timestamps to `description.txt`.
    - Standardized subtitles as `headline_captions.srt`.
 
+---
+
+## 156. Forensic Motion System & 5 Primitives Codified — 07 Oct 2026
+
+**Context & Core Directives:**  
+Integrated the definitive **All-in-One AI Master Directive & Forensic Motion System** (`BENAQAAB_FORENSIC_MOTION_SYSTEM.md`):
+
+1. **Foundational Law — Code is the Video Editor:**
+   - Prohibited dumping proprietary desktop effect name catalogues (CapCut, Photoshop, Premiere).
+   - Enforced pure-function-of-time deterministic canvas rendering ($t$) inside `comp.html` via `viz/hrender.py` (1080×1920, 30 FPS).
+2. **Data-to-DOM Fact Ledger Architecture:**
+   - Strictly forbidden hardcoding magic numbers in canvas `fillText`. All on-screen statistics, currency figures, and dates must bind dynamically to `FACT_LEDGER`.
+3. **The 5 Forensic Motion Primitives:**
+   - Implemented and exported in `viz/motion.js`:
+     - `drawOdometer`: rolling numeric counter with exponential ease-out.
+     - `drawHighlighter`: authentic gazette marker sweep using `globalCompositeOperation = 'multiply'`.
+     - `drawRedactionPeel`: matte black classified redaction bar peel.
+     - `drawEvidenceLoupe`: 2X reticle zoom lens with spring overshoot and verified tag.
+     - `drawVerdictStamp`: rubber verdict stamp with spring overshoot and physical screen shake vibration.
+4. **Mobile Safe Zones (9:16 Vertical):**
+   - Top 0–230px (avatar/subscribe), Bottom 1497–1920px (captions/audio), Right 907–1080px (action buttons).
+   - **Safe Workspace:** `X: 80 to 900 | Y: 240 to 1480`.
+5. **Reusable Template:**
+   - Created `viz/templates/forensic_comp_boilerplate.html` implementing the full `window.seek(t)` contract, FACT_LEDGER binding, and all 5 primitives.
+   - Cross-referenced in `MASTER_AGENT_DISPATCH.md` §6.4, `README.md`, and `START_HERE.md`.
+
+
 
 
 

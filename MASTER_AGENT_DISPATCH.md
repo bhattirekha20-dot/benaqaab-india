@@ -256,6 +256,26 @@ QA is multi-layered and does not confuse structural validation with encoded qual
 4. **Rendered Contrast Ratio:**
    - Text over background must exceed **4.5:1** (WCAG AA).
 
+### 6.4 The Forensic Motion Engine & 5 Runnable Primitives
+*(Canonical Reference: [`BENAQAAB_FORENSIC_MOTION_SYSTEM.md`](BENAQAAB_FORENSIC_MOTION_SYSTEM.md) & Boilerplate: [`viz/templates/forensic_comp_boilerplate.html`](viz/templates/forensic_comp_boilerplate.html))*
+
+1. **Foundational Law — Code is the Video Editor:**
+   - Never dump proprietary GUI catalogues (CapCut, Photoshop, Premiere).
+   - Video is generated as a pure function of time $t$ inside `comp.html` and rendered via `viz/hrender.py`.
+2. **Data-to-DOM Fact Ledger Architecture:**
+   - Every metric, date, or percentage must be dynamically bound to `const FACT_LEDGER = {...}`. Hardcoding numbers in canvas `fillText` is strictly forbidden.
+3. **The 5 Modular Forensic Primitives (Exported in `Motion` / `viz/motion.js`):**
+   - **Primitive 1 (Odometer):** `drawOdometer(ctx, t, startT, duration, startVal, targetVal, x, y)` — rolling numeric counter with exponential ease-out settling.
+   - **Primitive 2 (Highlighter):** `drawHighlighter(ctx, t, startT, duration, x, y, width, height)` — uses `globalCompositeOperation = 'multiply'` for transparent yellow gazette highlight.
+   - **Primitive 3 (Redaction Peel):** `drawRedactionPeel(ctx, t, startT, duration, x, y, width, height)` — matte black classified redaction bar sliding off to reveal proof.
+   - **Primitive 4 (Evidence Loupe):** `drawEvidenceLoupe(ctx, t, startT, x, y, radius, zoomScale)` — 2X reticle zoom lens with spring entry and verified callout tag.
+   - **Primitive 5 (Verdict Stamp):** `drawVerdictStamp(ctx, t, hitT, textEn, textHi, cx, cy)` — slamming rubber verdict stamp with spring overshoot and physical screen shake.
+4. **Mobile Safe Zone Bounds (9:16 Vertical — 1080×1920):**
+   - **Top Obstruction:** `0px to 230px` (avatar, subscribe pill)
+   - **Bottom Obstruction:** `1497px to 1920px` (captions, audio pill, title)
+   - **Right Obstruction:** `907px to 1080px` (engagement action buttons)
+   - **SAFE WORKSPACE:** **X: 80 to 900 | Y: 240 to 1480** (all evidence, counters, and stamps live here).
+
 ---
 
 ## 📦 SECTION 7: MANDATORY UNPACKED DELIVERABLES STANDARD

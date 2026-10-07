@@ -24,6 +24,7 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | Folder/File | Purpose |
 |---|---|
 | `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — all topics with videos, backlog, laws, colour profiles & production rules |
+| `BENAQAAB_FORENSIC_MOTION_SYSTEM.md` | **Forensic Motion Blueprint** — 5 runnable primitives, Data-to-DOM fact ledger, safe zones & comp.html boilerplate |
 | `CENTRAL_AGENT_MEMORY.md` | **Centralised memory** — all agents read this first |
 | `CENTRAL_TOPICS_MASTER.md` | **Centralised topics registry** — covered blacklist, live cycles & ready backlog |
 | `BENAQAAB_AI_AGENT_COMPACT.md` | Operating manual (pipeline, gates, templates) |

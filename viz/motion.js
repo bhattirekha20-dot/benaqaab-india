@@ -206,9 +206,127 @@
     });
   }
 
+  /* ─── 5 FORENSIC MOTION PRIMITIVES (Benaqaab Forensics Engine) ─── */
+  function drawOdometer(ctx, t, startT, duration, startVal, targetVal, x, y) {
+    if (t < startT) return;
+    const p = Math.max(0, Math.min(1, (t - startT) / duration));
+    const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p); // outExpo
+    const current = Math.round(startVal + (targetVal - startVal) * eased);
+    ctx.save();
+    ctx.font = '900 110px monospace';
+    ctx.fillStyle = '#ef4444';
+    ctx.shadowColor = 'rgba(239, 68, 68, 0.6)';
+    ctx.shadowBlur = 25;
+    ctx.textAlign = 'center';
+    ctx.fillText(`+ ₹${current.toLocaleString('en-IN')}`, x, y);
+    ctx.restore();
+  }
+
+  function drawHighlighter(ctx, t, startT, duration, x, y, width, height) {
+    if (t < startT) return;
+    const p = Math.max(0, Math.min(1, (t - startT) / duration));
+    const easedWidth = width * (1 - Math.pow(1 - p, 3)); // outCubic
+    ctx.save();
+    ctx.globalCompositeOperation = 'multiply';
+    ctx.fillStyle = 'rgba(250, 204, 21, 0.65)';
+    ctx.fillRect(x, y, easedWidth, height);
+    ctx.restore();
+  }
+
+  function drawRedactionPeel(ctx, t, startT, duration, x, y, width, height) {
+    let offset = 0;
+    if (t >= startT) {
+      const p = Math.max(0, Math.min(1, (t - startT) / duration));
+      offset = (p * (2 - p)) * (width + 40); // outQuad slide
+    }
+    const remainingW = Math.max(0, width - offset);
+    if (remainingW <= 0) return;
+    ctx.save();
+    ctx.fillStyle = '#09090b';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 10;
+    ctx.fillRect(x + offset, y, remainingW, height);
+    if (offset < width * 0.4) {
+      ctx.fillStyle = '#71717a';
+      ctx.font = '700 18px monospace';
+      ctx.fillText('TOP SECRET · PENDING VERIFICATION', x + 20 + offset, y + height * 0.65);
+    }
+    ctx.restore();
+  }
+
+  function drawEvidenceLoupe(ctx, t, startT, x, y, radius, zoomScale = 2.0) {
+    if (t < startT) return;
+    const p = Math.max(0, Math.min(1, (t - startT) / 0.8));
+    const scale = 0.3 + 0.7 * (1 - Math.exp(-p * 8) * Math.cos(p * 12));
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    ctx.shadowColor = 'rgba(0,0,0,0.6)';
+    ctx.shadowBlur = 25;
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.08)';
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(-radius + 15, 0); ctx.lineTo(radius - 15, 0);
+    ctx.moveTo(0, -radius + 15); ctx.lineTo(0, radius - 15);
+    ctx.stroke();
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(40, -radius, 140, 38, 8);
+    ctx.fill();
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 14px monospace';
+    ctx.fillText('VERIFIED 2X', 60, -radius + 24);
+    ctx.restore();
+  }
+
+  function drawVerdictStamp(ctx, t, hitT, textEn, textHi, cx, cy) {
+    if (t < hitT) return;
+    const p = t - hitT;
+    const w0 = 14, z = 0.65;
+    const springP = 1 - Math.exp(-p * z * w0) * (Math.cos(p * w0 * Math.sqrt(1 - z * z)));
+    const scale = 2.8 - (2.8 - 1.0) * Math.min(1.2, springP);
+    const impact = Math.max(0, 1 - (p * 4));
+    const shakeX = Math.sin(t * 80) * 8 * impact;
+    const shakeY = Math.cos(t * 70) * 8 * impact;
+    ctx.save();
+    ctx.translate(cx + shakeX, cy + shakeY);
+    ctx.rotate(-0.08);
+    ctx.scale(scale, scale);
+    ctx.strokeStyle = '#dc2626';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.roundRect(-360, -90, 720, 180, 20);
+    ctx.stroke();
+    ctx.strokeStyle = '#ef4444';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.roundRect(-345, -75, 690, 150, 12);
+    ctx.stroke();
+    ctx.fillStyle = '#ef4444';
+    ctx.textAlign = 'center';
+    ctx.font = '900 52px -apple-system, sans-serif';
+    ctx.fillText(textEn, 0, -10);
+    ctx.fillStyle = '#fca5a5';
+    ctx.font = '800 34px sans-serif';
+    ctx.fillText(textHi, 0, 48);
+    ctx.restore();
+  }
+
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
-    readTime, splitWords, riseWords };
+    readTime, splitWords, riseWords,
+    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
