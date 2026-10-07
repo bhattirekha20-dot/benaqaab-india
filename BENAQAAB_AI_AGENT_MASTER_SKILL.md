@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,483 | `0163ec931917b0e5` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,500 | `af337edd43672f8c` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29243,7 +29243,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,483 · **SHA-256 (first 16):** `0163ec931917b0e5` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,500 · **SHA-256 (first 16):** `af337edd43672f8c` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34724,6 +34724,28 @@ Integrated the definitive **All-in-One AI Master Directive & Forensic Motion Sys
 5. **Reusable Template:**
    - Created `viz/templates/forensic_comp_boilerplate.html` implementing the full `window.seek(t)` contract, FACT_LEDGER binding, and all 5 primitives.
    - Cross-referenced in `MASTER_AGENT_DISPATCH.md` §6.4, `README.md`, and `START_HERE.md`.
+
+---
+
+## 157. AI Co-Director Betterment Advisory & Repository Evolution System — 07 Oct 2026
+
+**Context & Core Directives:**  
+Implemented `AGENT_BETTERMENT_AND_GROWTH_ADVISORY.md` as the definitive strategic protocol for autonomous AI self-critique, continuous video quality improvements, and repository engineering:
+
+1. **The Betterment Mandate & Creative Co-Director Role:**
+   - The AI agent is codified not as a passive prompt-follower, but as a Senior Creative & Technical Co-Director matching the world-class investigative standards of Dhruv Rathee, Vox, and Johnny Harris.
+   - Evaluates video deliveries across 4 core pillars: Visual & Motion Excellence, Sound Design & Audio, Repository Pipeline Velocity, and Channel Growth / CTR.
+
+2. **5-Point Production Quality Scorecard:**
+   - Codified a structured evaluation matrix: Frame-0 Hook & Curiosity (>=9/10), Factual Sourcing Rigor (10/10), Motion Density & Micro-Drift (>=9/10), Sonic Impact & EBU R128 Loudness (>=9/10), Safe Zone & Typographic Fit (10/10).
+
+3. **Top 10 High-Impact Roadmap Upgrades:**
+   - Detailed concrete architectures for procedural foley audio, kinetic word-by-word caption pills, automated TTS CLI with word timestamps, dual 16:9/9:16 thumbnail generator, safe-zone linter, interactive scrollytelling web dossiers, PIB/Gazette lead scraper, parallel multi-core render engine, multilingual localization, and YouTube draft staging.
+
+4. **Production Tool Implementations:**
+   - `viz/forensic_audio.js`: Built procedural Web Audio API synthesizer exporting `ForensicAudio` (`playOdometerTick`, `playHighlighterSqueak`, `playStampThud`, `playLoupeHum`, `playTapePeel`) requiring zero external MP3 downloads.
+   - `tools/generate_thumbnail_pack.py`: Built CLI tool to automatically render uncropped 16:9 landscape thumbnails (`1280x720`) and 9:16 vertical covers (`1080x1920`) with top-left branding directly from project assets.
+   - `tools/lint_safe_zones.py`: Built automated safe-zone linter and visual debugger enforcing the mobile safe workspace (`X: 80 to 900 | Y: 240 to 1480`).
 
 
 ---
