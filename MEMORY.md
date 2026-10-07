@@ -5497,3 +5497,27 @@ Implemented `AGENT_BETTERMENT_AND_GROWTH_ADVISORY.md` as the definitive strategi
    - `viz/forensic_audio.js`: Built procedural Web Audio API synthesizer exporting `ForensicAudio` (`playOdometerTick`, `playHighlighterSqueak`, `playStampThud`, `playLoupeHum`, `playTapePeel`) requiring zero external MP3 downloads.
    - `tools/generate_thumbnail_pack.py`: Built CLI tool to automatically render uncropped 16:9 landscape thumbnails (`1280x720`) and 9:16 vertical covers (`1080x1920`) with top-left branding directly from project assets.
    - `tools/lint_safe_zones.py`: Built automated safe-zone linter and visual debugger enforcing the mobile safe workspace (`X: 80 to 900 | Y: 240 to 1480`).
+
+---
+
+## 158. Complete Visual Asset Master Ledger & Significance Directory Enacted — 07 Oct 2026
+
+**Context & Core Directives:**  
+Implemented `VISUAL_ASSET_MASTER_LEDGER.md` and machine-readable `brand/visual_assets_ledger.json` to assign definitive narrative significance, project linking, and AI agent usage directives to every single image in the repository (248 visual assets):
+
+1. **The Law of Visual Significance Enforced:**
+   - Prohibited decorative wallpaper and uncredited graphics. Every asset is classified into one of 7 archetypes: Brand Identity & Watermark, Host Lip-Sync Phonemes & Alpha Cutouts, Verified Editorial News Photo, Forensic Hero Photo, Scene Composite & Motion Export, Render QA Proof, or Delivery Thumbnail Pack.
+   - Cross-contamination strictly banned: AI agents must only draw assets explicitly linked to the active story.
+
+2. **Full Portfolio Coverage (248 Assets Mapped):**
+   - **Brand & Host:** Watermark bugs, layout benchmarks, phonemes (base, mid, open) driven by audio RMS, and transparent cutouts.
+   - **Broadcast Video Protection & MEA Benchmark (`brand/style_refs/`, `uploads/`):** Documented Dr. Jaishankar newsprint halftone + red redaction bar filter to prevent YouTube Content ID strikes and preserve `viz/motion.js` toolchain integrity per creator directives.
+   - **SH-11 World News 24H:** Mapped 5 verified news photos (Germany BND, France protests, Kenya health, Quebec election, Nobel IceCube), 5 neutral category textures, delivery thumbnails, and 11 timestamped QA audit frames.
+   - **SH-09 India Last 24H:** Mapped PIB official sources (Air Chief, SEBI SME IPO, BCCI Women's T20, Rahul Gandhi Kolhapur, DRI gold), 14 kinetic text overlays, and 14 delivery proof frames.
+   - **SH-08 Gold 150K:** Mapped 4 structural hero shots (bullion vault, retail showroom, melting crucible, digital ETF chart) and delivery packs.
+   - **FL-03 Cyber Security Breach:** Mapped 42 AI composite sequence scenes and 14 corporate identity proof logos (Hugging Face, JFrog, NVIDIA).
+   - **Flagships (EP-12 to EP-16):** Official YouTube 16:9 delivery thumbnails for NavIC, Monsoon, Bullet Train, Rupee, and Chips.
+
+3. **Domain Manifests & Tooling:**
+   - Created `uploads/README.md`, `projects/world_news_24h/ASSET_MANIFEST.md`, `projects/gold_150k/ASSET_MANIFEST.md`, and `brand/ASSET_MANIFEST.md`.
+   - Built `tools/build_visual_ledger.py` for automated continuous synchronization.
