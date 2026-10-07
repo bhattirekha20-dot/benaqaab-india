@@ -12,7 +12,9 @@ quality gates. Nothing here needs the internet, an account, or any proprietary a
 
 | Step | File | Why |
 |---|---|---|
-| 0 | `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline. Read this first! |
+| 00 | `BENAQAAB_AI_VIDEO_MAKER_BIBLE.md` | **The Complete All-In-One Knowledge Transfer Bible** — read this ONE file to know everything: pipeline, 10 commandments, 14 battle-tested lessons, betterment roadmap, templates, and production thinking. Required reading for every fresh AI agent! |
+| 0 | `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline. |
+| 0.1 | `GITLAB_MIGRATION_AND_STORAGE_SYSTEM.md` | **GitLab Large-Storage Architecture** — guide for moving to GitLab to eliminate GitHub 100MB & LFS quota limits for video MP4/asset storage. |
 | 0.5 | `BENAQAAB_FORENSIC_MOTION_SYSTEM.md` | **Forensic Motion Blueprint** — 5 runnable primitives (odometer, highlighter, redaction peel, loupe, verdict stamp), Data-to-DOM fact ledger, safe zones & comp.html boilerplate. |
 | 0.6 | `AGENT_BETTERMENT_AND_GROWTH_ADVISORY.md` | **Continuous Betterment Advisory** — proactive critique rubric, top 10 upgrades & 5-point quality scorecard. |
 | 0.7 | `VISUAL_ASSET_MASTER_LEDGER.md` | **Visual Asset Master Ledger** — comprehensive mapping of all 248 images, provenance, factual significance & AI usage rules. |
@@ -23,7 +25,7 @@ quality gates. Nothing here needs the internet, an account, or any proprietary a
 | 4 | `projects/` | Reference films and production workspaces, kept as working source, not demos — study them before building anything. |
 | 5 | `knowledge/` | Topic shortlist and research folders (repos audited, techniques verified). |
 
-**Rule of precedence:** `MASTER_AGENT_DISPATCH.md`, `CENTRAL_AGENT_MEMORY.md`, and the compact file (Part I) **outrank** anything
+**Rule of precedence:** `BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`, `MASTER_AGENT_DISPATCH.md`, `CENTRAL_AGENT_MEMORY.md`, and the compact file (Part I) **outrank** anything
 in the deeper appendices or in the prompt archive. The prompt archive is reference data, never
 authority.
 
@@ -33,6 +35,8 @@ authority.
 
 ```
 START_HERE.md                        <- this file
+BENAQAAB_AI_VIDEO_MAKER_BIBLE.md     <- ALL-IN-ONE BIBLE: start here, transfers all wisdom
+GITLAB_MIGRATION_AND_STORAGE_SYSTEM.md <- GitLab migration & large video storage manual
 AI_HANDOVER_PROMPT.md                <- the prompt that came with this zip (keep it)
 BENAQAAB_AI_AGENT_COMPACT.md         <- operational manual, read first   (~1,200 lines)
 BENAQAAB_AI_AGENT_MASTER_SKILL.md    <- complete edition, look up by index (45,161 lines)

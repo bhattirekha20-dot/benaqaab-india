@@ -5573,3 +5573,19 @@ Enacted the universal retention mandate requiring **at least 10 distinct visual 
    - Runtime: 10m 29s (~629 seconds). Visual target: 105 distinct visual beats.
    - Comprehensive asset generation and script covering Stage 2 of Homi Bhabha's 3-stage nuclear program, liquid sodium coolant at 550 deg C, breeding ratio > 1.0, and unlocking 300,000 tonnes of Indian Thorium reserves.
    - Interactive preview engine comp.html with 60 FPS deterministic canvas animation, 5–6s roadmap card, visual beat stepper (1/105), procedural audio SFX, and motion primitives.
+---
+
+## 161. Creation of AI Video Maker Bible & GitLab Large-Storage Migration Architecture — 07 Oct 2026
+
+**Context & Core Directives:**
+1. **The All-In-One AI Video Maker Bible (`BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`):**
+   - Built a comprehensive, self-contained single-file knowledge transfer document specifically designed so that ANY new AI agent or model (Gemini, Claude, GPT, DeepSeek, etc.) entering the workspace without conversational memory can read ONE file and immediately execute elite Benaqaab India video production.
+   - Synthesizes all 22 operating laws, 10 non-negotiables, the 11-step master pipeline, 5 forensic motion primitives, 8-part mixed-media portfolio, the 10-visuals-per-minute law, 14 hard-won technical lessons, the Onion Hook architecture, and complete copy-paste code boilerplate.
+   - Positioned as Step 00 priority in `START_HERE.md` and Step 0 in `README.md`.
+
+2. **GitLab Storage Migration Architecture (`GITLAB_MIGRATION_AND_STORAGE_SYSTEM.md`):**
+   - **Problem Solved:** GitHub enforces a 100 MB per-file push block (directly failing large video deliverables like `Flight_Surcharge_Short.mp4` at 115.5 MB) and severely caps free Git LFS to 1 GB total storage / 1 GB monthly bandwidth.
+   - **Solution:** Migrated primary vault & media storage to **GitLab** (providing 5 GB – 10 GB free repository headroom, high LFS storage/bandwidth, and built-in CI/CD pipelines).
+   - Created root `.gitattributes` configuring Git LFS for all video formats (`*.mp4`, `*.mov`, `*.mkv`), master audio (`*.wav`, `*.mp3`), and archives (`*.zip`, `*.psd`, `*.aep`).
+   - Developed `tools/gitlab_sync.ps1` for automated 1-click verification, large asset scanning, remote configuration, and Git LFS push.
+

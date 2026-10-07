@@ -9,6 +9,7 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 
 ## 🚀 Quick Start for Any AI Agent
 
+0. **🧠 NEW? Read [`BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`](BENAQAAB_AI_VIDEO_MAKER_BIBLE.md) FIRST** — the **all-in-one knowledge transfer** distilling the entire repo into a single self-contained file. Covers pipeline, rules, motion system, 14 battle-tested lessons, betterment roadmap, templates, and production thinking.
 1. **Read [`MASTER_AGENT_DISPATCH.md`](MASTER_AGENT_DISPATCH.md)** — the **definitive single-file operating dossier**: complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline.
 2. **Consult [`CENTRAL_AGENT_MEMORY.md`](CENTRAL_AGENT_MEMORY.md)** and **[`CENTRAL_TOPICS_MASTER.md`](CENTRAL_TOPICS_MASTER.md)** for detailed topic registry breakdowns.
 3. Then read [`BENAQAAB_AI_AGENT_COMPACT.md`](BENAQAAB_AI_AGENT_COMPACT.md) — your full operating manual.
