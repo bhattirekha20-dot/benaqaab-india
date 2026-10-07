@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benaqaab India — Studio Command Center & Topic Tracker</title>
+  <link rel="icon" type="image/png" href="/brand/logo.png">
+  
+  <!-- Modern Curated Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background depth -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-section">
+        <div class="logo-badge">
+          <img src="/brand/logo.png" alt="Benaqaab Logo" onerror="this.src='/brand/benaqaab_os_logo.png'">
+        </div>
+        <div class="title-wrap">
+          <h1>BENAQAAB INDIA</h1>
+          <p>SACH · SABOOT · BEBAK · STUDIO OS v2.1</p>
+        </div>
+      </div>
+      
+      <div class="header-status">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span>STUDIO LOCALHOST · 3000 LIVE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stats Ribbon -->
+    <section class="stats-ribbon">
+      <div class="stat-card">
+        <div class="stat-label">Delivered Films</div>
+        <div class="stat-value" id="statTotalDelivered">34</div>
+        <div class="stat-sub">100% Verified Broadcast</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Documentaries (16:9)</div>
+        <div class="stat-value" id="statDocs">17</div>
+        <div class="stat-sub">Flagships (NavIC, PFBR, Bullet Train)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Shorts & Reels (9:16)</div>
+        <div class="stat-value" id="statShorts">11</div>
+        <div class="stat-sub">High-Retention Mobile Explainers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Live Cycles</div>
+        <div class="stat-value" id="statLiveCycles" style="color: var(--accent-gold);">3</div>
+        <div class="stat-sub">Oct 2026 (RBI Repo, Census 2027)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Researched Backlog</div>
+        <div class="stat-value" id="statBacklog" style="color: var(--accent-cyan);">3</div>
+        <div class="stat-sub">Green Hydrogen, Samudrayaan, Lithium</div>
+      </div>
+    </section>
+
+    <!-- Toolbar & Filter Pills -->
+    <section class="toolbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by episode code (EP-12), title, Hindi headline, category, or data metric...">
+      </div>
+
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="ALL">
+          <span>All Topics</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="DONE">
+          <span>✓ Delivered & Done</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="16:9">
+          <span>🎬 Documentaries (16:9)</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="9:16">
+          <span>📱 Shorts (9:16)</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="LIVE_CYCLE">
+          <span>⏳ Oct 2026 Live Cycles</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="BACKLOG">
+          <span>🟢 Researched Backlog</span>
+          <span class="pill-count">0</span>
+        </button>
+        <button class="filter-pill" data-filter="BLACKLIST">
+          <span>🚫 Blacklist (Never Repeat)</span>
+          <span class="pill-count">0</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Productions Bento Grid -->
+    <main class="grid" id="productionsGrid">
+      <!-- Injected dynamically via app.js -->
+    </main>
+  </div>
+
+  <!-- Interactive comp.html Sandbox Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span style="color: var(--accent-cyan);">⚡</span>
+          <span class="modal-title" id="modalTitle">Interactive Composition Sandbox</span>
+        </div>
+        <div class="modal-controls">
+          <button class="btn-icon" id="frameAspectBtn">📱 Toggle Frame (9:16 / 16:9)</button>
+          <button class="btn-icon" id="openNewTabBtn">↗ Open Full Screen</button>
+          <button class="btn-icon" id="modalCloseBtn" style="color: var(--accent-rose); font-weight: bold;">✕ Close</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalIframe" class="preview-iframe" src="about:blank"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

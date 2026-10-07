@@ -103,13 +103,26 @@ Every output produced by an AI agent must be production-ready, fully resolved, a
 - **Logo Asset:** `brand/logo.png`.
 - **Placement:** **Top-Left Safe Area (`RULE-LOGO-TOPLEFT`)** inside a frosted dark pill with subtle gold border glow. (Top-right placement is strictly obsolete).
 
-### 4.4 The 1-Gate Approval Pipeline
+### 4.4 Gate 0: Format & Duration Confirmation Law (`RULE-FORMAT-DURATION-GATE`)
+**Whenever a video topic is chosen** (whether provided by the user, selected from `CENTRAL_TOPICS_MASTER.md`, or proposed by the AI):
+- **NEVER assume or guess the format or duration.**
+- **The AI MUST PAUSE and explicitly ask the user two questions before proceeding to scriptwriting:**
+  1. **Video Format:**
+     - 🎬 **Long Video / Documentary** (16:9 Landscape widescreen)
+     - 📽️ **Short Explainer Film** (16:9 or 9:16)
+     - 📱 **YouTube Short / Reel** (9:16 Vertical mobile)
+  2. **Target Duration:**
+     - What exact target duration is desired? (e.g., 30s–60s micro-short, 60s–120s extended short, 3m–5m explainer, 10m+ documentary).
+- **Only AFTER the user confirms their preferred format and duration** may the agent proceed to Step 1 (Research & Fact Ledger) and Step 2 (Script & Audio).
+
+### 4.5 The Production & 1-Gate Approval Pipeline
 Follow this unskippable pipeline:
 ```
-[1. Research & Fact Ledger] ➔ [2. Script & Audio Lock] ➔ [3. comp.html Interactive Preview]
-                                                                  │
-[6. Master MP4 Render]   🠄 [5. Human Approval Gate]    🠄 [4. Browser QA & Safe Zones]
+[0. Topic Pick ➔ ASK Format & Duration] ➔ [1. Research & Fact Ledger] ➔ [2. Script & Audio Lock]
+                                                                                │
+[6. Master MP4 Render] 🠄 [5. Human Approval Gate] 🠄 [4. Browser QA] 🠄 [3. comp.html Preview]
 ```
+- **STOP at Step 0:** Ask and confirm format + duration before drafting.
 - **STOP at Step 5:** Present the interactive `comp.html` preview to the user. Never render the final broadcast MP4 until the user explicitly says *"render"* or approves the composition.
 - **Unpacked Deliverables:** Deliver all title options, description copy, hashtags, pinned comments, and thumbnail briefs directly in the response—never hide them inside ZIP archives.
 

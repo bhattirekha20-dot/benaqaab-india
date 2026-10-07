@@ -103,6 +103,11 @@ and `MASTER_AGENT_DISPATCH.md` to ensure the topic is NOT covered (`RULE-NO-REPE
 scratch caches, create a dedicated project folder in `projects/<topic_slug>/`, and start **fresh primary-source
 research** — never recycle old scripts unless the user explicitly orders a new angle. Record new projects in `MEMORY.md`.
 
+**MANDATORY GATE 0 (`RULE-FORMAT-DURATION-GATE`):** Whenever a video topic is chosen (by user request, AI proposal, or registry pick), **NEVER assume or guess the format or duration**. You MUST PAUSE and ask the user:
+1. **Format:** Long-form documentary (16:9 widescreen), short explainer, or YouTube Short / Reel (9:16 vertical)?
+2. **Duration:** What target duration is desired (e.g. 30–60s, 90–120s, 3–5 min, 10 min+)?
+Wait for user confirmation before proceeding to research and scriptwriting!
+
 Then, when the user gives or approves a topic, follow **Part I §4 of the compact file** (the 11-step pipeline):
 research → sources → concept → script → voice (Master Clock) → film HTML (`comp.html`) → preview QA loop →
 **[1-GATE APPROVAL PROTOCOL: present interactive preview for user approval]** → full render upon command

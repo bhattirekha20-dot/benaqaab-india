@@ -102,13 +102,17 @@ government / infrastructure, India engineering, sourced history, and scams & cyb
 - Communicates in short Hinglish. Assume intent, don't interrogate.
 - Wants finished work, not drafts: *"from now I only give you topic and you, using everything,
   make best videos."* Make every call yourself and **report the decisions at delivery**.
-- The only unavoidable interaction is the **narrator voice pick** (`add_voice` pauses the turn
-  once per chat). Everything else: decide, build, deliver, explain.
+- **Mandatory Pauses / User Gates:**
+  1. **Gate 0 (`RULE-FORMAT-DURATION-GATE`):** Whenever a topic is chosen, **always ask the user**: (a) Long video (16:9), short video, or YouTube Short (9:16)? and (b) What target duration? Never guess or assume format/duration!
+  2. **Gate 1 (`RULE-GATE-1`):** Interactive `comp.html` preview approval before full MP4 render.
 - Wants honest reporting: what was verified, what wasn't, what failed and why.
 
 ---
 
 ## 2. THE USER'S LAWS (standing directives — verbatim where quoted, with current status)
+
+**L0 · Format & Duration Confirmation Gate (`RULE-FORMAT-DURATION-GATE`).** *"make sure when ever a video topic is choose the ai ask me tht long video or short video or yt short and duartion too ok"*
+Whenever a video topic is chosen (provided by user, proposed by agent, or selected from topic registry), the agent MUST STOP and explicitly ask: (1) Long-form (16:9), short explainer, or YouTube Short (9:16)? and (2) What target duration? Only after user confirmation does scriptwriting and production begin.
 
 **L1 · Autonomy & The 1-Gate Approval Protocol.** *"from now I only give you topic and you, using everything, make best videos."*
 The agent executes autonomously through research, script, voiceover generation, visual asset creation, and building the interactive HTML preview (`comp.html`). However, the **1-Gate Approval Protocol** is mandatory: the agent must STOP at the preview gate and never render a final MP4 until the user explicitly approves or gives the command: *"render the video"*. (Older automatic rendering without preview gate is superseded).
