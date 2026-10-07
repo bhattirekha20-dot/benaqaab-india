@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>EP-17: PFBR — India Ka Nuclear Miracle (105 Beats · 10m29s)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #07090e;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+    header {
+      width: 100%;
+      max-width: 1280px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 15, 24, 0.85);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-group { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { width: 38px; height: 38px; border-radius: 8px; border: 1px solid rgba(251, 191, 36, 0.4); box-shadow: 0 0 12px rgba(251, 191, 36, 0.25); }
+    .brand-title { font-size: 18px; font-weight: 800; letter-spacing: 0.5px; color: #fff; }
+    .brand-tag { font-size: 11px; font-weight: 600; color: #fbbf24; letter-spacing: 1.5px; text-transform: uppercase; }
+    .meta-pills { display: flex; align-items: center; gap: 10px; }
+    .pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+    }
+    .pill.accent { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; background: rgba(56, 189, 248, 0.08); }
+    .pill.gold { border-color: rgba(251, 191, 36, 0.4); color: #fbbf24; background: rgba(251, 191, 36, 0.08); }
+
+    .stage-container {
+      width: 100%;
+      max-width: 1280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 24px;
+      padding: 0 16px;
+    }
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    canvas { width: 100%; height: 100%; display: block; }
+
+    .controls-bar {
+      width: 100%;
+      margin-top: 18px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      backdrop-filter: blur(12px);
+    }
+    .timeline-row { display: flex; align-items: center; gap: 14px; width: 100%; }
+    .time-readout {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #38bdf8;
+      min-width: 95px;
+    }
+    .scrubber {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    .scrubber::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+      cursor: pointer;
+    }
+    .buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-group { display: flex; align-items: center; gap: 10px; }
+    button {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f8fafc;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+    button.primary {
+      background: #38bdf8;
+      color: #07090e;
+      border-color: #38bdf8;
+      font-weight: 700;
+    }
+    button.primary:hover {
+      background: #0ea5e9;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    .beat-info-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .beat-highlight {
+      color: #fbbf24;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand-group">
+    <img src="../../brand/logo.png" alt="Benaqaab Logo" class="brand-logo" onerror="this.style.display='none'">
+    <div>
+      <div class="brand-title">BENAQAAB INDIA</div>
+      <div class="brand-tag">Sach · Saboot · Bebak</div>
+    </div>
+  </div>
+  <div class="meta-pills">
+    <div class="pill gold">EP-17 PFBR</div>
+    <div class="pill accent" id="hudChapter">CH-01: ROADMAP HOOK</div>
+    <div class="pill" id="hudBeatPill">VISUAL 1 / 105</div>
+    <div class="pill">60 FPS DETERMINISTIC</div>
+  </div>
+</header>
+
+<div class="stage-container">
+  <div class="canvas-wrapper">
+    <canvas id="viewCanvas" width="1920" height="1080"></canvas>
+  </div>
+
+  <div class="controls-bar">
+    <div class="timeline-row">
+      <span class="time-readout" id="timeDisplay">00:00 / 10:29</span>
+      <input type="range" id="timeScrubber" class="scrubber" min="0" max="629" step="0.1" value="0">
+    </div>
+    <div class="buttons-row">
+      <div class="btn-group">
+        <button id="btnPlayPause" class="primary">▶ Play</button>
+        <button id="btnPrevBeat">⏮ Prev Beat</button>
+        <button id="btnNextBeat">Next Beat ⏭</button>
+        <button id="btnJumpRoadmap">0:00 Roadmap</button>
+        <button id="btnJumpSodium">2:00 Sodium</button>
+        <button id="btnJumpBreeding">3:00 Breeding</button>
+        <button id="btnJumpThorium">4:00 Thorium</button>
+        <button id="btnJumpVerdict">9:00 Verdict</button>
+      </div>
+      <div class="beat-info-badge">
+        <span>Beat: <strong class="beat-highlight" id="beatName">Roadmap 3-Step HUD Card</strong></span>
+        <button id="btnAudioToggle">🔊 SFX: ON</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../viz/motion.js"></script>
+<script src="../../viz/forensic_audio.js"></script>
+<script>
+  const canvas = document.getElementById('viewCanvas');
+  const ctx = canvas.getContext('2d');
+  const scrubber = document.getElementById('timeScrubber');
+  const timeDisplay = document.getElementById('timeDisplay');
+  const btnPlayPause = document.getElementById('btnPlayPause');
+  const hudBeatPill = document.getElementById('hudBeatPill');
+  const hudChapter = document.getElementById('hudChapter');
+  const beatName = document.getElementById('beatName');
+  const btnAudioToggle = document.getElementById('btnAudioToggle');
+
+  let currentTime = 0;
+  let isPlaying = false;
+  let sfxEnabled = true;
+  let lastTimestamp = 0;
+  let currentBeatIndex = 0;
+  let beatsData = [];
+
+  // Preload Images
+  const assetCache = {};
+  const assetPaths = [
+    'assets/01_pfbr_reactor_core.jpg',
+    'assets/02_liquid_sodium_coolant.jpg',
+    'assets/03_mox_plutonium_pellets.jpg',
+    'assets/04_kalpakkam_aerial_blueprint.jpg',
+    'assets/05_thorium_monazite_sands.jpg',
+    'assets/06_fast_neutron_breeding_physics.jpg',
+    'assets/07_control_room_scram_system.jpg',
+    'assets/08_three_stage_nuclear_cycle.jpg',
+    'assets/09_primary_sodium_pump.jpg',
+    'assets/10_bhavini_aerb_gazette.jpg'
+  ];
+
+  assetPaths.forEach(path => {
+    const img = new Image();
+    img.src = path;
+    assetCache[path] = img;
+  });
+
+  const logoImg = new Image();
+  logoImg.src = '../../brand/logo.png';
+
+  // Load BEAT_SHEET_105.json
+  fetch('BEAT_SHEET_105.json')
+    .then(r => r.json())
+    .then(data => {
+      beatsData = data.beats;
+      render(0);
+    })
+    .catch(err => {
+      console.warn('Fallback generating local 105 beat array', err);
+      beatsData = Array.from({ length: 105 }, (_, i) => ({
+        beat_index: i + 1,
+        chapter: `CH-${String(Math.floor(i / 11) + 1).padStart(2, '0')}`,
+        start_time: i * 5.99,
+        end_time: (i + 1) * 5.99,
+        title: `Visual Beat ${i + 1}`,
+        asset_path: assetPaths[i % assetPaths.length],
+        on_screen_subtitle: `PFBR 500 MWe Investigation Step ${i + 1}`,
+        media_archetype: 'Forensic Investigation'
+      }));
+      render(0);
+    });
+
+  function formatTime(s) {
+    const mins = Math.floor(s / 60);
+    const secs = Math.floor(s % 60);
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  function getActiveBeat(t) {
+    if (!beatsData || beatsData.length === 0) return null;
+    for (let b of beatsData) {
+      if (t >= b.start_time && t < b.end_time) return b;
+    }
+    return beatsData[beatsData.length - 1];
+  }
+
+  // Pure function of time render(t)
+  function render(t) {
+    ctx.fillStyle = '#07090e';
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    const activeBeat = getActiveBeat(t);
+    if (!activeBeat) return;
+
+    // 1. Draw Active Visual Asset with Subtle Micro-Drift Zoom
+    const img = assetCache[activeBeat.asset_path];
+    if (img && img.complete && img.naturalWidth > 0) {
+      const beatProgress = (t - activeBeat.start_time) / (activeBeat.duration || 5.99);
+      const scale = 1.0 + beatProgress * 0.04; // Gentle 4% drift zoom
+      ctx.save();
+      ctx.translate(960, 540);
+      ctx.scale(scale, scale);
+      ctx.drawImage(img, -960, -540, 1920, 1080);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, 1920, 1080);
+    }
+
+    // 2. Cinematic Vignette & Bottom/Top Bars
+    const vigGrad = ctx.createRadialGradient(960, 540, 500, 960, 540, 1100);
+    vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    vigGrad.addColorStop(1, 'rgba(0,0,0,0.65)');
+    ctx.fillStyle = vigGrad;
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    // Subtle 3% Grain
+    Motion.drawGrain(ctx, 1920, 1080, 0.03);
+
+    // 3. Top-Left Brand Logo Bug (Top-Left Safe Area standard)
+    ctx.save();
+    ctx.fillStyle = 'rgba(10, 15, 20, 0.75)';
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.4)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(36, 28, 260, 54, 10);
+    ctx.fill();
+    ctx.stroke();
+
+    if (logoImg.complete && logoImg.naturalWidth > 0) {
+      ctx.drawImage(logoImg, 46, 36, 38, 38);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 16px Inter, sans-serif';
+    ctx.fillText('BENAQAAB INDIA', 96, 52);
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '600 11px Inter, sans-serif';
+    ctx.fillText('SACH · SABOOT · BEBAK', 96, 71);
+    ctx.restore();
+
+    // 4. Top-Right Visual Counter Pill
+    ctx.save();
+    ctx.fillStyle = 'rgba(10, 15, 20, 0.85)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(1620, 28, 264, 54, 10);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '600 12px Inter, sans-serif';
+    ctx.fillText('UNIVERSAL METRIC', 1640, 48);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 17px "JetBrains Mono", monospace';
+    ctx.fillText(`VISUAL ${activeBeat.beat_index} / 105`, 1640, 71);
+    ctx.restore();
+
+    // 5. Special Motion Choreography per Beat Range
+    // 5.1 OPENING 5-6s ROADMAP HOOK (t = 0.0s to 5.5s)
+    if (t < 5.5) {
+      Motion.drawRoadmapCard(ctx, t, 0.0, 5.5, [
+        { en: '01. WHAT IS IT?', hi: 'यह आखिर क्या है? (500 MWe Core)' },
+        { en: '02. HOW SODIUM WORKS?', hi: '550°C लिक्विड सोडियम इंजन' },
+        { en: '03. 400-YEAR ENERGY', hi: '300,000 टन थोरियम ऊर्जा' }
+      ], 960, 520);
+    }
+    // 5.2 CHAPTER 2 & 7: Callout Pins on Reactor Core & Inlets
+    else if (activeBeat.beat_index === 3 || activeBeat.beat_index === 11 || activeBeat.beat_index === 64) {
+      Motion.drawCalloutPin(ctx, t, activeBeat.start_time, 960, 680, 1260, 580, 'HEXAGONAL CORE BASKET', '181 MOX Subassemblies In Sodium Pool', '#38bdf8');
+    }
+    // 5.3 CHAPTER 3: Sodium Temperature Odometer & Loop Pin
+    else if (activeBeat.beat_index >= 21 && activeBeat.beat_index <= 25) {
+      Motion.drawCalloutPin(ctx, t, activeBeat.start_time, 1160, 390, 800, 340, 'PRIMARY SODIUM LOOP', 'Liquid Metal At Atmospheric Pressure', '#f59e0b');
+      Motion.drawOdometer(ctx, t, activeBeat.start_time, 2.5, 98, 550, '', ' °C SODIUM', 960, 720);
+    }
+    // 5.4 CHAPTER 4: Breeding Ratio 1.05 Odometer
+    else if (activeBeat.beat_index >= 33 && activeBeat.beat_index <= 37) {
+      Motion.drawOdometer(ctx, t, activeBeat.start_time, 2.5, 0.85, 1.05, 'BREEDING RATIO: ', '', 960, 720);
+      Motion.drawCalloutPin(ctx, t, activeBeat.start_time, 960, 540, 1340, 480, 'POSITIVE COMPACT FUEL', '100 kg Pu In -> 105 kg Pu Bred Out', '#10b981');
+    }
+    // 5.5 CHAPTER 5: Thorium Reserve Odometer (319,000 Tonnes)
+    else if (activeBeat.beat_index >= 43 && activeBeat.beat_index <= 48) {
+      Motion.drawOdometer(ctx, t, activeBeat.start_time, 2.5, 10000, 319000, 'INDIA THORIUM: ', ' TONNES', 960, 720);
+      Motion.drawCalloutPin(ctx, t, activeBeat.start_time, 960, 540, 640, 440, 'MONAZITE PLACER SANDS', '25% of All Global Thorium Reserves', '#fbbf24');
+    }
+    // 5.6 CHAPTER 10: Official Gazette Highlighter & Verdict Stamp
+    else if (activeBeat.beat_index >= 98 && activeBeat.beat_index <= 104) {
+      Motion.drawHighlighter(ctx, t, activeBeat.start_time + 0.5, 1.8, 440, 310, 1040, 34, 'rgba(250, 204, 21, 0.45)');
+      if (t >= 615.0) {
+        Motion.drawVerdictStamp(ctx, t, 615.0, 'STRATEGIC MASTERPIECE', 'INDIA NUCLEAR SOVEREIGNTY ACHIEVED', 960, 540);
+      }
+    }
+
+    // 6. Bottom Headline / Caption Pill
+    ctx.save();
+    ctx.fillStyle = 'rgba(10, 15, 24, 0.88)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(96, 940, 1728, 90, 14);
+    ctx.fill();
+    ctx.stroke();
+
+    // Accent line at bottom
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillRect(96, 1026, 1728, 4);
+
+    // Chapter and Beat Subtitle
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '700 14px "JetBrains Mono", monospace';
+    ctx.fillText(`${activeBeat.chapter} · BEAT ${activeBeat.beat_index}/105 · [${activeBeat.media_archetype.toUpperCase()}]`, 126, 970);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '600 22px Inter, sans-serif';
+    ctx.fillText(activeBeat.on_screen_subtitle, 126, 1006);
+    ctx.restore();
+
+    // Sync HUD Elements
+    timeDisplay.textContent = `${formatTime(t)} / 10:29`;
+    scrubber.value = t;
+    hudBeatPill.textContent = `VISUAL ${activeBeat.beat_index} / 105`;
+    hudChapter.textContent = activeBeat.chapter;
+    beatName.textContent = activeBeat.title;
+  }
+
+  // Playback Loop
+  function tick(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const delta = (timestamp - lastTimestamp) / 1000;
+    lastTimestamp = timestamp;
+
+    if (isPlaying) {
+      currentTime += delta;
+      if (currentTime >= 629) {
+        currentTime = 629;
+        isPlaying = false;
+        btnPlayPause.textContent = '▶ Play';
+      }
+      render(currentTime);
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // User Seek
+  window.seek = function(t) {
+    currentTime = Math.max(0, Math.min(629, t));
+    render(currentTime);
+  };
+
+  scrubber.addEventListener('input', (e) => {
+    window.seek(parseFloat(e.target.value));
+  });
+
+  btnPlayPause.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    btnPlayPause.textContent = isPlaying ? '⏸ Pause' : '▶ Play';
+  });
+
+  btnPrevBeat.addEventListener('click', () => {
+    const curBeat = getActiveBeat(currentTime);
+    if (curBeat && curBeat.beat_index > 1) {
+      const prev = beatsData[curBeat.beat_index - 2];
+      window.seek(prev.start_time + 0.1);
+      if (sfxEnabled && window.ForensicAudio) ForensicAudio.playOdometerTick();
+    }
+  });
+
+  btnNextBeat.addEventListener('click', () => {
+    const curBeat = getActiveBeat(currentTime);
+    if (curBeat && curBeat.beat_index < beatsData.length) {
+      const next = beatsData[curBeat.beat_index];
+      window.seek(next.start_time + 0.1);
+      if (sfxEnabled && window.ForensicAudio) ForensicAudio.playOdometerTick();
+    }
+  });
+
+  document.getElementById('btnJumpRoadmap').addEventListener('click', () => window.seek(0.1));
+  document.getElementById('btnJumpSodium').addEventListener('click', () => window.seek(120.1));
+  document.getElementById('btnJumpBreeding').addEventListener('click', () => window.seek(180.1));
+  document.getElementById('btnJumpThorium').addEventListener('click', () => window.seek(240.1));
+  document.getElementById('btnJumpVerdict').addEventListener('click', () => window.seek(540.1));
+
+  btnAudioToggle.addEventListener('click', () => {
+    sfxEnabled = !sfxEnabled;
+    btnAudioToggle.textContent = sfxEnabled ? '🔊 SFX: ON' : '🔇 SFX: OFF';
+  });
+
+  // Keyboard Navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      isPlaying = !isPlaying;
+      btnPlayPause.textContent = isPlaying ? '⏸ Pause' : '▶ Play';
+    } else if (e.code === 'ArrowRight') {
+      window.seek(currentTime + 5);
+    } else if (e.code === 'ArrowLeft') {
+      window.seek(currentTime - 5);
+    } else if (e.code === 'KeyM') {
+      sfxEnabled = !sfxEnabled;
+      btnAudioToggle.textContent = sfxEnabled ? '🔊 SFX: ON' : '🔇 SFX: OFF';
+    }
+  });
+</script>
+</body>
+</html>

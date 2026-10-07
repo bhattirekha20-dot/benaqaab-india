@@ -27,9 +27,20 @@
 - **Open loops:** tease a reveal early and pay it off later.
 - **Chapters:** timestamps in the description. The first must be 0:00, you need ≥3 chapters, each ≥10 s. Use descriptive names ("NavIC kaise kaam karta hai", not "Part 2").
 
-## Pacing and visual variety
-- Change the visual every 10–20 s in the first 3 min, then every 25–40 s.
-- Make a BIG pattern interrupt every 60–90 s by switching scene type: map → chart → real photo/footage → kinetic type → presenter.
+## Pacing and visual variety (`RULE-10-VISUALS-PER-MINUTE` Universal Standard)
+- **Mandatory Visual Frequency:** **At least 10 distinct visual assets/beats per minute** (1 new visual every 5.5 to 6.0 seconds).
+  - *Older guidance (every 10–40s) is strictly `[SUPERSEDED]` by `RULE-10-VISUALS-PER-MINUTE`.*
+  - For a ~10-minute long-form documentary (e.g. 10m 29s PFBR explainer), maintain **roughly 105 distinct visuals** across the timeline.
+- **Mixed-Media Arsenal:** Never stay in one graphic style. Weave together 8 distinct visual types every minute:
+  1. Photorealistic Forensic AI Macro Photography (reactor vessels, fuel pellets, turbine blades, microchips)
+  2. Primary-Source Official Documents (Gazette notifications, RTI disclosures, court orders with highlighter sweeps)
+  3. Engineering Schematics & Blueprints (CAD cutaways, wiring diagrams, callout pins)
+  4. Data Visualizations & Live Tickers (rolling odometers, cost counters, milestone tracks)
+  5. Geopolitical & Supply Chain Maps (holographic maritime choke points, economic corridors)
+  6. Optical Loupe Reticle Inspections (2X macro zoom inspection lenses)
+  7. Verified Editorial News Stills & Archival Records (PIB, DAE releases, official photos)
+  8. Kinetic Typography HUDs & Verdict Stamps (roadmap cards, metric callouts, rubber verdict stamp shockwaves)
+- Make a BIG pattern interrupt every 45–60 s by switching scene type: map → chart → real photo/footage → kinetic type → presenter.
 - **Scene types we can build in HTML:**
   - animated line/bar charts (ALWAYS one scale per comparison);
   - schematic maps (no national borders unless they are Survey-of-India compliant; use city dots and routes);

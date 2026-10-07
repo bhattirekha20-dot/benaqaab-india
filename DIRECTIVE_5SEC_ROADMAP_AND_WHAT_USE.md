@@ -119,4 +119,28 @@ The canonical working prototype is located in:
 
 ---
 
+## ⚡ SECTION 6: THE UNIVERSAL 10-VISUALS-PER-MINUTE LAW (`RULE-10-VISUALS-PER-MINUTE`)
+
+> **MANDATORY PRODUCTION METRIC FOR ALL AI AGENTS & ALL TOPICS:**  
+> **1 Minute of Video = At Least 10 Distinct Visual Beats** (1 new visual every 5.5 to 6.0 seconds).  
+> **Longform Documentaries (e.g., 10m29s PFBR preview):** 10 beats/min = **roughly 105 distinct visuals**.
+
+### 6.1 Why 10 Visuals Per Minute? (Retention Psychology)
+* Holding a single static visual for 15–20 seconds causes severe viewer drop-off and visual boredom.
+* Modern high-retention investigative documentaries (Dhruv Rathee, Vox, Johnny Harris) maintain an average **shot length (ASL) of 5 to 6 seconds**.
+* Every sentence or sub-point must introduce a fresh visual stimulus, keeping the viewer's brain actively engaged.
+
+### 6.2 What Counts Toward the 10 Visuals? (The Mixed-Media Arsenal)
+Never rely on just one kind of graphic. Every minute must weave together a **balanced mixed-media portfolio**:
+1. **Photorealistic Forensic AI Macro Photography:** Silicon ingots, reactor cores, turbine halls, microscopic transistor gates.
+2. **Primary-Source Official Documents:** Gazette notifications, RTI disclosures, court orders, parliamentary replies with yellow highlighter sweeps.
+3. **Engineering Schematics & Cutaways:** Blueprints, architectural elevations, car ECU boards, and satellite wireframes with animated callout pins.
+4. **Data Visualizations & Live Tickers:** Live rolling odometers, financial charts, and timeline milestone tracks.
+5. **Geopolitical & Supply Chain Maps:** Holographic route maps highlighting straits, chokepoints, and trade corridors.
+6. **Optical Loupe Reticle Inspections:** 2X macro zoom lens circling serial numbers, hallmarks, or micro-components.
+7. **Verified Editorial News Stills:** Real, authentic photographs from PIB, official registries, or court archives.
+8. **Kinetic Typography HUDs:** Roadmap cards, metric cards, and rubber verdict stamps.
+
+---
+
 *Benaqaab India — Sach • Saboot • Bebak*

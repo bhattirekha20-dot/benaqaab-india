@@ -57,11 +57,11 @@ Benaqaab India is an independent investigative documentary and explainer channel
 
 ---
 
-## 🎥 SECTION 2: PORTFOLIO OF ALL TOPICS WITH EXISTING VIDEOS (33 PRODUCTIONS)
+## 🎥 SECTION 2: PORTFOLIO OF ALL TOPICS WITH EXISTING VIDEOS (34 PRODUCTIONS)
 
-Here is the master catalogue of all 33 delivered videos and production workspaces in the repository:
+Here is the master catalogue of all 34 delivered videos and production workspaces in the repository:
 
-### 2.1 Flagship Documentaries & Explainers (16:9 Landscape — 16 Productions)
+### 2.1 Flagship Documentaries & Explainers (16:9 Landscape — 17 Productions)
 
 | Code | Title & Subject | Duration | Video Archive Path | Workspace Path | Key Data & Story Mechanism |
 |---|---|---|---|---|---|
@@ -81,6 +81,7 @@ Here is the master catalogue of all 33 delivered videos and production workspace
 | **EP-14** | **Bullet Train 2027 (Mumbai–Ahmedabad)** | **2m 57s** | `VIDEOS/03_Bullet_Train_2m57s.mp4` | `projects/ep14_bullet/` | 508 km corridor, Shinkansen E10 tech, 21 km Thane Creek undersea tunnel, 320 km/h operational speeds. |
 | **EP-15** | **Rupee 96 vs USD — Aapki Jeb Par Asar** | **3m 11s** | `VIDEOS/04_Rupee_96_3m11s.mp4` | `projects/ep15_rupee/` | Currency depreciation, forex reserve defense, Brent crude >$100 impact on fuel and import inflation. |
 | **EP-16** | **Made-in-India Chips — Dholera & Sanand** | **3m 47s** | `VIDEOS/05_Made_in_India_Chips_3m47s.mp4` | `projects/ep16_chips/` | Tata-PSMC Dholera 28nm fab, Micron Sanand assembly, Assam OSAT facility, semiconductor supply chain. |
+| **EP-17** | **PFBR — India Ka Nuclear Miracle** | **10m 29s** | Local Interactive Preview | `projects/ep17_pfbr/` | 500 MWe Fast Breeder Reactor, Kalpakkam, 550°C liquid sodium, 1.05 breeding ratio, unlocking 319,000T Thorium, 105 visual beats. |
 
 ### 2.2 YouTube Shorts & High-Retention Vertical Videos (9:16 Vertical — 11 Productions)
 
@@ -164,7 +165,7 @@ All 33 productions listed in Section 2 above are delivered and published. Under 
 
 ---
 
-## ⚖️ SECTION 4: THE 10 NON-NEGOTIABLES & 20 OPERATING LAWS (STABLE RULE IDs)
+## ⚖️ SECTION 4: THE 10 NON-NEGOTIABLES & 22 OPERATING LAWS (STABLE RULE IDs)
 
 ### The 10 Core Non-Negotiables
 1. **Finish the Work Through Preview (`RULE-GATE-1`):** Complete research, script, audio stems, and interactive preview (`comp.html`). Stop at the preview gate; render MP4 only when the user explicitly commands *"render the video"*.
@@ -178,7 +179,7 @@ All 33 productions listed in Section 2 above are delivered and published. Under 
 9. **Verification Before Claims (`RULE-VERIFICATION`):** Inspect real rendered frames, run the QA checks, and report true numbers.
 10. **Preserve the Record (`RULE-PRESERVE-RECORD`):** Never delete protected files. `MEMORY.md` is append-only.
 
-### The 20 Absolute Laws (L1–L20)
+### The 22 Absolute Laws (L1–L22)
 - **L1 / `RULE-PROTECTED-FILES`:** Never delete core skill docs, logs, or reference directories.
 - **L2 / `RULE-DETERMINISTIC-TIME`:** `render(t)` takes seconds as input and outputs the identical frame every time.
 - **L3 / `RULE-MOTION-SCALES`:** Foreground kinetic typography, midground data/diagrams, background ambient mesh.
@@ -199,6 +200,8 @@ All 33 productions listed in Section 2 above are delivered and published. Under 
 - **L18 / `RULE-REAL-MEDIA`:** Use real news stills, official documents, and high-res AI photojournalism composites. Never rely on barren SVG wireframes or plain diagrams alone.
 - **L19 / `RULE-UNPACKED-DELIVERABLES`:** Deliverables must exist unpacked in the canonical `delivery/` folder and root mirrors, and be displayed directly in chat.
 - **L20 / `RULE-AUTONOMOUS-FALLBACK`:** Once permission is confirmed at kickoff, never re-ask for permission. If a video clip is blocked by HTTP 403 or captchas, autonomously fall back to verified high-res stills and official data cards without stalling.
+- **L21 / `RULE-10-VISUALS-PER-MINUTE`:** Minimum visual frequency for audience retention — **At least 10 distinct visual assets/beats per 60 seconds** (average shot length ≤ 5.5 to 6.0 seconds) across ANY video or Short. For ~10-minute long-form documentaries (such as the 10m 29s PFBR explainer), 10 beats/min scales directly to **roughly 105 distinct visuals**. Visuals must be curated across the **8-part mixed-media portfolio** (Photorealistic Forensic AI Macro Photography, Primary-Source Official Documents/Gazettes with highlighter sweeps, Engineering Schematics/CAD Cutaways with callout pins, Live Rolling Data Odometers & Tickers, Geopolitical & Maritime Supply Chain Maps, 2X Optical Loupe Inspections, Verified Editorial News Stills, and Kinetic Typography HUD Cards & Verdict Stamps).
+- **L22 / `RULE-5SEC-ROADMAP-WHAT-AND-USE` & `RULE-IMAGE-ANNOT`:** Mandatory explainer architecture: (1) The opening 5.5 seconds must feature an animated 3-step preview card (`01. What is it?`, `02. How it works?`, `03. Real-world use?`) sequentially illuminated as the speaker outlines the episode roadmap; (2) The script must deeply and simply demystify two core questions: Part 1: *"Kya hai yeh?"* (physical/technical foundation with macro/gazette proof) and Part 2: *"Iska real use kya hai?"* (everyday, industrial, and national applications with rolling metric odometers); (3) Plain static photos with dead air are strictly forbidden — every visual must be dynamically explained using motion primitives (`drawCalloutPin`, `drawEvidenceLoupe`, `drawHighlighter`, `drawOdometer`, `drawVerdictStamp`).
 
 ---
 

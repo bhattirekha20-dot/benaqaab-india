@@ -410,10 +410,103 @@
     ctx.restore();
   }
 
+  function drawRoadmapCard(ctx, t, startT, duration, points, centerX, centerY, cardWidth = 960) {
+    if (t < startT || t > startT + duration) return;
+    const p = Math.min(1, Math.max(0, (t - startT) / 0.5));
+    const scale = 0.88 + 0.12 * Math.sin(p * Math.PI * 0.5);
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    ctx.scale(scale, scale);
+
+    const cardH = 120 + points.length * 110;
+    const halfW = cardWidth / 2;
+    const halfH = cardH / 2;
+
+    ctx.fillStyle = 'rgba(10, 15, 26, 0.94)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+    ctx.shadowBlur = 30;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, cardWidth, cardH, 16);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 16px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('⚡ 5-SECOND ROADMAP HOOK', -halfW + 40, -halfH + 45);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 28px Inter, sans-serif';
+    ctx.fillText('Iss video mein hum cover karenge:', -halfW + 40, -halfH + 85);
+
+    const ptDur = duration / points.length;
+    points.forEach((pt, idx) => {
+      const ptStart = startT + idx * ptDur;
+      const ptEnd = ptStart + ptDur;
+      const isActive = t >= ptStart && t < ptEnd;
+      const isPassed = t >= ptEnd;
+      const y = -halfH + 115 + idx * 110;
+      const rowW = cardWidth - 80;
+
+      ctx.fillStyle = isActive ? 'rgba(56, 189, 248, 0.12)' : (isPassed ? 'rgba(16, 185, 129, 0.08)' : 'rgba(255, 255, 255, 0.03)');
+      ctx.strokeStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : 'rgba(255, 255, 255, 0.08)');
+      ctx.lineWidth = isActive ? 2 : 1;
+      ctx.beginPath();
+      ctx.roundRect(-halfW + 40, y, rowW, 90, 12);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : '#475569');
+      ctx.beginPath();
+      ctx.roundRect(-halfW + 40, y, 6, 90, [12, 0, 0, 12]);
+      ctx.fill();
+
+      ctx.fillStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : '#94a3b8');
+      ctx.font = '700 20px "JetBrains Mono", monospace';
+      ctx.fillText(pt.en, -halfW + 65, y + 36);
+
+      ctx.fillStyle = isActive ? '#ffffff' : (isPassed ? '#cbd5e1' : '#64748b');
+      ctx.font = '600 18px Inter, sans-serif';
+      ctx.fillText(pt.hi, -halfW + 65, y + 68);
+    });
+    ctx.restore();
+  }
+
+  let _grainCanvas = null;
+  function drawGrain(ctx, width, height, opacity = 0.03) {
+    if (!_grainCanvas && typeof document !== 'undefined') {
+      _grainCanvas = document.createElement('canvas');
+      _grainCanvas.width = 256;
+      _grainCanvas.height = 256;
+      const gctx = _grainCanvas.getContext('2d');
+      const imgData = gctx.createImageData(256, 256);
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        const v = (Math.sin(i * 0.13) * 0.5 + 0.5) * 255;
+        imgData.data[i] = v;
+        imgData.data[i+1] = v;
+        imgData.data[i+2] = v;
+        imgData.data[i+3] = 40;
+      }
+      gctx.putImageData(imgData, 0, 0);
+    }
+    if (_grainCanvas) {
+      ctx.save();
+      ctx.globalAlpha = opacity;
+      ctx.fillStyle = ctx.createPattern(_grainCanvas, 'repeat');
+      ctx.fillRect(0, 0, width, height);
+      ctx.restore();
+    }
+  }
+
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
     readTime, splitWords, riseWords,
-    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin };
+    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
+    drawRoadmapCard, drawGrain };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
+

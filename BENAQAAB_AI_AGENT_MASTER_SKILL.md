@@ -32,11 +32,11 @@ handbook, the full production history and the prompt archive, all verbatim.
 
 | Appendix | Title | Source | Lines | SHA-256 (16) |
 |---|---|---|---|---|
-| A | Shorts curiosity & retention engine | `SKILLS_SHORTS_CURIOSITY.md` | 198 | `a2983a3d7698cf44` |
+| A | Shorts curiosity & retention engine | `SKILLS_SHORTS_CURIOSITY.md` | 213 | `fb7868900d09ed13` |
 | B | Peak-detail production skill | `SKILLS_PEAK_DETAIL.md` | 396 | `8ce0968a505087c6` |
 | C | After Effects mastery & motion craft | `SKILLS_AFTER_EFFECTS.md` | 403 | `8151e69bc56a6115` |
 | D | CapCut + Alight Motion skill | `SKILLS_CAPCUT_ALIGHT_MOTION.md` | 166 | `47f8c1dd535f2ea3` |
-| E | Long-form YouTube skill | `SKILLS_LONGFORM.md` | 91 | `7dc1f97e1cc7eb1b` |
+| E | Long-form YouTube skill | `SKILLS_LONGFORM.md` | 102 | `9a3222089d72360c` |
 | F | Thumbnail & motion-graphics mastery | `SKILLS_THUMBNAIL_AND_MOTION_MASTERY.md` | 92 | `6125259203c8fc95` |
 | G | Skills research (repos -> rules) | `SKILLS_RESEARCH.md` | 149 | `ed1369a3deda830b` |
 | H | How the reference motion videos are made | `MOTION_RESEARCH_Opus55.md` | 322 | `8f0df0bcbf71c21a` |
@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,551 | `17c823b1eb3f5afa` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,576 | `9ad63baa2c8dcf48` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -241,6 +241,16 @@ names a topic, use that topic, but the wipe still happens first. Record the wipe
 **L20 · Mandatory Unpacked Deliverables Standard.**
 - All deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg` / `thumbnail_1080x1920.png`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder.
 - In completion reports, the AI must explicitly display the thumbnail and quote the title and description directly. Never bury deliverables solely inside ZIP archives.
+
+**L21 · Universal 10-Visuals-Per-Minute Law (`RULE-10-VISUALS-PER-MINUTE`).**
+- **Mandatory Visual Cadence:** Across ANY topic and format, every 60 seconds of video must feature **at least 10 distinct visual assets/beats** (average shot length ≤ 5.5 to 6.0 seconds). Holding a static visual for >6 seconds is strictly banned.
+- **Longform Scaling:** For longform documentaries (such as the 10m 29s PFBR film), 10 beats/min scales to **roughly 105 distinct visuals** across the timeline.
+- **The 8-Part Mixed-Media Portfolio:** Never rely on a single visual style. The 10 visuals per minute must weave together: (1) Photorealistic Forensic AI Macro Photography, (2) Primary-Source Official Gazettes/Court Documents with highlighter sweeps, (3) Engineering Schematics/CAD Cutaways with callout pins, (4) Live Rolling Data Odometers & Tickers, (5) Geopolitical & Maritime Supply Chain Maps, (6) 2X Optical Loupe Inspections, (7) Verified Editorial News Stills & Archival Records, and (8) Kinetic Typography HUD Cards & Verdict Stamps.
+
+**L22 · 5-6s Roadmap Hook, What-and-Use Architecture & Motion Image Annotation (`RULE-5SEC-ROADMAP` · `RULE-WHAT-AND-USE` · `RULE-IMAGE-ANNOT`).**
+- **5-6s Roadmap Hook:** In explainer videos, the opening 5.5 seconds must feature an animated 3-step preview card (`01. What is it?`, `02. How it works?`, `03. Real-world use?`) sequentially illuminated as the speaker outlines the episode roadmap.
+- **What-and-Use Architecture:** The script must deeply and simply demystify two core questions: Part 1: *"Kya hai yeh?"* (physical/technical foundation with macro/gazette proof) and Part 2: *"Iska real use kya hai?"* (everyday, industrial, and national applications with rolling metric odometers).
+- **Motion Image Annotation:** Never display plain static photos with dead air. Every visual must be dynamically explained using motion primitives (`drawCalloutPin`, `drawEvidenceLoupe`, `drawHighlighter`, `drawOdometer`, `drawVerdictStamp`).
 
 ---
 
@@ -1016,7 +1026,7 @@ The appendices follow in the order of the index. Each is byte-for-byte the sourc
 <!-- ===================== APPENDIX A — VERBATIM ===================== -->
 ## APPENDIX A — Shorts curiosity & retention engine
 
-**Source file:** `SKILLS_SHORTS_CURIOSITY.md` · **lines:** 198 · **SHA-256 (first 16):** `a2983a3d7698cf44` · **why it exists:** the 1-second law, curiosity tools, retention gates, the 7-part package, HUD rules
+**Source file:** `SKILLS_SHORTS_CURIOSITY.md` · **lines:** 213 · **SHA-256 (first 16):** `fb7868900d09ed13` · **why it exists:** the 1-second law, curiosity tools, retention gates, the 7-part package, HUD rules
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -1215,6 +1225,20 @@ In addition to the 7 skill repositories in §1–§6, we cloned and inspected th
    - Do **NOT** keep the speaker continuously in the corner. Show the speaker **only for 1 to 2 seconds max** in full screen, and keep the rest of the Short 100% full-screen visuals & motion graphics.
 4. **HTML-First Approval Gate (`comp.html` BEFORE Final MP4 Render):**
    - **Always build and show `comp.html` to the user FIRST** and **wait for explicit user approval** before rendering the final `.mp4` video.
+
+---
+
+## 10. ⚡ THE UNIVERSAL 10-VISUALS-PER-MINUTE LAW & IMAGE MOTION ANNOTATION (`RULE-10-VISUALS-PER-MINUTE` · `RULE-IMAGE-ANNOT`)
+
+1. **Mandatory Cadence: At Least 10 Distinct Visual Beats per 60 Seconds:**
+   - Every Short or vertical video must feature **at least 10 distinct visual assets/scenes per minute** (1 new visual every 5.5 to 6.0 seconds).
+   - Zero static visual fatigue: never hold any single graphic, background, or photo plate longer than 6 seconds without a substantive visual change or motion evolution.
+2. **The 8-Part Mixed-Media Portfolio:**
+   - Counted toward the 10 visual beats are: photorealistic AI forensic macro photography, official documents/gazettes with highlighter sweeps, engineering schematics with callout pins, rolling numerical odometers, geopolitical maps, 2X optical loupe inspections, verified editorial news stills, and kinetic typography HUD cards.
+3. **Motion Graphics Image Annotation (`RULE-IMAGE-ANNOT`):**
+   - Plain static photos with dead air are strictly banned. Every image must be dynamically annotated using motion primitives (`Motion.drawCalloutPin`, `Motion.drawEvidenceLoupe`, `Motion.drawHighlighter`, `Motion.drawOdometer`, `Motion.drawVerdictStamp`).
+4. **The 5-6s Roadmap Hook (`RULE-5SEC-ROADMAP`):**
+   - In explainer formats, open with an animated 3-step roadmap card (`01. What is it?`, `02. How it works?`, `03. Real use?`) illuminating sequentially within the first 5.5 seconds.
 
 
 ---
@@ -2217,7 +2241,7 @@ has independent confirmation from a second tool's documentation.
 <!-- ===================== APPENDIX E — VERBATIM ===================== -->
 ## APPENDIX E — Long-form YouTube skill
 
-**Source file:** `SKILLS_LONGFORM.md` · **lines:** 91 · **SHA-256 (first 16):** `7dc1f97e1cc7eb1b` · **why it exists:** long-form structure, pacing, packaging, source-footage look
+**Source file:** `SKILLS_LONGFORM.md` · **lines:** 102 · **SHA-256 (first 16):** `9a3222089d72360c` · **why it exists:** long-form structure, pacing, packaging, source-footage look
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -2250,9 +2274,20 @@ has independent confirmation from a second tool's documentation.
 - **Open loops:** tease a reveal early and pay it off later.
 - **Chapters:** timestamps in the description. The first must be 0:00, you need ≥3 chapters, each ≥10 s. Use descriptive names ("NavIC kaise kaam karta hai", not "Part 2").
 
-## Pacing and visual variety
-- Change the visual every 10–20 s in the first 3 min, then every 25–40 s.
-- Make a BIG pattern interrupt every 60–90 s by switching scene type: map → chart → real photo/footage → kinetic type → presenter.
+## Pacing and visual variety (`RULE-10-VISUALS-PER-MINUTE` Universal Standard)
+- **Mandatory Visual Frequency:** **At least 10 distinct visual assets/beats per minute** (1 new visual every 5.5 to 6.0 seconds).
+  - *Older guidance (every 10–40s) is strictly `[SUPERSEDED]` by `RULE-10-VISUALS-PER-MINUTE`.*
+  - For a ~10-minute long-form documentary (e.g. 10m 29s PFBR explainer), maintain **roughly 105 distinct visuals** across the timeline.
+- **Mixed-Media Arsenal:** Never stay in one graphic style. Weave together 8 distinct visual types every minute:
+  1. Photorealistic Forensic AI Macro Photography (reactor vessels, fuel pellets, turbine blades, microchips)
+  2. Primary-Source Official Documents (Gazette notifications, RTI disclosures, court orders with highlighter sweeps)
+  3. Engineering Schematics & Blueprints (CAD cutaways, wiring diagrams, callout pins)
+  4. Data Visualizations & Live Tickers (rolling odometers, cost counters, milestone tracks)
+  5. Geopolitical & Supply Chain Maps (holographic maritime choke points, economic corridors)
+  6. Optical Loupe Reticle Inspections (2X macro zoom inspection lenses)
+  7. Verified Editorial News Stills & Archival Records (PIB, DAE releases, official photos)
+  8. Kinetic Typography HUDs & Verdict Stamps (roadmap cards, metric callouts, rubber verdict stamp shockwaves)
+- Make a BIG pattern interrupt every 45–60 s by switching scene type: map → chart → real photo/footage → kinetic type → presenter.
 - **Scene types we can build in HTML:**
   - animated line/bar charts (ALWAYS one scale per comparison);
   - schematic maps (no national borders unless they are Survey-of-India compliant; use city dots and routes);
@@ -29243,7 +29278,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,551 · **SHA-256 (first 16):** `17c823b1eb3f5afa` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,576 · **SHA-256 (first 16):** `9ad63baa2c8dcf48` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34797,6 +34832,31 @@ Codified `DIRECTIVE_5SEC_ROADMAP_AND_WHAT_USE.md` and built the working referenc
    - `assets/chip_macro_die.jpg`: Extreme macro close-up of a silicon semiconductor die with nanometer transistor grid.
    - `assets/car_ecu_chip.jpg`: Automotive Electronic Control Unit (ECU) circuit with EV powertrain wireframe.
    - Deliverables: `thumbnail_1280x720.jpg` and `cover_vertical_1080x1920.jpg` generated via `tools/generate_thumbnail_pack.py` and validated via `tools/lint_safe_zones.py`.
+---
+
+## 160. Universal 10-Visuals-Per-Minute Law Enacted & Full PFBR 10:29 Explainer Suite Codified — 07 Oct 2026
+
+**Context & Core Directives:**  
+Enacted the universal retention mandate requiring **at least 10 distinct visual assets/beats per 60 seconds** across all videos and YouTube Shorts, scaling to **~105 distinct visuals** for long-form explainers (such as the 10m 29s PFBR documentary). Established the mixed-media portfolio framework across all core operational files:
+
+1. **Universal Law L21 (RULE-10-VISUALS-PER-MINUTE) & Law L22 (RULE-5SEC-ROADMAP-WHAT-AND-USE):**
+   - Codified in MASTER_AGENT_DISPATCH.md (Laws L1–L22), _core_operational.md, BENAQAAB_AI_AGENT_COMPACT.md, SKILLS_LONGFORM.md, SKILLS_SHORTS_CURIOSITY.md, and DIRECTIVE_5SEC_ROADMAP_AND_WHAT_USE.md.
+   - Mandatory Shot Cadence: Average shot length capped at <= 5.5 to 6.0 seconds. Holding static visuals or single graphic plates for >6s is strictly banned.
+   - The 8-Part Mixed-Media Portfolio:
+     1. Photorealistic Forensic AI Macro Photography (silicon boules, nuclear fuel pellets, turbine impellers).
+     2. Primary-Source Official Documents (Gazette notifications, court orders, RTI responses with yellow highlighter sweeps).
+     3. Engineering Schematics & Blueprints (CAD cutaways, wiring layouts with animated callout pins).
+     4. Data Visualizations & Live Tickers (rolling odometers, cost tickers, milestone tracks).
+     5. Geopolitical & Supply Chain Maps (maritime choke points, economic corridors).
+     6. Optical Loupe Reticle Inspections (2X macro zoom lens circling micro-features).
+     7. Verified Editorial News Stills & Archival Records (PIB, DAE releases, official photographs).
+     8. Kinetic Typography HUD Cards & Verdict Stamps (roadmap cards, metric callouts, rubber verdict stamp shockwaves).
+
+2. **Full PFBR Production Suite Initialized (projects/ep17_pfbr/):**
+   - Registered EP-17: **PFBR — India Ka Nuclear Miracle (500 MWe Fast Breeder Reactor, Kalpakkam)**.
+   - Runtime: 10m 29s (~629 seconds). Visual target: 105 distinct visual beats.
+   - Comprehensive asset generation and script covering Stage 2 of Homi Bhabha's 3-stage nuclear program, liquid sodium coolant at 550 deg C, breeding ratio > 1.0, and unlocking 300,000 tonnes of Indian Thorium reserves.
+   - Interactive preview engine comp.html with 60 FPS deterministic canvas animation, 5–6s roadmap card, visual beat stepper (1/105), procedural audio SFX, and motion primitives.
 
 
 ---

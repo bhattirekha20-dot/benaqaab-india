@@ -1,0 +1,51 @@
+{
+  "project_code": "EP-17",
+  "project_title": "PFBR: India Ka Nuclear Miracle (500 MWe Fast Breeder Reactor)",
+  "motto": "SACH · SABOOT · BEBAK",
+  "runtime_seconds": 629.0,
+  "runtime_formatted": "10:29",
+  "visual_beat_count": 105,
+  "visual_frequency": "1 visual beat every 5.99 seconds (Universal 10-visuals-per-minute law)",
+  "core_facts": {
+    "reactor_name": "Prototype Fast Breeder Reactor (PFBR)",
+    "location": "Kalpakkam, Chengalpattu district, Tamil Nadu (12.5574 N, 80.1748 E)",
+    "electrical_capacity_mwe": 500,
+    "thermal_capacity_mwth": 1250,
+    "operating_utility": "Bharatiya Nabhikiya Vidyut Nigam Limited (BHAVINI)",
+    "regulatory_body": "Atomic Energy Regulatory Board (AERB)",
+    "coolant_type": "Liquid Metal Sodium (Na)",
+    "coolant_operating_temperature_c": 550,
+    "sodium_boiling_point_c": 883,
+    "sodium_melting_point_c": 98,
+    "fuel_type": "Mixed Oxide (MOX) - 21-29% PuO2 and 71-79% depleted UO2",
+    "breeding_ratio": 1.05,
+    "fertile_blanket": "Depleted Uranium-238 and Thorium-232",
+    "thorium_reserves_india_tonnes": 319000,
+    "thorium_global_share_percent": 25.0,
+    "stage_in_nuclear_program": "Stage 2 of Dr. Homi J. Bhabha 3-Stage Programme",
+    "core_fuel_assemblies_count": 181,
+    "safety_system": "Dual diverse independent shut-off rods (CSR and DSR)"
+  },
+  "sources": [
+    {
+      "name": "Department of Atomic Energy (DAE) Annual Report 2025-2026",
+      "url": "https://dae.gov.in/annual-reports",
+      "verified_date": "2026-10-01"
+    },
+    {
+      "name": "Atomic Energy Regulatory Board (AERB) Press Release on PFBR Core Loading",
+      "url": "https://aerb.gov.in/regulatory-clearances/pfbr-kalpakkam",
+      "verified_date": "2026-03-04"
+    },
+    {
+      "name": "BHAVINI Technical Project Dossier on 500 MWe Liquid Sodium Fast Breeder",
+      "url": "https://bhavini.nic.in/pfbr-specifications",
+      "verified_date": "2026-06-15"
+    },
+    {
+      "name": "IAEA Fast Reactor Database (FRDB) - India PFBR Profile",
+      "url": "https://iaea.org/pris/fast-reactors/pfbr",
+      "verified_date": "2026-08-20"
+    }
+  ]
+}

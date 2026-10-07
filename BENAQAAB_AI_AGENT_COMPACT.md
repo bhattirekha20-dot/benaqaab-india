@@ -205,6 +205,16 @@ names a topic, use that topic, but the wipe still happens first. Record the wipe
 - All deliverables (`thumbnail_1280x720.jpg`, `cover_vertical_1080x1920.jpg` / `thumbnail_1080x1920.png`, `title.txt`, `description.txt`, `hashtags_and_tags.txt`, `headline_captions.srt`) must be placed unpacked at the project root / `delivery/` folder.
 - In completion reports, the AI must explicitly display the thumbnail and quote the title and description directly. Never bury deliverables solely inside ZIP archives.
 
+**L21 · Universal 10-Visuals-Per-Minute Law (`RULE-10-VISUALS-PER-MINUTE`).**
+- **Mandatory Visual Cadence:** Across ANY topic and format, every 60 seconds of video must feature **at least 10 distinct visual assets/beats** (average shot length ≤ 5.5 to 6.0 seconds). Holding a static visual for >6 seconds is strictly banned.
+- **Longform Scaling:** For longform documentaries (such as the 10m 29s PFBR film), 10 beats/min scales to **roughly 105 distinct visuals** across the timeline.
+- **The 8-Part Mixed-Media Portfolio:** Never rely on a single visual style. The 10 visuals per minute must weave together: (1) Photorealistic Forensic AI Macro Photography, (2) Primary-Source Official Gazettes/Court Documents with highlighter sweeps, (3) Engineering Schematics/CAD Cutaways with callout pins, (4) Live Rolling Data Odometers & Tickers, (5) Geopolitical & Maritime Supply Chain Maps, (6) 2X Optical Loupe Inspections, (7) Verified Editorial News Stills & Archival Records, and (8) Kinetic Typography HUD Cards & Verdict Stamps.
+
+**L22 · 5-6s Roadmap Hook, What-and-Use Architecture & Motion Image Annotation (`RULE-5SEC-ROADMAP` · `RULE-WHAT-AND-USE` · `RULE-IMAGE-ANNOT`).**
+- **5-6s Roadmap Hook:** In explainer videos, the opening 5.5 seconds must feature an animated 3-step preview card (`01. What is it?`, `02. How it works?`, `03. Real-world use?`) sequentially illuminated as the speaker outlines the episode roadmap.
+- **What-and-Use Architecture:** The script must deeply and simply demystify two core questions: Part 1: *"Kya hai yeh?"* (physical/technical foundation with macro/gazette proof) and Part 2: *"Iska real use kya hai?"* (everyday, industrial, and national applications with rolling metric odometers).
+- **Motion Image Annotation:** Never display plain static photos with dead air. Every visual must be dynamically explained using motion primitives (`drawCalloutPin`, `drawEvidenceLoupe`, `drawHighlighter`, `drawOdometer`, `drawVerdictStamp`).
+
 ---
 
 ## 3. WORKSPACE MAP & FILE DISCIPLINE

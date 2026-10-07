@@ -5548,3 +5548,28 @@ Codified `DIRECTIVE_5SEC_ROADMAP_AND_WHAT_USE.md` and built the working referenc
    - `assets/chip_macro_die.jpg`: Extreme macro close-up of a silicon semiconductor die with nanometer transistor grid.
    - `assets/car_ecu_chip.jpg`: Automotive Electronic Control Unit (ECU) circuit with EV powertrain wireframe.
    - Deliverables: `thumbnail_1280x720.jpg` and `cover_vertical_1080x1920.jpg` generated via `tools/generate_thumbnail_pack.py` and validated via `tools/lint_safe_zones.py`.
+---
+
+## 160. Universal 10-Visuals-Per-Minute Law Enacted & Full PFBR 10:29 Explainer Suite Codified — 07 Oct 2026
+
+**Context & Core Directives:**  
+Enacted the universal retention mandate requiring **at least 10 distinct visual assets/beats per 60 seconds** across all videos and YouTube Shorts, scaling to **~105 distinct visuals** for long-form explainers (such as the 10m 29s PFBR documentary). Established the mixed-media portfolio framework across all core operational files:
+
+1. **Universal Law L21 (RULE-10-VISUALS-PER-MINUTE) & Law L22 (RULE-5SEC-ROADMAP-WHAT-AND-USE):**
+   - Codified in MASTER_AGENT_DISPATCH.md (Laws L1–L22), _core_operational.md, BENAQAAB_AI_AGENT_COMPACT.md, SKILLS_LONGFORM.md, SKILLS_SHORTS_CURIOSITY.md, and DIRECTIVE_5SEC_ROADMAP_AND_WHAT_USE.md.
+   - Mandatory Shot Cadence: Average shot length capped at <= 5.5 to 6.0 seconds. Holding static visuals or single graphic plates for >6s is strictly banned.
+   - The 8-Part Mixed-Media Portfolio:
+     1. Photorealistic Forensic AI Macro Photography (silicon boules, nuclear fuel pellets, turbine impellers).
+     2. Primary-Source Official Documents (Gazette notifications, court orders, RTI responses with yellow highlighter sweeps).
+     3. Engineering Schematics & Blueprints (CAD cutaways, wiring layouts with animated callout pins).
+     4. Data Visualizations & Live Tickers (rolling odometers, cost tickers, milestone tracks).
+     5. Geopolitical & Supply Chain Maps (maritime choke points, economic corridors).
+     6. Optical Loupe Reticle Inspections (2X macro zoom lens circling micro-features).
+     7. Verified Editorial News Stills & Archival Records (PIB, DAE releases, official photographs).
+     8. Kinetic Typography HUD Cards & Verdict Stamps (roadmap cards, metric callouts, rubber verdict stamp shockwaves).
+
+2. **Full PFBR Production Suite Initialized (projects/ep17_pfbr/):**
+   - Registered EP-17: **PFBR — India Ka Nuclear Miracle (500 MWe Fast Breeder Reactor, Kalpakkam)**.
+   - Runtime: 10m 29s (~629 seconds). Visual target: 105 distinct visual beats.
+   - Comprehensive asset generation and script covering Stage 2 of Homi Bhabha's 3-stage nuclear program, liquid sodium coolant at 550 deg C, breeding ratio > 1.0, and unlocking 300,000 tonnes of Indian Thorium reserves.
+   - Interactive preview engine comp.html with 60 FPS deterministic canvas animation, 5–6s roadmap card, visual beat stepper (1/105), procedural audio SFX, and motion primitives.

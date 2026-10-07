@@ -194,4 +194,19 @@ In addition to the 7 skill repositories in §1–§6, we cloned and inspected th
 4. **HTML-First Approval Gate (`comp.html` BEFORE Final MP4 Render):**
    - **Always build and show `comp.html` to the user FIRST** and **wait for explicit user approval** before rendering the final `.mp4` video.
 
+---
+
+## 10. ⚡ THE UNIVERSAL 10-VISUALS-PER-MINUTE LAW & IMAGE MOTION ANNOTATION (`RULE-10-VISUALS-PER-MINUTE` · `RULE-IMAGE-ANNOT`)
+
+1. **Mandatory Cadence: At Least 10 Distinct Visual Beats per 60 Seconds:**
+   - Every Short or vertical video must feature **at least 10 distinct visual assets/scenes per minute** (1 new visual every 5.5 to 6.0 seconds).
+   - Zero static visual fatigue: never hold any single graphic, background, or photo plate longer than 6 seconds without a substantive visual change or motion evolution.
+2. **The 8-Part Mixed-Media Portfolio:**
+   - Counted toward the 10 visual beats are: photorealistic AI forensic macro photography, official documents/gazettes with highlighter sweeps, engineering schematics with callout pins, rolling numerical odometers, geopolitical maps, 2X optical loupe inspections, verified editorial news stills, and kinetic typography HUD cards.
+3. **Motion Graphics Image Annotation (`RULE-IMAGE-ANNOT`):**
+   - Plain static photos with dead air are strictly banned. Every image must be dynamically annotated using motion primitives (`Motion.drawCalloutPin`, `Motion.drawEvidenceLoupe`, `Motion.drawHighlighter`, `Motion.drawOdometer`, `Motion.drawVerdictStamp`).
+4. **The 5-6s Roadmap Hook (`RULE-5SEC-ROADMAP`):**
+   - In explainer formats, open with an animated 3-step roadmap card (`01. What is it?`, `02. How it works?`, `03. Real use?`) illuminating sequentially within the first 5.5 seconds.
+
+
 
