@@ -1,0 +1,36 @@
+{
+  "production": {
+    "id": "TEST-01",
+    "titleEn": "Semiconductor Chips: What It Is & What Is Its Use?",
+    "titleHi": "माइक्रोचिप: यह क्या है और इसका असली इस्तेमाल क्या है?",
+    "format": "9:16 Vertical",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationSec": 58.0,
+    "totalFrames": 1740,
+    "colorProfile": "Profile B (Forensic Dossier: Deep Obsidian & Amber)"
+  },
+  "roadmapHook": {
+    "durationSec": 5.5,
+    "points": [
+      { "id": 1, "titleEn": "WHAT IT IS", "titleHi": "क्या है यह?", "activeStart": 0.0, "activeEnd": 2.0 },
+      { "id": 2, "titleEn": "HOW IT WORKS", "titleHi": "काम कैसे करता है?", "activeStart": 2.0, "activeEnd": 3.8 },
+      { "id": 3, "titleEn": "REAL-WORLD USE", "titleHi": "इसका असली इस्तेमाल क्या है?", "activeStart": 3.8, "activeEnd": 5.5 }
+    ]
+  },
+  "facts": {
+    "transistorsPerDie": "100 Billion+",
+    "transistorScale": "2-Nanometer Grid (50,000x thinner than human hair)",
+    "basicFunction": "Binary 0 & 1 Electronic Switching (Billions of times/sec)",
+    "chipsPerCar": 3000,
+    "chipsPerPhone": 25,
+    "globalAnnualProduction": "1.15 Trillion Chips / Year",
+    "indiaSemiconductorMission": "₹1.64 Lakh Crore Approved · 5 Units Commercial"
+  },
+  "sources": [
+    "SIA (Semiconductor Industry Association) Global Factbook 2026",
+    "India Semiconductor Mission (ISM) Ministry of Electronics & IT (MeitY) September 2026",
+    "IEEE Spectrum: The Transistor Scaling Frontier 2026"
+  ]
+}

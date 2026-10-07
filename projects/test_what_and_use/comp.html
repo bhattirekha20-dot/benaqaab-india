@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Benaqaab Explainer: Semiconductor Microchips — Kya Hai & Iska Use</title>
+  <style>
+    @font-face { font-family: 'Outfit'; src: url('../../brand/fonts/SpaceGrotesk.ttf'); font-weight: 700; }
+    @font-face { font-family: 'Inter'; src: url('../../brand/fonts/Inter.ttf'); font-weight: 400 800; }
+    @font-face { font-family: 'JBM'; src: url('../../brand/fonts/JetBrainsMono.ttf'); font-weight: 500 800; }
+    @font-face { font-family: 'Anton'; src: url('../../brand/fonts/Anton.ttf'); font-weight: 400; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #05080c;
+      color: #f1f5f9;
+      font-family: 'Inter', -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #viewport {
+      position: relative;
+      width: 450px;
+      height: 800px;
+      background: #000;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Interactive Player HUD */
+    #player-controls {
+      margin-top: 18px;
+      width: 450px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .scrubber-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #time-slider {
+      flex: 1;
+      height: 6px;
+      accent-color: #38bdf8;
+      cursor: pointer;
+    }
+
+    #time-display {
+      font-family: 'JBM', monospace;
+      font-size: 13px;
+      color: #94a3b8;
+      width: 90px;
+      text-align: right;
+    }
+
+    .btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    button:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+    }
+
+    button.active {
+      background: #38bdf8;
+      color: #041019;
+      border-color: #38bdf8;
+    }
+
+    .badge-info {
+      font-size: 12px;
+      color: #38bdf8;
+      font-family: 'JBM', monospace;
+    }
+  </style>
+  <script src="../../viz/motion.js"></script>
+  <script src="../../viz/forensic_audio.js"></script>
+</head>
+<body>
+
+  <div id="viewport">
+    <canvas id="stage" width="1080" height="1920"></canvas>
+  </div>
+
+  <div id="player-controls">
+    <div class="scrubber-row">
+      <input type="range" id="time-slider" min="0" max="58.0" step="0.05" value="0">
+      <span id="time-display">00.0s / 58.0s</span>
+    </div>
+    <div class="btn-row">
+      <div class="btn-group">
+        <button id="btn-play">▶ PLAY</button>
+        <button id="btn-prev">-5s</button>
+        <button id="btn-next">+5s</button>
+      </div>
+      <div class="btn-group">
+        <button id="btn-audio">🔊 SFX ON</button>
+      </div>
+      <span class="badge-info">RULE-WHAT-AND-USE</span>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    const canvas = document.getElementById('stage');
+    const ctx = canvas.getContext('2d');
+    const W = 1080, H = 1920;
+    const DURATION = 58.0;
+
+    // Assets
+    const logoImg = new Image(); logoImg.src = '../../brand/logo.png';
+    const chipImg = new Image(); chipImg.src = 'assets/chip_macro_die.jpg';
+    const carImg = new Image(); carImg.src = 'assets/car_ecu_chip.jpg';
+
+    let assetsLoaded = 0;
+    const totalAssets = 3;
+    function onAssetLoad() {
+      assetsLoaded++;
+      if (assetsLoaded === totalAssets) {
+        window.ready = true;
+        render(currentTime);
+      }
+    }
+    logoImg.onload = onAssetLoad;
+    chipImg.onload = onAssetLoad;
+    carImg.onload = onAssetLoad;
+
+    // Playback state
+    let currentTime = 0.0;
+    let isPlaying = false;
+    let sfxEnabled = true;
+    let lastStampTime = -1;
+    let lastOdometerTick = -1;
+
+    // Headless contract
+    window.DURATION = DURATION;
+    window.ready = false;
+    window.seek = function(t) {
+      currentTime = Math.max(0, Math.min(DURATION, t));
+      render(currentTime);
+      return Promise.resolve();
+    };
+
+    function render(t) {
+      ctx.clearRect(0, 0, W, H);
+
+      // Default background
+      ctx.fillStyle = '#060a10';
+      ctx.fillRect(0, 0, W, H);
+
+      // Sound triggers
+      if (sfxEnabled && typeof ForensicAudio !== 'undefined') {
+        if (t >= 48.0 && t <= 48.2 && lastStampTime !== 48) {
+          ForensicAudio.playStampThud();
+          lastStampTime = 48;
+        }
+        if (t < 48.0) lastStampTime = -1;
+        
+        // Odometer clicks
+        if (t >= 32.0 && t <= 36.0 && Math.floor(t * 10) !== lastOdometerTick) {
+          ForensicAudio.playOdometerTick(0.08);
+          lastOdometerTick = Math.floor(t * 10);
+        }
+      }
+
+      // ACT 0: THE 5-6s ROADMAP HOOK (0.0s - 5.5s)
+      if (t < 5.5) {
+        drawRoadmapHook(ctx, t);
+      }
+      // ACT 1: KYA HAI YEH? (5.5s - 25.0s)
+      else if (t < 25.0) {
+        drawWhatIsIt(ctx, t);
+      }
+      // ACT 2: ISKA REAL USE KYA HAI? (25.0s - 44.0s)
+      else if (t < 44.0) {
+        drawWhatIsItsUse(ctx, t);
+      }
+      // ACT 3: BENAQAAB VERDICT & CLOSING (44.0s - 58.0s)
+      else {
+        drawVerdictAndClose(ctx, t);
+      }
+
+      // Persistent Top-Left Brand Logo Bug
+      drawBrandLogo(ctx, t);
+
+      // Safe Zone Overlay Boundary Debug (optional subtle indicator)
+      drawSafeZoneIndicator(ctx, t);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // ACT 0: 5-6s ROADMAP HOOK (0.0s - 5.5s)
+    // ─────────────────────────────────────────────────────────────
+    function drawRoadmapHook(ctx, t) {
+      // Tech circuit background grid
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.05)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 60) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+      }
+      for (let y = 0; y < H; y += 60) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+      }
+
+      // Glow ambient orb
+      const radGrad = ctx.createRadialGradient(W / 2, 500, 20, W / 2, 500, 450);
+      radGrad.addColorStop(0, 'rgba(56, 189, 248, 0.18)');
+      radGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = radGrad;
+      ctx.fillRect(0, 100, W, 800);
+
+      // Section Category Badge
+      ctx.save();
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.roundRect(80, 260, 360, 46, 23);
+      ctx.fill();
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '700 18px "JBM", monospace';
+      ctx.fillText('⚡ 5-SECOND ROADMAP HOOK', 105, 290);
+      ctx.restore();
+
+      // Main Hook Headline
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 64px "Inter", sans-serif';
+      ctx.fillText('SEMICONDUCTOR CHIPS', 80, 380);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 32px sans-serif';
+      ctx.fillText('Iss video mein hum cover karenge:', 80, 440);
+
+      // The 3-Point Roadmap Card Stack
+      const points = [
+        { num: '01', en: 'WHAT IS IT?', hi: 'यह आखिर क्या है? (Silicon & Transistors)', start: 0.0, end: 2.0 },
+        { num: '02', en: 'HOW IT WORKS?', hi: 'काम कैसे करता है? (Binary 0 & 1 Logic)', start: 2.0, end: 3.8 },
+        { num: '03', en: 'REAL-WORLD USE', hi: 'इसका असली इस्तेमाल क्या है? (Phones to Cars)', start: 3.8, end: 5.5 }
+      ];
+
+      const startY = 520;
+      points.forEach((pt, idx) => {
+        const y = startY + idx * 160;
+        const isActive = t >= pt.start && t < pt.end;
+        const isPassed = t >= pt.end;
+
+        // Card container
+        ctx.save();
+        ctx.fillStyle = isActive ? 'rgba(15, 23, 42, 0.95)' : 'rgba(15, 23, 42, 0.5)';
+        ctx.beginPath();
+        ctx.roundRect(80, y, W - 160, 130, 16);
+        ctx.fill();
+
+        ctx.strokeStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : 'rgba(255, 255, 255, 0.1)');
+        ctx.lineWidth = isActive ? 2.5 : 1;
+        ctx.stroke();
+
+        // Left accent indicator
+        ctx.fillStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : '#475569');
+        ctx.beginPath();
+        ctx.roundRect(80, y, 10, 130, [16, 0, 0, 16]);
+        ctx.fill();
+
+        // Step number badge
+        ctx.fillStyle = isActive ? '#38bdf8' : (isPassed ? '#10b981' : '#64748b');
+        ctx.font = '800 28px "JBM", monospace';
+        ctx.fillText(pt.num, 115, y + 54);
+
+        // English Title
+        ctx.fillStyle = isActive ? '#ffffff' : (isPassed ? '#cbd5e1' : '#94a3b8');
+        ctx.font = '800 32px "Inter", sans-serif';
+        ctx.fillText(pt.en, 185, y + 52);
+
+        // Hindi explanation
+        ctx.fillStyle = isActive ? '#38bdf8' : (isPassed ? '#a7f3d0' : '#64748b');
+        ctx.font = '600 24px sans-serif';
+        ctx.fillText(pt.hi, 185, y + 96);
+
+        // Checkmark badge if passed or active
+        if (isPassed) {
+          ctx.fillStyle = '#10b981';
+          ctx.font = '800 28px sans-serif';
+          ctx.fillText('✓', W - 140, y + 74);
+        } else if (isActive) {
+          ctx.fillStyle = '#38bdf8';
+          ctx.font = '800 20px "JBM", monospace';
+          ctx.fillText('ACTIVE', W - 180, y + 74);
+        }
+        ctx.restore();
+      });
+
+      // Spoken subtitle pill at bottom
+      drawSubtitlePill(ctx, 'Iss video mein hum cover karenge: Semiconductor Microchips — yeh aakhir kya hai aur iska real use kya hai.');
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // ACT 1: KYA HAI YEH? (5.5s - 25.0s) — IMAGE + MOTION GRAPHICS
+    // ─────────────────────────────────────────────────────────────
+    function drawWhatIsIt(ctx, t) {
+      const actT = t - 5.5;
+
+      // Hero Image: Silicon Wafer Macro Die with slow Ken Burns drift
+      if (chipImg.complete && chipImg.naturalWidth) {
+        ctx.save();
+        const scale = 1.0 + Math.min(0.08, actT * 0.004);
+        ctx.translate(W / 2, H / 2);
+        ctx.scale(scale, scale);
+        ctx.translate(-W / 2, -H / 2);
+        ctx.drawImage(chipImg, 0, 0, W, H);
+        ctx.restore();
+      }
+
+      // Dark top and bottom gradient vignettes for typography contrast
+      const vTop = ctx.createLinearGradient(0, 0, 0, 420);
+      vTop.addColorStop(0, 'rgba(4, 7, 12, 0.95)');
+      vTop.addColorStop(1, 'rgba(4, 7, 12, 0.0)');
+      ctx.fillStyle = vTop;
+      ctx.fillRect(0, 0, W, 420);
+
+      const vBottom = ctx.createLinearGradient(0, 1400, 0, H);
+      vBottom.addColorStop(0, 'rgba(4, 7, 12, 0.0)');
+      vBottom.addColorStop(1, 'rgba(4, 7, 12, 0.95)');
+      ctx.fillStyle = vBottom;
+      ctx.fillRect(0, 1400, W, H - 1400);
+
+      // Act Header Banner
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '800 24px "JBM", monospace';
+      ctx.fillText('PART 1 OF 2 : DEFINITION', 80, 260);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 58px "Inter", sans-serif';
+      ctx.fillText('YEH AAKHIR KYA HAI?', 80, 330);
+
+      // MOTION GRAPHIC 1: 2X Loupe reticle circling microscopic center (starts at 7.0s)
+      if (t >= 7.0) {
+        Motion.drawEvidenceLoupe(ctx, t, 7.0, 520, 840, 90, 2.0);
+      }
+
+      // MOTION GRAPHIC 2: Callout Pin 1 to Nano-Scale Die Grid (starts at 9.0s)
+      if (t >= 9.0) {
+        Motion.drawCalloutPin(ctx, t, 9.0, 520, 760, 160, 640, 'NANO-SCALE DIE GRID', '100 Arab Transistors ek single chip par', '#38bdf8');
+      }
+
+      // MOTION GRAPHIC 3: Callout Pin 2 to Binary Switching Bus (starts at 14.0s)
+      if (t >= 14.0) {
+        Motion.drawCalloutPin(ctx, t, 14.0, 680, 1080, 880, 1220, 'BINARY SWITCHING BUS', 'Bijli ka ON/OFF logic (0 aur 1 data)', '#34d399');
+      }
+
+      // MOTION GRAPHIC 4: Yellow Highlighter Sweep on Fact Spec (starts at 17.5s)
+      if (t >= 17.5) {
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+        ctx.beginPath();
+        ctx.roundRect(80, 1380, W - 160, 64, 10);
+        ctx.fill();
+        ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1; ctx.stroke();
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '700 24px "JBM", monospace';
+        ctx.fillText('SPEC: 2-NANOMETER TRANSISTOR GATE (50,000X THINNER)', 110, 1422);
+
+        Motion.drawHighlighter(ctx, t, 18.0, 1.2, 105, 1395, 870, 36, 'rgba(250, 204, 21, 0.45)');
+      }
+
+      // Subtitle Pill
+      const sub = actT < 10.0
+        ? 'Pehla sawal: Yeh aakhir hai kya? Yeh ek silicon wafer die hai jisme 100 Billion nano-scale transistors print hote hain.'
+        : 'Yeh transistors sirf ek kaam karte hain: Bijli ke current ko Arabon baar ON aur OFF karna — jisse banta hai digital binary 0 aur 1.';
+      drawSubtitlePill(ctx, sub);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // ACT 2: ISKA REAL USE KYA HAI? (25.0s - 44.0s)
+    // ─────────────────────────────────────────────────────────────
+    function drawWhatIsItsUse(ctx, t) {
+      const actT = t - 25.0;
+
+      // Hero Image: Automotive ECU Microchip Circuit & EV Blueprint
+      if (carImg.complete && carImg.naturalWidth) {
+        ctx.save();
+        const scale = 1.0 + Math.min(0.08, actT * 0.004);
+        ctx.translate(W / 2, H / 2);
+        ctx.scale(scale, scale);
+        ctx.translate(-W / 2, -H / 2);
+        ctx.drawImage(carImg, 0, 0, W, H);
+        ctx.restore();
+      }
+
+      // Contrast vignettes
+      const vTop = ctx.createLinearGradient(0, 0, 0, 420);
+      vTop.addColorStop(0, 'rgba(4, 7, 12, 0.95)');
+      vTop.addColorStop(1, 'rgba(4, 7, 12, 0.0)');
+      ctx.fillStyle = vTop;
+      ctx.fillRect(0, 0, W, 420);
+
+      const vBottom = ctx.createLinearGradient(0, 1400, 0, H);
+      vBottom.addColorStop(0, 'rgba(4, 7, 12, 0.0)');
+      vBottom.addColorStop(1, 'rgba(4, 7, 12, 0.95)');
+      ctx.fillStyle = vBottom;
+      ctx.fillRect(0, 1400, W, H - 1400);
+
+      // Act Header
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 24px "JBM", monospace';
+      ctx.fillText('PART 2 OF 2 : REAL-WORLD APPLICATION', 80, 260);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 58px "Inter", sans-serif';
+      ctx.fillText('ISKA REAL USE KYA HAI?', 80, 330);
+
+      // MOTION GRAPHIC 5: Callout Pin 3 to Automotive Master ECU (starts at 27.0s)
+      if (t >= 27.0) {
+        Motion.drawCalloutPin(ctx, t, 27.0, 540, 960, 840, 820, 'AUTOMOTIVE MASTER ECU', 'Engine, Brakes & Battery Master Controller', '#fbbf24');
+      }
+
+      // MOTION GRAPHIC 6: Callout Pin 4 to EV Powertrain Wireframe (starts at 30.0s)
+      if (t >= 30.0) {
+        Motion.drawCalloutPin(ctx, t, 30.0, 420, 320, 160, 440, 'EV POWERTRAIN BLUEPRINT', '1,500 se 3,000 chips per modern vehicle', '#38bdf8');
+      }
+
+      // MOTION GRAPHIC 7: Live Odometer Counter (starts at 33.0s)
+      if (t >= 33.0) {
+        ctx.save();
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.94)';
+        ctx.beginPath();
+        ctx.roundRect(80, 1340, W - 160, 110, 16);
+        ctx.fill();
+        ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 1.5; ctx.stroke();
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '700 20px "JBM", monospace';
+        ctx.fillText('CHIPS REQUIRED PER ELECTRIC VEHICLE:', 110, 1378);
+
+        Motion.drawOdometer(ctx, t, 33.5, 2.5, 0, 3000, '', ' CHIPS', W / 2, 1424);
+        ctx.restore();
+      }
+
+      // Subtitle Pill
+      const sub = actT < 10.0
+        ? 'Doosra sawal: Iska real use kya hai? Ek modern gaadi mein kam se kam 1,500 se 3,000 microchips lagte hain.'
+        : 'Engine timing, ABS brakes, battery sensors, aur airbag ignition — bina microchips ke poori duniya ki factories band ho jati hain.';
+      drawSubtitlePill(ctx, sub);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // ACT 3: BENAQAAB VERDICT & CLOSING (44.0s - 58.0s)
+    // ─────────────────────────────────────────────────────────────
+    function drawVerdictAndClose(ctx, t) {
+      const actT = t - 44.0;
+
+      // Dark obsidian background with subtle tech grid
+      ctx.fillStyle = '#060a12';
+      ctx.fillRect(0, 0, W, H);
+
+      // Radial glow
+      const g = ctx.createRadialGradient(W / 2, H / 2, 50, W / 2, H / 2, 600);
+      g.addColorStop(0, 'rgba(239, 68, 68, 0.12)');
+      g.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+
+      // National Mission Fact Card
+      ctx.save();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+      ctx.beginPath();
+      ctx.roundRect(80, 320, W - 160, 240, 20);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)'; ctx.lineWidth = 1; ctx.stroke();
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 22px "JBM", monospace';
+      ctx.fillText('GOVERNMENT LEDGER · SEPTEMBER 2026', 115, 370);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 48px "Inter", sans-serif';
+      ctx.fillText('INDIA SEMICONDUCTOR MISSION', 115, 435);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 28px sans-serif';
+      ctx.fillText('₹1.64 Lakh Crore Approved · Dholera Silicon Fab Rising', 115, 495);
+      ctx.restore();
+
+      // MOTION GRAPHIC 8: Rubber Verdict Stamp (hits at 48.0s)
+      if (t >= 48.0) {
+        Motion.drawVerdictStamp(ctx, t, 48.0, 'STRATEGIC ASSET', 'MODERN DUNIYA KA OXYGEN', W / 2, 740);
+      }
+
+      // Closing Signature
+      if (t >= 52.0) {
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '800 42px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('SHOR NAHI, SOURCE KE SAATH.', W / 2, 1140);
+
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = '800 32px "JBM", monospace';
+        ctx.fillText('SACH · SABOOT · BEBAK', W / 2, 1200);
+        ctx.textAlign = 'left';
+      }
+
+      // Subtitle Pill
+      drawSubtitlePill(ctx, 'Isi liye America, China aur India ab Arabon dollar laga rahe hain. Yeh component nahi, modern civilization ka oxygen hai.');
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // COMMON HELPERS: BRAND LOGO, SUBTITLE PILL, SAFE ZONE
+    // ─────────────────────────────────────────────────────────────
+    function drawBrandLogo(ctx, t) {
+      if (logoImg.complete && logoImg.naturalWidth) {
+        ctx.save();
+        ctx.globalAlpha = 0.92;
+        ctx.drawImage(logoImg, 55, 42, 72, 72);
+        
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 24px "Inter", sans-serif';
+        ctx.fillText('BENAQAAB', 142, 76);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '700 14px "JBM", monospace';
+        ctx.fillText('INDIA', 142, 98);
+        ctx.restore();
+      }
+    }
+
+    function drawSubtitlePill(ctx, text) {
+      ctx.save();
+      const pillY = 1620;
+      const pillH = 120;
+      ctx.fillStyle = 'rgba(10, 15, 24, 0.92)';
+      ctx.beginPath();
+      ctx.roundRect(80, pillY, W - 160, pillH, 20);
+      ctx.fill();
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 30px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      
+      // Basic 2-line word wrapping
+      const words = text.split(' ');
+      let line1 = '', line2 = '';
+      for (let i = 0; i < words.length; i++) {
+        if (i < words.length / 2) line1 += words[i] + ' ';
+        else line2 += words[i] + ' ';
+      }
+      ctx.fillText(line1.trim(), W / 2, pillY + 48);
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillText(line2.trim(), W / 2, pillY + 92);
+      ctx.textAlign = 'left';
+      ctx.restore();
+    }
+
+    function drawSafeZoneIndicator(ctx, t) {
+      // Subtle cyan dot at safe margin top-right
+      ctx.save();
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
+      ctx.beginPath();
+      ctx.arc(900, 240, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // INTERACTIVE PLAYER CONTROLLER
+    // ─────────────────────────────────────────────────────────────
+    const slider = document.getElementById('time-slider');
+    const timeDisplay = document.getElementById('time-display');
+    const btnPlay = document.getElementById('btn-play');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnAudio = document.getElementById('btn-audio');
+
+    function updateTime(t) {
+      currentTime = Math.max(0, Math.min(DURATION, t));
+      slider.value = currentTime;
+      timeDisplay.textContent = `${currentTime.toFixed(1)}s / ${DURATION.toFixed(1)}s`;
+      render(currentTime);
+    }
+
+    slider.addEventListener('input', (e) => {
+      isPlaying = false;
+      btnPlay.textContent = '▶ PLAY';
+      btnPlay.classList.remove('active');
+      updateTime(parseFloat(e.target.value));
+    });
+
+    btnPlay.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      btnPlay.textContent = isPlaying ? '⏸ PAUSE' : '▶ PLAY';
+      btnPlay.classList.toggle('active', isPlaying);
+      if (isPlaying && currentTime >= DURATION) {
+        currentTime = 0;
+      }
+      if (isPlaying) lastFrameTime = performance.now();
+    });
+
+    btnPrev.addEventListener('click', () => updateTime(currentTime - 5.0));
+    btnNext.addEventListener('click', () => updateTime(currentTime + 5.0));
+
+    btnAudio.addEventListener('click', () => {
+      sfxEnabled = !sfxEnabled;
+      btnAudio.textContent = sfxEnabled ? '🔊 SFX ON' : '🔇 SFX MUTED';
+      btnAudio.classList.toggle('active', !sfxEnabled);
+    });
+
+    // Keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        btnPlay.click();
+      } else if (e.code === 'ArrowLeft') {
+        updateTime(currentTime - 1.0);
+      } else if (e.code === 'ArrowRight') {
+        updateTime(currentTime + 1.0);
+      } else if (e.code === 'KeyM') {
+        btnAudio.click();
+      }
+    });
+
+    // Animation Loop
+    let lastFrameTime = performance.now();
+    function loop(now) {
+      if (isPlaying) {
+        const dt = (now - lastFrameTime) / 1000;
+        currentTime += dt;
+        if (currentTime >= DURATION) {
+          currentTime = DURATION;
+          isPlaying = false;
+          btnPlay.textContent = '▶ PLAY';
+          btnPlay.classList.remove('active');
+        }
+        slider.value = currentTime;
+        timeDisplay.textContent = `${currentTime.toFixed(1)}s / ${DURATION.toFixed(1)}s`;
+        render(currentTime);
+      }
+      lastFrameTime = now;
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>

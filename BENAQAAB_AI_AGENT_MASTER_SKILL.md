@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,524 | `6981ecd5e3ab3c63` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,551 | `17c823b1eb3f5afa` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29243,7 +29243,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,524 · **SHA-256 (first 16):** `6981ecd5e3ab3c63` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,551 · **SHA-256 (first 16):** `17c823b1eb3f5afa` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34770,6 +34770,33 @@ Implemented `VISUAL_ASSET_MASTER_LEDGER.md` and machine-readable `brand/visual_a
 3. **Domain Manifests & Tooling:**
    - Created `uploads/README.md`, `projects/world_news_24h/ASSET_MANIFEST.md`, `projects/gold_150k/ASSET_MANIFEST.md`, and `brand/ASSET_MANIFEST.md`.
    - Built `tools/build_visual_ledger.py` for automated continuous synchronization.
+
+---
+
+## 159. The 5-6s Roadmap Hook, What-Is-It & Use Explainer Law, and Motion Image Annotation Protocol Enacted — 07 Oct 2026
+
+**Context & Core Directives:**  
+Codified `DIRECTIVE_5SEC_ROADMAP_AND_WHAT_USE.md` and built the working reference project `projects/test_what_and_use/` to enforce three non-negotiable video creation laws:
+
+1. **The 5-6s Roadmap Hook (`RULE-5SEC-ROADMAP`):**
+   - Opening 5.5s must outline the 3 key questions covered in the video with an animated HUD card (*"Iss video mein hum cover karenge: [Topic] — yeh aakhir kya hai, iska real use kya hai..."*).
+   - Sequentially illuminates 3 steps: `01. WHAT IS IT?`, `02. HOW IT WORKS?`, `03. REAL-WORLD USE` with glowing pills and progress ticks.
+
+2. **The "What Is It & What Is Its Use?" Law (`RULE-WHAT-AND-USE`):**
+   - Every video must deeply answer both halves:
+     - **Part 1: Kya Hai Yeh? (Definition):** Jargon-free physical/architectural explanation backed by primary-source macro or gazette imagery.
+     - **Part 2: Iska Real-World Use Kya Hai? (Impact):** Concrete consumer, industrial, and national defense applications with live rolling odometer numbers.
+
+3. **Motion Graphics Image Annotation (`RULE-IMAGE-ANNOT`):**
+   - Strictly forbidden to show static photos with dead air.
+   - Added `Motion.drawCalloutPin` to `viz/motion.js` (target reticle, pulse ping, spring-animated dashed elbow line, and frosted glass info badge with English technical label + Hindi plain-speak explanation).
+   - Combines `drawEvidenceLoupe` (2X zoom lens), `drawHighlighter` (multiply marker sweep), `drawOdometer` (live metric roll), and `drawVerdictStamp` (rubber stamp slam with camera shake).
+
+4. **Reference Implementation (`projects/test_what_and_use/`):**
+   - `comp.html`: 60 FPS interactive player with Play/Pause, scrubber slider, jump buttons, keyboard controls (`Space`, `Arrows`, `M`), and Web Audio API procedural sound effects (`viz/forensic_audio.js`).
+   - `assets/chip_macro_die.jpg`: Extreme macro close-up of a silicon semiconductor die with nanometer transistor grid.
+   - `assets/car_ecu_chip.jpg`: Automotive Electronic Control Unit (ECU) circuit with EV powertrain wireframe.
+   - Deliverables: `thumbnail_1280x720.jpg` and `cover_vertical_1080x1920.jpg` generated via `tools/generate_thumbnail_pack.py` and validated via `tools/lint_safe_zones.py`.
 
 
 ---

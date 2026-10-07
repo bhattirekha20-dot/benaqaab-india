@@ -10,6 +10,12 @@ import sys
 from pathlib import Path
 from PIL import Image, ImageDraw
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 def overlay_safe_zones(img_path, out_debug_path=None):
     if not Path(img_path).exists():
         print(f"Error: image {img_path} does not exist.")

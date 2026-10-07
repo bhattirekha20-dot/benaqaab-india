@@ -10,6 +10,12 @@ import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 def get_font(font_path, size):
     try:
         return ImageFont.truetype(str(font_path), size)
