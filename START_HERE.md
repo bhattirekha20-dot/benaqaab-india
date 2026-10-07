@@ -132,6 +132,9 @@ research → sources → concept → script → voice (Master Clock) → film HT
     - **Shorts / Reels (9:16):** At least **30 AI images / visual cuts per Short** (1 cut every 1.5–2.0s for hyper-retention).
     - **Glowing Aesthetics:** Apply specular rim glows, glowing HUD contours, and volumetric backlights wherever appropriate.
     - **Visual Thinking:** AI must think intentionally—never use random filler; pair each visual causally with the voiceover!
+13. **Supporting Real Source Proof for Everything Spoken (`RULE-REAL-SOURCE-PROOF`)** — Every entity, statistic, or claim spoken in the narration MUST have concrete supporting real media from the internet (actual newspaper clippings, scanned gazettes, court filings, balance sheets, videos, satellite maps). Never speak words without visible proof on screen!
+14. **The "Why Watch This Full Video" Hook Architecture (`RULE-BURNING-QUESTION-HOOK`)** — In the first 3–5 seconds (Frame 0 to 5s), immediately plant the high-stakes burning question in the viewer's mind: why must they watch till the end, what hidden truth will be uncovered, and what is at stake for them personally.
+15. **Active Motion Graphics Explanations & Worldwide Deep Research (`RULE-DYNAMIC-HIGHLIGHTING` & `RULE-GLOBAL-DEEP-RESEARCH`)** — Real media must never sit static. Use active motion primitives: dynamic yellow highlighter sweeps (`multiply`), 2.5× forensic loupe zooms, animated callout pins with leader lines, rolling metric odometers, and verdict stamps. Autonomously execute deep worldwide research covering all direct and indirect relations (root causes, international geopolitics, money trails, supply chains, citizen impact).
 
 **Reporting style the user expects:** concise Hinglish; delivery first (file + specs), then the
 decisions you made, then what was **not** verified. Never say "looks great" — give numbers.

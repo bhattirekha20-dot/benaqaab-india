@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,576 | `9ad63baa2c8dcf48` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,616 | `7549627972c18232` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29278,7 +29278,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,576 · **SHA-256 (first 16):** `9ad63baa2c8dcf48` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,616 · **SHA-256 (first 16):** `7549627972c18232` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34857,6 +34857,45 @@ Enacted the universal retention mandate requiring **at least 10 distinct visual 
    - Runtime: 10m 29s (~629 seconds). Visual target: 105 distinct visual beats.
    - Comprehensive asset generation and script covering Stage 2 of Homi Bhabha's 3-stage nuclear program, liquid sodium coolant at 550 deg C, breeding ratio > 1.0, and unlocking 300,000 tonnes of Indian Thorium reserves.
    - Interactive preview engine comp.html with 60 FPS deterministic canvas animation, 5–6s roadmap card, visual beat stepper (1/105), procedural audio SFX, and motion primitives.
+---
+
+## 161. Creation of AI Video Maker Bible & GitLab Large-Storage Migration Architecture — 07 Oct 2026
+
+**Context & Core Directives:**
+1. **The All-In-One AI Video Maker Bible (`BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`):**
+   - Built a comprehensive, self-contained single-file knowledge transfer document specifically designed so that ANY new AI agent or model (Gemini, Claude, GPT, DeepSeek, etc.) entering the workspace without conversational memory can read ONE file and immediately execute elite Benaqaab India video production.
+   - Synthesizes all 22 operating laws, 10 non-negotiables, the 11-step master pipeline, 5 forensic motion primitives, 8-part mixed-media portfolio, the 10-visuals-per-minute law, 14 hard-won technical lessons, the Onion Hook architecture, and complete copy-paste code boilerplate.
+   - Positioned as Step 00 priority in `START_HERE.md` and Step 0 in `README.md`.
+
+2. **GitLab Storage Migration Architecture (`GITLAB_MIGRATION_AND_STORAGE_SYSTEM.md`):**
+   - **Problem Solved:** GitHub enforces a 100 MB per-file push block (directly failing large video deliverables like `Flight_Surcharge_Short.mp4` at 115.5 MB) and severely caps free Git LFS to 1 GB total storage / 1 GB monthly bandwidth.
+   - **Solution:** Migrated primary vault & media storage to **GitLab** (providing 5 GB – 10 GB free repository headroom, high LFS storage/bandwidth, and built-in CI/CD pipelines).
+   - Created root `.gitattributes` configuring Git LFS for all video formats (`*.mp4`, `*.mov`, `*.mkv`), master audio (`*.wav`, `*.mp3`), and archives (`*.zip`, `*.psd`, `*.aep`).
+   - Developed `tools/gitlab_sync.ps1` for automated 1-click verification, large asset scanning, remote configuration, and Git LFS push.
+
+---
+
+## 162. Real Source Proof, Burning Question Hook, Dynamic Highlighting & Worldwide Deep Research Enacted — 08 Oct 2026
+
+**Context & Core Directives:**  
+Codified four universal investigative video standards across all 7 repository governance files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `START_HERE.md`, `BENAQAAB_AI_AGENT_COMPACT.md`, `MASTER_AGENT_DISPATCH.md` Laws L25 & L26):
+
+1. **Supporting Real Source Proof for Everything Spoken (`RULE-REAL-SOURCE-PROOF`):**
+   - Every entity, statistic, rupee figure, institution, or claim spoken in the voiceover MUST have concrete real-world supporting media from the web (actual newspaper headlines, scanned official gazettes, court filings, balance sheets, videos, satellite maps).
+   - Direct Proof (exact documents/clippings) and Contextual Indirect Proof (facility archives, official press conferences, supply chain maps). Speaking without visible proof on screen is strictly forbidden.
+
+2. **The "Why Watch This Full Video" Hook Architecture (`RULE-BURNING-QUESTION-HOOK`):**
+   - In the opening 3–5 seconds (Frame 0 to 5s), the video must immediately plant the burning question in the viewer's mind: *Why must they watch this entire video until the very end? What hidden truth is uncovered? What is at stake for them personally (their money, rights, safety, or future)?*
+   - YouTube Shorts: Instant impact in ≤ 1.5 seconds with bold 2-word caption pills and high-contrast hero evidence cut.
+   - Long-Form: Opening 5.5s Roadmap + Burning Question HUD card.
+
+3. **Dynamic Motion Graphics Explanations & Highlighting (`RULE-DYNAMIC-HIGHLIGHTING`):**
+   - Media and articles must NEVER sit static on screen.
+   - Active motion graphics annotation stack: dynamic yellow ink highlighter sweeps (`globalCompositeOperation = 'multiply'`), 2.5× forensic loupe zooms on fine print, animated callout pins with leader lines, live rolling metric odometers (`JetBrains Mono`), dynamic verdict stamps (*"CONFIRMED"*, *"BOGUS"*, *"EXPOSED"*), and red-string evidence pinboards.
+
+4. **Worldwide Exhaustive Deep Research Mandate (`RULE-GLOBAL-DEEP-RESEARCH`):**
+   - The AI acts as an elite investigative director with zero knowledge gaps.
+   - Autonomously executes deep, exhaustive multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Leave no relation uncovered.
 
 
 ---

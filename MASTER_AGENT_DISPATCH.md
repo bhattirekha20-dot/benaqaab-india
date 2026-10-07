@@ -179,7 +179,7 @@ All 33 productions listed in Section 2 above are delivered and published. Under 
 9. **Verification Before Claims (`RULE-VERIFICATION`):** Inspect real rendered frames, run the QA checks, and report true numbers.
 10. **Preserve the Record (`RULE-PRESERVE-RECORD`):** Never delete protected files. `MEMORY.md` is append-only.
 
-### The 22 Absolute Laws (L1–L22)
+### The 26 Absolute Laws (L1–L26)
 - **L1 / `RULE-PROTECTED-FILES`:** Never delete core skill docs, logs, or reference directories.
 - **L2 / `RULE-DETERMINISTIC-TIME`:** `render(t)` takes seconds as input and outputs the identical frame every time.
 - **L3 / `RULE-MOTION-SCALES`:** Foreground kinetic typography, midground data/diagrams, background ambient mesh.
@@ -208,6 +208,12 @@ All 33 productions listed in Section 2 above are delivered and published. Under 
 - **L24 / `RULE-GLOWING-AESTHETICS` & `RULE-VISUAL-THINKING`:** **Glowing Images & Intentional Visual Reasoning**:
   - *Glowing Visual Craft:* Apply specular rim glows, glowing forensic HUD contours, luminous edge lighting, and volumetric ambient bloom backlights (`filter: drop-shadow`, canvas `shadowBlur`) wherever appropriate to deliver high-impact cinematic aesthetics.
   - *Visual Thinking Mandate:* AI agents must think intentionally—never generate random decorative filler. Every visual asset must be causally aligned with the specific sentence spoken in the voiceover master clock. Plan perspective, documentary contrast, and emotional resonance.
+- **L25 / `RULE-REAL-SOURCE-PROOF` & `RULE-DYNAMIC-HIGHLIGHTING`:** **Supporting Real Source Proof for Everything Spoken & Dynamic Highlighting**:
+  - *Real Proof for Every Sentence:* Every single entity, metric, rupee figure, institution, or claim spoken in the narration MUST have supporting real-world media retrieved from the internet (actual newspaper clippings, official gazettes, court filings, balance sheets, videos, satellite maps). Never speak without visible proof on screen!
+  - *Active Motion Explanations:* Real media must never sit static or passive. Actively explain every piece of evidence using dynamic yellow highlighter sweeps (`globalCompositeOperation = 'multiply'`), 2.5× forensic loupe magnification zooms on fine print, animated callout pins with leader lines, live rolling metric odometers, and verdict stamps.
+- **L26 / `RULE-BURNING-QUESTION-HOOK` & `RULE-GLOBAL-DEEP-RESEARCH`:** **The "Why Watch This Full Video" Hook Architecture & Worldwide Deep Research**:
+  - *The Burning Question Hook (Frame 0 to 5s):* In the opening 3–5 seconds, immediately plant the burning question in the viewer's mind: *Why must they watch this entire video until the very end? What hidden truth is uncovered? What is at stake for them personally (their money, rights, safety, or future)?*
+  - *Worldwide Exhaustive Deep Research:* The AI acts as an elite investigative director with zero knowledge gaps. Autonomously execute deep, multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Leave no relation uncovered.
 
 ---
 

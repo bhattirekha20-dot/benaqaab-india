@@ -223,6 +223,20 @@ names a topic, use that topic, but the wipe still happens first. Record the wipe
 - **What-and-Use Architecture:** The script must deeply and simply demystify two core questions: Part 1: *"Kya hai yeh?"* (physical/technical foundation with macro/gazette proof) and Part 2: *"Iska real use kya hai?"* (everyday, industrial, and national applications with rolling metric odometers).
 - **Motion Image Annotation:** Never display plain static photos with dead air. Every visual must be dynamically explained using motion primitives (`drawCalloutPin`, `drawEvidenceLoupe`, `drawHighlighter`, `drawOdometer`, `drawVerdictStamp`).
 
+**L23 · Format & Duration Confirmation Gate (`RULE-FORMAT-DURATION-GATE`).**
+Whenever a video topic is chosen (by user request, AI proposal, or registry pick), **NEVER assume or guess the format or duration**. You MUST PAUSE and ask the user: (1) Long-form documentary (16:9 widescreen), short explainer, or YouTube Short / Reel (9:16 vertical)? and (2) What target duration is desired (e.g. 30–60s, 90–120s, 3–5 min, 10 min+)? Only proceed after confirmation.
+
+**L24 · Glowing Aesthetics & Deep Visual Reasoning (`RULE-GLOWING-AESTHETICS` · `RULE-VISUAL-THINKING`).**
+Apply specular rim glows, glowing forensic HUD contours, and volumetric ambient bloom backlights (`filter: drop-shadow`, canvas `shadowBlur`) wherever appropriate. AI agents must think intentionally—never generate random decorative filler. Every visual asset must be causally aligned with the specific sentence spoken in the voiceover master clock.
+
+**L25 · Supporting Real Source Media for Everything Spoken & Dynamic Highlighting (`RULE-REAL-SOURCE-PROOF` · `RULE-DYNAMIC-HIGHLIGHTING`).**
+- **Real Evidence for Everything Spoken:** For every entity, statistic, rupee figure, institution, or claim spoken in narration, the AI MUST actively source or produce authentic real-world media from the internet (actual newspaper clippings, official gazettes, court filings, balance sheets, videos, satellite maps). Never speak words without visible proof on screen!
+- **Active Motion Explanations & Highlighting:** Real media and articles must NEVER sit static. Use dynamic yellow ink highlighter sweeps (`globalCompositeOperation = 'multiply'`), 2.5× forensic loupe magnification zooms on fine print, animated callout pins with leader lines, live rolling metric odometers, and verdict stamps.
+
+**L26 · The "Why Watch This Full Video" Hook Architecture & Worldwide Deep Research (`RULE-BURNING-QUESTION-HOOK` · `RULE-GLOBAL-DEEP-RESEARCH`).**
+- **Hook Architecture (Frame 0 to 5s):** In the opening 3–5 seconds, immediately plant the high-stakes burning question in the viewer's mind: *Why must they watch this entire video until the very end? What hidden truth is uncovered? What is at stake for them personally (their money, rights, safety, or future)?*
+- **Worldwide Exhaustive Deep Research:** The AI acts as an elite investigative director with zero knowledge gaps. Autonomously execute deep, multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Cover every possible relation visually and structurally.
+
 ---
 
 ## 3. WORKSPACE MAP & FILE DISCIPLINE

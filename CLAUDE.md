@@ -17,5 +17,9 @@
    - **Shorts / Reels (9:16):** At least 30 AI images / visual cuts per Short (1 cut every 1.5–2.0s for hyper-retention).
    - **Glowing Aesthetics:** Use specular rim lighting, glowing HUD borders, and volumetric backlights wherever appropriate.
    - **Visual Thinking:** AI must think intentionally—never use disconnected filler; pair each visual causally with the voiceover.
+7. **REAL SOURCE PROOF FOR EVERYTHING SPOKEN (`RULE-REAL-SOURCE-PROOF`):** Every entity, statistic, or claim spoken in the narration MUST have concrete supporting real media from the internet (actual newspaper clippings, scanned gazettes, court filings, balance sheets, videos, satellite maps). Never speak without visible proof on screen!
+8. **THE "WHY WATCH THIS FULL VIDEO" HOOK (`RULE-BURNING-QUESTION-HOOK`):** In the first 3–5 seconds (Frame 0 to 5s), immediately plant the high-stakes burning question in the viewer's mind: why must they watch till the end, what hidden truth will be uncovered, and what is at stake for them personally.
+9. **DYNAMIC MOTION GRAPHICS EXPLANATIONS & HIGHLIGHTING (`RULE-DYNAMIC-HIGHLIGHTING`):** Real media must never sit static. Use active motion primitives: dynamic yellow highlighter sweeps (`multiply`), 2.5× forensic loupe zooms, animated callout pins with leader lines, rolling metric odometers, and verdict stamps.
+10. **WORLDWIDE EXHAUSTIVE DEEP RESEARCH (`RULE-GLOBAL-DEEP-RESEARCH`):** Autonomously execute deep multi-source research across the globe, connecting all direct and indirect dots (root cause, international geopolitics, hidden money trails, corporate ownerships, supply chains, citizen impact).
 
 See [AGENTS.md](file:///c:/Users/dell/Desktop/my%20ai%20bot%20skills%20ok/AGENTS.md) for full specifications.

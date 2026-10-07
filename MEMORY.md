@@ -5589,3 +5589,27 @@ Enacted the universal retention mandate requiring **at least 10 distinct visual 
    - Created root `.gitattributes` configuring Git LFS for all video formats (`*.mp4`, `*.mov`, `*.mkv`), master audio (`*.wav`, `*.mp3`), and archives (`*.zip`, `*.psd`, `*.aep`).
    - Developed `tools/gitlab_sync.ps1` for automated 1-click verification, large asset scanning, remote configuration, and Git LFS push.
 
+---
+
+## 162. Real Source Proof, Burning Question Hook, Dynamic Highlighting & Worldwide Deep Research Enacted — 08 Oct 2026
+
+**Context & Core Directives:**  
+Codified four universal investigative video standards across all 7 repository governance files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, `START_HERE.md`, `BENAQAAB_AI_AGENT_COMPACT.md`, `MASTER_AGENT_DISPATCH.md` Laws L25 & L26):
+
+1. **Supporting Real Source Proof for Everything Spoken (`RULE-REAL-SOURCE-PROOF`):**
+   - Every entity, statistic, rupee figure, institution, or claim spoken in the voiceover MUST have concrete real-world supporting media from the web (actual newspaper headlines, scanned official gazettes, court filings, balance sheets, videos, satellite maps).
+   - Direct Proof (exact documents/clippings) and Contextual Indirect Proof (facility archives, official press conferences, supply chain maps). Speaking without visible proof on screen is strictly forbidden.
+
+2. **The "Why Watch This Full Video" Hook Architecture (`RULE-BURNING-QUESTION-HOOK`):**
+   - In the opening 3–5 seconds (Frame 0 to 5s), the video must immediately plant the burning question in the viewer's mind: *Why must they watch this entire video until the very end? What hidden truth is uncovered? What is at stake for them personally (their money, rights, safety, or future)?*
+   - YouTube Shorts: Instant impact in ≤ 1.5 seconds with bold 2-word caption pills and high-contrast hero evidence cut.
+   - Long-Form: Opening 5.5s Roadmap + Burning Question HUD card.
+
+3. **Dynamic Motion Graphics Explanations & Highlighting (`RULE-DYNAMIC-HIGHLIGHTING`):**
+   - Media and articles must NEVER sit static on screen.
+   - Active motion graphics annotation stack: dynamic yellow ink highlighter sweeps (`globalCompositeOperation = 'multiply'`), 2.5× forensic loupe zooms on fine print, animated callout pins with leader lines, live rolling metric odometers (`JetBrains Mono`), dynamic verdict stamps (*"CONFIRMED"*, *"BOGUS"*, *"EXPOSED"*), and red-string evidence pinboards.
+
+4. **Worldwide Exhaustive Deep Research Mandate (`RULE-GLOBAL-DEEP-RESEARCH`):**
+   - The AI acts as an elite investigative director with zero knowledge gaps.
+   - Autonomously executes deep, exhaustive multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Leave no relation uncovered.
+

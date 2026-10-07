@@ -97,6 +97,42 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
 - Visual scenes, cuts, counters, and highlights must be timed to word-level audio timestamps.
 - Audio master must measure **-14 LUFS (±1.0 LUFS)** integrated loudness with True Peak **≤ -1.0 dBFS**.
 
+### 3.6 Supporting Real Source Proof for Everything Spoken (`RULE-REAL-SOURCE-PROOF`)
+- **Visual Evidence for Every Spoken Beat:** For every single entity, claim, rupee figure, institution, or event spoken in the narration, the AI MUST actively source or produce authentic real-world media from the internet (actual newspaper headlines, scanned gazettes, court filings, balance sheets, satellite maps, news articles, official tweets/press releases, or historical/live video inserts).
+- **Direct & Indirect Backing:**
+  - *Direct Backing:* Exact document, clipping, or official chart confirming the specific claim.
+  - *Indirect / Contextual Backing:* When an exact classified document cannot be shown, show verified archival photos of the involved facility, official government press conference footage, maritime supply chain map, or photorealistic macro AI composite clearly attributed.
+- **Zero Dead Spoken Words:** Never speak about a fact, company, scam, or technology without displaying its concrete proof on screen.
+
+### 3.7 Dynamic Motion Graphics Explanations & Highlighting (`RULE-DYNAMIC-HIGHLIGHTING`)
+- **No Static Display:** Real media, clippings, and documents must NEVER sit static or passive on screen.
+- **Active Motion Annotation Stack:**
+  - **Dynamic Yellow Highlighter Sweep:** Newspaper and gazette text must be highlighted as spoken using `ctx.globalCompositeOperation = 'multiply'` (hex `#FFE600` / `#FACC15`) with procedural organic ink bleed.
+  - **Forensic Loupe Magnification:** 2.2× to 3.0× circular loupe with specular glass bevel, drop shadow, and reticle zooming in on key dates, clauses, or figures.
+  - **Animated Callout Pins & Leader Lines:** Target reticle with spring-animated dashed elbow lines and frosted glass info pills explaining components and complex data points (`Motion.drawCalloutPin`).
+  - **Live Rolling Metric Odometers:** Tabular monospace digits (`JetBrains Mono`) rolling smoothly with ease-out deceleration to emphasize quantities and monetary figures.
+  - **Dynamic Verdict Stamps:** High-impact angled forensic rubber stamp (*"CONFIRMED"*, *"BOGUS"*, *"DEBUNKED"*, *"EXPOSED"*) slamming down with 120ms spring settle and camera trauma shake.
+  - **Forensic Pinboard / Red-String Graph:** Dynamic evidence boards connecting nodes (suspects, shell companies, bank accounts, ministries) with taut red strings to demystify complex investigations.
+
+### 3.8 The "Why Watch This Full Video" Hook Architecture (`RULE-BURNING-QUESTION-HOOK`)
+- **Opening 3–5 Seconds Mandate:** When a viewer lands on the video, the first 3 to 5 seconds (Frame 0 to 5.0s) must instantly plant the burning question in their mind: *Why must they watch this entire video until the very end?*
+- **The 3-Layer Retention Architecture:**
+  1. *The Provocative Discrepancy:* Reveal a shocking contradiction or hidden reality that challenges what the viewer assumes (e.g. *"Aap sochte hain ki... lekin sach yeh hai..."*).
+  2. *The Personal Stake (Direct or Indirect):* Make it urgently personal—explain how this directly impacts the viewer's wallet, personal safety, privacy, taxes, job, or future.
+  3. *The Ultimate Unveiling (Curiosity Gap):* Promise an explosive, evidence-backed conclusion that will only be fully revealed at the end of the film.
+- **Format-Specific Hook Cadence:**
+  - *YouTube Shorts (9:16):* Instant impact in ≤ 1.5 seconds with bold 2-word caption pills and high-contrast hero evidence cut.
+  - *Long-Form (16:9):* Opening 5.5s Roadmap + Burning Question HUD card stating clearly what is at stake and why leaving the video leaves them in the dark.
+
+### 3.9 Worldwide Exhaustive Deep Research Mandate (`RULE-GLOBAL-DEEP-RESEARCH`)
+- **Autonomous Global Dot-Connecting:** The AI acts as an elite investigative director with zero knowledge gaps. The AI must autonomously execute exhaustive, world-wide, multi-source research across both Indian and international registries.
+- **Cover Every Possible Relation:**
+  - *Root Cause & Origin:* Where did this start globally or historically?
+  - *International Geopolitics & Foreign Actors:* How do foreign states, global sanctions, multinational corporations, or foreign technologies connect to this story?
+  - *The Money Trail & Supply Chain:* Who pays, who profits, who manufactures, and who brokers the deals?
+  - *Direct & Indirect Citizen Impact:* Demystify high-level macroeconomic, legal, or technical jargon into direct tangible impacts on the common citizen's daily life.
+  - *Multi-Sided Verification:* Cross-verify all numbers across minimum 2–3 independent domestic and international databases (PIB, World Bank, SEC, MCA21, IMF, academic journals).
+
 ---
 
 ## 💎 ARTICLE 4: THE "BEST THING DONE" LAW (ZERO AI SLOP)
