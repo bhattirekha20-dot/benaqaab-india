@@ -186,6 +186,7 @@ Use this map to locate exact operational rules without loading whole files:
 
 | Task / Topic | Target File | What to Inspect |
 |---|---|---|
+| **Master Mickey Prompt** | `MASTER_MICKEY_PROMPT.md` | Verbatim master prompt: real source proof, burning question hook, dynamic motion highlighting, worldwide research |
 | **Pipeline & Standing Rules** | `BENAQAAB_AI_AGENT_COMPACT.md` | §1 (Overview), §2 (Laws), §4 (11-Step Pipeline), §14 (QA Gates) |
 | **Forensic Primitives & Boilerplate** | `BENAQAAB_FORENSIC_MOTION_SYSTEM.md` | §2 (Pipeline), §3 (Fact Ledger), §4 (5 Primitives), §7 (`comp.html` boilerplate) |
 | **Opus 5.5 Motion Techniques** | `MOTION_RESEARCH_Opus55.md` | §0 (Core Finding), §1.4 (Spotify Prompt Rules), §2 (Timeline math) |

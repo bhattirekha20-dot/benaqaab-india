@@ -45,7 +45,7 @@ handbook, the full production history and the prompt archive, all verbatim.
 | K | Peak-detail: verified repositories | `knowledge/peak_detail_research/VERIFIED_REPOSITORIES.md` | 466 | `4fa3b2be70aeefb3` |
 | L | 3D documentary research & rebuild plan | `knowledge/3d_documentary_research/RESEARCH_AND_REBUILD_PLAN.md` | 212 | `2cfc7ba439b66c18` |
 | M | MASTER handbook (36 chapters) | `MASTER_VIDEO_GENERATION_SKILLS.md` | 25,124 | `05b0b8f13d651809` |
-| N | Production history (MEMORY) | `MEMORY.md` | 5,616 | `7549627972c18232` |
+| N | Production history (MEMORY) | `MEMORY.md` | 5,632 | `797248efa843626a` |
 | O | Prompt library | `PROMPT_LIBRARY_opus55.md` | 10,904 | `f01c39b0edd1c556` |
 
 **Definition of done for any film** (from Part I §20) and the **Ten Non-Negotiables** are at the
@@ -29278,7 +29278,7 @@ writes + validates an Alight Motion scene against the documented import rules.
 <!-- ===================== APPENDIX N — VERBATIM ===================== -->
 ## APPENDIX N — Production history (MEMORY)
 
-**Source file:** `MEMORY.md` · **lines:** 5,616 · **SHA-256 (first 16):** `7549627972c18232` · **why it exists:** every major decision, number, failure and correction, in order
+**Source file:** `MEMORY.md` · **lines:** 5,632 · **SHA-256 (first 16):** `797248efa843626a` · **why it exists:** every major decision, number, failure and correction, in order
 
 *Everything from here to the next APPENDIX banner is the source file byte-for-byte.*
 
@@ -34896,6 +34896,22 @@ Codified four universal investigative video standards across all 7 repository go
 4. **Worldwide Exhaustive Deep Research Mandate (`RULE-GLOBAL-DEEP-RESEARCH`):**
    - The AI acts as an elite investigative director with zero knowledge gaps.
    - Autonomously executes deep, exhaustive multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Leave no relation uncovered.
+
+---
+
+## 163. Master Mickey Prompt Preserved Verbatim — 08 Oct 2026
+
+**Context & Core Directives:**  
+Preserved the user's master prompt verbatim in dedicated repository file `MASTER_MICKEY_PROMPT.md` without altering a single character of the user's prompt text:
+
+1. **Verbatim Preservation Mandate:**
+   - Saved exact user text: *"i like thw ay you make the video but i request tyou to increse the number of images and also try to find the real images from the sources on the internt like newspaper or news articles or more sources evrn the video s and other thing that ultimately support our video and the directly or indentct ly suppoert us i want that when the user come on our video it first get all hthe question in his mind why to see this ufll video and improve more thing in the video like motion craghics explation using graphics hifhlighting and even more as i have less knowlde to make the video betst i request you to please make me ebst ok and try to cover every possible relation by your vidoe for that do in detail deep restch acrrros the full world ok and gte my task done goood ok and try to find out the supporting real image sof evey rthing you speak in the video k"*.
+   - Strictly forbidden to modify or sanitize the user's verbatim text.
+
+2. **Integration into Core Precedence Hierarchy:**
+   - Established `MASTER_MICKEY_PROMPT.md` at Priority Step `0000` in `START_HERE.md`.
+   - Indexed in `AGENTS.md` surgical navigation map.
+   - Enforces the 5 Pillars: Real Evidence Proof for everything spoken, Burning Question Hook, Dynamic Highlighter & Loupe Motion Explanations, Worldwide Exhaustive Research, and High Visual Density.
 
 
 ---

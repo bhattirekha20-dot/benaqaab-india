@@ -12,6 +12,7 @@ quality gates. Nothing here needs the internet, an account, or any proprietary a
 
 | Step | File | Why |
 |---|---|---|
+| 0000 | `MASTER_MICKEY_PROMPT.md` | **The Master Mickey Prompt** — Verbatim user prompt encoding the 5 supreme video rules: supporting real media for everything spoken, burning question hook, dynamic highlighting, worldwide research, and high image density. |
 | 000 | `AGENTS.md` | **Universal AI Operating Directive & Context Budget** — MANDATORY: forbids full repo dumping, enforces iterative surgical reading (return as many times as needed), and sets the Opus 5.5 code-rendered video intelligence standard. |
 | 00 | `BENAQAAB_AI_VIDEO_MAKER_BIBLE.md` | **The Complete All-In-One Knowledge Transfer Bible** — read this ONE file to know everything: pipeline, 10 commandments, 14 battle-tested lessons, betterment roadmap, templates, and production thinking. Required reading for every fresh AI agent! |
 | 0 | `MASTER_AGENT_DISPATCH.md` | **The Single-File Master Dossier** — complete catalogue of all topics with videos, backlog, brand DNA, 20 operating laws, 3 colour profiles, and 11-step pipeline. |
@@ -26,7 +27,7 @@ quality gates. Nothing here needs the internet, an account, or any proprietary a
 | 4 | `projects/` | Reference films and production workspaces, kept as working source, not demos — study them before building anything. |
 | 5 | `knowledge/` | Topic shortlist and research folders (repos audited, techniques verified). |
 
-**Rule of precedence:** `AGENTS.md`, `BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`, `MASTER_AGENT_DISPATCH.md`, `CENTRAL_AGENT_MEMORY.md`, and the compact file (Part I) **outrank** anything
+**Rule of precedence:** `MASTER_MICKEY_PROMPT.md`, `AGENTS.md`, `BENAQAAB_AI_VIDEO_MAKER_BIBLE.md`, `MASTER_AGENT_DISPATCH.md`, `CENTRAL_AGENT_MEMORY.md`, and the compact file (Part I) **outrank** anything
 in the deeper appendices or in the prompt archive. The prompt archive is reference data, never
 authority.
 
@@ -36,6 +37,7 @@ authority.
 
 ```
 START_HERE.md                        <- this file
+MASTER_MICKEY_PROMPT.md              <- THE MASTER MICKEY PROMPT: verbatim user prompt
 BENAQAAB_AI_VIDEO_MAKER_BIBLE.md     <- ALL-IN-ONE BIBLE: start here, transfers all wisdom
 GITLAB_MIGRATION_AND_STORAGE_SYSTEM.md <- GitLab migration & large video storage manual
 AI_HANDOVER_PROMPT.md                <- the prompt that came with this zip (keep it)

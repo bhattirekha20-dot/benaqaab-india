@@ -5613,3 +5613,19 @@ Codified four universal investigative video standards across all 7 repository go
    - The AI acts as an elite investigative director with zero knowledge gaps.
    - Autonomously executes deep, exhaustive multi-source research across the globe, connecting all direct and indirect dots (root causes, international geopolitics, hidden money trails, corporate ownerships, supply chains, and citizen impact). Leave no relation uncovered.
 
+---
+
+## 163. Master Mickey Prompt Preserved Verbatim — 08 Oct 2026
+
+**Context & Core Directives:**  
+Preserved the user's master prompt verbatim in dedicated repository file `MASTER_MICKEY_PROMPT.md` without altering a single character of the user's prompt text:
+
+1. **Verbatim Preservation Mandate:**
+   - Saved exact user text: *"i like thw ay you make the video but i request tyou to increse the number of images and also try to find the real images from the sources on the internt like newspaper or news articles or more sources evrn the video s and other thing that ultimately support our video and the directly or indentct ly suppoert us i want that when the user come on our video it first get all hthe question in his mind why to see this ufll video and improve more thing in the video like motion craghics explation using graphics hifhlighting and even more as i have less knowlde to make the video betst i request you to please make me ebst ok and try to cover every possible relation by your vidoe for that do in detail deep restch acrrros the full world ok and gte my task done goood ok and try to find out the supporting real image sof evey rthing you speak in the video k"*.
+   - Strictly forbidden to modify or sanitize the user's verbatim text.
+
+2. **Integration into Core Precedence Hierarchy:**
+   - Established `MASTER_MICKEY_PROMPT.md` at Priority Step `0000` in `START_HERE.md`.
+   - Indexed in `AGENTS.md` surgical navigation map.
+   - Enforces the 5 Pillars: Real Evidence Proof for everything spoken, Burning Question Hook, Dynamic Highlighter & Loupe Motion Explanations, Worldwide Exhaustive Research, and High Visual Density.
+
