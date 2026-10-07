@@ -127,6 +127,11 @@ research → sources → concept → script → voice (Master Clock) → film HT
 9. **Verification before claims** — inspect frames from the encoded file, run the QA checks, report real numbers, state what is unknown.
 10. **Protect the record** — never delete protected files; MEMORY.md only grows; superseded rules get marked `[SUPERSEDED]`.
 11. **Brand & Colour Standards** — Top-Left logo safe area with gold glow (`RULE-LOGO-TOPLEFT`); assign project to Profile A, B, or C (`RULE-COLOR-PROFILES`). Produce dedicated visual media for every story in a lineup (`RULE-MEDIA-PER-STORY`). Provide unpacked root/delivery assets (`RULE-UNPACKED-DELIVERABLES`).
+12. **Visual Density, Hyper-Pacing & Glowing Images (`RULE-VISUAL-DENSITY-AND-GLOW`)** —
+    - **Long-form (16:9):** At least **10 AI images / curated visual assets per 1 minute** of video (shot length ≤ 5.5–6.0s; 5 min = 50+ images; 10 min = 100+ images).
+    - **Shorts / Reels (9:16):** At least **30 AI images / visual cuts per Short** (1 cut every 1.5–2.0s for hyper-retention).
+    - **Glowing Aesthetics:** Apply specular rim glows, glowing HUD contours, and volumetric backlights wherever appropriate.
+    - **Visual Thinking:** AI must think intentionally—never use random filler; pair each visual causally with the voiceover!
 
 **Reporting style the user expects:** concise Hinglish; delivery first (file + specs), then the
 decisions you made, then what was **not** verified. Never say "looks great" — give numbers.

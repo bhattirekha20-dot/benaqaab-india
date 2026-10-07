@@ -40,7 +40,11 @@ this workspace works — same rules, same pipeline, same quality gates, same tra
 1. **The 1-Gate Approval Pipeline.** Topic in → preview out (`comp.html`) → user gate → final MP4. Work autonomously through research, script, audio, and visual assets to build the interactive HTML preview. STOP at the gate. Never render final MP4 until the user explicitly approves or says *"render the video"*.
 2. **Frame = pure function of t.** Deterministic, seeded, re-renderable one second at a time.
 3. **No dead frames.** Every frame has motion at three scales; `motion_report` freezes = none.
-4. **Real Source Media & AI Images — Never Diagrams Alone.** Animate real mechanisms; anchor every beat in authentic source media (PIB, press, official data cards, document scans) paired with photorealistic AI illustrations. No sterile diagrams or bare slideshows.
+4. **Visual Density, Glowing Images & Real Source Media (`RULE-VISUAL-DENSITY-AND-GLOW`).** Animate real mechanisms; anchor every beat in authentic source media (PIB, press, official data cards, document scans) paired with photorealistic AI illustrations:
+   - *Long-form (16:9):* Minimum **10 AI images / visual assets per 1 minute** of video (shot length ≤ 5.5–6.0s; 5 min = 50+ images; 10 min = 100+ images).
+   - *Shorts / Reels (9:16):* Minimum **30 AI images / visual cuts per Short** (1 cut every 1.5–2.0s for hyper-retention).
+   - *Glowing Visual Aesthetics:* Apply specular rim glows, glowing forensic HUD contours, and volumetric backlights wherever appropriate.
+   - *Visual Thinking:* AI must think intentionally—never use random filler; pair each visual causally with the voiceover!
 5. **Facts or nothing.** Every number sourced + dated; disagreements shown, not averaged; labels on claims.
 6. **Sound is measured, not guessed.** VO is the master clock; loudness is measured on the muxed file (-14 LUFS).
 7. **Text must fit.** Hindi is wider than Latin — measure, shrink, wrap; nothing overflows, nothing collides.

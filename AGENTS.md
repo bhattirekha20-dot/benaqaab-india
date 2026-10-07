@@ -76,7 +76,23 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
    - Anchor every beat in authentic source media: gazettes, PIB releases, balance sheets, RTI replies, press clippings, and maps.
    - Pair with curated, photorealistic AI illustrations. Never produce sterile, empty geometric diagrams.
 
-### 3.4 Audio Master Clock Law
+### 3.4 Visual Density, Hyper-Pacing & Glowing Images Law (`RULE-VISUAL-DENSITY-AND-GLOW`)
+1. **Mandatory Visual Density Ratios:**
+   - 🎬 **Long-Form Videos (16:9 Documentary/Explainer):** **At least 10 AI images / visual assets per 1 minute of video** (shot length ≤ 5.5–6.0s).
+     - *3-minute video:* Minimum **30 visual assets**.
+     - *5-minute video:* Minimum **50 visual assets**.
+     - *10-minute documentary (like EP-17 PFBR):* Minimum **100–105 distinct visual beats**.
+   - 📱 **Short-Form Videos / YouTube Shorts / Reels (9:16):** **At least 30 AI images / visual cuts per Short** (hyper-retention cadence: 1 image cut every 1.5 to 2.0 seconds). A static Short that holds 1 image for 5+ seconds is an automatic retention failure.
+2. **Volumetric Glowing Aesthetics ("Glowing Images Standard"):**
+   - Enable and encourage **glowing visual effects wherever appropriate**:
+     - **Specular Rim Glows:** High-contrast edge rim light on hero subjects (`filter: drop-shadow(0 0 18px rgba(...))` or canvas `shadowBlur`).
+     - **Volumetric Ambient Bloom:** Backlight diffusion, glowing volumetric orbs, and lens highlight blooms.
+     - **Forensic Energy Accents:** Electric Sky `#38BDF8` (space/tech/AI), Signal Amber `#FBBF24` (money/gold/economy), Crimson Flame `#F43F5E` (crime/scams/exposés), Neon Mint `#34D399` (energy/infra).
+3. **Deep Visual Reasoning ("Think Yourself" Mandate):**
+   - Never generate arbitrary or decorative filler. Every visual asset must have **causal narrative purpose** directly matched to the voiceover word-clock.
+   - The AI must think intentionally: plan camera angles, micro-contrast, depth of field, and storytelling impact.
+
+### 3.5 Audio Master Clock Law
 - Voiceover narration (Hindi/Hinglish) is the **absolute master clock** of the entire film.
 - Visual scenes, cuts, counters, and highlights must be timed to word-level audio timestamps.
 - Audio master must measure **-14 LUFS (±1.0 LUFS)** integrated loudness with True Peak **≤ -1.0 dBFS**.

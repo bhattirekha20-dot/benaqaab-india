@@ -12,5 +12,10 @@
    - What format? (Long-form documentary 16:9, short explainer, or YouTube Short 9:16 vertical)
    - What target duration?
    Wait for user confirmation before writing scripts or assembling assets!
+6. **VISUAL DENSITY & GLOWING IMAGES (`RULE-VISUAL-DENSITY-AND-GLOW`):**
+   - **Long-form (16:9):** At least 10 AI images / curated visual assets per 1 minute of video (shot length ≤ 5.5–6.0s; 5 min = 50+ images; 10 min = 100+ images).
+   - **Shorts / Reels (9:16):** At least 30 AI images / visual cuts per Short (1 cut every 1.5–2.0s for hyper-retention).
+   - **Glowing Aesthetics:** Use specular rim lighting, glowing HUD borders, and volumetric backlights wherever appropriate.
+   - **Visual Thinking:** AI must think intentionally—never use disconnected filler; pair each visual causally with the voiceover.
 
 See [AGENTS.md](file:///c:/Users/dell/Desktop/my%20ai%20bot%20skills%20ok/AGENTS.md) for full specifications.
