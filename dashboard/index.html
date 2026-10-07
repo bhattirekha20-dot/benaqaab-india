@@ -5,131 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benaqaab India — Studio Command Center & Topic Tracker</title>
   <link rel="icon" type="image/png" href="/brand/logo.png">
-  
-  <!-- Modern Curated Fonts -->
+
+  <!-- Google Fonts: Outfit (Display) + Plus Jakarta Sans (Body) + JetBrains Mono (Metrics) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ambient background depth -->
-  <div class="ambient-orb orb-1"></div>
-  <div class="ambient-orb orb-2"></div>
-  <div class="ambient-orb orb-3"></div>
+  <!-- Fine SVG noise overlay (eliminates digital gradient banding) -->
+  <div class="grain-overlay"></div>
 
-  <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <div class="brand-section">
-        <div class="logo-badge">
+  <!-- Ambient volumetric glow orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <div class="app-wrapper">
+    <!-- Topbar Navigation -->
+    <header class="topbar">
+      <div class="brand-badge">
+        <div class="brand-icon">
           <img src="/brand/logo.png" alt="Benaqaab Logo" onerror="this.src='/brand/benaqaab_os_logo.png'">
         </div>
-        <div class="title-wrap">
+        <div class="brand-text">
           <h1>BENAQAAB INDIA</h1>
-          <p>SACH · SABOOT · BEBAK · STUDIO OS v2.1</p>
+          <p>SACH · SABOOT · BEBAK · STUDIO OS v2.5</p>
         </div>
       </div>
-      
-      <div class="header-status">
-        <div class="live-indicator">
-          <span class="live-dot"></span>
+
+      <div class="topbar-right">
+        <!-- View Mode Switcher -->
+        <div class="view-switcher">
+          <button class="view-btn active" data-view="GRID">
+            <span>🎬 Bento Grid</span>
+          </button>
+          <button class="view-btn" data-view="TABLE">
+            <span>📋 Fact Ledger</span>
+          </button>
+          <button class="view-btn" data-view="KANBAN">
+            <span>🚀 Kanban Pipeline</span>
+          </button>
+        </div>
+
+        <div class="clock-pill">
+          <span>🎙️ -14.0 LUFS EBU R128</span>
+        </div>
+
+        <div class="live-pill">
+          <span class="pulse-dot"></span>
           <span>STUDIO LOCALHOST · 3000 LIVE</span>
         </div>
       </div>
     </header>
 
-    <!-- Stats Ribbon -->
-    <section class="stats-ribbon">
-      <div class="stat-card">
-        <div class="stat-label">Delivered Films</div>
-        <div class="stat-value" id="statTotalDelivered">34</div>
-        <div class="stat-sub">100% Verified Broadcast</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Documentaries (16:9)</div>
-        <div class="stat-value" id="statDocs">17</div>
-        <div class="stat-sub">Flagships (NavIC, PFBR, Bullet Train)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Shorts & Reels (9:16)</div>
-        <div class="stat-value" id="statShorts">11</div>
-        <div class="stat-sub">High-Retention Mobile Explainers</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Active Live Cycles</div>
-        <div class="stat-value" id="statLiveCycles" style="color: var(--accent-gold);">3</div>
-        <div class="stat-sub">Oct 2026 (RBI Repo, Census 2027)</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Researched Backlog</div>
-        <div class="stat-value" id="statBacklog" style="color: var(--accent-cyan);">3</div>
-        <div class="stat-sub">Green Hydrogen, Samudrayaan, Lithium</div>
-      </div>
-    </section>
-
-    <!-- Toolbar & Filter Pills -->
-    <section class="toolbar">
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search by episode code (EP-12), title, Hindi headline, category, or data metric...">
-      </div>
-
-      <div class="filter-pills">
-        <button class="filter-pill active" data-filter="ALL">
-          <span>All Topics</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="DONE">
-          <span>✓ Delivered & Done</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="16:9">
-          <span>🎬 Documentaries (16:9)</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="9:16">
-          <span>📱 Shorts (9:16)</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="LIVE_CYCLE">
-          <span>⏳ Oct 2026 Live Cycles</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="BACKLOG">
-          <span>🟢 Researched Backlog</span>
-          <span class="pill-count">0</span>
-        </button>
-        <button class="filter-pill" data-filter="BLACKLIST">
-          <span>🚫 Blacklist (Never Repeat)</span>
-          <span class="pill-count">0</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- Productions Bento Grid -->
-    <main class="grid" id="productionsGrid">
+    <!-- Hero Cinematic Feature Showcase -->
+    <section class="hero-stage" id="heroStage">
       <!-- Injected dynamically via app.js -->
+    </section>
+
+    <!-- Stats Ribbon -->
+    <section class="stats-strip">
+      <div class="stat-box">
+        <div class="stat-box-title">Delivered Productions</div>
+        <div class="stat-box-number" id="statTotalDelivered" style="color: var(--accent-emerald);">34</div>
+        <div class="stat-box-hint">100% Broadcast Done & Verified</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-title">Flagship Docs (16:9)</div>
+        <div class="stat-box-number" id="statDocs">17</div>
+        <div class="stat-box-hint">NavIC, PFBR, Bullet Train, Chips...</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-title">Shorts & Reels (9:16)</div>
+        <div class="stat-box-number" id="statShorts">11</div>
+        <div class="stat-box-hint">Sona ₹1.5L, World News, India 24H...</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-title">October Live Cycles</div>
+        <div class="stat-box-number" id="statLiveCycles" style="color: var(--accent-gold);">3</div>
+        <div class="stat-box-hint">RBI Rate Hike, Census 2027, Gaganyaan</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-title">Researched Backlog</div>
+        <div class="stat-box-number" id="statBacklog" style="color: var(--accent-cyan);">3</div>
+        <div class="stat-box-hint">Green Hydrogen, Samudrayaan, Lithium</div>
+      </div>
+    </section>
+
+    <!-- Toolbar & Filter Row -->
+    <section class="toolbar-wrap" id="toolbarSection">
+      <div class="search-field">
+        <span class="search-icon-svg">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search across 34 topics by episode code (EP-12, SH-08), English title, Hindi headline, or verified fact...">
+        <button id="clearSearchBtn" class="clear-search-btn" title="Clear search">✕</button>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter-chip active" data-filter="ALL">
+          <span>All Registry</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="DONE">
+          <span>✓ Delivered & Done</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="16:9">
+          <span>🎬 Documentaries (16:9)</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="9:16">
+          <span>📱 Shorts (9:16)</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="LIVE_CYCLE">
+          <span>⏳ Oct 2026 Live Cycles</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="BACKLOG">
+          <span>🟢 Researched Backlog</span>
+          <span class="chip-counter">0</span>
+        </button>
+        <button class="filter-chip" data-filter="BLACKLIST">
+          <span>🚫 Blacklist (Never Repeat)</span>
+          <span class="chip-counter">0</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main View Containers -->
+    <main>
+      <!-- View 1: Cinema Bento Grid -->
+      <div class="bento-grid" id="bentoGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+
+      <!-- View 2: Forensic Fact Ledger Table -->
+      <div class="table-view-wrap" id="tableViewWrap">
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Production Title & Subject</th>
+              <th>Format</th>
+              <th>Duration</th>
+              <th>Colour Grade</th>
+              <th>Primary Sourced Evidence</th>
+              <th>Master Clock</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Rendered dynamically via app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- View 3: Kanban Pipeline -->
+      <div class="kanban-view-wrap" id="kanbanViewWrap">
+        <!-- Rendered dynamically via app.js -->
+      </div>
     </main>
   </div>
 
-  <!-- Interactive comp.html Sandbox Modal -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span style="color: var(--accent-cyan);">⚡</span>
-          <span class="modal-title" id="modalTitle">Interactive Composition Sandbox</span>
+  <!-- Interactive Sandbox Theater (Modal) -->
+  <div class="theater-modal" id="theaterModal">
+    <div class="theater-box">
+      <div class="theater-bar">
+        <div class="theater-title-group">
+          <span style="color: var(--accent-cyan); font-size: 18px;">⚡</span>
+          <span class="theater-title-text" id="theaterTitle">Interactive Composition Sandbox</span>
         </div>
-        <div class="modal-controls">
-          <button class="btn-icon" id="frameAspectBtn">📱 Toggle Frame (9:16 / 16:9)</button>
-          <button class="btn-icon" id="openNewTabBtn">↗ Open Full Screen</button>
-          <button class="btn-icon" id="modalCloseBtn" style="color: var(--accent-rose); font-weight: bold;">✕ Close</button>
+        <div class="theater-btn-row">
+          <button class="btn-theater-control" id="toggleFrameAspectBtn">📱 Toggle Aspect (9:16 / 16:9)</button>
+          <button class="btn-theater-control" id="openNewWindowBtn">↗ Open Full Screen</button>
+          <button class="btn-theater-control" id="theaterCloseBtn" style="color: var(--accent-rose); font-weight: 700;">✕ Close</button>
         </div>
       </div>
-      <div class="modal-body">
-        <iframe id="modalIframe" class="preview-iframe" src="about:blank"></iframe>
+      <div class="theater-viewport">
+        <iframe id="sandboxFrame" class="sandbox-frame" src="about:blank"></iframe>
       </div>
     </div>
   </div>

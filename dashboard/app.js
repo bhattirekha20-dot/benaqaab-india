@@ -1,261 +1,470 @@
-// Benaqaab India — Studio Localhost Command Center Script
+// ═══════════════════════════════════════════════════════════════════════
+// BENAQAAB INDIA — STUDIO COMMAND CENTER INTERACTION LOGIC
+// ═══════════════════════════════════════════════════════════════════════
 
-let currentFilter = 'ALL';
-let searchQuery = '';
+let activeFilter = 'ALL';
+let activeSearch = '';
+let activeView = 'GRID'; // 'GRID' | 'TABLE' | 'KANBAN'
+let currentHeroCode = 'EP-17'; // Default featured flagship
 
-// DOM Elements
-const gridEl = document.getElementById('productionsGrid');
+// DOM Cache
+const heroStageEl = document.getElementById('heroStage');
+const bentoGridEl = document.getElementById('bentoGrid');
+const tableViewWrapEl = document.getElementById('tableViewWrap');
+const tableBodyEl = document.getElementById('tableBody');
+const kanbanViewWrapEl = document.getElementById('kanbanViewWrap');
 const searchInputEl = document.getElementById('searchInput');
-const filterPillsEl = document.querySelectorAll('.filter-pill');
-const modalOverlayEl = document.getElementById('modalOverlay');
-const modalTitleEl = document.getElementById('modalTitle');
-const modalIframeEl = document.getElementById('modalIframe');
-const modalCloseBtn = document.getElementById('modalCloseBtn');
-const frameAspectBtn = document.getElementById('frameAspectBtn');
-const openNewTabBtn = document.getElementById('openNewTabBtn');
+const clearSearchBtnEl = document.getElementById('clearSearchBtn');
+const filterChipsEl = document.querySelectorAll('.filter-chip');
+const viewBtnsEl = document.querySelectorAll('.view-btn');
 
-let currentActiveUrl = '';
-let currentFormat = '16:9';
+// Modal DOM
+const theaterModalEl = document.getElementById('theaterModal');
+const theaterTitleEl = document.getElementById('theaterTitle');
+const sandboxFrameEl = document.getElementById('sandboxFrame');
+const toggleFrameAspectBtn = document.getElementById('toggleFrameAspectBtn');
+const openNewWindowBtn = document.getElementById('openNewWindowBtn');
+const theaterCloseBtn = document.getElementById('theaterCloseBtn');
 
-// Initialize
+let currentSandboxUrl = '';
+let currentSandboxFormat = '16:9';
+
+// Bootstrap
 function init() {
+  renderHero(currentHeroCode);
   updateStatsRibbon();
-  renderGrid();
+  renderActiveView();
   bindEvents();
 }
 
-// Compute counts and update top stats
-function updateStatsRibbon() {
-  const totalDelivered = PRODUCTIONS_DATA.filter(p => p.status === 'DONE').length;
-  const docsCount = PRODUCTIONS_DATA.filter(p => p.status === 'DONE' && p.format.includes('16:9')).length;
-  const shortsCount = PRODUCTIONS_DATA.filter(p => p.status === 'DONE' && p.format.includes('9:16')).length;
-  const liveCount = PRODUCTIONS_DATA.filter(p => p.status === 'LIVE_CYCLE').length;
-  const backlogCount = PRODUCTIONS_DATA.filter(p => p.status === 'BACKLOG').length;
+// ─── HERO CINEMATIC SHOWCASE ──────────────────────────────────────────
+function renderHero(code) {
+  const item = window.PRODUCTIONS_DATA.find(p => p.code === code) || window.PRODUCTIONS_DATA[0];
+  currentHeroCode = item.code;
 
-  document.getElementById('statTotalDelivered').innerText = totalDelivered;
-  document.getElementById('statDocs').innerText = docsCount;
-  document.getElementById('statShorts').innerText = shortsCount;
-  document.getElementById('statLiveCycles').innerText = liveCount;
-  document.getElementById('statBacklog').innerText = backlogCount;
+  let mediaMarkup = '';
+  if (item.thumbUrl) {
+    mediaMarkup = `<img src="${item.thumbUrl}" alt="${item.title}" class="hero-media-img">`;
+  } else {
+    mediaMarkup = `
+      <div class="procedural-poster" style="height: 100%;">
+        <div class="procedural-grid-bg"></div>
+        <div class="procedural-code">${item.code}</div>
+        <div class="procedural-badge">${item.category}</div>
+      </div>
+    `;
+  }
 
-  // Update badge counts on pills
-  document.querySelector('[data-filter="ALL"] .pill-count').innerText = PRODUCTIONS_DATA.length;
-  document.querySelector('[data-filter="DONE"] .pill-count').innerText = totalDelivered;
-  document.querySelector('[data-filter="16:9"] .pill-count').innerText = docsCount;
-  document.querySelector('[data-filter="9:16"] .pill-count').innerText = shortsCount;
-  document.querySelector('[data-filter="LIVE_CYCLE"] .pill-count').innerText = liveCount;
-  document.querySelector('[data-filter="BACKLOG"] .pill-count').innerText = backlogCount;
-  document.querySelector('[data-filter="BLACKLIST"] .pill-count').innerText = PRODUCTIONS_DATA.filter(p => p.status === 'BLACKLIST').length;
+  let launchBtn = '';
+  if (item.hasComp && item.previewUrl) {
+    launchBtn = `
+      <button class="btn-hero-primary" onclick="launchSandbox('${item.code}', '${escapeStr(item.title)}', '${item.previewUrl}', '${item.format}')">
+        <span>⚡ Launch comp.html Live</span>
+      </button>
+    `;
+  } else {
+    launchBtn = `
+      <span class="btn-hero-secondary" style="cursor: default; opacity: 0.8;">
+        <span>✓ Broadcast Archived</span>
+      </span>
+    `;
+  }
+
+  heroStageEl.innerHTML = `
+    <div class="hero-backdrop-glow"></div>
+    <div class="hero-content">
+      <div class="hero-tag-row">
+        <span class="hero-pill-badge feat">★ FEATURED FLAGSHIP</span>
+        <span class="hero-pill-badge cat">${item.category}</span>
+        <span class="hero-pill-badge" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff;">${item.code} · ${item.format}</span>
+      </div>
+      <h2 class="hero-title">${item.title}</h2>
+      <div class="hero-hindi">${item.hindiTitle}</div>
+      <p class="hero-quote">${item.heroQuote}</p>
+      
+      <div class="hero-stats-strip">
+        <div class="hero-mini-stat">
+          <div class="hero-mini-label">Duration</div>
+          <div class="hero-mini-val">⏱️ ${item.duration}</div>
+        </div>
+        <div class="hero-mini-stat">
+          <div class="hero-mini-label">Fact Ledger</div>
+          <div class="hero-mini-val">${item.factsCount}</div>
+        </div>
+        <div class="hero-mini-stat">
+          <div class="hero-mini-label">Master Audio</div>
+          <div class="hero-mini-val">🎙️ -14.0 LUFS</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        ${launchBtn}
+        <button class="btn-hero-secondary" onclick="scrollToRegistry()">
+          <span>Explore All 34 Topics ↓</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-media-wrap">
+      ${mediaMarkup}
+      <div class="hero-media-overlay">
+        <span class="hero-overlay-tag">GRADE: ${item.gradeProfile}</span>
+      </div>
+    </div>
+  `;
 }
 
-// Filter and render cards
-function renderGrid() {
-  gridEl.innerHTML = '';
+// ─── STATS RIBBON ─────────────────────────────────────────────────────
+function updateStatsRibbon() {
+  const data = window.PRODUCTIONS_DATA;
+  const delivered = data.filter(p => p.status === 'DONE').length;
+  const docs = data.filter(p => p.status === 'DONE' && p.format.includes('16:9')).length;
+  const shorts = data.filter(p => p.status === 'DONE' && p.format.includes('9:16')).length;
+  const live = data.filter(p => p.status === 'LIVE_CYCLE').length;
+  const backlog = data.filter(p => p.status === 'BACKLOG').length;
 
-  const filtered = PRODUCTIONS_DATA.filter(item => {
-    // Filter matching
+  document.getElementById('statTotalDelivered').innerText = delivered;
+  document.getElementById('statDocs').innerText = docs;
+  document.getElementById('statShorts').innerText = shorts;
+  document.getElementById('statLiveCycles').innerText = live;
+  document.getElementById('statBacklog').innerText = backlog;
+
+  // Update chip counters
+  document.querySelector('[data-filter="ALL"] .chip-counter').innerText = data.length;
+  document.querySelector('[data-filter="DONE"] .chip-counter').innerText = delivered;
+  document.querySelector('[data-filter="16:9"] .chip-counter').innerText = docs;
+  document.querySelector('[data-filter="9:16"] .chip-counter').innerText = shorts;
+  document.querySelector('[data-filter="LIVE_CYCLE"] .chip-counter').innerText = live;
+  document.querySelector('[data-filter="BACKLOG"] .chip-counter').innerText = backlog;
+  document.querySelector('[data-filter="BLACKLIST"] .chip-counter').innerText = data.filter(p => p.status === 'BLACKLIST').length;
+}
+
+// ─── FILTERING LOGIC ──────────────────────────────────────────────────
+function getFilteredData() {
+  const q = activeSearch.toLowerCase().trim();
+  return window.PRODUCTIONS_DATA.filter(item => {
     let matchesFilter = true;
-    if (currentFilter === 'DONE') {
-      matchesFilter = item.status === 'DONE';
-    } else if (currentFilter === '16:9') {
-      matchesFilter = item.format.includes('16:9');
-    } else if (currentFilter === '9:16') {
-      matchesFilter = item.format.includes('9:16');
-    } else if (currentFilter === 'LIVE_CYCLE') {
-      matchesFilter = item.status === 'LIVE_CYCLE';
-    } else if (currentFilter === 'BACKLOG') {
-      matchesFilter = item.status === 'BACKLOG';
-    } else if (currentFilter === 'BLACKLIST') {
-      matchesFilter = item.status === 'BLACKLIST';
-    }
+    if (activeFilter === 'DONE') matchesFilter = item.status === 'DONE';
+    else if (activeFilter === '16:9') matchesFilter = item.format.includes('16:9');
+    else if (activeFilter === '9:16') matchesFilter = item.format.includes('9:16');
+    else if (activeFilter === 'LIVE_CYCLE') matchesFilter = item.status === 'LIVE_CYCLE';
+    else if (activeFilter === 'BACKLOG') matchesFilter = item.status === 'BACKLOG';
+    else if (activeFilter === 'BLACKLIST') matchesFilter = item.status === 'BLACKLIST';
 
-    // Search query matching
-    const q = searchQuery.toLowerCase().trim();
     let matchesSearch = true;
     if (q) {
-      const matchInCode = item.code.toLowerCase().includes(q);
-      const matchInTitle = item.title.toLowerCase().includes(q);
-      const matchInHindi = item.hindiTitle.toLowerCase().includes(q);
-      const matchInCategory = item.category.toLowerCase().includes(q);
-      const matchInEvidence = item.evidence.some(e => e.toLowerCase().includes(q));
-      matchesSearch = matchInCode || matchInTitle || matchInHindi || matchInCategory || matchInEvidence;
+      const matchCode = item.code.toLowerCase().includes(q);
+      const matchTitle = item.title.toLowerCase().includes(q);
+      const matchHindi = item.hindiTitle.toLowerCase().includes(q);
+      const matchCat = item.category.toLowerCase().includes(q);
+      const matchEvidence = item.evidence.some(e => e.toLowerCase().includes(q));
+      matchesSearch = matchCode || matchTitle || matchHindi || matchCat || matchEvidence;
     }
 
     return matchesFilter && matchesSearch;
   });
+}
 
-  if (filtered.length === 0) {
-    gridEl.innerHTML = `
-      <div style="grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-dim);">
-        <p style="font-size: 18px; margin-bottom: 8px;">No matching topics or videos found</p>
-        <p style="font-size: 13px; font-family: var(--font-mono);">Try clearing your search query or choosing another filter.</p>
+// ─── RENDER ACTIVE VIEW ───────────────────────────────────────────────
+function renderActiveView() {
+  const filtered = getFilteredData();
+
+  if (activeView === 'GRID') {
+    bentoGridEl.style.display = 'grid';
+    tableViewWrapEl.style.display = 'none';
+    kanbanViewWrapEl.style.display = 'none';
+    renderBentoGrid(filtered);
+  } else if (activeView === 'TABLE') {
+    bentoGridEl.style.display = 'none';
+    tableViewWrapEl.style.display = 'block';
+    kanbanViewWrapEl.style.display = 'none';
+    renderTableView(filtered);
+  } else if (activeView === 'KANBAN') {
+    bentoGridEl.style.display = 'none';
+    tableViewWrapEl.style.display = 'none';
+    kanbanViewWrapEl.style.display = 'grid';
+    renderKanbanView(filtered);
+  }
+}
+
+// ─── VIEW 1: BENTO GRID ───────────────────────────────────────────────
+function renderBentoGrid(items) {
+  bentoGridEl.innerHTML = '';
+
+  if (items.length === 0) {
+    bentoGridEl.innerHTML = `
+      <div style="grid-column: 1 / -1; padding: 80px 20px; text-align: center; color: var(--text-muted);">
+        <p style="font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px;">No matching productions found</p>
+        <p style="font-size: 14px; font-family: var(--font-mono);">Clear search query or pick a different category chip.</p>
       </div>
     `;
     return;
   }
 
-  filtered.forEach(item => {
-    const card = createCardElement(item);
-    gridEl.appendChild(card);
+  items.forEach(item => {
+    const card = document.createElement('div');
+    const statusClass = item.status === 'DONE' ? 'status-done' :
+                        item.status === 'LIVE_CYCLE' ? 'status-live' :
+                        item.status === 'BACKLOG' ? 'status-backlog' : 'status-blacklist';
+    card.className = `cinema-card ${statusClass}`;
+
+    // Tag Status
+    let statusTag = '';
+    if (item.status === 'DONE') statusTag = `<span class="tag-status tag-done">✓ Delivered</span>`;
+    else if (item.status === 'LIVE_CYCLE') statusTag = `<span class="tag-status tag-live">⏳ Active Cycle</span>`;
+    else if (item.status === 'BACKLOG') statusTag = `<span class="tag-status tag-backlog">🟢 Researched</span>`;
+    else statusTag = `<span class="tag-status tag-blacklist">🚫 Blacklist</span>`;
+
+    // Poster Media
+    let posterMedia = '';
+    if (item.thumbUrl) {
+      posterMedia = `<img src="${item.thumbUrl}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'procedural-poster\\'><div class=\\'procedural-grid-bg\\'></div><div class=\\'procedural-code\\'>${item.code}</div><div class=\\'procedural-badge\\'>${item.category}</div></div>'">`;
+    } else {
+      posterMedia = `
+        <div class="procedural-poster">
+          <div class="procedural-grid-bg"></div>
+          <div class="procedural-code">${item.code}</div>
+          <div class="procedural-badge">${item.category}</div>
+        </div>
+      `;
+    }
+
+    // Launch Button
+    let launchBtn = '';
+    if (item.hasComp && item.previewUrl) {
+      launchBtn = `
+        <button class="btn-card-launch" onclick="launchSandbox('${item.code}', '${escapeStr(item.title)}', '${item.previewUrl}', '${item.format}')">
+          <span>⚡ Launch comp.html</span>
+        </button>
+      `;
+    } else if (item.status === 'LIVE_CYCLE') {
+      launchBtn = `<span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-gold); font-weight: 700;">⚡ Ready to Produce</span>`;
+    } else if (item.status === 'BACKLOG') {
+      launchBtn = `<span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); font-weight: 700;">📁 Data Locked</span>`;
+    } else if (item.status === 'BLACKLIST') {
+      launchBtn = `<span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-rose); font-weight: 700;">❌ Blocked</span>`;
+    } else {
+      launchBtn = `<span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">Archive Saved</span>`;
+    }
+
+    const factsList = item.evidence.map(e => `<li>${e}</li>`).join('');
+
+    card.innerHTML = `
+      <div class="card-poster" onclick="renderHero('${item.code}')" style="cursor: pointer;" title="Click to spotlight in Hero">
+        ${posterMedia}
+        <div class="card-floating-badges">
+          <span class="tag-code">${item.code}</span>
+          ${statusTag}
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-spec-row">
+          <span>${item.category}</span>
+          <span class="sep">•</span>
+          <span>${item.format}</span>
+          <span class="sep">•</span>
+          <span>⏱️ ${item.duration}</span>
+        </div>
+        <h3 class="card-heading" onclick="renderHero('${item.code}')" style="cursor: pointer;">${item.title}</h3>
+        <div class="card-hindi-sub">${item.hindiTitle}</div>
+        <ul class="card-fact-list">
+          ${factsList}
+        </ul>
+        <div class="card-bottom-bar">
+          <div class="card-audio-stamp">
+            <span>🎙️</span>
+            <span>${item.audioClock}</span>
+          </div>
+          ${launchBtn}
+        </div>
+      </div>
+    `;
+
+    bentoGridEl.appendChild(card);
   });
 }
 
-// Create single card DOM
-function createCardElement(item) {
-  const card = document.createElement('div');
-  const statusClass = item.status === 'DONE' ? 'is-done' :
-                      item.status === 'LIVE_CYCLE' ? 'is-live' :
-                      item.status === 'BACKLOG' ? 'is-backlog' : 'is-blacklist';
-  card.className = `card ${statusClass}`;
+// ─── VIEW 2: TABLE MATRIX ─────────────────────────────────────────────
+function renderTableView(items) {
+  tableBodyEl.innerHTML = '';
 
-  // Status Badge Markup
-  let statusBadge = '';
-  if (item.status === 'DONE') {
-    statusBadge = `<span class="badge badge-done">✓ Delivered</span>`;
-  } else if (item.status === 'LIVE_CYCLE') {
-    statusBadge = `<span class="badge badge-live">⏳ Active Cycle</span>`;
-  } else if (item.status === 'BACKLOG') {
-    statusBadge = `<span class="badge badge-backlog">🟢 Researched</span>`;
-  } else {
-    statusBadge = `<span class="badge badge-blacklist">🚫 Blacklist</span>`;
-  }
+  items.forEach(item => {
+    const tr = document.createElement('tr');
 
-  // Media Markup
-  let mediaMarkup = '';
-  if (item.thumbUrl) {
-    mediaMarkup = `<img src="${item.thumbUrl}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'media-placeholder\\'>${item.code} · ${item.format}</div>'"/>`;
-  } else {
-    mediaMarkup = `<div class="media-placeholder">${item.code} · ${item.format}</div>`;
-  }
+    let statusPill = '';
+    if (item.status === 'DONE') statusPill = `<span class="tag-status tag-done">Delivered</span>`;
+    else if (item.status === 'LIVE_CYCLE') statusPill = `<span class="tag-status tag-live">Active</span>`;
+    else if (item.status === 'BACKLOG') statusPill = `<span class="tag-status tag-backlog">Backlog</span>`;
+    else statusPill = `<span class="tag-status tag-blacklist">Blocked</span>`;
 
-  // Action Button Markup
-  let actionBtnMarkup = '';
-  if (item.hasComp && item.previewUrl) {
-    actionBtnMarkup = `
-      <button class="btn-launch" onclick="openPreview('${item.code}', '${item.title.replace(/'/g, "\\'")}', '${item.previewUrl}', '${item.format}')">
-        ⚡ Launch comp.html
-      </button>
+    let actionBtn = '';
+    if (item.hasComp && item.previewUrl) {
+      actionBtn = `
+        <button class="btn-card-launch" style="padding: 6px 12px; font-size: 11px;" onclick="launchSandbox('${item.code}', '${escapeStr(item.title)}', '${item.previewUrl}', '${item.format}')">
+          ⚡ Launch
+        </button>
+      `;
+    } else {
+      actionBtn = `<span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">-</span>`;
+    }
+
+    tr.innerHTML = `
+      <td><span class="table-code">${item.code}</span></td>
+      <td>
+        <div class="table-title">${item.title}</div>
+        <div class="table-hindi">${item.hindiTitle}</div>
+      </td>
+      <td><span style="font-family: var(--font-mono); font-size: 11px;">${item.format}</span></td>
+      <td><span style="font-family: var(--font-mono); font-size: 12px; color: #fff;">${item.duration}</span></td>
+      <td><span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">${item.gradeProfile}</span></td>
+      <td><span style="font-size: 12px; color: var(--text-secondary);">${item.sourceAgencies || item.evidence[0]}</span></td>
+      <td><span style="font-family: var(--font-mono); font-size: 11px;">${item.audioClock}</span></td>
+      <td>${statusPill}</td>
+      <td>${actionBtn}</td>
     `;
-  } else if (item.status === 'LIVE_CYCLE') {
-    actionBtnMarkup = `<span style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-gold);">⚡ Ready to Produce</span>`;
-  } else if (item.status === 'BACKLOG') {
-    actionBtnMarkup = `<span style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-cyan);">📁 Sourced & Verified</span>`;
-  } else if (item.status === 'BLACKLIST') {
-    actionBtnMarkup = `<span style="font-size: 11px; font-family: var(--font-mono); color: var(--accent-rose);">❌ Do Not Repeat</span>`;
-  } else {
-    actionBtnMarkup = `<span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-dim);">Archive Delivered</span>`;
-  }
-
-  // Evidence Items
-  const evidenceList = item.evidence.map(e => `<li>${e}</li>`).join('');
-
-  card.innerHTML = `
-    <div class="card-media">
-      ${mediaMarkup}
-      <div class="card-badge-strip">
-        <span class="badge badge-code">${item.code}</span>
-        ${statusBadge}
-      </div>
-    </div>
-    <div class="card-content">
-      <div class="card-meta">
-        <span>${item.category}</span>
-        <span>•</span>
-        <span>${item.format}</span>
-        <span>•</span>
-        <span>⏱️ ${item.duration}</span>
-      </div>
-      <h3 class="card-title">${item.title}</h3>
-      <div class="card-hindi">${item.hindiTitle}</div>
-      <ul class="card-evidence-list">
-        ${evidenceList}
-      </ul>
-      <div class="card-footer">
-        <div class="audio-clock-tag">
-          <span>🎙️</span>
-          <span>${item.audioClock}</span>
-        </div>
-        ${actionBtnMarkup}
-      </div>
-    </div>
-  `;
-
-  return card;
+    tableBodyEl.appendChild(tr);
+  });
 }
 
-// Interactive Preview Modal Launcher
-window.openPreview = function(code, title, url, format) {
-  currentActiveUrl = url;
-  currentFormat = format.includes('9:16') ? '9:16' : '16:9';
-  
-  modalTitleEl.innerText = `${code} — ${title}`;
-  modalIframeEl.src = url;
+// ─── VIEW 3: KANBAN PIPELINE ──────────────────────────────────────────
+function renderKanbanView(items) {
+  kanbanViewWrapEl.innerHTML = '';
 
-  updateModalFrame();
-  modalOverlayEl.classList.add('active');
+  const columns = [
+    { title: "Delivered (100% Done)", status: "DONE", color: "var(--accent-emerald)" },
+    { title: "Active Live Cycles", status: "LIVE_CYCLE", color: "var(--accent-gold)" },
+    { title: "Researched Backlog", status: "BACKLOG", color: "var(--accent-cyan)" },
+    { title: "Blacklist (Blocked)", status: "BLACKLIST", color: "var(--accent-rose)" }
+  ];
+
+  columns.forEach(col => {
+    const colItems = items.filter(it => it.status === col.status);
+    const colEl = document.createElement('div');
+    colEl.className = 'kanban-column';
+
+    let cardsHtml = '';
+    colItems.forEach(it => {
+      cardsHtml += `
+        <div class="kanban-card" onclick="renderHero('${it.code}')">
+          <div class="kanban-card-top">
+            <span class="kanban-card-code">${it.code}</span>
+            <span class="kanban-card-duration">${it.duration}</span>
+          </div>
+          <div class="kanban-card-title">${it.title}</div>
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">${it.category}</div>
+        </div>
+      `;
+    });
+
+    colEl.innerHTML = `
+      <div class="kanban-col-header">
+        <span class="kanban-col-title" style="color: ${col.color};">${col.title}</span>
+        <span class="chip-counter">${colItems.length}</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto; max-height: 700px;">
+        ${cardsHtml || '<div style="color: var(--text-muted); font-size: 12px; padding: 12px 0;">No items</div>'}
+      </div>
+    `;
+
+    kanbanViewWrapEl.appendChild(colEl);
+  });
+}
+
+// ─── INTERACTIVE SANDBOX LAUNCHER ─────────────────────────────────────
+window.launchSandbox = function(code, title, url, format) {
+  currentSandboxUrl = url;
+  currentSandboxFormat = format.includes('9:16') ? '9:16' : '16:9';
+
+  theaterTitleEl.innerText = `${code} — ${title}`;
+  sandboxFrameEl.src = url;
+
+  syncSandboxAspect();
+  theaterModalEl.classList.add('active');
   document.body.style.overflow = 'hidden';
 };
 
-function updateModalFrame() {
-  if (currentFormat === '9:16') {
-    modalIframeEl.className = 'preview-iframe frame-9x16';
-    frameAspectBtn.innerText = '📱 Phone (9:16)';
+function syncSandboxAspect() {
+  if (currentSandboxFormat === '9:16') {
+    sandboxFrameEl.className = 'sandbox-frame aspect-phone';
+    toggleFrameAspectBtn.innerText = '📱 Phone (9:16) — Click to Toggle';
   } else {
-    modalIframeEl.className = 'preview-iframe frame-16x9';
-    frameAspectBtn.innerText = '🖥️ Widescreen (16:9)';
+    sandboxFrameEl.className = 'sandbox-frame';
+    toggleFrameAspectBtn.innerText = '🖥️ Widescreen (16:9) — Click to Toggle';
   }
 }
 
-function closeModal() {
-  modalOverlayEl.classList.remove('active');
-  modalIframeEl.src = 'about:blank';
+function closeSandbox() {
+  theaterModalEl.classList.remove('active');
+  sandboxFrameEl.src = 'about:blank';
   document.body.style.overflow = '';
 }
 
-// Bind event listeners
+function scrollToRegistry() {
+  const el = document.getElementById('toolbarSection');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function escapeStr(s) {
+  return (s || '').replace(/'/g, "\\'");
+}
+
+// ─── EVENT HANDLERS ───────────────────────────────────────────────────
 function bindEvents() {
-  // Search
+  // Search typing
   searchInputEl.addEventListener('input', (e) => {
-    searchQuery = e.target.value;
-    renderGrid();
+    activeSearch = e.target.value;
+    clearSearchBtnEl.style.display = activeSearch ? 'flex' : 'none';
+    renderActiveView();
   });
 
-  // Filter Pills
-  filterPillsEl.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filterPillsEl.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      currentFilter = pill.getAttribute('data-filter');
-      renderGrid();
+  // Clear search
+  clearSearchBtnEl.addEventListener('click', () => {
+    searchInputEl.value = '';
+    activeSearch = '';
+    clearSearchBtnEl.style.display = 'none';
+    renderActiveView();
+  });
+
+  // Filter chips
+  filterChipsEl.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChipsEl.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilter = chip.getAttribute('data-filter');
+      renderActiveView();
     });
   });
 
-  // Modal Close
-  modalCloseBtn.addEventListener('click', closeModal);
-  modalOverlayEl.addEventListener('click', (e) => {
-    if (e.target === modalOverlayEl) closeModal();
+  // View Switcher Buttons
+  viewBtnsEl.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewBtnsEl.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeView = btn.getAttribute('data-view');
+      renderActiveView();
+    });
   });
 
-  // Toggle Aspect Ratio in Preview
-  frameAspectBtn.addEventListener('click', () => {
-    currentFormat = currentFormat === '9:16' ? '16:9' : '9:16';
-    updateModalFrame();
+  // Sandbox Modal Controls
+  theaterCloseBtn.addEventListener('click', closeSandbox);
+  theaterModalEl.addEventListener('click', (e) => {
+    if (e.target === theaterModalEl) closeSandbox();
   });
 
-  // Open in new tab
-  openNewTabBtn.addEventListener('click', () => {
-    if (currentActiveUrl) {
-      window.open(currentActiveUrl, '_blank');
-    }
+  toggleFrameAspectBtn.addEventListener('click', () => {
+    currentSandboxFormat = currentSandboxFormat === '9:16' ? '16:9' : '9:16';
+    syncSandboxAspect();
   });
 
-  // Keyboard shortcut (Escape to close)
+  openNewWindowBtn.addEventListener('click', () => {
+    if (currentSandboxUrl) window.open(currentSandboxUrl, '_blank');
+  });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlayEl.classList.contains('active')) {
-      closeModal();
+    if (e.key === 'Escape' && theaterModalEl.classList.contains('active')) {
+      closeSandbox();
     }
   });
 }
 
-// Run on page load
 document.addEventListener('DOMContentLoaded', init);
