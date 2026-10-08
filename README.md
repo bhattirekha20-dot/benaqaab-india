@@ -41,15 +41,16 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | `viz/` | Rendering engine, motion libraries, episode recipes |
 | `projects/` | 16 production projects (EP12–EP16, anime edits, Flight Surcharge, India 24H, World News 24H, etc.) |
 | `VIDEOS/` | Delivered MP4s (11 videos + gallery page; local rendered archive deliverables) |
-| `.agents/skills/` & `skills/` | **AI Agent Skills Suite** — 17 specialized skills for motion graphics, video editing, UI/UX, and investigative journalism |
+| `.agents/skills/` & `skills/` | **AI Agent Skills Suite** — 18 specialized skills for motion graphics, video editing, UI/UX, and investigative journalism |
 
 ---
 
 ## ⚡ Active Skills Suite (.agents/skills/ & skills/)
 
-This repository provides 17 native AI skills for coding agents (Antigravity, Claude Code, Cursor, Codex):
+This repository provides 18 native AI skills for coding agents (Antigravity, Claude Code, Cursor, Codex):
 
 ### 🎬 Motion Graphics & Video Production (Barty-Bart & Ecosystem)
+- **`motion-reel`**: Complete **beat-synced product launch reel & promo video engine** in pure code. Scrapes live site brand assets, generates custom synthesizer music and drum beat grids (librosa/scipy), synthesizes sound effects on beat cues, aligns voiceover, normalizes audio to -14 LUFS, renders across 16:9, 1:1, 4:5, and 9:16 aspect ratios, and runs an automated 1-10 critique loop until reaching 8+.
 - **`motion-broll`**: Continuous one-shape talking-head B-roll generator driven by spring physics, morphing shapes, cursor paths, and frame-by-frame headless Chromium renderer with motion blur and ProRes 4444 alpha (`.mov`) / MP4.
 - **`object-separation`**: Local Segment Anything (SAM 2.1) video subject isolation and rotoscoping (adaptive GPU/CPU, coordinate grid preview, green review overlay, per-frame alpha masks).
 - **`map-animation`**: Vox-style editorial animated maps (Google Earth Studio camera JSX import, GeoJSON/SVG vector map motion, 12fps infographic stutter, route drawing, country/region highlighting).
