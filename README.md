@@ -41,6 +41,35 @@ assets, AI agent skills, production tools, brand identity, knowledge base, and d
 | `viz/` | Rendering engine, motion libraries, episode recipes |
 | `projects/` | 16 production projects (EP12–EP16, anime edits, Flight Surcharge, India 24H, World News 24H, etc.) |
 | `VIDEOS/` | Delivered MP4s (11 videos + gallery page; local rendered archive deliverables) |
+| `.agents/skills/` & `skills/` | **AI Agent Skills Suite** — 17 specialized skills for motion graphics, video editing, UI/UX, and investigative journalism |
+
+---
+
+## ⚡ Active Skills Suite (.agents/skills/ & skills/)
+
+This repository provides 17 native AI skills for coding agents (Antigravity, Claude Code, Cursor, Codex):
+
+### 🎬 Motion Graphics & Video Production (Barty-Bart & Ecosystem)
+- **`motion-broll`**: Continuous one-shape talking-head B-roll generator driven by spring physics, morphing shapes, cursor paths, and frame-by-frame headless Chromium renderer with motion blur and ProRes 4444 alpha (`.mov`) / MP4.
+- **`object-separation`**: Local Segment Anything (SAM 2.1) video subject isolation and rotoscoping (adaptive GPU/CPU, coordinate grid preview, green review overlay, per-frame alpha masks).
+- **`map-animation`**: Vox-style editorial animated maps (Google Earth Studio camera JSX import, GeoJSON/SVG vector map motion, 12fps infographic stutter, route drawing, country/region highlighting).
+- **`kinetic-typography`**: Expressive kinetic text reveals, line/word/character staggered splits, dynamic masking, and variable font morphs in Remotion and GSAP.
+- **`lower-thirds`**: Broadcast transparent lower-thirds, name straps, corner bugs, and chyrons with alpha WebM and ProRes 4444.
+- **`benaqaab-investigative-motion`**: Dhruv Rathee / Vox / Johnny Harris style evidence pinboards, authentic yellow highlighter multiply overlays, and camera trauma rigs.
+- **`video-canvas-motion`**: 60FPS Canvas/WebGL video player, virtual camera (pan, zoom/dolly, shake), and data charts.
+- **`motion-design-controller`**: Master web motion, GSAP ScrollTrigger, spring physics, and Lenis smooth scrolling.
+- **`scrollytelling-motion-engine`**: Pinned virtual camera stages, scroll-velocity canvas physics, and interactive scrollytelling.
+
+### 🎙️ Directing, Scriptwriting & Quality
+- **`benaqaab-scriptwriting-pro`**: High-retention Hinglish investigative documentary and Shorts scriptwriting.
+- **`benaqaab-shorts-curiosity`**: YouTube Shorts 3-layer Frame-0 hooks, Kallaway archetypes, and curiosity retention.
+- **`benaqaab-video-director`**: Pipeline supervisor, VO master clock enforcement, and 1-gate approval workflow.
+- **`benaqaab-peak-detail`**: Peak detail production standards and 3-worst-problems fix loops.
+- **`benaqaab-toolchain`**: After Effects (ExtendScript JSX) and CapCut/Alight Motion automation generators.
+- **`ui-ux-pro-max`**: Design intelligence, 60-30-10 color harmonization, and Anti-AI-Slop framework.
+- **`antigravity-design-expert`**: Spatial depth, frosted glassmorphism, and ambient glowing orbs.
+- **`frontend-design-auditor`**: 10-point production audit matrix checking contrast, responsiveness, and performance.
+
 
 ---
 
