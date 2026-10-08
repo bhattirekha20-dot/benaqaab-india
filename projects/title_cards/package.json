@@ -1,0 +1,14 @@
+{
+  "name": "title-cards-video",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Silent code-rendered title-card video generator using Canvas2D, headless Chrome, and FFmpeg",
+  "scripts": {
+    "render": "node render.mjs",
+    "stills": "node render.mjs --stills",
+    "test": "node render.mjs --check"
+  },
+  "dependencies": {
+    "puppeteer": "^24.4.0"
+  }
+}

@@ -7,6 +7,9 @@ _temp_extract/
 .cache/
 tmp/
 temp/
+frames/
+projects/**/frames/
+
 
 # ─── Rendered videos & audio (too large / private for Git) ───
 VIDEOS/*.mp4

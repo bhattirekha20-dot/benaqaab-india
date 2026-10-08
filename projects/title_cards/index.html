@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benaqaab Code Motion — Title Cards</title>
+  <style>
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      src: url('fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #0b0b0f;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    #stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    canvas#c {
+      width: 100%;
+      height: 100%;
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      aspect-ratio: 16 / 9;
+      background: #0b0b0f;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Interactive HUD for developer inspection */
+    #hud {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 20, 32, 0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #f4f2ec;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      z-index: 100;
+      opacity: 0.2;
+      transition: opacity 0.3s ease;
+    }
+    #hud:hover {
+      opacity: 1;
+    }
+    #hud button {
+      background: #c8ff3d;
+      color: #0b0b0f;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 700;
+      padding: 4px 14px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    #hud input[type="range"] {
+      width: 240px;
+      accent-color: #c8ff3d;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="c" width="1920" height="1080"></canvas>
+  </div>
+
+  <div id="hud">
+    <button id="playBtn">PLAY</button>
+    <input type="range" id="scrubber" min="0" max="1000" value="0">
+    <span id="timecode">0.00s / 0.00s</span>
+  </div>
+
+  <script type="module">
+    import { W, H, FPS, MARGIN, PALETTE, FONT, TIMING, LINES, buildTimeline } from './tokens.js';
+
+    const canvas = document.getElementById('c');
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d', { alpha: false });
+
+    const timeline = buildTimeline(LINES, TIMING);
+    const DURATION = timeline.duration;
+
+    // Standard smooth cubic ease-out
+    function easeOutCubic(x) {
+      return 1 - Math.pow(1 - x, 3);
+    }
+
+    function cleanWord(str) {
+      return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+
+    /**
+     * THE RULE THAT MAKES IT WORK:
+     * window.renderFrame(t) is a pure function of t (seconds).
+     * Clears and redraws using only t and constants.
+     */
+    function renderFrame(t) {
+      // 1. Clear background
+      ctx.fillStyle = PALETTE.background;
+      ctx.fillRect(0, 0, W, H);
+
+      // Clamp t to bounds
+      const clampedT = Math.max(0, Math.min(DURATION, t));
+
+      // 2. Find currently visible card
+      const activeCard = timeline.cards.find(c => clampedT >= c.startTime && clampedT <= c.endTime);
+
+      if (!activeCard) {
+        return; // Background is already cleared to PALETTE.background
+      }
+
+      // 3. Compute local card progress
+      const localT = clampedT - activeCard.startTime;
+      let alpha = 0.0;
+      let yOffset = 0.0;
+
+      if (localT < TIMING.fadeIn) {
+        // Fade in while rising 40px over 0.5s
+        const p = localT / TIMING.fadeIn;
+        const eased = easeOutCubic(p);
+        alpha = Math.max(0, Math.min(1, p));
+        yOffset = TIMING.risePx * (1 - eased); // Start +40px, rise to 0px
+      } else if (localT < (TIMING.fadeIn + activeCard.holdDuration)) {
+        // Hold state
+        alpha = 1.0;
+        yOffset = 0.0;
+      } else {
+        // Fade out over 0.25s
+        const fadeOutProgress = (localT - (TIMING.fadeIn + activeCard.holdDuration)) / TIMING.fadeOut;
+        alpha = Math.max(0, Math.min(1, 1 - fadeOutProgress));
+        yOffset = 0.0;
+      }
+
+      if (alpha <= 0.0001) {
+        return;
+      }
+
+      // 4. Measure and scale typography to stay within 144px margins
+      ctx.save();
+      ctx.globalAlpha = alpha;
+
+      let currentFontSize = FONT.size;
+      const maxWidth = W - (2 * MARGIN); // 1920 - 288 = 1632px
+
+      ctx.font = `${FONT.weight} ${currentFontSize}px "${FONT.family}", system-ui, sans-serif`;
+      let spaceWidth = ctx.measureText(' ').width;
+
+      // Word measurements
+      let wordsMetrics = activeCard.words.map(w => ({
+        word: w,
+        width: ctx.measureText(w).width,
+        isAccent: cleanWord(w) === cleanWord(activeCard.accent)
+      }));
+
+      let totalWidth = wordsMetrics.reduce((sum, item) => sum + item.width, 0) + ((activeCard.words.length - 1) * spaceWidth);
+
+      // If text exceeds safe margin, scale down gracefully
+      if (totalWidth > maxWidth) {
+        const scale = maxWidth / totalWidth;
+        currentFontSize = Math.floor(currentFontSize * scale);
+        ctx.font = `${FONT.weight} ${currentFontSize}px "${FONT.family}", system-ui, sans-serif`;
+        spaceWidth = ctx.measureText(' ').width;
+        wordsMetrics = activeCard.words.map(w => ({
+          word: w,
+          width: ctx.measureText(w).width,
+          isAccent: cleanWord(w) === cleanWord(activeCard.accent)
+        }));
+        totalWidth = wordsMetrics.reduce((sum, item) => sum + item.width, 0) + ((activeCard.words.length - 1) * spaceWidth);
+      }
+
+      // 5. Draw words centered horizontally and vertically
+      let drawX = (W - totalWidth) / 2;
+      const drawY = (H / 2) + yOffset;
+
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+
+      for (const item of wordsMetrics) {
+        ctx.fillStyle = item.isAccent ? PALETTE.accent : PALETTE.ink;
+        ctx.fillText(item.word, drawX, drawY);
+        drawX += item.width + spaceWidth;
+      }
+
+      ctx.restore();
+    }
+
+    // Expose mandatory globals for puppeteer and hrender.py harness
+    window.renderFrame = renderFrame;
+    window.seek = renderFrame; // Dual compatibility with hrender.py
+    window.DURATION = DURATION;
+    window.FPS = FPS;
+    window.WIDTH = W;
+    window.HEIGHT = H;
+    window.TIMELINE = timeline;
+    window.READY = false;
+    window.ready = false;
+
+    // Wait for fonts to be 100% loaded and resolved
+    async function initFontAndReady() {
+      try {
+        await document.fonts.load(`700 168px "Space Grotesk"`);
+        await document.fonts.ready;
+      } catch (err) {
+        console.warn('Font load fallback:', err);
+      }
+      window.READY = true;
+      window.ready = true;
+      // Render initial frame (t = 0)
+      renderFrame(0);
+    }
+
+    initFontAndReady();
+
+    // Browser interactive controls (does not interfere with deterministic rendering)
+    const playBtn = document.getElementById('playBtn');
+    const scrubber = document.getElementById('scrubber');
+    const timecode = document.getElementById('timecode');
+    let isPlaying = false;
+    let animId = null;
+    let playbackStartTime = 0;
+    let pausedAt = 0;
+
+    function updateTimecode(t) {
+      if (timecode) {
+        timecode.textContent = `${t.toFixed(2)}s / ${DURATION.toFixed(2)}s`;
+      }
+      if (scrubber && !isDragging) {
+        scrubber.value = Math.floor((t / DURATION) * 1000);
+      }
+    }
+
+    let isDragging = false;
+    scrubber.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    scrubber.addEventListener('input', (e) => {
+      const t = (e.target.value / 1000) * DURATION;
+      pausedAt = t;
+      renderFrame(t);
+      updateTimecode(t);
+    });
+
+    function loop(now) {
+      if (!isPlaying) return;
+      const elapsed = (now - playbackStartTime) / 1000;
+      let t = pausedAt + elapsed;
+      if (t >= DURATION) {
+        t = DURATION;
+        isPlaying = false;
+        playBtn.textContent = 'PLAY';
+        pausedAt = 0;
+      }
+      renderFrame(t);
+      updateTimecode(t);
+      if (isPlaying) {
+        animId = requestAnimationFrame(loop);
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        isPlaying = false;
+        playBtn.textContent = 'PLAY';
+        cancelAnimationFrame(animId);
+      } else {
+        isPlaying = true;
+        playBtn.textContent = 'PAUSE';
+        playbackStartTime = performance.now();
+        animId = requestAnimationFrame(loop);
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        playBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>

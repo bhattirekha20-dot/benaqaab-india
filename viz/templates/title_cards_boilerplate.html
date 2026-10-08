@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Benaqaab Title Card Engine</title>
+  <style>
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      src: url('../fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+      font-display: swap;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; background: #0b0b0f; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    canvas#c { width: 100%; height: 100%; object-fit: contain; aspect-ratio: 16/9; background: #0b0b0f; }
+  </style>
+</head>
+<body>
+  <canvas id="c" width="1920" height="1080"></canvas>
+  <script type="module">
+    const W = 1920, H = 1080, FPS = 30, MARGIN = 144;
+    const PALETTE = { background: '#0b0b0f', ink: '#f4f2ec', accent: '#c8ff3d' };
+    const FONT = { family: 'Space Grotesk', weight: 700, size: 168 };
+    const TIMING = { fadeIn: 0.5, fadeOut: 0.25, risePx: 40, holdScale: 1.65, headPause: 0.35, tailPause: 0.65 };
+
+    const LINES = [
+      { text: "Every frame is code", accent: "code" },
+      { text: "Nothing is filmed", accent: "filmed" },
+      { text: "Same input", accent: "input" },
+      { text: "Same pixels", accent: "pixels" },
+      { text: "Render it free", accent: "free" }
+    ];
+
+    let tAccum = TIMING.headPause;
+    const cards = LINES.map((line, idx) => {
+      const words = line.text.trim().split(/\s+/);
+      const rawHold = Math.max(1.2, 0.35 + words.length / 3.2);
+      const hold = rawHold * TIMING.holdScale;
+      const dur = TIMING.fadeIn + hold + TIMING.fadeOut;
+      const c = { index: idx, text: line.text, accent: line.accent, words, start: tAccum, fadeInEnd: tAccum + TIMING.fadeIn, holdEnd: tAccum + TIMING.fadeIn + hold, end: tAccum + dur, hold };
+      tAccum += dur;
+      return c;
+    });
+
+    const DURATION = parseFloat((tAccum + TIMING.tailPause).toFixed(3));
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d', { alpha: false });
+
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+    function cleanWord(str) { return str.toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+    function renderFrame(t) {
+      ctx.fillStyle = PALETTE.background;
+      ctx.fillRect(0, 0, W, H);
+      const ct = Math.max(0, Math.min(DURATION, t));
+      const card = cards.find(c => ct >= c.start && ct <= c.end);
+      if (!card) return;
+
+      const lt = ct - card.start;
+      let alpha = 0.0, yOffset = 0.0;
+      if (lt < TIMING.fadeIn) {
+        const p = lt / TIMING.fadeIn;
+        alpha = p;
+        yOffset = TIMING.risePx * (1 - easeOutCubic(p));
+      } else if (lt < TIMING.fadeIn + card.hold) {
+        alpha = 1.0;
+        yOffset = 0.0;
+      } else {
+        const pOut = (lt - (TIMING.fadeIn + card.hold)) / TIMING.fadeOut;
+        alpha = Math.max(0, 1 - pOut);
+        yOffset = 0.0;
+      }
+      if (alpha <= 0.001) return;
+
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      let fSize = FONT.size;
+      const maxW = W - (2 * MARGIN);
+      ctx.font = `${FONT.weight} ${fSize}px "${FONT.family}", sans-serif`;
+      let spaceW = ctx.measureText(' ').width;
+      let metrics = card.words.map(w => ({ word: w, width: ctx.measureText(w).width, isAccent: cleanWord(w) === cleanWord(card.accent) }));
+      let totW = metrics.reduce((s, m) => s + m.width, 0) + (card.words.length - 1) * spaceW;
+
+      if (totW > maxW) {
+        fSize = Math.floor(fSize * (maxW / totW));
+        ctx.font = `${FONT.weight} ${fSize}px "${FONT.family}", sans-serif`;
+        spaceW = ctx.measureText(' ').width;
+        metrics = card.words.map(w => ({ word: w, width: ctx.measureText(w).width, isAccent: cleanWord(w) === cleanWord(card.accent) }));
+        totW = metrics.reduce((s, m) => s + m.width, 0) + (card.words.length - 1) * spaceW;
+      }
+
+      let curX = (W - totW) / 2;
+      const curY = (H / 2) + yOffset;
+      ctx.textBaseline = 'middle';
+      for (const m of metrics) {
+        ctx.fillStyle = m.isAccent ? PALETTE.accent : PALETTE.ink;
+        ctx.fillText(m.word, curX, curY);
+        curX += m.width + spaceW;
+      }
+      ctx.restore();
+    }
+
+    window.renderFrame = renderFrame;
+    window.seek = renderFrame;
+    window.DURATION = DURATION;
+    window.FPS = FPS;
+    window.WIDTH = W;
+    window.HEIGHT = H;
+    window.ready = false;
+    window.READY = false;
+
+    Promise.all([document.fonts.load(`700 168px "Space Grotesk"`), document.fonts.ready])
+      .finally(() => { window.READY = true; window.ready = true; renderFrame(0); });
+  </script>
+</body>
+</html>

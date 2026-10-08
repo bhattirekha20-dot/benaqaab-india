@@ -211,3 +211,16 @@ class SceneTimeline {
 2. **Batch State Changes**: Minimize switching `ctx.fillStyle`, `ctx.font`, and `ctx.globalCompositeOperation`. Group all similar drawing commands together.
 3. **Integer Pixel Alignment**: Subpixel rendering (`x = 100.432`) causes anti-aliasing fuzziness and extra GPU rasterization. Use `Math.round()` or `| 0` for crisp bounds.
 4. **Clean up Clip & Save Stacks**: Every `ctx.save()` must strictly have an equal `ctx.restore()` to prevent memory leaks and performance degradation.
+
+---
+
+## 🎴 6. Deterministic Title-Card Video Engine (`projects/title_cards/`)
+
+Silent, pure Canvas2D kinetic typography rendered frame-by-frame in headless Chrome and encoded to MP4 with FFmpeg:
+- **Contract**: `window.renderFrame(t)` (and dual-compatible `window.seek(t)`) as a pure function of time; `window.READY = true` only after `document.fonts.load('700 168px "Space Grotesk"')` and `document.fonts.ready` resolve.
+- **Card Kinetics**: Rise 40px while fading in over 0.5s (cubic ease-out), hold for $\max(1.2, 0.35 + \text{words}/3.2)$ seconds, fade out over 0.25s. Exactly one word per card in accent colour (`#c8ff3d`). Safe margin 144px.
+- **Commands**:
+  - `node render.mjs --stills` — renders one proof still per card into `stills/` for visual QA.
+  - `node render.mjs` — renders full 30 FPS PNG sequence into `frames/` and encodes master MP4 with FFmpeg.
+- **Boilerplate**: `viz/templates/title_cards_boilerplate.html`
+
