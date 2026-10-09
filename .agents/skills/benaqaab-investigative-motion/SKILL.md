@@ -30,6 +30,13 @@ description: >-
    - Numeric counters with monospace styling (`JetBrains Mono`), spinning up with cubic deceleration to staggering numbers (e.g., ₹14,250 Crores).
 6. **High-Contrast Cinema Glass Cards:**
    - Deep dark obsidian cards (`rgba(10, 13, 20, 0.85)`), specular borders (`rgba(255, 255, 255, 0.15)`), vibrant orange/amber accents (`#f97316`). Never dull grey.
+7. **Animated Channel Logo + Subscribe & Like Micro-Interaction (`drawSubscribeLikeCTA`):**
+   - **Mandatory Placement:** At the conclusion of the full intro hook (between 25s and 35s, duration 2.5s to 3.0s).
+   - **Visual Elements:** Official Benaqaab India logo avatar with pulsing gold ring, bold white channel title `BENAQAAB INDIA`, and tagline `SACH · SABOOT · BEBAK`.
+   - **Active Micro-Interactions:** 
+     1. Animated Like button clicking and turning to `👍 LIKED` with cyan glow at +0.75s.
+     2. Bold red `SUBSCRIBE ▶` button clicking and morphing into frosted gold `🔔 SUBSCRIBED` with an oscillating notification bell at +1.25s.
+   - **Physics:** Spring entrance, brief hold, and smooth ease-out exit so it enhances viewer retention without obstructing the scene.
 
 ## 3. Continuity Laws & Anti-Slideshow Architecture (Pass 2 Research)
 - **Vector Law:** How Scene A exits decides how Scene B enters — same axis, same direction, matched speed, cut mid-motion on BOTH sides. Never use mirrored vectors.

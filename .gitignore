@@ -4,11 +4,18 @@
 
 # ─── Temporary / Extraction caches ────────────
 _temp_extract/
+temp_extract/
+scratch/
+qa_*.png
+qa_*.jpg
+projects/**/extracted_short/
+projects/**/audio_chunks/
 .cache/
 tmp/
 temp/
 frames/
 projects/**/frames/
+
 
 
 # ─── Rendered videos & audio (too large / private for Git) ───
@@ -84,3 +91,6 @@ build/
 # ─── Logs ────────────────────────────────────
 *.log
 !projects/india_last_24h/video_assets/*.log
+
+# ─── Subsystems & Toolsuites ─────────────────
+openmontage/

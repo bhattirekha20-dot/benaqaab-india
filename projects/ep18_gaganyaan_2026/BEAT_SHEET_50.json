@@ -1,0 +1,1263 @@
+[
+  {
+    "beat_id": 1,
+    "chapter": "Act 0: The Burning Question Hook",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_01_hlvm3_launchpad_predawn_fog.jpg",
+    "subject": "HLVM3 Rocket at Dawn on Sriharikota Launchpad",
+    "hindi_desc": "43.5 मीटर ऊंचा HLVM3 रॉकेट — श्रीहरिकोटा लॉन्चपैड",
+    "hud_data": "CABINET ALLOCATION: ₹20,193 CRORE APPROVED",
+    "motion_type": "roadmap_and_pin",
+    "target": [
+      960,
+      340
+    ],
+    "elbow": [
+      1380,
+      260
+    ],
+    "title": "HLVM3 LAUNCH STACK",
+    "subtitle": "ऊंचाई: 43.5m | द्रव्यमान: 640 टन | मानव रेटेड",
+    "color": "#38bdf8",
+    "start_s": 0.0,
+    "end_s": 6.17,
+    "time_range": "00:00 - 00:06"
+  },
+  {
+    "beat_id": 2,
+    "chapter": "Act 0: The Burning Question Hook",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_01_pib_cabinet_approval_gazette.png",
+    "subject": "Official PIB Gazette: Cabinet Approves ₹20,193 Crore",
+    "hindi_desc": "18 सितंबर 2024: यूनियन कैबिनेट का आधिकारिक गजट — बजट विस्तार",
+    "hud_data": "OFFICIAL PIB PRID: 2055978 | 18 SEP 2024",
+    "motion_type": "odometer_and_pin",
+    "odo_start": 9023,
+    "odo_end": 20193,
+    "odo_prefix": "BUDGET EXPANSION: ₹",
+    "odo_suffix": " CRORE",
+    "target": [
+      960,
+      420
+    ],
+    "elbow": [
+      1380,
+      340
+    ],
+    "title": "PIB GAZETTE RECORD",
+    "subtitle": "यूनियन कैबिनेट का ₹20,193 करोड़ का आधिकारिक फैसला",
+    "color": "#fbbf24",
+    "start_s": 6.17,
+    "end_s": 12.34,
+    "time_range": "00:06 - 00:12"
+  },
+  {
+    "beat_id": 3,
+    "chapter": "Act 0: The Burning Question Hook",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_11_vyommitra_torso_assembly_cleanroom.jpg",
+    "subject": "Vyommitra Cleanroom Assembly — The Robot Precursor",
+    "hindi_desc": "इंसान से पहले फीमेल ह्यूमनॉइड रोबोट व्योममित्र क्यों?",
+    "hud_data": "PRECURSOR FLIGHT: VYOMMITRA HUMANOID Q4 2026",
+    "motion_type": "pin",
+    "target": [
+      960,
+      480
+    ],
+    "elbow": [
+      1380,
+      380
+    ],
+    "title": "VYOMMITRA PRECURSOR",
+    "subtitle": "मानव से पहले रोबोट का अंतरिक्ष परीक्षण",
+    "color": "#38bdf8",
+    "start_s": 12.34,
+    "end_s": 18.51,
+    "time_range": "00:12 - 00:18"
+  },
+  {
+    "beat_id": 4,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_02_hlvm3_integrated_stack_vssc_src-02_02.png",
+    "subject": "Real Photo: Human-Rated LVM3 Vehicle Assembly at SDSC SHAR",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: श्रीहरिकोटा में HLVM3 असेंबली अभियान",
+    "hud_data": "ISRO SDSC SHAR: GAGANYAAN-G1 LAUNCH CAMPAIGN",
+    "motion_type": "pin",
+    "target": [
+      960,
+      460
+    ],
+    "elbow": [
+      1380,
+      380
+    ],
+    "title": "REAL HLVM3 STACK",
+    "subtitle": "श्रीहरिकोटा में मानव रेटेड LVM3 रॉकेट असेंबली",
+    "color": "#38bdf8",
+    "start_s": 18.51,
+    "end_s": 24.68,
+    "time_range": "00:18 - 00:24"
+  },
+  {
+    "beat_id": 5,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_10_gaganyaan_orbiting_indian_peninsula.jpg",
+    "subject": "Gaganyaan in LEO — Beyond the 3-Day Tourist Illusion",
+    "hindi_desc": "दुनिया को लगता है यह सिर्फ 3 दिन का मिशन है, लेकिन सच कुछ और है",
+    "hud_data": "LOW EARTH ORBIT: 400 KM CIRCULAR ORBIT",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "BEYOND 3-DAY FLIGHT",
+    "subtitle": "कक्षा में तिरंगा लहराने से कहीं बड़ा मिशन",
+    "color": "#38bdf8",
+    "start_s": 24.68,
+    "end_s": 30.86,
+    "time_range": "00:24 - 00:30"
+  },
+  {
+    "beat_id": 6,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_09_orbital_module_separation_leo.jpg",
+    "subject": "8 Missions Approved by Dec 2028 in Official Gazette",
+    "hindi_desc": "कैबिनेट कमेटी ऑन इकोनॉमिक अफेयर्स: दिसंबर 2028 तक पूरे 8 मिशन",
+    "hud_data": "CCEA APPROVAL: 8 FLIGHT MISSIONS BY DEC 2028",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "8 APPROVED MISSIONS",
+    "subtitle": "2 अनक्रूड, 1 ह्यूमनॉइड, डॉकिंग और क्रू मिशन्स",
+    "color": "#10b981",
+    "start_s": 30.86,
+    "end_s": 37.03,
+    "time_range": "00:30 - 00:37"
+  },
+  {
+    "beat_id": 7,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_41_bas01_module_fabrication_hangar.jpg",
+    "subject": "BAS-01 Module Fabrication — India's Sovereign Space Station",
+    "hindi_desc": "गुप्त आवंटन: ₹1,763 करोड़ सीधे BAS-01 स्पेस स्टेशन मॉड्यूल के लिए",
+    "hud_data": "BAS-01 ALLOCATION: ₹1,763 CR | LAUNCH: 2028",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "BAS-01 MODULE",
+    "subtitle": "भारतीय अंतरिक्ष स्टेशन का पहला स्वदेशी मॉड्यूल",
+    "color": "#fbbf24",
+    "start_s": 37.03,
+    "end_s": 43.2,
+    "time_range": "00:37 - 00:43"
+  },
+  {
+    "beat_id": 8,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_44_bas_full_52tonne_station_2035.jpg",
+    "subject": "Geopolitical Race — ISS Retiring & Tiangong Monopoly",
+    "hindi_desc": "ISS अगले 6 साल में नष्ट होगा; केवल चीन का तियांगोंग बचेगा",
+    "hud_data": "GEOPOLITICAL RACE: ISS DE-ORBITS BY 2030-31",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "SPACE STATION RACE",
+    "subtitle": "भारत का अपना स्टेशन नहीं तो स्पेस साइंस से बाहर",
+    "color": "#f43f5e",
+    "start_s": 43.2,
+    "end_s": 49.37,
+    "time_range": "00:43 - 00:49"
+  },
+  {
+    "beat_id": 9,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_42_bas01_autonomous_docking_leo.jpg",
+    "subject": "Autonomous Orbital Docking Architecture (SPADEX)",
+    "hindi_desc": "स्पेस डॉकिंग प्रयोग — मॉड्यूल जोड़ने की स्वायत्त तकनीक",
+    "hud_data": "SPADEX GUIDANCE: LIDAR DOCKING (0.05 M/S)",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "SPADEX DOCKING",
+    "subtitle": "कक्षा में दो अंतरिक्ष यानों का स्वचालित मिलन",
+    "color": "#38bdf8",
+    "start_s": 49.37,
+    "end_s": 55.54,
+    "time_range": "00:49 - 00:55"
+  },
+  {
+    "beat_id": 10,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_03_hs200_solid_booster_ignition_shockwave.jpg",
+    "subject": "Precursor Mission Strategy — Changing the Entire Game",
+    "hindi_desc": "इसरो ने पूरा गेम बदला: 2 अनक्रूड टेस्ट और 1 रोबोट मिशन",
+    "hud_data": "MISSION MATRIX: STEPWISE FLIGHT VALIDATION",
+    "motion_type": "pin",
+    "target": [
+      960,
+      580
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "STEPWISE BLUEPRINT",
+    "subtitle": "2024 से 2028 तक क्रमिक उड़ान प्रमाणीकरण",
+    "color": "#f59e0b",
+    "start_s": 55.54,
+    "end_s": 61.71,
+    "time_range": "00:55 - 01:01"
+  },
+  {
+    "beat_id": 11,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_05_hs200_booster_separation_vacuum.jpg",
+    "subject": "Twin HS200 Staging — The 20,000 Crore Blueprint",
+    "hindi_desc": "2028 में पहला मैन्ड मॉड्यूल — भारत का ₹20,000 करोड़ का खाका",
+    "hud_data": "T+149S BOOSTER JETTISON | MULTI-MISSION STACK",
+    "motion_type": "pin",
+    "target": [
+      820,
+      520
+    ],
+    "elbow": [
+      520,
+      420
+    ],
+    "title": "MASTER ROADMAP",
+    "subtitle": "ठोस आधार पर तैयार बहु-मिशन रणनीति",
+    "color": "#38bdf8",
+    "start_s": 61.71,
+    "end_s": 67.88,
+    "time_range": "01:01 - 01:07"
+  },
+  {
+    "beat_id": 12,
+    "chapter": "Act 1: The ₹20,193 Crore Secret Expansion",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_06_l110_vikas_engines_staging_burn.jpg",
+    "subject": "Core Liquid Burn — The Risk of Human Spaceflight",
+    "hindi_desc": "इंसान को भेजना उपग्रह जैसा नहीं; छोटी चूक यानी तत्काल मृत्यु",
+    "hud_data": "HUMAN-RATING: EXTREME MARGINS OF SAFETY",
+    "motion_type": "pin",
+    "target": [
+      960,
+      560
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "ZERO ERROR MARGIN",
+    "subtitle": "मानव अंतरिक्ष उड़ान में शून्य त्रुटि की शर्त",
+    "color": "#f43f5e",
+    "start_s": 67.88,
+    "end_s": 74.05,
+    "time_range": "01:07 - 01:14"
+  },
+  {
+    "beat_id": 13,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_02_ce20_combustion_chamber_macro.jpg",
+    "subject": "Chokepoint 1: CE-20 Cryogenic Chamber (-253°C vs 3,000°C Fire)",
+    "hindi_desc": "पहला चोकपॉइंट: CE-20 इंजन — तरल हाइड्रोजन -253°C और 3,000°C की आग",
+    "hud_data": "CHAMBER TEMP: 3,000°C | LH2 FUEL: -253°C",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      540
+    ],
+    "loupe_r": 210,
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "CE-20 COMBUSTION",
+    "subtitle": "सुपरक्रिटिकल इंजेक्टर और अत्यधिक तापमान विषमता",
+    "color": "#f59e0b",
+    "start_s": 74.05,
+    "end_s": 80.23,
+    "time_range": "01:14 - 01:20"
+  },
+  {
+    "beat_id": 14,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_03_ce20_cryogenic_engine_test_mahendragiri_src-03_03.webp",
+    "subject": "Real Photo: CE-20 Cryogenic Engine at IPRC Mahendragiri Test Stand",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: IPRC महेंद्रगिरि में CE-20 टेस्ट स्टैंड",
+    "hud_data": "ISRO IPRC MAHENDRAGIRI: CE-20 TEST STAND",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "IPRC MAHENDRAGIRI",
+    "subtitle": "क्रायोजेनिक इंजन का विश्व-स्तरीय परीक्षण स्थल",
+    "color": "#38bdf8",
+    "start_s": 80.23,
+    "end_s": 86.4,
+    "time_range": "01:20 - 01:26"
+  },
+  {
+    "beat_id": 15,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_03_ce20_cryogenic_engine_test_mahendragiri_src-03_04.webp",
+    "subject": "Real Photo: CE-20 Hot Test Firing — 8,810-Second World Record",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: 8,810 सेकंड का ऐतिहासिक हॉट टेस्ट",
+    "hud_data": "ACHIEVED: 8,810 SECONDS QUALIFICATION BURN",
+    "motion_type": "odometer_and_pin",
+    "odo_start": 0,
+    "odo_end": 8810,
+    "odo_prefix": "CUMULATIVE HOT TEST: ",
+    "odo_suffix": " SECONDS",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "8,810s WORLD RECORD",
+    "subtitle": "विश्व रिकॉर्ड विश्वसनीयता — ह्यूमन रेटिंग प्रमाणित",
+    "color": "#10b981",
+    "start_s": 86.4,
+    "end_s": 92.57,
+    "time_range": "01:26 - 01:32"
+  },
+  {
+    "beat_id": 16,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_34_eclss_oxygen_regeneration_canisters.jpg",
+    "subject": "Chokepoint 2: ECLSS Life Support When Foreign Help Refused",
+    "hindi_desc": "दूसरा चोकपॉइंट: ECLSS — विदेशी देशों ने तकनीक देने से मना किया",
+    "hud_data": "FOREIGN TECHNOLOGY DENIED | VSSC INDIGENOUS",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      620,
+      420
+    ],
+    "title": "INDIGENOUS ECLSS",
+    "subtitle": "विदेशी इनकार के बाद भारत ने खुद बनाया लाइफ सपोर्ट",
+    "color": "#f59e0b",
+    "start_s": 92.57,
+    "end_s": 98.74,
+    "time_range": "01:32 - 01:38"
+  },
+  {
+    "beat_id": 17,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_16_crew_module_interior_zero_gravity.jpg",
+    "subject": "VSSC Thiruvananthapuram Indigenous Closed-Loop Cabin",
+    "hindi_desc": "VSSC तिरुवनंतपुरम के वैज्ञानिकों ने तैयार किया स्वदेशी केबिन वातावरण",
+    "hud_data": "ATMOSPHERE COMPOSITION: CLOSED-LOOP SYSTEM",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "VSSC CABIN LOOP",
+    "subtitle": "स्वदेशी 8 घन मीटर क्रू केबिन पर्यावरण",
+    "color": "#38bdf8",
+    "start_s": 98.74,
+    "end_s": 104.91,
+    "time_range": "01:38 - 01:44"
+  },
+  {
+    "beat_id": 18,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_17_porthole_earth_view_vyommitra_reflection.jpg",
+    "subject": "Life Formula: 78% N2, 21% O2, 101.3 kPa & CO2 < 0.5%",
+    "hindi_desc": "78% नाइट्रोजन, 21% ऑक्सीजन, 1 वायुमंडलीय दबाव, CO2 < 0.5%",
+    "hud_data": "GAS METRICS: 78% N2 / 21% O2 | CO2 < 0.5%",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      540
+    ],
+    "loupe_r": 210,
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "AIR MIX FORMULA",
+    "subtitle": "बंद कैप्सूल में सुरक्षित सांस लेने का स्वदेशी फॉर्मूला",
+    "color": "#10b981",
+    "start_s": 104.91,
+    "end_s": 111.08,
+    "time_range": "01:44 - 01:51"
+  },
+  {
+    "beat_id": 19,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_13_vyommitra_seated_cockpit_sim.jpg",
+    "subject": "Life Support Validation Inside Sealed Spacecraft",
+    "hindi_desc": "बंद कैप्सूल में जिंदा रहने की तकनीक भारत ने खुद क्रैक की",
+    "hud_data": "CABIN VALIDATION: 100% INDIGENOUS CRACKED",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      620,
+      420
+    ],
+    "title": "SEALED CABIN TEST",
+    "subtitle": "दबाव व ऑक्सीजन निगरानी में पूर्ण सफलता",
+    "color": "#38bdf8",
+    "start_s": 111.08,
+    "end_s": 117.25,
+    "time_range": "01:51 - 01:57"
+  },
+  {
+    "beat_id": 20,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_04_tv_d1_launch_liftoff_src-04_01.webp",
+    "subject": "Real Photo: TV-D1 Launch Liftoff from Sriharikota (21 Oct 2023)",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: TV-D1 टेस्ट व्हीकल लॉन्च — 21 अक्टूबर 2023",
+    "hud_data": "ISRO TV-D1 MISSION: 21 OCT 2023 10:00 AM IST",
+    "motion_type": "pin",
+    "target": [
+      960,
+      480
+    ],
+    "elbow": [
+      1380,
+      380
+    ],
+    "title": "REAL TV-D1 LIFTOFF",
+    "subtitle": "श्रीहरिकोटा से एबॉर्ट मिशन-1 का सफल प्रक्षेपण",
+    "color": "#f43f5e",
+    "start_s": 117.25,
+    "end_s": 123.42,
+    "time_range": "01:57 - 02:03"
+  },
+  {
+    "beat_id": 21,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_05_tv_d1_ces_separation_supersonic_src-05_01.jpg",
+    "subject": "Real PIB Photo: TV-D1 Supersonic Separation at Mach 1.2 at 17 km",
+    "hindi_desc": "आधिकारिक PIB तस्वीर: मैक 1.2 गति पर क्रू एस्केप सेपरेशन",
+    "hud_data": "PIB PRID: 1969644 | SUPERSONIC ABORT CAPTURED",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      480
+    ],
+    "loupe_r": 200,
+    "target": [
+      960,
+      480
+    ],
+    "elbow": [
+      1380,
+      400
+    ],
+    "title": "REAL SEPARATION STILL",
+    "subtitle": "17 किमी पर एस्केप मोटर्स द्वारा कैप्सूल अलग",
+    "color": "#f43f5e",
+    "start_s": 123.42,
+    "end_s": 129.6,
+    "time_range": "02:03 - 02:09"
+  },
+  {
+    "beat_id": 22,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_22_grid_fins_deployment_aerodynamic_steering.jpg",
+    "subject": "Titanium Grid Fins Steering During Transonic Failure",
+    "hindi_desc": "मैक 1.2 पर जानबूझकर रॉकेट फेल करके कैप्सूल को अलग किया गया",
+    "hud_data": "AERODYNAMIC GRID FINS: 100% STEERING LOCK",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "SUPERSONIC STEERING",
+    "subtitle": "टाइटेनियम ग्रिड फिन्स द्वारा रवैया नियंत्रण",
+    "color": "#38bdf8",
+    "start_s": 129.6,
+    "end_s": 135.77,
+    "time_range": "02:09 - 02:15"
+  },
+  {
+    "beat_id": 23,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_23_ces_tower_jettison_capsule_free.jpg",
+    "subject": "Split-Second Escape Motor Pulling Capsule Away",
+    "hindi_desc": "एस्केप मोटर्स ने स्प्लिट-सेकंड में कैप्सूल को खींच लिया",
+    "hud_data": "ESCAPE MOTOR BURNOUT & TOWER JETTISON",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      620,
+      420
+    ],
+    "title": "SPLIT-SECOND ESCAPE",
+    "subtitle": "रॉकेट से सुरक्षित दूरी हासिल कर टॉवर अलग हुआ",
+    "color": "#fbbf24",
+    "start_s": 135.77,
+    "end_s": 141.94,
+    "time_range": "02:15 - 02:21"
+  },
+  {
+    "beat_id": 24,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_06_imat_iadt_01.jpg",
+    "subject": "Real Photo: Gaganyaan Parachutes Deployment Test (IMAT / IADT)",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: मुख्य पैराशूट क्लस्टर एयर ड्रॉप टेस्ट",
+    "hud_data": "ISRO AIR DROP TEST: MAIN PARACHUTE SYSTEM",
+    "motion_type": "pin",
+    "target": [
+      960,
+      460
+    ],
+    "elbow": [
+      1380,
+      360
+    ],
+    "title": "REAL PARACHUTE TEST",
+    "subtitle": "10 पैराशूट्स का समन्वित सफल परीक्षण",
+    "color": "#10b981",
+    "start_s": 141.94,
+    "end_s": 148.11,
+    "time_range": "02:21 - 02:28"
+  },
+  {
+    "beat_id": 25,
+    "chapter": "Act 2: The 3 Impossible Engineering Chokepoints",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_07_crew_module_water_recovery_src-07_01.webp",
+    "subject": "Real Photo: Crew Module Water Recovery Qualification",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: समुद्र में क्रू मॉड्यूल रिकवरी परीक्षण",
+    "hud_data": "CREW MODULE QUALIFICATION: SEA RECOVERY PROVEN",
+    "motion_type": "stamp",
+    "stamp_en": "ABORT QUALIFIED",
+    "stamp_hi": "ZERO HUMAN RISK PROVEN",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "WATER RECOVERY PROVEN",
+    "subtitle": "सबूत स्क्रीन पर है — शून्य मानव जोखिम!",
+    "color": "#f43f5e",
+    "start_s": 148.11,
+    "end_s": 154.28,
+    "time_range": "02:28 - 02:34"
+  },
+  {
+    "beat_id": 26,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_27_self_righting_flotation_balloons_upright.jpg",
+    "subject": "Ethical Spaceflight — No Animals in Danger",
+    "hindi_desc": "1960 में अमेरिका-रूस ने बंदर व कुत्ते भेजे; भारत बेजुबानों को नहीं भेजेगा",
+    "hud_data": "ETHICAL PROTOCOL: NO ANIMALS HARMED",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      500
+    ],
+    "loupe_r": 200,
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "ETHICAL ADVANCEMENT",
+    "subtitle": "जानवरों की जगह उन्नत रोबोटिक सेरोगेसी",
+    "color": "#fbbf24",
+    "start_s": 154.28,
+    "end_s": 160.45,
+    "time_range": "02:34 - 02:40"
+  },
+  {
+    "beat_id": 27,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_12_vyommitra_15dof_neck_actuators_macro.jpg",
+    "subject": "Vyommitra Unveiled — Sanskrit 'Vyoma' (Space) + 'Mitra' (Friend)",
+    "hindi_desc": "भारत भेज रहा है व्योममित्र — व्योम यानी अंतरिक्ष, मित्र यानी दोस्त",
+    "hud_data": "NAME ETYMOLOGY: VYOMA (SPACE) + MITRA (FRIEND)",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      500
+    ],
+    "loupe_r": 220,
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "VYOMMITRA UNVEILED",
+    "subtitle": "संस्कृत: व्योम (अंतरिक्ष) + मित्र (सखा)",
+    "color": "#38bdf8",
+    "start_s": 160.45,
+    "end_s": 166.62,
+    "time_range": "02:40 - 02:46"
+  },
+  {
+    "beat_id": 28,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_14_vyommitra_piezo_sensor_telemetry.jpg",
+    "subject": "15 Degrees of Freedom Biomimetic Architecture",
+    "hindi_desc": "यह कोई प्लास्टिक का शोपीस नहीं; 15-DOF हाफ-ह्यूमनॉइड रोबोट है",
+    "hud_data": "ROBOTIC SPEC: 15 DEGREES OF FREEDOM (DOF)",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "15-DOF ARCHITECTURE",
+    "subtitle": "बायोमिमेटिक सर्वोस और सूक्ष्म मोशन कंट्रोल",
+    "color": "#38bdf8",
+    "start_s": 166.62,
+    "end_s": 172.79,
+    "time_range": "02:46 - 02:52"
+  },
+  {
+    "beat_id": 29,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_15_vyommitra_operating_cabin_switch.jpg",
+    "subject": "Piezoelectric Accelerometers Measuring 4.5-G Launch Violence",
+    "hindi_desc": "पीजोइलेक्ट्रिक एक्सेलेरोमीटर — 4.5-G शॉक में मानव शरीर पर प्रभाव मापना",
+    "hud_data": "LAUNCH VIOLENCE SENSORS: 4.5-G PEAK LOAD",
+    "motion_type": "odometer_and_pin",
+    "odo_start": 1.0,
+    "odo_end": 4.5,
+    "odo_prefix": "LAUNCH LOAD: ",
+    "odo_suffix": " G FORCE",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      620,
+      440
+    ],
+    "title": "PIEZO TRANSDUCERS",
+    "subtitle": "4.5-G कंपन और शॉक लोड का वास्तविक मापन",
+    "color": "#10b981",
+    "start_s": 172.79,
+    "end_s": 178.96,
+    "time_range": "02:52 - 02:58"
+  },
+  {
+    "beat_id": 30,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_18_bilingual_voice_telecommand_waveform.jpg",
+    "subject": "Operating Switch Panels & ECLSS Valves Autonomously",
+    "hindi_desc": "कॉकपिट स्विच पैनल को खुद ऑपरेट करना और ECLSS वाल्व की निगरानी",
+    "hud_data": "SWITCH PANEL INTERACTION: AUTONOMOUS TOGGLES",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      620,
+      440
+    ],
+    "title": "SWITCH OPERATION",
+    "subtitle": "ईसीएलएसएस वाल्व व केबिन दबाव नियंत्रण",
+    "color": "#38bdf8",
+    "start_s": 178.96,
+    "end_s": 185.14,
+    "time_range": "02:58 - 03:05"
+  },
+  {
+    "beat_id": 31,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_30_vyommitra_retrieved_hatch_opened.jpg",
+    "subject": "Bilingual Voice Telecommand in Hindi & English with ISRO",
+    "hindi_desc": "बेंगलुरु मिशन कंट्रोल से हिंदी और अंग्रेजी दोनों में लाइव बातचीत",
+    "hud_data": "BILINGUAL LINK: HINDI & ENGLISH TELECOMMAND",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "BILINGUAL VOICE LINK",
+    "subtitle": "'केबिन दबाव सामान्य है' — लाइव टेलीकमांड प्रोटोकॉल",
+    "color": "#10b981",
+    "start_s": 185.14,
+    "end_s": 191.31,
+    "time_range": "03:05 - 03:11"
+  },
+  {
+    "beat_id": 32,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_16_hsfc_bengaluru_centre_src-16_01.webp",
+    "subject": "Real Photo: ISRO Human Space Flight Centre (HSFC) Bengaluru",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: मानव अंतरिक्ष उड़ान केंद्र बेंगलुरु",
+    "hud_data": "ISRO HSFC BENGALURU: MISSION HQ",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "ISRO HSFC BENGALURU",
+    "subtitle": "मानव अंतरिक्ष उड़ान मिशन का केंद्रीय मुख्यालय",
+    "color": "#38bdf8",
+    "start_s": 191.31,
+    "end_s": 197.48,
+    "time_range": "03:11 - 03:17"
+  },
+  {
+    "beat_id": 33,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_17_sdsc_mission_control_shar_src-17.webp",
+    "subject": "Real Photo: SDSC SHAR Mission Control Room",
+    "hindi_desc": "आधिकारिक इसरो तस्वीर: सतीश धवन अंतरिक्ष केंद्र मिशन कंट्रोल रूम",
+    "hud_data": "SDSC SHAR MISSION CONTROL: LIVE TELEMETRY",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "MISSION CONTROL ROOM",
+    "subtitle": "श्रीहरिकोटा से लाइव टेलीकमांड व उड़ान ट्रैकिंग",
+    "color": "#fbbf24",
+    "start_s": 197.48,
+    "end_s": 203.65,
+    "time_range": "03:17 - 03:23"
+  },
+  {
+    "beat_id": 34,
+    "chapter": "Act 3: Vyommitra — The Cybernetic Astronaut",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_20_service_module_jettison_deorbit_burn.jpg",
+    "subject": "Gateway to Human Missions Formally Cleared",
+    "hindi_desc": "व्योममित्र का परीक्षण पूरा — अब इंसानों की बारी",
+    "hud_data": "FLIGHT PATH CLEARED: ASTRONAUT SELECTION ACTIVE",
+    "motion_type": "stamp",
+    "stamp_en": "MISSION VERIFIED",
+    "stamp_hi": "PATHWAY CLEARED FOR HUMAN CREW",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "HUMAN FLIGHT CLEARED",
+    "subtitle": "मानव मिशन हेतु संपूर्ण तकनीकी स्वीकृति",
+    "color": "#10b981",
+    "start_s": 203.65,
+    "end_s": 209.82,
+    "time_range": "03:23 - 03:29"
+  },
+  {
+    "beat_id": 35,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_10_pm_modi_astronaut_wings_vssc_src-10_01.jpg",
+    "subject": "Real PMO Photo: PM Modi Bestows Astronaut Wings at VSSC (27 Feb 2024)",
+    "hindi_desc": "आधिकारिक PMO तस्वीर: 27 फरवरी 2024 को प्रधानमंत्री द्वारा विंग्स प्रदान",
+    "hud_data": "OFFICIAL PMO RELEASE: 27 FEB 2024 VSSC CEREMONY",
+    "motion_type": "pin",
+    "target": [
+      960,
+      480
+    ],
+    "elbow": [
+      1380,
+      380
+    ],
+    "title": "REAL VSSC CEREMONY",
+    "subtitle": "पीएम मोदी द्वारा 4 गगनयात्रियों को विंग्स प्रदान",
+    "color": "#fbbf24",
+    "start_s": 209.82,
+    "end_s": 215.99,
+    "time_range": "03:29 - 03:35"
+  },
+  {
+    "beat_id": 36,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_10_pm_modi_astronaut_wings_vssc_src-10_02.jpg",
+    "subject": "Real PMO Photo: The 4 Gaganyatris (Nair, Krishnan, Prathap, Shukla)",
+    "hindi_desc": "आधिकारिक तस्वीर: चारों गगनयात्री — भारतीय वायुसेना के फाइटर लीडर्स",
+    "hud_data": "4 GAGANYATRIS: NAIR, KRISHNAN, PRATHAP, SHUKLA",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "THE 4 ASTRONAUTS",
+    "subtitle": "प्रशांत नायर, अजीत कृष्णन, अंगद प्रताप, शुभांशु शुक्ला",
+    "color": "#fbbf24",
+    "start_s": 215.99,
+    "end_s": 222.16,
+    "time_range": "03:35 - 03:42"
+  },
+  {
+    "beat_id": 37,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_36_star_city_winter_survival_training.jpg",
+    "subject": "Star City Moscow: Sub-Zero Taiga Survival Training",
+    "hindi_desc": "मास्को के स्टार सिटी में माइनस 20 डिग्री में उत्तरजीविता प्रशिक्षण",
+    "hud_data": "STAR CITY MOSCOW: -20°C EXTREME TAIGA SURVIVAL",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "STAR CITY SURVIVAL",
+    "subtitle": "माइनस 20 डिग्री बर्फीले जंगलों में उत्तरजीविता",
+    "color": "#38bdf8",
+    "start_s": 222.16,
+    "end_s": 228.33,
+    "time_range": "03:42 - 03:48"
+  },
+  {
+    "beat_id": 38,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_33_human_centrifuge_high_g_training.jpg",
+    "subject": "Centrifuge +8.5G Acceleration Endurance Conditioning",
+    "hindi_desc": "ह्यूमन सेंट्रीफ्यूज में +8.5G गुरुत्वाकर्षण दबाव सहन करने का अभ्यास",
+    "hud_data": "CENTRIFUGE RIG: 8.5G SUSTAINED TOLERANCE",
+    "motion_type": "odometer_and_pin",
+    "odo_start": 1.0,
+    "odo_end": 8.5,
+    "odo_prefix": "CENTRIFUGE G-LOAD: ",
+    "odo_suffix": " G",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "+8.5G TOLERANCE",
+    "subtitle": "अत्यधिक त्वरण में चेतना और शारीरिक नियंत्रण",
+    "color": "#f43f5e",
+    "start_s": 228.33,
+    "end_s": 234.51,
+    "time_range": "03:48 - 03:54"
+  },
+  {
+    "beat_id": 39,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_12_shubhanshu_shukla_axiom4_src-12_05.png",
+    "subject": "Real Axiom-4 Photo: Wg Cdr Shubhanshu Shukla in Mission Suit",
+    "hindi_desc": "आधिकारिक तस्वीर: विंग कमांडर शुभांशु शुक्ला Axiom-4 मिशन सूट में",
+    "hud_data": "NASA / AXIOM-4 DESIGNATED PRIME PILOT",
+    "motion_type": "pin",
+    "target": [
+      960,
+      480
+    ],
+    "elbow": [
+      620,
+      380
+    ],
+    "title": "WG CDR SHUKLA",
+    "subtitle": "नासा/एक्सिओम-4 मिशन के नामित मुख्य पायलट",
+    "color": "#38bdf8",
+    "start_s": 234.51,
+    "end_s": 240.68,
+    "time_range": "03:54 - 04:00"
+  },
+  {
+    "beat_id": 40,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_12_nasa_axiom4_02_iss073e0252954.jpg",
+    "subject": "Real NASA Photo: Shukla with Commander Peggy Whitson",
+    "hindi_desc": "आधिकारिक नासा तस्वीर: शुभांशु शुक्ला और कमांडर पैगी व्हिटसन",
+    "hud_data": "NASA ID: iss073e0252954 | AXIOM-4 COMMAND TEAM",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "NASA AXIOM-4 CREW",
+    "subtitle": "स्पेसएक्स फाल्कन 9 से अंतरराष्ट्रीय स्पेस स्टेशन की उड़ान",
+    "color": "#fbbf24",
+    "start_s": 240.68,
+    "end_s": 246.85,
+    "time_range": "04:00 - 04:06"
+  },
+  {
+    "beat_id": 41,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_12_nasa_axiom4_04_iss073e0249239.jpg",
+    "subject": "Real NASA Photo: Astronauts Inside the International Space Station",
+    "hindi_desc": "आधिकारिक नासा तस्वीर: स्पेस स्टेशन के अंदर शून्य गुरुत्वाकर्षण में कार्य",
+    "hud_data": "NASA ID: iss073e0249239 | DIRECT ZERO-G EXPERIENCE",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      520
+    ],
+    "loupe_r": 210,
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "INSIDE THE ISS",
+    "subtitle": "माइक्रोग्रैविटी और डॉकिंग का सीधा लाइव अनुभव भारत के लिए",
+    "color": "#10b981",
+    "start_s": 246.85,
+    "end_s": 253.02,
+    "time_range": "04:06 - 04:13"
+  },
+  {
+    "beat_id": 42,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "official_source",
+    "asset_path": "assets/official_sources/src_15_gaganyatri_shukla_chairman_isro_src-15_01.webp",
+    "subject": "Real Photo: Gaganyatri Shukla with ISRO Chairman",
+    "hindi_desc": "आधिकारिक तस्वीर: विंग कमांडर शुभांशु शुक्ला इसरो चेयरमैन के साथ",
+    "hud_data": "STRATEGIC DIPLOMACY: INDIA-US CIVIL SPACE COOPERATION",
+    "motion_type": "pin",
+    "target": [
+      960,
+      500
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "GLOBAL DIPLOMACY",
+    "subtitle": "यह आयात नहीं — भारत की वैश्विक कूटनीति का मास्टरस्ट्रोक है",
+    "color": "#fbbf24",
+    "start_s": 253.02,
+    "end_s": 259.19,
+    "time_range": "04:13 - 04:19"
+  },
+  {
+    "beat_id": 43,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_39_reentry_plasma_sheath_2500c.jpg",
+    "subject": "Atmospheric Re-entry Fire — 2,500°C Plasma Sheath",
+    "hindi_desc": "2,500°C वायुमंडलीय पुनःप्रवेश अग्नि — मैक 25 पर भारत वापसी",
+    "hud_data": "RE-ENTRY PLASMA: 2,500°C HEAT SHIELD SHOCK",
+    "motion_type": "odometer_and_pin",
+    "odo_start": 0,
+    "odo_end": 2500,
+    "odo_prefix": "HEAT SHIELD: ",
+    "odo_suffix": " °C PLASMA",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "HYPERSONIC RE-ENTRY",
+    "subtitle": "मैक 25 की गति पर 2,500°C प्लाज्मा से सुरक्षित वापसी",
+    "color": "#f43f5e",
+    "start_s": 259.19,
+    "end_s": 265.36,
+    "time_range": "04:19 - 04:25"
+  },
+  {
+    "beat_id": 44,
+    "chapter": "Act 4: The 4 Astronauts & The Axiom-4 Secret",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_40_blackout_period_telemetry_recovery.jpg",
+    "subject": "Telemetry Re-acquisition — Safe Return Trajectory Confirmed",
+    "hindi_desc": "प्लाज्मा ब्लैकआउट समाप्त — सुरक्षित कक्षा और सुरक्षित धरती वापसी",
+    "hud_data": "SIGNAL RE-ACQUIRED: S-BAND TELEMETRY RESTORED",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      620,
+      420
+    ],
+    "title": "SIGNAL RESTORED",
+    "subtitle": "अंतरिक्ष यात्रियों की सकुशल धरती पर वापसी",
+    "color": "#10b981",
+    "start_s": 265.36,
+    "end_s": 271.53,
+    "time_range": "04:25 - 04:31"
+  },
+  {
+    "beat_id": 45,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_45_cupola_observatory_vyomanaut_view.jpg",
+    "subject": "2026 Vyommitra Test & 2028 BAS-01 Module Launch",
+    "hindi_desc": "2026 में व्योममित्र टेस्ट; 2028 में 3 अंतरिक्ष यात्री और BAS-01 मॉड्यूल",
+    "hud_data": "ROADMAP: 2026 VYOMMITRA | 2028 CREW & BAS-01",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      620,
+      420
+    ],
+    "title": "2026-2028 ROADMAP",
+    "subtitle": "कपोला ऑब्जर्वेटरी से भारत पर सूर्योदय का दर्शन",
+    "color": "#fbbf24",
+    "start_s": 271.53,
+    "end_s": 277.7,
+    "time_range": "04:31 - 04:37"
+  },
+  {
+    "beat_id": 46,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_44_bas_full_52tonne_station_2035.jpg",
+    "subject": "2035: Full 52-Tonne Bharatiya Antariksh Station Operational",
+    "hindi_desc": "2035 तक 52 टन का पूरा भारतीय अंतरिक्ष स्टेशन पूरी तरह कार्यरत होगा",
+    "hud_data": "TARGET 2035: FULL 52-TONNE BHARATIYA SPACE STATION",
+    "motion_type": "pin",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "STATION 2035",
+    "subtitle": "52 टन | 5 मॉड्यूल | अंतरिक्ष में स्थायी भारतीय घर",
+    "color": "#38bdf8",
+    "start_s": 277.7,
+    "end_s": 283.88,
+    "time_range": "04:37 - 04:43"
+  },
+  {
+    "beat_id": 47,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_46_nglv_surya_heavy_rocket_launchpad.jpg",
+    "subject": "Project Surya (NGLV) — The 90m Heavy Rocket for Moon Missions",
+    "hindi_desc": "2040 तक चंद्रमा पर कदम: 90 मीटर ऊंचा प्रोजेक्ट सूर्य (NGLV) रॉकेट",
+    "hud_data": "PROJECT SURYA (NGLV): 90M METHALOX HEAVY LIFTER",
+    "motion_type": "pin",
+    "target": [
+      960,
+      420
+    ],
+    "elbow": [
+      1380,
+      320
+    ],
+    "title": "PROJECT SURYA (NGLV)",
+    "subtitle": "चंद्र मिशन के लिए 90 मीटर ऊंचा हेवी लिफ्टर रॉकेट",
+    "color": "#38bdf8",
+    "start_s": 283.88,
+    "end_s": 290.05,
+    "time_range": "04:43 - 04:50"
+  },
+  {
+    "beat_id": 48,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_47_lunar_transfer_orbit_insertion.jpg",
+    "subject": "Trans-Lunar Trajectory — Scientific Sovereignty for 50 Years",
+    "hindi_desc": "यह 20,000 करोड़ का खर्च नहीं — अगले 50 साल की वैज्ञानिक आजादी का टिकट",
+    "hud_data": "TLI INSERTION: TICKET TO 50 YEARS OF SCIENTIFIC FREEDOM",
+    "motion_type": "pin",
+    "target": [
+      960,
+      520
+    ],
+    "elbow": [
+      1380,
+      420
+    ],
+    "title": "SCIENTIFIC FREEDOM",
+    "subtitle": "चंद्रमा की ओर भारत का संप्रभु प्रस्थान",
+    "color": "#38bdf8",
+    "start_s": 290.05,
+    "end_s": 296.22,
+    "time_range": "04:50 - 04:56"
+  },
+  {
+    "beat_id": 49,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_49_first_indian_bootstep_on_moon_2040.jpg",
+    "subject": "2040: First Indian Astronaut Steps on Lunar Regolith",
+    "hindi_desc": "2040 तक भारतीय अंतरिक्ष यात्री चंद्रमा पर रखेगा पहला ऐतिहासिक कदम",
+    "hud_data": "YEAR 2040: FIRST INDIAN FOOTSTEP ON LUNAR SOIL",
+    "motion_type": "loupe_and_pin",
+    "loupe_center": [
+      960,
+      540
+    ],
+    "loupe_r": 210,
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      440
+    ],
+    "title": "MOON LANDING 2040",
+    "subtitle": "चंद्रमा पर भारतीय कदम (अशोक चक्र बूट प्रिंट)",
+    "color": "#fbbf24",
+    "start_s": 296.22,
+    "end_s": 302.39,
+    "time_range": "04:56 - 05:02"
+  },
+  {
+    "beat_id": 50,
+    "chapter": "Act 5: The 2035 Space Station & 2040 Moon Verdict",
+    "asset_type": "ai",
+    "asset_path": "assets/ai_50_tiranga_planted_lunar_south_pole_earth_rise.jpg",
+    "subject": "Final Verdict: Scientific Sovereignty Confirmed (Sach · Saboot · Bebak)",
+    "hindi_desc": "बेनाक़ाब इंडिया अंतिम फैसला: वैज्ञानिक संप्रभुता (सच · सबूत · बेबाक)",
+    "hud_data": "BENAQAAB INDIA: SACH · SABOOT · BEBAK",
+    "motion_type": "stamp",
+    "stamp_en": "SCIENTIFIC SOVEREIGNTY",
+    "stamp_hi": "BHARAT 2035 SPACE STATION & 2040 MOON",
+    "target": [
+      960,
+      540
+    ],
+    "elbow": [
+      1380,
+      460
+    ],
+    "title": "SOVEREIGN BHARAT",
+    "subtitle": "चंद्रमा के दक्षिणी ध्रुव पर तिरंगा और स्थायी उपस्थिति",
+    "color": "#fbbf24",
+    "start_s": 302.39,
+    "end_s": 308.56,
+    "time_range": "05:02 - 05:08"
+  }
+]

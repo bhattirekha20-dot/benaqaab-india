@@ -1,0 +1,1156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Benaqaab India — Official Channel Intro Promo Short (10s)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800;900&family=Outfit:wght@700;800;900&family=Noto+Sans+Devanagari:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-deep: #07090e;
+  --bg-card: rgba(15, 23, 42, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --gold-glow: #fbbf24;
+  --gold-deep: #d97706;
+  --electric-sky: #38bdf8;
+  --crimson: #f43f5e;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: #040508;
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow-x: hidden;
+}
+
+/* Headless Render Mode (1080x1920 Fullscreen Canvas) */
+body.render-mode {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  width: 1080px !important;
+  height: 1920px !important;
+  display: block !important;
+}
+body.render-mode .app-container {
+  max-width: 1080px !important;
+  width: 1080px !important;
+  height: 1920px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+  display: block !important;
+}
+body.render-mode .top-bar,
+body.render-mode .player-deck {
+  display: none !important;
+}
+body.render-mode .stage-container {
+  width: 1080px !important;
+  height: 1920px !important;
+  max-width: 1080px !important;
+  max-height: 1920px !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+body.render-mode canvas#videoCanvas {
+  width: 1080px !important;
+  height: 1920px !important;
+  display: block !important;
+}
+
+/* Outer layout wrapper */
+.app-container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Top Branding Bar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  backdrop-filter: blur(16px);
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+.brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.brand-tag {
+  font-size: 10px;
+  color: var(--gold-glow);
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #ff6b81;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f43f5e;
+  box-shadow: 0 0 8px #f43f5e;
+  animation: pulse-dot 1.4s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Stage Canvas Container (9:16 Aspect Ratio) */
+.stage-container {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.1);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas#videoCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Player Deck */
+.player-deck {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 12px 16px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scrubber-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+input[type=range].time-slider {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--gold-glow);
+}
+
+.timecode {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 700;
+  min-width: 90px;
+  text-align: right;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-play {
+  background: linear-gradient(135deg, var(--gold-glow), var(--gold-deep));
+  color: #07090e;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-play:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+}
+.btn-play:active {
+  transform: translateY(1px);
+}
+
+.beat-indicators {
+  display: flex;
+  gap: 5px;
+}
+.beat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s, transform 0.2s;
+}
+.beat-dot.active {
+  background: var(--gold-glow);
+  transform: scale(1.2);
+}
+
+/* Audio element (hidden) */
+audio#masterAudio {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Top Branding Bar -->
+  <div class="top-bar">
+    <div class="brand-badge">
+      <img src="../../brand/logo.png" alt="Benaqaab India Logo">
+      <div>
+        <div class="brand-title">BENAQAAB INDIA</div>
+        <div class="brand-tag">SACH · SABOOT · BEBAK</div>
+      </div>
+    </div>
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      <span>PROMO 10S</span>
+    </div>
+  </div>
+
+  <!-- Stage Canvas Container -->
+  <div class="stage-container">
+    <canvas id="videoCanvas" width="1080" height="1920"></canvas>
+  </div>
+
+  <!-- Player Deck -->
+  <div class="player-deck">
+    <div class="scrubber-row">
+      <input type="range" class="time-slider" id="scrubber" min="0" max="10" step="0.01" value="0">
+      <div class="timecode" id="timecode">00:00.00</div>
+    </div>
+    <div class="controls-row">
+      <button class="btn-play" id="playBtn">▶ PLAY PROMO</button>
+      <div class="beat-indicators" id="beatIndicators">
+        <div class="beat-dot" title="Cut 1: Hook"></div>
+        <div class="beat-dot" title="Cut 2: Evidence"></div>
+        <div class="beat-dot" title="Cut 3: Data"></div>
+        <div class="beat-dot" title="Cut 4: Creed"></div>
+        <div class="beat-dot" title="Cut 5: Identity"></div>
+        <div class="beat-dot" title="Cut 6: CTA"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<audio id="masterAudio" src="master_audio.mp3" preload="auto"></audio>
+
+<script>
+/**
+ * BENAQAAB INDIA — 10S YOUTUBE SHORT INTRO PROMO
+ * Master Deterministic Canvas 2D Engine
+ * Standard Time Contract: window.seek(t) where t is in seconds [0.0, 10.0]
+ */
+
+const canvas = document.getElementById('videoCanvas');
+const ctx = canvas.getContext('2d');
+const scrubber = document.getElementById('scrubber');
+const timecode = document.getElementById('timecode');
+const playBtn = document.getElementById('playBtn');
+const audio = document.getElementById('masterAudio');
+const beatDots = document.querySelectorAll('.beat-dot');
+
+const TOTAL_DURATION = 10.0;
+let currentTime = 0.0;
+let isPlaying = false;
+let animFrameId = null;
+let lastTimestamp = null;
+
+// Load Brand Logo Image
+const brandLogo = new Image();
+brandLogo.src = '../../brand/logo.png';
+let logoLoaded = false;
+brandLogo.onload = () => { logoLoaded = true; renderFrame(currentTime); };
+
+// Easing Functions
+function easeOutQuad(x) { return 1 - (1 - x) * (1 - x); }
+function easeOutCubic(x) { return 1 - Math.pow(1 - x, 3); }
+function easeOutExpo(x) { return x === 1 ? 1 : 1 - Math.pow(2, -10 * x); }
+function springSettle(x) {
+  return 1 - Math.exp(-6 * x) * Math.cos(10 * x);
+}
+
+// Procedural Noise Generator for Living Texture
+const noiseCanvas = document.createElement('canvas');
+noiseCanvas.width = 256;
+noiseCanvas.height = 256;
+const noiseCtx = noiseCanvas.getContext('2d');
+const noiseImg = noiseCtx.createImageData(256, 256);
+for (let i = 0; i < noiseImg.data.length; i += 4) {
+  const v = (Math.random() * 255) | 0;
+  noiseImg.data[i] = v;
+  noiseImg.data[i+1] = v;
+  noiseImg.data[i+2] = v;
+  noiseImg.data[i+3] = 16; // ~6% opacity noise
+}
+noiseCtx.putImageData(noiseImg, 0, 0);
+
+// Helper: Draw Safe Top-Left Brand Logo Badge (RULE-LOGO-TOPLEFT)
+function drawTopLeftLogo(t) {
+  ctx.save();
+  const padX = 70;
+  const padY = 90;
+  const badgeW = 340;
+  const badgeH = 74;
+
+  // Frosted dark pill
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.75)';
+  ctx.beginPath();
+  ctx.roundRect(padX, padY, badgeW, badgeH, 37);
+  ctx.fill();
+
+  // 1px specular gold border glow
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.45)';
+  ctx.lineWidth = 1.8;
+  ctx.stroke();
+
+  // Logo icon
+  if (logoLoaded) {
+    ctx.drawImage(brandLogo, padX + 8, padY + 8, 58, 58);
+  }
+
+  // Text
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 24px "Outfit", sans-serif';
+  ctx.fillText('BENAQAAB INDIA', padX + 78, padY + 36);
+
+  ctx.fillStyle = '#FBBF24';
+  ctx.font = '800 13px "JetBrains Mono", monospace';
+  ctx.letterSpacing = '1px';
+  ctx.fillText('SACH · SABOOT · BEBAK', padX + 78, padY + 58);
+
+  ctx.restore();
+}
+
+// Helper: Draw Caption Pill
+function drawCaptionPill(text, borderColor, bgAlpha = 0.85, y = 1480) {
+  ctx.save();
+  ctx.font = '900 36px "Outfit", sans-serif';
+  const textMetrics = ctx.measureText(text);
+  const pillW = textMetrics.width + 70;
+  const pillH = 74;
+  const pillX = (1080 - pillW) / 2;
+
+  // Background
+  ctx.fillStyle = `rgba(10, 14, 23, ${bgAlpha})`;
+  ctx.beginPath();
+  ctx.roundRect(pillX, y, pillW, pillH, 37);
+  ctx.fill();
+
+  // Border & Glow
+  ctx.strokeStyle = borderColor;
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = borderColor;
+  ctx.shadowBlur = 18;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Text
+  ctx.fillStyle = '#FFFFFF';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, 540, y + pillH / 2);
+
+  ctx.restore();
+}
+
+// Helper: Procedural Background Mesh & Ambient Glows
+function drawAmbientBackground(t, primaryColor, secondaryColor) {
+  ctx.fillStyle = '#07090E';
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  // Volumetric Ambient Glowing Orbs
+  const pGlow = ctx.createRadialGradient(
+    540 + Math.sin(t * 1.5) * 120,
+    600 + Math.cos(t * 1.2) * 100,
+    50,
+    540, 700, 750
+  );
+  pGlow.addColorStop(0, primaryColor);
+  pGlow.addColorStop(1, 'rgba(7, 9, 14, 0)');
+  ctx.fillStyle = pGlow;
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  const sGlow = ctx.createRadialGradient(
+    540 - Math.sin(t * 1.8) * 150,
+    1300 + Math.cos(t * 1.4) * 80,
+    30,
+    540, 1300, 650
+  );
+  sGlow.addColorStop(0, secondaryColor);
+  sGlow.addColorStop(1, 'rgba(7, 9, 14, 0)');
+  ctx.fillStyle = sGlow;
+  ctx.fillRect(0, 0, 1080, 1920);
+
+  // Subtle Forensic Grid Lines
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.035)';
+  ctx.lineWidth = 1;
+  const gridSize = 90;
+  for (let x = 0; x < 1080; x += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, 1920);
+    ctx.stroke();
+  }
+  for (let y = 0; y < 1920; y += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(1080, y);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// Helper: Apply Noise Grain Overlay
+function applyGrain() {
+  ctx.save();
+  ctx.globalCompositeOperation = 'screen';
+  ctx.globalAlpha = 0.28;
+  const pattern = ctx.createPattern(noiseCanvas, 'repeat');
+  ctx.fillStyle = pattern;
+  ctx.fillRect(0, 0, 1080, 1920);
+  ctx.restore();
+}
+
+// ==========================================
+// SCENE RENDERERS (6 HIGH-VOLTAGE CUTS)
+// ==========================================
+
+// CUT 1: The Provocative Discrepancy Hook (0.0s – 1.6s)
+function renderCut1(t) {
+  const localT = t; // 0.0 to 1.6
+  const p = Math.min(localT / 1.6, 1.0);
+
+  drawAmbientBackground(t, 'rgba(244, 63, 94, 0.22)', 'rgba(56, 189, 248, 0.08)');
+
+  ctx.save();
+  // Camera push-in
+  const camScale = 1.0 + easeOutCubic(p) * 0.08;
+  ctx.translate(540, 960);
+  ctx.scale(camScale, camScale);
+  ctx.translate(-540, -960);
+
+  // Classified Manila Dossier
+  const cardX = 140;
+  const cardY = 480;
+  const cardW = 800;
+  const cardH = 860;
+
+  // Card shadow
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
+  ctx.beginPath();
+  ctx.roundRect(cardX + 15, cardY + 25, cardW, cardH, 24);
+  ctx.fill();
+
+  // Manila dossier body
+  ctx.fillStyle = '#161922';
+  ctx.beginPath();
+  ctx.roundRect(cardX, cardY, cardW, cardH, 24);
+  ctx.fill();
+
+  ctx.strokeStyle = 'rgba(244, 63, 94, 0.4)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Dossier Header
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.12)';
+  ctx.beginPath();
+  ctx.roundRect(cardX, cardY, cardW, 110, [24, 24, 0, 0]);
+  ctx.fill();
+
+  ctx.fillStyle = '#F43F5E';
+  ctx.font = '900 28px "JetBrains Mono", monospace';
+  ctx.fillText('CONFIDENTIAL INVESTIGATION // FILE #001', cardX + 45, cardY + 68);
+
+  // Redaction Bars
+  const redactionProgress = easeOutExpo(Math.max(0, (localT - 0.25) / 1.1));
+
+  // Headline Lines
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 48px "Outfit", sans-serif';
+  ctx.fillText('THE HIDDEN REALITY', cardX + 45, cardY + 220);
+  ctx.font = '700 32px "Inter", sans-serif';
+  ctx.fillStyle = '#94A3B8';
+  ctx.fillText('OFFICIAL CLASSIFIED REPORT', cardX + 45, cardY + 280);
+
+  // Redaction Strip 1 (Peeling)
+  const peelOffset = redactionProgress * 700;
+  ctx.save();
+  ctx.fillStyle = '#0F121C';
+  ctx.beginPath();
+  ctx.roundRect(cardX + 45 + peelOffset, cardY + 330, 600 - peelOffset * 0.5, 54, 8);
+  ctx.fill();
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.7)';
+  ctx.font = '800 20px "JetBrains Mono", monospace';
+  ctx.fillText('[CLASSIFIED REDACTION PEEL]', cardX + 65 + peelOffset, cardY + 365);
+  ctx.restore();
+
+  // Fake Document Body Lines
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.18)';
+  for (let i = 0; i < 5; i++) {
+    const lw = i === 4 ? 420 : 680;
+    ctx.fillRect(cardX + 45, cardY + 440 + i * 45, lw, 14);
+  }
+
+  // Warning Stamp
+  ctx.save();
+  ctx.translate(cardX + 480, cardY + 680);
+  ctx.rotate(-12 * Math.PI / 180);
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.18)';
+  ctx.fillRect(-180, -45, 360, 90);
+  ctx.strokeStyle = '#F43F5E';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(-180, -45, 360, 90);
+  ctx.fillStyle = '#F43F5E';
+  ctx.font = '900 38px "Anton", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('TOP SECRET', 0, 0);
+  ctx.restore();
+
+  ctx.restore();
+
+  drawCaptionPill('KYA AAPKO SACH PATA HAI?', '#F43F5E', 0.9, 1480);
+}
+
+// CUT 2: Primary Evidence Unveiling (1.6s – 3.4s)
+function renderCut2(t) {
+  const localT = t - 1.6; // 0.0 to 1.8
+  const p = Math.min(localT / 1.8, 1.0);
+
+  drawAmbientBackground(t, 'rgba(251, 191, 36, 0.18)', 'rgba(56, 189, 248, 0.14)');
+
+  ctx.save();
+
+  // Document Container
+  const docX = 120;
+  const docY = 440;
+  const docW = 840;
+  const docH = 920;
+
+  // Background Slate Paper
+  ctx.fillStyle = '#0E131F';
+  ctx.beginPath();
+  ctx.roundRect(docX, docY, docW, docH, 20);
+  ctx.fill();
+
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.35)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Document Title
+  ctx.fillStyle = '#FBBF24';
+  ctx.font = '800 24px "JetBrains Mono", monospace';
+  ctx.fillText('THE GAZETTE OF INDIA // SPECIAL AUDIT', docX + 45, docY + 70);
+
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 40px "Outfit", sans-serif';
+  ctx.fillText('FINANCIAL IRREGULARITY FINDINGS', docX + 45, docY + 130);
+
+  // Microprint lines
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+  for (let i = 0; i < 7; i++) {
+    ctx.fillRect(docX + 45, docY + 180 + i * 36, (i % 2 === 0 ? 750 : 660), 10);
+  }
+
+  // Highlighted Evidence Clause Area
+  const hlY = docY + 480;
+  const hlProgress = easeOutCubic(Math.min(localT / 1.2, 1.0));
+  const hlWidth = hlProgress * 750;
+
+  // Yellow Highlighter Sweep (Multiply Effect)
+  ctx.save();
+  ctx.globalCompositeOperation = 'screen';
+  ctx.fillStyle = 'rgba(255, 230, 0, 0.45)';
+  ctx.beginPath();
+  ctx.roundRect(docX + 45, hlY - 12, hlWidth, 68, 6);
+  ctx.fill();
+  ctx.restore();
+
+  // Highlighted Text
+  ctx.fillStyle = '#FFE600';
+  ctx.font = '900 31px "JetBrains Mono", monospace';
+  ctx.fillText('₹1,42,000 CRORE DISCREPANCY CONFIRMED', docX + 45, hlY + 34);
+
+  // More microprint below
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+  for (let i = 0; i < 5; i++) {
+    ctx.fillRect(docX + 45, hlY + 90 + i * 36, (i % 2 === 0 ? 700 : 620), 10);
+  }
+
+  // 2.5x Forensic Loupe (Magnifying Glass)
+  const loupeProgress = easeOutQuad(Math.min(localT / 1.4, 1.0));
+  const loupeX = docX + 250 + loupeProgress * 300;
+  const loupeY = hlY + 22;
+  const loupeR = 140;
+
+  // Loupe drop shadow
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+  ctx.beginPath();
+  ctx.arc(loupeX + 15, loupeY + 25, loupeR, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Glass Bezel & Specular Border
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(loupeX, loupeY, loupeR, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+  ctx.lineWidth = 10;
+  ctx.stroke();
+
+  // Reticle crosshair inside loupe
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(loupeX - 35, loupeY);
+  ctx.lineTo(loupeX + 35, loupeY);
+  ctx.moveTo(loupeX, loupeY - 35);
+  ctx.lineTo(loupeX, loupeY + 35);
+  ctx.stroke();
+
+  // Loupe circular glass badge
+  ctx.fillStyle = 'rgba(56, 189, 248, 0.12)';
+  ctx.fill();
+
+  // Glass specular highlight arc
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(loupeX, loupeY, loupeR - 10, -0.6 * Math.PI, 0.1 * Math.PI);
+  ctx.stroke();
+
+  ctx.restore();
+
+  ctx.restore();
+
+  drawCaptionPill('100% ASLI SABOOT', '#FBBF24', 0.9, 1480);
+}
+
+// CUT 3: Corruption & Data Exposé (3.4s – 5.4s)
+function renderCut3(t) {
+  const localT = t - 3.4; // 0.0 to 2.0
+  const p = Math.min(localT / 2.0, 1.0);
+
+  drawAmbientBackground(t, 'rgba(56, 189, 248, 0.22)', 'rgba(244, 63, 94, 0.14)');
+
+  ctx.save();
+
+  // Evidence Pinboard Nodes & Taut Red Strings
+  const nodes = [
+    { x: 260, y: 550, label: 'MINISTRY REGISTRY', color: '#38BDF8' },
+    { x: 820, y: 520, label: 'SHELL CORP A', color: '#F43F5E' },
+    { x: 300, y: 1220, label: 'OFFSHORE ACCOUNT', color: '#FBBF24' },
+    { x: 800, y: 1200, label: 'BENEFICIARY HOLDING', color: '#F43F5E' },
+    { x: 540, y: 880, label: 'PRIMARY ENTITY', color: '#FFFFFF' }
+  ];
+
+  // Draw Taut Red Strings
+  ctx.save();
+  ctx.strokeStyle = '#F43F5E';
+  ctx.lineWidth = 3.5;
+  ctx.shadowColor = '#F43F5E';
+  ctx.shadowBlur = 14;
+
+  const pairs = [[0, 4], [1, 4], [2, 4], [3, 4], [0, 2], [1, 3]];
+  pairs.forEach(([i1, i2]) => {
+    ctx.beginPath();
+    ctx.moveTo(nodes[i1].x, nodes[i1].y);
+    ctx.lineTo(nodes[i2].x, nodes[i2].y);
+    ctx.stroke();
+  });
+  ctx.restore();
+
+  // Draw Pinboard Nodes
+  nodes.forEach(n => {
+    ctx.save();
+    ctx.fillStyle = '#0B0F19';
+    ctx.beginPath();
+    ctx.roundRect(n.x - 120, n.y - 36, 240, 72, 16);
+    ctx.fill();
+
+    ctx.strokeStyle = n.color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = n.color;
+    ctx.font = '800 15px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(n.label, n.x, n.y);
+    ctx.restore();
+  });
+
+  // Center Stage: Rolling Digital Rupee Odometer
+  const oProgress = easeOutExpo(Math.min(localT / 1.5, 1.0));
+  const currentCrores = Math.round(oProgress * 142000);
+  const formattedCrores = '₹' + currentCrores.toLocaleString('en-IN') + ' CR+';
+
+  // Odometer HUD Box
+  const oW = 860;
+  const oH = 180;
+  const oX = (1080 - oW) / 2;
+  const oY = 880 - oH / 2;
+
+  ctx.fillStyle = 'rgba(7, 10, 18, 0.92)';
+  ctx.beginPath();
+  ctx.roundRect(oX, oY, oW, oH, 24);
+  ctx.fill();
+
+  ctx.strokeStyle = '#38BDF8';
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = '#38BDF8';
+  ctx.shadowBlur = 20;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Label
+  ctx.fillStyle = '#38BDF8';
+  ctx.font = '800 18px "JetBrains Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('EVIDENCE VALUE AUDITED', 540, oY + 42);
+
+  // Digits
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 64px "JetBrains Mono", monospace';
+  ctx.fillText(formattedCrores, 540, oY + 120);
+
+  ctx.restore();
+
+  drawCaptionPill('DATA · DOCUMENTS · EXPOSÉ', '#38BDF8', 0.9, 1480);
+}
+
+// CUT 4: The Core Creed: SACH · SABOOT · BEBAK (5.4s – 7.2s)
+function renderCut4(t) {
+  const localT = t - 5.4; // 0.0 to 1.8
+  drawAmbientBackground(t, 'rgba(244, 63, 94, 0.25)', 'rgba(251, 191, 36, 0.22)');
+
+  ctx.save();
+
+  // Trauma-Decay Camera Shake on impact
+  let shakeX = 0;
+  let shakeY = 0;
+  if (localT < 0.25) {
+    const s = Math.exp(-8 * localT);
+    shakeX = (Math.sin(localT * 80) * 16) * s;
+    shakeY = (Math.cos(localT * 70) * 16) * s;
+  }
+  ctx.translate(shakeX, shakeY);
+
+  // 3 Massive Words Staggered Slams
+  const words = [
+    { text: 'SACH', hi: 'सच', color: '#FFFFFF', time: 0.0, y: 650 },
+    { text: 'SABOOT', hi: 'सबूत', color: '#FBBF24', time: 0.45, y: 880 },
+    { text: 'BEBAK', hi: 'बेबाक', color: '#F43F5E', time: 0.90, y: 1110 }
+  ];
+
+  words.forEach(w => {
+    if (localT >= w.time) {
+      const dt = localT - w.time;
+      const scale = 1.0 + Math.max(0, 0.6 - springSettle(Math.min(dt / 0.4, 1.0)) * 0.6);
+
+      ctx.save();
+      ctx.translate(540, w.y);
+      ctx.scale(scale, scale);
+
+      ctx.fillStyle = w.color;
+      ctx.font = '900 130px "Anton", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.shadowColor = w.color;
+      ctx.shadowBlur = 25;
+      ctx.fillText(w.text, 0, 0);
+
+      // Hindi translation subtitle
+      ctx.font = '900 36px "Noto Sans Devanagari", sans-serif';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+      ctx.shadowBlur = 0;
+      ctx.fillText(`(${w.hi})`, 0, 68);
+
+      ctx.restore();
+    }
+  });
+
+  ctx.restore();
+
+  drawCaptionPill('SACH · SABOOT · BEBAK', '#F8FAFC', 0.95, 1480);
+}
+
+// CUT 5: Channel Identity & Golden Crest (7.2s – 8.6s)
+function renderCut5(t) {
+  const localT = t - 7.2; // 0.0 to 1.4
+  const p = Math.min(localT / 1.4, 1.0);
+
+  drawAmbientBackground(t, 'rgba(251, 191, 36, 0.28)', 'rgba(56, 189, 248, 0.2)');
+
+  ctx.save();
+
+  // Cinematic Slow Push-In
+  const scale = 1.0 + easeOutCubic(p) * 0.06;
+  ctx.translate(540, 960);
+  ctx.scale(scale, scale);
+  ctx.translate(-540, -960);
+
+  // Radar Halo Circles
+  ctx.save();
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.25)';
+  ctx.lineWidth = 2;
+  const pulseR = 240 + Math.sin(t * 3) * 15;
+  ctx.beginPath();
+  ctx.arc(540, 800, pulseR, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.strokeStyle = 'rgba(56, 189, 248, 0.2)';
+  ctx.beginPath();
+  ctx.arc(540, 800, pulseR + 60, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+
+  // Golden Crest Plate
+  const plateW = 420;
+  const plateH = 420;
+  const plateX = 540 - plateW / 2;
+  const plateY = 800 - plateH / 2;
+
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  ctx.beginPath();
+  ctx.roundRect(plateX, plateY, plateW, plateH, 44);
+  ctx.fill();
+
+  ctx.strokeStyle = '#FBBF24';
+  ctx.lineWidth = 3.5;
+  ctx.shadowColor = '#FBBF24';
+  ctx.shadowBlur = 30;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Center Brand Logo
+  if (logoLoaded) {
+    ctx.drawImage(brandLogo, 540 - 150, 800 - 150, 300, 300);
+  }
+
+  // Channel Title Typography Below
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 68px "Outfit", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+  ctx.shadowBlur = 18;
+  ctx.fillText('BENAQAAB INDIA', 540, 1120);
+
+  ctx.fillStyle = '#FBBF24';
+  ctx.font = '900 44px "Noto Sans Devanagari", sans-serif';
+  ctx.shadowColor = '#FBBF24';
+  ctx.shadowBlur = 14;
+  ctx.fillText('बेनाक़ाब इंडिया', 540, 1180);
+
+  ctx.restore();
+
+  drawCaptionPill('BENAQAAB INDIA // OFFICIAL', '#FBBF24', 0.95, 1480);
+}
+
+// CUT 6: High-Stakes CTA & Verdict Stamp (8.6s – 10.0s)
+function renderCut6(t) {
+  const localT = t - 8.6; // 0.0 to 1.4
+  drawAmbientBackground(t, 'rgba(225, 29, 72, 0.3)', 'rgba(251, 191, 36, 0.25)');
+
+  ctx.save();
+
+  // Channel Title Header
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 56px "Outfit", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('JOIN THE TRUTH REVOLUTION', 540, 620);
+
+  // YouTube Subscribe Button Pill
+  const btnW = 680;
+  const btnH = 130;
+  const btnX = (1080 - btnW) / 2;
+  const btnY = 740;
+
+  // Pulsing Subscribe Button
+  const pulse = 1.0 + Math.sin(localT * 6) * 0.03;
+  ctx.save();
+  ctx.translate(540, btnY + btnH / 2);
+  ctx.scale(pulse, pulse);
+  ctx.translate(-540, -(btnY + btnH / 2));
+
+  ctx.fillStyle = '#E11D48'; // YouTube Vibrant Red
+  ctx.beginPath();
+  ctx.roundRect(btnX, btnY, btnW, btnH, 65);
+  ctx.fill();
+
+  ctx.shadowColor = '#E11D48';
+  ctx.shadowBlur = 35;
+  ctx.strokeStyle = '#FFFFFF';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Play Icon
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  ctx.moveTo(btnX + 65, btnY + 40);
+  ctx.lineTo(btnX + 105, btnY + 65);
+  ctx.lineTo(btnX + 65, btnY + 90);
+  ctx.closePath();
+  ctx.fill();
+
+  // Button Text
+  ctx.font = '900 48px "Outfit", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('SUBSCRIBE NOW', btnX + 380, btnY + btnH / 2);
+
+  ctx.restore();
+
+  // Notification Bell Element
+  const bellY = 960;
+  ctx.save();
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+  ctx.beginPath();
+  ctx.roundRect(540 - 200, bellY, 400, 80, 40);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.fillStyle = '#FBBF24';
+  ctx.font = '900 28px "Outfit", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('🔔 PRESS BELL ICON', 540, bellY + 40);
+  ctx.restore();
+
+  // Slanted Forensic Verdict Rubber Stamp
+  if (localT >= 0.4) {
+    const stampT = localT - 0.4;
+    const spring = springSettle(Math.min(stampT / 0.35, 1.0));
+    const stampScale = 2.4 - spring * 1.4;
+
+    ctx.save();
+    ctx.translate(540, 1190);
+    ctx.rotate(-14 * Math.PI / 180);
+    ctx.scale(stampScale, stampScale);
+
+    ctx.fillStyle = 'rgba(244, 63, 94, 0.18)';
+    ctx.fillRect(-260, -55, 520, 110);
+    ctx.strokeStyle = '#F43F5E';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(-260, -55, 520, 110);
+
+    ctx.fillStyle = '#F43F5E';
+    ctx.font = '900 52px "Anton", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('BEBAK JOURNALISM', 0, 0);
+
+    ctx.restore();
+  }
+
+  // Channel Handle
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+  ctx.font = '800 24px "JetBrains Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('youtube.com/@BenaqaabIndia', 540, 1370);
+
+  ctx.restore();
+
+  drawCaptionPill('SUBSCRIBE FOR TRUTH 🔔', '#E11D48', 0.95, 1480);
+}
+
+// ==========================================
+// MASTER SEEK(t) & TIMELINE CONTROLLER
+// ==========================================
+
+function renderFrame(t) {
+  // Clamp time
+  t = Math.max(0.0, Math.min(t, TOTAL_DURATION));
+
+  // Determine current cut & render
+  if (t < 1.6) {
+    renderCut1(t);
+    updateBeatIndicator(0);
+  } else if (t < 3.4) {
+    renderCut2(t);
+    updateBeatIndicator(1);
+  } else if (t < 5.4) {
+    renderCut3(t);
+    updateBeatIndicator(2);
+  } else if (t < 7.2) {
+    renderCut4(t);
+    updateBeatIndicator(3);
+  } else if (t < 8.6) {
+    renderCut5(t);
+    updateBeatIndicator(4);
+  } else {
+    renderCut6(t);
+    updateBeatIndicator(5);
+  }
+
+  // Draw Top-Left Brand Logo Badge (RULE-LOGO-TOPLEFT)
+  drawTopLeftLogo(t);
+
+  // Apply living noise texture
+  applyGrain();
+}
+
+function updateBeatIndicator(index) {
+  beatDots.forEach((dot, i) => {
+    if (i === index) dot.classList.add('active');
+    else dot.classList.remove('active');
+  });
+}
+
+// Global Deterministic Seek Contract for Headless Renderers
+window.seek = function(t) {
+  currentTime = Math.max(0.0, Math.min(t, TOTAL_DURATION));
+  renderFrame(currentTime);
+  scrubber.value = currentTime;
+  formatTimecode(currentTime);
+};
+
+function formatTimecode(t) {
+  const mins = Math.floor(t / 60);
+  const secs = Math.floor(t % 60);
+  const ms = Math.floor((t % 1) * 100);
+  timecode.textContent = 
+    String(mins).padStart(2, '0') + ':' + 
+    String(secs).padStart(2, '0') + '.' + 
+    String(ms).padStart(2, '0');
+}
+
+// Interactive Playback Loop
+function animate(timestamp) {
+  if (!lastTimestamp) lastTimestamp = timestamp;
+  const delta = (timestamp - lastTimestamp) / 1000;
+  lastTimestamp = timestamp;
+
+  if (isPlaying) {
+    currentTime += delta;
+    if (currentTime >= TOTAL_DURATION) {
+      currentTime = TOTAL_DURATION;
+      pause();
+    }
+    window.seek(currentTime);
+    animFrameId = requestAnimationFrame(animate);
+  }
+}
+
+function play() {
+  if (currentTime >= TOTAL_DURATION) currentTime = 0.0;
+  isPlaying = true;
+  playBtn.textContent = '⏸ PAUSE';
+  lastTimestamp = null;
+  audio.currentTime = currentTime;
+  audio.play().catch(() => {});
+  animFrameId = requestAnimationFrame(animate);
+}
+
+function pause() {
+  isPlaying = false;
+  playBtn.textContent = '▶ PLAY PROMO';
+  audio.pause();
+  if (animFrameId) cancelAnimationFrame(animFrameId);
+}
+
+playBtn.addEventListener('click', () => {
+  if (isPlaying) pause();
+  else play();
+});
+
+scrubber.addEventListener('input', (e) => {
+  const val = parseFloat(e.target.value);
+  window.seek(val);
+  audio.currentTime = val;
+});
+
+// Headless rendering initialization
+if (new URLSearchParams(window.location.search).has('render')) {
+  document.body.classList.add('render-mode');
+}
+
+window.DURATION = TOTAL_DURATION;
+window.FPS = 30;
+window.ready = true;
+
+// Initial seek to frame 0
+window.seek(0.0);
+</script>
+</body>
+</html>

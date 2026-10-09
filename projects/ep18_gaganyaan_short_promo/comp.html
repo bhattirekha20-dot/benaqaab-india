@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Benaqaab India — Gaganyaan 2026 Promo Short (9:16)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@700;800;900&family=JetBrains+Mono:wght@800;900&family=Outfit:wght@800;900&family=Noto+Sans+Devanagari:wght@800;900&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: 'LocalDevanagari';
+  src: url('fonts/NotoSansDevanagari.ttf') format('truetype');
+  font-weight: 800 900;
+  font-style: normal;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Outfit', 'Inter', 'LocalDevanagari', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* Headless Render Mode (1080x1920 Fullscreen Canvas) - RULE-PURE-CANVAS-RENDER-ONLY */
+body.render-mode {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important;
+  width: 1080px !important;
+  height: 1920px !important;
+}
+body.render-mode .app-container {
+  max-width: 1080px !important;
+  width: 1080px !important;
+  height: 1920px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body.render-mode .top-nav,
+body.render-mode .player-controls {
+  display: none !important;
+}
+body.render-mode .viewport-wrapper {
+  width: 1080px !important;
+  height: 1920px !important;
+  max-width: 1080px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+body.render-mode canvas#shortCanvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 1080px !important;
+  height: 1920px !important;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  font-size: 12px;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.viewport-wrapper {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+canvas#shortCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.player-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.scrubber {
+  flex: 1;
+  height: 5px;
+  accent-color: #fbbf24;
+  cursor: pointer;
+}
+.timecode {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 700;
+}
+.play-btn {
+  background: #fbbf24;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: 900;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+audio#masterAudio { display: none; }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="top-nav">
+    <span>BENAQAAB INDIA</span>
+    <span style="color: #38bdf8;">GAGANYAAN PROMO SHORT</span>
+  </div>
+
+  <div class="viewport-wrapper">
+    <canvas id="shortCanvas" width="1080" height="1920"></canvas>
+  </div>
+
+  <div class="player-controls">
+    <button class="play-btn" id="playBtn">▶ PLAY</button>
+    <input type="range" class="scrubber" id="scrubber" min="0" max="53.81" step="0.01" value="0">
+    <div class="timecode" id="timecode">00:00.00</div>
+  </div>
+</div>
+
+<audio id="masterAudio" src="master_audio.mp3" preload="auto"></audio>
+
+<script>
+/**
+ * BENAQAAB INDIA — OPUS 5.5 KINETIC VIRAL SHORT ENGINE
+ * Duration: 53.81s | Resolution: 1080x1920 (9:16)
+ * Zero Large Obstructive Boxes | 100% Raw Cinematic Visuals | Dynamic Lower-Third Captions
+ */
+
+const canvas = document.getElementById('shortCanvas');
+const ctx = canvas.getContext('2d');
+const scrubber = document.getElementById('scrubber');
+const timecode = document.getElementById('timecode');
+const playBtn = document.getElementById('playBtn');
+const audio = document.getElementById('masterAudio');
+
+const DURATION = 53.81;
+window.DURATION = DURATION;
+window.FPS = 30;
+window.ready = false;
+
+let currentTime = 0.0;
+let isPlaying = false;
+let animFrameId = null;
+let lastTimestamp = null;
+
+// Exact 5 Approved User Scene Images
+const ASSET_SOURCES = {
+  logo: 'assets/logo.png',
+  scene1: 'assets/scene1.png', // Rocket Launch at Dusk (0.00 - 12.79s)
+  scene2: 'assets/scene2.png', // Space Station over Earth (12.79 - 22.01s)
+  scene3: 'assets/scene3.png', // Vyommitra Robot in Cockpit (22.01 - 31.20s)
+  scene4: 'assets/scene4.png', // Capsule Parachutes Recovery (31.20 - 42.50s)
+  scene5: 'assets/scene5.png'  // Indian Flag on Moon + Live Premiere (42.50 - 53.81s)
+};
+
+const images = {};
+let loadedAssets = 0;
+const totalAssets = Object.keys(ASSET_SOURCES).length;
+
+Object.entries(ASSET_SOURCES).forEach(([key, src]) => {
+  const img = new Image();
+  img.src = src;
+  img.onload = () => {
+    images[key] = img;
+    loadedAssets++;
+    if (loadedAssets === totalAssets) {
+      window.ready = true;
+      render(currentTime);
+    }
+  };
+  img.onerror = () => {
+    console.error("Failed to load asset:", src);
+    loadedAssets++;
+    if (loadedAssets === totalAssets) {
+      window.ready = true;
+      render(currentTime);
+    }
+  };
+});
+
+// Scene Timeline Definitions (5 Exact Chunks from script_hinglish.md)
+const SCENES = [
+  {
+    id: 'scene1',
+    imgKey: 'scene1',
+    start: 0.00,
+    end: 12.79,
+    title: 'HOOK — Rocket Launch',
+    captions: [
+      { start: 0.00, end: 2.20, line1: '18 SEPTEMBER 2024', line2: '', color: '#fbbf24' },
+      { start: 2.20, end: 4.60, line1: 'CABINET KA', line2: 'SECRET DECISION', color: '#38bdf8' },
+      { start: 4.60, end: 7.20, line1: 'GAGANYAAN KA BUDGET', line2: 'DIRECT HIKE!', color: '#ffffff' },
+      { start: 7.20, end: 10.40, line1: '₹9,000 Cr  ➔  ₹11,193 Cr!', line2: '', color: '#34d399', isOdometer: true },
+      { start: 10.40, end: 12.79, line1: 'ITNA PAISA KYUN?', line2: '', color: '#f87171', isHook: true }
+    ]
+  },
+  {
+    id: 'scene2',
+    imgKey: 'scene2',
+    start: 12.79,
+    end: 22.01,
+    title: 'MYTH BUST — Bharatiya Space Station',
+    captions: [
+      { start: 12.79, end: 15.60, line1: 'LOG SOCHTE HAIN...', line2: 'SIRF EK CHHOTA TRIP?', color: '#94a3b8' },
+      { start: 15.60, end: 17.50, line1: 'BILKUL GALAT!', line2: '', color: '#ef4444', isStamp: true },
+      { start: 17.50, end: 19.80, line1: 'BHARATIYA', line2: 'ANTARIKSH STATION', color: '#38bdf8' },
+      { start: 19.80, end: 22.01, line1: 'INDIA KA APNA', line2: 'SPACE STATION!', color: '#fbbf24' }
+    ]
+  },
+  {
+    id: 'scene3',
+    imgKey: 'scene3',
+    start: 22.01,
+    end: 31.20,
+    title: 'VYOMMITRA — Robot in Cockpit',
+    captions: [
+      { start: 22.01, end: 24.80, line1: '2026 KE END MEIN', line2: 'PEHLE VYOMMITRA', color: '#38bdf8' },
+      { start: 24.80, end: 27.20, line1: 'HALF-HUMANOID', line2: 'ROBOT IN SPACE!', color: '#34d399' },
+      { start: 27.20, end: 29.20, line1: 'USKE BAAD...', line2: 'IN 2028', color: '#fbbf24' },
+      { start: 29.20, end: 31.20, line1: 'INDIAN ASTRONAUTS KI', line2: 'PEHLI UDAAN!', color: '#ff9933' }
+    ]
+  },
+  {
+    id: 'scene4',
+    imgKey: 'scene4',
+    start: 31.20,
+    end: 42.50,
+    title: 'PROOF — Crew Recovery & Engine',
+    captions: [
+      { start: 31.20, end: 33.80, line1: 'CE20 ENGINE NE BANAYA', line2: 'WORLD RECORD!', color: '#fbbf24' },
+      { start: 33.80, end: 36.40, line1: 'CREW ABORT TEST', line2: '100% SUCCESSFUL', color: '#34d399' },
+      { start: 36.40, end: 39.00, line1: 'ZERO HUMAN RISK!', line2: '', color: '#10b981', isRecord: true },
+      { start: 39.00, end: 42.50, line1: 'AGLE 50 SAAL KI AZADI!', line2: '₹20,000 Cr BLUEPRINT', color: '#ff9933' }
+    ]
+  },
+  {
+    id: 'scene5',
+    imgKey: 'scene5',
+    start: 42.50,
+    end: 53.81,
+    title: 'CTA — Flag on Moon & Live Premiere',
+    captions: [
+      { start: 42.50, end: 45.20, line1: 'FULL SACH, WITH PROOF', line2: 'POORI VIDEO DEKHO!', color: '#ffffff' },
+      { start: 45.20, end: 47.60, line1: 'POORI VIDEO', line2: 'LINK IN BIO! ▶', color: '#38bdf8' },
+      { start: 47.60, end: 50.80, line1: 'SABSE BADA KHULAASA', line2: 'WATCH FULL FILM! ▶', color: '#fbbf24' },
+      { start: 50.80, end: 53.81, line1: 'SUBSCRIBE BENAQAAB INDIA', line2: 'JAI HIND!', color: '#ef4444', isSubscribeCTA: true }
+    ]
+  }
+
+];
+
+
+function easeOutCubic(x) {
+  return 1 - Math.pow(1 - x, 3);
+}
+
+function easeOutBack(x) {
+  const c1 = 1.70158;
+  const c3 = c1 + 1;
+  return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+}
+
+/**
+ * MASTER RENDER CONTRACT
+ */
+function render(t) {
+  ctx.save();
+  ctx.clearRect(0, 0, 1080, 1920);
+
+  // 1. Determine Current Scene
+  let scene = SCENES.find(s => t >= s.start && t < s.end);
+  if (!scene) scene = SCENES[SCENES.length - 1];
+
+  const sceneProgress = (t - scene.start) / (scene.end - scene.start);
+
+  // 2. Full-Bleed Cinematic Visual (Zero Crop, Subtle Camera Drift)
+  drawCinematicVisual(scene, sceneProgress, t);
+
+  // 3. Subtle Vignette & Lower Third Contrast Gradient (Never covers subject!)
+  drawSoftLightingOverlay(scene);
+
+  // 4. Sleek Top-Left Brand Pill
+  drawBrandWatermark();
+
+  // 5. High-Impact Dynamic Lower Captions (Safe Zone: y = 1600 - 1750)
+  drawSceneCaptions(scene, t);
+
+  // 6. Floating Premiere Badge on Scene 5 (Placed in upper-middle open sky)
+  if (scene.id === 'scene5') {
+    drawPremiereSkyBadge(t - scene.start);
+  }
+
+  // 7. Subtle Micro-Progress Bar at Very Bottom
+  drawProgressBar(t);
+
+  ctx.restore();
+}
+
+/**
+ * DRAW CINEMATIC VISUAL
+ * Subtle 3% Ken-Burns zoom and drift to keep every frame alive.
+ */
+function drawCinematicVisual(scene, prog, t) {
+  const img = images[scene.imgKey];
+  if (!img) {
+    ctx.fillStyle = '#05070c';
+    ctx.fillRect(0, 0, 1080, 1920);
+    return;
+  }
+
+  ctx.save();
+  
+  // Cinematic smooth scale: 1.0 -> 1.04
+  const scale = 1.0 + (prog * 0.04);
+  const cx = 540;
+  const cy = 960;
+  
+  ctx.translate(cx, cy);
+  ctx.scale(scale, scale);
+  ctx.translate(-cx, -cy);
+
+  // Draw full 1080x1920 (image is 941x1672, aspect 9:16)
+  ctx.drawImage(img, 0, 0, 1080, 1920);
+
+  ctx.restore();
+}
+
+/**
+ * SOFT LIGHTING & VIGNETTE
+ * Protects readability while leaving 80% of screen crystal clear.
+ */
+function drawSoftLightingOverlay(scene) {
+  ctx.save();
+
+  // Subtle top gradient for brand logo legibility
+  const topGrad = ctx.createLinearGradient(0, 0, 0, 240);
+  topGrad.addColorStop(0, 'rgba(0, 0, 0, 0.45)');
+  topGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  ctx.fillStyle = topGrad;
+  ctx.fillRect(0, 0, 1080, 240);
+
+  // Soft lower gradient for captions (from y=1420 to y=1920)
+  const bottomGrad = ctx.createLinearGradient(0, 1420, 0, 1920);
+  bottomGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+  bottomGrad.addColorStop(0.4, 'rgba(0, 0, 0, 0.55)');
+  bottomGrad.addColorStop(1, 'rgba(0, 0, 0, 0.88)');
+  ctx.fillStyle = bottomGrad;
+  ctx.fillRect(0, 1420, 1080, 500);
+
+  ctx.restore();
+}
+
+/**
+ * BRAND WATERMARK PILL (Top-Left Safe Area)
+ */
+function drawBrandWatermark() {
+  ctx.save();
+  const x = 54;
+  const y = 72;
+  const w = 310;
+  const h = 56;
+  const r = 28;
+
+  // Frosted Glass Pill
+  ctx.beginPath();
+  ctx.roundRect(x, y, w, h, r);
+  ctx.fillStyle = 'rgba(8, 12, 20, 0.7)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Logo Circle Avatar
+  const logoImg = images.logo;
+  if (logoImg) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x + 28, y + 28, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+    ctx.drawImage(logoImg, x + 8, y + 8, 40, 40);
+    ctx.restore();
+  }
+
+  // Text: BENAQAAB INDIA
+  ctx.font = '900 17px "Outfit", sans-serif';
+  ctx.fillStyle = '#ffffff';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('BENAQAAB INDIA', x + 58, y + 21);
+
+  // Tagline: SACH · SABOOT · BEBAK
+  ctx.font = '800 10px "JetBrains Mono", monospace';
+  ctx.fillStyle = '#fbbf24';
+  ctx.fillText('SACH · SABOOT · BEBAK', x + 58, y + 38);
+
+  ctx.restore();
+}
+
+/**
+ * DYNAMIC SCENE CAPTIONS (Lower Safe Area, y = 1620 - 1730)
+ */
+function drawSceneCaptions(scene, t) {
+  const cap = scene.captions.find(c => t >= c.start && t < c.end) || scene.captions[scene.captions.length - 1];
+  if (!cap) return;
+
+  const capProg = Math.min(1.0, (t - cap.start) / 0.22);
+  const scale = 0.92 + (0.08 * easeOutBack(capProg));
+  const opacity = Math.min(1.0, capProg * 1.5);
+
+  ctx.save();
+  ctx.globalAlpha = opacity;
+  ctx.translate(540, 1660);
+  ctx.scale(scale, scale);
+
+  // If Stamp effect ("BILKUL GALAT!")
+  if (cap.isStamp) {
+    drawStampBadge(cap.line1, t - cap.start);
+    ctx.restore();
+    return;
+  }
+
+  // If Hook curiosity badge ("ITNA PAISA KYUN?")
+  if (cap.isHook) {
+    drawCuriosityHookBadge(cap.line1, t - cap.start);
+    ctx.restore();
+    return;
+  }
+
+  // If Odometer hike badge ("₹9,000 Cr -> ₹11,193 Cr!")
+  if (cap.isOdometer) {
+    drawBudgetOdometerBadge(t - cap.start);
+    ctx.restore();
+    return;
+  }
+
+  // If Subscribe CTA button ("SUBSCRIBE BENAQAAB INDIA")
+  if (cap.isSubscribeCTA) {
+    drawSubscribeCTAButton(t - cap.start);
+    ctx.restore();
+    return;
+  }
+
+
+  // Standard Kinetic Dual-Line Caption
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+
+  // Line 1
+  if (cap.line1) {
+    const yOff = cap.line2 ? -28 : 0;
+    ctx.font = '900 50px "Outfit", "LocalDevanagari", sans-serif';
+    
+    // Deep black drop shadow for extreme contrast
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.95)';
+    ctx.shadowBlur = 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 4;
+    
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = 6;
+    ctx.strokeText(cap.line1, 0, yOff);
+
+    ctx.fillStyle = cap.color || '#ffffff';
+    ctx.fillText(cap.line1, 0, yOff);
+  }
+
+  // Line 2
+  if (cap.line2) {
+    ctx.font = '900 46px "Outfit", "LocalDevanagari", sans-serif';
+    
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.95)';
+    ctx.shadowBlur = 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 4;
+    
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = 6;
+    ctx.strokeText(cap.line2, 0, 32);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(cap.line2, 0, 32);
+  }
+
+  ctx.restore();
+}
+
+/**
+ * FORENSIC STAMP ("BILKUL GALAT!")
+ */
+function drawStampBadge(text, elapsed) {
+  const settleProg = Math.min(1.0, elapsed / 0.18);
+  const slamScale = 1.4 - (0.4 * easeOutBack(settleProg));
+
+  ctx.save();
+  ctx.rotate(-0.06);
+  ctx.scale(slamScale, slamScale);
+
+  const w = 480;
+  const h = 88;
+
+  // High-contrast Red Badge
+  ctx.beginPath();
+  ctx.roundRect(-w/2, -h/2, w, h, 16);
+  ctx.fillStyle = 'rgba(239, 68, 68, 0.95)';
+  ctx.fill();
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.font = '900 44px "Outfit", sans-serif';
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+  ctx.shadowBlur = 12;
+  ctx.fillText('❌ ' + text, 0, 2);
+
+  ctx.restore();
+}
+
+/**
+ * CURIOSITY HOOK BADGE ("ITNA PAISA KYUN?")
+ */
+function drawCuriosityHookBadge(text, elapsed) {
+  const w = 560;
+  const h = 92;
+
+  ctx.beginPath();
+  ctx.roundRect(-w/2, -h/2, w, h, 20);
+  ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
+  ctx.fill();
+  ctx.strokeStyle = '#f87171';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  ctx.font = '900 46px "Outfit", sans-serif';
+  ctx.fillStyle = '#fca5a5';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(248, 113, 113, 0.6)';
+  ctx.shadowBlur = 16;
+  ctx.fillText('🔥 ' + text, 0, 0);
+}
+
+/**
+ * BUDGET ODONETER BADGE (Scene 1 Budget Spike)
+ */
+function drawBudgetOdometerBadge(elapsed) {
+  const w = 680;
+  const h = 96;
+
+  ctx.beginPath();
+  ctx.roundRect(-w/2, -h/2, w, h, 20);
+  ctx.fillStyle = 'rgba(10, 20, 15, 0.9)';
+  ctx.fill();
+  ctx.strokeStyle = '#34d399';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  ctx.font = '900 44px "JetBrains Mono", monospace';
+  ctx.fillStyle = '#34d399';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(52, 211, 153, 0.7)';
+  ctx.shadowBlur = 16;
+  ctx.fillText('₹9,000 Cr  ➔  ₹11,193 Cr!', 0, 0);
+}
+
+/**
+ * SUBSCRIBE CTA BUTTON (Scene 5 Finale)
+ */
+function drawSubscribeCTAButton(elapsed) {
+  const enterProg = Math.min(1.0, elapsed / 0.25);
+  const scale = 0.95 + 0.05 * easeOutBack(enterProg);
+  ctx.scale(scale, scale);
+
+  const w = 620;
+  const h = 88;
+
+  // Pulsing Glow
+  const pulse = 1.0 + Math.sin(elapsed * 5) * 0.08;
+
+  // Red & Frosted Black YouTube Subscribe Pill
+  ctx.beginPath();
+  ctx.roundRect(-w/2, -h/2, w, h, 22);
+  ctx.fillStyle = 'rgba(239, 68, 68, 0.95)';
+  ctx.fill();
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = 'rgba(239, 68, 68, 0.8)';
+  ctx.shadowBlur = 20 * pulse;
+  ctx.stroke();
+
+  // Text
+  ctx.font = '900 36px "Outfit", sans-serif';
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+  ctx.shadowBlur = 10;
+  ctx.fillText('🔔 SUBSCRIBE BENAQAAB INDIA', 0, 0);
+
+  // Subtitle Jai Hind
+  ctx.font = '900 38px "Outfit", sans-serif';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.95)';
+  ctx.shadowBlur = 16;
+  ctx.fillStyle = '#ff9933';
+  ctx.fillText('JAI HIND!', 0, 68);
+}
+
+
+
+/**
+ * PREMIERE SKY BADGE (Scene 5 - Moon Flag)
+ * Positioned in open lunar space (y = 360px), zero obstruction of astronaut!
+ */
+function drawPremiereSkyBadge(elapsed) {
+  ctx.save();
+  const enterProg = Math.min(1.0, elapsed / 0.5);
+  const alpha = easeOutCubic(enterProg);
+  
+  ctx.globalAlpha = alpha;
+  ctx.translate(540, 360);
+
+  // Badge Container
+  const w = 620;
+  const h = 160;
+
+  // Frosted Glass Plate
+  ctx.beginPath();
+  ctx.roundRect(-w/2, -h/2, w, h, 24);
+  ctx.fillStyle = 'rgba(10, 15, 30, 0.85)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Red Pulsing Live Dot
+  const pulse = 1.0 + Math.sin(elapsed * 6) * 0.15;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(-w/2 + 48, -32, 10 * pulse, 0, Math.PI * 2);
+  ctx.fillStyle = '#ef4444';
+  ctx.shadowColor = '#ef4444';
+  ctx.shadowBlur = 14;
+  ctx.fill();
+  ctx.restore();
+
+  // Live Premiere Title
+  ctx.font = '900 24px "Outfit", sans-serif';
+  ctx.fillStyle = '#ef4444';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('LIVE PREMIERE TODAY', -w/2 + 72, -32);
+
+  // Time & Date: 11 OCT · 4:00 AM IST
+  ctx.font = '900 36px "Outfit", sans-serif';
+  ctx.fillStyle = '#fbbf24';
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(251, 191, 36, 0.8)';
+  ctx.shadowBlur = 12;
+  ctx.fillText('11 OCT  •  4:00 AM IST', 0, 10);
+
+  // YouTube Tag
+  ctx.font = '800 18px "JetBrains Mono", monospace';
+  ctx.fillStyle = '#94a3b8';
+  ctx.shadowBlur = 0;
+  ctx.fillText('FULL FILM LINK IN BIO ▶', 0, 48);
+
+  ctx.restore();
+}
+
+/**
+ * SUBTLE MICRO-PROGRESS BAR
+ */
+function drawProgressBar(t) {
+  ctx.save();
+  const barH = 6;
+  const prog = Math.min(1.0, t / DURATION);
+
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+  ctx.fillRect(0, 1920 - barH, 1080, barH);
+
+  // Saffron-to-Gold accent bar
+  const grad = ctx.createLinearGradient(0, 0, 1080 * prog, 0);
+  grad.addColorStop(0, '#ff9933');
+  grad.addColorStop(1, '#fbbf24');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 1920 - barH, 1080 * prog, barH);
+
+  ctx.restore();
+}
+
+/**
+ * WINDOW.SEEK(T) CONTRACT (Playwright headless deterministic capture)
+ */
+window.seek = function(t) {
+  currentTime = Math.max(0, Math.min(t, DURATION));
+  scrubber.value = currentTime;
+  updateTimecode(currentTime);
+  render(currentTime);
+};
+
+function updateTimecode(t) {
+  const m = Math.floor(t / 60);
+  const s = Math.floor(t % 60);
+  const ms = Math.floor((t % 1) * 100);
+  timecode.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(ms).padStart(2, '0')}`;
+}
+
+// Scrubber events
+scrubber.addEventListener('input', (e) => {
+  const val = parseFloat(e.target.value);
+  window.seek(val);
+  if (isPlaying) {
+    audio.currentTime = val;
+  }
+});
+
+// Play / Pause controls
+playBtn.addEventListener('click', () => {
+  if (isPlaying) {
+    pause();
+  } else {
+    play();
+  }
+});
+
+function play() {
+  isPlaying = true;
+  playBtn.textContent = '⏸ PAUSE';
+  audio.currentTime = currentTime;
+  audio.play().catch(() => {});
+  lastTimestamp = performance.now();
+  loop();
+}
+
+function pause() {
+  isPlaying = false;
+  playBtn.textContent = '▶ PLAY';
+  audio.pause();
+  if (animFrameId) cancelAnimationFrame(animFrameId);
+}
+
+function loop() {
+  if (!isPlaying) return;
+  const now = performance.now();
+  const dt = (now - lastTimestamp) / 1000;
+  lastTimestamp = now;
+
+  currentTime += dt;
+  if (currentTime >= DURATION) {
+    currentTime = DURATION;
+    window.seek(currentTime);
+    pause();
+    return;
+  }
+
+  window.seek(currentTime);
+  animFrameId = requestAnimationFrame(loop);
+}
+
+// Global hotkeys
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') {
+    e.preventDefault();
+    if (isPlaying) pause(); else play();
+  } else if (e.code === 'ArrowRight') {
+    window.seek(currentTime + 2.0);
+    audio.currentTime = currentTime;
+  } else if (e.code === 'ArrowLeft') {
+    window.seek(currentTime - 2.0);
+    audio.currentTime = currentTime;
+  }
+});
+</script>
+</body>
+</html>

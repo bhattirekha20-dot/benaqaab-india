@@ -124,16 +124,29 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
   - *YouTube Shorts (9:16):* Instant impact in ≤ 1.5 seconds with bold 2-word caption pills and high-contrast hero evidence cut.
   - *Long-Form (16:9):* Opening 5.5s Roadmap + Burning Question HUD card stating clearly what is at stake and why leaving the video leaves them in the dark.
 
-### 3.9 Worldwide Exhaustive Deep Research Mandate (`RULE-GLOBAL-DEEP-RESEARCH`)
-- **Autonomous Global Dot-Connecting:** The AI acts as an elite investigative director with zero knowledge gaps. The AI must autonomously execute exhaustive, world-wide, multi-source research across both Indian and international registries.
-- **Cover Every Possible Relation:**
-  - *Root Cause & Origin:* Where did this start globally or historically?
-  - *International Geopolitics & Foreign Actors:* How do foreign states, global sanctions, multinational corporations, or foreign technologies connect to this story?
-  - *The Money Trail & Supply Chain:* Who pays, who profits, who manufactures, and who brokers the deals?
-  - *Direct & Indirect Citizen Impact:* Demystify high-level macroeconomic, legal, or technical jargon into direct tangible impacts on the common citizen's daily life.
-  - *Multi-Sided Verification:* Cross-verify all numbers across minimum 2–3 independent domestic and international databases (PIB, World Bank, SEC, MCA21, IMF, academic journals).
+### 3.9 The Channel Intro Logo & Animated Subscribe/Like CTA Law (`RULE-SUBSCRIBE-LIKE-CTA`)
+- **Mandatory Placement:** At the conclusion of the intro hook (in the window between 25.0s and 35.0s, duration 2.5s to 3.0s), the composition MUST display the animated Benaqaab India channel identity card.
+- **Micro-Interaction Architecture (`Motion.drawSubscribeLikeCTA`):**
+  1. *Brand Identifier:* Glowing circular avatar with the official logo, bold white `BENAQAAB INDIA`, and tagline `SACH · SABOOT · BEBAK`.
+  2. *Interactive Like Button:* Enters in resting state, then lights up with cyan glow and triggers into `👍 LIKED` (+0.75s).
+  3. *Morphing Subscribe Button:* Starts as high-contrast red `SUBSCRIBE ▶`, then clicks and morphs into frosted gold `🔔 SUBSCRIBED` with an oscillating notification bell (+1.25s).
+  4. *Clean Exit:* Smooth spring entry and ease-out slide/fade exit without obstructing the main narrative or remaining on screen too long.
+
+### 3.10 The Audio-Visual Causal Lockstep & Real Source Priority Law (`RULE-AUDIO-VISUAL-CAUSAL-LOCKSTEP`)
+- **Zero Spoken-Visual Decoupling:** Every second of voiceover narration is the absolute dictator of what is displayed on screen. An image must NEVER precede or lag behind its spoken subject.
+- **Real Primary Evidence Priority:** For all real, historical, or officially documented events, institutions, court filings, PIB gazettes, engine tests, rocket launches, recoveries, and public ceremonies, the AI MUST actively display the **REAL OFFICIAL SOURCE MEDIA** on screen in lockstep with the spoken beat. Speaking about an official fact while showing a generic AI placeholder is strictly forbidden.
+- **AI Art Bound to Unrealized Futures & Cutaways:** AI-generated images are reserved strictly for future milestones that cannot yet be photographed (e.g. 2035 space station modules, 2040 lunar touchdowns, internal micro-combustion processes).
+- **Zero Synthetic Watermarks:** Never render `AI-generated (illustrative)` tags on screen unless explicitly commanded by the user.
+- **Logo Pill Contract:** The Top-Left brand mark must always follow the reference screenshot: a sleek, dark rounded capsule pill (`roundRect`) with circular logo avatar on the left and bold uppercase `BENAQAAB INDIA` text on the right.
+
+### 3.11 Pure Canvas Render Isolation Law (`RULE-PURE-CANVAS-RENDER-ONLY`)
+- **Strict Prohibition on Preview Chrome in Video:** A rendered video must NEVER contain HTML preview player UI chrome (top website headers, navigation bars, chapter pills, timeline scrubbers, play/pause buttons, or jump controls).
+- **Mandatory Render Mode CSS Isolation:** Whenever authoring any `comp.html`, include dedicated `.render-mode` CSS that sets `header, .controls-bar { display: none !important; }` and forces the `<canvas>` to fill 100% of the screen (`position: fixed; top: 0; left: 0; width: 100%; height: 100%; margin: 0; padding: 0; border: none; box-shadow: none;`).
+- **Render Engine Contract:** Any renderer (Headless Chromium, Playwright, Puppeteer, or CDP) MUST explicitly activate render mode (`?render=1` or `document.body.classList.add('render-mode')`) or target the canvas element directly (`canvas.screenshot()`).
+- **Pre-Render Sanity Check:** Always extract and inspect a 1-frame test capture before launching full renders to mathematically verify that 0 pixels of preview UI exist in the video pipeline.
 
 ---
+
 
 ## 💎 ARTICLE 4: THE "BEST THING DONE" LAW (ZERO AI SLOP)
 

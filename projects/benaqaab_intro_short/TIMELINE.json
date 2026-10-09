@@ -1,0 +1,79 @@
+{
+  "project_id": "benaqaab_intro_short",
+  "fps": 60,
+  "total_frames": 600,
+  "total_duration": 10.0,
+  "dimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "audio_track": "master_audio.mp3",
+  "cuts": [
+    {
+      "id": "cut_1",
+      "name": "Provocative Redaction Hook",
+      "start_time": 0.0,
+      "end_time": 1.6,
+      "start_frame": 0,
+      "end_frame": 96,
+      "hook_category": "Burning Discrepancy",
+      "caption": "KYA AAPKO SACH PATA HAI?",
+      "caption_color": "#F43F5E"
+    },
+    {
+      "id": "cut_2",
+      "name": "Forensic Highlighter & Loupe",
+      "start_time": 1.6,
+      "end_time": 3.4,
+      "start_frame": 96,
+      "end_frame": 204,
+      "hook_category": "Authentic Evidence",
+      "caption": "100% ASLI SABOOT",
+      "caption_color": "#FBBF24"
+    },
+    {
+      "id": "cut_3",
+      "name": "Rolling Odometer & Evidence Graph",
+      "start_time": 3.4,
+      "end_time": 5.4,
+      "start_frame": 204,
+      "end_frame": 324,
+      "hook_category": "Data Exposé",
+      "caption": "DATA · DOCUMENTS · EXPOSÉ",
+      "caption_color": "#38BDF8"
+    },
+    {
+      "id": "cut_4",
+      "name": "The Core Creed: SACH SABOOT BEBAK",
+      "start_time": 5.4,
+      "end_time": 7.2,
+      "start_frame": 324,
+      "end_frame": 432,
+      "hook_category": "Tri-Color Impact",
+      "caption": "SACH · SABOOT · BEBAK",
+      "caption_color": "#F8FAFC"
+    },
+    {
+      "id": "cut_5",
+      "name": "Channel Logo & Identity Reveal",
+      "start_time": 7.2,
+      "end_time": 8.6,
+      "start_frame": 432,
+      "end_frame": 516,
+      "hook_category": "Brand Prestige",
+      "caption": "BENAQAAB INDIA 🇮🇳",
+      "caption_color": "#FBBF24"
+    },
+    {
+      "id": "cut_6",
+      "name": "Subscribe CTA & Stamp",
+      "start_time": 8.6,
+      "end_time": 10.0,
+      "start_frame": 516,
+      "end_frame": 600,
+      "hook_category": "Actionable Call To Action",
+      "caption": "SUBSCRIBE FOR TRUTH 🔔",
+      "caption_color": "#E11D48"
+    }
+  ]
+}

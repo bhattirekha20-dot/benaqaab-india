@@ -48,6 +48,8 @@
 | **EP-14** | Bullet Train 2027 (Mumbai–Ahmedabad) | Flagship (16:9) | **2m 57s** | `projects/ep14_bullet/` • `VIDEOS/03_Bullet_Train_2m57s.mp4` | 508 km corridor, B28/E10 trainsets, 21km undersea tunnel |
 | **EP-15** | Rupee 96 vs USD | Flagship (16:9) | **3m 11s** | `projects/ep15_rupee/` • `VIDEOS/04_Rupee_96_3m11s.mp4` | Exchange board, crude >$100, forex reserves & import inflation |
 | **EP-16** | Made-in-India Chips | Flagship (16:9) | **3m 47s** | `projects/ep16_chips/` • `VIDEOS/05_Made_in_India_Chips_3m47s.mp4` | Tata Dholera 28nm fab, Assam OSAT, Micron Sanand fab |
+| **EP-17** | PFBR: India Ka Nuclear Miracle | Flagship (16:9) | **10m 29s** | `projects/ep17_pfbr/` | 500 MWe Fast Breeder Reactor, 550°C liquid sodium, 1.05 breeding ratio, 319,000t Thorium |
+| **EP-18** | Gaganyaan 2026: Bharat Ka Space Miracle | Flagship (16:9) | **5m 00s** | `projects/ep18_gaganyaan_2026/` | ₹20,193 Cr budget expansion, Vyommitra robot, CE-20 cryo engine, TV-D1 abort, BAS-01 2035 station |
 
 ---
 
@@ -129,9 +131,10 @@
 
 ---
 
-### 3. ⏳ Gaganyaan — India's First Robot Astronaut Goes First
+### 3. 🔴 Gaganyaan — India's First Robot Astronaut Goes First [DELIVERED AS EP-18 · DO NOT REPEAT]
+* **Status:** 🔴 **COVERED / DELIVERED** (Delivered as **EP-18** in `projects/ep18_gaganyaan_2026/` · Runtime: 5m 00s · 50 Visual Beats)
 * **Category:** Space / ISRO  
-* **Time Window:** Targeted **Q4 2026 (Oct–Dec 2026)**  
+* **Delivery Path:** [`projects/ep18_gaganyaan_2026/`](file:///c:/Users/dell/Desktop/my%20ai%20bot%20skills%20ok/projects/ep18_gaganyaan_2026/)  
 * **Hook:** *"Insaan se pehle robot jaayega — India ka pehla crewed space mission aise test hota hai."*  
 * **Angle:** The 3-step ladder to putting an Indian in orbit, why human-rating requires insane safety margins, and the role of humanoid **Vyommitra**.
 * **Verified Data & Numbers:**

@@ -1,0 +1,110 @@
+{
+  "project_code": "EP-18",
+  "project_title": "Gaganyaan 2026: Bharat Ka Pehla Human Spaceflight, Vyommitra Robot & ₹20,193 Cr Antariksh Station",
+  "motto": "SACH · SABOOT · BEBAK",
+  "runtime_seconds": 300.0,
+  "runtime_formatted": "05:00",
+  "visual_beat_count": 50,
+  "visual_frequency": "1 visual beat every 6.00 seconds (Universal 10-visuals-per-minute law)",
+  "core_facts": {
+    "mission_name": "Gaganyaan Programme (Human Spaceflight Centre - HSFC)",
+    "executing_agency": "Indian Space Research Organisation (ISRO)",
+    "union_cabinet_initial_budget_cr": 9023.0,
+    "union_cabinet_expanded_budget_cr": 20193.0,
+    "net_additional_funds_cr": 11170.0,
+    "ccea_approval_date": "2024-09-18",
+    "total_missions_scheduled_by_2028": 8,
+    "first_uncrewed_vyommitra_flight_target": "Q4 2026 (Mission G1)",
+    "first_crewed_flight_h1_target": "2028",
+    "launch_vehicle": "Human-Rated LVM3 (HLVM3 / LVM3-G)",
+    "launch_vehicle_height_m": 43.5,
+    "launch_mass_tonnes": 640.0,
+    "cryogenic_upper_stage_engine": "CE-20 (Liquid Oxygen + Liquid Hydrogen)",
+    "ce20_vacuum_thrust_kn": 218.0,
+    "ce20_human_rating_qualification_burn_seconds": 8810.0,
+    "ce20_qualification_threshold_required_seconds": 6350.0,
+    "crew_module_dry_mass_tonnes": 5.3,
+    "service_module_mass_tonnes": 2.9,
+    "combined_orbital_module_mass_tonnes": 8.2,
+    "target_orbit_altitude_km": 400.0,
+    "target_orbit_inclination_degrees": 51.6,
+    "humanoid_robot_name": "Vyommitra (Sanskrit: Vyoma = Space, Mitra = Friend)",
+    "vyommitra_type": "Half-Humanoid Biomimetic Robot (Torso, 2 arms, neck, head)",
+    "vyommitra_degrees_of_freedom": 15,
+    "vyommitra_functions": [
+      "Switch panel operations & life support valve toggles",
+      "Environmental control parameter monitoring (O2, CO2, cabin pressure)",
+      "Acoustic and vibration physiological stress simulation",
+      "Bilingual voice communication (Hindi & English) with MCC Bengaluru"
+    ],
+    "crew_escape_system_tv_d1_flight_date": "2023-10-21",
+    "tv_d1_test_altitude_km": 17.0,
+    "tv_d1_test_speed_mach": 1.2,
+    "eclss_life_support_specification": {
+      "cabin_pressure_kpa": 101.3,
+      "oxygen_percentage": 21.0,
+      "nitrogen_percentage": 78.0,
+      "carbon_dioxide_limit_percent": 0.5,
+      "temperature_celsius": 24.0
+    },
+    "designated_gaganyatri_astronauts": [
+      {
+        "name": "Group Captain Prashanth Balakrishnan Nair",
+        "service": "Indian Air Force (IAF)",
+        "role": "Mission Commander / Pilot",
+        "rank": "Fighter Combat Leader, Su-30MKI"
+      },
+      {
+        "name": "Group Captain Ajit Krishnan",
+        "service": "Indian Air Force (IAF)",
+        "role": "Flight Engineer / Pilot",
+        "rank": "Flying Instructor, Su-30MKI / Mirage 2000"
+      },
+      {
+        "name": "Group Captain Angad Prathap",
+        "service": "Indian Air Force (IAF)",
+        "role": "Mission Specialist / Pilot",
+        "rank": "Test Pilot, Aircraft Systems Testing Establishment (ASTE)"
+      },
+      {
+        "name": "Wing Commander Shubhanshu Shukla",
+        "service": "Indian Air Force (IAF)",
+        "role": "Designated Prime Pilot, Axiom-4 (Ax-4) Mission to ISS",
+        "rank": "Fighter Combat Leader, Su-30MKI"
+      }
+    ],
+    "bharatiya_antariksh_station_bas01_cost_cr": 1763.0,
+    "bas01_launch_year": 2028,
+    "bas_full_operational_target_year": 2035,
+    "bas_full_mass_tonnes": 52.0,
+    "bas_modules_count": 5,
+    "indian_lunar_landing_target_year": 2040
+  },
+  "sources": [
+    {
+      "name": "Press Information Bureau (PIB) - Cabinet approves expansion of Gaganyaan Programme to Bharatiya Antariksh Station",
+      "url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2056108",
+      "verified_date": "2024-09-18"
+    },
+    {
+      "name": "ISRO Human Space Flight Centre (HSFC) Official Technical Overview",
+      "url": "https://www.isro.gov.in/Gaganyaan.html",
+      "verified_date": "2026-02-14"
+    },
+    {
+      "name": "ISRO Press Release: CE-20 Cryogenic Engine Human Rating Qualification",
+      "url": "https://www.isro.gov.in/CE20_Human_Rated_Cryogenic_Engine.html",
+      "verified_date": "2024-02-21"
+    },
+    {
+      "name": "ISRO Flight Test Vehicle Abort Mission-1 (TV-D1) Official Post-Flight Report",
+      "url": "https://www.isro.gov.in/TV_D1_Mission.html",
+      "verified_date": "2023-10-21"
+    },
+    {
+      "name": "NASA & Axiom Space Joint Press Briefing: Axiom Mission 4 (Ax-4) Crew Assignment",
+      "url": "https://www.axiomspace.com/missions/ax4",
+      "verified_date": "2024-08-02"
+    }
+  ]
+}

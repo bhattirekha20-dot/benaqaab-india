@@ -1,0 +1,102 @@
+{
+  "project_id": "benaqaab_intro_short",
+  "channel_name": "Benaqaab India",
+  "hindi_name": "बेनाक़ाब इंडिया",
+  "tagline": "SACH · SABOOT · BEBAK",
+  "english_tagline": "Truth · Evidence · Uncompromising",
+  "target_duration_seconds": 10.0,
+  "aspect_ratio": "9:16",
+  "dimensions": { "width": 1080, "height": 1920 },
+  "fps": 60,
+  "pillars": [
+    {
+      "id": "sach",
+      "name": "SACH",
+      "hindi": "सच",
+      "color": "#F8FAFC",
+      "desc": "Unfiltered truth beyond mainstream media bias"
+    },
+    {
+      "id": "saboot",
+      "name": "SABOOT",
+      "hindi": "सबूत",
+      "color": "#FBBF24",
+      "desc": "100% primary source evidence: Gazettes, RTIs, filings, balance sheets"
+    },
+    {
+      "id": "bebak",
+      "name": "BEBAK",
+      "hindi": "बेबाक",
+      "color": "#F43F5E",
+      "desc": "Fearless exposés holding power accountable without fear"
+    }
+  ],
+  "timeline_beats": [
+    {
+      "beat": 1,
+      "time_range": "0.0s - 1.4s",
+      "duration": 1.4,
+      "hook_type": "The Provocative Discrepancy",
+      "narration_hi": "जो सच आपसे छुपाया जाता है...",
+      "narration_en": "The truth that is hidden from you...",
+      "caption_pill": "KYA AAPKO SACH PATA HAI?",
+      "visual_mode": "Classified Redaction Peel",
+      "evidence_shown": "Top Secret Redacted File Peel + Volumetric Glow"
+    },
+    {
+      "beat": 2,
+      "time_range": "1.4s - 2.8s",
+      "duration": 1.4,
+      "hook_type": "The Evidence Proof",
+      "narration_hi": "...उसे हम लाते हैं १००% सबूत के साथ!",
+      "narration_en": "...we bring that with 100% hard evidence!",
+      "caption_pill": "HAR DAAVE KA ASLI SABOOT",
+      "visual_mode": "Forensic Highlighter & 2.5x Loupe",
+      "evidence_shown": "Authentic Official Gazette + Ink Bleed Yellow Highlighter (#FFE600)"
+    },
+    {
+      "beat": 3,
+      "time_range": "2.8s - 4.2s",
+      "duration": 1.4,
+      "hook_type": "The Investigation & Data",
+      "narration_hi": "बिना डरे, हर घोटाला बेनाक़ाब!",
+      "narration_en": "Without fear, every scam unmasked!",
+      "caption_pill": "DATA · DOCUMENTS · EXPOSÉ",
+      "visual_mode": "Rolling Odometer + Evidence Pinboard",
+      "evidence_shown": "Rupee Odometer ₹0 to ₹1,42,000 Cr+ with Red-String Graph"
+    },
+    {
+      "beat": 4,
+      "time_range": "4.2s - 5.8s",
+      "duration": 1.6,
+      "hook_type": "The Core Creed",
+      "narration_hi": "सच! सबूत! बेबाक!",
+      "narration_en": "Truth! Evidence! Uncompromising!",
+      "caption_pill": "SACH · SABOOT · BEBAK",
+      "visual_mode": "Tri-Color Typographic Impact Slams",
+      "evidence_shown": "Trauma-Decay Camera Shake with Stamped Typography"
+    },
+    {
+      "beat": 5,
+      "time_range": "5.8s - 7.6s",
+      "duration": 1.8,
+      "hook_type": "The Channel Reveal",
+      "narration_hi": "यह है बेनाक़ाब इंडिया!",
+      "narration_en": "This is Benaqaab India!",
+      "caption_pill": "BENAQAAB INDIA 🇮🇳",
+      "visual_mode": "3D Volumetric Golden Crest Reveal",
+      "evidence_shown": "Benaqaab Official Logo + Specular Gold Rim Glow + Particles"
+    },
+    {
+      "beat": 6,
+      "time_range": "7.6s - 10.0s",
+      "duration": 2.4,
+      "hook_type": "The High-Stakes CTA",
+      "narration_hi": "अभी सब्सक्राइब करें, सच जानें!",
+      "narration_en": "Subscribe now, uncover the truth!",
+      "caption_pill": "SUBSCRIBE FOR TRUTH 🔔",
+      "visual_mode": "Glowing YouTube Subscribe Button + Notification Bell",
+      "evidence_shown": "Interactive Pulsing CTA Pill + Angled Rubber Stamp 'VERIFIED'"
+    }
+  ]
+}

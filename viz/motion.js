@@ -206,19 +206,60 @@
     });
   }
 
-  /* ─── 5 FORENSIC MOTION PRIMITIVES (Benaqaab Forensics Engine) ─── */
-  function drawOdometer(ctx, t, startT, duration, startVal, targetVal, x, y) {
+  function drawOdometer(ctx, t, startT, duration, startVal, targetVal, prefix = '', suffix = '', x = 960, y = 540, cardColor = '#fbbf24') {
     if (t < startT) return;
+    // Handle legacy signature (ctx, t, startT, duration, startVal, targetVal, x, y)
+    if (typeof prefix === 'number') {
+      const oldX = prefix;
+      const oldY = typeof suffix === 'number' ? suffix : 540;
+      x = oldX;
+      y = oldY;
+      prefix = '';
+      suffix = '';
+    }
     const p = Math.max(0, Math.min(1, (t - startT) / duration));
     const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p); // outExpo
-    const current = Math.round(startVal + (targetVal - startVal) * eased);
+    const current = (targetVal % 1 !== 0 || startVal % 1 !== 0)
+      ? (startVal + (targetVal - startVal) * eased).toFixed(1)
+      : Math.round(startVal + (targetVal - startVal) * eased).toLocaleString('en-IN');
+
+    const cardW = 680;
+    const cardH = 96;
+    const halfW = cardW / 2;
+    const halfH = cardH / 2;
+
     ctx.save();
-    ctx.font = '900 110px monospace';
-    ctx.fillStyle = '#ef4444';
-    ctx.shadowColor = 'rgba(239, 68, 68, 0.6)';
-    ctx.shadowBlur = 25;
+    ctx.translate(x, y);
+
+    // Frosted glass capsule card
+    ctx.fillStyle = 'rgba(10, 15, 26, 0.94)';
+    ctx.strokeStyle = cardColor;
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+    ctx.shadowBlur = 24;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, cardW, cardH, 20);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Left indicator pill
+    ctx.fillStyle = cardColor;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, 6, cardH, [20, 0, 0, 20]);
+    ctx.fill();
+
+    // Metric Text
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '700 13px "JetBrains Mono", monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(`+ ₹${current.toLocaleString('en-IN')}`, x, y);
+    ctx.fillText((prefix || 'VERIFIED METRIC').toUpperCase(), 0, -halfH + 28);
+
+    ctx.fillStyle = cardColor;
+    ctx.font = '800 42px "JetBrains Mono", monospace';
+    ctx.shadowColor = cardColor;
+    ctx.shadowBlur = 14;
+    ctx.fillText(`${current}${suffix}`, 0, halfH - 20);
     ctx.restore();
   }
 
@@ -475,6 +516,260 @@
     ctx.restore();
   }
 
+  function drawLivelyHighlighter(ctx, t, startT, duration, x, y, width, height, color = 'rgba(253, 224, 71, 0.72)') {
+    if (t < startT) return 0;
+    const p = Math.max(0, Math.min(1, (t - startT) / duration));
+    const eased = 1 - Math.pow(1 - p, 3); // outCubic
+    const w = width * eased;
+    if (w <= 2) return p;
+
+    ctx.save();
+    // Multiply composite operation: highlights paper behind without covering text
+    ctx.globalCompositeOperation = 'multiply';
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, height, 4);
+    ctx.fill();
+    ctx.restore();
+
+    // Soft warm ambient glow
+    ctx.save();
+    ctx.fillStyle = 'rgba(250, 204, 21, 0.18)';
+    ctx.shadowColor = 'rgba(234, 179, 8, 0.5)';
+    ctx.shadowBlur = 14;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, height, 4);
+    ctx.fill();
+    ctx.restore();
+
+    // Lively animated pen-tip nib / glowing dot while actively sweeping
+    if (p > 0.02 && p < 0.98) {
+      ctx.save();
+      ctx.fillStyle = '#eab308';
+      ctx.shadowColor = 'rgba(234, 179, 8, 0.9)';
+      ctx.shadowBlur = 12;
+      ctx.beginPath();
+      ctx.arc(x + w, y + height / 2, height * 0.42, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    return p;
+  }
+
+  function drawAudienceQuestionCard(ctx, t, startT, duration, badgeText, questionText, subText, accentColor = '#38bdf8', cx = 960, cy = 850) {
+    if (t < startT || t > startT + duration) return;
+    const elapsed = t - startT;
+    const remaining = (startT + duration) - t;
+    
+    // Spring entrance & exit
+    let scale = 1.0;
+    let alpha = 1.0;
+    if (elapsed < 0.45) {
+      const p = elapsed / 0.45;
+      scale = 0.85 + 0.15 * Math.sin(p * Math.PI * 0.5);
+      alpha = p;
+    } else if (remaining < 0.35) {
+      alpha = Math.max(0, remaining / 0.35);
+      scale = 1.0 - 0.05 * (1 - alpha);
+    }
+
+    const cardW = 1120;
+    const cardH = 136;
+    const halfW = cardW / 2;
+    const halfH = cardH / 2;
+
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(scale, scale);
+    ctx.globalAlpha = alpha;
+
+    // Frosted glass background
+    ctx.fillStyle = 'rgba(10, 15, 26, 0.93)';
+    ctx.strokeStyle = accentColor;
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.75)';
+    ctx.shadowBlur = 24;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, cardW, cardH, 16);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Glowing accent left bar
+    ctx.fillStyle = accentColor;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, 8, cardH, [16, 0, 0, 16]);
+    ctx.fill();
+
+    // Top Category Badge
+    ctx.fillStyle = accentColor;
+    ctx.font = '800 13px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(badgeText.toUpperCase(), -halfW + 36, -halfH + 34);
+
+    // Main Question
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 25px Inter, sans-serif';
+    ctx.fillText(questionText, -halfW + 36, -halfH + 74);
+
+    // Subtitle / English context
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '600 14px "JetBrains Mono", monospace';
+    ctx.fillText(subText, -halfW + 36, -halfH + 106);
+
+    ctx.restore();
+  }
+
+  function drawSubscribeLikeCTA(ctx, t, startT, duration = 2.8, logoImg = null, cx = 960, cy = 840) {
+    if (t < startT || t > startT + duration) return;
+    const elapsed = t - startT;
+    const remaining = (startT + duration) - t;
+
+    // Spring entrance & exit
+    let scale = 1.0;
+    let alpha = 1.0;
+    let slideY = 0;
+    if (elapsed < 0.45) {
+      const p = elapsed / 0.45;
+      scale = 0.7 + 0.3 * (1 - Math.exp(-p * 8) * Math.cos(p * 10));
+      alpha = Math.min(1, p * 2);
+      slideY = (1 - p) * 30;
+    } else if (remaining < 0.4) {
+      const p = remaining / 0.4;
+      alpha = p;
+      scale = 0.95 + 0.05 * p;
+      slideY = (1 - p) * 25;
+    }
+
+    const cardW = 680;
+    const cardH = 92;
+    const halfW = cardW / 2;
+    const halfH = cardH / 2;
+
+    ctx.save();
+    ctx.translate(cx, cy + slideY);
+    ctx.scale(scale, scale);
+    ctx.globalAlpha = alpha;
+
+    // Glowing obsidian capsule
+    ctx.fillStyle = 'rgba(8, 12, 22, 0.95)';
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.45)';
+    ctx.lineWidth = 1.5;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowBlur = 24;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, cardW, cardH, 46);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Channel Logo Avatar with pulsing gold ring
+    const avatarX = -halfW + 48;
+    const avatarY = 0;
+    const avatarR = 26;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(avatarX, avatarY, avatarR, 0, Math.PI * 2);
+    ctx.clip();
+    if (logoImg && logoImg.complete && logoImg.naturalWidth > 0) {
+      ctx.drawImage(logoImg, avatarX - avatarR, avatarY - avatarR, avatarR * 2, avatarR * 2);
+    } else {
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillRect(avatarX - avatarR, avatarY - avatarR, avatarR * 2, avatarR * 2);
+      ctx.fillStyle = '#000';
+      ctx.font = '800 18px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('BI', avatarX, avatarY + 6);
+    }
+    ctx.restore();
+
+    ctx.strokeStyle = '#fbbf24';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(avatarX, avatarY, avatarR, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Channel Title & Tagline
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 18px Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('BENAQAAB INDIA', avatarX + 38, avatarY - 5);
+
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '700 11px "JetBrains Mono", monospace';
+    ctx.fillText('SACH · SABOOT · BEBAK', avatarX + 38, avatarY + 16);
+
+    // Animated Interactive Buttons (Like & Subscribe)
+    const isLiked = elapsed >= 0.75;
+    const isSubscribed = elapsed >= 1.25;
+
+    // 1. LIKE BUTTON
+    const likeX = avatarX + 265;
+    const likeY = avatarY - 20;
+    const likeW = 92;
+    const likeH = 40;
+    ctx.fillStyle = isLiked ? 'rgba(56, 189, 248, 0.18)' : 'rgba(255, 255, 255, 0.06)';
+    ctx.strokeStyle = isLiked ? '#38bdf8' : 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(likeX, likeY, likeW, likeH, 20);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = isLiked ? '#38bdf8' : '#cbd5e1';
+    ctx.font = '700 14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(isLiked ? '👍 LIKED' : '👍 LIKE', likeX + likeW / 2, likeY + 25);
+
+    // 2. SUBSCRIBE BUTTON
+    const subX = likeX + likeW + 14;
+    const subY = avatarY - 20;
+    const subW = 160;
+    const subH = 40;
+
+    if (!isSubscribed) {
+      // Vivid Red Subscribe Button
+      ctx.fillStyle = '#dc2626';
+      ctx.shadowColor = 'rgba(220, 38, 38, 0.5)';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.roundRect(subX, subY, subW, subH, 20);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 14px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('SUBSCRIBE ▶', subX + subW / 2, subY + 25);
+    } else {
+      // Subscribed State with wiggling Bell
+      const bellWiggle = Math.sin((elapsed - 1.25) * 20) * (elapsed < 2.0 ? 0.2 : 0);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(subX, subY, subW, subH, 20);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.save();
+      ctx.translate(subX + 28, subY + 20);
+      ctx.rotate(bellWiggle);
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '16px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('🔔', 0, 5);
+      ctx.restore();
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '800 13px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('SUBSCRIBED', subX + subW / 2 + 10, subY + 25);
+    }
+
+    ctx.restore();
+  }
+
   let _grainCanvas = null;
   function drawGrain(ctx, width, height, opacity = 0.03) {
     if (!_grainCanvas && typeof document !== 'undefined') {
@@ -504,9 +799,11 @@
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
     readTime, splitWords, riseWords,
-    drawOdometer, drawHighlighter, drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
+    drawOdometer, drawHighlighter, drawLivelyHighlighter, drawAudienceQuestionCard, drawSubscribeLikeCTA,
+    drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
     drawRoadmapCard, drawGrain };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
+
 

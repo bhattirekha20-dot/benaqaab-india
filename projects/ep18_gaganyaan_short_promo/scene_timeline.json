@@ -1,0 +1,180 @@
+{
+  "total_duration": 53.809958,
+  "scenes": [
+    {
+      "scene": 1,
+      "id": "scene1",
+      "image": "assets/scene1.png",
+      "start": 0.0,
+      "end": 12.79,
+      "duration": 12.79,
+      "title": "HOOK - Rocket Launch",
+      "caption_main": "₹9,000 Cr → ₹11,193 Cr",
+      "caption_sub": "GAGANYAAN BUDGET",
+      "sub_beats": [
+        {
+          "text": "18 SEPTEMBER 2024",
+          "start": 0.0,
+          "end": 1.8
+        },
+        {
+          "text": "CABINET KA BADA DECISION",
+          "start": 1.8,
+          "end": 4.2
+        },
+        {
+          "text": "GAGANYAAN BUDGET",
+          "start": 4.2,
+          "end": 6.5
+        },
+        {
+          "text": "₹9,000 Cr → ₹11,193 Cr!",
+          "start": 6.5,
+          "end": 9.8
+        },
+        {
+          "text": "ITNA PAISA KYUN?",
+          "start": 9.8,
+          "end": 12.0
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "id": "scene2",
+      "image": "assets/scene2.png",
+      "start": 12.79,
+      "end": 22.01,
+      "duration": 9.22,
+      "title": "MYTH BUST - Space Station",
+      "caption_main": "SIRF EK TRIP?",
+      "caption_sub": "APNA SPACE STATION",
+      "sub_beats": [
+        {
+          "text": "SIRF EK CHHOTA TRIP?",
+          "start": 12.79,
+          "end": 15.59
+        },
+        {
+          "text": "BILKUL GALAT!",
+          "start": 15.59,
+          "end": 17.29
+        },
+        {
+          "text": "BHARATIYA ANTARIKSH STATION",
+          "start": 17.29,
+          "end": 19.99
+        },
+        {
+          "text": "APNA SPACE STATION!",
+          "start": 19.99,
+          "end": 21.59
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "id": "scene3",
+      "image": "assets/scene3.png",
+      "start": 22.01,
+      "end": 31.2,
+      "duration": 9.19,
+      "title": "VYOMMITRA - Robot Cockpit",
+      "caption_main": "2026: PEHLE ROBOT",
+      "caption_sub": "VYOMMITRA",
+      "sub_beats": [
+        {
+          "text": "2026: PEHLE VYOMMITRA",
+          "start": 22.01,
+          "end": 24.81
+        },
+        {
+          "text": "HALF-HUMANOID ROBOT",
+          "start": 24.81,
+          "end": 27.01
+        },
+        {
+          "text": "AUR 2028 MEIN...",
+          "start": 27.01,
+          "end": 28.81
+        },
+        {
+          "text": "INDIAN ASTRONAUTS KI UDAAN!",
+          "start": 28.81,
+          "end": 30.81
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "id": "scene4",
+      "image": "assets/scene4.png",
+      "start": 31.2,
+      "end": 42.5,
+      "duration": 11.3,
+      "title": "PROOF - Capsule Parachutes",
+      "caption_main": "WORLD RECORD",
+      "caption_sub": "ZERO HUMAN RISK",
+      "sub_beats": [
+        {
+          "text": "CE20 WORLD RECORD",
+          "start": 31.2,
+          "end": 33.7
+        },
+        {
+          "text": "ABORT TEST SUCCESS",
+          "start": 33.7,
+          "end": 36.0
+        },
+        {
+          "text": "ZERO HUMAN RISK!",
+          "start": 36.0,
+          "end": 38.0
+        },
+        {
+          "text": "AGLE 50 SAAL KI AZADI!",
+          "start": 38.0,
+          "end": 41.7
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "id": "scene5",
+      "image": "assets/scene5.png",
+      "start": 42.5,
+      "end": 53.83,
+      "duration": 11.33,
+      "title": "CTA - Flag on Moon",
+      "caption_main": "LIVE — 11 OCT, 4:00 AM IST",
+      "caption_sub": "LINK IN BIO",
+      "sub_beats": [
+        {
+          "text": "FULL SACH WITH PROOF",
+          "start": 42.5,
+          "end": 44.9
+        },
+        {
+          "text": "LINK IN BIO!",
+          "start": 44.9,
+          "end": 47.0
+        },
+        {
+          "text": "LIVE: 11 OCT · 4:00 AM IST",
+          "start": 47.0,
+          "end": 50.0
+        },
+        {
+          "text": "SUBSCRIBE BENAQAAB INDIA",
+          "start": 50.0,
+          "end": 52.3
+        },
+        {
+          "text": "JAI HIND! 🇮🇳",
+          "start": 52.3,
+          "end": 53.3
+        }
+      ]
+    }
+  ]
+}

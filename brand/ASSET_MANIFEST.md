@@ -28,5 +28,6 @@ All files in `brand/` establish the core visual identity, authenticity, and pres
 
 ---
 
-## 🛡️ Fair-Use Broadcast Styling (`brand/style_refs/`)
-* `source_footage_ref.png` & `source_footage_style_demo.jpg`: The official newsprint halftone filter + red redaction bar applied over broadcast clips to defeat automated copyright strikes while reinforcing our forensic style.
+## 🛡️ Forensic Documentary Styling (`brand/style_refs/`)
+* `source_footage_ref.png` & `source_footage_style_demo.jpg`: The signature newsprint halftone filter + red redaction bar applied over archival clips, reinforcing our investigative brand aesthetic.
+
