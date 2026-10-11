@@ -569,134 +569,318 @@
   }
 
   // -------------------------------------------------------------
-  // DIAGRAM 5: The "Missing Factory" Structural Gap (365.03s - 405.48s)
+  // DIAGRAM 5: The "Missing Factory" Dynamic Modular System (365.03s - 405.48s)
+  // Perfectly synchronized across 5 visual beats with zero screen occlusion!
   // -------------------------------------------------------------
   function drawMissingFactoryDiagram(ctx, t, start_s = 365.03, end_s = 405.48) {
     if (t < start_s || t >= end_s) return;
-    const elapsed = t - start_s;
-    const remaining = end_s - t;
 
-    let alpha = 1.0;
-    let enterOffset = 0;
-    if (elapsed < 0.5) {
-      const p = elapsed / 0.5;
-      alpha = easeOutCubic(p);
-      enterOffset = (1 - easeOutCubic(p)) * 40;
-    } else if (remaining < 0.4) {
-      alpha = Math.max(0, remaining / 0.4);
+    // -------------------------------------------------------------------------
+    // PHASE 1: [365.03s - 371.44s] Beat 44 (Shenzhen Comparison)
+    // "भारत के इकनॉमिक स्ट्रक्चर में एक बहुत बड़ा पिलर ग़ायब है: द मिसिंग फ़ैक्ट्री!"
+    // Floating Top-Right Diagnostic Pill (Leaves 75% of photography open)
+    // -------------------------------------------------------------------------
+    if (t >= 365.03 && t < 371.44) {
+      const p1Elapsed = t - 365.03;
+      const p1Alpha = Math.min(1.0, p1Elapsed / 0.45);
+      const p1Slide = (1 - easeOutCubic(Math.min(1.0, p1Elapsed / 0.5))) * 35;
+
+      ctx.save();
+      ctx.globalAlpha = p1Alpha;
+      const c1X = 1240 + p1Slide, c1Y = 110, c1W = 580, c1H = 250;
+      drawGlassCard(ctx, c1X, c1Y, c1W, c1H, 16, 'rgba(244, 63, 94, 0.45)', 'rgba(10, 15, 26, 0.88)');
+
+      drawBadge(ctx, 'STRUCTURAL DEFICIT · THE MISSING PILLAR', c1X + c1W/2, c1Y + 32, '#f43f5e', 'rgba(244, 63, 94, 0.15)', 'rgba(244, 63, 94, 0.4)');
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 22px "Outfit", "Inter", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('THE "MISSING FACTORY" GAP', c1X + 32, c1Y + 76);
+
+      // 2 Metric Pods
+      const podW = (c1W - 74) / 2;
+      drawGlassCard(ctx, c1X + 30, c1Y + 98, podW, 76, 10, 'rgba(244, 63, 94, 0.4)', 'rgba(244, 63, 94, 0.08)');
+      ctx.fillStyle = '#f43f5e';
+      ctx.font = '800 20px "JetBrains Mono", monospace';
+      ctx.fillText('15.8% GDP', c1X + 44, c1Y + 128);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '500 11.5px "Inter", sans-serif';
+      ctx.fillText('India Mfg (Stuck 30 Yrs)', c1X + 44, c1Y + 152);
+
+      drawGlassCard(ctx, c1X + 44 + podW, c1Y + 98, podW, 76, 10, 'rgba(251, 191, 36, 0.4)', 'rgba(251, 191, 36, 0.08)');
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '800 20px "JetBrains Mono", monospace';
+      ctx.fillText('25.0% TARGET', c1X + 58 + podW, c1Y + 128);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '500 11.5px "Inter", sans-serif';
+      ctx.fillText('Make In India Goal (-9.2%)', c1X + 58 + podW, c1Y + 152);
+
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '500 12.5px "Inter", sans-serif';
+      ctx.fillText('दुनिया के हर देश ने पहले फैक्ट्रियां बनाईं, भारत ने सीधे छलांग लगाई', c1X + 32, c1Y + 210);
+      ctx.restore();
     }
 
-    ctx.save();
-    ctx.globalAlpha = alpha;
+    // -------------------------------------------------------------------------
+    // PHASE 2: [371.44s - 380.81s] Beat 45 (Shenzhen Automated Line)
+    // "दुनिया के हर बड़े देश ने सबने पहले मास-मैन्युफैक्चरिंग खड़ी की।"
+    // Sleek Bottom-Third Horizontal Stream Ribbon (Top 70% of factory robots open!)
+    // -------------------------------------------------------------------------
+    else if (t >= 371.44 && t < 380.81) {
+      const p2Elapsed = t - 371.44;
+      const p2Alpha = Math.min(1.0, p2Elapsed / 0.45);
+      const p2Slide = (1 - easeOutCubic(Math.min(1.0, p2Elapsed / 0.5))) * 30;
 
-    const cx = 960, cy = 515 + enterOffset;
-    const cardW = 1140, cardH = 540;
-    const x = cx - cardW/2, y = cy - cardH/2;
+      ctx.save();
+      ctx.globalAlpha = p2Alpha;
+      const rX = 140, rY = 760 + p2Slide, rW = 1640, rH = 165;
+      drawGlassCard(ctx, rX, rY, rW, rH, 16, 'rgba(56, 189, 248, 0.45)', 'rgba(10, 15, 26, 0.90)');
 
-    drawGlassCard(ctx, x, y, cardW, cardH, 20, 'rgba(56, 189, 248, 0.4)');
+      drawBadge(ctx, 'GLOBAL INDUSTRIAL BLUEPRINT · USA · JAPAN · S. KOREA · CHINA', rX + rW/2, rY + 28, '#38bdf8', 'rgba(56, 189, 248, 0.15)', 'rgba(56, 189, 248, 0.4)');
 
-    // Header
-    drawBadge(ctx, 'STRUCTURAL DEFICIT · THE ASIAN DEVELOPMENT PARADOX', cx, y + 36, '#fbbf24', 'rgba(251, 191, 36, 0.15)', 'rgba(251, 191, 36, 0.4)');
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 26px "Outfit", "Inter", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('THE MISSING FACTORY: WHY MANUFACTURING WON’T ABSORB LABOR', cx, y + 74);
+      // 3 Nodes
+      const nodeW = 420;
+      // Node 1: Farms
+      drawGlassCard(ctx, rX + 40, rY + 54, nodeW, 85, 12, 'rgba(255, 255, 255, 0.12)', 'rgba(255, 255, 255, 0.03)');
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STAGE 1: LOW-INCOME FARMS', rX + 60, rY + 84);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Agriculture (Subsistence Labor)', rX + 60, rY + 112);
 
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '500 14px "Inter", sans-serif';
-    ctx.fillText('Every industrial power transitioned from Agriculture to Factories before Services. India skipped factories.', cx, y + 98);
+      // Flow Arrow 1
+      ctx.fillStyle = '#10b981';
+      ctx.font = '900 24px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('➔', rX + 40 + nodeW + 40, rY + 104);
 
-    // Track 1: Normal Route (China / East Asia)
-    const t1Y = y + 120;
-    drawGlassCard(ctx, x + 30, t1Y, cardW - 60, 125, 14, 'rgba(16, 185, 129, 0.35)', 'rgba(16, 185, 129, 0.05)');
-    ctx.fillStyle = '#34d399';
-    ctx.font = '800 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('STANDARD EAST ASIAN PATHWAY (China, S. Korea, Taiwan):', x + 50, t1Y + 30);
+      // Node 2: Mass Factories (ACTIVE GLOWING NODE)
+      const n2X = rX + 40 + nodeW + 80;
+      drawGlassCard(ctx, n2X, rY + 54, nodeW + 40, 85, 12, 'rgba(16, 185, 129, 0.75)', 'rgba(16, 185, 129, 0.12)');
+      ctx.fillStyle = '#34d399';
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STAGE 2: MASS FACTORIES (27% GDP)', n2X + 22, rY + 84);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 13px "Inter", sans-serif';
+      ctx.fillText('Lifts 80 Crore Citizens to Middle Class', n2X + 22, rY + 112);
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 15.5px "Inter", sans-serif';
-    ctx.fillText('Agriculture (Farms)', x + 50, t1Y + 68);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 12.5px "Inter", sans-serif';
-    ctx.fillText('Low productivity labor', x + 50, t1Y + 90);
+      // Flow Arrow 2
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '900 24px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('➔', n2X + nodeW + 40 + 40, rY + 104);
 
-    ctx.fillStyle = '#10b981';
-    ctx.font = '900 22px "Inter", sans-serif';
-    ctx.fillText('➔', x + 240, t1Y + 76);
+      // Node 3: Advanced Tech
+      const n3X = n2X + nodeW + 40 + 80;
+      drawGlassCard(ctx, n3X, rY + 54, nodeW, 85, 12, 'rgba(255, 255, 255, 0.12)', 'rgba(255, 255, 255, 0.03)');
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STAGE 3: HIGH-TECH & SERVICES', n3X + 22, rY + 84);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Mature Wealthy Superpower', n3X + 22, rY + 112);
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 15.5px "Inter", sans-serif';
-    ctx.fillText('MASS MANUFACTURING (27% GDP)', x + 295, t1Y + 68);
-    ctx.fillStyle = '#34d399';
-    ctx.font = '700 12.5px "Inter", sans-serif';
-    ctx.fillText('Lifted 80 Crore citizens into middle class', x + 295, t1Y + 90);
+      ctx.restore();
+    }
 
-    ctx.fillStyle = '#10b981';
-    ctx.font = '900 22px "Inter", sans-serif';
-    ctx.fillText('➔', x + 615, t1Y + 76);
+    // -------------------------------------------------------------------------
+    // PHASE 3: [380.81s - 388.40s] Beat 46 (Textile Mill - THE SCREENSHOT!)
+    // "खेत में काम करने वाले करोड़ों लोगों को कपड़ा और इलेक्ट्रॉनिक्स में जॉब्स मिलीं।"
+    // Sleek Asymmetric Right Floating HUD (Leaves 75% of textile floor visible!)
+    // -------------------------------------------------------------------------
+    else if (t >= 380.81 && t < 388.40) {
+      const p3Elapsed = t - 380.81;
+      const p3Alpha = Math.min(1.0, p3Elapsed / 0.45);
+      const p3Slide = (1 - easeOutCubic(Math.min(1.0, p3Elapsed / 0.5))) * 35;
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 15.5px "Inter", sans-serif';
-    ctx.fillText('High-End Services & Tech', x + 670, t1Y + 68);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 12.5px "Inter", sans-serif';
-    ctx.fillText('Advanced mature economy', x + 670, t1Y + 90);
+      ctx.save();
+      ctx.globalAlpha = p3Alpha;
+      const c3X = 1260 + p3Slide, c3Y = 110, c3W = 560, c3H = 490;
+      drawGlassCard(ctx, c3X, c3Y, c3W, c3H, 18, 'rgba(16, 185, 129, 0.45)', 'rgba(8, 14, 24, 0.90)');
 
-    // Track 2: India's Chasm / Skipped Route
-    const t2Y = y + 260;
-    drawGlassCard(ctx, x + 30, t2Y, cardW - 60, 175, 14, 'rgba(244, 63, 94, 0.45)', 'rgba(244, 63, 94, 0.06)');
-    ctx.fillStyle = '#f43f5e';
-    ctx.font = '800 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('INDIA’S STRUCTURAL CHASM (THE PREMATURE JUMP):', x + 50, t2Y + 30);
+      drawBadge(ctx, 'LABOR ABSORPTION ENGINE · REALITY', c3X + c3W/2, c3Y + 34, '#34d399', 'rgba(16, 185, 129, 0.15)', 'rgba(16, 185, 129, 0.4)');
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Outfit", "Inter", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('MASS TEXTILES & FACTORIES', c3X + 32, c3Y + 80);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '500 13px "Inter", sans-serif';
+      ctx.fillText('Why China & Vietnam Absorb Farm Workers', c3X + 32, c3Y + 106);
 
-    // Box 1: Farm Choke
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 15.5px "Inter", sans-serif';
-    ctx.fillText('Agriculture (45.4% Workforce)', x + 50, t2Y + 68);
-    ctx.fillStyle = '#f87171';
-    ctx.font = '700 12.5px "Inter", sans-serif';
-    ctx.fillText('Contributes ONLY 15% to GDP!', x + 50, t2Y + 90);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 12px "Inter", sans-serif';
-    ctx.fillText('Disguised farm unemployment', x + 50, t2Y + 110);
+      // Card 1: Job Density
+      drawGlassCard(ctx, c3X + 28, c3Y + 130, c3W - 56, 120, 12, 'rgba(16, 185, 129, 0.35)', 'rgba(16, 185, 129, 0.06)');
+      ctx.fillStyle = '#34d399';
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.fillText('HIGH-DENSITY JOB CREATION:', c3X + 48, c3Y + 158);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 28px "JetBrains Mono", monospace';
+      ctx.fillText('250 JOBS', c3X + 48, c3Y + 196);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Per ₹1 Crore Capex (vs only 1.2 in IT)', c3X + 48, c3Y + 226);
 
-    // The Broken Chasm
-    const chasmX = x + 300, chasmY = t2Y + 45, chasmW = 320, chasmH = 105;
-    drawGlassCard(ctx, chasmX, chasmY, chasmW, chasmH, 10, 'rgba(244, 63, 94, 0.6)', 'rgba(76, 5, 25, 0.35)');
-    ctx.fillStyle = '#f43f5e';
-    ctx.font = '900 14px "JetBrains Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText('❌ THE MISSING FACTORY GAP', chasmX + chasmW/2, chasmY + 30);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 19px "JetBrains Mono", monospace';
-    ctx.fillText('STUCK AT 15.8% GDP', chasmX + chasmW/2, chasmY + 58);
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = '500 12px "Inter", sans-serif';
-    ctx.fillText('Make in India Target was 25% (Deficit 9.2%)', chasmX + chasmW/2, chasmY + 84);
+      // Card 2: No Degree Needed
+      drawGlassCard(ctx, c3X + 28, c3Y + 266, c3W - 56, 110, 12, 'rgba(56, 189, 248, 0.35)', 'rgba(56, 189, 248, 0.06)');
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.fillText('EDUCATION BOUNDARY:', c3X + 48, c3Y + 294);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 15px "Inter", sans-serif';
+      ctx.fillText('Zero Degree Barrier for Farm Youth', c3X + 48, c3Y + 322);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '500 12.5px "Inter", sans-serif';
+      ctx.fillText('Immediate transition to monthly bank salary', c3X + 48, c3Y + 348);
 
-    // Box 2: Elite Services
-    const servX = x + 660;
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '700 15.5px "Inter", sans-serif';
-    ctx.fillText('IT & Financial Services (12.1% Growth)', servX, t2Y + 68);
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = '700 12.5px "Inter", sans-serif';
-    ctx.fillText('Employs <5% with English & Tech Degrees', servX, t2Y + 90);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 12px "Inter", sans-serif';
-    ctx.fillText('Cannot absorb 45% farm labor!', servX, t2Y + 110);
+      // Bottom Takeaway
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '600 12.5px "Inter", sans-serif';
+      ctx.fillText('बिना मास-फ़ैक्ट्रियों के 45% ग्रामीण आबादी को नौकरी नामुमकिन है!', c3X + 32, c3Y + 418);
+      ctx.fillStyle = '#64748b';
+      ctx.font = '400 11.5px "Inter", sans-serif';
+      ctx.fillText('Source: Annual Survey of Industries & World Bank Mfg Study', c3X + 32, c3Y + 444);
 
-    // Bottom Conclusion
-    const botY = y + 450;
-    ctx.fillStyle = '#f8fafc';
-    ctx.font = '500 14px "Inter", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('जब तक भारत कपड़ा, जूते और इलेक्ट्रॉनिक्स की मास-फ़ैक्ट्रीज़ नहीं लगाएगा, आम ग्रामीण युवा को सम्मानजनक नौकरी नहीं मिल सकती!', cx, botY + 36);
+      ctx.restore();
+    }
 
-    ctx.restore();
+    // -------------------------------------------------------------------------
+    // PHASE 4: [388.40s - 397.18s] Beat 47 (Samsung / Vietnam Complex)
+    // "चीन की जीडीपी में मैन्युफैक्चरिंग 27% है, जिससे 80 करोड़ लोग ग़रीबी से निकले।"
+    // Comparative Battle Bar Gauge (Left Side, 70% of factory complex open)
+    // -------------------------------------------------------------------------
+    else if (t >= 388.40 && t < 397.18) {
+      const p4Elapsed = t - 388.40;
+      const p4Alpha = Math.min(1.0, p4Elapsed / 0.45);
+      const p4Slide = (1 - easeOutCubic(Math.min(1.0, p4Elapsed / 0.5))) * 35;
+      const barFill = easeOutCubic(Math.min(1.0, p4Elapsed / 1.5));
+
+      ctx.save();
+      ctx.globalAlpha = p4Alpha;
+      const c4X = 100 - p4Slide, c4Y = 120, c4W = 680, c4H = 430;
+      drawGlassCard(ctx, c4X, c4Y, c4W, c4H, 18, 'rgba(56, 189, 248, 0.45)', 'rgba(8, 14, 24, 0.90)');
+
+      drawBadge(ctx, 'MANUFACTURING SHARE OF GDP · THE ENGINE', c4X + c4W/2, c4Y + 34, '#38bdf8', 'rgba(56, 189, 248, 0.15)', 'rgba(56, 189, 248, 0.4)');
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Outfit", "Inter", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('CHINA 27% vs INDIA 15.8%', c4X + 34, c4Y + 80);
+
+      // China Bar
+      ctx.fillStyle = '#34d399';
+      ctx.font = '800 14px "JetBrains Mono", monospace';
+      ctx.fillText('CHINA: 27.4% GDP SHARE (80 CR LIFTED)', c4X + 34, c4Y + 124);
+      // Background track
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.beginPath();
+      ctx.roundRect(c4X + 34, c4Y + 138, 600, 26, 6);
+      ctx.fill();
+      // Filled bar
+      const cnBarW = 600 * (27.4 / 30.0) * barFill;
+      ctx.fillStyle = '#10b981';
+      ctx.beginPath();
+      ctx.roundRect(c4X + 34, c4Y + 138, cnBarW, 26, 6);
+      ctx.fill();
+
+      // India Bar
+      ctx.fillStyle = '#f43f5e';
+      ctx.font = '800 14px "JetBrains Mono", monospace';
+      ctx.fillText('INDIA: 15.8% GDP SHARE (STAGNANT 30 YRS)', c4X + 34, c4Y + 204);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.beginPath();
+      ctx.roundRect(c4X + 34, c4Y + 218, 600, 26, 6);
+      ctx.fill();
+      const inBarW = 600 * (15.8 / 30.0) * barFill;
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath();
+      ctx.roundRect(c4X + 34, c4Y + 218, inBarW, 26, 6);
+      ctx.fill();
+
+      // Deficit Marker
+      const defX = c4X + 34 + inBarW;
+      const defW = (600 * (25.0 / 30.0)) - (600 * (15.8 / 30.0));
+      ctx.strokeStyle = '#fbbf24';
+      ctx.setLineDash([5, 4]);
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(defX, c4Y + 218, defW * barFill, 26);
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '700 12px "JetBrains Mono", monospace';
+      ctx.fillText('▲ -9.2% DEFICIT GAP TO MAKE IN INDIA TARGET (25%)', c4X + 34, c4Y + 270);
+
+      // Bottom Fact Box
+      drawGlassCard(ctx, c4X + 34, c4Y + 296, 600, 94, 10, 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.03)');
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '600 13.5px "Inter", sans-serif';
+      ctx.fillText('चीन ने 80 करोड़ लोगों को आईटी या स्टॉक मार्केट से नहीं,', c4X + 54, c4Y + 332);
+      ctx.fillStyle = '#34d399';
+      ctx.font = '700 13.5px "Inter", sans-serif';
+      ctx.fillText('बल्कि दुनिया की फ़ैक्ट्री बनकर ग़रीबी से बाहर निकाला!', c4X + 54, c4Y + 360);
+
+      ctx.restore();
+    }
+
+    // -------------------------------------------------------------------------
+    // PHASE 5: [397.18s - 405.48s] Beat 48 (Bengaluru IT Tech Park)
+    // "हमने एग्रीकल्चर से सीधे आईटी और सॉफ़्टवेयर पर छलांग लगा दी।"
+    // India's Premature Jump: The Fractured Bridge HUD (Left Side)
+    // -------------------------------------------------------------------------
+    else if (t >= 397.18 && t < 405.48) {
+      const p5Elapsed = t - 397.18;
+      const p5Alpha = Math.min(1.0, p5Elapsed / 0.45);
+      const p5Slide = (1 - easeOutCubic(Math.min(1.0, p5Elapsed / 0.5))) * 35;
+
+      ctx.save();
+      ctx.globalAlpha = p5Alpha;
+      const c5X = 100 - p5Slide, c5Y = 120, c5W = 620, c5H = 460;
+      drawGlassCard(ctx, c5X, c5Y, c5W, c5H, 18, 'rgba(244, 63, 94, 0.45)', 'rgba(8, 14, 24, 0.90)');
+
+      drawBadge(ctx, 'THE PREMATURE JUMP · STRUCTURAL CHASM', c5X + c5W/2, c5Y + 34, '#f43f5e', 'rgba(244, 63, 94, 0.15)', 'rgba(244, 63, 94, 0.4)');
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Outfit", "Inter", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('DIRECT JUMP TO SERVICES', c5X + 32, c5Y + 80);
+
+      // Box 1: Farms (45.4%)
+      drawGlassCard(ctx, c5X + 28, c5Y + 104, c5W - 56, 76, 10, 'rgba(255, 255, 255, 0.12)', 'rgba(255, 255, 255, 0.03)');
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '800 12px "JetBrains Mono", monospace';
+      ctx.fillText('STAGE 1: AGRICULTURE', c5X + 44, c5Y + 130);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '700 15px "Inter", sans-serif';
+      ctx.fillText('45.4% Workforce (Contributes only 15% GDP)', c5X + 44, c5Y + 158);
+
+      // Fractured Bridge Notice
+      ctx.fillStyle = '#f43f5e';
+      ctx.font = '900 14px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚡ SKIPPED STAGE 2: MASS FACTORIES (STUCK AT 15.8%) ⚡', c5X + c5W/2, c5Y + 208);
+
+      // Box 2: IT & Services
+      drawGlassCard(ctx, c5X + 28, c5Y + 226, c5W - 56, 110, 10, 'rgba(56, 189, 248, 0.35)', 'rgba(56, 189, 248, 0.06)');
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 12px "JetBrains Mono", monospace';
+      ctx.fillText('PREMATURE JUMP: IT & HIGH SERVICES (+12.1%)', c5X + 44, c5Y + 254);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 22px "JetBrains Mono", monospace';
+      ctx.fillText('EMPLOYS < 5% WORKFORCE', c5X + 44, c5Y + 288);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '500 12px "Inter", sans-serif';
+      ctx.fillText('Requires fluent English & Coding degrees', c5X + 44, c5Y + 316);
+
+      // Warning Verdict
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('आईटी सेक्टर 60 करोड़ ग्रामीण युवाओं को नौकरी नहीं दे सकता!', c5X + 32, c5Y + 382);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '400 12px "Inter", sans-serif';
+      ctx.fillText('यही कारण है कि 7.8% GDP ग्रोथ के बावजूद ग्राउंड पर जॉब्स ग़ायब हैं।', c5X + 32, c5Y + 412);
+
+      ctx.restore();
+    }
   }
 
   // -------------------------------------------------------------
