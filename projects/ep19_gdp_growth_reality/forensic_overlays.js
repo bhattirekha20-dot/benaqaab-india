@@ -160,7 +160,7 @@
     },
     {
       start_s: 48.30, end_s: 60.10,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'FORENSIC AUDIT METHODOLOGY · SACH · SABOOT · BEBAK',
       title: 'DECONSTRUCTING THE REAL GDP PUZZLE',
@@ -365,7 +365,7 @@
       pos: 'top-right',
       theme: 'crimson',
       tag: 'MIDDLE CLASS COST LIVING SQUEEZE',
-      title: 'WHY SAVINGS COLLAPSED: BASIC EXPENSES TRIPLED',
+      title: 'WHY SAVINGS COLLAPSED: EXPENSES TRIPLED',
       stats: [
         { label: 'EDUCATION INFLATION', val: '11.5% / yr', sub: 'School Fees & Coaching', color: '#f43f5e' },
         { label: 'HEALTHCARE EXPENSES', val: '14.2% / yr', sub: 'Hospital Bills & Out-of-Pocket', color: '#fbbf24' }
@@ -404,7 +404,7 @@
       title: 'PLEDGING FAMILY GOLD FOR CASH FLOW',
       stats: [
         { label: 'GOLD LOAN DISBURSALS', val: '+34.0% YoY', sub: 'Surge in Pawnshops & NBFCs', color: '#fbbf24' },
-        { label: 'PURPOSE OF BORROWING', val: 'Family Medical / Fees', sub: 'Emergency Cash Flow Strain', color: '#f43f5e' }
+        { label: 'PURPOSE OF BORROWING', val: 'Medical & Fees', sub: 'Emergency Cash Flow Strain', color: '#f43f5e' }
       ],
       verdict: 'घर का सोना गिरवी रखकर रोजमर्रा के खर्च और फीस भरी जा रही है।'
     },
@@ -558,9 +558,9 @@
       title: 'THE ACTIONABLE ROADMAP: HOW INDIA BECOMES TRULY RICH',
       subtitle: 'Four Non-Negotiable Structural Pillars Beyond GDP Hype',
       cells: [
-        { title: 'Pillar 1', metric: 'Mass Factories', desc: 'Plug-and-play coastal industrial clusters', color: '#38bdf8' },
+        { title: 'Pillar 1', metric: 'Job Hubs', desc: 'Plug-and-play coastal industrial clusters', color: '#38bdf8' },
         { title: 'Pillar 2', metric: 'Tax Relief', desc: 'Cut GST on food & health; boost consumption', color: '#fbbf24' },
-        { title: 'Pillar 3', metric: 'Agri Cold Chains', desc: '100% solar cold storage; food processing hubs', color: '#34d399' }
+        { title: 'Pillar 3', metric: 'Cold Chains', desc: '100% solar cold storage; food processing hubs', color: '#34d399' }
       ],
       verdict: 'पीआर और हेडलाइन हाइप से परे: असली सुधारों का 4-सूत्रीय मास्टर प्लान।'
     },
@@ -659,19 +659,27 @@
     const elapsed = t - active.start_s;
     const remaining = active.end_s - t;
 
-    // Smooth spring entrance (0.35s) and exit (0.25s)
-    let alpha = 1.0;
-    let enterOffset = 0;
-    if (elapsed < 0.35) {
-      const p = elapsed / 0.35;
-      alpha = easeOutCubic(p);
-      enterOffset = (1 - easeOutCubic(p)) * 25;
-    } else if (remaining < 0.25) {
-      alpha = Math.max(0, remaining / 0.25);
+    // Relative Progressive Phase Timing
+    // Master alpha fade in (0.45s) & fade out (0.35s)
+    let masterAlpha = 1.0;
+    if (elapsed < 0.45) {
+      masterAlpha = easeOutCubic(elapsed / 0.45);
+    } else if (remaining < 0.35) {
+      masterAlpha = Math.max(0, remaining / 0.35);
     }
 
+    // Spring overshoot entry from edge (snappy 120ms settle)
+    const enterP = Math.min(1, elapsed / 0.55);
+    const c1 = 1.70158, c3 = 2.70158;
+    const overshoot = 1 + c3 * Math.pow(enterP - 1, 3) + c1 * Math.pow(enterP - 1, 2);
+    const enterOffset = (1 - Math.min(1.06, overshoot)) * 34;
+
+    // Living Tactile Floating Physics (Never static, subtle 2px breathing)
+    const floatY = elapsed > 0.5 ? Math.sin(t * 1.8) * 2.5 : 0;
+    const floatX = elapsed > 0.5 ? Math.cos(t * 1.3) * 1.2 : 0;
+
     ctx.save();
-    ctx.globalAlpha = alpha;
+    ctx.globalAlpha = masterAlpha;
 
     // Theme color palettes
     const themes = {
@@ -684,158 +692,310 @@
 
     // -------------------------------------------------------------------------
     // RENDER STYLE A: CENTER BENTO CARD (Major Chapter Turning Points like SS1)
+    // Progressive Staged Reveal (Phases 1 - 5)
     // -------------------------------------------------------------------------
     if (active.pos === 'center-bento') {
-      // Soft ambient radial focus directly behind center bento, leaving perimeter and hero photo completely visible
       const bentoGrad = ctx.createRadialGradient(960, 480, 160, 960, 480, 950);
-      bentoGrad.addColorStop(0, 'rgba(4, 7, 14, 0.20)');
+      bentoGrad.addColorStop(0, 'rgba(4, 7, 14, 0.22)');
       bentoGrad.addColorStop(1, 'rgba(4, 7, 14, 0.02)');
       ctx.fillStyle = bentoGrad;
       ctx.fillRect(0, 0, 1920, 1080);
 
-      const cx = 960, cy = 480 + enterOffset;
+      const cx = 960 + floatX, cy = 480 + enterOffset + floatY;
       const cardW = 1180, cardH = 540;
       const x0 = cx - cardW / 2, y0 = cy - cardH / 2;
 
       drawGlassCard(ctx, x0, y0, cardW, cardH, 20, curTheme.border, null);
 
-      // Top Tag Pill
-      drawTagPill(ctx, active.tag, x0 + 40, y0 + 36, curTheme.tagColor, curTheme.tagBg);
+      // Top Glint Sweep
+      const glintP = (t * 0.35) % 1.0;
+      const glintX = x0 + cardW * glintP;
+      ctx.save();
+      const glintGrad = ctx.createRadialGradient(glintX, y0, 0, glintX, y0, 60);
+      glintGrad.addColorStop(0, curTheme.tagColor);
+      glintGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.4)');
+      glintGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = glintGrad;
+      ctx.fillRect(glintX - 60, y0 - 3, 120, 6);
+      ctx.restore();
 
-      // Title & Subtitle
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '800 28px "Outfit", "Inter", sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText(active.title, x0 + 40, y0 + 82);
+      // Phase 1: Tag Pill Wipe & Pulsing Beacon
+      const tagP = Math.min(1, Math.max(0, (elapsed - 0.15) / 0.4));
+      if (tagP > 0) {
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * easeOutCubic(tagP);
+        const pillW = drawTagPill(ctx, active.tag, x0 + 40, y0 + 36, curTheme.tagColor, curTheme.tagBg);
 
-      if (active.subtitle) {
-        ctx.fillStyle = '#94a3b8';
-        ctx.font = '600 15px "Inter", sans-serif';
-        ctx.fillText(active.subtitle, x0 + 40, y0 + 112);
+        const pulse = 0.5 + 0.5 * Math.sin(t * 7.5);
+        ctx.fillStyle = curTheme.tagColor;
+        ctx.shadowColor = curTheme.tagColor;
+        ctx.shadowBlur = 8 * pulse;
+        ctx.beginPath();
+        ctx.arc(x0 + 40 + pillW + 14, y0 + 36, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
       }
 
-      // 3 Bento Cells
+      // Phase 2: Title & Subtitle Slide
+      const titleP = Math.min(1, Math.max(0, (elapsed - 0.45) / 0.5));
+      if (titleP > 0) {
+        const titleAlpha = easeOutCubic(titleP);
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * titleAlpha;
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '800 28px "Outfit", "Inter", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(active.title, x0 + 40, y0 + 82 + (1 - titleAlpha) * 8);
+
+        if (active.subtitle) {
+          ctx.fillStyle = '#94a3b8';
+          ctx.font = '600 15px "Inter", sans-serif';
+          ctx.fillText(active.subtitle, x0 + 40, y0 + 112 + (1 - titleAlpha) * 8);
+        }
+        ctx.restore();
+      }
+
+      // Phase 3, 4, 5: Staged Bento Cells
       if (active.cells) {
         const cellY = y0 + 140;
         const cellW = 345, cellH = 260;
         const cellGap = 28;
 
         active.cells.forEach((c, idx) => {
-          const cellX = x0 + 40 + idx * (cellW + cellGap);
-          drawGlassCard(ctx, cellX, cellY, cellW, cellH, 14, 'rgba(255, 255, 255, 0.12)', 'rgba(10, 15, 28, 0.35)');
+          const cellDelay = 0.8 + idx * 0.45;
+          const cellP = Math.min(1, Math.max(0, (elapsed - cellDelay) / 0.5));
+          if (cellP > 0) {
+            const cellAlpha = easeOutCubic(cellP);
+            const cellX = x0 + 40 + idx * (cellW + cellGap);
+            const cellSlideY = cellY + (1 - cellAlpha) * 16;
 
-          // Cell Step Header
-          ctx.fillStyle = c.color;
-          ctx.font = '700 12px "JetBrains Mono", monospace';
-          ctx.fillText(`PHASE ${idx + 1}: ${c.title.toUpperCase()}`, cellX + 22, cellY + 36);
+            ctx.save();
+            ctx.globalAlpha = masterAlpha * cellAlpha;
+            drawGlassCard(ctx, cellX, cellSlideY, cellW, cellH, 14, 'rgba(255, 255, 255, 0.14)', 'rgba(10, 15, 28, 0.40)');
 
-          // Big Metric
-          ctx.fillStyle = '#ffffff';
-          ctx.font = '800 38px "Outfit", sans-serif';
-          ctx.fillText(c.metric, cellX + 22, cellY + 92);
+            // Cell Step Header
+            ctx.fillStyle = c.color;
+            ctx.font = '700 12px "JetBrains Mono", monospace';
+            ctx.fillText(`PHASE ${idx + 1}: ${c.title.toUpperCase()}`, cellX + 22, cellSlideY + 36);
 
-          // Divider
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-          ctx.fillRect(cellX + 22, cellY + 114, cellW - 44, 1);
+            // Big Metric with Glow
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '800 38px "Outfit", sans-serif';
+            ctx.shadowColor = c.color;
+            ctx.shadowBlur = 10 * cellP;
+            ctx.fillText(c.metric, cellX + 22, cellSlideY + 92);
+            ctx.shadowBlur = 0;
 
-          // Description
-          ctx.fillStyle = '#94a3b8';
-          ctx.font = '500 14px "Inter", sans-serif';
-          const words = c.desc.split(' ');
-          let line = '', lineY = cellY + 144;
-          for (let w of words) {
-            const testLine = line + w + ' ';
-            if (ctx.measureText(testLine).width > cellW - 44) {
-              ctx.fillText(line, cellX + 22, lineY);
-              line = w + ' ';
-              lineY += 22;
-            } else {
-              line = testLine;
+            // Divider
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.fillRect(cellX + 22, cellSlideY + 114, (cellW - 44) * cellAlpha, 1);
+
+            // Description
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '500 14px "Inter", sans-serif';
+            const words = c.desc.split(' ');
+            let line = '', lineY = cellSlideY + 144;
+            for (let w of words) {
+              const testLine = line + w + ' ';
+              if (ctx.measureText(testLine).width > cellW - 44) {
+                ctx.fillText(line, cellX + 22, lineY);
+                line = w + ' ';
+                lineY += 22;
+              } else {
+                line = testLine;
+              }
             }
+            ctx.fillText(line, cellX + 22, lineY);
+            ctx.restore();
           }
-          ctx.fillText(line, cellX + 22, lineY);
         });
       }
 
-      // Bottom Verdict Strip
-      const verdY = y0 + cardH - 64;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.roundRect(x0 + 40, verdY, cardW - 80, 42, 8);
-      ctx.fill();
-      ctx.stroke();
+      // Phase 6: Bottom Verdict Strip (Enters at 2.1s)
+      const verdP = Math.min(1, Math.max(0, (elapsed - 2.1) / 0.5));
+      if (verdP > 0) {
+        const verdAlpha = easeOutCubic(verdP);
+        const verdY = y0 + cardH - 64 + (1 - verdAlpha) * 12;
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * verdAlpha;
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+        ctx.strokeStyle = curTheme.border;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(x0 + 40, verdY, cardW - 80, 42, 8);
+        ctx.fill();
+        ctx.stroke();
 
-      ctx.fillStyle = curTheme.tagColor;
-      ctx.font = '700 14px "JetBrains Mono", monospace';
-      ctx.fillText('🔍 GROUND REALITY VERDICT:', x0 + 56, verdY + 26);
+        ctx.fillStyle = curTheme.tagColor;
+        ctx.font = '700 14px "JetBrains Mono", monospace';
+        ctx.fillText('🔍 GROUND REALITY VERDICT:', x0 + 56, verdY + 26);
 
-      ctx.fillStyle = '#f8fafc';
-      ctx.font = '600 14px "Inter", sans-serif';
-      ctx.fillText(active.verdict, x0 + 290, verdY + 26);
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '600 14px "Inter", sans-serif';
+        ctx.fillText(active.verdict, x0 + 290, verdY + 26);
+        ctx.restore();
+      }
     }
 
     // -------------------------------------------------------------------------
     // RENDER STYLE B: ASYMMETRIC FLOATING HUD DATA CARDS (Upper-Right or Left)
+    // Progressive Staged Reveal (Phases 1 - 6)
     // -------------------------------------------------------------------------
     else {
       const cardW = 560, cardH = 210;
-      let cardX = 1300, cardY = 100 + enterOffset;
+      let cardX = 1300, cardY = 100;
       if (active.pos === 'top-left') {
         cardX = 80;
-        cardY = 100 + enterOffset;
+        cardY = 114;
       }
 
-      drawGlassCard(ctx, cardX, cardY, cardW, cardH, 16, curTheme.border, null);
+      const curCardX = cardX + floatX;
+      const curCardY = cardY + enterOffset + floatY;
 
-      // Top Tag Pill
-      drawTagPill(ctx, active.tag, cardX + 24, cardY + 28, curTheme.tagColor, curTheme.tagBg);
+      drawGlassCard(ctx, curCardX, curCardY, cardW, cardH, 16, curTheme.border, null);
 
-      // Card Title
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '800 18px "Outfit", "Inter", sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText(active.title, cardX + 24, cardY + 68);
+      // Top Specular Glint Beam Sweep
+      const glintP = (t * 0.45) % 1.0;
+      const glintX = curCardX + cardW * glintP;
+      ctx.save();
+      const glintGrad = ctx.createRadialGradient(glintX, curCardY, 0, glintX, curCardY, 45);
+      glintGrad.addColorStop(0, curTheme.tagColor);
+      glintGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.4)');
+      glintGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = glintGrad;
+      ctx.fillRect(glintX - 45, curCardY - 3, 90, 6);
+      ctx.restore();
 
-      // 2 Structured Metric Columns
+      // Phase 1: Tag Pill Wipe & Pulsing Live Beacon (e >= 0.15s)
+      const tagP = Math.min(1, Math.max(0, (elapsed - 0.15) / 0.4));
+      if (tagP > 0) {
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * easeOutCubic(tagP);
+        const pillW = drawTagPill(ctx, active.tag, curCardX + 24, curCardY + 28, curTheme.tagColor, curTheme.tagBg);
+
+        const pulse = 0.5 + 0.5 * Math.sin(t * 7.5);
+        ctx.fillStyle = curTheme.tagColor;
+        ctx.shadowColor = curTheme.tagColor;
+        ctx.shadowBlur = 8 * pulse;
+        ctx.beginPath();
+        ctx.arc(curCardX + 24 + pillW + 12, curCardY + 28, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      }
+
+      // Phase 2: Card Title Eased Slide & Reveal (e >= 0.45s)
+      const titleP = Math.min(1, Math.max(0, (elapsed - 0.45) / 0.5));
+      if (titleP > 0) {
+        const titleAlpha = easeOutCubic(titleP);
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * titleAlpha;
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '800 18px "Outfit", "Inter", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(active.title, curCardX + 24, curCardY + 68 + (1 - titleAlpha) * 8);
+        ctx.restore();
+      }
+
+      // Phase 3 & 4: Staged Metric Pods 1 & 2
       if (active.stats && active.stats.length >= 2) {
         const colW = (cardW - 48 - 16) / 2;
 
         active.stats.forEach((st, idx) => {
-          const colX = cardX + 24 + idx * (colW + 16);
-          const colY = cardY + 86;
+          const podDelay = 0.85 + idx * 0.45;
+          const podP = Math.min(1, Math.max(0, (elapsed - podDelay) / 0.5));
+          if (podP > 0) {
+            const podAlpha = easeOutCubic(podP);
+            const colX = curCardX + 24 + idx * (colW + 16);
+            const colY = curCardY + 86;
+            const podOffsetY = (1 - podAlpha) * 10;
+            const podScale = 0.92 + 0.08 * podAlpha;
 
-          // Mini Metric Pod
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.07)';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.roundRect(colX, colY, colW, 68, 8);
-          ctx.fill();
-          ctx.stroke();
+            ctx.save();
+            ctx.globalAlpha = masterAlpha * podAlpha;
+            ctx.translate(colX + colW/2, colY + 34);
+            ctx.scale(podScale, podScale);
+            ctx.translate(-(colX + colW/2), -(colY + 34));
 
-          ctx.fillStyle = '#94a3b8';
-          ctx.font = '700 10px "JetBrains Mono", monospace';
-          ctx.fillText(st.label, colX + 12, colY + 20);
+            // Mini Metric Pod Background
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
+            ctx.strokeStyle = podP > 0.8 ? st.color : 'rgba(255, 255, 255, 0.10)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(colX, colY + podOffsetY, colW, 68, 8);
+            ctx.fill();
+            ctx.stroke();
 
-          ctx.fillStyle = st.color;
-          ctx.font = '800 20px "Outfit", sans-serif';
-          ctx.fillText(st.val, colX + 12, colY + 44);
+            // Label
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '700 10px "JetBrains Mono", monospace';
+            ctx.fillText(st.label, colX + 12, colY + podOffsetY + 20);
 
-          ctx.fillStyle = '#64748b';
-          ctx.font = '500 10px "Inter", sans-serif';
-          ctx.fillText(st.sub, colX + 12, colY + 60);
+            // Value with glowing shadow
+            ctx.fillStyle = st.color;
+            ctx.font = '800 20px "Outfit", sans-serif';
+            ctx.shadowColor = st.color;
+            ctx.shadowBlur = 8 * Math.min(1, podP);
+            ctx.fillText(st.val, colX + 12, colY + podOffsetY + 44);
+            ctx.shadowBlur = 0;
+
+            // Sub-text
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '500 10px "Inter", sans-serif';
+            ctx.fillText(st.sub, colX + 12, colY + podOffsetY + 60);
+
+            ctx.restore();
+          }
         });
+
+        // Dynamic Conduit Packet between Pod 1 and Pod 2 (e > 1.8s)
+        if (elapsed > 1.8) {
+          const streamTime = t * 2.8;
+          const gapX1 = curCardX + 24 + colW;
+          const gapX2 = curCardX + 24 + colW + 16;
+          const packetX = gapX1 + (gapX2 - gapX1) * (streamTime % 1.0);
+          const packetY = curCardY + 86 + 34;
+
+          ctx.save();
+          ctx.fillStyle = curTheme.tagColor;
+          ctx.shadowColor = curTheme.tagColor;
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(packetX, packetY, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
       }
 
-      // Bottom Micro-Verdict / Sach Saboot Bebak Takeaway
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.fillRect(cardX + 24, cardY + 164, cardW - 48, 1);
+      // Phase 5: Divider Wipe & Spoken Forensic Verdict (e >= 1.85s)
+      const verdP = Math.min(1, Math.max(0, (elapsed - 1.85) / 0.5));
+      if (verdP > 0) {
+        const verdAlpha = easeOutCubic(verdP);
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * verdAlpha;
 
-      ctx.fillStyle = '#f8fafc';
-      ctx.font = '500 12px "Inter", sans-serif';
-      ctx.fillText(`• ${active.verdict}`, cardX + 24, cardY + 188);
+        // Animated Divider Line (wipes left to right)
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.10)';
+        ctx.fillRect(curCardX + 24, curCardY + 164, (cardW - 48) * verdAlpha, 1);
+
+        // Bullet Point with glowing beacon dot
+        const dotPulse = 0.6 + 0.4 * Math.sin(t * 6.0);
+        ctx.fillStyle = curTheme.tagColor;
+        ctx.shadowColor = curTheme.tagColor;
+        ctx.shadowBlur = 6 * dotPulse;
+        ctx.beginPath();
+        ctx.arc(curCardX + 28, curCardY + 185, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Hindi Verdict Text
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '500 12.5px "Inter", sans-serif';
+        ctx.fillText(`• ${active.verdict}`, curCardX + 38, curCardY + 188);
+
+        ctx.restore();
+      }
     }
 
     ctx.restore();

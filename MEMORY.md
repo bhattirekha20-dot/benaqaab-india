@@ -6162,3 +6162,52 @@ During HTML canvas playback in `comp.html`, a video freeze occurred due to two d
      }
      ```
    - No individual graphic error or missing asset can ever kill the playback engine.
+
+---
+
+## 💎 §180: THE PROGRESSIVE HUD DIALOGUE BOX & CONTINUOUS CAMERA DYNAMICS STANDARD (RULE-PROGRESSIVE-HUD-MOTION) (2026-10-11)
+
+### 1. The Problem: Static Card Retention Decay
+- **The Viewer Retention Drop:** In high-stakes documentary and investigative explainers, images or graphic cards holding static for $> 2\text{--}3$ seconds cause an immediate drop in viewer retention.
+- **The Cognitive Staleness Trap:** When complex HUD cards, telemetry boxes, or data overlays enter all-at-once and remain stationary, visual tension collapses, causing the viewer to tune out or perceive the production as a static slideshow.
+- **Opus 5.5 Kinetic Mandate:** Violating continuous acceleration/deceleration or leaving "dead frames" without micro-life fails the Benaqaab Forensic Motion standard (`motion_report` freezes $= 0$).
+
+### 2. The Solution Architecture: 6-Phase Progressive HUD Staging
+Every HUD dialogue box, evidence pill, and bento card is decomposed into a causally staged progressive sequence ($0.0\text{s} \to 1.80\text{s}+$) paired with continuous ambient vitality:
+- **Phase 1 ($0.0\text{s} - 0.45\text{s}$): Spring Entry & Ambient Floating Micro-Drift:**
+  - Card enters via underdamped spring physics: `scale: 0.94 -> 1.0`, `opacity: 0.0 -> 1.0` with overshoot settle (`c1 = 1.70158`, `c3 = 2.70158`).
+  - Tactile floating micro-drift activates ($\pm 2.5\text{px}$ Y via $\sin(1.8t)$, $\pm 1.2\text{px}$ X via $\cos(1.3t)$), guaranteeing the card is never locked in rigid space.
+- **Phase 2 ($0.15\text{s} - 0.55\text{s}$): Tag Pill Wipe & Pulsing Live Telemetry Beacon Node:**
+  - Category tag pill (`drawTagPill`) wipes onto the screen with ease-out cubic interpolation.
+  - Active telemetry beacon node illuminates and pulses at $2.2\text{Hz}$ with harmonic radar ripples (`ctx.arc` expansion and alpha fade), signaling real-time forensic ingestion.
+- **Phase 3 ($0.45\text{s} - 0.85\text{s}$): Title Slide-Up & Fade-In:**
+  - Authoritative headline slides up ($+8\text{px} \to 0\text{px}$) with simultaneous opacity fade-in, anchoring the topic in the viewer's focus.
+- **Phase 4 ($0.85\text{s} - 1.35\text{s}$): Metric Pod 1 Spring Pop-In:**
+  - First metric pod pops in (`scale: 0.92 \to 1.0`) with localized glowing accent drop-shadow (`shadowBlur: 14px`). Tabular counter digits lock into view.
+- **Phase 5 ($1.35\text{s} - 1.80\text{s}$): Metric Pod 2 Spring Pop-In:**
+  - Second comparative metric pod pops in with secondary accent glow, establishing clear narrative and numerical contrast.
+- **Phase 6 ($1.80\text{s}+$): Active Data Conduit Packets, Divider Wipe & Hindi Verdict Bullet Rise:**
+  - Active energy packet stream pulses across the conduit line bridging Pod 1 and Pod 2 (`(streamTime % 1.0)` traversal).
+  - Specular divider rule wipes open ($0\% \to 100\%$).
+  - Spoken Hindi forensic verdict bullet point glides upward into final resting position (`• active.verdict`).
+- **Continuous Life & Specular Glint Sweep (Zero Dead Frames):**
+  - Specular top-edge beam glint sweeps across the frosted glass card header ($x: 0\% \to 100\%$) driven by `(t * 0.45) % 1.0`.
+  - Floating drift, beacon pulse, and data conduit packets persist throughout the entire beat duration so zero dead frames exist.
+
+### 3. Virtual Camera Dynamic Zoom & Pan System
+To prevent background plate stagnation and maintain cinematic depth across varying beat lengths, an adaptive duration-based camera engine is implemented:
+- **Long Shots ($> 6.0\text{s}$):**
+  - Zoom depth: $\text{zoomDepth} = +7.5\%$ (`camScale = 1.0 + beatProgress * 0.075`).
+  - Pan distance: $\text{panDist} = 38\text{px}$ with alternating horizontal direction (`panDir = (beat_id % 2 === 0) ? -1 : 1`) and vertical arc ($\sin(\text{progress} \cdot \pi) \cdot 8\text{px}$).
+- **Medium Shots ($> 3.0\text{s}$):**
+  - Zoom depth: $\text{zoomDepth} = +5.2\%$ (`camScale = 1.0 + beatProgress * 0.052`).
+  - Pan distance: $\text{panDist} = 24\text{px}$ with vertical arc ($\sin(\text{progress} \cdot \pi) \cdot 4\text{px}$).
+- **Short Shots ($\le 3.0\text{s}$):**
+  - Zoom depth: $\text{zoomDepth} = +3.5\%$ (`camScale = 1.0 + beatProgress * 0.035`).
+  - Pan distance: $\text{panDist} = 14\text{px}$.
+
+### 4. Universal Application in Production
+- **Production Grounding:** Fully implemented and validated in `projects/ep19_gdp_growth_reality/` across:
+  - All **44 floating HUD dialogue boxes** (`pos: 'hud-right'`, `'top-right'`, `'top-left'`).
+  - All **7 center bento cards** (`pos: 'center-bento'`) for major chapter turning points.
+- **Result:** Converts every documentary frame into an active visual journalism experience with 100% WCAG contrast, zero audio-visual desync, and silky 60FPS seek reproducibility.

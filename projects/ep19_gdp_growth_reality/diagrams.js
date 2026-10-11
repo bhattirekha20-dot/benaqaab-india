@@ -1583,13 +1583,44 @@
       // Hindi subtitle pill
       drawBadge(ctx, p.hi, px + pW/2, pY + liftY + 105, p.color, 'rgba(0,0,0,0.4)', p.color);
 
-      // Bullets
-      ctx.fillStyle = '#e2e8f0';
-      ctx.font = '400 13.5px "Inter", sans-serif';
-      let bY = pY + liftY + 155;
+      // Bullets (wrapped cleanly within card, maxWidth = 230px)
+      ctx.font = '400 13px "Inter", sans-serif';
+      ctx.textAlign = 'left';
+      const bulletMaxWidth = 230;
+      const textMaxWidth = bulletMaxWidth - 14;
+      const bulletLineHeight = 19;
+      const bulletSpacing = 12;
+      let bY = pY + liftY + 148;
+
       p.bullets.forEach(b => {
-        ctx.fillText(`• ${b}`, px + 20, bY);
-        bY += 46;
+        const words = b.split(' ');
+        const lines = [];
+        let curLine = '';
+
+        for (let i = 0; i < words.length; i++) {
+          const test = curLine ? curLine + ' ' + words[i] : words[i];
+          if (ctx.measureText(test).width <= textMaxWidth) {
+            curLine = test;
+          } else {
+            if (curLine) lines.push(curLine);
+            curLine = words[i];
+          }
+        }
+        if (curLine) lines.push(curLine);
+
+        lines.forEach((line, lIdx) => {
+          if (lIdx === 0) {
+            ctx.fillStyle = p.color;
+            ctx.fillText('•', px + 20, bY);
+            ctx.fillStyle = '#e2e8f0';
+            ctx.fillText(line, px + 32, bY);
+          } else {
+            ctx.fillStyle = '#e2e8f0';
+            ctx.fillText(line, px + 32, bY);
+          }
+          bY += bulletLineHeight;
+        });
+        bY += bulletSpacing;
       });
 
       // Bottom Status Indicator

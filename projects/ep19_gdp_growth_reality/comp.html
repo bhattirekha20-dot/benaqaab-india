@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EP-19: India's 7.8% GDP vs Global Superpowers (Benaqaab India Master Studio)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+Devanagari:wght@500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -663,10 +666,15 @@
       ctx.save();
       ctx.translate(960, 540);
       
-      const camScale = 1.0 + beatProgress * 0.035;
-      const camPanX = (beatProgress - 0.5) * 14;
+      // Adaptive Dynamic Camera Zoom & Pan based on shot duration (Anti-Freeze & Dynamic Motion Law)
+      const zoomDepth = beatDur > 6.0 ? 0.075 : (beatDur > 3.0 ? 0.052 : 0.035);
+      const panDist = beatDur > 6.0 ? 38 : (beatDur > 3.0 ? 24 : 14);
+      const panDir = (activeBeat.beat_id % 2 === 0) ? -1 : 1;
+      const camScale = 1.0 + beatProgress * zoomDepth;
+      const camPanX = (beatProgress - 0.5) * panDist * panDir;
+      const camPanY = Math.sin(beatProgress * Math.PI) * (beatDur > 6.0 ? 8 : 4);
       ctx.scale(camScale, camScale);
-      ctx.translate(camPanX, 0);
+      ctx.translate(camPanX, camPanY);
 
       ctx.drawImage(img, -960, -540, 1920, 1080);
       ctx.restore();
