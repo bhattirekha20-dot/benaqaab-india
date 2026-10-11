@@ -6211,3 +6211,24 @@ To prevent background plate stagnation and maintain cinematic depth across varyi
   - All **44 floating HUD dialogue boxes** (`pos: 'hud-right'`, `'top-right'`, `'top-left'`).
   - All **7 center bento cards** (`pos: 'center-bento'`) for major chapter turning points.
 - **Result:** Converts every documentary frame into an active visual journalism experience with 100% WCAG contrast, zero audio-visual desync, and silky 60FPS seek reproducibility.
+
+---
+
+## 💎 §181: PURE BACKGROUND IMAGE FIDELITY & SPATIAL CARD TRANSPARENCY LAW (RULE-ZERO-UNNECESSARY-BLACKOUTS) (2026-10-12)
+
+### 1. The Anti-Blackout Law: Never Hide Empty Negative Space in Darkness
+- **The Core Violation:** Filling large portions of the screen (e.g. `ctx.fillRect(0, 0, 960, 1080)`) with solid dark obsidian or heavy linear washes to create "contrast" for a dialogue box is strictly forbidden. It destroys the cinematic depth of the background plate, burying authentic wet pavement reflections, architectural lighting, and environmental atmosphere beneath an artificial black void.
+- **The Visual Rule:** The background photo must remain 100% visible across the entire frame. Only subtle peripheral radial vignettes (`vigGrad` with 0.28–0.75 edge alpha) and organic 3.5% grain are permitted at the canvas level.
+- **Card-Level Self-Sufficient Glassmorphism:** Dialogue boxes and HUD cards must achieve their contrast **within their own bounds** via frosted glassmorphism (`drawGlassCard`: `rgba(8, 13, 24, 0.48)` to `rgba(5, 8, 16, 0.36)`, 1.2px specular borders, top glint sweeps, and soft drop-shadows). Areas where text is NOT written must never be blacked out or masked.
+
+### 2. Spatial Focal Balance (Left-Side Dialogue Box Standard)
+- When the hero subject occupies the center or right of the frame (e.g. Beat 7 Dalal Street Bull charging across $X = 750\dots1800\text{px}$):
+  - Position the HUD dialogue box in the negative space on the upper-left: `pos: 'top-left'`, $X = 80\text{px}, Y = 114\text{px}$ ($W = 560\text{px}, H = 210\text{px}$).
+  - Sits with a clean $38\text{px}$ vertical breathing margin below the channel brand pill ($X = 40, Y = 34, H = 42$, bottom $Y = 76\text{px}$).
+  - Completely uncovers the hero subject on the right while anchoring key facts on the left.
+
+### 3. Audited Text Boundaries & Devanagari Font Rendering
+- **Zero Text Overflow:** All metric labels, titles, and pod values across 44 overlays strictly budgeted to prevent spilling beyond card borders.
+- **Dynamic Pillar Bullet Wrapping:** Diagram 7 (Four Reform Pillars Blueprint) implements dynamic canvas word wrapping (`maxWidth = 230px`, `textMaxWidth = 216px`) with dedicated hanging indentation (`px + 32`) and accent-colored bullets.
+- **Devanagari Font Integrity:** `<link>` in `comp.html` explicitly includes Google Fonts `Noto Sans Devanagari` alongside `Inter`, `Outfit`, and `JetBrains Mono` to guarantee pristine Hindi typography without system font degradation.
+
