@@ -6040,3 +6040,60 @@ Implemented user's directive to: (1) read and verify all 50 AI images in detail,
 
 
 
+
+
+---
+
+## 🏛️ §177: PROGRESSIVE INFOGRAPHIC MOTION & WORKSPACE ARCHIVE 01a12c06 INTEGRATION (2026-10-11)
+
+### 1. Provenance & User Mandate
+- **Archive Source:** `workspace-01a12c06-9c45-78bf-a41f-f0b7acd2453d.zip` (Extracted to `extracted_workspace_01a12c06/`).
+- **User Directive:** *"see it and get new from it and save then in the memory and always save evrything i told in the memeory so that we make the best for future making so that we are always improving ok"*.
+- **Supreme Permanent Operating Law:** Everything communicated, corrected, or provided by the user MUST be permanently codified into workspace memory and governance files so that every future AI session across any model or IDE continuously improves without ever repeating past mistakes.
+
+### 2. New Specialization: `progressive-infographic-motion`
+Installed permanently in `.agents/skills/progressive-infographic-motion/` and `skills/progressive-infographic-motion/` alongside `CENTRAL_MOTION_EDITING_SKILL.md`.
+
+#### A. Core Philosophy: The Progressive Reveal (Never Show All Panels at Once)
+- **Problem Solved:** Amateur explainers dump entire complex dashboards on screen simultaneously, overwhelming cognitive load.
+- **Progressive Architecture:** Visual units reveal sequentially to mirror the human explanatory narrative:
+  1. **Phase 01:** Primary headline / dialog enters center screen with optional glowing `LIVE` tag.
+  2. **Phase 02:** Headline moves smoothly to its permanent top anchor.
+  3. **Phase 03:** Left supporting context card enters (information cyan `#32ccff`).
+  4. **Phase 04:** Central hero graphic draws or builds live (e.g., clockwise clock arc, rising bar baseline) rather than fading in passively.
+  5. **Phase 04b:** Numerical data, metrics, and labels reveal after the hero graphic structure is complete.
+  6. **Phase 05:** Right risk/consequence card enters (danger accent `#ff5274`).
+  7. **Phase 06:** Final holding composition settles with low-intensity living ambient signals (pulsing live dots, data packet streams along connector lines, 1-2px breathing float).
+
+#### B. The Relative Phase Scale Contract (0–100%)
+- **Duration Independence:** Motion specifications MUST NOT prescribe fixed video seconds or rigid FPS unless explicitly ordered.
+- **Consuming AI Handoff:** Uses normalized 0–100% phases (`PHASE 01` to `PHASE 06`) so downstream video engines, AI directors, or editors can stretch or compress pacing to match any voiceover clock.
+
+#### C. Semantic HTML Reference Standard
+- Must use real selectable semantic HTML text (`<header>`, `<article>`, `<section>`).
+- Must embed machine-readable specification in `<script id="motion-spec" type="application/json">` and expose `window.MOTION_REFERENCE`.
+- Self-contained inline CSS, zero required CDNs, responsive 16:9 canvas with interactive phase scrubber.
+
+### 3. Staged Python/OpenCV Animation Engine (`make_sequence_animation.py`)
+- High-performance headless frame generation using PIL + NumPy + OpenCV (`cv2.VideoWriter`).
+- Subpixel anti-aliased arcs with dual-band color gradients (Orange `#ff6922` + Gold `#ffbe48`).
+- Gaussian-blurred halo blooms for volumetric glowing nodes.
+- Card overshoot easing: `overshoot(start, end, t) = 1 + c3*(p-1)^3 + c1*(p-1)^2` with $c_1=1.70158$, $c_3=2.70158$.
+
+### 4. Integration with EP-19 & Future Productions
+- All future data dashboards, clocks, and multi-tier charts must adopt the Progressive Reveal phase sequence.
+- **EP-19 Diagram 6 (Demographic Clock, 500.18s–525.70s):** Fully refactored into 6 progressive phases:
+  - Phase 01 ($t=501.5$s): Headline in center with glowing orange LIVE badge.
+  - Phase 02 ($t=503.8$s): Headline smoothly glides to top anchor with guide rule wipe.
+  - Phase 03 ($t=506.5$s): Left demographic context card enters with overshoot settle.
+  - Phase 04 ($t=512.0$s): Central orange/gold clock arc draws clockwise live with traveling head node.
+  - Phase 05 ($t=516.5$s): Right middle-income trap risk card enters with pink LIVE tag.
+  - Phase 06 ($t=521.5$s): Active data connection conduits pulse packets between cards & clock with bottom warning banner.
+- **EP-19 Diagram 1 (MoSPI GDP vs GVA Dissection Wedge, 64.29s–83.45s):** Fully refactored into 6 progressive phases:
+  - Phase 01 ($t=65.5$s): Headline & subtitle in center with cyan AUDIT badge.
+  - Phase 02 ($t=67.5$s): Glides to top anchor with cyan divider rule wipe.
+  - Phase 03 ($t=70.5$s): Step 1 (Production Base GVA 8.2%) enters with spring overshoot & tabular odometer.
+  - Phase 04 ($t=74.5$s): Minus operator illuminates + Step 2 (Statistical Wedge −0.4% taxes) enters with amber glow.
+  - Phase 05 ($t=78.0$s): Equals operator clicks on + Step 3 (Headline Result GDP 7.8%) slams in with emerald green rim glow.
+  - Phase 06 ($t=81.5$s): Animated energy packets flow along connection conduits + Bottom Ground Reality Verdict banner slides up.
+- Verified zero dead frames, 60FPS seek reproducibility, pure canvas render isolation, and 100% WCAG contrast.

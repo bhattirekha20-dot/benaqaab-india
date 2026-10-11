@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2045 Demographic Clock — Motion Reference</title>
+<style>
+  :root {
+    --page: #070b11;
+    --panel: #0b1421;
+    --line: rgba(113, 158, 190, .22);
+    --ink: #edf5ff;
+    --muted: #93a7bd;
+    --cyan: #32ccff;
+    --pink: #ff5274;
+    --orange: #ff862e;
+    --gold: #ffbe55;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--page); color-scheme: dark; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: radial-gradient(circle at 50% 20%, #142338 0, #090f19 46%, #06090f 100%);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  button, input { font: inherit; }
+
+  .shell { width: min(1480px, 100%); margin: 0 auto; padding: 22px clamp(12px, 3vw, 40px) 48px; }
+  .page-title { margin: 0 0 8px; font-size: clamp(20px, 3vw, 34px); letter-spacing: -.045em; }
+  .page-note { max-width: 850px; margin: 0 0 18px; color: #a8b8c9; line-height: 1.5; font-size: 14px; }
+
+  /* Responsive 16:9 preview of a 1280 x 720 motion composition. */
+  .player {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(151, 195, 225, .24);
+    border-radius: 18px;
+    background: #050a12;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .55), inset 0 1px rgba(255,255,255,.04);
+  }
+  #stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background:
+      linear-gradient(rgba(89,144,184,.048) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(89,144,184,.048) 1px, transparent 1px),
+      radial-gradient(ellipse at 50% 54%, #15283d 0%, #0b1421 39%, #050a11 100%);
+    background-size: 80px 80px, 80px 80px, cover;
+  }
+  #stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,.50) 100%);
+  }
+
+  /* Semantic header panel */
+  .headline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 900px;
+    height: 125px;
+    text-align: center;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  .brand {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    color: #eef6ff;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .04em;
+  }
+  .brand::before {
+    content: "✦";
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: #ffe098;
+    background: radial-gradient(circle at 35% 35%, #ffc56a, #8e4d12 58%, #0e1723 60%);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 5px;
+    color: var(--gold);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .07em;
+  }
+  .eyebrow::before, .eyebrow::after { content: ""; display: block; width: 36px; height: 1px; background: currentColor; opacity: .65; }
+  .headline h2 {
+    margin: 9px 0 3px;
+    font-size: 31px;
+    font-weight: 950;
+    letter-spacing: -.055em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px #000;
+  }
+  .headline p { margin: 0; color: #a7b7c9; font-size: 14px; }
+
+  /* Cards are genuine selectable HTML text—not screenshots. */
+  .card {
+    position: absolute;
+    width: 315px;
+    min-height: 300px;
+    padding: 28px 27px;
+    overflow: hidden;
+    border: 1px solid rgba(84, 201, 255, .36);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(8, 34, 52, .94), rgba(4, 11, 20, .92));
+    box-shadow: inset 0 1px rgba(255,255,255,.06), 0 12px 32px rgba(0,0,0,.24);
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  .card::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: .78; }
+  .card.red {
+    width: 303px;
+    min-height: 320px;
+    border-color: rgba(255, 80, 117, .42);
+    background: linear-gradient(145deg, rgba(53, 11, 26, .94), rgba(24, 7, 16, .94));
+  }
+  .card.red::before { background: linear-gradient(90deg, transparent, var(--pink), transparent); }
+  .card-label { color: var(--cyan); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 800; letter-spacing: .055em; }
+  .red .card-label { color: var(--pink); }
+  .card h3 { margin: 11px 0 18px; color: #f2f6ff; font-size: 23px; line-height: 1; letter-spacing: -.045em; }
+  .card ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; color: #c1cfdd; font-size: 12.5px; }
+  .card li { position: relative; padding-left: 16px; line-height: 1.15; }
+  .card li::before { content: "•"; position: absolute; left: 0; color: var(--cyan); font-size: 16px; line-height: 11px; }
+  .red li::before { color: var(--pink); }
+
+  /* Live-drawn 2045 clock. --clock-degrees is changed by JavaScript. */
+  .clock-module {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  .clock-module::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,135,42,.15), rgba(255,122,32,.06) 51%, transparent 72%);
+    filter: blur(19px);
+  }
+  .clock-ring {
+    --clock-degrees: 0deg;
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    background: conic-gradient(from -90deg, #ffbf5c 0deg, #ff7e2d var(--clock-degrees), rgba(182, 202, 221, .14) var(--clock-degrees), rgba(182, 202, 221, .14) 360deg);
+    -webkit-mask: radial-gradient(transparent 0 64%, #000 65% 100%);
+    mask: radial-gradient(transparent 0 64%, #000 65% 100%);
+    filter: drop-shadow(0 0 12px rgba(255,130,36,.7));
+  }
+  .clock-ring::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(255, 198, 91, .12); }
+  .clock-content {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    opacity: 0;
+    text-align: center;
+  }
+  .clock-year { font-size: 38px; font-weight: 950; letter-spacing: -.07em; line-height: .9; }
+  .clock-sub { margin-top: 8px; color: #ffc05e; font-family: ui-monospace, monospace; font-size: 10px; font-weight: 800; letter-spacing: .055em; }
+  .clock-time { margin-top: 6px; color: #aab9c7; font-size: 12px; }
+  .clock-dot { width: 11px; height: 11px; margin-top: 12px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 5px rgba(255,129,35,.12), 0 0 13px var(--orange); }
+  .orbit-node { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #ffd06b; box-shadow: 0 0 12px 5px rgba(255,135,41,.64); transform: translate(-50%, -50%); }
+  .orbit-tick { position: absolute; top: 18px; left: 149px; width: 2px; height: 9px; background: var(--orange); box-shadow: 0 0 8px var(--orange); transform-origin: 1px 132px; opacity: .8; }
+
+  .live-badge {
+    position: absolute;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 29px;
+    padding: 0 13px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    color: var(--cyan);
+    background: rgba(4, 14, 23, .94);
+    box-shadow: 0 0 15px rgba(37, 196, 255, .18);
+    font: 800 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .04em;
+    will-change: transform, opacity;
+  }
+  .live-badge.pink { color: var(--pink); box-shadow: 0 0 15px rgba(255, 80, 117, .18); }
+  .live-badge.gold { color: var(--gold); box-shadow: 0 0 15px rgba(255, 180, 70, .18); }
+  .live-badge.orange { color: var(--orange); box-shadow: 0 0 15px rgba(255, 130, 42, .18); }
+  .live-badge i { display: block; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+
+  .connection { position: absolute; z-index: 1; height: 2px; background: linear-gradient(90deg, rgba(49,205,255,.7), rgba(49,205,255,.05)); transform-origin: left; opacity: 0; }
+  .connection.red-line { background: linear-gradient(90deg, rgba(255,84,115,.05), rgba(255,84,115,.75)); }
+  .connection .packet { position: absolute; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 13px 3px rgba(43,202,255,.65); }
+  .red-line .packet { background: var(--pink); box-shadow: 0 0 13px 3px rgba(255,82,116,.65); }
+  .footer-status { position: absolute; left: 0; right: 0; bottom: 27px; z-index: 4; color: #80a3bb; opacity: 0; text-align: center; font: 800 12px ui-monospace, monospace; letter-spacing: .05em; }
+  .footer-status::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 8px 1px 0; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 9px var(--cyan); }
+
+  /* Playback controls are outside the video frame. */
+  .controls { display: grid; grid-template-columns: auto auto 1fr auto auto; align-items: center; gap: 10px; padding: 14px 2px 4px; }
+  .controls button { cursor: pointer; padding: 9px 13px; border: 1px solid #30536d; border-radius: 8px; color: #e7f7ff; background: #102133; font-weight: 750; }
+  .controls button:hover { background: #17344c; border-color: var(--cyan); }
+  #scrubber { width: 100%; accent-color: var(--orange); cursor: pointer; }
+  .time-readout { min-width: 91px; color: #c0d0dd; font: 12px ui-monospace, monospace; text-align: right; }
+  .loop-label { display: inline-flex; gap: 6px; align-items: center; color: #a9b8c8; font-size: 12px; white-space: nowrap; }
+
+  .ai-reference { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; margin-top: 24px; }
+  .notes, .timeline { padding: 19px; border: 1px solid var(--line); border-radius: 13px; background: rgba(9, 17, 28, .82); }
+  .notes h2, .timeline h2 { margin: 0 0 10px; color: #f4f8ff; font-size: 16px; }
+  .notes p, .notes li, .timeline p { color: #adbdcd; font-size: 13px; line-height: 1.48; }
+  .notes ul { margin: 9px 0 0; padding-left: 19px; }
+  .timeline-row { display: grid; grid-template-columns: 86px 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(145, 182, 205, .10); }
+  .timeline-row:last-child { border-bottom: 0; }
+  .timeline-row time { color: var(--gold); font: 800 12px ui-monospace, monospace; }
+  .timeline-row span { color: #c6d4df; font-size: 13px; }
+  code { color: #62dcff; }
+  @media (max-width: 700px) {
+    .shell { padding: 16px 12px 30px; }
+    .controls { grid-template-columns: auto auto 1fr; }
+    .loop-label, .time-readout { grid-row: 2; }
+    .ai-reference { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1 class="page-title">2045 Demographic Clock — Motion-Controlled HTML Reference</h1>
+  <p class="page-note">This is a self-contained, semantic HTML motion reference. Press play, drag the phase control, or inspect <code>window.DEMOGRAPHIC_CLOCK_MOTION</code> for the animation order, text, final positions, colors, and motion rules. Your AI or video editor decides the final video duration and pacing.</p>
+
+  <section class="player" aria-label="Motion reference player">
+    <div id="stage" aria-label="Animated demographic clock composition">
+      <header id="headline" class="headline">
+        <div class="brand">BENAAQAAB INDIA</div>
+        <div class="eyebrow">ACTUARIAL DEMOGRAPHIC RISK · INDIA PROJECTION</div>
+        <h2>THE 2045 DEMOGRAPHIC CLOCK: RACE AGAINST TIME</h2>
+        <p>India has only 19 years before its demographic dividend window permanently shuts.</p>
+      </header>
+
+      <article id="blueCard" class="card" aria-label="Today 2026 status">
+        <div class="card-label">TODAY (2026 STATUS)</div>
+        <h3>Median age: 28.4 yrs</h3>
+        <ul>
+          <li>1 crore youth enter jobs each year</li>
+          <li>Youngest workforce on Earth</li>
+          <li>Fertility rate: 2.0 (NFHS-5)</li>
+          <li>Replacement level broken</li>
+          <li>South states already aging</li>
+        </ul>
+      </article>
+
+      <div id="clock" class="clock-module" aria-label="2045 window closes live circular animation">
+        <div id="clockRing" class="clock-ring"></div>
+        <div id="clockNode" class="orbit-node"></div>
+        <div id="tickA" class="orbit-tick"></div>
+        <div id="tickB" class="orbit-tick"></div>
+        <div id="clockContent" class="clock-content">
+          <div class="clock-year">2045</div>
+          <div class="clock-sub">WINDOW CLOSES</div>
+          <div class="clock-time">19 years 81 days remaining</div>
+          <div class="clock-dot"></div>
+        </div>
+      </div>
+
+      <article id="redCard" class="card red" aria-label="Middle income trap">
+        <div class="card-label">THE MIDDLE-INCOME TRAP</div>
+        <h3>Target: $10,000 / cap</h3>
+        <ul>
+          <li>Must reach $10,000 before 2045</li>
+          <li>Current: $2,730 (need 4× leap)</li>
+          <li>Without mass formal pensions</li>
+          <li>Without universal healthcare</li>
+          <li>Brazil/Thailand stagnation risk</li>
+        </ul>
+      </article>
+
+      <div id="lineLeft" class="connection"><i class="packet"></i></div>
+      <div id="lineRight" class="connection red-line"><i class="packet"></i></div>
+      <div id="headerLive" class="live-badge gold"><i></i>LIVE</div>
+      <div id="blueLive" class="live-badge"><i></i>LIVE</div>
+      <div id="clockLive" class="live-badge orange"><i></i>LIVE</div>
+      <div id="redLive" class="live-badge pink"><i></i>LIVE</div>
+      <div id="footer" class="footer-status">SYSTEM LIVE&nbsp;&nbsp;•&nbsp;&nbsp;DEMOGRAPHIC WINDOW TRACKING</div>
+    </div>
+  </section>
+
+  <div class="controls" aria-label="Animation playback controls">
+    <button id="playPause" type="button">Pause</button>
+    <button id="restart" type="button">Restart</button>
+    <input id="scrubber" type="range" min="0" max="100" step="0.1" value="0" aria-label="Animation phase">
+    <label class="loop-label"><input id="loop" type="checkbox" checked> Loop</label>
+    <output id="timeReadout" class="time-readout">Phase 0%</output>
+  </div>
+
+  <div class="ai-reference">
+    <section class="notes">
+      <h2>Instruction for AI / video editor</h2>
+      <p>Recreate this as a <strong>16:9, 1280×720</strong> dark, premium infographic. The AI or video editor must choose the total duration and pacing. Use the visible on-screen wording exactly. Each module must enter separately with its own <strong>LIVE</strong> tag; do not bring in all panels at once.</p>
+      <ul>
+        <li>Use a dark navy background with subtle blue grid lines and vignette.</li>
+        <li>Keep the headline first, large and centred. Then move it to the top.</li>
+        <li>Use cyan for the left status card, orange/gold for the live-drawn clock, and pink/red for the right risk card.</li>
+        <li>Draw the orange circle clockwise from the 12 o’clock position. Reveal “2045” and the countdown only when the circle is about 73% complete.</li>
+        <li>Final arrangement: headline top; blue card left; circular clock centre; red card right; animated data packets travel between them.</li>
+      </ul>
+    </section>
+    <section class="timeline">
+      <h2>Required animation order</h2>
+      <div class="timeline-row"><time>PHASE 01</time><span>Headline fades/scales up in the centre. Gold <b>LIVE</b> badge is visible beneath it.</span></div>
+      <div class="timeline-row"><time>PHASE 02</time><span>Headline smoothly moves to the top and becomes the permanent header.</span></div>
+      <div class="timeline-row"><time>PHASE 03</time><span>Blue “Today status” card enters, scales once, then settles on the left with cyan <b>LIVE</b>.</span></div>
+      <div class="timeline-row"><time>PHASE 04</time><span>Orange 2045 circle is drawn clockwise. Reveal its text near the end of the draw.</span></div>
+      <div class="timeline-row"><time>PHASE 05</time><span>Red “Middle-income trap” card enters from the right with pink <b>LIVE</b>.</span></div>
+      <div class="timeline-row"><time>PHASE 06</time><span>All four hold in the final dashboard layout. Pulse the LIVE dots and move packets on both connector lines.</span></div>
+    </section>
+  </div>
+</div>
+
+<!-- Machine-readable reference. A tool/agent can read this exact object. -->
+<script id="motion-spec" type="application/json">
+{
+  "name": "2045 Demographic Clock staged dashboard",
+  "format": {"width": 1280, "height": 720, "aspectRatio": "16:9", "duration": "decided by AI/video editor", "fps": "decided by AI/video editor"},
+  "style": {"background": "dark navy grid + vignette", "cyan": "#32ccff", "orange": "#ff862e", "gold": "#ffbe55", "pink": "#ff5274"},
+  "timeline": [
+    {"phase": "01", "element": "headline", "action": "fade and scale into screen centre", "live": "gold"},
+    {"phase": "02", "element": "headline", "action": "move to top"},
+    {"phase": "03", "element": "blue status card", "action": "enter and settle at left", "live": "cyan"},
+    {"phase": "04", "element": "2045 circular clock", "action": "draw orange ring clockwise from 12 o'clock", "live": "orange"},
+    {"phase": "04b", "element": "clock text", "action": "fade in after ring is mostly drawn"},
+    {"phase": "05", "element": "red income-trap card", "action": "enter and settle at right", "live": "pink"},
+    {"phase": "06", "element": "complete dashboard", "action": "hold, pulse live dots, animate connector packets"}
+  ],
+  "finalLayout": {"headline": [190,45], "blueCard": [67,270], "clockCentre": [640,421], "redCard": [900,275]}
+}
+</script>
+<script>
+  (() => {
+    // Preview uses an abstract 0–100 phase scale only. It is NOT a video duration.
+    const DESIGN = { width: 1280, height: 720, phaseLength: 100 };
+    const spec = JSON.parse(document.getElementById('motion-spec').textContent);
+    window.DEMOGRAPHIC_CLOCK_MOTION = spec;
+    // Standard alias used by CENTRAL_MOTION_EDITING_SKILL.md.
+    window.MOTION_REFERENCE = spec;
+
+    const $ = (id) => document.getElementById(id);
+    const stage = $('stage');
+    const player = document.querySelector('.player');
+    const headline = $('headline');
+    const blue = $('blueCard');
+    const red = $('redCard');
+    const clock = $('clock');
+    const clockRing = $('clockRing');
+    const clockNode = $('clockNode');
+    const clockContent = $('clockContent');
+    const tickA = $('tickA');
+    const tickB = $('tickB');
+    const headerLive = $('headerLive');
+    const blueLive = $('blueLive');
+    const clockLive = $('clockLive');
+    const redLive = $('redLive');
+    const lineLeft = $('lineLeft');
+    const lineRight = $('lineRight');
+    const footer = $('footer');
+    const scrubber = $('scrubber');
+    const playPause = $('playPause');
+    const restart = $('restart');
+    const loop = $('loop');
+    const timeReadout = $('timeReadout');
+
+    const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
+    const lerp = (a, b, p) => a + (b - a) * p;
+    const smooth = (start, end, time) => {
+      const p = clamp((time - start) / (end - start));
+      return p * p * (3 - 2 * p);
+    };
+    const pop = (start, end, time) => {
+      const p = clamp((time - start) / (end - start));
+      const c1 = 1.70158, c3 = c1 + 1;
+      return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2);
+    };
+    const setTransform = (el, x, y, scale, opacity) => {
+      el.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+      el.style.opacity = opacity;
+    };
+    const badge = (el, x, y, opacity) => {
+      el.style.transform = `translate(${x}px, ${y}px)`;
+      el.style.opacity = opacity;
+    };
+    const phase = (value) => `Phase ${Math.round(value)}%`;
+
+    function render(t) {
+      // Headline: centre entry then move to top.
+      const headlineIn = smooth(1, 8, t);
+      const headlineMove = smooth(14, 20.5, t);
+      const hStartX = 190, hStartY = 270;
+      const hX = lerp(hStartX, 190, headlineMove);
+      const hY = lerp(hStartY, 45, headlineMove);
+      const hScale = lerp(.91, 1, smooth(1, 20.5, t));
+      setTransform(headline, hX, hY, hScale, headlineIn);
+      if (t < 17.25) badge(headerLive, 590, hY + 148, headlineIn); else badge(headerLive, 991, 61, .95);
+
+      // Blue card: central staging point to left position.
+      const blueIn = smooth(22.4, 31, t);
+      const bluePop = pop(22.4, 32.1, t);
+      const blueX = lerp(430, 67, bluePop);
+      const blueY = lerp(285, 270, bluePop) + (t > 32.1 ? Math.sin(t * .75) * 2 : 0);
+      const blueScale = .72 + .28 * Math.min(1, bluePop);
+      setTransform(blue, blueX, blueY, blueScale, blueIn);
+      badge(blueLive, blueX + 8, blueY - 37, blueIn);
+
+      // Clock: actual live-drawn ring, node, ticks, then inner text.
+      const ringAlpha = smooth(34.1, 36.4, t);
+      const ringProgress = smooth(35.2, 49.5, t);
+      const clockInfo = smooth(45.7, 51.6, t);
+      const clockX = 490, clockY = 271 + (t > 51.7 ? Math.sin(t * .65) * 1.5 : 0);
+      setTransform(clock, clockX, clockY, 1, ringAlpha);
+      const degrees = ringProgress * 360;
+      clockRing.style.setProperty('--clock-degrees', `${degrees}deg`);
+      clockContent.style.opacity = clockInfo;
+      const angle = (-90 + degrees) * Math.PI / 180;
+      const nodeX = 150 + Math.cos(angle) * 110;
+      const nodeY = 150 + Math.sin(angle) * 110;
+      clockNode.style.left = `${nodeX}px`;
+      clockNode.style.top = `${nodeY}px`;
+      tickA.style.transform = `rotate(${degrees + 72}deg)`;
+      tickB.style.transform = `rotate(${degrees + 196}deg)`;
+      badge(clockLive, 596, 569, Math.max(0, clockInfo - .08));
+
+      // Red card: arrive from the right only after clock is readable.
+      const redIn = smooth(53.9, 63.1, t);
+      const redPop = pop(53.9, 64, t);
+      const redX = lerp(1135, 900, redPop);
+      const redY = lerp(309, 275, redPop) + (t > 64 ? Math.sin(t * .7 + 1.2) * 2 : 0);
+      const redScale = .7 + .3 * Math.min(1, redPop);
+      setTransform(red, redX, redY, redScale, redIn);
+      badge(redLive, redX + 214, redY - 37, redIn);
+
+      // Final state: connected, pulsing dashboard.
+      const final = smooth(64.8, 70.3, t);
+      lineLeft.style.left = '384px'; lineLeft.style.top = '421px'; lineLeft.style.width = '140px'; lineLeft.style.opacity = final;
+      lineRight.style.left = '756px'; lineRight.style.top = '421px'; lineRight.style.width = '135px'; lineRight.style.opacity = final;
+      lineLeft.querySelector('.packet').style.left = `${((t * .53) % 1) * 132}px`;
+      lineRight.querySelector('.packet').style.left = `${((t * .53 + .5) % 1) * 127}px`;
+      footer.style.opacity = final;
+
+      scrubber.value = t;
+      timeReadout.value = phase(t);
+      timeReadout.textContent = phase(t);
+    }
+
+    function fitStage() {
+      const scale = player.clientWidth / DESIGN.width;
+      stage.style.transform = `scale(${scale})`;
+    }
+    new ResizeObserver(fitStage).observe(player);
+    fitStage();
+
+    let isPlaying = true;
+    let playhead = 0;
+    let last = performance.now();
+    function tick(now) {
+      const delta = Math.min(.1, (now - last) / 1000);
+      last = now;
+      if (isPlaying) {
+        playhead += delta * 7;
+        // The preview moves through relative phases. The final duration is intentionally undefined.
+        if (playhead >= DESIGN.phaseLength) playhead = loop.checked ? 0 : DESIGN.phaseLength;
+        if (playhead >= DESIGN.phaseLength && !loop.checked) { isPlaying = false; playPause.textContent = 'Play'; }
+      }
+      render(playhead);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    playPause.addEventListener('click', () => { isPlaying = !isPlaying; playPause.textContent = isPlaying ? 'Pause' : 'Play'; last = performance.now(); });
+    restart.addEventListener('click', () => { playhead = 0; isPlaying = true; playPause.textContent = 'Pause'; last = performance.now(); render(playhead); });
+    scrubber.addEventListener('input', () => { playhead = Number(scrubber.value); render(playhead); });
+  })();
+</script>
+</body>
+</html>

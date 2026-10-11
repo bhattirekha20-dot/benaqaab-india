@@ -1035,12 +1035,172 @@
     ctx.restore();
   }
 
+  // --- CLOSED-FORM ANALYTICAL SPRING ENGINE (Deterministic Seek-Safe) ---
+  const SpringEngine = (function () {
+    const PRESETS = {
+      snappy:  { response: 0.22, damping: 0.80 },
+      default: { response: 0.40, damping: 0.86 },
+      heavy:   { response: 0.50, damping: 1.00 },
+      impact:  { response: 0.28, damping: 0.55 },
+    };
+
+    function step(tau, preset = 'default') {
+      if (tau <= 0) return 0;
+      const p = typeof preset === 'string' ? PRESETS[preset] || PRESETS.default : preset;
+      const w = (2 * Math.PI) / p.response;
+      const z = p.damping;
+      if (z < 1) {
+        const wd = w * Math.sqrt(1 - z * z);
+        return 1 - Math.exp(-z * w * tau) * (Math.cos(wd * tau) + ((z * w) / wd) * Math.sin(wd * tau));
+      }
+      if (z === 1) return 1 - Math.exp(-w * tau) * (1 + w * tau);
+      const wd = w * Math.sqrt(z * z - 1);
+      return 1 - Math.exp(-z * w * tau) * (Math.cosh(wd * tau) + ((z * w) / wd) * Math.sinh(wd * tau));
+    }
+
+    function springVal(t, t0, from, to, preset = 'default') {
+      return from + (to - from) * step(t - t0, preset);
+    }
+
+    return { PRESETS, step, springVal };
+  })();
+
+  // --- PROCEDURAL INK BLEED FORENSIC HIGHLIGHTER ---
+  function drawForensicHighlighter(ctx, t, startT, duration, x, y, width, height, baseColor = '#FFE600') {
+    if (t < startT) return 0;
+    const p = Math.max(0, Math.min(1, (t - startT) / duration));
+    const eased = 1 - Math.pow(1 - p, 3);
+    const w = width * eased;
+    if (w <= 2) return p;
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'multiply';
+
+    ctx.fillStyle = 'rgba(255, 230, 0, 0.75)';
+    ctx.beginPath();
+    ctx.moveTo(x, y + 1);
+
+    const steps = Math.max(4, Math.floor(w / 12));
+    for (let i = 0; i <= steps; i++) {
+      const px = x + (i / steps) * w;
+      const bleed = (Math.sin(px * 0.45) * 1.2) + (Math.cos(px * 0.9) * 0.8);
+      ctx.lineTo(px, y + bleed);
+    }
+
+    ctx.lineTo(x + w, y + height);
+
+    for (let i = steps; i >= 0; i--) {
+      const px = x + (i / steps) * w;
+      const bleed = (Math.cos(px * 0.5) * 1.1) + (Math.sin(px * 0.8) * 0.7);
+      ctx.lineTo(px, y + height + bleed);
+    }
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = 'rgba(250, 204, 21, 0.16)';
+    ctx.shadowColor = 'rgba(234, 179, 8, 0.45)';
+    ctx.shadowBlur = 14;
+    ctx.fillRect(x, y, w, height);
+
+    if (p > 0.02 && p < 0.98) {
+      ctx.fillStyle = '#eab308';
+      ctx.shadowColor = 'rgba(234, 179, 8, 0.95)';
+      ctx.shadowBlur = 14;
+      ctx.beginPath();
+      ctx.arc(x + w, y + height / 2, height * 0.44, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+    return p;
+  }
+
+  // --- OFFICIAL PRIMARY SOURCE BROADCAST LOWER-THIRD STRAP ---
+  function drawOfficialSourceStrap(ctx, t, startT, dur, strap, x = 76, y = 870) {
+    if (t < startT || t > startT + dur) return;
+
+    const elapsed = t - startT;
+    const remaining = (startT + dur) - t;
+
+    const barGrow = SpringEngine.step(elapsed, 'snappy') * (remaining < 0.4 ? remaining / 0.4 : 1);
+    const panelWipe = SpringEngine.step(elapsed - 0.15, 'default') * (remaining < 0.4 ? remaining / 0.4 : 1);
+    const textRise = SpringEngine.step(elapsed - 0.28, 'snappy');
+    const tabSlide = SpringEngine.step(elapsed - 0.40, 'snappy');
+
+    if (barGrow <= 0) return;
+
+    ctx.save();
+    const accentColor = strap.accent || '#fbbf24';
+    const displayFont = '800 24px -apple-system, BlinkMacSystemFont, "Inter", sans-serif';
+    const subFont = '700 13px "JetBrains Mono", monospace';
+
+    ctx.font = displayFont;
+    const docW = ctx.measureText(strap.document).width;
+    ctx.font = subFont;
+    const authW = ctx.measureText(strap.authority.toUpperCase()).width;
+
+    const barW = 8;
+    const padX = 26;
+    const panelH = 50;
+    const tabH = 30;
+    const panelW = Math.max(docW + padX * 2, authW + padX * 2 + 60);
+
+    // 1. Accent Left Bar
+    ctx.fillStyle = accentColor;
+    ctx.shadowColor = accentColor;
+    ctx.shadowBlur = 12;
+    ctx.fillRect(x, y + panelH * (1 - barGrow), barW, (panelH + tabH) * barGrow);
+    ctx.shadowBlur = 0;
+
+    // 2. Main Frosted Obsidian Document Panel
+    if (panelWipe > 0.01) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(x + barW, y, panelW * panelWipe, panelH);
+      ctx.clip();
+
+      ctx.fillStyle = 'rgba(8, 12, 22, 0.94)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+      ctx.lineWidth = 1;
+      ctx.fillRect(x + barW, y, panelW, panelH);
+      ctx.strokeRect(x + barW, y, panelW, panelH);
+
+      const textY = y + panelH / 2 + (1 - textRise) * 30 + 7;
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = displayFont;
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText(strap.document, x + barW + padX, textY);
+      ctx.restore();
+    }
+
+    // 3. Lower Authority Source Tag Tab
+    if (tabSlide > 0.01 && panelWipe > 0.3) {
+      const tabY = y + panelH;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(x + barW, tabY, (panelW * 0.88) * tabSlide, tabH);
+      ctx.clip();
+
+      ctx.fillStyle = accentColor;
+      ctx.fillRect(x + barW, tabY, panelW * 0.88, tabH);
+
+      ctx.fillStyle = '#07090e';
+      ctx.font = subFont;
+      ctx.fillText(`OFFICIAL RECORD · ${strap.authority.toUpperCase()} [${strap.date || 'VERIFIED'}]`, x + barW + 16, tabY + 20);
+      ctx.restore();
+    }
+
+    ctx.restore();
+  }
+
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
     readTime, splitWords, riseWords,
-    drawOdometer, drawHighlighter, drawLivelyHighlighter, drawAudienceQuestionCard, drawSubscribeLikeCTA,
+    drawOdometer, drawHighlighter, drawLivelyHighlighter, drawForensicHighlighter, drawOfficialSourceStrap,
+    drawAudienceQuestionCard, drawSubscribeLikeCTA,
     drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
-    drawRoadmapCard, drawGrain, drawDynamicCaption };
+    drawRoadmapCard, drawGrain, drawDynamicCaption, SpringEngine };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

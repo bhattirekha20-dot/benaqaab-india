@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>India 2045 Demographic Clock</title>
+<style>
+  :root {
+    --ink: #eaf5ff;
+    --muted: #9aaabf;
+    --cyan: #35c8ff;
+    --orange: #ff9135;
+    --orange-light: #ffc65d;
+    --red: #fa4f67;
+    --red-soft: #ff9b9f;
+    --panel: rgba(7, 13, 24, .72);
+    --line: rgba(147, 185, 214, .20);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--ink);
+    background: #070b11;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+
+  /* The supplied image is used only as atmosphere. All dashboard content below is real HTML. */
+  .page {
+    min-height: 100svh;
+    position: relative;
+    isolation: isolate;
+    padding: clamp(20px, 4vw, 52px);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .page::before {
+    content: "";
+    z-index: -3;
+    position: absolute;
+    inset: -18px;
+    background: url("uploads/image-1.png") center / cover no-repeat;
+    filter: blur(8px) saturate(.76) brightness(.49);
+    transform: scale(1.045);
+  }
+  .page::after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 47%, rgba(8, 14, 23, .08) 0 13%, rgba(3, 7, 14, .62) 75%),
+      linear-gradient(90deg, rgba(2, 5, 10, .25), rgba(2, 5, 10, .58));
+  }
+
+  .brand {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px 7px 8px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 999px;
+    background: rgba(5, 9, 15, .82);
+    box-shadow: 0 6px 24px rgba(0,0,0,.32);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .05em;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #ffd466;
+    background: conic-gradient(from 40deg, #4b2d0f, #ec932b, #182a3d, #4b2d0f);
+    font-size: 12px;
+  }
+
+  .dashboard {
+    width: min(920px, 100%);
+    padding: clamp(22px, 3.4vw, 38px);
+    border: 1px solid rgba(169, 203, 230, .19);
+    border-radius: 18px;
+    background: linear-gradient(140deg, rgba(11, 17, 28, .86), rgba(8, 13, 22, .72));
+    box-shadow: 0 22px 70px rgba(0,0,0,.56), inset 0 1px rgba(255,255,255,.05);
+    backdrop-filter: blur(14px);
+  }
+
+  .heading { text-align: center; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--orange-light);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: clamp(8px, 1.1vw, 10px);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .eyebrow::before, .eyebrow::after { content: ""; width: 18px; height: 1px; background: currentColor; opacity: .6; }
+  h1 {
+    margin: 6px 0 3px;
+    font-size: clamp(20px, 2.6vw, 32px);
+    font-weight: 900;
+    line-height: .98;
+    letter-spacing: -.055em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px #000;
+  }
+  .subhead { margin: 0; color: var(--muted); font-size: clamp(10px, 1.3vw, 13px); }
+
+  .cards {
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) minmax(175px, .83fr) minmax(190px, 1fr);
+    align-items: center;
+    gap: clamp(16px, 3vw, 34px);
+    margin-top: 26px;
+  }
+  .card {
+    min-height: 218px;
+    padding: 20px 18px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: linear-gradient(145deg, rgba(10, 23, 39, .80), rgba(5, 11, 19, .71));
+    box-shadow: inset 0 1px rgba(255,255,255,.04), 0 12px 24px rgba(0,0,0,.15);
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity: .65;
+  }
+  .card.trap {
+    border-color: rgba(245, 73, 99, .35);
+    background: linear-gradient(145deg, rgba(51, 13, 27, .71), rgba(26, 8, 17, .74));
+  }
+  .card.trap::before { background: linear-gradient(90deg, transparent, var(--red), transparent); }
+  .card-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -70px;
+    right: -55px;
+    border-radius: 50%;
+    background: currentColor;
+    filter: blur(34px);
+    opacity: .12;
+  }
+  .card .label {
+    color: var(--cyan);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .trap .label { color: var(--red); }
+  .metric {
+    margin: 6px 0 15px;
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.05;
+    font-weight: 850;
+    letter-spacing: -.04em;
+  }
+  .facts { margin: 0; padding: 0; list-style: none; }
+  .facts li {
+    position: relative;
+    padding: 0 0 8px 12px;
+    color: #b7c5d5;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+  .facts li::before { content: "•"; position: absolute; left: 0; color: var(--cyan); }
+  .trap .facts li::before { color: var(--red); }
+
+  .clock-wrap { position: relative; display: grid; place-items: center; min-height: 218px; }
+  .clock-orbit {
+    width: 172px;
+    height: 172px;
+    transform: rotate(-90deg);
+    overflow: visible;
+  }
+  .clock-track { fill: none; stroke: rgba(208, 224, 234, .18); stroke-width: 9; }
+  .clock-progress {
+    fill: none;
+    stroke: url(#orangeStroke);
+    stroke-linecap: round;
+    stroke-width: 10;
+    filter: drop-shadow(0 0 6px rgba(255, 129, 38, .78));
+    transition: stroke-dashoffset .8s ease;
+  }
+  .clock-dot { fill: var(--orange); filter: drop-shadow(0 0 4px var(--orange)); }
+  .clock-readout {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    pointer-events: none;
+  }
+  .year { font-size: 27px; line-height: 1; font-weight: 900; letter-spacing: -.08em; }
+  .closing { margin-top: 6px; color: var(--orange-light); font-family: ui-monospace, monospace; font-size: 7px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+  .remaining { margin-top: 3px; color: #b9c4ce; font-size: 10px; }
+  .live-dot { width: 6px; height: 6px; margin-top: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(255,142,47,.78); animation: ping 1.5s infinite; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 8px rgba(255,142,47,0); } 100% { box-shadow: 0 0 0 0 rgba(255,142,47,0); } }
+
+  .ticker {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 157, 55, .25);
+    border-radius: 9px;
+    background: rgba(5, 10, 16, .73);
+    overflow: hidden;
+  }
+  .ticker-top { color: var(--cyan); font-family: ui-monospace, monospace; font-size: 8px; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+  .ticker-row { display: flex; align-items: center; gap: 8px; margin-top: 4px; white-space: nowrap; }
+  .ticker-icon { font-size: 14px; color: var(--orange); }
+  .ticker-copy { overflow: hidden; width: 100%; }
+  #tickerText { display: inline-block; color: #f6f4e9; font-family: "Noto Sans Devanagari", ui-sans-serif, sans-serif; font-weight: 800; font-size: clamp(11px, 1.5vw, 14px); }
+  .ticker-line { height: 1px; margin-top: 5px; background: linear-gradient(90deg, var(--cyan), rgba(46,197,255,0)); }
+
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: max-content;
+    margin: 28px auto 0;
+    padding: 10px 16px;
+    cursor: pointer;
+    border: 1px solid rgba(61, 202, 255, .42);
+    border-radius: 999px;
+    color: #e9fbff;
+    background: rgba(9, 22, 33, .78);
+    font: 800 13px/1 Inter, ui-sans-serif, sans-serif;
+    box-shadow: 0 0 20px rgba(45, 196, 255, .12);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .cta:hover, .cta:focus-visible { transform: translateY(-2px); border-color: var(--cyan); background: rgba(16, 45, 66, .9); outline: none; }
+  .cta span { color: var(--cyan); font-size: 18px; line-height: .7; }
+  .toast { min-height: 1.2em; margin: 10px 0 0; color: #bcd6e4; text-align: center; font-size: 11px; }
+
+  @media (max-width: 700px) {
+    .page { padding: 74px 16px 28px; }
+    .brand { top: 14px; left: 16px; }
+    .dashboard { padding: 24px 18px; }
+    .cards { grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
+    .card { min-height: 0; }
+    .clock-wrap { min-height: 180px; order: -1; }
+    .card .facts { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="brand" aria-label="Benaqaab India"><span class="brand-mark">✦</span> BENAAQAAB INDIA</div>
+
+  <section class="dashboard" aria-labelledby="clock-title">
+    <header class="heading">
+      <div class="eyebrow">Actuarial demographic risk · India projection</div>
+      <h1 id="clock-title">The 2045 demographic clock: race against time</h1>
+      <p class="subhead">India has only <strong id="headlineYears">—</strong> years before its demographic dividend window permanently shuts.</p>
+    </header>
+
+    <div class="cards">
+      <article class="card" aria-labelledby="age-title">
+        <span class="card-glow" style="color:#20c8ff"></span>
+        <div class="label" id="statusLabel">Today status</div>
+        <h2 class="metric" id="age-title">Median age: <span id="medianAge">28.4</span> yrs</h2>
+        <ul class="facts" id="ageFacts"></ul>
+      </article>
+
+      <div class="clock-wrap" aria-label="Live countdown to the demographic window closing">
+        <svg class="clock-orbit" viewBox="0 0 172 172" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="orangeStroke" x1="0" x2="1">
+              <stop stop-color="#ffbd54"/><stop offset=".55" stop-color="#ff882f"/><stop offset="1" stop-color="#f66b28"/>
+            </linearGradient>
+          </defs>
+          <circle class="clock-track" cx="86" cy="86" r="66"></circle>
+          <circle id="progressRing" class="clock-progress" cx="86" cy="86" r="66"></circle>
+          <circle id="ringDot" class="clock-dot" cx="86" cy="20" r="4"></circle>
+        </svg>
+        <div class="clock-readout">
+          <div class="year" id="targetYear">2045</div>
+          <div class="closing">Window closes</div>
+          <div class="remaining" id="timeRemaining">Calculating…</div>
+          <div class="live-dot" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <article class="card trap" aria-labelledby="trap-title">
+        <span class="card-glow" style="color:#f54864"></span>
+        <div class="label">The middle-income trap</div>
+        <h2 class="metric" id="trap-title">Target: <span id="targetIncome">$10,000</span> / cap</h2>
+        <ul class="facts" id="trapFacts"></ul>
+      </article>
+    </div>
+
+    <section class="ticker" aria-label="Demographic countdown message">
+      <div class="ticker-top">▲ Demographic countdown · live signal</div>
+      <div class="ticker-row">
+        <span class="ticker-icon">⚠</span>
+        <div class="ticker-copy"><span id="tickerText"></span></div>
+      </div>
+      <div class="ticker-line"></div>
+    </section>
+
+    <button class="cta" id="actionButton" type="button"><span>↯</span> बढ़ने से पहले बढ़ो</button>
+    <p class="toast" id="toast" aria-live="polite"></p>
+  </section>
+</main>
+
+<script>
+  /*
+    Change this one object to connect your own CMS/API data later.
+    The display, countdown, ring and messages update from these values.
+  */
+  const DASHBOARD_CONFIG = {
+    targetDate: '2045-12-31T23:59:59+05:30',
+    windowStarted: '2026-01-01T00:00:00+05:30',
+    medianAge: 28.4,
+    incomeNow: 2730,
+    incomeTarget: 10000,
+    ageFacts: [
+      '1 crore youth enter jobs each year',
+      'Youngest workforce on Earth',
+      'Fertility rate: 2.0 (NFHS-5)',
+      'Replacement level broken',
+      'South states already aging'
+    ],
+    tickers: [
+      'अगर अगले 19 सालों में देश को $10K प्रति व्यक्ति तक नहीं पहुँचाया गया, तो फायदा हमेशा के लिए चला जाएगा।',
+      'The opportunity is finite: jobs, skills and productivity must rise together.',
+      'A demographic dividend pays only when young people can find productive work.'
+    ]
+  };
+
+  const $ = (selector) => document.querySelector(selector);
+  const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  const number = new Intl.NumberFormat('en-IN');
+  const target = new Date(DASHBOARD_CONFIG.targetDate);
+  const started = new Date(DASHBOARD_CONFIG.windowStarted);
+  const circumference = 2 * Math.PI * 66;
+
+  function plural(value, word) { return `${value} ${word}${value === 1 ? '' : 's'}`; }
+
+  function renderStaticContent() {
+    $('#targetYear').textContent = target.getFullYear();
+    $('#medianAge').textContent = DASHBOARD_CONFIG.medianAge.toFixed(1);
+    $('#targetIncome').textContent = money.format(DASHBOARD_CONFIG.incomeTarget);
+    $('#statusLabel').textContent = `Today (${new Date().getFullYear()} status)`;
+    $('#ageFacts').innerHTML = DASHBOARD_CONFIG.ageFacts.map(item => `<li>${item}</li>`).join('');
+
+    const multiple = Math.ceil(DASHBOARD_CONFIG.incomeTarget / DASHBOARD_CONFIG.incomeNow);
+    const shortfall = DASHBOARD_CONFIG.incomeTarget - DASHBOARD_CONFIG.incomeNow;
+    const trapFacts = [
+      `Must reach ${money.format(DASHBOARD_CONFIG.incomeTarget)} before 2045`,
+      `Current: ${money.format(DASHBOARD_CONFIG.incomeNow)} (need ${multiple}× leap)`,
+      `Without mass formal pensions`,
+      `Without universal healthcare`,
+      `Brazil/Thailand stagnation risk`
+    ];
+    $('#trapFacts').innerHTML = trapFacts.map(item => `<li>${item}</li>`).join('');
+    $('#actionButton').dataset.shortfall = money.format(shortfall);
+  }
+
+  function updateClock() {
+    const now = new Date();
+    const msRemaining = Math.max(0, target - now);
+    const total = Math.max(1, target - started);
+    const fractionRemaining = Math.min(1, msRemaining / total);
+    const remainingYears = msRemaining / (365.2425 * 24 * 60 * 60 * 1000);
+    const years = Math.floor(remainingYears);
+    const remainder = msRemaining - years * 365.2425 * 24 * 60 * 60 * 1000;
+    const days = Math.max(0, Math.floor(remainder / 86400000));
+
+    $('#headlineYears').textContent = years;
+    $('#timeRemaining').textContent = msRemaining > 0
+      ? `${plural(years, 'year')} ${plural(days, 'day')} remaining`
+      : 'Window closed';
+
+    const ring = $('#progressRing');
+    ring.style.strokeDasharray = `${circumference} ${circumference}`;
+    ring.style.strokeDashoffset = circumference * (1 - fractionRemaining);
+
+    // Move the orange dot to the end of the visible arc.
+    const angle = -Math.PI / 2 + Math.PI * 2 * fractionRemaining;
+    $('#ringDot').setAttribute('cx', (86 + 66 * Math.cos(angle)).toFixed(2));
+    $('#ringDot').setAttribute('cy', (86 + 66 * Math.sin(angle)).toFixed(2));
+  }
+
+  let tickerIndex = 0;
+  function updateTicker() {
+    const element = $('#tickerText');
+    element.animate([{ opacity: 0, transform: 'translateY(7px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 330, fill: 'forwards' });
+    element.textContent = DASHBOARD_CONFIG.tickers[tickerIndex];
+    tickerIndex = (tickerIndex + 1) % DASHBOARD_CONFIG.tickers.length;
+  }
+
+  $('#actionButton').addEventListener('click', () => {
+    $('#toast').textContent = `The annual per-person income gap is ${$('#actionButton').dataset.shortfall}. Use this button to link to your full report or CTA.`;
+  });
+
+  renderStaticContent();
+  updateClock();
+  updateTicker();
+  setInterval(updateClock, 1000);
+  setInterval(updateTicker, 5800);
+</script>
+</body>
+</html>

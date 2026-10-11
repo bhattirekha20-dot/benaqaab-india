@@ -1,0 +1,58 @@
+{
+  "name": "Replace with project name",
+  "projectStatus": "reference-ready",
+  "format": {
+    "width": 1280,
+    "height": 720,
+    "aspectRatio": "16:9",
+    "duration": "decided by AI/video editor",
+    "fps": "decided by AI/video editor"
+  },
+  "sourceAssets": [],
+  "content": {
+    "headline": "",
+    "subheadline": "",
+    "leftCard": { "label": "", "title": "", "bullets": [] },
+    "hero": { "type": "ring|chart|map|counter|custom", "title": "", "subtitle": "", "value": "" },
+    "rightCard": { "label": "", "title": "", "bullets": [] },
+    "cta": ""
+  },
+  "style": {
+    "background": "",
+    "information": "#32ccff",
+    "hero": "#ff862e",
+    "risk": "#ff5274",
+    "copy": "#edf5ff",
+    "mutedCopy": "#93a7bd"
+  },
+  "layers": [
+    { "id": "01_header", "type": "headline", "source": "semantic HTML text", "role": "primary" },
+    { "id": "02_left_card", "type": "information-card", "source": "semantic HTML text", "role": "context" },
+    { "id": "03_hero", "type": "live-graphic", "source": "SVG/CSS/canvas", "role": "hero" },
+    { "id": "04_right_card", "type": "risk-card", "source": "semantic HTML text", "role": "consequence" },
+    { "id": "05_ambience", "type": "connectors/glow/packets", "source": "CSS/SVG", "role": "ambient" }
+  ],
+  "timeline": [
+    { "phase": "01", "layer": "01_header", "action": "centre fade and scale in", "liveLabel": true },
+    { "phase": "02", "layer": "01_header", "action": "move to final top anchor" },
+    { "phase": "03", "layer": "02_left_card", "action": "enter and settle at left", "liveLabel": true },
+    { "phase": "04", "layer": "03_hero", "action": "draw/build live in the centre", "liveLabel": true },
+    { "phase": "04b", "layer": "03_hero", "action": "reveal numbers and labels after graphic is mostly built" },
+    { "phase": "05", "layer": "04_right_card", "action": "enter and settle at right", "liveLabel": true },
+    { "phase": "06", "layer": "05_ambience", "action": "hold final composition with subtle pulse and moving data packets" }
+  ],
+  "finalLayout": {
+    "coordinateSystem": "normalized 0 to 1",
+    "headline": [0.5, 0.1],
+    "leftCard": [0.18, 0.58],
+    "hero": [0.5, 0.58],
+    "rightCard": [0.82, 0.58]
+  },
+  "rules": {
+    "preserveLockedCopy": true,
+    "showAllElementsAtStart": false,
+    "fixedDurationAllowed": false,
+    "fixedFpsAllowed": false,
+    "reducedMotionSupported": true
+  }
+}

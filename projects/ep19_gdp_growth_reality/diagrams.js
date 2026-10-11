@@ -27,15 +27,11 @@
   function drawGlassCard(ctx, x, y, w, h, r = 16, borderColor = 'rgba(56, 189, 248, 0.38)', bgColor = null) {
     ctx.save();
 
-    // Translucent spatial frosted glass that keeps background image vividly visible
-    if (!bgColor || bgColor === 'rgba(8, 13, 24, 0.90)' || bgColor === 'rgba(8, 13, 24, 0.88)') {
-      const glassGrad = ctx.createLinearGradient(x, y, x, y + h);
-      glassGrad.addColorStop(0, 'rgba(8, 13, 24, 0.48)');
-      glassGrad.addColorStop(1, 'rgba(5, 8, 16, 0.36)');
-      ctx.fillStyle = glassGrad;
-    } else {
-      ctx.fillStyle = bgColor;
-    }
+    // Translucent spatial frosted glass that keeps background image vividly visible (Apple visionOS standard)
+    const glassGrad = ctx.createLinearGradient(x, y, x, y + h);
+    glassGrad.addColorStop(0, 'rgba(8, 14, 26, 0.44)');
+    glassGrad.addColorStop(1, 'rgba(5, 8, 16, 0.36)');
+    ctx.fillStyle = glassGrad;
 
     ctx.strokeStyle = borderColor;
     ctx.lineWidth = 1.2;
@@ -85,6 +81,7 @@
 
   // -------------------------------------------------------------
   // DIAGRAM 1: GDP vs GVA Discrepancy (64.29s - 83.45s)
+  // Progressive Infographic Motion: 6 Staged Phases
   // -------------------------------------------------------------
   function drawGdpGvaDiagram(ctx, t, start_s = 64.29, end_s = 83.45) {
     if (t < start_s || t >= end_s) return;
@@ -92,122 +89,372 @@
     const elapsed = t - start_s;
     const remaining = end_s - t;
 
-    // Spring entrance & exit fade
-    let alpha = 1.0;
-    let enterOffset = 0;
-    if (elapsed < 0.5) {
-      const p = elapsed / 0.5;
-      alpha = easeOutCubic(p);
-      enterOffset = (1 - easeOutCubic(p)) * 40;
-    } else if (remaining < 0.4) {
-      alpha = Math.max(0, remaining / 0.4);
-    }
+    // Master alpha fade in & out
+    let masterAlpha = 1.0;
+    if (elapsed < 0.45) masterAlpha = easeOutCubic(elapsed / 0.45);
+    else if (remaining < 0.4) masterAlpha = Math.max(0, remaining / 0.4);
 
     ctx.save();
-    ctx.globalAlpha = alpha;
+    ctx.globalAlpha = masterAlpha;
 
-    const cx = 960, cy = 530 + enterOffset;
-    const cardW = 1180, cardH = 580;
-    const x = cx - cardW/2, y = cy - cardH/2;
+    // Relative progressive phase progress
+    // Phase 1 (0.0s - 2.2s): Headline in Center
+    // Phase 2 (2.2s - 4.2s): Headline glides to Top Anchor + guide rule wipes out
+    // Phase 3 (4.2s - 8.0s): Step 1 (Production Base GVA 8.2%) enters + odometer rolls
+    // Phase 4 (8.0s - 12.0s): Step 2 (Statistical Wedge -0.4%) enters + minus sign
+    // Phase 5 (12.0s - 15.5s): Step 3 (Headline Result GDP 7.8%) enters + equals sign
+    // Phase 6 (15.5s - 19.16s): Active connected conduits pulse + Ground Reality Verdict banner slides up
 
-    drawGlassCard(ctx, x, y, cardW, cardH, 20, 'rgba(56, 189, 248, 0.4)');
+    const headerIn = Math.min(1, elapsed / 0.5);
+    const headerMove = elapsed > 2.2 ? Math.min(1, (elapsed - 2.2) / 1.5) : 0;
+    const headerEasedMove = 1 - Math.pow(1 - headerMove, 3); // outCubic
 
-    // Header Tag & Title
-    drawBadge(ctx, 'OFFICIAL DATA DISSECTION · MoSPI Q1 NATIONAL ACCOUNTS', cx, y + 42, '#38bdf8', 'rgba(56, 189, 248, 0.15)', 'rgba(56, 189, 248, 0.4)');
+    // Header position: Center (cy = 490) -> Top Anchor (cy = 115)
+    const headerCX = 960;
+    const headerCY = 490 - headerEasedMove * 375;
+    const headerScale = 1.12 - headerEasedMove * 0.12;
+
+    // Mini Live Tag Helper
+    function drawLiveBadge(bx, by, col, alp = 1.0, label = 'LIVE') {
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * alp;
+      const bw = 54, bh = 20;
+      ctx.fillStyle = 'rgba(8, 14, 26, 0.85)';
+      ctx.strokeStyle = col;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(bx, by, bw, bh, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      const pulse = 0.5 + 0.5 * Math.sin(t * 7);
+      ctx.fillStyle = col;
+      ctx.shadowColor = col;
+      ctx.shadowBlur = 6 * pulse;
+      ctx.beginPath();
+      ctx.arc(bx + 9, by + 10, 3.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      ctx.font = '800 9.5px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, bx + 17, by + 10.5);
+      ctx.restore();
+    }
+
+    // --- PHASE 01 & 02: HEADLINE PANEL ---
+    ctx.save();
+    ctx.translate(headerCX, headerCY);
+    ctx.scale(headerScale, headerScale);
+    ctx.globalAlpha = masterAlpha * headerIn;
+
+    drawBadge(ctx, 'OFFICIAL DATA DISSECTION · MoSPI Q1 NATIONAL ACCOUNTS', 0, -32, '#38bdf8', 'rgba(56, 189, 248, 0.15)', 'rgba(56, 189, 248, 0.4)');
     
     ctx.fillStyle = '#ffffff';
     ctx.font = '800 28px "Outfit", "Inter", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('THE GDP vs GVA WEDGE: WHAT HEADLINE 7.8% MASKS', cx, y + 84);
+    ctx.fillText('THE GDP vs GVA WEDGE: WHAT HEADLINE 7.8% MASKS', 0, 10);
 
     ctx.fillStyle = '#94a3b8';
-    ctx.font = '500 15px "Inter", sans-serif';
-    ctx.fillText('Gross Domestic Product = Gross Value Added + Net Indirect Taxes (Taxes − Subsidies)', cx, y + 112);
+    ctx.font = '500 14px "Inter", sans-serif';
+    ctx.fillText('Gross Domestic Product = Gross Value Added + Net Indirect Taxes (Taxes − Subsidies)', 0, 38);
 
-    // 3 Formula Comparison Columns
-    const colY = y + 155;
-    const colH = 265;
-    const colW = 340;
+    if (elapsed < 2.2) {
+      drawLiveBadge(290, -42, '#38bdf8', headerIn, 'AUDIT');
+    } else {
+      drawLiveBadge(370, -42, '#38bdf8', 0.85, 'AUDIT');
+    }
+    ctx.restore();
 
-    // Column 1: GVA 8.2%
-    const c1X = x + 40;
-    drawGlassCard(ctx, c1X, colY, colW, colH, 14, 'rgba(14, 165, 233, 0.3)', 'rgba(14, 165, 233, 0.06)');
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('STEP 1: PRODUCTION BASE', c1X + 24, colY + 38);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 22px "Inter", sans-serif';
-    ctx.fillText('Real GVA Growth', c1X + 24, colY + 70);
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = '900 52px "JetBrains Mono", monospace';
-    ctx.fillText('8.2%', c1X + 24, colY + 135);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 13.5px "Inter", sans-serif';
-    ctx.fillText('• Core output across sectors', c1X + 24, colY + 175);
-    ctx.fillText('• Boosted by financial & IT hubs', c1X + 24, colY + 198);
-    ctx.fillText('• Farm sector growth muted at ~2%', c1X + 24, colY + 221);
+    // Baseline horizontal guide rule wipes out once header reaches top
+    if (headerEasedMove > 0.3) {
+      const guideAlpha = Math.min(1, (headerEasedMove - 0.3) / 0.7);
+      ctx.save();
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(960 - 800 * guideAlpha, 182);
+      ctx.lineTo(960 + 800 * guideAlpha, 182);
+      ctx.stroke();
+      ctx.restore();
+    }
 
-    // Math Operator Minus
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = '900 36px "Inter", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('−', x + 40 + colW + 40, colY + colH/2);
+    // Card Layout Specs
+    const colY = 200;
+    const colH = 415;
+    const colW = 460;
+    const c1FinalX = 160;
+    const c2FinalX = 730;
+    const c3FinalX = 1300;
 
-    // Column 2: Net Tax Discrepancy -0.4%
-    const c2X = x + 420;
-    drawGlassCard(ctx, c2X, colY, colW, colH, 14, 'rgba(251, 191, 36, 0.35)', 'rgba(251, 191, 36, 0.06)');
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('STEP 2: STATISTICAL WEDGE', c2X + 24, colY + 38);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 22px "Inter", sans-serif';
-    ctx.fillText('Net Product Taxes', c2X + 24, colY + 70);
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = '900 52px "JetBrains Mono", monospace';
-    ctx.fillText('−0.4%', c2X + 24, colY + 135);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 13.5px "Inter", sans-serif';
-    ctx.fillText('• Lower government subsidy payouts', c2X + 24, colY + 175);
-    ctx.fillText('• High indirect tax collections', c2X + 24, colY + 198);
-    ctx.fillText('• Creates artificial headline divergence', c2X + 24, colY + 221);
+    // --- PHASE 03: STEP 1: PRODUCTION BASE (GVA 8.2%) (Enters at 4.2s) ---
+    if (elapsed >= 4.0) {
+      const p1 = Math.min(1, (elapsed - 4.0) / 1.0);
+      const c1 = 1.70158, c3 = 2.70158;
+      const overshoot1 = 1 + c3 * Math.pow(p1 - 1, 3) + c1 * Math.pow(p1 - 1, 2);
+      const c1X = 400 + (c1FinalX - 400) * overshoot1;
+      const float1 = elapsed > 5.5 ? Math.sin(t * 1.7) * 2.5 : 0;
 
-    // Math Operator Equals
-    ctx.fillStyle = '#10b981';
-    ctx.font = '900 36px "Inter", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('=', x + 420 + colW + 40, colY + colH/2);
+      // Odometer for 8.2%
+      const numProg1 = Math.min(1, Math.max(0, (elapsed - 4.3) / 1.5));
+      const val1 = (8.2 * easeOutCubic(numProg1)).toFixed(1);
 
-    // Column 3: Real GDP 7.8%
-    const c3X = x + 800;
-    drawGlassCard(ctx, c3X, colY, colW, colH, 14, 'rgba(16, 185, 129, 0.4)', 'rgba(16, 185, 129, 0.08)');
-    ctx.fillStyle = '#10b981';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('STEP 3: HEADLINE RESULT', c3X + 24, colY + 38);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 22px "Inter", sans-serif';
-    ctx.fillText('Real GDP Growth', c3X + 24, colY + 70);
-    ctx.fillStyle = '#10b981';
-    ctx.font = '900 52px "JetBrains Mono", monospace';
-    ctx.fillText('7.8%', c3X + 24, colY + 135);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 13.5px "Inter", sans-serif';
-    ctx.fillText('• Official global bragging headline', c3X + 24, colY + 175);
-    ctx.fillText('• Fastest growing major economy', c3X + 24, colY + 198);
-    ctx.fillText('• Hides unequal income distribution', c3X + 24, colY + 221);
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * Math.min(1, (elapsed - 4.0) / 0.4);
+      drawGlassCard(ctx, c1X, colY + float1, colW, colH, 16, 'rgba(14, 165, 233, 0.45)', 'rgba(14, 165, 233, 0.08)');
+      drawLiveBadge(c1X + colW - 86, colY + float1 - 12, '#38bdf8', 0.95, 'BASE');
 
-    // Bottom Summary Banner
-    const botY = y + 445;
-    drawGlassCard(ctx, x + 40, botY, cardW - 80, 95, 12, 'rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.5)');
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('🔍 GROUND REALITY VERDICT:', x + 65, botY + 36);
-    ctx.fillStyle = '#f8fafc';
-    ctx.font = '500 15.5px "Inter", sans-serif';
-    ctx.fillText('जब जीडीपी बढ़ता है लेकिन आम आदमी की बचत गिरती है, तो इसका मतलब है कि ग्रोथ कागज़ पर टैक्स और उच्च-आय वालों के दम पर है, आम उपभोग पर नहीं!', x + 65, botY + 68);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '700 14px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STEP 1: PRODUCTION BASE', c1X + 28, colY + float1 + 42);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Inter", sans-serif';
+      ctx.fillText('Real GVA Growth', c1X + 28, colY + float1 + 78);
+
+      // Main Big Metric
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '900 62px "JetBrains Mono", monospace';
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.5)';
+      ctx.shadowBlur = 14;
+      ctx.fillText(val1 + '%', c1X + 28, colY + float1 + 158);
+      ctx.shadowBlur = 0;
+
+      // Sub-label
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Gross Value Added across economic sectors', c1X + 28, colY + float1 + 192);
+
+      // Divider line
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.25)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(c1X + 28, colY + float1 + 215);
+      ctx.lineTo(c1X + colW - 28, colY + float1 + 215);
+      ctx.stroke();
+
+      // Bullet insights
+      const bAlpha1 = Math.min(1, Math.max(0, (elapsed - 5.0) / 0.8));
+      ctx.globalAlpha = masterAlpha * bAlpha1;
+      ctx.fillStyle = '#e2e8f0';
+      ctx.font = '500 15px "Inter", sans-serif';
+      ctx.fillText('• Core supply-side output across factories & farms', c1X + 28, colY + float1 + 252);
+      ctx.fillText('• Driven by capital-heavy financial & IT hubs', c1X + 28, colY + float1 + 284);
+      ctx.fillText('• Rural agricultural growth stagnant at ~1.4%', c1X + 28, colY + float1 + 316);
+
+      // Footnote Pill
+      drawBadge(ctx, 'PRIMARY SOURCE: MoSPI GVA RELEASE', c1X + 170, colY + float1 + 372, '#38bdf8', 'rgba(56,189,248,0.1)', 'rgba(56,189,248,0.3)');
+
+      ctx.restore();
+    }
+
+    // --- PHASE 04: STEP 2: STATISTICAL WEDGE (-0.4%) (Enters at 8.0s) ---
+    if (elapsed >= 7.8) {
+      const p2 = Math.min(1, (elapsed - 7.8) / 1.0);
+      const c1 = 1.70158, c3 = 2.70158;
+      const overshoot2 = 1 + c3 * Math.pow(p2 - 1, 3) + c1 * Math.pow(p2 - 1, 2);
+      const c2X = 900 + (c2FinalX - 900) * overshoot2;
+      const float2 = elapsed > 9.2 ? Math.sin(t * 1.7 + 1.2) * 2.5 : 0;
+
+      // Minus Operator
+      const opAlpha1 = Math.min(1, (elapsed - 7.8) / 0.4);
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * opAlpha1;
+      ctx.fillStyle = '#fbbf24';
+      ctx.shadowColor = 'rgba(251, 191, 36, 0.6)';
+      ctx.shadowBlur = 12;
+      ctx.font = '900 48px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('−', (c1FinalX + colW + c2FinalX) / 2, colY + colH/2);
+      ctx.restore();
+
+      // Odometer for -0.4%
+      const numProg2 = Math.min(1, Math.max(0, (elapsed - 8.1) / 1.5));
+      const val2 = (-0.4 * easeOutCubic(numProg2)).toFixed(1);
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * Math.min(1, (elapsed - 7.8) / 0.4);
+      drawGlassCard(ctx, c2X, colY + float2, colW, colH, 16, 'rgba(251, 191, 36, 0.45)', 'rgba(251, 191, 36, 0.08)');
+      drawLiveBadge(c2X + colW - 86, colY + float2 - 12, '#fbbf24', 0.95, 'WEDGE');
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '700 14px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STEP 2: STATISTICAL WEDGE', c2X + 28, colY + float2 + 42);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Inter", sans-serif';
+      ctx.fillText('Net Product Taxes', c2X + 28, colY + float2 + 78);
+
+      // Main Big Metric
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '900 62px "JetBrains Mono", monospace';
+      ctx.shadowColor = 'rgba(251, 191, 36, 0.5)';
+      ctx.shadowBlur = 14;
+      ctx.fillText(val2 + '%', c2X + 28, colY + float2 + 158);
+      ctx.shadowBlur = 0;
+
+      // Sub-label
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Indirect Taxes collected minus government subsidies', c2X + 28, colY + float2 + 192);
+
+      // Divider line
+      ctx.strokeStyle = 'rgba(251, 191, 36, 0.25)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(c2X + 28, colY + float2 + 215);
+      ctx.lineTo(c2X + colW - 28, colY + float2 + 215);
+      ctx.stroke();
+
+      // Bullet insights
+      const bAlpha2 = Math.min(1, Math.max(0, (elapsed - 8.8) / 0.8));
+      ctx.globalAlpha = masterAlpha * bAlpha2;
+      ctx.fillStyle = '#e2e8f0';
+      ctx.font = '500 15px "Inter", sans-serif';
+      ctx.fillText('• Fertilizer & food subsidy payouts trimmed sharply', c2X + 28, colY + float2 + 252);
+      ctx.fillText('• Robust GST indirect tax collections inflate math', c2X + 28, colY + float2 + 284);
+      ctx.fillText('• Creates an artificial statistical wedge in headline', c2X + 28, colY + float2 + 316);
+
+      // Footnote Pill
+      drawBadge(ctx, 'DISCREPANCY FORMULA: TAXES − SUBSIDIES', c2X + 210, colY + float2 + 372, '#fbbf24', 'rgba(251,191,36,0.1)', 'rgba(251,191,36,0.3)');
+
+      ctx.restore();
+    }
+
+    // --- PHASE 05: STEP 3: HEADLINE RESULT (GDP 7.8%) (Enters at 12.0s) ---
+    if (elapsed >= 11.8) {
+      const p3 = Math.min(1, (elapsed - 11.8) / 1.0);
+      const c1 = 1.70158, c3 = 2.70158;
+      const overshoot3 = 1 + c3 * Math.pow(p3 - 1, 3) + c1 * Math.pow(p3 - 1, 2);
+      const c3X = 1450 + (c3FinalX - 1450) * overshoot3;
+      const float3 = elapsed > 13.2 ? Math.sin(t * 1.7 + 2.4) * 2.5 : 0;
+
+      // Equals Operator
+      const opAlpha2 = Math.min(1, (elapsed - 11.8) / 0.4);
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * opAlpha2;
+      ctx.fillStyle = '#10b981';
+      ctx.shadowColor = 'rgba(16, 185, 129, 0.6)';
+      ctx.shadowBlur = 12;
+      ctx.font = '900 48px "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('=', (c2FinalX + colW + c3FinalX) / 2, colY + colH/2);
+      ctx.restore();
+
+      // Odometer for 7.8%
+      const numProg3 = Math.min(1, Math.max(0, (elapsed - 12.1) / 1.5));
+      const val3 = (7.8 * easeOutCubic(numProg3)).toFixed(1);
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * Math.min(1, (elapsed - 11.8) / 0.4);
+      drawGlassCard(ctx, c3X, colY + float3, colW, colH, 16, 'rgba(16, 185, 129, 0.50)', 'rgba(16, 185, 129, 0.08)');
+      drawLiveBadge(c3X + colW - 86, colY + float3 - 12, '#10b981', 0.95, 'RESULT');
+
+      ctx.fillStyle = '#10b981';
+      ctx.font = '700 14px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('STEP 3: HEADLINE RESULT', c3X + 28, colY + float3 + 42);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 24px "Inter", sans-serif';
+      ctx.fillText('Real GDP Growth', c3X + 28, colY + float3 + 78);
+
+      // Main Big Metric
+      ctx.fillStyle = '#10b981';
+      ctx.font = '900 62px "JetBrains Mono", monospace';
+      ctx.shadowColor = 'rgba(16, 185, 129, 0.6)';
+      ctx.shadowBlur = 16;
+      ctx.fillText(val3 + '%', c3X + 28, colY + float3 + 158);
+      ctx.shadowBlur = 0;
+
+      // Sub-label
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Official global celebration figure', c3X + 28, colY + float3 + 192);
+
+      // Divider line
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.25)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(c3X + 28, colY + float3 + 215);
+      ctx.lineTo(c3X + colW - 28, colY + float3 + 215);
+      ctx.stroke();
+
+      // Bullet insights
+      const bAlpha3 = Math.min(1, Math.max(0, (elapsed - 12.8) / 0.8));
+      ctx.globalAlpha = masterAlpha * bAlpha3;
+      ctx.fillStyle = '#e2e8f0';
+      ctx.font = '500 15px "Inter", sans-serif';
+      ctx.fillText('• Fastest growing major economy in the world', c3X + 28, colY + float3 + 252);
+      ctx.fillText('• Celebrated on global news & Davos summits', c3X + 28, colY + float3 + 284);
+      ctx.fillText('• Conceals acute private consumption slowdown', c3X + 28, colY + float3 + 316);
+
+      // Footnote Pill
+      drawBadge(ctx, 'HEADLINE MASKS GROUND DISPARITY', c3X + 210, colY + float3 + 372, '#10b981', 'rgba(16,185,129,0.1)', 'rgba(16,185,129,0.3)');
+
+      ctx.restore();
+    }
+
+    // --- PHASE 06: CONNECTED STREAM & GROUND REALITY VERDICT (Enters at 15.5s) ---
+    if (elapsed >= 15.0) {
+      // 1. Kinetic energy packets flowing along conduits
+      ctx.save();
+      const streamTime = t * 3.5;
+      const conduitY = colY + colH / 2;
+
+      // Packet 1: C1 -> C2
+      const p1X = (c1FinalX + colW) + ((c2FinalX - (c1FinalX + colW)) * ((streamTime % 1)));
+      ctx.fillStyle = '#38bdf8';
+      ctx.shadowColor = '#38bdf8';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(p1X, conduitY, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Packet 2: C2 -> C3
+      const p2X = (c2FinalX + colW) + ((c3FinalX - (c2FinalX + colW)) * (((streamTime + 0.5) % 1)));
+      ctx.fillStyle = '#fbbf24';
+      ctx.shadowColor = '#fbbf24';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(p2X, conduitY, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // 2. Bottom Ground Reality Verdict Banner
+      const botP = Math.min(1, (elapsed - 15.0) / 0.9);
+      const botAlpha = easeOutCubic(botP);
+      const botY = 645 + (1 - botAlpha) * 35;
+      const bannerW = 1600;
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * botAlpha;
+      drawGlassCard(ctx, 160, botY, bannerW, 90, 14, 'rgba(56, 189, 248, 0.40)', 'rgba(8, 14, 26, 0.88)');
+
+      // Live tag
+      drawLiveBadge(160 + bannerW - 96, botY - 12, '#38bdf8', 0.95, 'VERDICT');
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 15px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('🔍 BENAQAAB FORENSIC VERDICT:', 195, botY + 36);
+
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '600 16px "Inter", sans-serif';
+      ctx.fillText('जब जीडीपी कागज़ पर 7.8% दिखता है लेकिन आम परिवार की शुद्ध बचत 47 साल के न्यूनतम स्तर पर गिर जाती है,', 195, botY + 65);
+
+      // Highlighted punchline
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '700 16px "Inter", sans-serif';
+      ctx.fillText('तो ग्रोथ का फ़ायदा आम जनता तक नहीं पहुंच रहा— यह केवल टॉप 15% और कॉरपोरेट मुनाफ़ों में सीमित है!', 985, botY + 65);
+
+      ctx.restore();
+    }
 
     ctx.restore();
   }
@@ -885,123 +1132,347 @@
 
   // -------------------------------------------------------------
   // DIAGRAM 6: The 2045 Demographic Clock (500.18s - 525.70s)
+  // Implemented using the Progressive Infographic Motion System:
+  // Phase 01: Headline in center with LIVE tag
+  // Phase 02: Headline travels smoothly to top anchor
+  // Phase 03: Left context card enters (Cyan #38bdf8) with LIVE badge
+  // Phase 04: Central orange clock arc draws clockwise live with travelling head
+  // Phase 04b: Hero year 2045 and window labels reveal
+  // Phase 05: Right risk card enters (Crimson #f43f5e) with LIVE badge
+  // Phase 06: Final holding state with pulsing data packets and warning banner
   // -------------------------------------------------------------
   function drawDemographicClockDiagram(ctx, t, start_s = 500.18, end_s = 525.70) {
     if (t < start_s || t >= end_s) return;
     const elapsed = t - start_s;
     const remaining = end_s - t;
 
-    let alpha = 1.0;
-    let enterOffset = 0;
-    if (elapsed < 0.5) {
-      const p = elapsed / 0.5;
-      alpha = easeOutCubic(p);
-      enterOffset = (1 - easeOutCubic(p)) * 40;
-    } else if (remaining < 0.4) {
-      alpha = Math.max(0, remaining / 0.4);
+    // Helper: Draw signature glowing LIVE badge from progressive motion skill
+    function drawLiveBadge(bx, by, color, badgeAlpha = 1.0, label = "LIVE") {
+      if (badgeAlpha <= 0.01) return;
+      ctx.save();
+      ctx.globalAlpha = ctx.globalAlpha * badgeAlpha;
+      ctx.font = '800 11px "JetBrains Mono", monospace';
+      const tw = ctx.measureText(label).width;
+      const bw = tw + 34;
+      const bh = 22;
+
+      ctx.fillStyle = 'rgba(5, 12, 22, 0.88)';
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.2;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.roundRect(bx, by, bw, bh, 11);
+      ctx.fill();
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Pulsing dot
+      const dotPulse = 0.7 + 0.3 * Math.sin(t * 8);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(bx + 11, by + bh / 2, 3.2 * dotPulse, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'left';
+      ctx.fillText(label, bx + 20, by + 15);
+      ctx.restore();
     }
 
+    // Helper: Draw data connection line with travelling glowing packet
+    function drawDataConnection(x1, x2, yPos, color, phaseP, connAlpha) {
+      if (connAlpha <= 0.01) return;
+      ctx.save();
+      ctx.globalAlpha = ctx.globalAlpha * connAlpha;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x1, yPos);
+      ctx.lineTo(x2, yPos);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Travelling packet
+      const packetX = x1 + (x2 - x1) * (phaseP % 1);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(packetX, yPos, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Master alpha with smooth entry & exit
+    let masterAlpha = 1.0;
+    if (elapsed < 0.3) masterAlpha = elapsed / 0.3;
+    else if (remaining < 0.4) masterAlpha = Math.max(0, remaining / 0.4);
+
     ctx.save();
-    ctx.globalAlpha = alpha;
+    ctx.globalAlpha = masterAlpha;
 
-    const cx = 960, cy = 525 + enterOffset;
-    const cardW = 1200, cardH = 610;
-    const x = cx - cardW/2, y = cy - cardH/2;
+    // Relative progressive phase progress
+    // Phase 1 (0.0s - 2.5s): Headline Center
+    // Phase 2 (2.5s - 4.8s): Headline Move to Top
+    // Phase 3 (4.8s - 8.5s): Left Card Enter
+    // Phase 4 (8.5s - 14.5s): Clock Draw Live
+    // Phase 5 (14.5s - 18.5s): Right Card Enter
+    // Phase 6 (18.5s - 25.5s): Full Connected Dashboard Hold
 
-    drawGlassCard(ctx, x, y, cardW, cardH, 20, 'rgba(251, 146, 60, 0.4)');
+    const headerIn = Math.min(1, elapsed / 0.6);
+    const headerMove = elapsed > 2.5 ? Math.min(1, (elapsed - 2.5) / 1.6) : 0;
+    const headerEasedMove = 1 - Math.pow(1 - headerMove, 3); // outCubic
 
-    // Header
-    drawBadge(ctx, 'ACTUARIAL DEMOGRAPHIC RISK · NFHS PROJECTIONS', cx, y + 40, '#fb923c', 'rgba(251, 146, 60, 0.15)', 'rgba(251, 146, 60, 0.4)');
+    // Header position: Center (cy = 500) -> Top Anchor (cy = 120)
+    const headerCX = 960;
+    const headerCY = 500 - headerEasedMove * 380;
+    const headerScale = 1.10 - headerEasedMove * 0.15;
+
+    // --- PHASE 01 & 02: HEADLINE PANEL ---
+    ctx.save();
+    ctx.translate(headerCX, headerCY);
+    ctx.scale(headerScale, headerScale);
+    ctx.globalAlpha = masterAlpha * headerIn;
+
+    drawBadge(ctx, 'ACTUARIAL DEMOGRAPHIC RISK · NFHS PROJECTIONS', 0, -32, '#fb923c', 'rgba(251, 146, 60, 0.15)', 'rgba(251, 146, 60, 0.4)');
     ctx.fillStyle = '#ffffff';
     ctx.font = '800 28px "Outfit", "Inter", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('THE 2045 DEMOGRAPHIC CLOCK: RACE AGAINST TIME', cx, y + 80);
+    ctx.fillText('THE 2045 DEMOGRAPHIC CLOCK: RACE AGAINST TIME', 0, 8);
 
     ctx.fillStyle = '#94a3b8';
-    ctx.font = '500 15px "Inter", sans-serif';
-    ctx.fillText('India has only 19 years before its demographic dividend window permanently shuts.', cx, y + 108);
+    ctx.font = '500 14px "Inter", sans-serif';
+    ctx.fillText('India has only 19 years before its demographic dividend window permanently shuts.', 0, 36);
 
-    // Left Column: Today's Advantage (Youth)
-    const colW = 340, colH = 340, colY = y + 145;
-    const leftX = x + 40;
-    drawGlassCard(ctx, leftX, colY, colW, colH, 16, 'rgba(56, 189, 248, 0.35)', 'rgba(15, 23, 42, 0.6)');
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = '800 16px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('TODAY (2026 STATUS)', leftX + 24, colY + 38);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 22px "Inter", sans-serif';
-    ctx.fillText('Median Age: 28.4 Yrs', leftX + 24, colY + 74);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 14px "Inter", sans-serif';
-    ctx.fillText('• 1.1 Crore Youth Enter Jobs/Yr', leftX + 24, colY + 120);
-    ctx.fillText('• Youngest workforce on Earth', leftX + 24, colY + 148);
-    ctx.fillText('• Fertility Rate: 2.0 (NFHS-5)', leftX + 24, colY + 176);
-    ctx.fillText('• Replacement level broken', leftX + 24, colY + 204);
-    ctx.fillText('• South states already aging', leftX + 24, colY + 232);
+    // Live tag for header
+    if (elapsed < 2.5) {
+      drawLiveBadge(240, -42, '#fb923c', headerIn, 'LIVE');
+    } else {
+      drawLiveBadge(360, -42, '#fb923c', 0.85, 'LIVE');
+    }
+    ctx.restore();
 
-    // Centerpiece: The Glowing Clock Gauge
-    const clockCX = cx;
-    const clockCY = colY + colH/2;
-    const radius = 110;
+    // Baseline horizontal divider guide rule wipes out once header reaches top
+    if (headerEasedMove > 0.3) {
+      const guideAlpha = Math.min(1, (headerEasedMove - 0.3) / 0.7);
+      ctx.save();
+      ctx.strokeStyle = 'rgba(73, 116, 147, 0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(960 - 600 * guideAlpha, 185);
+      ctx.lineTo(960 + 600 * guideAlpha, 185);
+      ctx.stroke();
+      ctx.restore();
+    }
 
-    // Outer Track
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 14;
-    ctx.beginPath();
-    ctx.arc(clockCX, clockCY, radius, 0, Math.PI * 2);
-    ctx.stroke();
+    // --- PHASE 03: LEFT DEMOGRAPHIC CONTEXT CARD (Enters at 4.8s) ---
+    const cardY = 220;
+    const cardH = 390;
+    const cardW = 350;
 
-    // Animated Ticking Progress Arc (Remaining Window)
-    const clockProgress = 0.65 + Math.sin(t * 3) * 0.02;
-    ctx.strokeStyle = '#fb923c';
-    ctx.shadowColor = '#fb923c';
-    ctx.shadowBlur = 18;
-    ctx.lineWidth = 14;
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.arc(clockCX, clockCY, radius, -Math.PI/2, -Math.PI/2 + Math.PI * 2 * clockProgress);
-    ctx.stroke();
-    ctx.shadowBlur = 0;
-    ctx.lineCap = 'butt';
+    if (elapsed >= 4.5) {
+      const leftP = Math.min(1, (elapsed - 4.5) / 1.1);
+      // Friendly pop-in overshoot
+      const c1 = 1.70158, c3 = 2.70158;
+      const leftOvershoot = 1 + c3 * Math.pow(leftP - 1, 3) + c1 * Math.pow(leftP - 1, 2);
+      const leftScale = 0.82 + 0.18 * Math.min(1, leftOvershoot);
+      const leftFinalX = 140;
+      const leftX = 420 + (leftFinalX - 420) * leftOvershoot;
+      const leftFloat = elapsed > 5.8 ? Math.sin(t * 1.8) * 2 : 0;
 
-    // Center Text
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '900 36px "JetBrains Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText('2045', clockCX, clockCY - 5);
-    ctx.fillStyle = '#fb923c';
-    ctx.font = '800 13px "JetBrains Mono", monospace';
-    ctx.fillText('WINDOW CLOSES', clockCX, clockCY + 26);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '500 12px "Inter", sans-serif';
-    ctx.fillText('~19 Years Remaining', clockCX, clockCY + 46);
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * Math.min(1, (elapsed - 4.5) / 0.5);
+      drawGlassCard(ctx, leftX, cardY + leftFloat, cardW, cardH, 16, 'rgba(56, 189, 248, 0.40)');
 
-    // Right Column: The Risk (Growing Old Before Rich)
-    const rightX = x + cardW - 40 - colW;
-    drawGlassCard(ctx, rightX, colY, colW, colH, 16, 'rgba(244, 63, 94, 0.45)', 'rgba(136, 19, 55, 0.2)');
-    ctx.fillStyle = '#f43f5e';
-    ctx.font = '800 16px "JetBrains Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillText('THE MIDDLE-INCOME TRAP', rightX + 24, colY + 38);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '800 22px "Inter", sans-serif';
-    ctx.fillText('Target: $10,000 / Cap', rightX + 24, colY + 74);
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '400 14px "Inter", sans-serif';
-    ctx.fillText('• Must reach $10k before 2045', rightX + 24, colY + 120);
-    ctx.fillText('• Current: $2,730 (Need 4x leap)', rightX + 24, colY + 148);
-    ctx.fillText('• Without mass formal pensions', rightX + 24, colY + 176);
-    ctx.fillText('• Without universal healthcare', rightX + 24, colY + 204);
-    ctx.fillText('• Brazil/Thailand stagnation risk', rightX + 24, colY + 232);
+      // Live tag
+      drawLiveBadge(leftX + cardW - 88, cardY + leftFloat - 14, '#38bdf8', 0.95, 'LIVE');
 
-    // Bottom Warning Banner
-    const botY = y + 510;
-    drawGlassCard(ctx, x + 40, botY, cardW - 80, 68, 12, 'rgba(255, 255, 255, 0.12)', 'rgba(0, 0, 0, 0.6)');
-    ctx.fillStyle = '#fbbf24';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText('⚠️ अगर अगले 18 सालों में पर-कैपिटा इनकम नहीं बढ़ी, तो भारत अमीर बनने से पहले बूढ़ा हो जाएगा!', cx, botY + 40);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '800 15px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('TODAY (2026 STATUS)', leftX + 24, cardY + leftFloat + 42);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 22px "Inter", sans-serif';
+      ctx.fillText('Median Age: 28.4 Yrs', leftX + 24, cardY + leftFloat + 78);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '400 14px "Inter", sans-serif';
+      const bulletY = cardY + leftFloat + 124;
+      ctx.fillText('• 1.1 Crore Youth Enter Jobs/Yr', leftX + 24, bulletY);
+      ctx.fillText('• Youngest workforce on Earth', leftX + 24, bulletY + 28);
+      ctx.fillText('• Fertility Rate: 2.0 (NFHS-5)', leftX + 24, bulletY + 56);
+      ctx.fillText('• Replacement level broken', leftX + 24, bulletY + 84);
+      ctx.fillText('• South states already aging', leftX + 24, bulletY + 112);
+      ctx.fillText('• Dependency ratio rising', leftX + 24, bulletY + 140);
+
+      ctx.restore();
+    }
+
+    // --- PHASE 04: CENTRAL CLOCK ARC DRAWN LIVE (Enters at 8.0s) ---
+    const clockCX = 960;
+    const clockCY = 415;
+    const clockR = 120;
+
+    if (elapsed >= 8.0) {
+      const clockIn = Math.min(1, (elapsed - 8.0) / 0.8);
+      const ringP = Math.min(1, (elapsed - 8.0) / 4.8);
+      const ringEased = 1 - Math.pow(1 - ringP, 3);
+      const sweepEnd = -Math.PI / 2 + (Math.PI * 2 * 0.72) * ringEased;
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * clockIn;
+
+      // Clock frosted circular backing
+      ctx.fillStyle = 'rgba(10, 15, 26, 0.40)';
+      ctx.beginPath();
+      ctx.arc(clockCX, clockCY, clockR + 32, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Outer track circle
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 14;
+      ctx.beginPath();
+      ctx.arc(clockCX, clockCY, clockR, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Primary dual-band drawn orange arc
+      if (ringEased > 0.02) {
+        // Soft volumetric glow under arc
+        ctx.strokeStyle = 'rgba(255, 105, 34, 0.4)';
+        ctx.shadowColor = 'rgba(255, 132, 39, 0.8)';
+        ctx.shadowBlur = 22;
+        ctx.lineWidth = 16;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.arc(clockCX, clockCY, clockR, -Math.PI / 2, sweepEnd);
+        ctx.stroke();
+
+        // Sharp rich orange stroke
+        ctx.strokeStyle = '#ff6922';
+        ctx.shadowBlur = 0;
+        ctx.lineWidth = 13;
+        ctx.beginPath();
+        ctx.arc(clockCX, clockCY, clockR, -Math.PI / 2, sweepEnd);
+        ctx.stroke();
+
+        // Inner gold accent thread
+        ctx.strokeStyle = '#ffbe48';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(clockCX, clockCY, clockR - 2, -Math.PI / 2, sweepEnd);
+        ctx.stroke();
+        ctx.lineCap = 'butt';
+
+        // Glowing travelling node at the head of the arc
+        const headX = clockCX + clockR * Math.cos(sweepEnd);
+        const headY = clockCY + clockR * Math.sin(sweepEnd);
+        ctx.fillStyle = '#ffbe48';
+        ctx.shadowColor = '#ffbe48';
+        ctx.shadowBlur = 14;
+        ctx.beginPath();
+        ctx.arc(headX, headY, 6.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // Phase 04b: Hero Center Year & Countdown Labels (Reveals after ring is underway)
+      if (elapsed >= 11.5) {
+        const textIn = Math.min(1, (elapsed - 11.5) / 0.8);
+        ctx.save();
+        ctx.globalAlpha = masterAlpha * textIn;
+        const textFloat = Math.sin(t * 1.5) * 1.8;
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 38px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('2045', clockCX, clockCY - 6 + textFloat);
+
+        ctx.fillStyle = '#ff862e';
+        ctx.font = '800 13px "JetBrains Mono", monospace';
+        ctx.fillText('WINDOW CLOSES', clockCX, clockCY + 26 + textFloat);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '500 12px "Inter", sans-serif';
+        ctx.fillText('~19 Years Remaining', clockCX, clockCY + 48 + textFloat);
+        ctx.restore();
+      }
+
+      // Center Live Badge
+      drawLiveBadge(clockCX - 40, clockCY + clockR + 10, '#ff862e', clockIn, 'LIVE');
+      ctx.restore();
+    }
+
+    // --- PHASE 05: RIGHT CONSEQUENCE CARD (Enters at 14.5s) ---
+    if (elapsed >= 14.5) {
+      const rightP = Math.min(1, (elapsed - 14.5) / 1.1);
+      const c1 = 1.70158, c3 = 2.70158;
+      const rightOvershoot = 1 + c3 * Math.pow(rightP - 1, 3) + c1 * Math.pow(rightP - 1, 2);
+      const rightFinalX = 1430;
+      const rightX = 1150 + (rightFinalX - 1150) * rightOvershoot;
+      const rightFloat = elapsed > 15.8 ? Math.sin(t * 1.7 + 1.2) * 2 : 0;
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * Math.min(1, (elapsed - 14.5) / 0.5);
+      drawGlassCard(ctx, rightX, cardY + rightFloat, cardW, cardH, 16, 'rgba(244, 63, 94, 0.45)');
+
+      // Live tag
+      drawLiveBadge(rightX + cardW - 88, cardY + rightFloat - 14, '#f43f5e', 0.95, 'LIVE');
+
+      ctx.fillStyle = '#f43f5e';
+      ctx.font = '800 15px "JetBrains Mono", monospace';
+      ctx.textAlign = 'left';
+      ctx.fillText('THE MIDDLE-INCOME TRAP', rightX + 24, cardY + rightFloat + 42);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 22px "Inter", sans-serif';
+      ctx.fillText('Target: $10,000 / Cap', rightX + 24, cardY + rightFloat + 78);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '400 14px "Inter", sans-serif';
+      const bulletY = cardY + rightFloat + 124;
+      ctx.fillText('• Must reach $10k before 2045', rightX + 24, bulletY);
+      ctx.fillText('• Current: $2,730 (Need 4x leap)', rightX + 24, bulletY + 28);
+      ctx.fillText('• Without mass formal pensions', rightX + 24, bulletY + 56);
+      ctx.fillText('• Without universal healthcare', rightX + 24, bulletY + 84);
+      ctx.fillText('• Brazil/Thailand stagnation risk', rightX + 24, bulletY + 112);
+      ctx.fillText('• Old age poverty trap', rightX + 24, bulletY + 140);
+
+      ctx.restore();
+    }
+
+    // --- PHASE 06: DATA STREAM CONNECTIONS & WARNING BANNER (18.5s to 25.5s) ---
+    if (elapsed >= 18.0) {
+      const finalIn = Math.min(1, (elapsed - 18.0) / 0.8);
+
+      // Data connection from Left card to Clock
+      drawDataConnection(490, 840, 415, '#38bdf8', t * 0.6, finalIn);
+      // Data connection from Clock to Right card
+      drawDataConnection(1080, 1430, 415, '#f43f5e', t * 0.6 + 0.5, finalIn);
+
+      // Bottom Warning Banner
+      const botY = 635;
+      const botW = 1260;
+      const botX = 960 - botW / 2;
+
+      ctx.save();
+      ctx.globalAlpha = masterAlpha * finalIn;
+      drawGlassCard(ctx, botX, botY, botW, 64, 12, 'rgba(251, 191, 36, 0.40)');
+
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '700 15.5px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚠️ अगर अगले 18 सालों में पर-कैपिटा इनकम नहीं बढ़ी, तो भारत अमीर बनने से पहले बूढ़ा हो जाएगा!', 960, botY + 38);
+
+      // Footer System Live Tracker
+      ctx.fillStyle = '#64748b';
+      ctx.font = '600 12px "JetBrains Mono", monospace';
+      ctx.fillText('SYSTEM LIVE · DEMOGRAPHIC WINDOW ACTUARIAL MODEL (2026–2045)', 960, botY + 82);
+
+      ctx.restore();
+    }
 
     ctx.restore();
   }

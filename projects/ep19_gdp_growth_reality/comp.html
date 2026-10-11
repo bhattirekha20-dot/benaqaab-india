@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EP-19: India's 7.8% GDP vs Global Superpowers (Benaqaab India Master)</title>
+  <title>EP-19: India's 7.8% GDP vs Global Superpowers (Benaqaab India Master Studio)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -27,7 +27,9 @@
       height: 1080px !important;
     }
     body.render-mode header,
-    body.render-mode .controls-bar {
+    body.render-mode .controls-bar,
+    body.render-mode .inspector-card,
+    body.render-mode .shortcuts-hint {
       display: none !important;
     }
     body.render-mode .stage-container,
@@ -48,10 +50,11 @@
       height: 1080px !important;
       display: block !important;
     }
+
     header {
       width: 100%;
       max-width: 1440px;
-      padding: 16px 24px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -71,15 +74,15 @@
       box-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
       background: #000;
     }
-    .brand-title { font-size: 18px; font-weight: 800; letter-spacing: 0.8px; color: #fff; }
-    .brand-tag { font-size: 11px; font-weight: 700; color: #fbbf24; letter-spacing: 1.8px; text-transform: uppercase; }
+    .brand-title { font-size: 17px; font-weight: 800; letter-spacing: 0.8px; color: #fff; }
+    .brand-tag { font-size: 10.5px; font-weight: 700; color: #fbbf24; letter-spacing: 1.8px; text-transform: uppercase; }
     .meta-pills { display: flex; align-items: center; gap: 10px; }
     .pill {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       font-family: 'JetBrains Mono', monospace;
       color: #94a3b8;
@@ -94,7 +97,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 20px;
+      margin-top: 18px;
       padding: 0 16px;
     }
     .canvas-wrapper {
@@ -108,31 +111,33 @@
     }
     canvas { width: 100%; height: 100%; display: block; }
 
+    /* STUDIO DIRECTOR CONTROLS BAR */
     .controls-bar {
       width: 100%;
-      margin-top: 18px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 16px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
       padding: 16px 22px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
       backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
     }
-    .timeline-row { display: flex; align-items: center; gap: 16px; width: 100%; }
+    .timeline-row { display: flex; align-items: center; gap: 14px; width: 100%; }
     .time-readout {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       color: #38bdf8;
-      min-width: 130px;
+      min-width: 155px;
     }
     .scrubber {
       flex: 1;
       height: 8px;
       -webkit-appearance: none;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.14);
       border-radius: 4px;
       outline: none;
       cursor: pointer;
@@ -146,54 +151,199 @@
       box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
       cursor: pointer;
     }
-    .buttons-row {
+
+    .transport-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .btn-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .btn-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     button {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: #f8fafc;
-      padding: 8px 14px;
+      padding: 7px 13px;
       border-radius: 8px;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
+      transition: all 0.18s ease;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      user-select: none;
     }
     button:hover {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.16);
+      border-color: rgba(56, 189, 248, 0.45);
       color: #38bdf8;
     }
     button.primary {
       background: #38bdf8;
       color: #07090e;
       border-color: #38bdf8;
-      font-weight: 700;
+      font-weight: 800;
     }
     button.primary:hover {
       background: #0ea5e9;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
     }
-    .beat-info-badge {
-      font-size: 13px;
-      font-weight: 600;
-      color: #cbd5e1;
+    button.active {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    button.gold-btn {
+      border-color: rgba(251, 191, 36, 0.4);
+      color: #fbbf24;
+    }
+    button.gold-btn:hover {
+      background: rgba(251, 191, 36, 0.18);
+    }
+
+    /* Speed Pills */
+    .speed-pills { display: flex; background: rgba(0,0,0,0.3); border-radius: 8px; padding: 2px; gap: 2px; }
+    .speed-btn {
+      padding: 5px 9px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+    }
+    .speed-btn.active { background: #38bdf8; color: #07090e; font-weight: 800; }
+
+    /* Audio Volume & VU Meter */
+    .audio-group { display: flex; align-items: center; gap: 8px; }
+    .vol-slider {
+      width: 75px;
+      height: 6px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    .vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #38bdf8;
+      cursor: pointer;
+    }
+    .vu-meter-box {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 18px;
+      padding: 0 4px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .vu-bar {
+      width: 3px;
+      height: 4px;
+      background: #34d399;
+      border-radius: 1px;
+      transition: height 0.08s ease;
+    }
+
+    /* Chapters Row */
+    .chapters-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      flex-wrap: wrap;
     }
-    .beat-highlight {
-      color: #fbbf24;
+    .ch-btn {
+      font-size: 11.5px;
+      padding: 5px 11px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #94a3b8;
+    }
+    .ch-btn.active-ch {
+      border-color: #38bdf8;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    /* EXTERIOR LIVE FORENSIC BEAT INSPECTOR (Zero canvas clutter) */
+    .inspector-card {
+      width: 100%;
+      margin-top: 14px;
+      background: rgba(12, 17, 28, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      backdrop-filter: blur(12px);
+    }
+    .inspector-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .inspector-badge-row { display: flex; align-items: center; gap: 8px; }
+    .source-type-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
       font-family: 'JetBrains Mono', monospace;
+    }
+    .source-type-badge.official { background: rgba(251, 191, 36, 0.15); border: 1px solid #fbbf24; color: #fbbf24; }
+    .source-type-badge.ai { background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; }
+    .source-type-badge.diagram { background: rgba(52, 211, 153, 0.15); border: 1px solid #34d399; color: #34d399; }
+    
+    .inspector-subject { font-size: 14.5px; font-weight: 700; color: #fff; }
+    .inspector-script-quote {
+      font-size: 13.5px;
+      color: #94a3b8;
+      font-style: italic;
+      line-height: 1.45;
+      padding-left: 12px;
+      border-left: 2px solid #38bdf8;
+    }
+    .beat-progress-wrap {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .beat-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #38bdf8;
+      transition: width 0.06s linear;
+    }
+
+    .shortcuts-hint {
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+    }
+    kbd {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: #cbd5e1;
     }
   </style>
 </head>
@@ -210,37 +360,97 @@
       <span class="pill gold" id="hud-beat-pill">BEAT 1 / 105</span>
       <span class="pill accent" id="hud-chapter">CH 1: GLOBAL HEADLINE</span>
       <span class="pill">16:9 4K CANVAS</span>
-      <span class="pill flame">EP-19 MASTER</span>
+      <span class="pill flame">EP-19 MASTER STUDIO</span>
     </div>
   </header>
 
   <main class="stage-container">
-    <div class="canvas-wrapper">
+    <div class="canvas-wrapper" id="canvas-wrapper">
       <canvas id="stage" width="1920" height="1080"></canvas>
     </div>
 
+    <!-- DIRECTOR CONTROLS BAR -->
     <div class="controls-bar">
+      <!-- 1. Scrubber & Timecode -->
       <div class="timeline-row">
-        <span class="time-readout" id="time-display">00:00 / 10:08</span>
-        <input type="range" class="scrubber" id="scrubber" min="0" max="608.35" step="0.05" value="0">
+        <span class="time-readout" id="time-display">00:00.00 / 10:08.35</span>
+        <input type="range" class="scrubber" id="scrubber" min="0" max="608.35" step="0.033" value="0">
       </div>
-      <div class="buttons-row">
+
+      <!-- 2. Master Transport & Diagnostics Controls -->
+      <div class="transport-row">
         <div class="btn-group">
           <button id="btn-play" class="primary">▶ PLAY</button>
-          <button id="btn-restart">⏮ 00:00</button>
-          <button id="btn-ch1">CH 1: 00:00</button>
-          <button id="btn-ch2">CH 2: 01:23</button>
-          <button id="btn-ch3">CH 3: 02:53</button>
-          <button id="btn-ch4">CH 4: 04:36</button>
-          <button id="btn-ch5">CH 5: 05:56</button>
-          <button id="btn-ch6">CH 6: 07:22</button>
-          <button id="btn-ch7">CH 7: 08:45</button>
+          <button id="btn-prev-frame" title="Step -1 Frame (,)">◀ 1F</button>
+          <button id="btn-next-frame" title="Step +1 Frame (.)">1F ▶</button>
+          <button id="btn-back-1s" title="Jump -1s (J / Left)">◀ 1s</button>
+          <button id="btn-fwd-1s" title="Jump +1s (L / Right)">1s ▶</button>
+          <button id="btn-restart" title="Restart (0)">⏮ 00:00</button>
         </div>
-        <div class="beat-info-badge">
-          <span>ACTIVE BEAT:</span>
-          <span class="beat-highlight" id="beat-name">Opening Burning Question Hook</span>
+
+        <div class="btn-group">
+          <!-- Speed Selector Pills -->
+          <div class="speed-pills">
+            <button class="speed-btn" data-speed="0.5">0.5x</button>
+            <button class="speed-btn active" data-speed="1.0">1.0x</button>
+            <button class="speed-btn" data-speed="1.5">1.5x</button>
+            <button class="speed-btn" data-speed="2.0">2.0x</button>
+          </div>
+
+          <!-- Audio & VU Meter -->
+          <div class="audio-group">
+            <button id="btn-mute" title="Mute Audio (M)">🔊</button>
+            <input type="range" class="vol-slider" id="vol-slider" min="0" max="1" step="0.05" value="1" title="Volume">
+            <div class="vu-meter-box" id="vu-meter">
+              <div class="vu-bar" style="height: 6px;"></div>
+              <div class="vu-bar" style="height: 10px;"></div>
+              <div class="vu-bar" style="height: 14px;"></div>
+              <div class="vu-bar" style="height: 8px;"></div>
+              <div class="vu-bar" style="height: 12px;"></div>
+              <div class="vu-bar" style="height: 5px;"></div>
+            </div>
+          </div>
+
+          <!-- Studio Actions -->
+          <button id="btn-snapshot" class="gold-btn" title="Save Frame PNG (S)">📸 SNAPSHOT</button>
+          <button id="btn-render-mode" title="Toggle Pure Broadcast View (R)">🎬 RENDER MODE</button>
+          <button id="btn-fullscreen" title="Fullscreen (F)">⛶ FULLSCREEN</button>
         </div>
       </div>
+
+      <!-- 3. Chapter Jumps -->
+      <div class="chapters-row">
+        <button class="ch-btn active-ch" id="btn-ch1">CH 1: 00:00 Headline</button>
+        <button class="ch-btn" id="btn-ch2">CH 2: 01:23 GDP vs GVA</button>
+        <button class="ch-btn" id="btn-ch3">CH 3: 02:53 Per Capita #136</button>
+        <button class="ch-btn" id="btn-ch4">CH 4: 04:36 K-Shaped</button>
+        <button class="ch-btn" id="btn-ch5">CH 5: 05:56 Savings vs Debt</button>
+        <button class="ch-btn" id="btn-ch6">CH 6: 07:22 Missing Factory</button>
+        <button class="ch-btn" id="btn-ch7">CH 7: 08:45 Demographic Clock</button>
+      </div>
+    </div>
+
+    <!-- EXTERIOR FORENSIC BEAT INSPECTOR (Zero canvas clutter) -->
+    <div class="inspector-card" id="inspector-card">
+      <div class="inspector-header">
+        <div class="inspector-badge-row">
+          <span class="source-type-badge official" id="insp-source-badge">OFFICIAL PRIMARY SOURCE</span>
+          <span class="pill" id="insp-time-badge">00:00.00 → 00:05.50 (5.5s)</span>
+          <span class="pill accent" id="insp-asset-badge">bse_bull_tickers.png</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#fbbf24;" id="insp-metric-hint">
+          FACT_LEDGER: Real GDP 7.8% | Rank #136
+        </div>
+      </div>
+      <div class="inspector-subject" id="insp-subject">Opening Burning Question Hook</div>
+      <div class="inspector-script-quote" id="insp-quote">"भारत दुनिया की सबसे तेज़ी से बढ़ती बड़ी अर्थव्यवस्था बन चुका है — 7.8% की जीडीपी ग्रोथ रेट!"</div>
+      <div class="beat-progress-wrap">
+        <div class="beat-progress-fill" id="insp-progress"></div>
+      </div>
+    </div>
+
+    <div class="shortcuts-hint">
+      SHORTCUTS: <kbd>Space</kbd> Play/Pause · <kbd>J</kbd>/<kbd>L</kbd> ±1s · <kbd>Shift</kbd>+<kbd>Arrows</kbd> ±5s · <kbd>,</kbd>/<kbd>.</kbd> ±1 Frame · <kbd>R</kbd> Render Mode · <kbd>F</kbd> Fullscreen · <kbd>S</kbd> Snapshot · <kbd>M</kbd> Mute · <kbd>Esc</kbd> Exit
     </div>
   </main>
 
@@ -248,6 +458,7 @@
 
   <!-- External Engine Scripts -->
   <script src="../../viz/motion.js"></script>
+  <script src="fact_ledger.js"></script>
   <script src="captions.js"></script>
   <script src="diagrams.js"></script>
   <script src="forensic_overlays.js"></script>
@@ -260,24 +471,58 @@
   const timeDisplay = document.getElementById('time-display');
   const btnPlay = document.getElementById('btn-play');
   const btnRestart = document.getElementById('btn-restart');
+  const btnPrevFrame = document.getElementById('btn-prev-frame');
+  const btnNextFrame = document.getElementById('btn-next-frame');
+  const btnBack1s = document.getElementById('btn-back-1s');
+  const btnFwd1s = document.getElementById('btn-fwd-1s');
+  const btnSnapshot = document.getElementById('btn-snapshot');
+  const btnRenderMode = document.getElementById('btn-render-mode');
+  const btnFullscreen = document.getElementById('btn-fullscreen');
+  const btnMute = document.getElementById('btn-mute');
+  const volSlider = document.getElementById('vol-slider');
   const masterAudio = document.getElementById('master-audio');
-  const beatName = document.getElementById('beat-name');
   const hudBeatPill = document.getElementById('hud-beat-pill');
   const hudChapter = document.getElementById('hud-chapter');
 
+  // Inspector Elements
+  const inspSourceBadge = document.getElementById('insp-source-badge');
+  const inspTimeBadge = document.getElementById('insp-time-badge');
+  const inspAssetBadge = document.getElementById('insp-asset-badge');
+  const inspSubject = document.getElementById('insp-subject');
+  const inspQuote = document.getElementById('insp-quote');
+  const inspProgress = document.getElementById('insp-progress');
+  const inspMetricHint = document.getElementById('insp-metric-hint');
+
   const TOTAL_DURATION = window.TOTAL_DURATION || 608.352;
   const beatsData = window.BEATS_DATA || [];
+  const factLedger = window.FACT_LEDGER || {};
 
   let currentTime = 0;
   let isPlaying = false;
+  let playbackRate = 1.0;
   let animFrameId = null;
   let lastTimestamp = performance.now();
 
-  // Preload Brand Logo & Visual Assets (Both primary and fallback paths)
+  // Preload Brand Logo
   const logoImg = new Image();
   logoImg.src = '../../brand/logo.png';
 
+  // Preload Visual Assets & All 6 Official Source Documents
   const imageCache = {};
+  const officialSources = [
+    'assets/official_sources/src_01_mospi_press_note_gdp_78.png',
+    'assets/official_sources/src_02_rbi_household_savings_crash.png',
+    'assets/official_sources/src_03_worldbank_per_capita_ranking.png',
+    'assets/official_sources/src_04_siam_automobile_k_shaped.png',
+    'assets/official_sources/src_05_manufacturing_missing_factory.png',
+    'assets/official_sources/src_06_demographic_clock_2045.png'
+  ];
+  officialSources.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    imageCache[src] = img;
+  });
+
   beatsData.forEach(b => {
     [b.asset_path, b.fallback_path].forEach(p => {
       if (p && !imageCache[p]) {
@@ -288,10 +533,11 @@
     });
   });
 
-  function formatTime(s) {
+  function formatTimeCode(s) {
     const mins = Math.floor(s / 60);
     const secs = Math.floor(s % 60);
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    const ms = Math.floor((s % 1) * 100);
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(2, '0')}`;
   }
 
   function getActiveBeat(t) {
@@ -305,11 +551,11 @@
 
   let isSeekingAudio = false;
 
-  // Pure deterministic seek function
+  // Pure deterministic seek function (Contract compliant)
   window.seek = function(t) {
     currentTime = Math.max(0, Math.min(TOTAL_DURATION, t));
     scrubber.value = currentTime;
-    timeDisplay.textContent = `${formatTime(currentTime)} / 10:08`;
+    timeDisplay.textContent = `${formatTimeCode(currentTime)} / 10:08.35`;
     isSeekingAudio = true;
     try {
       masterAudio.currentTime = currentTime;
@@ -317,28 +563,95 @@
       console.warn('Audio seek deferred:', e);
     }
     render(currentTime);
+    updateInspectorHUD(currentTime);
   };
 
   masterAudio.addEventListener('seeked', () => {
     isSeekingAudio = false;
   });
 
+  function updateInspectorHUD(t) {
+    const b = getActiveBeat(t);
+    if (!b) return;
+
+    hudBeatPill.textContent = `BEAT ${b.beat_id} / ${beatsData.length}`;
+    hudChapter.textContent = b.chapter.split(':')[0].toUpperCase();
+
+    const isOfficial = b.asset_path && b.asset_path.includes('official_sources');
+    const isDiagram = (
+      (t >= 64.29 && t <= 83.45) ||
+      (t >= 148.53 && t <= 173.16) ||
+      (t >= 185.71 && t <= 224.59) ||
+      (t >= 335.95 && t <= 361.60) ||
+      (t >= 500.18 && t <= 525.70) ||
+      (t >= 532.37 && t <= 572.61)
+    );
+
+    if (isOfficial) {
+      inspSourceBadge.className = 'source-type-badge official';
+      inspSourceBadge.textContent = '🏛️ OFFICIAL PRIMARY SOURCE';
+    } else if (isDiagram) {
+      inspSourceBadge.className = 'source-type-badge diagram';
+      inspSourceBadge.textContent = '📊 FORENSIC MOTION DIAGRAM';
+    } else {
+      inspSourceBadge.className = 'source-type-badge ai';
+      inspSourceBadge.textContent = '✨ PHOTOREALISTIC AI PLATE';
+    }
+
+    const dur = Math.max(0.1, b.end_s - b.start_s);
+    inspTimeBadge.textContent = `${formatTimeCode(b.start_s)} → ${formatTimeCode(b.end_s)} (${dur.toFixed(1)}s)`;
+    const assetBase = b.asset_path ? b.asset_path.split('/').pop() : 'canvas_vector';
+    inspAssetBadge.textContent = assetBase;
+    inspSubject.textContent = b.subject;
+
+    // Find spoken sentence in captions
+    let quote = 'Primary forensic evidence beat.';
+    if (window.CAPTIONS_DATA) {
+      for (let c of window.CAPTIONS_DATA) {
+        if (t >= c.start_s && t <= c.end_s) {
+          quote = `"${c.text}"`;
+          break;
+        }
+      }
+    }
+    inspQuote.textContent = quote;
+
+    const prog = Math.max(0, Math.min(100, ((t - b.start_s) / dur) * 100));
+    inspProgress.style.width = `${prog}%`;
+
+    // Highlight active chapter pill
+    document.querySelectorAll('.ch-btn').forEach(btn => btn.classList.remove('active-ch'));
+    if (t < 83.45) document.getElementById('btn-ch1').classList.add('active-ch');
+    else if (t < 173.16) document.getElementById('btn-ch2').classList.add('active-ch');
+    else if (t < 276.75) document.getElementById('btn-ch3').classList.add('active-ch');
+    else if (t < 361.60) document.getElementById('btn-ch4').classList.add('active-ch');
+    else if (t < 457.45) document.getElementById('btn-ch5').classList.add('active-ch');
+    else if (t < 525.70) document.getElementById('btn-ch6').classList.add('active-ch');
+    else document.getElementById('btn-ch7').classList.add('active-ch');
+  }
+
+  // --- RENDER FUNCTION (BROADCAST-GRADE DETERMINISTIC seek(t)) ---
   function render(t) {
-    // 0. Base canvas clear
+    ctx.save();
+
+    // 0. Global Camera Trauma Shake on Verdict Stamp Slam (601.0s to 603.5s)
+    if (window.Motion && Motion.traumaShake && t >= 600.5 && t <= 603.5) {
+      const camShake = Motion.traumaShake(t, 601.0, 18, 2.8);
+      ctx.translate(camShake.x, camShake.y);
+      ctx.rotate(camShake.rot * 0.35);
+    }
+
+    // Base canvas clear
     ctx.fillStyle = '#07090e';
     ctx.fillRect(0, 0, 1920, 1080);
 
     const activeBeat = getActiveBeat(t);
-    if (!activeBeat) return;
-
-    hudBeatPill.textContent = `BEAT ${activeBeat.beat_id} / ${beatsData.length}`;
-    hudChapter.textContent = activeBeat.chapter.split(':')[0].toUpperCase();
-    beatName.textContent = activeBeat.subject;
+    if (!activeBeat) { ctx.restore(); return; }
 
     const beatDur = Math.max(0.1, activeBeat.end_s - activeBeat.start_s);
     const beatProgress = Math.max(0, Math.min(1, (t - activeBeat.start_s) / beatDur));
 
-    // 1. DRAW HERO IMAGE WITH VIRTUAL CAMERA DRIFT (WITH RESILIENT FALLBACK)
+    // 1. DRAW HERO IMAGE WITH VIRTUAL CAMERA DRIFT
     let img = imageCache[activeBeat.asset_path];
     if (!img || !img.complete || img.naturalWidth === 0) {
       if (activeBeat.fallback_path && imageCache[activeBeat.fallback_path] && imageCache[activeBeat.fallback_path].complete && imageCache[activeBeat.fallback_path].naturalWidth > 0) {
@@ -349,13 +662,11 @@
       ctx.save();
       ctx.translate(960, 540);
       
-      // Virtual camera Ken Burns subtle zoom and drift
       const camScale = 1.0 + beatProgress * 0.035;
       const camPanX = (beatProgress - 0.5) * 14;
       ctx.scale(camScale, camScale);
       ctx.translate(camPanX, 0);
 
-      // 16:9 full-bleed draw
       ctx.drawImage(img, -960, -540, 1920, 1080);
       ctx.restore();
     } else {
@@ -366,7 +677,7 @@
       ctx.fillRect(0, 0, 1920, 1080);
     }
 
-    // 2. CINEMATIC VIGNETTE & LIVING TEXTURE (ZERO PROMPT BOXES, ZERO CRUDE LINES)
+    // 2. CINEMATIC VIGNETTE & LIVING TEXTURE
     const vigGrad = ctx.createRadialGradient(960, 540, 520, 960, 540, 1150);
     vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
     vigGrad.addColorStop(0.7, 'rgba(7, 9, 14, 0.28)');
@@ -374,12 +685,12 @@
     ctx.fillStyle = vigGrad;
     ctx.fillRect(0, 0, 1920, 1080);
 
-    // Subtle 3% Grain Overlay
+    // Living Animated 3.5% Grain Overlay (Eliminates digital banding)
     if (window.Motion && Motion.drawGrain) {
-      Motion.drawGrain(ctx, 1920, 1080, 0.03);
+      Motion.drawGrain(ctx, 1920, 1080, 0.035, t);
     }
 
-    // 3. TOP-LEFT LOGO BUG (CLEAN, NO DEBUG BADGES ON SCREEN)
+    // 3. TOP-LEFT LOGO BUG (CLEAN, NO DEBUG BADGES ON CANVAS)
     ctx.save();
     const pillX = 40, pillY = 34, pillW = 216, pillH = 42, pillR = 21;
     ctx.fillStyle = 'rgba(12, 16, 24, 0.85)';
@@ -393,10 +704,7 @@
     ctx.stroke();
     ctx.shadowBlur = 0;
 
-    // Circular avatar logo on left
-    const iconX = pillX + 7;
-    const iconY = pillY + 7;
-    const iconSize = 28;
+    const iconX = pillX + 7, iconY = pillY + 7, iconSize = 28;
     ctx.save();
     ctx.beginPath();
     ctx.arc(iconX + iconSize/2, iconY + iconSize/2, iconSize/2, 0, Math.PI * 2);
@@ -423,7 +731,7 @@
     ctx.fillText('BENAQAAB INDIA', iconX + iconSize + 11, pillY + 26);
     ctx.restore();
 
-    // 4. BESPOKE FORENSIC MOTION GRAPHICS OVERLAYS (CAUSALLY TIMED TO SPOKEN BEATS)
+    // 4. BESPOKE FORENSIC MOTION GRAPHICS OVERLAYS
     if (window.Motion) {
       // 4.1 Opening 5.5s Roadmap Hook (0.0s to 5.5s)
       if (t < 5.5) {
@@ -434,75 +742,96 @@
         ], 960, 540, 1080);
       }
 
-      // 4.2 Animated Channel Subscribe & Like CTA (60.1s to 64.3s)
-      // Exactly timed to VO: "चैनल को सब्सक्राइब करके बेल आइकन ज़रूर दबाएं!"
+      // 4.2 Primitive 4: Redaction Peel & Reveal on Hidden Truth (38.9s to 48.3s)
+      if (t >= 38.90 && t <= 48.30 && Motion.drawRedactionPeel) {
+        Motion.drawRedactionPeel(ctx, t, 41.5, 2.0, 640, 510, 640, 52);
+      }
+
+      // 4.3 Animated Channel Subscribe & Like CTA (60.1s to 64.3s)
       if (t >= 60.1 && t <= 64.3) {
         Motion.drawSubscribeLikeCTA(ctx, t, 60.1, 4.2, logoImg, 960, 780);
       }
 
-      // 4.3 MoSPI Official Press Note with Lively Yellow Highlighter (64.3s to 83.4s)
-      // VO: "पहले अफ़िशल डेटा देखिए: मिनिस्ट्री ऑफ़ स्टैटिस्टिक्स... रियल जीडीपी 7.8% और जीवीए 8.2%..."
+      // 4.4 Official Primary Source Broadcast Straps
+      if (Motion.drawOfficialSourceStrap) {
+        // MoSPI Press Note Strap (64.5s to 72.0s)
+        if (t >= 64.5 && t <= 72.0) {
+          Motion.drawOfficialSourceStrap(ctx, t, 64.5, 7.5, {
+            authority: 'MoSPI (GOI)',
+            document: 'PRESS NOTE: FIRST ADVANCE ESTIMATES 2026',
+            date: 'MAY 2026',
+            accent: '#38bdf8'
+          });
+        }
+        // World Bank Strap (121.5s to 129.0s)
+        if (t >= 121.5 && t <= 129.0) {
+          Motion.drawOfficialSourceStrap(ctx, t, 121.5, 7.5, {
+            authority: 'WORLD BANK DATA',
+            document: 'GLOBAL GNI PER CAPITA RANKINGS',
+            date: '2026 UPDATE',
+            accent: '#fbbf24'
+          });
+        }
+        // RBI FSR Strap (282.5s to 290.0s)
+        if (t >= 282.5 && t <= 290.0) {
+          Motion.drawOfficialSourceStrap(ctx, t, 282.5, 7.5, {
+            authority: 'RESERVE BANK OF INDIA',
+            document: 'FINANCIAL STABILITY REPORT: NET SAVINGS',
+            date: 'BULLETIN 2026',
+            accent: '#f43f5e'
+          });
+        }
+      }
+
+      // 4.5 MoSPI Official Highlights & Odometer (64.3s to 83.4s)
       if (t >= 64.29 && t <= 83.45) {
-        // Stroke 1: Highlights "7.8% in Q1 2026-27" line in key highlights
-        if (t >= 67.0) {
-          Motion.drawLivelyHighlighter(ctx, t, 67.0, 1.8, 626, 402, 148, 24, 'rgba(253, 224, 71, 0.75)');
-        }
-        // Stroke 2: Highlights "8.2%" line
-        if (t >= 71.0) {
-          Motion.drawLivelyHighlighter(ctx, t, 71.0, 1.6, 750, 430, 48, 24, 'rgba(253, 224, 71, 0.75)');
-        }
-        // Rolling Odometer in bottom-right corner
-        Motion.drawOdometer(ctx, t, 67.5, 2.5, 6.7, 7.8, 'REAL GDP: ', '%', 1540, 960, '#10b981');
+        const hl = Motion.drawForensicHighlighter || Motion.drawLivelyHighlighter;
+        if (t >= 67.0) hl(ctx, t, 67.0, 1.8, 626, 402, 148, 24, '#FFE600');
+        if (t >= 71.0) hl(ctx, t, 71.0, 1.6, 750, 430, 48, 24, '#FFE600');
+        Motion.drawOdometer(ctx, t, 67.5, 2.5, 6.7, factLedger.metrics?.realGdpGrowthPct || 7.8, 'REAL GDP: ', '%', 1540, 960, '#10b981');
       }
 
-      // 4.4 World Bank Circular 2.5x Forensic Loupe (121.5s to 148.5s)
-      // VO: "वर्ल्ड बैंक के डेटा के मुताबिक़, भारत की पर कैपिटा इनकम लगभग 2,730 डॉलर्स... 136वें नंबर पर..."
-      if (t >= 121.45 && t <= 148.53) {
-        if (t >= 126.0) {
-          const wbImg = imageCache['assets/official_sources/src_03_worldbank_per_capita_ranking.png'] || img;
-          Motion.drawEvidenceLoupe(ctx, t, 126.0, 1170, 719, 165, 2.2, wbImg);
+      // 4.6 World Bank Circular 2.5x Forensic Loupe (121.5s to 148.5s)
+      if (t >= 121.45 && t <= 148.53 && t >= 126.0) {
+        const wbDoc = imageCache['assets/official_sources/src_03_worldbank_per_capita_ranking.png'] || img;
+        if (wbDoc && wbDoc.complete && wbDoc.naturalWidth > 0) {
+          Motion.drawEvidenceLoupe(ctx, t, 126.0, 1170, 719, 165, 2.5, wbDoc, 1170, 719);
         }
       }
 
-      // 4.5 SIAM Automobile Flash Report Highlighters (224.6s to 260.0s)
-      // VO: "लग्ज़री एसयूवीज़ में 24.5% का भारी उछाल... छोटी गाड़ियां minus 42%..."
+      // 4.7 SIAM Automobile Flash Report Highlighters (224.6s to 242.0s)
       if (t >= 224.59 && t <= 242.08) {
-        // Green highlight on Luxury SUVs +24.5%
-        Motion.drawLivelyHighlighter(ctx, t, 227.0, 1.8, 1016, 402, 150, 24, 'rgba(74, 222, 128, 0.75)');
-        Motion.drawOdometer(ctx, t, 227.5, 2.2, 0, 24.5, 'LUXURY BOOM: +', '%', 1540, 960, '#34d399');
+        const hl = Motion.drawForensicHighlighter || Motion.drawLivelyHighlighter;
+        hl(ctx, t, 227.0, 1.8, 1016, 402, 150, 24, 'rgba(74, 222, 128, 0.75)');
+        Motion.drawOdometer(ctx, t, 227.5, 2.2, 0, factLedger.metrics?.suvSalesGrowthPct || 24.5, 'LUXURY BOOM: +', '%', 1540, 960, '#34d399');
       }
 
-      // 4.6 RBI Financial Stability Report Crimson Highlighters & Debt Odometer (282.4s to 336.0s)
-      // VO: "आरबीआई रिपोर्ट: नेट फ़ाइनेंशियल सेविंग्स गिर कर 5.3% पर... क़र्ज़ बढ़कर 45.8%..."
+      // 4.8 RBI Net Savings & Debt Odometers (282.4s to 336.0s)
       if (t >= 282.36 && t <= 318.56) {
-        // Crimson highlight on 5.3% savings
-        Motion.drawLivelyHighlighter(ctx, t, 287.0, 2.0, 784, 402, 96, 24, 'rgba(248, 113, 113, 0.75)');
-        Motion.drawOdometer(ctx, t, 287.5, 2.5, 8.2, 5.3, 'NET SAVINGS: ', '% GDP', 1540, 960, '#ef4444');
+        const hl = Motion.drawForensicHighlighter || Motion.drawLivelyHighlighter;
+        hl(ctx, t, 287.0, 2.0, 784, 402, 96, 24, 'rgba(248, 113, 113, 0.75)');
+        Motion.drawOdometer(ctx, t, 287.5, 2.5, 8.2, factLedger.metrics?.netSavingsPctGdp || 5.3, 'NET SAVINGS: ', '% GDP', 1540, 960, '#ef4444');
       }
       if (t >= 318.56 && t <= 336.00) {
-        // Crimson highlight on 45.8% debt
-        Motion.drawLivelyHighlighter(ctx, t, 321.0, 2.0, 886, 430, 104, 24, 'rgba(248, 113, 113, 0.75)');
-        Motion.drawOdometer(ctx, t, 321.5, 2.5, 36.5, 45.8, 'HOUSEHOLD DEBT: ', '% GDP', 1540, 960, '#ef4444');
+        const hl = Motion.drawForensicHighlighter || Motion.drawLivelyHighlighter;
+        hl(ctx, t, 321.0, 2.0, 886, 430, 104, 24, 'rgba(248, 113, 113, 0.75)');
+        Motion.drawOdometer(ctx, t, 321.5, 2.5, 36.5, factLedger.metrics?.householdDebtPctGdp || 45.8, 'HOUSEHOLD DEBT: ', '% GDP', 1540, 960, '#ef4444');
       }
 
-      // 4.7 Manufacturing 15.8% Share Highlighter (431.2s to 450.4s)
+      // 4.9 Manufacturing 15.8% Share Highlighter (431.2s to 450.4s)
       if (t >= 431.23 && t <= 450.38) {
-        Motion.drawLivelyHighlighter(ctx, t, 434.0, 2.0, 800, 414, 55, 26, 'rgba(129, 140, 248, 0.75)');
-        Motion.drawOdometer(ctx, t, 434.5, 2.2, 25.0, 15.8, 'MANUFACTURING: ', '% GDP', 1540, 960, '#818cf8');
+        const hl = Motion.drawForensicHighlighter || Motion.drawLivelyHighlighter;
+        hl(ctx, t, 434.0, 2.0, 800, 414, 55, 26, 'rgba(129, 140, 248, 0.75)');
+        Motion.drawOdometer(ctx, t, 434.5, 2.2, 25.0, factLedger.metrics?.manufacturingSharePct || 15.8, 'MANUFACTURING: ', '% GDP', 1540, 960, '#818cf8');
       }
 
-      // 4.8 2045 Demographic Clock Highlighter (484.8s to 510.0s)
-      if (t >= 484.82 && t <= 510.04) {
-        Motion.drawLivelyHighlighter(ctx, t, 488.0, 2.0, 680, 416, 60, 30, 'rgba(251, 146, 60, 0.75)');
-      }
-
-      // 4.9 Final Climactic Forensic Verdict Stamp Slam (600.0s to 608.35s)
+      // 4.10 Final Climactic Forensic Verdict Stamp Slam (600.5s to 608.35s)
       if (t >= 600.5) {
         Motion.drawVerdictStamp(ctx, t, 601.0, 'FINAL VERDICT: REALITY UNVEILED', 'सच · सबूत · बेबाक', 960, 540);
       }
     }
 
-    // 5. BESPOKE FORENSIC MOTION GRAPHICS DIAGRAMS OVERLAYS (RENDERED ON TOP OF HERO PLATES)
+    // 5. BESPOKE FORENSIC MOTION GRAPHICS DIAGRAMS OVERLAYS
     const isDiagramActive = (
       (t >= 64.29 && t <= 83.45) ||
       (t >= 148.53 && t <= 173.16) ||
@@ -512,7 +841,7 @@
       (t >= 532.37 && t <= 572.61)
     );
     if (isDiagramActive) {
-      // Soft localized radial focus directly behind diagram, leaving perimeter and hero photography vivid and clearly visible
+      // Soft localized radial focus leaving hero photography vivid and visible
       const diagGrad = ctx.createRadialGradient(960, 540, 180, 960, 540, 1050);
       diagGrad.addColorStop(0, 'rgba(4, 7, 14, 0.20)');
       diagGrad.addColorStop(1, 'rgba(4, 7, 14, 0.02)');
@@ -530,68 +859,154 @@
       Diagrams.drawFourPillarsBlueprintDiagram(ctx, t, 532.37, 572.61);
     }
 
-    // 5.1 BESPOKE FORENSIC MOTION GRAPHICS HUD OVERLAYS (ZERO BARE SLIDES)
+    // 5.1 BESPOKE FORENSIC HUD CARDS
     if (window.ForensicOverlays && ForensicOverlays.drawOverlay) {
       ForensicOverlays.drawOverlay(ctx, t);
     }
 
-    // 6. DYNAMIC KARAOKE CAPTIONS (WORD-CLOCK SYNCED TO HINDI VO)
+    // 6. DYNAMIC KARAOKE CAPTIONS (WORD-CLOCK SYNCED)
     if (window.Motion && Motion.drawDynamicCaption && window.CAPTIONS_DATA) {
       Motion.drawDynamicCaption(ctx, t, window.CAPTIONS_DATA, 960, 965);
     }
+
+    ctx.restore();
   }
 
-  // Animation Loop for live playback (Strictly locked to masterAudio hardware clock)
+  // --- AUDIO VU METER ANIMATION ---
+  function updateVuMeter() {
+    const bars = document.querySelectorAll('.vu-bar');
+    if (!bars.length) return;
+    if (isPlaying && !masterAudio.paused) {
+      bars.forEach((b, i) => {
+        const h = 4 + Math.floor(Math.random() * 12 * (playbackRate > 1 ? 1.2 : 0.9));
+        b.style.height = `${h}px`;
+        b.style.background = h > 13 ? '#ef4444' : (h > 10 ? '#fbbf24' : '#34d399');
+      });
+    } else {
+      bars.forEach(b => {
+        b.style.height = '4px';
+        b.style.background = '#34d399';
+      });
+    }
+  }
+
+  // --- ANIMATION LOOP (LOCKED TO AUDIO MASTER CLOCK) ---
   function loop(now) {
     if (isPlaying) {
       if (!masterAudio.paused && !masterAudio.seeking && !isSeekingAudio) {
-        if (Math.abs(masterAudio.currentTime - currentTime) < 2.0) {
+        if (Math.abs(masterAudio.currentTime - currentTime) < 1.5) {
           currentTime = masterAudio.currentTime;
         } else {
           const dt = (now - lastTimestamp) / 1000;
-          currentTime += dt;
+          currentTime += dt * playbackRate;
         }
       } else {
         const dt = (now - lastTimestamp) / 1000;
-        currentTime += dt;
+        currentTime += dt * playbackRate;
       }
+
       if (currentTime >= TOTAL_DURATION) {
         currentTime = TOTAL_DURATION;
         isPlaying = false;
         btnPlay.textContent = '▶ PLAY';
         masterAudio.pause();
       }
+
       scrubber.value = currentTime;
-      timeDisplay.textContent = `${formatTime(currentTime)} / 10:08`;
+      timeDisplay.textContent = `${formatTimeCode(currentTime)} / 10:08.35`;
       render(currentTime);
+      updateInspectorHUD(currentTime);
+      updateVuMeter();
       lastTimestamp = now;
       animFrameId = requestAnimationFrame(loop);
     }
   }
 
-  // Play/Pause
-  btnPlay.addEventListener('click', () => {
+  // --- PLAY / PAUSE CONTROLLER ---
+  function togglePlay() {
     if (!isPlaying) {
       isPlaying = true;
       btnPlay.textContent = '⏸ PAUSE';
+      btnPlay.classList.add('active');
       lastTimestamp = performance.now();
+      masterAudio.playbackRate = playbackRate;
       masterAudio.currentTime = currentTime;
-      masterAudio.play().catch(e => console.log('Audio autoplay prevented'));
+      masterAudio.play().catch(() => console.log('Audio autoplay prevented'));
       animFrameId = requestAnimationFrame(loop);
     } else {
       isPlaying = false;
       btnPlay.textContent = '▶ PLAY';
+      btnPlay.classList.remove('active');
       masterAudio.pause();
+      updateVuMeter();
       if (animFrameId) cancelAnimationFrame(animFrameId);
+    }
+  }
+  btnPlay.addEventListener('click', togglePlay);
+
+  btnRestart.addEventListener('click', () => window.seek(0));
+  btnPrevFrame.addEventListener('click', () => window.seek(currentTime - 1/30));
+  btnNextFrame.addEventListener('click', () => window.seek(currentTime + 1/30));
+  btnBack1s.addEventListener('click', () => window.seek(currentTime - 1.0));
+  btnFwd1s.addEventListener('click', () => window.seek(currentTime + 1.0));
+
+  // --- PLAYBACK SPEED PILLS ---
+  document.querySelectorAll('.speed-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      playbackRate = parseFloat(e.target.getAttribute('data-speed'));
+      masterAudio.playbackRate = playbackRate;
+    });
+  });
+
+  // --- AUDIO VOLUME & MUTE ---
+  volSlider.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    masterAudio.volume = val;
+    btnMute.textContent = val === 0 ? '🔇' : '🔊';
+  });
+  btnMute.addEventListener('click', () => {
+    if (masterAudio.volume > 0) {
+      masterAudio.dataset.prevVol = masterAudio.volume;
+      masterAudio.volume = 0;
+      volSlider.value = 0;
+      btnMute.textContent = '🔇';
+    } else {
+      const prev = parseFloat(masterAudio.dataset.prevVol || '1.0');
+      masterAudio.volume = prev;
+      volSlider.value = prev;
+      btnMute.textContent = '🔊';
     }
   });
 
-  // Restart
-  btnRestart.addEventListener('click', () => {
-    window.seek(0);
+  // --- SNAPSHOT QA FRAME (Downloads 1080p PNG) ---
+  btnSnapshot.addEventListener('click', () => {
+    const b = getActiveBeat(currentTime);
+    const link = document.createElement('a');
+    link.download = `EP19_GDP_Reality_Beat_${b.beat_id}_${currentTime.toFixed(2)}s.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
   });
 
-  // Chapter jumps (Matching exact narrative sentence timestamps)
+  // --- RENDER MODE TOGGLE (Pure canvas broadcast view) ---
+  function toggleRenderMode() {
+    document.body.classList.toggle('render-mode');
+  }
+  btnRenderMode.addEventListener('click', toggleRenderMode);
+
+  // --- FULLSCREEN TOGGLE ---
+  function toggleFullscreen() {
+    const wrap = document.getElementById('canvas-wrapper');
+    if (!document.fullscreenElement) {
+      wrap.requestFullscreen().catch(err => console.log(err));
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  btnFullscreen.addEventListener('click', toggleFullscreen);
+
+  // --- CHAPTER JUMPS ---
   document.getElementById('btn-ch1').addEventListener('click', () => window.seek(0));
   document.getElementById('btn-ch2').addEventListener('click', () => window.seek(83.45));
   document.getElementById('btn-ch3').addEventListener('click', () => window.seek(173.16));
@@ -600,39 +1015,58 @@
   document.getElementById('btn-ch6').addEventListener('click', () => window.seek(457.45));
   document.getElementById('btn-ch7').addEventListener('click', () => window.seek(525.70));
 
-  // Scrubber user interaction
+  // --- SCRUBBER USER INTERACTION ---
   scrubber.addEventListener('input', (e) => {
     window.seek(parseFloat(e.target.value));
   });
 
-  // Sync with audio if user unpauses native audio
-  masterAudio.addEventListener('play', () => {
-    if (!isPlaying) {
-      isPlaying = true;
-      btnPlay.textContent = '⏸ PAUSE';
-      lastTimestamp = performance.now();
-      animFrameId = requestAnimationFrame(loop);
-    }
-  });
-  masterAudio.addEventListener('pause', () => {
-    if (isPlaying) {
-      isPlaying = false;
-      btnPlay.textContent = '▶ PLAY';
-      if (animFrameId) cancelAnimationFrame(animFrameId);
+  // --- COMPREHENSIVE STUDIO KEYBOARD SHORTCUTS ---
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT') return;
+    const key = e.key.toLowerCase();
+
+    if (e.code === 'Space' || key === 'k') {
+      e.preventDefault();
+      togglePlay();
+    } else if (key === 'j') {
+      window.seek(currentTime - (e.shiftKey ? 5.0 : 1.0));
+    } else if (key === 'l') {
+      window.seek(currentTime + (e.shiftKey ? 5.0 : 1.0));
+    } else if (e.code === 'ArrowLeft') {
+      e.preventDefault();
+      window.seek(currentTime - (e.shiftKey ? 5.0 : 1.0));
+    } else if (e.code === 'ArrowRight') {
+      e.preventDefault();
+      window.seek(currentTime + (e.shiftKey ? 5.0 : 1.0));
+    } else if (key === ',' || key === '[') {
+      window.seek(currentTime - 1/30);
+    } else if (key === '.' || key === ']') {
+      window.seek(currentTime + 1/30);
+    } else if (key === 'r') {
+      toggleRenderMode();
+    } else if (key === 'f') {
+      toggleFullscreen();
+    } else if (key === 's') {
+      btnSnapshot.click();
+    } else if (key === 'm') {
+      btnMute.click();
+    } else if (key >= '0' && key <= '9') {
+      const pct = parseInt(key) / 10;
+      window.seek(TOTAL_DURATION * pct);
+    } else if (e.code === 'Escape') {
+      document.body.classList.remove('render-mode');
     }
   });
 
-  // Check URL query parameters for render mode (?render=1)
+  // URL query parameters check (?render=1)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('render') === '1') {
     document.body.classList.add('render-mode');
   }
 
-  // Initial draw at t=0 immediately and on load
+  // Initial render at t=0
   window.seek(0);
-  window.addEventListener('load', () => {
-    window.seek(0);
-  });
+  window.addEventListener('load', () => window.seek(0));
   </script>
 </body>
 </html>
