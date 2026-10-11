@@ -6127,3 +6127,38 @@ Installed permanently in `.agents/skills/progressive-infographic-motion/` and `s
    - **Academic / Institutional Attribution:** Mandatory lower-third/lower-right source credit (e.g. `COURTESY: GEOCARTO INTERNATIONAL (2022)` or `SOURCE: SURVEY OF INDIA / USGS / MOSPI`).
 4. **Integration with Existing Skills:**
    - Directly harmonizes with `map-animation`, `benaqaab-investigative-motion`, `progressive-infographic-motion`, and `video-canvas-motion`.
+
+---
+
+## 🛠️ §179: PLAYBACK FREEZE ROOT CAUSE & SILKY 60FPS RESILIENT LOOP STANDARD (2026-10-11)
+
+### 1. Root Cause Analysis
+During HTML canvas playback in `comp.html`, a video freeze occurred due to two distinct compounding issues:
+1. **Uncaught DOMException in `drawGrain` (`viz/motion.js`):**
+   - When `t` was near zero or negative (`t = -0.023s`), `Math.floor(t * 24) % 8` evaluated to `-1`.
+   - `_grainTiles[-1]` returned `undefined`.
+   - Calling `ctx.createPattern(undefined, 'repeat')` threw `TypeError: Failed to execute 'createPattern' on 'CanvasRenderingContext2D': The provided value is not of type HTMLCanvasElement...`.
+   - Because `loop(now)` lacked a `try ... finally` block, the exception halted `requestAnimationFrame`, freezing the canvas forever.
+2. **Audio-Polling 250ms Clamping:**
+   - In Chromium, `HTMLMediaElement.currentTime` updates only every ~200–250ms.
+   - Setting `currentTime = masterAudio.currentTime` directly caused identical timestamp holds for 15 frames consecutively, causing visual stuttering and perceived freezing.
+
+### 2. The Resilient 60FPS Soft-Drift Protocol (`RULE-PLAYBACK-SOFT-DRIFT`)
+1. **Always Use `Math.abs(t || 0)` & Defensive Pattern Guard:**
+   - Ensure tile indices are strictly positive integers: `Math.floor(Math.abs(t || 0) * 24) % 8`.
+   - Always verify `if (activeTile)` and wrap `createPattern` in a try/catch.
+2. **Continuous 60FPS Time Advance + Soft-Drift Correction:**
+   - Always advance `currentTime` monotonically on every animation frame: `currentTime += dt * playbackRate` where `dt = Math.max(0.001, Math.min(0.067, (now - lastTimestamp)/1000))`.
+   - If `masterAudio` is playing, softly nudge `currentTime` toward `audioTime` when drift exceeds 30ms (`currentTime += drift * 0.15`), and only hard-sync if drift exceeds 450ms (e.g. manual user scrubber seek).
+3. **Mandatory `try ... catch ... finally` Loop Guard:**
+   - Every `requestAnimationFrame(loop)` must reschedule itself in a `finally` block:
+     ```javascript
+     try {
+       render(currentTime);
+     } catch (err) {
+       console.error('Render error:', err);
+     } finally {
+       if (isPlaying) requestAnimationFrame(loop);
+     }
+     ```
+   - No individual graphic error or missing asset can ever kill the playback engine.
