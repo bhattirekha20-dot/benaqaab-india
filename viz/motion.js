@@ -891,13 +891,19 @@
   function drawGrain(ctx, width, height, opacity = 0.03, t = 0) {
     initGrainTiles();
     if (_grainTiles && _grainTiles.length === 8) {
-      const tileIndex = Math.floor((t || 0) * 24) % 8;
+      const tileIndex = Math.floor(Math.abs(t || 0) * 24) % 8;
       const activeTile = _grainTiles[tileIndex];
-      ctx.save();
-      ctx.globalAlpha = opacity;
-      ctx.fillStyle = ctx.createPattern(activeTile, 'repeat');
-      ctx.fillRect(0, 0, width, height);
-      ctx.restore();
+      if (activeTile) {
+        try {
+          ctx.save();
+          ctx.globalAlpha = opacity;
+          ctx.fillStyle = ctx.createPattern(activeTile, 'repeat');
+          ctx.fillRect(0, 0, width, height);
+          ctx.restore();
+        } catch (err) {
+          // Never let grain error crash render loop
+        }
+      }
     }
   }
 

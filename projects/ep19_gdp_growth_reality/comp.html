@@ -562,6 +562,7 @@
     } catch (e) {
       console.warn('Audio seek deferred:', e);
     }
+    setTimeout(() => { isSeekingAudio = false; }, 180);
     render(currentTime);
     updateInspectorHUD(currentTime);
   };
@@ -890,25 +891,37 @@
     }
   }
 
-  // --- ANIMATION LOOP (LOCKED TO AUDIO MASTER CLOCK) ---
+  // --- ANIMATION LOOP (LOCKED TO AUDIO MASTER CLOCK WITH 60FPS SOFT DRIFT) ---
   function loop(now) {
-    if (isPlaying) {
-      if (!masterAudio.paused && !masterAudio.seeking && !isSeekingAudio) {
-        if (Math.abs(masterAudio.currentTime - currentTime) < 1.5) {
-          currentTime = masterAudio.currentTime;
-        } else {
-          const dt = (now - lastTimestamp) / 1000;
-          currentTime += dt * playbackRate;
+    if (!isPlaying) return;
+
+    try {
+      const dt = Math.max(0.001, Math.min(0.067, (now - lastTimestamp) / 1000));
+      
+      // Advance time continuously at 60FPS
+      currentTime += dt * playbackRate;
+
+      // Soft-drift audio clock synchronization (never stutter or freeze)
+      if (!masterAudio.paused && !masterAudio.seeking && !isSeekingAudio && masterAudio.readyState >= 2) {
+        const audioTime = masterAudio.currentTime;
+        const drift = audioTime - currentTime;
+        
+        if (Math.abs(drift) > 0.45) {
+          // Hard sync on large seeking jumps
+          currentTime = audioTime;
+        } else if (Math.abs(drift) > 0.03) {
+          // Gentle smooth drift correction (imperceptible interpolation)
+          currentTime += drift * 0.15;
         }
-      } else {
-        const dt = (now - lastTimestamp) / 1000;
-        currentTime += dt * playbackRate;
       }
+
+      currentTime = Math.max(0, Math.min(TOTAL_DURATION, currentTime));
 
       if (currentTime >= TOTAL_DURATION) {
         currentTime = TOTAL_DURATION;
         isPlaying = false;
         btnPlay.textContent = '▶ PLAY';
+        btnPlay.classList.remove('active');
         masterAudio.pause();
       }
 
@@ -917,8 +930,13 @@
       render(currentTime);
       updateInspectorHUD(currentTime);
       updateVuMeter();
+    } catch (err) {
+      console.error('Render frame error (auto-recovered):', err);
+    } finally {
       lastTimestamp = now;
-      animFrameId = requestAnimationFrame(loop);
+      if (isPlaying) {
+        animFrameId = requestAnimationFrame(loop);
+      }
     }
   }
 
@@ -930,8 +948,19 @@
       btnPlay.classList.add('active');
       lastTimestamp = performance.now();
       masterAudio.playbackRate = playbackRate;
-      masterAudio.currentTime = currentTime;
-      masterAudio.play().catch(() => console.log('Audio autoplay prevented'));
+      
+      currentTime = Math.max(0, Math.min(TOTAL_DURATION, currentTime));
+      try {
+        masterAudio.currentTime = currentTime;
+      } catch (e) {}
+
+      const playPromise = masterAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn('Audio play deferred or muted fallback:', err);
+        });
+      }
+      if (animFrameId) cancelAnimationFrame(animFrameId);
       animFrameId = requestAnimationFrame(loop);
     } else {
       isPlaying = false;
