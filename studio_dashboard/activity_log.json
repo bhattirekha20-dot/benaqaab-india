@@ -1,0 +1,502 @@
+[
+  {
+    "timestamp": "2026-10-11 00:31:13",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> Master summary saved to C:\\Users\\dell\\Desktop\\my ai bot skills ok\\video_learning_database\\MASTER_11121_FRAMES_SUMMARY.md"
+  },
+  {
+    "timestamp": "2026-10-11 00:31:13",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:31:13",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> 100% COMPLETE: Analyzed 10429 frames across 8 videos in 346.9s!"
+  },
+  {
+    "timestamp": "2026-10-11 00:31:13",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:31:13",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 08_deep_sea_mysteries: 1736 frames processed in 138.0s (12.6 fps). Cuts: 872, Dynamic Moves: 556"
+  },
+  {
+    "timestamp": "2026-10-11 00:28:55",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Deep Sea Mysteries That Science Can't Explain! (1736 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:28:55",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 07_world_war_2: 1334 frames processed in 37.6s (35.5 fps). Cuts: 464, Dynamic Moves: 502"
+  },
+  {
+    "timestamp": "2026-10-11 00:28:17",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Why World War 2 Happened? — The Real Reason (1334 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:28:17",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 06_vitamin_d_crisis: 1144 frames processed in 28.9s (39.6 fps). Cuts: 413, Dynamic Moves: 459"
+  },
+  {
+    "timestamp": "2026-10-11 00:27:48",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Why Are You ALWAYS Tired? — India's Vitamin D & B12 Crisis (1144 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:27:48",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 05_aatma_death: 1490 frames processed in 41.4s (36.0 fps). Cuts: 502, Dynamic Moves: 582"
+  },
+  {
+    "timestamp": "2026-10-11 00:27:06",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR What Happens After Death? — Does Aatma really Exist? (1490 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:27:06",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 04_palmistry_reality: 1194 frames processed in 33.5s (35.6 fps). Cuts: 414, Dynamic Moves: 513"
+  },
+  {
+    "timestamp": "2026-10-11 00:26:33",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR How Long Is Your LIFELINE? — Reality of Palmistry (1194 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:26:33",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 03_iran_war: 950 frames processed in 16.7s (56.8 fps). Cuts: 340, Dynamic Moves: 356"
+  },
+  {
+    "timestamp": "2026-10-11 00:26:16",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Iran War is Out of CONTROL — Trump gives Final Warning (950 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:26:16",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 02_mummy_curse: 1278 frames processed in 29.3s (43.6 fps). Cuts: 532, Dynamic Moves: 545"
+  },
+  {
+    "timestamp": "2026-10-11 00:25:46",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Real Story of Mummy's CURSE — 22 Deaths That Shocked the World (1278 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:25:46",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> [DONE] 01_milky_way_wormholes: 1303 frames processed in 20.0s (65.1 fps). Cuts: 333, Dynamic Moves: 611"
+  },
+  {
+    "timestamp": "2026-10-11 00:25:26",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> STARTING FRAME-BY-FRAME FORENSICS FOR Can Humans Ever Leave the Milky Way Galaxy? — The Wormholes Explained (1303 frames)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:25:26",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": "********************************************************************"
+  },
+  {
+    "timestamp": "2026-10-11 00:25:26",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": ">> LAUNCHING FULL 11,121 FRAME-BY-FRAME FORENSIC ANALYSIS PIPELINE"
+  },
+  {
+    "timestamp": "2026-10-11 00:25:26",
+    "action": "FRAME_BY_FRAME_FORENSICS",
+    "details": "********************************************************************"
+  },
+  {
+    "timestamp": "2026-10-11 00:20:06",
+    "action": "PIPELINE_100_PERCENT_COMPLETE",
+    "details": "ALL 8 VIDEOS 100% COMPLETE: 11,121 frames extracted at 60 frames/min, full audio transcribed, master skills codified in MASTER_VIDEO_MAKING_SKILLS_LEARNED.md"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "********************************************************************"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> ALL 8 VIDEOS FULLY EXTRACTED AT 60 FRAMES/MIN ACROSS 100% TIMELINE!"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "********************************************************************"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [8/8] COMPLETED VIDEO 8/8: Deep Sea Mysteries That Science Can't Explain!"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1736 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-11 00:19:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 702.0s (2.5 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-11 00:08:00",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:07:32",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Extracting audio stream..."
+  },
+  {
+    "timestamp": "2026-10-11 00:07:32",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1736 frames"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:32",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1736.2s (28m 56s)"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: Deep Sea Mysteries That Science Can't Explain! _ Dhruv Rathee.mkv"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [8/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: Deep Sea Mysteries That Science Can't Explain!"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [7/8] COMPLETED VIDEO 7/8: Why World War 2 Happened? — The Real Reason"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1334 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-11 00:07:31",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 63.0s (21.2 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-11 00:06:28",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Extracting audio stream..."
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1334 frames"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1334.2s (22m 14s)"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: Why World War 2 Happened. - The Real Reason - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [7/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: Why World War 2 Happened? — The Real Reason"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:05:39",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [6/8] COMPLETED VIDEO 6/8: Why Are You ALWAYS Tired? — India's Vitamin D & B12 Crisis"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:38",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1144 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-11 00:05:38",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 109.1s (10.5 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-11 00:03:49",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-11 00:03:00",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Extracting audio stream..."
+  },
+  {
+    "timestamp": "2026-10-11 00:03:00",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1144 frames"
+  },
+  {
+    "timestamp": "2026-10-11 00:03:00",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1144.5s (19m 4s)"
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: Why Are You ALWAYS Tired. - India's Vitamin D & B12 Crisis - Jaago Grahak Jaago - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [6/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: Why Are You ALWAYS Tired? — India's Vitamin D & B12 Crisis"
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [5/8] COMPLETED VIDEO 5/8: What Happens After Death? — Does Aatma really Exist?"
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1490 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-11 00:02:59",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 177.9s (8.4 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-11 00:00:01",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-10 23:59:05",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Extracting audio stream..."
+  },
+  {
+    "timestamp": "2026-10-10 23:59:05",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1490 frames"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:05",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1490.0s (24m 50s)"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:05",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:59:05",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: What Happens After Death. - Does Aatma really Exist. - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:04",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [5/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: What Happens After Death? — Does Aatma really Exist?"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:04",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:59:04",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [4/8] COMPLETED VIDEO 4/8: How Long Is Your LIFELINE? — Reality of Palmistry"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:04",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1194 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-10 23:59:04",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 116.9s (10.2 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1194 frames"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1194.4s (19m 54s)"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: How Long Is Your LIFELINE. - Reality of Palmistry - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [4/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: How Long Is Your LIFELINE? — Reality of Palmistry"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [3/8] COMPLETED VIDEO 3/8: Iran War is Out of CONTROL — Trump gives Final Warning"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 950 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-10 23:57:07",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 84.4s (11.3 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:43",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-10 23:55:43",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~949 frames"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 949.9s (15m 49s)"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: Iran War is Out of CONTROL - Trump gives Final Warning - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [3/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: Iran War is Out of CONTROL — Trump gives Final Warning"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [2/8] COMPLETED VIDEO 2/8: Real Story of Mummy's CURSE — 22 Deaths That Shocked the World"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Total Frames Saved: 1278 frames at 60 frames/minute!"
+  },
+  {
+    "timestamp": "2026-10-10 23:55:42",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   >> Extraction Finished in 134.2s (9.5 fps processing speed)!"
+  },
+  {
+    "timestamp": "2026-10-10 23:53:28",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Launching FFmpeg multi-threaded frame extraction (1 frame per second)..."
+  },
+  {
+    "timestamp": "2026-10-10 23:53:28",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Cadence: 60 Frames/Minute (1 Frame Every 1.0s) -> Expected Total: ~1277 frames"
+  },
+  {
+    "timestamp": "2026-10-10 23:53:28",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Full Video Duration: 1277.7s (21m 17s)"
+  },
+  {
+    "timestamp": "2026-10-10 23:53:28",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "===================================================================="
+  },
+  {
+    "timestamp": "2026-10-10 23:53:27",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": "   Target Video: Real Story of Mummy's CURSE - 22 Deaths That Shocked the World - Dhruv Rathee.mp4"
+  },
+  {
+    "timestamp": "2026-10-10 23:53:27",
+    "action": "FULL_60FPM_PIPELINE",
+    "details": ">> [2/8] STARTING 100% COMPLETE 60 FPM EXTRACTION: Real Story of Mummy's CURSE — 22 Deaths That Shocked the World"
+  }
+]

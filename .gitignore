@@ -6,6 +6,7 @@
 _temp_extract/
 temp_extract/
 scratch/
+tools/debug_scratch/
 qa_*.png
 qa_*.jpg
 projects/**/extracted_short/
@@ -15,6 +16,8 @@ tmp/
 temp/
 frames/
 projects/**/frames/
+frames_60fpm/
+**/frames_60fpm/
 
 
 

@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Benaqaab India — SH-13: AePS Aadhaar Fingerprint Fraud (Silicone Ungli Scam)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800;900&family=Space+Grotesk:wght@700;800&family=Noto+Sans+Devanagari:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-deep: #07090e;
+  --bg-card: rgba(15, 23, 42, 0.92);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --gold-glow: #fbbf24;
+  --sky-glow: #38bdf8;
+  --crimson-glow: #ef4444;
+  --emerald: #34d399;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: #040508;
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+/* Headless Render Mode (1080x1920 Fullscreen Canvas Only) */
+body.render-mode {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  width: 1080px !important;
+  height: 1920px !important;
+}
+body.render-mode .app-container {
+  display: block !important;
+  max-width: none !important;
+  width: 1080px !important;
+  height: 1920px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+}
+body.render-mode .top-bar,
+body.render-mode .player-deck {
+  display: none !important;
+}
+body.render-mode .stage-container {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 1080px !important;
+  max-width: 1080px !important;
+  height: 1920px !important;
+  max-height: 1920px !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.render-mode canvas#videoCanvas {
+  width: 1080px !important;
+  max-width: 1080px !important;
+  height: 1920px !important;
+}
+
+/* Outer layout wrapper */
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Top Branding Bar */
+.top-bar {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-badge img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-glow);
+}
+.brand-badge span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.mode-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--crimson-glow);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* 9:16 Canvas Stage */
+.stage-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--border-glass);
+  background: #000;
+}
+
+canvas#videoCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Player Deck */
+.player-deck {
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: blur(20px);
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.time-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 100px;
+}
+
+.timeline-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  cursor: pointer;
+}
+.timeline-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sky-glow);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--sky-glow);
+}
+
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.ctrl-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--sky-glow);
+}
+
+.play-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #fff;
+}
+.play-btn:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+/* 30 Beat Pills Scroller */
+.beats-scroller {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px 2px;
+  scrollbar-width: thin;
+}
+.beats-scroller::-webkit-scrollbar {
+  height: 4px;
+}
+.beats-scroller::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.beat-pill {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.beat-pill.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--sky-glow);
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="brand-badge">
+      <img src="assets/logo.png" alt="Benaqaab Logo" onerror="this.style.display='none'">
+      <span>BENAQAAB INDIA</span>
+    </div>
+    <div class="mode-pill">SH-13 • 49.0s SHORT</div>
+  </div>
+
+  <!-- Stage Canvas -->
+  <div class="stage-container">
+    <canvas id="videoCanvas" width="1080" height="1920"></canvas>
+  </div>
+
+  <!-- Player Deck -->
+  <div class="player-deck">
+    <div class="timeline-row">
+      <span class="time-label" id="timeDisplay">00:00.0 / 00:49.0</span>
+      <input type="range" class="timeline-slider" id="scrubber" min="0" max="49.032" step="0.05" value="0">
+    </div>
+
+    <div class="controls-row">
+      <div class="btn-group">
+        <button class="ctrl-btn play-btn" id="playBtn">▶ PLAY</button>
+        <button class="ctrl-btn" id="resetBtn">↺ REPLAY</button>
+      </div>
+      <div class="btn-group">
+        <button class="ctrl-btn" id="soundBtn">🔊 AUDIO</button>
+        <button class="ctrl-btn" id="renderModeBtn">🎬 RENDER MODE</button>
+      </div>
+    </div>
+
+    <!-- 30 Beat Pills -->
+    <div class="beats-scroller" id="beatsContainer"></div>
+  </div>
+</div>
+
+<!-- Audio Element -->
+<audio id="masterAudio" src="master_audio.mp3" preload="auto"></audio>
+
+<script>
+// --- CORE TIMELINE & ASSETS DEFINITION ---
+const TOTAL_DURATION = 49.032;
+const NUM_BEATS = 30;
+
+// Export composition properties on window for renderer contract
+window.DURATION = TOTAL_DURATION;
+window.FPS = 30;
+window.WIDTH = 1080;
+window.HEIGHT = 1920;
+
+// Curated 30 Beats Data matching SCRIPT.md and scene_timeline.json
+const BEATS = [
+  { id: 1, start: 0.00, end: 1.70, spoken: "Bina OTP, bina ATM card...", caption: ["A/C DEBITED", "₹10,000 SAAF!"], color: "#EF4444", motion: "shake" },
+  { id: 2, start: 1.70, end: 3.40, spoken: "...aur bina bank jaye...", caption: ["ZERO OTP", "ZERO CARD SWIPED"], color: "#FBBF24", motion: "pan_down" },
+  { id: 3, start: 3.40, end: 5.10, spoken: "...account se pure ₹10,000...", caption: ["₹10,000", "DISAPPEARED!"], color: "#EF4444", motion: "shake" },
+  { id: 4, start: 5.10, end: 6.74, spoken: "...saaf ho gaye!...", caption: ["CHOR KA ASLI", "HATHYAR KYA?"], color: "#38BDF8", motion: "zoom_in" },
+
+  { id: 5, start: 6.74, end: 8.30, spoken: "Aur chor ke paas sirf ek cheez thi...", caption: ["NAKLI SILICONE", "UNGLI CLONE!"], color: "#A855F7", motion: "zoom_in" },
+  { id: 6, start: 8.30, end: 9.80, spoken: "...aapka nakli silicone angutha!...", caption: ["689+ CLONES", "POLICE SEIZURE!"], color: "#EF4444", motion: "pan_left" },
+  { id: 7, start: 9.80, end: 11.30, spoken: "Yeh hai AePS...", caption: ["AePS SYSTEM", "ARCHITECTURE"], color: "#38BDF8", motion: "zoom_out" },
+
+  { id: 8, start: 11.30, end: 12.80, spoken: "...aadhaar enabled payment system...", caption: ["BUILT FOR", "RURAL BHARAT"], color: "#34D399", motion: "pan_right" },
+  { id: 9, start: 12.80, end: 14.40, spoken: "...ka sabse bada fraud!...", caption: ["LETHAL FLAW", "ZERO 2FA!"], color: "#EF4444", motion: "shake" },
+  { id: 10, start: 14.40, end: 16.03, spoken: "Scammers zameen registry sites se...", caption: ["DATA LEAK", "REGISTRY PORTAL"], color: "#FBBF24", motion: "pan_up" },
+
+  { id: 11, start: 16.03, end: 17.50, spoken: "...sale deed download karte hain...", caption: ["OFFICIAL SALE", "DEED KEWALA"], color: "#94A3B8", motion: "zoom_in" },
+  { id: 12, start: 17.50, end: 19.00, spoken: "...jahan aapka high-res thumbprint...", caption: ["UNMASKED", "THUMBPRINT SCAN"], color: "#FBBF24", motion: "loupe_magnify" },
+  { id: 13, start: 19.00, end: 20.60, spoken: "...aur aadhaar number publicly...", caption: ["AADHAAR NUMBER", "FULLY EXPOSED!"], color: "#EF4444", motion: "highlighter_sweep" },
+  { id: 14, start: 20.60, end: 22.20, spoken: "...maujood hota hai!...", caption: ["1-CLICK", "PUBLIC DOWNLOAD"], color: "#38BDF8", motion: "pan_down" },
+  { id: 15, start: 22.20, end: 23.74, spoken: "Butter paper aur liquid silicone se...", caption: ["BUTTER PAPER", "TRACING PRINT"], color: "#A855F7", motion: "zoom_in" },
+
+  { id: 16, start: 23.74, end: 25.00, spoken: "...banti hai...", caption: ["UV POLY-STAMPER", "CURING MACHINE"], color: "#EC4899", motion: "pan_left" },
+  { id: 17, start: 25.00, end: 26.30, spoken: "...hubahoo nakli ungli!...", caption: ["3D RUBBER", "THUMB CLONE"], color: "#FBBF24", motion: "zoom_in" },
+  { id: 18, start: 26.30, end: 27.67, spoken: "Aur purane L0 scanner par...", caption: ["ROGUE BANK", "MITRA POS"], color: "#EF4444", motion: "pan_down" },
+
+  { id: 19, start: 27.67, end: 29.30, spoken: "...lagate hi...", caption: ["OLDER L0", "OPTICAL SCANNER"], color: "#22C55E", motion: "laser_scan" },
+  { id: 20, start: 29.30, end: 30.90, spoken: "...bank se poore...", caption: ["98% MATCH", "AUTH SUCCESS!"], color: "#10B981", motion: "zoom_in" },
+  { id: 21, start: 30.90, end: 32.51, spoken: "...₹10,000 gayab!...", caption: ["POORE ₹10,000", "GAYAB!"], color: "#EF4444", motion: "odometer_roll" },
+
+  { id: 22, start: 32.51, end: 34.00, spoken: "Lekin bachne ka ek achook tareeqa hai...", caption: ["60-SECOND", "CITIZEN SHIELD"], color: "#38BDF8", motion: "zoom_in" },
+  { id: 23, start: 34.00, end: 35.50, spoken: "...abhi mAadhaar app kholein...", caption: ["OPEN OFFICIAL", "mAadhaar APP"], color: "#38BDF8", motion: "pan_up" },
+  { id: 24, start: 35.50, end: 37.00, spoken: "...aur biometrics ko LOCK kar dein!...", caption: ["TOGGLE SWITCH:", "BIOMETRICS LOCKED"], color: "#34D399", motion: "toggle_lock" },
+  { id: 25, start: 37.00, end: 38.49, spoken: "Iske baad...", caption: ["IMMUNIZED", "AGAINST CLONES"], color: "#38BDF8", motion: "pan_down" },
+
+  { id: 26, start: 38.49, end: 40.40, spoken: "...koi clone bhi laga le...", caption: ["SCAMMER TRIES", "AGAIN WITH CLONE"], color: "#EF4444", motion: "pan_left" },
+  { id: 27, start: 40.40, end: 42.30, spoken: "...to screen par aayega— Error 330: Locked!...", caption: ["ERROR 330:", "BIOMETRICS LOCKED!"], color: "#EF4444", motion: "shake" },
+  { id: 28, start: 42.30, end: 44.20, spoken: "National Helpline 1930...", caption: ["DIAL 1930", "CYBER HELPLINE"], color: "#FBBF24", motion: "pan_right" },
+
+  { id: 29, start: 44.20, end: 46.50, spoken: "Sach, Saboot, Bebaak...", caption: ["CLONED SCAM", "EXPOSED!"], color: "#EF4444", motion: "verdict_slam" },
+  { id: 30, start: 46.50, end: 49.03, spoken: "Subscribe Benaqaab India!", caption: ["BENAQAAB INDIA", "SUBSCRIBE ▶"], color: "#FBBF24", motion: "cta_outro" }
+];
+
+// Preload Images
+const beatImages = {};
+let loadedImagesCount = 0;
+window.ready = false;
+
+function checkReady() {
+  if (loadedImagesCount >= NUM_BEATS) {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        window.ready = true;
+      });
+    } else {
+      window.ready = true;
+    }
+  }
+}
+
+for (let i = 1; i <= NUM_BEATS; i++) {
+  const pad = i < 10 ? '0' + i : i;
+  const img = new Image();
+  img.src = `assets/visuals/beat_${pad}.jpg`;
+  img.onload = () => { loadedImagesCount++; checkReady(); };
+  img.onerror = () => { loadedImagesCount++; checkReady(); };
+  beatImages[i] = img;
+}
+
+// Fallback in case of cached or offline fonts/images
+setTimeout(() => { window.ready = true; }, 3000);
+
+// Logo image
+const logoImg = new Image();
+logoImg.src = "assets/logo.png";
+
+// Canvas Setup
+const canvas = document.getElementById("videoCanvas");
+const ctx = canvas.getContext("2d");
+
+const audio = document.getElementById("masterAudio");
+const playBtn = document.getElementById("playBtn");
+const resetBtn = document.getElementById("resetBtn");
+const soundBtn = document.getElementById("soundBtn");
+const renderModeBtn = document.getElementById("renderModeBtn");
+const scrubber = document.getElementById("scrubber");
+const timeDisplay = document.getElementById("timeDisplay");
+const beatsContainer = document.getElementById("beatsContainer");
+
+// Build Beat Pills in UI
+BEATS.forEach(b => {
+  const pill = document.createElement("button");
+  pill.className = "beat-pill";
+  pill.id = `pill_${b.id}`;
+  pill.textContent = `#${b.id} ${b.caption[0]}`;
+  pill.onclick = () => { seek(b.start + 0.05); };
+  beatsContainer.appendChild(pill);
+});
+
+let isPlaying = false;
+let currentTime = 0;
+let lastRafTime = 0;
+
+// Seek Contract
+function seek(t) {
+  currentTime = Math.max(0, Math.min(TOTAL_DURATION, t));
+  audio.currentTime = currentTime;
+  scrubber.value = currentTime;
+  updateTimeUI(currentTime);
+  renderFrame(currentTime);
+}
+window.seek = seek;
+
+function updateTimeUI(t) {
+  const m = Math.floor(t / 60);
+  const s = (t % 60).toFixed(1);
+  const padS = (t % 60) < 10 ? '0' + s : s;
+  timeDisplay.textContent = `00:${padS} / 00:49.0`;
+
+  const activeBeat = getActiveBeat(t);
+  if (activeBeat) {
+    document.querySelectorAll(".beat-pill").forEach(p => p.classList.remove("active"));
+    const activePill = document.getElementById(`pill_${activeBeat.id}`);
+    if (activePill) {
+      activePill.classList.add("active");
+      activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+}
+
+function getActiveBeat(t) {
+  for (let i = 0; i < BEATS.length; i++) {
+    if (t >= BEATS[i].start && t < BEATS[i].end) return BEATS[i];
+  }
+  return BEATS[BEATS.length - 1];
+}
+
+// --- DYNAMIC MOTION GRAPHIC PRIMITIVES ENGINE ---
+
+// 1. Draw Callout Pin with Spring Leader Line
+function drawCalloutPin(x, y, label, targetX, targetY, progress, color = "#38BDF8") {
+  const p = Math.max(0, Math.min(1, progress * 1.6));
+  if (p <= 0) return;
+  
+  ctx.save();
+  // Target reticle
+  ctx.beginPath();
+  ctx.arc(targetX, targetY, 12, 0, Math.PI * 2);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  
+  ctx.beginPath();
+  ctx.arc(targetX, targetY, 4, 0, Math.PI * 2);
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fill();
+
+  // Pulsing ring
+  const pulseR = 12 + (p * 18);
+  ctx.beginPath();
+  ctx.arc(targetX, targetY, pulseR, 0, Math.PI * 2);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2 * (1 - p);
+  ctx.stroke();
+
+  // Elbow line
+  const midX = (targetX + x) / 2;
+  ctx.beginPath();
+  ctx.moveTo(targetX, targetY);
+  ctx.lineTo(midX, y);
+  ctx.lineTo(x, y);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3;
+  ctx.setLineDash([8, 4]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Frosted Callout Pill with accurate dynamic text width
+  ctx.font = "800 22px 'Space Grotesk', sans-serif";
+  const textWidth = ctx.measureText(label).width;
+  const pillW = textWidth + 36;
+  const pillH = 48;
+
+  ctx.beginPath();
+  ctx.roundRect(x - 10, y - 28, pillW, pillH, 12);
+  ctx.fillStyle = "rgba(10, 14, 23, 0.95)";
+  ctx.fill();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.fillStyle = "#FFFFFF";
+  ctx.textAlign = "left";
+  ctx.fillText(label, x + 8, y + 5);
+  ctx.restore();
+}
+
+// 2. Animated Red Evidence String
+function drawEvidenceString(x1, y1, x2, y2, progress, tension = 0.95) {
+  const p = Math.max(0, Math.min(1, progress * 1.5));
+  if (p <= 0) return;
+  
+  ctx.save();
+  ctx.strokeStyle = '#EF4444';
+  ctx.lineWidth = 5;
+  ctx.shadowColor = 'rgba(239, 68, 68, 0.6)';
+  ctx.shadowBlur = 12;
+
+  const currentX2 = x1 + (x2 - x1) * p;
+  const currentY2 = y1 + (y2 - y1) * p;
+  const midX = (x1 + currentX2) / 2;
+  const sag = (1 - tension) * 50;
+  const midY = (y1 + currentY2) / 2 + sag;
+
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.quadraticCurveTo(midX, midY, currentX2, currentY2);
+  ctx.stroke();
+
+  // Red Pins at endpoints
+  [[x1, y1], [currentX2, currentY2]].forEach(([px, py]) => {
+    ctx.beginPath();
+    ctx.arc(px, py, 10, 0, Math.PI * 2);
+    ctx.fillStyle = '#DC2626';
+    ctx.fill();
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
+// 3. Yellow Forensic Highlighter with Multiply Blend
+function drawYellowHighlighter(x, y, width, height, progress) {
+  const p = Math.max(0, Math.min(1, progress * 1.5));
+  if (p <= 0) return;
+  const currentW = width * (1 - Math.pow(1 - p, 3));
+
+  ctx.save();
+  ctx.globalCompositeOperation = 'multiply';
+  ctx.fillStyle = 'rgba(250, 204, 21, 0.75)'; // Fluorescent Marker Yellow
+  ctx.beginPath();
+  ctx.roundRect(x, y, currentW, height, 4);
+  ctx.fill();
+  ctx.restore();
+
+  // Highlight glow on top
+  ctx.save();
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = 'rgba(250, 204, 21, 0.15)';
+  ctx.fillRect(x, y, currentW, height);
+  ctx.restore();
+}
+
+// 4. Biometric Laser Scan Beam
+function drawLaserScanBeam(x, y, width, height, progress) {
+  const beamY = y + (height * progress);
+  ctx.save();
+  // Glowing laser line
+  const grad = ctx.createLinearGradient(x, beamY - 40, x, beamY + 40);
+  grad.addColorStop(0, "rgba(16, 185, 129, 0)");
+  grad.addColorStop(0.5, "rgba(52, 211, 153, 0.4)");
+  grad.addColorStop(1, "rgba(16, 185, 129, 0)");
+  ctx.fillStyle = grad;
+  ctx.fillRect(x, beamY - 40, width, 80);
+
+  // Intense center core line
+  ctx.strokeStyle = "#34D399";
+  ctx.lineWidth = 4;
+  ctx.shadowColor = "#34D399";
+  ctx.shadowBlur = 20;
+  ctx.beginPath();
+  ctx.moveTo(x, beamY);
+  ctx.lineTo(x + width, beamY);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// 5. Realistic Bank SMS Push Notification Banner
+function drawSMSNotification(x, y, width, height, progress) {
+  const p = Math.min(1.0, progress * 2.5);
+  const slideY = y - (1.0 - p) * 160;
+  ctx.save();
+  ctx.translate(0, slideY - y);
+  
+  // Frosted dark glass container
+  ctx.beginPath();
+  ctx.roundRect(x, y, width, height, 22);
+  ctx.fillStyle = "rgba(10, 14, 23, 0.96)";
+  ctx.fill();
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "#EF4444";
+  ctx.shadowColor = "rgba(239, 68, 68, 0.6)";
+  ctx.shadowBlur = 20;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Header
+  ctx.font = "800 24px 'Space Grotesk', sans-serif";
+  ctx.fillStyle = "#FBBF24";
+  ctx.textAlign = "left";
+  ctx.fillText("🔔 STATE BANK OF INDIA • DEBIT ALERT", x + 35, y + 42);
+  
+  ctx.font = "700 20px 'JetBrains Mono', monospace";
+  ctx.fillStyle = "#94A3B8";
+  ctx.textAlign = "right";
+  ctx.fillText("Just now", x + width - 35, y + 42);
+
+  // SMS Text
+  ctx.font = "600 26px 'Inter', sans-serif";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.textAlign = "left";
+  ctx.fillText("A/c *4892 DEBITED by Rs 10,000.00 on 12-Oct", x + 35, y + 90);
+  ctx.fillText("via AePS CW at CSP_MOHALI_49. Avl Bal: Rs 420.50.", x + 35, y + 130);
+  
+  ctx.font = "700 22px 'Space Grotesk', sans-serif";
+  ctx.fillStyle = "#EF4444";
+  ctx.fillText("If not initiated by you, report on 1930 immediately.", x + 35, y + 175);
+  ctx.restore();
+}
+
+// --- RENDER ENGINE ---
+function renderFrame(t) {
+  const beat = getActiveBeat(t);
+  const beatDuration = beat.end - beat.start;
+  const progress = Math.max(0, Math.min(1, (t - beat.start) / beatDuration));
+
+  ctx.save();
+  ctx.clearRect(0, 0, 1080, 1920);
+
+  // 1. Camera Transform Matrix
+  let scale = 1.0;
+  let tx = 0;
+  let ty = 0;
+
+  if (beat.motion === "shake") {
+    const shakeFreq = 40;
+    const decay = Math.exp(-progress * 4.0);
+    tx = Math.sin(progress * shakeFreq) * 24 * decay;
+    ty = Math.cos(progress * shakeFreq * 1.3) * 18 * decay;
+  } else if (beat.motion === "zoom_in") {
+    scale = 1.0 + (progress * 0.08);
+  } else if (beat.motion === "zoom_out") {
+    scale = 1.08 - (progress * 0.08);
+  } else if (beat.motion === "pan_down") {
+    ty = -progress * 45;
+    scale = 1.02;
+  } else if (beat.motion === "pan_up") {
+    ty = progress * 45;
+    scale = 1.02;
+  } else if (beat.motion === "pan_left") {
+    tx = -progress * 45;
+    scale = 1.02;
+  } else if (beat.motion === "pan_right") {
+    tx = progress * 45;
+    scale = 1.02;
+  }
+
+  // Apply Virtual Camera
+  ctx.translate(540 + tx, 960 + ty);
+  ctx.scale(scale, scale);
+  ctx.translate(-540, -960);
+
+  // 2. Draw Background Base Visual Image
+  const img = beatImages[beat.id];
+  if (img && img.complete) {
+    ctx.drawImage(img, 0, 0, 1080, 1920);
+  } else {
+    ctx.fillStyle = "#07090E";
+    ctx.fillRect(0, 0, 1080, 1920);
+  }
+
+  // 3. Dynamic Forensic Motion Graphic Primitives Per Beat
+
+  // Beat 1: Banking SMS Notification Slide-Down + Vibration
+  if (beat.id === 1) {
+    drawSMSNotification(80, 420, 920, 220, progress);
+  }
+
+  // Beat 2: Diagonal Red Cancellation Strike on Real RuPay Card
+  if (beat.id === 2) {
+    const strikeP = Math.min(1.0, progress * 2.0);
+    ctx.save();
+    ctx.strokeStyle = "#EF4444";
+    ctx.lineWidth = 14;
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    ctx.moveTo(320, 750);
+    ctx.lineTo(320 + (440 * strikeP), 750 + (440 * strikeP));
+    ctx.stroke();
+    drawCalloutPin(100, 320, "ZERO CARD SWIPED • NO PHYSICAL CARD", 480, 880, progress, "#EF4444");
+    ctx.restore();
+  }
+
+  // Beat 3: Cash Heist Alert
+  if (beat.id === 3) {
+    ctx.save();
+    ctx.fillStyle = "rgba(239, 68, 68, 0.95)";
+    ctx.beginPath();
+    ctx.roundRect(100, 320, 880, 84, 20);
+    ctx.fill();
+    ctx.strokeStyle = "#FFFFFF";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    ctx.font = "900 32px 'Anton', sans-serif";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.textAlign = "center";
+    ctx.fillText("IMMEDIATE CASH SIPHONED: -₹10,000", 540, 375);
+    ctx.restore();
+  }
+
+  // Beat 5 & 12: Forensic Loupe 2.5X Magnification
+  if (beat.id === 5 || beat.id === 12) {
+    const loupeProgress = Math.min(1.0, progress * 1.5);
+    const loupeRadius = 210 * loupeProgress;
+    const lcx = 540;
+    const lcy = 940;
+
+    if (loupeRadius > 20) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(lcx, lcy, loupeRadius, 0, Math.PI * 2);
+      ctx.clip();
+      // Zoomed content inside loupe (2.5x)
+      ctx.translate(lcx, lcy);
+      ctx.scale(2.4, 2.4);
+      ctx.translate(-lcx, -lcy);
+      if (img && img.complete) ctx.drawImage(img, 0, 0, 1080, 1920);
+      ctx.restore();
+
+      // Specular Chrome Glass Border
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(lcx, lcy, loupeRadius, 0, Math.PI * 2);
+      ctx.lineWidth = 12;
+      ctx.strokeStyle = "#38BDF8";
+      ctx.shadowColor = "rgba(56, 189, 248, 0.8)";
+      ctx.shadowBlur = 24;
+      ctx.stroke();
+
+      // Crosshair Reticle
+      ctx.beginPath();
+      ctx.moveTo(lcx - loupeRadius - 25, lcy); ctx.lineTo(lcx + loupeRadius + 25, lcy);
+      ctx.moveTo(lcx, lcy - loupeRadius - 25); ctx.lineTo(lcx, lcy + loupeRadius + 25);
+      ctx.strokeStyle = "rgba(56, 189, 248, 0.7)";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // HUD Tag Pill on Loupe (Opaque background)
+      ctx.beginPath();
+      ctx.roundRect(lcx + 50, lcy - loupeRadius - 12, 220, 44, 8);
+      ctx.fillStyle = "rgba(10, 14, 23, 0.98)";
+      ctx.fill();
+      ctx.strokeStyle = "#38BDF8";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.font = "800 18px 'JetBrains Mono', monospace";
+      ctx.fillStyle = "#38BDF8";
+      ctx.textAlign = "center";
+      ctx.fillText(beat.id === 5 ? "SILICONE CLONE 2.5X" : "UNMASKED SCAN 2.5X", lcx + 160, lcy - loupeRadius + 17);
+      ctx.restore();
+    }
+  }
+
+  // Beat 6: Red Evidence String connecting nodes
+  if (beat.id === 6) {
+    drawEvidenceString(180, 800, 880, 1140, progress, 0.9);
+    drawCalloutPin(100, 320, "ALIGARH CYBER POLICE SEIZURE", 540, 960, progress, "#EF4444");
+  }
+
+  // Beat 7: AePS Architecture Callout Pins
+  if (beat.id === 7) {
+    drawCalloutPin(100, 320, "CUSTOMER AADHAAR DATA ENTRY", 300, 780, progress, "#38BDF8");
+    drawCalloutPin(500, 1450, "NPCI SWITCH CENTRAL HUB", 540, 980, progress, "#34D399");
+  }
+
+  // Beat 10 & 14: Jamabandi Public Portal Callout (Targeting the Red Download Button)
+  if (beat.id === 10 || beat.id === 14) {
+    drawCalloutPin(100, 320, "PUBLIC SALE DEED REPOSITORY", 790, 850, progress, "#FBBF24");
+  }
+
+  // Beat 13: Yellow Forensic Highlighter sweeping across Aadhaar number
+  if (beat.id === 13) {
+    drawYellowHighlighter(180, 860, 720, 90, progress);
+    drawCalloutPin(100, 320, "AADHAAR NUMBER PUBLICLY EXPOSED", 420, 900, progress, "#EF4444");
+  }
+
+  // Beat 15: Butter Paper Tracing Callout
+  if (beat.id === 15) {
+    drawCalloutPin(100, 320, "TRACING RIDGES ONTO BUTTER PAPER", 480, 880, progress, "#FBBF24");
+  }
+
+  // Beat 16: Pulsating UV Curing Machine Glow
+  if (beat.id === 16) {
+    const pulse = 0.5 + 0.5 * Math.sin(progress * Math.PI * 6);
+    ctx.save();
+    ctx.fillStyle = `rgba(168, 85, 247, ${0.15 + pulse * 0.25})`;
+    ctx.fillRect(80, 780, 920, 440);
+    drawCalloutPin(100, 320, "UV LIGHT SOLIDIFIES POLYMER MOULD", 540, 880, progress, "#EC4899");
+    ctx.restore();
+  }
+
+  // Beat 19: Biometric Laser Scanner Beam on Mantra MFS100 Station
+  if (beat.id === 19) {
+    drawLaserScanBeam(540, 780, 200, 180, progress);
+    drawCalloutPin(100, 320, "OLDER L0 OPTICAL SCANNER (NO LIVENESS)", 600, 860, progress, "#22C55E");
+  }
+
+  // Beat 21: Live Monospace Odometer Roll (₹10,000)
+  if (beat.id === 21) {
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const amount = Math.floor(easeOut * 10000);
+    ctx.save();
+    ctx.fillStyle = "rgba(7, 9, 14, 0.94)";
+    ctx.roundRect(80, 680, 920, 240, 24);
+    ctx.fill();
+    ctx.strokeStyle = "#EF4444";
+    ctx.lineWidth = 5;
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 25;
+    ctx.stroke();
+
+    ctx.font = "900 92px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#EF4444";
+    ctx.textAlign = "center";
+    ctx.fillText(`- ₹ ${amount.toLocaleString('en-IN')}`, 540, 835);
+
+    ctx.font = "800 32px 'Space Grotesk', sans-serif";
+    ctx.fillStyle = "#FBBF24";
+    ctx.fillText("WITHDRAWN VIA ROGUE AePS MITRA", 540, 890);
+    ctx.restore();
+  }
+
+  // Beat 22: Cyber Shield Expansion Pulse
+  if (beat.id === 22) {
+    const ringP = (progress * 2.5) % 1.0;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(540, 900, 160 + ringP * 140, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(56, 189, 248, ${1.0 - ringP})`;
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    drawCalloutPin(100, 320, "ACTIVATE CITIZEN PROTECTION SHIELD", 540, 880, progress, "#38BDF8");
+    ctx.restore();
+  }
+
+  // Beat 24: Interactive Animated Biometric Lock Touch on Phone Screen
+  if (beat.id === 24) {
+    const touchP = Math.min(1.0, progress * 2.2);
+    ctx.save();
+    // Green Touch Ripple on Toggle Switch
+    const rippleR = 25 + (touchP * 55);
+    ctx.beginPath();
+    ctx.arc(710, 1280, rippleR, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(52, 211, 153, ${1.0 - touchP})`;
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    drawCalloutPin(100, 320, "TAP TO LOCK BIOMETRICS IN mAadhaar", 710, 1280, progress, "#34D399");
+    ctx.restore();
+  }
+
+  // Beat 26: Scammer Rejection at Mantra Station
+  if (beat.id === 26) {
+    drawCalloutPin(100, 320, "REJECTED • BIOMETRICS LOCKED BY USER", 600, 860, progress, "#EF4444");
+  }
+
+  // Beat 28: National Helpline 1930 Callout
+  if (beat.id === 28) {
+    drawCalloutPin(100, 320, "EMERGENCY SPEED DIAL (24x7)", 480, 680, progress, "#FBBF24");
+  }
+
+  // Beat 27: Slamming Red Decline Stamp onto Thermal POS Slip
+  if (beat.id === 27) {
+    const stampSettle = Math.min(1.0, progress * 4.0);
+    const springScale = 2.4 - (stampSettle * 1.4);
+    ctx.save();
+    ctx.translate(540, 1180);
+    ctx.rotate(-0.10);
+    ctx.scale(springScale, springScale);
+    ctx.globalAlpha = stampSettle;
+
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = "#EF4444";
+    ctx.shadowColor = "#EF4444";
+    ctx.shadowBlur = 24;
+    ctx.strokeRect(-340, -65, 680, 130);
+    ctx.lineWidth = 3;
+    ctx.strokeRect(-330, -55, 660, 110);
+
+    ctx.font = "900 58px 'Anton', sans-serif";
+    ctx.fillStyle = "#EF4444";
+    ctx.textAlign = "center";
+    ctx.fillText("DECLINED: ERROR 330", 0, 20);
+    ctx.restore();
+  }
+
+  // Beat 29: Slamming Distressed Red Verdict Stamp
+  if (beat.id === 29) {
+    const stampSettle = Math.min(1.0, progress * 4.0);
+    const springScale = 2.4 - (stampSettle * 1.4);
+    const stampAlpha = stampSettle;
+
+    ctx.save();
+    ctx.translate(540, 1140);
+    ctx.rotate(-0.14); // -8 degrees
+    ctx.scale(springScale, springScale);
+    ctx.globalAlpha = stampAlpha;
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "#EF4444";
+    ctx.shadowColor = "rgba(239, 68, 68, 0.8)";
+    ctx.shadowBlur = 25;
+    ctx.strokeRect(-380, -80, 760, 160);
+
+    ctx.lineWidth = 3;
+    ctx.strokeRect(-370, -70, 740, 140);
+
+    ctx.font = "900 72px 'Anton', sans-serif";
+    ctx.fillStyle = "#EF4444";
+    ctx.textAlign = "center";
+    ctx.fillText("CLONED SCAM EXPOSED", 0, 26);
+    ctx.restore();
+  }
+
+  // Beat 30: Channel Identity, Like & Subscribe Micro-Interactions
+  if (beat.id === 30) {
+    const ctaProgress = Math.min(1.0, progress * 2.0);
+    ctx.save();
+    ctx.globalAlpha = ctaProgress;
+    
+    // Central frosted glass card
+    ctx.beginPath();
+    ctx.roundRect(100, 700, 880, 580, 32);
+    ctx.fillStyle = "rgba(10, 14, 23, 0.95)";
+    ctx.fill();
+    ctx.lineWidth = 3.5;
+    ctx.strokeStyle = "#FBBF24";
+    ctx.shadowColor = "rgba(251, 191, 36, 0.45)";
+    ctx.shadowBlur = 28;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Center Circular Avatar
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(540, 840, 65, 0, Math.PI * 2);
+    ctx.clip();
+    if (logoImg.complete && logoImg.naturalWidth > 0) {
+      ctx.drawImage(logoImg, 475, 775, 130, 130);
+    } else {
+      ctx.fillStyle = "#EF4444";
+      ctx.fill();
+    }
+    ctx.restore();
+
+    ctx.beginPath();
+    ctx.arc(540, 840, 65, 0, Math.PI * 2);
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#FBBF24";
+    ctx.stroke();
+
+    // Channel name & tagline
+    ctx.font = "900 52px 'Anton', sans-serif";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.textAlign = "center";
+    ctx.fillText("BENAQAAB INDIA", 540, 955);
+
+    ctx.font = "800 22px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#FBBF24";
+    ctx.fillText("SACH  •  SABOOT  •  BEBAK", 540, 1000);
+
+    // Like Button
+    ctx.beginPath();
+    ctx.roundRect(160, 1050, 340, 90, 24);
+    ctx.fillStyle = progress > 0.35 ? "rgba(56, 189, 248, 0.35)" : "rgba(255, 255, 255, 0.08)";
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#38BDF8";
+    ctx.stroke();
+
+    ctx.font = "900 32px 'Anton', sans-serif";
+    ctx.fillStyle = "#38BDF8";
+    ctx.fillText(progress > 0.35 ? "👍 LIKED" : "👍 LIKE", 330, 1108);
+
+    // Subscribe Button
+    ctx.beginPath();
+    ctx.roundRect(540, 1050, 380, 90, 24);
+    ctx.fillStyle = progress > 0.6 ? "rgba(251, 191, 36, 0.3)" : "rgba(239, 68, 68, 0.85)";
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = progress > 0.6 ? "#FBBF24" : "#EF4444";
+    ctx.stroke();
+
+    ctx.font = "900 32px 'Anton', sans-serif";
+    ctx.fillStyle = progress > 0.6 ? "#FBBF24" : "#FFFFFF";
+    ctx.fillText(progress > 0.6 ? "🔔 SUBSCRIBED" : "SUBSCRIBE ▶", 730, 1108);
+
+    ctx.font = "700 22px 'Space Grotesk', sans-serif";
+    ctx.fillStyle = "#94A3B8";
+    ctx.fillText("SHARE THIS VIDEO TO PROTECT YOUR FAMILY", 540, 1210);
+    ctx.restore();
+  }
+
+  // 4. Reset Camera for HUD Overlay (Fixed Safe Zones)
+  ctx.restore();
+
+  // Draw Top-Left Sleek Capsule Brand Pill
+  ctx.save();
+  ctx.beginPath();
+  ctx.roundRect(60, 90, 380, 74, 37);
+  ctx.fillStyle = "rgba(10, 14, 23, 0.92)";
+  ctx.fill();
+  ctx.lineWidth = 2.5;
+  ctx.strokeStyle = "#FBBF24";
+  ctx.stroke();
+
+  // Logo circle
+  if (logoImg.complete && logoImg.naturalWidth > 0) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(97, 127, 27, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(logoImg, 70, 100, 54, 54);
+    ctx.restore();
+  } else {
+    ctx.beginPath();
+    ctx.arc(97, 127, 27, 0, Math.PI * 2);
+    ctx.fillStyle = "#EF4444";
+    ctx.fill();
+  }
+
+  // Brand text
+  ctx.font = "900 26px 'Anton', sans-serif";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.textAlign = "left";
+  ctx.fillText("BENAQAAB INDIA", 136, 126);
+  ctx.font = "800 13px 'JetBrains Mono', monospace";
+  ctx.fillStyle = "#FBBF24";
+  ctx.fillText("SACH · SABOOT · BEBAK", 138, 148);
+  ctx.restore();
+
+  // 5. High-Impact Caption Pill (Lower-Third Safe Zone, y = 1580)
+  ctx.save();
+  const cap = beat.caption;
+  ctx.textAlign = "center";
+
+  // Pill Background
+  ctx.beginPath();
+  ctx.roundRect(80, 1580, 920, 175, 26);
+  ctx.fillStyle = "rgba(7, 9, 14, 0.94)";
+  ctx.fill();
+  ctx.lineWidth = 3.5;
+  ctx.strokeStyle = beat.color || "#FBBF24";
+  ctx.shadowColor = beat.color || "#FBBF24";
+  ctx.shadowBlur = 15;
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Text Line 1
+  ctx.font = "900 56px 'Anton', sans-serif";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.fillText(cap[0], 540, 1650);
+
+  // Text Line 2 (Vibrant Accent with Kinetic Spring Pop)
+  const popP = Math.min(1.0, progress * 4.0);
+  const scalePop = 1.0 + (1.0 - popP) * 0.14;
+  ctx.save();
+  ctx.translate(540, 1722);
+  ctx.scale(scalePop, scalePop);
+  ctx.font = "900 50px 'Anton', sans-serif";
+  ctx.fillStyle = beat.color || "#FBBF24";
+  ctx.shadowColor = beat.color || "#FBBF24";
+  ctx.shadowBlur = 14 * (1.0 - popP * 0.4);
+  ctx.fillText(cap[1], 0, 0);
+  ctx.restore();
+  ctx.restore();
+
+  // Subtle Living Texture (Micro Scanlines at 1.5% opacity)
+  ctx.save();
+  ctx.fillStyle = "rgba(255, 255, 255, 0.015)";
+  for (let y = 0; y < 1920; y += 8) {
+    ctx.fillRect(0, y, 1080, 2);
+  }
+  ctx.restore();
+}
+
+// --- ANIMATION RAF LOOP ---
+function play() {
+  if (currentTime >= TOTAL_DURATION) {
+    seek(0);
+  }
+  isPlaying = true;
+  playBtn.textContent = "⏸ PAUSE";
+  playBtn.style.background = "linear-gradient(135deg, #eab308, #ca8a04)";
+  audio.currentTime = currentTime;
+  audio.play().catch(e => console.warn("Audio autoplay blocked:", e));
+  lastRafTime = performance.now();
+  requestAnimationFrame(rafLoop);
+}
+
+function pause() {
+  isPlaying = false;
+  playBtn.textContent = "▶ PLAY";
+  playBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+  audio.pause();
+}
+
+function togglePlay() {
+  if (isPlaying) pause();
+  else play();
+}
+
+function rafLoop(now) {
+  if (!isPlaying) return;
+  const dt = (now - lastRafTime) / 1000;
+  lastRafTime = now;
+
+  if (!audio.paused && audio.currentTime > 0) {
+    currentTime = audio.currentTime;
+  } else {
+    currentTime += dt;
+  }
+
+  if (currentTime >= TOTAL_DURATION) {
+    seek(TOTAL_DURATION);
+    pause();
+    return;
+  }
+
+  scrubber.value = currentTime;
+  updateTimeUI(currentTime);
+  renderFrame(currentTime);
+  requestAnimationFrame(rafLoop);
+}
+
+// UI Event Handlers
+playBtn.onclick = togglePlay;
+resetBtn.onclick = () => { seek(0); play(); };
+
+scrubber.oninput = (e) => {
+  seek(parseFloat(e.target.value));
+};
+
+soundBtn.onclick = () => {
+  audio.muted = !audio.muted;
+  soundBtn.textContent = audio.muted ? "🔇 MUTED" : "🔊 AUDIO";
+};
+
+renderModeBtn.onclick = () => {
+  document.body.classList.toggle("render-mode");
+};
+
+// Check query param ?render=1
+if (new URLSearchParams(window.location.search).get("render") === "1") {
+  document.body.classList.add("render-mode");
+}
+
+// Initial draw
+seek(0);
+</script>
+
+</body>
+</html>

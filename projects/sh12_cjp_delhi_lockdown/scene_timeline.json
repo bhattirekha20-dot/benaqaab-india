@@ -1,0 +1,642 @@
+{
+  "project": "SH-12: Delhi Lockdown & The CJP Protest",
+  "episode": "SH-12",
+  "format": "9:16 Vertical Short (1080x1920)",
+  "total_duration": 47.304,
+  "fps": 30,
+  "total_frames": 1419,
+  "audio": "master_audio.mp3",
+  "num_scenes": 30,
+  "scenes": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 1.85,
+      "duration": 1.85,
+      "spoken": "Aaj Delhi mein aisa kya hua...",
+      "visual": "assets/visuals/beat_01.jpg",
+      "caption": [
+        "45 METRO",
+        "GATES LOCKED!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.08,
+          1.0
+        ],
+        "ease": "cubic-bezier(0.16, 1, 0.3, 1)"
+      },
+      "motion": "barricade_sweep"
+    },
+    {
+      "id": 2,
+      "start": 1.85,
+      "end": 3.9,
+      "duration": 2.05,
+      "spoken": "...ki 45 metro station band kar diye gaye...",
+      "visual": "assets/visuals/beat_02.jpg",
+      "caption": [
+        "45 STATIONS",
+        "SHUT DOWN!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "metro_map_pulse"
+    },
+    {
+      "id": 3,
+      "start": 3.9,
+      "end": 5.8,
+      "duration": 1.9,
+      "spoken": "...25,000 police tainaat hui...",
+      "visual": "assets/visuals/beat_03.jpg",
+      "caption": [
+        "25,000 POLICE",
+        "DEPLOYED!"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "ease-in-out"
+      },
+      "motion": "security_flash"
+    },
+    {
+      "id": 4,
+      "start": 5.8,
+      "end": 7.8,
+      "duration": 2.0,
+      "spoken": "...aur flight mein ghuskar arrest...",
+      "visual": "assets/visuals/beat_04.jpg",
+      "caption": [
+        "IN-FLIGHT",
+        "DRAMATIC ARREST!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.08
+        ],
+        "ease": "spring"
+      },
+      "motion": "target_lock_crosshair"
+    },
+    {
+      "id": 5,
+      "start": 7.8,
+      "end": 10.0,
+      "duration": 2.2,
+      "spoken": "Is poore bawal ke peeche hai ek sangathan...",
+      "visual": "assets/visuals/beat_05.jpg",
+      "caption": [
+        "WHO IS",
+        "CJP?"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.06,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "cinematic_reveal"
+    },
+    {
+      "id": 6,
+      "start": 10.0,
+      "end": 12.4,
+      "duration": 2.4,
+      "spoken": "...Cockroach Janta Party!...",
+      "visual": "assets/visuals/beat_06.jpg",
+      "caption": [
+        "COCKROACH",
+        "JANTA PARTY!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.0,
+          1.07
+        ],
+        "ease": "ease-in-out"
+      },
+      "motion": "emblem_glow"
+    },
+    {
+      "id": 7,
+      "start": 12.4,
+      "end": 14.1,
+      "duration": 1.7,
+      "spoken": "Naam ajeeb laga?...",
+      "visual": "assets/visuals/beat_07.jpg",
+      "caption": [
+        "NAME SOUNDS",
+        "STRANGE?"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.08,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "question_pulse"
+    },
+    {
+      "id": 8,
+      "start": 14.1,
+      "end": 16.7,
+      "duration": 2.6,
+      "spoken": "Jab ek judge ne berozgaar yuvaon ko...",
+      "visual": "assets/visuals/beat_08.jpg",
+      "caption": [
+        "YOUTH CALLED",
+        "'COCKROACHES'!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "spring"
+      },
+      "motion": "gavel_shake"
+    },
+    {
+      "id": 9,
+      "start": 16.7,
+      "end": 18.0,
+      "duration": 1.3,
+      "spoken": "...cockroach kaha...",
+      "visual": "assets/visuals/beat_09.jpg",
+      "caption": [
+        "INSULT TURNED",
+        "INTO WEAPON!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.04,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "highlighter_sweep"
+    },
+    {
+      "id": 10,
+      "start": 18.0,
+      "end": 21.0,
+      "duration": 3.0,
+      "spoken": "...youth ne isi naam ko hathiyar bana liya!...",
+      "visual": "assets/visuals/beat_10.jpg",
+      "caption": [
+        "GEN Z",
+        "ON STREETS!"
+      ],
+      "color": "#34D399",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "ease-in-out"
+      },
+      "motion": "protest_march"
+    },
+    {
+      "id": 11,
+      "start": 21.0,
+      "end": 22.8,
+      "duration": 1.8,
+      "spoken": "Lekin aaj Jantar Mantar par...",
+      "visual": "assets/visuals/beat_11.jpg",
+      "caption": [
+        "JANTAR MANTAR",
+        "SURROUNDED!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.06,
+          1.0
+        ],
+        "ease": "spring"
+      },
+      "motion": "cordon_lock"
+    },
+    {
+      "id": 12,
+      "start": 22.8,
+      "end": 24.5,
+      "duration": 1.7,
+      "spoken": "...inki maang kya thi?...",
+      "visual": "assets/visuals/beat_12.jpg",
+      "caption": [
+        "DEMANDING",
+        "RESIGNATION!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.0,
+          1.05
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "banner_drop"
+    },
+    {
+      "id": 13,
+      "start": 24.5,
+      "end": 25.7,
+      "duration": 1.2,
+      "spoken": "Chief Election Commissioner...",
+      "visual": "assets/visuals/beat_13.jpg",
+      "caption": [
+        "ELECTION COMMISSION",
+        "HEADQUARTERS"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "institution_pan"
+    },
+    {
+      "id": 14,
+      "start": 25.7,
+      "end": 27.2,
+      "duration": 1.5,
+      "spoken": "...Gyanesh Kumar ka isteefa!...",
+      "visual": "assets/visuals/beat_14.jpg",
+      "caption": [
+        "CHIEF ELECTION",
+        "COMMISSIONER"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.0,
+          1.08
+        ],
+        "ease": "ease-in-out"
+      },
+      "motion": "loupe_zoom"
+    },
+    {
+      "id": 15,
+      "start": 27.2,
+      "end": 28.5,
+      "duration": 1.3,
+      "spoken": "Kyunki voter list se...",
+      "visual": "assets/visuals/beat_15.jpg",
+      "caption": [
+        "SPECIAL INTENSIVE",
+        "REVISION 2026"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "gazette_reveal"
+    },
+    {
+      "id": 16,
+      "start": 28.5,
+      "end": 29.8,
+      "duration": 1.3,
+      "spoken": "...laakhon naujawaano ke...",
+      "visual": "assets/visuals/beat_16.jpg",
+      "caption": [
+        "FORM 7",
+        "VOTER PURGE!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "form7_highlighter"
+    },
+    {
+      "id": 17,
+      "start": 29.8,
+      "end": 31.8,
+      "duration": 2.0,
+      "spoken": "...naam gayab kar diye gaye!...",
+      "visual": "assets/visuals/beat_17.jpg",
+      "caption": [
+        "MILLIONS OF",
+        "NAMES REMOVED!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "spring"
+      },
+      "motion": "odometer_3M"
+    },
+    {
+      "id": 18,
+      "start": 31.8,
+      "end": 33.1,
+      "duration": 1.3,
+      "spoken": "Founder Abhijeet Dipke ko...",
+      "visual": "assets/visuals/beat_18.jpg",
+      "caption": [
+        "FOUNDER",
+        "ABHIJEET DIPKE"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "profile_card"
+    },
+    {
+      "id": 19,
+      "start": 33.1,
+      "end": 34.2,
+      "duration": 1.1,
+      "spoken": "...flight mein arrest kiya...",
+      "visual": "assets/visuals/beat_19.jpg",
+      "caption": [
+        "DETAINED ON",
+        "THE RUNWAY!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.06,
+          1.0
+        ],
+        "ease": "spring"
+      },
+      "motion": "runway_arrest"
+    },
+    {
+      "id": 20,
+      "start": 34.2,
+      "end": 34.8,
+      "duration": 0.6,
+      "spoken": "...hirasat...",
+      "visual": "assets/visuals/beat_20.jpg",
+      "caption": [
+        "3,000+ ACTIVISTS",
+        "DETAINED!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.05
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "siren_strobe"
+    },
+    {
+      "id": 21,
+      "start": 34.8,
+      "end": 35.6,
+      "duration": 0.8,
+      "spoken": "...trainein roki...",
+      "visual": "assets/visuals/beat_21.jpg",
+      "caption": [
+        "TRAINS STOPPED",
+        "OUTSIDE DELHI!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "railway_empty"
+    },
+    {
+      "id": 22,
+      "start": 35.6,
+      "end": 36.5,
+      "duration": 0.9,
+      "spoken": "...aur internet band!...",
+      "visual": "assets/visuals/beat_22.jpg",
+      "caption": [
+        "MOBILE INTERNET",
+        "SHUT DOWN!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "spring"
+      },
+      "motion": "telecom_no_signal"
+    },
+    {
+      "id": 23,
+      "start": 36.5,
+      "end": 37.45,
+      "duration": 0.95,
+      "spoken": "...fortress Delhi...",
+      "visual": "assets/visuals/beat_23.jpg",
+      "caption": [
+        "FORTRESS DELHI",
+        "4 CORDONS!"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.06,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "satellite_cordons"
+    },
+    {
+      "id": 24,
+      "start": 37.45,
+      "end": 38.6,
+      "duration": 1.15,
+      "spoken": "Supreme Court ne aaj...",
+      "visual": "assets/visuals/beat_24.jpg",
+      "caption": [
+        "SUPREME COURT",
+        "HEARS PLEA!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.0,
+          1.06
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "apex_court_dolly"
+    },
+    {
+      "id": 25,
+      "start": 38.6,
+      "end": 39.6,
+      "duration": 1.0,
+      "spoken": "...fatkaar lagayi:...",
+      "visual": "assets/visuals/beat_25.jpg",
+      "caption": [
+        "BENCH GRILLS",
+        "AUTHORITIES!"
+      ],
+      "color": "#38BDF8",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "spring"
+      },
+      "motion": "courtroom_shake"
+    },
+    {
+      "id": 26,
+      "start": 39.6,
+      "end": 41.0,
+      "duration": 1.4,
+      "spoken": "...ek makkhi maarne ke liye...",
+      "visual": "assets/visuals/beat_26.jpg",
+      "caption": [
+        "HAMMER TO",
+        "KILL A FLY!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.07
+        ],
+        "ease": "spring"
+      },
+      "motion": "historic_quote"
+    },
+    {
+      "id": 27,
+      "start": 41.0,
+      "end": 42.4,
+      "duration": 1.4,
+      "spoken": "...hathouda nahi chalaya jaata!...",
+      "visual": "assets/visuals/beat_27.jpg",
+      "caption": [
+        "DISPROPORTIONATE",
+        "FORCE!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.07,
+          1.0
+        ],
+        "ease": "spring"
+      },
+      "motion": "verdict_stamp"
+    },
+    {
+      "id": 28,
+      "start": 42.4,
+      "end": 43.6,
+      "duration": 1.2,
+      "spoken": "Sach, Saboot...",
+      "visual": "assets/visuals/beat_28.jpg",
+      "caption": [
+        "FACTS FULLY",
+        "VERIFIED!"
+      ],
+      "color": "#34D399",
+      "camera": {
+        "scale": [
+          1.0,
+          1.05
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "ledger_highlight"
+    },
+    {
+      "id": 29,
+      "start": 43.6,
+      "end": 44.8,
+      "duration": 1.2,
+      "spoken": "...Bebak...",
+      "visual": "assets/visuals/beat_29.jpg",
+      "caption": [
+        "SACH · SABOOT",
+        "BEBAK!"
+      ],
+      "color": "#FBBF24",
+      "camera": {
+        "scale": [
+          1.05,
+          1.0
+        ],
+        "ease": "ease-out"
+      },
+      "motion": "brand_credo"
+    },
+    {
+      "id": 30,
+      "start": 44.8,
+      "end": 47.304,
+      "duration": 2.504,
+      "spoken": "Subscribe Benaqaab India!...",
+      "visual": "assets/visuals/beat_30.jpg",
+      "caption": [
+        "SUBSCRIBE TO",
+        "BENAQAAB INDIA!"
+      ],
+      "color": "#EF4444",
+      "camera": {
+        "scale": [
+          1.0,
+          1.08
+        ],
+        "ease": "spring"
+      },
+      "motion": "subscribe_cta"
+    }
+  ]
+}

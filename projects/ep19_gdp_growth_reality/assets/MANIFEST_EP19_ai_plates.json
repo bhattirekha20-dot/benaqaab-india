@@ -1,0 +1,681 @@
+{
+  "channel": "Benaqaab India",
+  "motto": "SACH · SABOOT · BEBAK",
+  "episode": "EP-19",
+  "title": "India's 7.8% GDP vs Global Superpowers (What Headline Numbers Hide)",
+  "format": "16:9",
+  "native_render": "1672x941",
+  "total_plates": 105,
+  "master_thumbnail": "thumbnail_master.jpg",
+  "generated_on": "2026-10-11",
+  "status": "105/105 COMPLETE — all QC passed",
+  "text_policy": "Only short exact strings baked into images; all numbers/captions/citations live in the editable comp.html overlay. Institution shots unbranded & unbylined.",
+  "archived_rejects": [
+    {
+      "file": "assets/ai_plates/ai_06_k_shaped_economic_divergence_REJECTED_wrongtext.jpg",
+      "reason": "wrong-country headline + false Bloomberg/BLS attribution — delete before render"
+    }
+  ],
+  "assets": [
+    {
+      "plate": "001",
+      "file": "assets/ai_plates/ai_01_global_gdp_celebration_bull.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "002",
+      "file": "assets/ai_plates/ai_02_parliament_cabinet_national_accounts.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "003",
+      "file": "assets/ai_plates/ai_03_middle_class_kitchen_table_inflation.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "004",
+      "file": "assets/ai_plates/ai_04_crowded_mumbai_commuter_train.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "005",
+      "file": "assets/ai_plates/ai_05_global_superpowers_per_capita_towers.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "006",
+      "file": "assets/ai_plates/ai_06_k_shaped_economic_divergence.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "007",
+      "file": "assets/ai_plates/ai_07_luxury_suv_gurugram_cybercity.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "008",
+      "file": "assets/ai_plates/ai_08_rural_village_stagnant_two_wheelers.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "009",
+      "file": "assets/ai_plates/ai_09_pmgkay_free_ration_distribution.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "010",
+      "file": "assets/ai_plates/ai_10_rbi_financial_stability_vault.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "011",
+      "file": "assets/ai_plates/ai_11_debt_financed_consumption_credit_card.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "012",
+      "file": "assets/ai_plates/ai_12_the_missing_factory_shenzhen_comparison.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "013",
+      "file": "assets/ai_plates/ai_13_agriculture_45pct_workforce_chokepoint.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "014",
+      "file": "assets/ai_plates/ai_14_youth_demographic_clock_2045.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "015",
+      "file": "assets/ai_plates/ai_15_vocational_skilling_and_reforms_future.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "016",
+      "file": "assets/ai_plates/ai_16_benaqaab_final_verdict_stamp.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "017",
+      "file": "assets/ai_plates/ai_017_alto_wagonr_empty_showroom.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "018",
+      "file": "assets/ai_plates/ai_018_rural_monsoon_tractor_loan.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "019",
+      "file": "assets/ai_plates/ai_019_pmgkay_ration_queue_morning.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "020",
+      "file": "assets/ai_plates/ai_020_rbi_fort_mumbai_headquarters_facade.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "021",
+      "file": "assets/ai_plates/ai_021_household_savings_antique_piggybank.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "022",
+      "file": "assets/ai_plates/ai_022_medical_emergency_hospital_bills.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "023",
+      "file": "assets/ai_plates/ai_023_school_coaching_fee_tuition_burden.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "024",
+      "file": "assets/ai_plates/ai_024_household_debt_45pct_record_high.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "025",
+      "file": "assets/ai_plates/ai_025_smartphone_emi_bnpl_notifications.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "026",
+      "file": "assets/ai_plates/ai_026_credit_card_swipe_pos_terminal.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "027",
+      "file": "assets/ai_plates/ai_027_pawn_shop_gold_loan_collateral.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "028",
+      "file": "assets/ai_plates/ai_028_bank_branch_loan_officer_desk.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "029",
+      "file": "assets/ai_plates/ai_029_borrowed_consumption_bubble_concept.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "030",
+      "file": "assets/ai_plates/ai_030_the_missing_factory_blueprint_floor.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "031",
+      "file": "assets/ai_plates/ai_031_shenzhen_automated_electronics_line.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "032",
+      "file": "assets/ai_plates/ai_032_garment_textile_mill_bangladesh_vietnam.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "033",
+      "file": "assets/ai_plates/ai_033_it_tech_park_glass_facade_bengaluru.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "034",
+      "file": "assets/ai_plates/ai_034_college_graduates_unemployed_queue.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "035",
+      "file": "assets/ai_plates/ai_035_tractor_plowing_small_fragmented_land.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "036",
+      "file": "assets/ai_plates/ai_036_rural_mandis_crop_spoilage_monsoon.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "037",
+      "file": "assets/ai_plates/ai_037_make_in_india_lion_empty_shed.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "038",
+      "file": "assets/ai_plates/ai_038_automotive_stamping_press_manesar.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "039",
+      "file": "assets/ai_plates/ai_039_informal_small_scale_workshop_dharavi.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "040",
+      "file": "assets/ai_plates/ai_040_container_freight_terminal_nhava_sheva.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "041",
+      "file": "assets/ai_plates/ai_041_youth_demographic_dividend_class.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "042",
+      "file": "assets/ai_plates/ai_042_railway_recruitment_exam_crowd.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "043",
+      "file": "assets/ai_plates/ai_043_digital_clock_2045_countdown_horizon.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "044",
+      "file": "assets/ai_plates/ai_044_fertility_rate_drop_family_kerala.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "045",
+      "file": "assets/ai_plates/ai_045_aging_population_elderly_care_rural.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "046",
+      "file": "assets/ai_plates/ai_046_social_security_pension_desert.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "047",
+      "file": "assets/ai_plates/ai_047_middle_income_trap_concept_gate.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "048",
+      "file": "assets/ai_plates/ai_048_south_korea_industrialization_contrast.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "049",
+      "file": "assets/ai_plates/ai_049_brazil_middle_income_stagnation.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "050",
+      "file": "assets/ai_plates/ai_050_reform_pillar_1_factory_sheds.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "051",
+      "file": "assets/ai_plates/ai_051_garment_stitching_women_workforce.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "052",
+      "file": "assets/ai_plates/ai_052_shoe_leather_cluster_agra_tamilnadu.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "053",
+      "file": "assets/ai_plates/ai_053_food_processing_mega_park.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "054",
+      "file": "assets/ai_plates/ai_054_solar_cold_storage_rural_cluster.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "055",
+      "file": "assets/ai_plates/ai_055_tax_relief_middle_class_family_relief.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "056",
+      "file": "assets/ai_plates/ai_056_health_insurance_gst_removal_concept.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "057",
+      "file": "assets/ai_plates/ai_057_vocational_skill_iti_robotics_lab.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "058",
+      "file": "assets/ai_plates/ai_058_ev_battery_assembly_line_india.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "059",
+      "file": "assets/ai_plates/ai_059_semiconductor_fab_cleanroom_dholera.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "060",
+      "file": "assets/ai_plates/ai_060_coastal_industrial_corridor_highway.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "061",
+      "file": "assets/ai_plates/ai_061_msme_easy_credit_fintech_portal.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "062",
+      "file": "assets/ai_plates/ai_062_women_entrepreneurs_rural_cooperative.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "063",
+      "file": "assets/ai_plates/ai_063_apprentice_training_heavy_machinery.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "064",
+      "file": "assets/ai_plates/ai_064_smart_village_broadband_logistics.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "065",
+      "file": "assets/ai_plates/ai_065_urban_housing_affordable_green_towers.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "066",
+      "file": "assets/ai_plates/ai_066_public_health_primary_clinic_clean.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "067",
+      "file": "assets/ai_plates/ai_067_k_shaped_arms_converging_concept.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "068",
+      "file": "assets/ai_plates/ai_068_per_capita_rank_top_50_milestone.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "069",
+      "file": "assets/ai_plates/ai_069_indian_family_savings_revival_bank.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "070",
+      "file": "assets/ai_plates/ai_070_headline_numbers_unmasked_metaphor.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "071",
+      "file": "assets/ai_plates/ai_071_dalal_street_bull_night_rain.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "072",
+      "file": "assets/ai_plates/ai_072_parliament_dome_tricolor_illumination.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "073",
+      "file": "assets/ai_plates/ai_073_middle_class_grocery_store_checkout.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "074",
+      "file": "assets/ai_plates/ai_074_commuter_train_doorway_wind.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "075",
+      "file": "assets/ai_plates/ai_075_worldbank_headquarters_dc_facade.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "076",
+      "file": "assets/ai_plates/ai_076_us_suburban_affluence_home.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "077",
+      "file": "assets/ai_plates/ai_077_germany_munich_engineering_street.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "078",
+      "file": "assets/ai_plates/ai_078_shanghai_pudong_financial_towers.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "079",
+      "file": "assets/ai_plates/ai_079_mumbai_slum_highrise_boundary.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "080",
+      "file": "assets/ai_plates/ai_080_luxury_car_dealership_showroom.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "081",
+      "file": "assets/ai_plates/ai_081_two_wheeler_mechanic_rural_dust.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "082",
+      "file": "assets/ai_plates/ai_082_ration_shop_biometric_thumbprint.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "083",
+      "file": "assets/ai_plates/ai_083_rbi_vault_door_steel_bars.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "084",
+      "file": "assets/ai_plates/ai_084_unsecured_loan_rejection_anxiety.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "085",
+      "file": "assets/ai_plates/ai_085_empty_industrial_plot_signboard.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "086",
+      "file": "assets/ai_plates/ai_086_vietnam_samsung_factory_complex.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "087",
+      "file": "assets/ai_plates/ai_087_it_office_night_cubicles_tired.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "088",
+      "file": "assets/ai_plates/ai_088_peasant_plowing_bullocks_dusk.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "089",
+      "file": "assets/ai_plates/ai_089_make_in_india_factory_assembly_worker.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "090",
+      "file": "assets/ai_plates/ai_090_college_graduates_convocation_caps.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "091",
+      "file": "assets/ai_plates/ai_091_senior_citizens_village_temple_steps.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "092",
+      "file": "assets/ai_plates/ai_092_clock_tower_shadow_sunset.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "093",
+      "file": "assets/ai_plates/ai_093_modern_garment_spinning_mill.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "094",
+      "file": "assets/ai_plates/ai_094_refrigerated_cold_chain_trucks.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "095",
+      "file": "assets/ai_plates/ai_095_middle_class_budget_family_planning.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "096",
+      "file": "assets/ai_plates/ai_096_cnc_machinist_apprentice_training.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "097",
+      "file": "assets/ai_plates/ai_097_electric_bus_charging_depot.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "098",
+      "file": "assets/ai_plates/ai_098_container_train_western_freight_corridor.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "099",
+      "file": "assets/ai_plates/ai_099_rural_handicraft_cooperative_artisan.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "100",
+      "file": "assets/ai_plates/ai_100_per_capita_income_top_50_horizon.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "101",
+      "file": "assets/ai_plates/ai_101_benaqaab_investigative_ledger_desk.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "102",
+      "file": "assets/ai_plates/ai_102_citizen_viewing_documentary_tablet.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "103",
+      "file": "assets/ai_plates/ai_103_india_gate_tricolor_dusk.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "104",
+      "file": "assets/ai_plates/ai_104_benaqaab_channel_logo_glowing_seal.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "105",
+      "file": "assets/ai_plates/ai_105_final_verdict_stamp_cinematic_climax.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "THUMB",
+      "file": "thumbnail_master.jpg",
+      "px": "1672x941",
+      "status": "passed"
+    },
+    {
+      "plate": "THUMB-v2",
+      "file": "thumbnail_variants/thumbnail_master_v2.jpg",
+      "status": "passed",
+      "qc": "Split-comp w/ anxious father at ledger, cracked terracotta gullak, crimson rim. Text verified '+7.8% GDP'. No logos/bylines. Candidate replacement for master thumbnail."
+    },
+    {
+      "plate": "THUMB-v3",
+      "file": "thumbnail_variants/thumbnail_master_v3.jpg",
+      "px": "1672x941",
+      "status": "passed",
+      "qc": "Flux-spec variant: actual curved BSE building facade + bronze bull + rising candlesticks, legible '+7.8% GDP'; right half father head-in-hands over crumpled bills, calculator, shattered clay gullak. Bonus: gutter candle of red light on right wall reinforces crimson half. No logos/bylines."
+    }
+  ],
+  "missing": [],
+  "thumbnail_options": {
+    "live_master": "thumbnail_master.jpg (v1, empty-table) — REMAINS MAPPED in comp.html, untouched",
+    "variants_archived": [
+      "thumbnail_variants/thumbnail_master_v2.jpg (father + ledger, emerald/crimson, 2048x1152)",
+      "thumbnail_variants/thumbnail_master_v3.jpg (father + BSE building, jade/amber, 1672x941)"
+    ],
+    "comparison": "assets/THUMBNAIL_COMPARISON_v1_v2_v3.jpg",
+    "ab_test_note": "User elected to keep all three for later A/B testing. To promote a variant: mv thumbnail_master.jpg thumbnail_master_v1_archived.jpg && mv thumbnail_variants/thumbnail_master_v<N>.jpg thumbnail_master.jpg"
+  },
+  "known_issue_open": "ai_06_k_shaped_economic_divergence_REJECTED_wrongtext.jpg left in ai_plates/ by user choice — wrong-country headline + false Bloomberg/BLS byline. Ensure comp.html does NOT glob this folder, or it can enter the cut."
+}

@@ -295,71 +295,147 @@
     ctx.restore();
   }
 
-  function drawEvidenceLoupe(ctx, t, startT, x, y, radius, zoomScale = 2.0) {
+  // -------------------------------------------------------------------
+  // TRAUMA-BASED NOISE & CAMERA SHAKE RIG (Natural 1/f noise, zero aliasing)
+  // -------------------------------------------------------------------
+  const hash = n => { const x = Math.sin(n * 127.1) * 43758.5453; return x - Math.floor(x); };
+  const noise = x => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f);
+    return (hash(i) * (1 - u) + hash(i + 1) * u) * 2 - 1; };
+
+  function traumaShake(t, hits, maxPx = 22, decay = 2.4) {
+    let tr = 0;
+    const hitList = Array.isArray(hits) ? hits : [hits];
+    for (const h of hitList) {
+      if (t >= h) tr = Math.max(tr, 1 - (t - h) * decay);
+    }
+    const k = Math.max(0, tr) ** 2; // Trauma squared feels organic and physical
+    return {
+      x: maxPx * k * noise(t * 22),
+      y: maxPx * k * noise(t * 22 + 50),
+      rot: 0.015 * k * noise(t * 22 + 99)
+    };
+  }
+
+  function drawEvidenceLoupe(ctx, t, startT, cx, cy, radius, zoomScale = 2.5, sourceImg = null, targetX = null, targetY = null) {
     if (t < startT) return;
-    const p = Math.max(0, Math.min(1, (t - startT) / 0.8));
-    const scale = 0.3 + 0.7 * (1 - Math.exp(-p * 8) * Math.cos(p * 12));
+    const p = t - startT;
+    const k = spring(p, 0.68, 14.0);
+    if (k <= 0) return;
+
+    const R = radius * Math.min(1.0, k);
+    const tx = targetX !== null ? targetX : cx;
+    const ty = targetY !== null ? targetY : cy;
+    const sw = (2 * R) / zoomScale;
+
     ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
-    ctx.shadowColor = 'rgba(0,0,0,0.6)';
-    ctx.shadowBlur = 25;
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 8;
+    // Heavy physical drop shadow behind lens bezel
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.75)';
+    ctx.shadowBlur = 28;
+
+    // Draw magnified image through clipped circular aperture
     ctx.beginPath();
-    ctx.arc(0, 0, radius, 0, Math.PI * 2);
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.clip();
+
+    if (sourceImg && sourceImg.complete && sourceImg.naturalWidth > 0) {
+      ctx.drawImage(sourceImg, tx - sw / 2, ty - sw / 2, sw, sw, cx - R, cy - R, 2 * R, 2 * R);
+    } else {
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+      ctx.fillRect(cx - R, cy - R, 2 * R, 2 * R);
+    }
+
+    // Specular glass reflection
+    const glassGrad = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.35, 0, cx, cy, R);
+    glassGrad.addColorStop(0, 'rgba(255, 255, 255, 0.22)');
+    glassGrad.addColorStop(0.5, 'rgba(56, 189, 248, 0.05)');
+    glassGrad.addColorStop(1, 'rgba(0, 0, 0, 0.25)');
+    ctx.fillStyle = glassGrad;
+    ctx.fillRect(cx - R, cy - R, 2 * R, 2 * R);
+    ctx.restore();
+
+    // Metallic outer bezel
+    ctx.save();
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 12;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
     ctx.stroke();
-    ctx.fillStyle = 'rgba(56, 189, 248, 0.08)';
-    ctx.fill();
-    ctx.shadowBlur = 0;
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+
+    // Cyan glowing inner reticle
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = '#38bdf8';
+    ctx.beginPath();
+    ctx.arc(cx, cy, R - 4, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Precision crosshairs
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.65)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(-radius + 15, 0); ctx.lineTo(radius - 15, 0);
-    ctx.moveTo(0, -radius + 15); ctx.lineTo(0, radius - 15);
+    ctx.moveTo(cx - R + 15, cy); ctx.lineTo(cx + R - 15, cy);
+    ctx.moveTo(cx, cy - R + 15); ctx.lineTo(cx, cy + R - 15);
     ctx.stroke();
-    ctx.fillStyle = '#0f172a';
+
+    // Center target ring
     ctx.beginPath();
-    ctx.roundRect(40, -radius, 140, 38, 8);
-    ctx.fill();
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 1;
+    ctx.arc(cx, cy, 14, 0, Math.PI * 2);
     ctx.stroke();
+
+    // VERIFIED tag pill
+    ctx.fillStyle = '#0a0f1d';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+    ctx.shadowBlur = 14;
+    ctx.beginPath();
+    ctx.roundRect(cx + 30, cy - R - 14, 155, 34, 8);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
     ctx.fillStyle = '#38bdf8';
-    ctx.font = '700 14px monospace';
-    ctx.fillText('VERIFIED 2X', 60, -radius + 24);
+    ctx.font = '800 13px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('VERIFIED 2.5X', cx + 30 + 155 / 2, cy - R + 8);
+
     ctx.restore();
   }
 
-  function drawVerdictStamp(ctx, t, hitT, textEn, textHi, cx, cy) {
+  function drawVerdictStamp(ctx, t, hitT, textEn, textHi, cx = 960, cy = 540) {
     if (t < hitT) return;
     const p = t - hitT;
-    const w0 = 14, z = 0.65;
-    const springP = 1 - Math.exp(-p * z * w0) * (Math.cos(p * w0 * Math.sqrt(1 - z * z)));
-    const scale = 2.8 - (2.8 - 1.0) * Math.min(1.2, springP);
-    const impact = Math.max(0, 1 - (p * 4));
-    const shakeX = Math.sin(t * 80) * 8 * impact;
-    const shakeY = Math.cos(t * 70) * 8 * impact;
+    const springVal = spring(p, 0.72, 16.0);
+    const scale = 2.5 - 1.5 * Math.min(1.0, springVal);
+    const shk = traumaShake(t, hitT, 20, 2.5);
+
     ctx.save();
-    ctx.translate(cx + shakeX, cy + shakeY);
-    ctx.rotate(-0.08);
+    ctx.translate(cx + shk.x, cy + shk.y);
+    ctx.rotate(-0.07 + shk.rot);
     ctx.scale(scale, scale);
+
+    // High-impact red double-border stamp box
     ctx.strokeStyle = '#dc2626';
     ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.roundRect(-360, -90, 720, 180, 20);
     ctx.stroke();
+
     ctx.strokeStyle = '#ef4444';
     ctx.lineWidth = 3;
     ctx.beginPath();
     ctx.roundRect(-345, -75, 690, 150, 12);
     ctx.stroke();
+
     ctx.fillStyle = '#ef4444';
     ctx.textAlign = 'center';
-    ctx.font = '900 52px -apple-system, sans-serif';
+    ctx.font = '900 52px "Outfit", -apple-system, sans-serif';
     ctx.fillText(textEn, 0, -10);
+
     ctx.fillStyle = '#fca5a5';
-    ctx.font = '800 34px sans-serif';
+    ctx.font = '800 34px "Noto Sans Devanagari", sans-serif';
     ctx.fillText(textHi, 0, 48);
     ctx.restore();
   }
@@ -451,16 +527,26 @@
     ctx.restore();
   }
 
-  function drawRoadmapCard(ctx, t, startT, duration, points, centerX, centerY, cardWidth = 960) {
+  function drawRoadmapCard(ctx, t, startT, duration, points, centerX = null, centerY = null, cardWidth = null) {
     if (t < startT || t > startT + duration) return;
+    const W = ctx.canvas ? ctx.canvas.width : 1920;
+    const H = ctx.canvas ? ctx.canvas.height : 1080;
+    const isShorts = H > W;
+
+    // Adaptively clamp width within safe zones (80px margins on Shorts, 100px on 16:9)
+    const maxSafeW = isShorts ? (W - 160) : Math.min(1080, W - 200);
+    const resolvedW = cardWidth ? Math.min(cardWidth, maxSafeW) : maxSafeW;
+    const cx = centerX !== null ? centerX : W / 2;
+    const cy = centerY !== null ? centerY : H / 2;
+
     const p = Math.min(1, Math.max(0, (t - startT) / 0.5));
     const scale = 0.88 + 0.12 * Math.sin(p * Math.PI * 0.5);
     ctx.save();
-    ctx.translate(centerX, centerY);
+    ctx.translate(cx, cy);
     ctx.scale(scale, scale);
 
     const cardH = 120 + points.length * 110;
-    const halfW = cardWidth / 2;
+    const halfW = resolvedW / 2;
     const halfH = cardH / 2;
 
     ctx.fillStyle = 'rgba(10, 15, 26, 0.94)';
@@ -556,8 +642,16 @@
     return p;
   }
 
-  function drawAudienceQuestionCard(ctx, t, startT, duration, badgeText, questionText, subText, accentColor = '#38bdf8', cx = 960, cy = 850) {
+  function drawAudienceQuestionCard(ctx, t, startT, duration, badgeText, questionText, subText, accentColor = '#38bdf8', cx = null, cy = null) {
     if (t < startT || t > startT + duration) return;
+    const W = ctx.canvas ? ctx.canvas.width : 1920;
+    const H = ctx.canvas ? ctx.canvas.height : 1080;
+    const isShorts = H > W;
+
+    const maxSafeW = isShorts ? (W - 160) : Math.min(1120, W - 200);
+    const resolvedCx = cx !== null ? Math.min(cx, W - maxSafeW / 2) : W / 2;
+    const resolvedCy = cy !== null ? cy : (isShorts ? H * 0.72 : 850);
+
     const elapsed = t - startT;
     const remaining = (startT + duration) - t;
     
@@ -573,13 +667,13 @@
       scale = 1.0 - 0.05 * (1 - alpha);
     }
 
-    const cardW = 1120;
-    const cardH = 136;
+    const cardW = maxSafeW;
+    const cardH = isShorts ? 170 : 136;
     const halfW = cardW / 2;
     const halfH = cardH / 2;
 
     ctx.save();
-    ctx.translate(cx, cy);
+    ctx.translate(resolvedCx, resolvedCy);
     ctx.scale(scale, scale);
     ctx.globalAlpha = alpha;
 
@@ -770,30 +864,175 @@
     ctx.restore();
   }
 
-  let _grainCanvas = null;
-  function drawGrain(ctx, width, height, opacity = 0.03) {
-    if (!_grainCanvas && typeof document !== 'undefined') {
-      _grainCanvas = document.createElement('canvas');
-      _grainCanvas.width = 256;
-      _grainCanvas.height = 256;
-      const gctx = _grainCanvas.getContext('2d');
+  let _grainTiles = null;
+  function initGrainTiles() {
+    if (_grainTiles || typeof document === 'undefined') return;
+    _grainTiles = [];
+    for (let tileIdx = 0; tileIdx < 8; tileIdx++) {
+      const c = document.createElement('canvas');
+      c.width = 256;
+      c.height = 256;
+      const gctx = c.getContext('2d');
       const imgData = gctx.createImageData(256, 256);
+      const seed = (tileIdx + 1) * 19.17;
       for (let i = 0; i < imgData.data.length; i += 4) {
-        const v = (Math.sin(i * 0.13) * 0.5 + 0.5) * 255;
-        imgData.data[i] = v;
-        imgData.data[i+1] = v;
-        imgData.data[i+2] = v;
-        imgData.data[i+3] = 40;
+        const pxIdx = i / 4;
+        const val = Math.floor(Math.abs(Math.sin(pxIdx * 0.127 + seed) * 43758.5453) % 256);
+        imgData.data[i] = val;
+        imgData.data[i + 1] = val;
+        imgData.data[i + 2] = val;
+        imgData.data[i + 3] = 38;
       }
       gctx.putImageData(imgData, 0, 0);
+      _grainTiles.push(c);
     }
-    if (_grainCanvas) {
+  }
+
+  function drawGrain(ctx, width, height, opacity = 0.03, t = 0) {
+    initGrainTiles();
+    if (_grainTiles && _grainTiles.length === 8) {
+      const tileIndex = Math.floor((t || 0) * 24) % 8;
+      const activeTile = _grainTiles[tileIndex];
       ctx.save();
       ctx.globalAlpha = opacity;
-      ctx.fillStyle = ctx.createPattern(_grainCanvas, 'repeat');
+      ctx.fillStyle = ctx.createPattern(activeTile, 'repeat');
       ctx.fillRect(0, 0, width, height);
       ctx.restore();
     }
+  }
+
+  function drawDynamicCaption(ctx, t, captionsData, cx = 960, cy = 965) {
+    if (!captionsData || !captionsData.length) return;
+
+    let activeChunk = null;
+    if (t <= captionsData[0].start_s) {
+      activeChunk = captionsData[0];
+    } else {
+      for (let i = 0; i < captionsData.length; i++) {
+        const c = captionsData[i];
+        if (t >= c.start_s && t < c.end_s) {
+          activeChunk = c;
+          break;
+        } else if (i < captionsData.length - 1 && t >= c.end_s && t < captionsData[i + 1].start_s) {
+          // Continuous smooth hold across micro-pauses between sentences
+          activeChunk = c;
+          break;
+        }
+      }
+      if (!activeChunk && t >= captionsData[captionsData.length - 1].start_s) {
+        activeChunk = captionsData[captionsData.length - 1];
+      }
+    }
+    if (!activeChunk) return;
+
+    const elapsed = Math.max(0, t - activeChunk.start_s);
+    const remaining = Math.max(0, activeChunk.end_s - t);
+
+    // Smooth spring entrance & exit
+    let enterScale = 1.0;
+    let alpha = 1.0;
+    if (t < activeChunk.start_s) {
+      enterScale = 1.0;
+      alpha = 0.95;
+    } else if (elapsed < 0.12) {
+      const p = elapsed / 0.12;
+      enterScale = 0.90 + 0.10 * Math.sin(p * Math.PI * 0.5);
+      alpha = Math.max(0.7, p);
+    } else if (remaining < 0.10 && t <= activeChunk.end_s) {
+      alpha = Math.max(0.7, remaining / 0.10);
+      enterScale = 0.96 + 0.04 * alpha;
+    }
+
+    ctx.save();
+    ctx.font = '700 23px -apple-system, BlinkMacSystemFont, "Inter", "Plus Jakarta Sans", sans-serif';
+
+    const wordMetrics = [];
+    let totalWordsWidth = 0;
+    const wordGap = 10;
+
+    activeChunk.words.forEach((wObj, idx) => {
+      const isCurrent = t >= wObj.start_s && t < wObj.end_s;
+      const isPast = t >= wObj.end_s;
+      const width = ctx.measureText(wObj.word).width;
+      wordMetrics.push({
+        word: wObj.word,
+        width,
+        isCurrent,
+        isPast,
+        start_s: wObj.start_s,
+        end_s: wObj.end_s
+      });
+      totalWordsWidth += width + (idx < activeChunk.words.length - 1 ? wordGap : 0);
+    });
+
+    const padX = 26;
+    const pillW = Math.max(220, totalWordsWidth + padX * 2 + 14);
+    const pillH = 52;
+    const halfW = pillW / 2;
+    const halfH = pillH / 2;
+
+    ctx.translate(cx, cy);
+    ctx.scale(enterScale, enterScale);
+    ctx.globalAlpha = alpha;
+
+    // 1. Frosted Glass Obsidian Pill
+    ctx.fillStyle = 'rgba(7, 10, 18, 0.88)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.32)';
+    ctx.lineWidth = 1.2;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+    ctx.shadowBlur = 18;
+    ctx.beginPath();
+    ctx.roundRect(-halfW, -halfH, pillW, pillH, 26);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // 2. Animated audio soundwave pulse on far left of pill
+    const waveX = -halfW + 16;
+    const waveH1 = 8 + Math.sin(t * 18) * 5;
+    const waveH2 = 12 + Math.cos(t * 22) * 6;
+    const waveH3 = 7 + Math.sin(t * 15 + 1) * 4;
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillRect(waveX, -waveH1 / 2, 2.5, waveH1);
+    ctx.fillRect(waveX + 5, -waveH2 / 2, 2.5, waveH2);
+    ctx.fillRect(waveX + 10, -waveH3 / 2, 2.5, waveH3);
+
+    // 3. Render Words with Word-Level Active Karaoke Glow
+    let curX = -halfW + padX + 14;
+    const textBaselineY = 8;
+
+    wordMetrics.forEach((wm) => {
+      if (wm.isCurrent) {
+        ctx.save();
+        const wordMidX = curX + wm.width / 2;
+        ctx.translate(wordMidX, textBaselineY);
+        ctx.scale(1.08, 1.08);
+
+        // Highlight pill behind active word
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.18)';
+        ctx.beginPath();
+        ctx.roundRect(-wm.width / 2 - 5, -20, wm.width + 10, 28, 6);
+        ctx.fill();
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.shadowColor = 'rgba(56, 189, 248, 0.9)';
+        ctx.shadowBlur = 14;
+        ctx.textAlign = 'center';
+        ctx.fillText(wm.word, 0, 0);
+        ctx.restore();
+      } else if (wm.isPast) {
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'left';
+        ctx.fillText(wm.word, curX, textBaselineY);
+      } else {
+        ctx.fillStyle = '#94a3b8';
+        ctx.textAlign = 'left';
+        ctx.fillText(wm.word, curX, textBaselineY);
+      }
+      curX += wm.width + wordGap;
+    });
+
+    ctx.restore();
   }
 
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
@@ -801,7 +1040,7 @@
     readTime, splitWords, riseWords,
     drawOdometer, drawHighlighter, drawLivelyHighlighter, drawAudienceQuestionCard, drawSubscribeLikeCTA,
     drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
-    drawRoadmapCard, drawGrain };
+    drawRoadmapCard, drawGrain, drawDynamicCaption };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -98,7 +98,7 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
 - Audio master must measure **-14 LUFS (±1.0 LUFS)** integrated loudness with True Peak **≤ -1.0 dBFS**.
 
 ### 3.6 Supporting Real Source Proof for Everything Spoken (`RULE-REAL-SOURCE-PROOF`)
-- **Visual Evidence for Every Spoken Beat:** For every single entity, claim, rupee figure, institution, or event spoken in the narration, the AI MUST actively source or produce authentic real-world media from the internet (actual newspaper headlines, scanned gazettes, court filings, balance sheets, satellite maps, news articles, official tweets/press releases, or historical/live video inserts).
+- **Visual Evidence for Every Spoken Beat:** For every single entity, claim, rupee figure, institution, or event spoken in the narration, the AI MUST actively source or produce authentic real-world media from verified institutional channels (actual newspaper headlines, scanned gazettes, court filings, balance sheets, satellite maps, official tweets/press releases, or stills and footage that are licensed, public-domain, or officially released for reuse, logged in the ledger with a verified `License` field).
 - **Direct & Indirect Backing:**
   - *Direct Backing:* Exact document, clipping, or official chart confirming the specific claim.
   - *Indirect / Contextual Backing:* When an exact classified document cannot be shown, show verified archival photos of the involved facility, official government press conference footage, maritime supply chain map, or photorealistic macro AI composite clearly attributed.
@@ -136,7 +136,7 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
 - **Zero Spoken-Visual Decoupling:** Every second of voiceover narration is the absolute dictator of what is displayed on screen. An image must NEVER precede or lag behind its spoken subject.
 - **Real Primary Evidence Priority:** For all real, historical, or officially documented events, institutions, court filings, PIB gazettes, engine tests, rocket launches, recoveries, and public ceremonies, the AI MUST actively display the **REAL OFFICIAL SOURCE MEDIA** on screen in lockstep with the spoken beat. Speaking about an official fact while showing a generic AI placeholder is strictly forbidden.
 - **AI Art Bound to Unrealized Futures & Cutaways:** AI-generated images are reserved strictly for future milestones that cannot yet be photographed (e.g. 2035 space station modules, 2040 lunar touchdowns, internal micro-combustion processes).
-- **Zero Synthetic Watermarks:** Never render `AI-generated (illustrative)` tags on screen unless explicitly commanded by the user.
+- **YouTube Synthetic-Content Compliance:** In compliance with YouTube synthetic media policies, photorealistic AI depictions of realistic persons or events must include manifest disclosure and subtle on-screen identification where applicable.
 - **Logo Pill Contract:** The Top-Left brand mark must always follow the reference screenshot: a sleek, dark rounded capsule pill (`roundRect`) with circular logo avatar on the left and bold uppercase `BENAQAAB INDIA` text on the right.
 
 ### 3.11 Pure Canvas Render Isolation Law (`RULE-PURE-CANVAS-RENDER-ONLY`)
@@ -144,6 +144,38 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
 - **Mandatory Render Mode CSS Isolation:** Whenever authoring any `comp.html`, include dedicated `.render-mode` CSS that sets `header, .controls-bar { display: none !important; }` and forces the `<canvas>` to fill 100% of the screen (`position: fixed; top: 0; left: 0; width: 100%; height: 100%; margin: 0; padding: 0; border: none; box-shadow: none;`).
 - **Render Engine Contract:** Any renderer (Headless Chromium, Playwright, Puppeteer, or CDP) MUST explicitly activate render mode (`?render=1` or `document.body.classList.add('render-mode')`) or target the canvas element directly (`canvas.screenshot()`).
 - **Pre-Render Sanity Check:** Always extract and inspect a 1-frame test capture before launching full renders to mathematically verify that 0 pixels of preview UI exist in the video pipeline.
+
+### 3.12 Real Web Media First, Fallback to AI & Mandatory Prompt Disclosure (`RULE-REAL-FIRST-THEN-AI` & `RULE-ALWAYS-GIVE-AI-PROMPT`)
+- **Real Media First:** Always search the web and find REAL, authentic images, news articles, official gazettes, court orders, and photographs for everything spoken in the video.
+- **AI Fallback Only:** Only when a real authentic image cannot be found or is physically unavailable (e.g. classified records, future events, symbolic emblems), then and only then create an AI-generated image.
+- **Mandatory Prompt Disclosure:** Whenever any AI asset (image, video, audio) is created or needed, the agent MUST ALWAYS provide the complete, detailed prompt in the response to the user.
+- **No Flat Graphics Alone:** Never rely solely on flat drawn boxes or text cards. Videos must feature full-bleed visual cinema with layered forensic motion graphics.
+
+### 3.13 Mandatory Comprehensive Reading Law (`RULE-READ-EVERYTHING-FIRST`)
+- Before creating or updating any video, the agent MUST thoroughly read all workspace files, guidelines, memories, and skills (`benaqaab-investigative-motion`, `video-canvas-motion`, `benaqaab-peak-detail`, etc.) to understand every nuance and prevent any errors.
+
+### 3.14 Hardware Acceleration Directive (GPU & CPU Utilization Law · `RULE-HARDWARE-ACCELERATION`)
+- **GPU & CPU Utilization:** Always leverage the user's available hardware for all rendering, video encoding, and compute tasks:
+  - **GPU Acceleration:** Intel(R) Iris(R) Xe Graphics utilizing Intel QuickSync Video (`h264_qsv`) or Windows MediaFoundation (`h264_mf`), and Chromium GPU rasterization (`--enable-gpu-rasterization`, `--ignore-gpu-blocklist`).
+  - **CPU Multi-Threading:** 13th Gen Intel Core i7-1355U utilizing all 10 physical cores / 12 logical threads (`-threads 0` or multi-worker pipelines) for ffmpeg, audio processing, and batch tasks. Never throttle compute artificially to 1 or 2 threads.
+
+### 3.15 The All-In-One Global & National Media Charter Law (`RULE-ALL-IN-ONE-MEDIA-CHANNEL`)
+- **Beyond Scams & Narrow Crime:** Benaqaab India is **NOT** merely a "scam channel" or narrowly an "investigative cyber-crime" outlet.
+- **Universal Horizon Scope:** Benaqaab India is an **ALL-IN-ONE** premier explainer and visual journalism network. We cover **EACH AND EVERY THING THAT HAPPENS IN THE WORLD, IN INDIA, AND BEYOND**:
+  - 🌍 **World News & Geopolitics:** Wars, diplomacy, global elections, treaties, intelligence, superpower dynamics, UN/BRICS summits.
+  - 🇮🇳 **Indian National & Civic Affairs:** Policy decisions, parliament, Supreme Court verdicts, elections, social transformations.
+  - 🚀 **Space, Science & Astronomy:** ISRO (Gaganyaan, Chandrayaan), NASA, astrophysics, biology, quantum breakthroughs, deep space.
+  - 🏗️ **Infrastructure & Engineering Marvels:** Bullet trains, undersea tunnels, mega bridges, nuclear reactors, semiconductor fabs.
+  - 📈 **Economy, Markets & Money:** GDP, inflation, RBI repo rate, global trade, stock markets, gold, taxation, personal finance.
+  - ⚡ **Tech, AI & Computing:** Frontier AI, microchips, data centers, defense technology, robotics.
+  - 🌿 **Climate & Earth Sciences:** Monsoon dynamics, cyclones, coral reefs, wildlife censuses, energy transition.
+  - 🔍 **Truth, Saboot & Fact Verification:** Exposing hidden mechanisms, institutional deceptions, and corporate maneuvers.
+- **Motto Invariance:** *SACH · SABOOT · BEBAK* applies with equal forensic rigor to an astronomy mystery, a geopolitical conflict, a high-speed rail corridor, or a financial shift. Always provide primary sources and verified evidence across every genre.
+
+### 3.16 Zero On-Screen Beat/Debug Badges Law (`RULE-NO-BEAT-BADGES`)
+- **Strict Prohibition on Beat/Status Overlays in Video:** A rendered video or canvas MUST NEVER display "VISUAL BEAT X / Y", "CINEMATIC ... INVESTIGATION", or internal pipeline debug pills in the top-right corner or anywhere on screen.
+- **Broadcast Purity Standard:** The video must appear 100% like a clean, high-end television documentary (Netflix, BBC, Vox, Dhruv Rathee). Internal production numbers belong exclusively in the preview HTML UI outside the canvas, never on the canvas itself.
+- **The Only Persistent Top-Corner Mark:** The only persistent mark permitted at the top is the sleek top-left brand pill (`RULE-LOGO-TOPLEFT`).
 
 ---
 

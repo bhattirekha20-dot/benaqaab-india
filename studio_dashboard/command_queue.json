@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1791656409647,
+    "timestamp": "2026-10-10 23:50:09",
+    "command": "Analyze Video & Extract Keyframes",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656289090,
+    "timestamp": "2026-10-10 23:48:09",
+    "command": "Verify Fact Ledger & Primary Sources",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656288836,
+    "timestamp": "2026-10-10 23:48:08",
+    "command": "Show Biometric Lock Shield",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656288525,
+    "timestamp": "2026-10-10 23:48:08",
+    "command": "Show Biometric Lock Shield",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656288094,
+    "timestamp": "2026-10-10 23:48:08",
+    "command": "Render Broadcast MP4 (Hardware QSV)",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656286238,
+    "timestamp": "2026-10-10 23:48:06",
+    "command": "Run Chromium QA Preview (10 Frames)",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791656285550,
+    "timestamp": "2026-10-10 23:48:05",
+    "command": "Analyze Video & Extract Keyframes",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791654598856,
+    "timestamp": "2026-10-10 23:19:58",
+    "command": "Generate Master Audio (-14 LUFS)",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791654598453,
+    "timestamp": "2026-10-10 23:19:58",
+    "command": "Verify Fact Ledger & Primary Sources",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791654597654,
+    "timestamp": "2026-10-10 23:19:57",
+    "command": "Analyze Video & Extract Keyframes",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  },
+  {
+    "id": 1791653968971,
+    "timestamp": "2026-10-10 23:09:28",
+    "command": "new video",
+    "status": "QUEUED_FOR_AGENT",
+    "source": "WEB_UI_DIRECT"
+  }
+]

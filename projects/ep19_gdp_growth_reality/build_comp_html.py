@@ -1,0 +1,570 @@
+import json
+from pathlib import Path
+
+DIR = Path(__file__).parent
+COMP_HTML = DIR / "comp.html"
+
+html_content = """<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EP-19: India's 7.8% GDP vs Global Superpowers (122 Beats · 10:08)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #07090e;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+    body.render-mode,
+    body.render-mode html {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: #000 !important;
+      width: 1920px !important;
+      height: 1080px !important;
+    }
+    body.render-mode header,
+    body.render-mode .controls-bar {
+      display: none !important;
+    }
+    body.render-mode .stage-container,
+    body.render-mode .canvas-wrapper {
+      max-width: none !important;
+      width: 1920px !important;
+      height: 1080px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
+    body.render-mode canvas {
+      width: 1920px !important;
+      height: 1080px !important;
+      display: block !important;
+    }
+    header {
+      width: 100%;
+      max-width: 1440px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 15, 24, 0.88);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-group { display: flex; align-items: center; gap: 14px; }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(251, 191, 36, 0.6);
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.3);
+      background: #000;
+    }
+    .brand-title { font-size: 18px; font-weight: 800; letter-spacing: 0.8px; color: #fff; }
+    .brand-tag { font-size: 11px; font-weight: 700; color: #fbbf24; letter-spacing: 1.8px; text-transform: uppercase; }
+    .meta-pills { display: flex; align-items: center; gap: 10px; }
+    .pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+    }
+    .pill.accent { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; background: rgba(56, 189, 248, 0.08); }
+    .pill.gold { border-color: rgba(251, 191, 36, 0.4); color: #fbbf24; background: rgba(251, 191, 36, 0.08); }
+    .pill.flame { border-color: rgba(244, 63, 94, 0.4); color: #f43f5e; background: rgba(244, 63, 94, 0.08); }
+
+    .stage-container {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      padding: 0 16px;
+    }
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+    canvas { width: 100%; height: 100%; display: block; }
+
+    .controls-bar {
+      width: 100%;
+      margin-top: 18px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      backdrop-filter: blur(16px);
+    }
+    .timeline-row { display: flex; align-items: center; gap: 16px; width: 100%; }
+    .time-readout {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #38bdf8;
+      min-width: 130px;
+    }
+    .scrubber {
+      flex: 1;
+      height: 8px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+    .scrubber::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.9);
+      cursor: pointer;
+    }
+    .buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    button {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #f8fafc;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    button:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+    button.primary {
+      background: #38bdf8;
+      color: #07090e;
+      border-color: #38bdf8;
+      font-weight: 700;
+    }
+    button.primary:hover {
+      background: #0ea5e9;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    .beat-info-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .beat-highlight {
+      color: #fbbf24;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-group">
+      <img src="../../brand/logo.png" alt="Benaqaab India" class="brand-logo" onerror="this.style.display='none'">
+      <div>
+        <div class="brand-title">BENAQAAB INDIA</div>
+        <div class="brand-tag">SACH · SABOOT · BEBAK</div>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill gold" id="hud-beat-pill">BEAT 1 / 122</span>
+      <span class="pill accent" id="hud-chapter">CH 1: GLOBAL HEADLINE</span>
+      <span class="pill">16:9 4K CANVAS</span>
+      <span class="pill flame">EP-19 MASTER</span>
+    </div>
+  </header>
+
+  <main class="stage-container">
+    <div class="canvas-wrapper">
+      <canvas id="stage" width="1920" height="1080"></canvas>
+    </div>
+
+    <div class="controls-bar">
+      <div class="timeline-row">
+        <span class="time-readout" id="time-display">00:00 / 10:08</span>
+        <input type="range" class="scrubber" id="scrubber" min="0" max="608.35" step="0.05" value="0">
+      </div>
+      <div class="buttons-row">
+        <div class="btn-group">
+          <button id="btn-play" class="primary">▶ PLAY</button>
+          <button id="btn-restart">⏮ 00:00</button>
+          <button id="btn-ch1">CH 1: Headline</button>
+          <button id="btn-ch2">CH 2: Per-Capita</button>
+          <button id="btn-ch3">CH 3: K-Shaped</button>
+          <button id="btn-ch4">CH 4: Savings Crash</button>
+          <button id="btn-ch5">CH 5: Factory</button>
+          <button id="btn-ch6">CH 6: 2045 Clock</button>
+          <button id="btn-ch7">CH 7: Verdict</button>
+        </div>
+        <div class="beat-info-badge">
+          <span>ACTIVE BEAT:</span>
+          <span class="beat-highlight" id="beat-name">Opening Burning Question</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <audio id="master-audio" src="master_audio.mp3" preload="auto"></audio>
+
+  <!-- External Engine Scripts -->
+  <script src="../../viz/motion.js"></script>
+  <script src="beats.js"></script>
+
+  <script>
+  const canvas = document.getElementById('stage');
+  const ctx = canvas.getContext('2d');
+  const scrubber = document.getElementById('scrubber');
+  const timeDisplay = document.getElementById('time-display');
+  const btnPlay = document.getElementById('btn-play');
+  const btnRestart = document.getElementById('btn-restart');
+  const masterAudio = document.getElementById('master-audio');
+  const beatName = document.getElementById('beat-name');
+  const hudBeatPill = document.getElementById('hud-beat-pill');
+  const hudChapter = document.getElementById('hud-chapter');
+
+  const TOTAL_DURATION = window.TOTAL_DURATION || 608.35;
+  const beatsData = window.BEATS_DATA || [];
+
+  let currentTime = 0;
+  let isPlaying = false;
+  let animFrameId = null;
+  let lastTimestamp = performance.now();
+
+  // Preload Brand Logo & Visual Assets
+  const logoImg = new Image();
+  logoImg.src = '../../brand/logo.png';
+
+  const imageCache = {};
+  beatsData.forEach(b => {
+    if (!imageCache[b.asset_path]) {
+      const img = new Image();
+      img.src = b.asset_path;
+      imageCache[b.asset_path] = img;
+    }
+  });
+
+  function formatTime(s) {
+    const mins = Math.floor(s / 60);
+    const secs = Math.floor(s % 60);
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  function getActiveBeat(t) {
+    for (let i = 0; i < beatsData.length; i++) {
+      if (t >= beatsData[i].start_s && t < beatsData[i].end_s) {
+        return beatsData[i];
+      }
+    }
+    return beatsData[beatsData.length - 1];
+  }
+
+  // Pure deterministic seek function for headless Chromium and user interaction
+  window.seek = function(t) {
+    currentTime = Math.max(0, Math.min(TOTAL_DURATION, t));
+    scrubber.value = currentTime;
+    timeDisplay.textContent = `${formatTime(currentTime)} / 10:08`;
+    if (Math.abs(masterAudio.currentTime - currentTime) > 0.3) {
+      masterAudio.currentTime = currentTime;
+    }
+    render(currentTime);
+  };
+
+  function render(t) {
+    ctx.fillStyle = '#07090e';
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    const activeBeat = getActiveBeat(t);
+    if (!activeBeat) return;
+
+    hudBeatPill.textContent = `BEAT ${activeBeat.beat_id} / ${beatsData.length}`;
+    hudChapter.textContent = activeBeat.chapter.split(':')[0].toUpperCase();
+    beatName.textContent = activeBeat.subject;
+
+    const beatDur = Math.max(0.1, activeBeat.end_s - activeBeat.start_s);
+    const beatProgress = Math.max(0, Math.min(1, (t - activeBeat.start_s) / beatDur));
+
+    // 1. DRAW HERO IMAGE WITH VIRTUAL CAMERA DRIFT
+    const img = imageCache[activeBeat.asset_path];
+    if (img && img.complete && img.naturalWidth > 0) {
+      ctx.save();
+      ctx.translate(960, 540);
+      
+      // Virtual camera Ken Burns slow zoom and drift
+      const camScale = 1.0 + beatProgress * 0.042;
+      const camPanX = (beatProgress - 0.5) * 18;
+      ctx.scale(camScale, camScale);
+      ctx.translate(camPanX, 0);
+
+      const imgAspect = img.naturalWidth / img.naturalHeight;
+      let dw = 1920, dh = 1080;
+      if (imgAspect > (16 / 9)) {
+        dw = 1080 * imgAspect;
+        dh = 1080;
+      } else {
+        dw = 1920;
+        dh = 1920 / imgAspect;
+      }
+      ctx.drawImage(img, -dw / 2, -dh / 2, dw, dh);
+      ctx.restore();
+    } else {
+      const bgGrad = ctx.createRadialGradient(960, 540, 100, 960, 540, 1000);
+      bgGrad.addColorStop(0, '#0c1222');
+      bgGrad.addColorStop(1, '#04060a');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1920, 1080);
+    }
+
+    // 2. CINEMATIC VIGNETTE & CONTRAST
+    const vigGrad = ctx.createRadialGradient(960, 540, 480, 960, 540, 1100);
+    vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    vigGrad.addColorStop(0.65, 'rgba(7, 9, 14, 0.35)');
+    vigGrad.addColorStop(1, 'rgba(4, 6, 10, 0.78)');
+    ctx.fillStyle = vigGrad;
+    ctx.fillRect(0, 0, 1920, 1080);
+
+    // Subtle 3% Grain Overlay
+    if (window.Motion && Motion.drawGrain) {
+      Motion.drawGrain(ctx, 1920, 1080, 0.03);
+    }
+
+    // 3. TOP-LEFT LOGO BUG (EXACT MATCH TO REFERENCE SPECIFICATION)
+    ctx.save();
+    const pillX = 40, pillY = 34, pillW = 216, pillH = 42, pillR = 21;
+    ctx.fillStyle = 'rgba(12, 16, 24, 0.82)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+    ctx.lineWidth = 1;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.roundRect(pillX, pillY, pillW, pillH, pillR);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Circular avatar logo on left
+    const iconX = pillX + 7;
+    const iconY = pillY + 7;
+    const iconSize = 28;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(iconX + iconSize/2, iconY + iconSize/2, iconSize/2, 0, Math.PI * 2);
+    ctx.clip();
+    if (logoImg.complete && logoImg.naturalWidth > 0) {
+      ctx.drawImage(logoImg, iconX, iconY, iconSize, iconSize);
+    } else {
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillRect(iconX, iconY, iconSize, iconSize);
+      ctx.fillStyle = '#000';
+      ctx.font = '900 13px Inter, sans-serif';
+      ctx.fillText('BI', iconX + 6, iconY + 19);
+    }
+    ctx.restore();
+
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(iconX + iconSize/2, iconY + iconSize/2, iconSize/2, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '800 14px -apple-system, BlinkMacSystemFont, "Inter", sans-serif';
+    ctx.fillText('BENAQAAB INDIA', iconX + iconSize + 11, pillY + 26);
+    ctx.restore();
+
+
+
+    // 5. BESPOKE FORENSIC MOTION GRAPHICS OVERLAY
+    if (window.Motion) {
+      const b = activeBeat;
+      const tStart = b.start_s;
+
+      // 5.1 Opening 5.5s Roadmap Hook (0.0s to 5.5s)
+      if (t < 5.5) {
+        Motion.drawRoadmapCard(ctx, t, 0.0, 5.5, [
+          { en: '01. 7.8% GDP VS SAVINGS COLLAPSE', hi: '330 लाख करोड़ जीडीपी बनाम 5.3% घरेलू बचत' },
+          { en: '02. PER-CAPITA RANK #136 DISPARITY', hi: 'सकल आकार 5वां, लेकिन प्रति व्यक्ति 2,730 डॉलर' },
+          { en: '03. THE 2045 DEMOGRAPHIC CLOCK', hi: 'अमीर बनने से पहले बूढ़ा होने का गंभीर ख़तरा' }
+        ], 960, 540, 1080);
+      }
+
+      // 5.2 Animated Channel Subscribe & Like CTA (25.0s - 30.5s)
+      if (t >= 25.0 && t <= 30.5) {
+        Motion.drawSubscribeLikeCTA(ctx, t, 25.0, 3.2, logoImg, 960, 850);
+      }
+
+      // 5.3 Dynamic Yellow Highlighter on Official Documents
+      if (b.motion_type === 'highlighter' || b.motion_type === 'highlighter_and_odometer') {
+        const sweepProgress = Math.min(1.0, (t - tStart) / 1.8);
+        if (sweepProgress > 0) {
+          Motion.drawLivelyHighlighter(ctx, t, tStart, 1.8, 120, 580, 1680, 55, 'rgba(253, 224, 71, 0.72)');
+        }
+      }
+
+      // 5.4 Circular 2.5x Forensic Loupe
+      if (b.motion_type === 'loupe') {
+        const loupeT = t - tStart;
+        if (loupeT > 0.4) {
+          const lX = b.target[0] || 960;
+          const lY = b.target[1] || 540;
+          Motion.drawEvidenceLoupe(ctx, t, tStart + 0.4, 2.5, lX, lY, 150, 2.2);
+        }
+      }
+
+      // 5.5 Live Tabular Odometers
+      if (b.motion_type === 'odometer' || b.motion_type === 'highlighter_and_odometer') {
+        const odoS = b.odo_start !== undefined ? b.odo_start : 0;
+        const odoE = b.odo_end !== undefined ? b.odo_end : 100;
+        const pre = b.odo_prefix || '';
+        const suf = b.odo_suffix || '';
+        Motion.drawOdometer(ctx, t, tStart + 0.5, 2.2, odoS, odoE, pre, suf, 1520, 950, b.color || '#fbbf24');
+      }
+
+      // 5.6 Interactive Callout Reticle Pins
+      if (b.motion_type === 'pin' && b.target && b.elbow) {
+        Motion.drawCalloutPin(ctx, t, tStart, b.target[0], b.target[1], b.elbow[0], b.elbow[1], b.title, b.subtitle, b.color || '#38bdf8');
+      }
+
+      // 5.7 Final Verdict Stamp Slam (Chapter 7 Climax)
+      if (b.motion_type === 'verdict_stamp') {
+        Motion.drawVerdictStamp(ctx, t, tStart + 0.8, 'FINAL VERDICT: REALITY UNVEILED', 960, 540, '#f43f5e');
+      }
+    }
+  }
+
+  // Animation Loop for live playback
+  function loop(now) {
+    if (isPlaying) {
+      const dt = (now - lastTimestamp) / 1000;
+      currentTime += dt;
+      if (currentTime >= TOTAL_DURATION) {
+        currentTime = TOTAL_DURATION;
+        isPlaying = false;
+        btnPlay.textContent = '▶ PLAY';
+        masterAudio.pause();
+      }
+      scrubber.value = currentTime;
+      timeDisplay.textContent = `${formatTime(currentTime)} / 10:08`;
+      render(currentTime);
+      lastTimestamp = now;
+      animFrameId = requestAnimationFrame(loop);
+    }
+  }
+
+  // Play/Pause
+  btnPlay.addEventListener('click', () => {
+    if (!isPlaying) {
+      isPlaying = true;
+      btnPlay.textContent = '⏸ PAUSE';
+      lastTimestamp = performance.now();
+      masterAudio.currentTime = currentTime;
+      masterAudio.play().catch(e => console.log('Audio autoplay prevented'));
+      animFrameId = requestAnimationFrame(loop);
+    } else {
+      isPlaying = false;
+      btnPlay.textContent = '▶ PLAY';
+      masterAudio.pause();
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+    }
+  });
+
+  // Restart
+  btnRestart.addEventListener('click', () => {
+    window.seek(0);
+  });
+
+  // Chapter jumps
+  document.getElementById('btn-ch1').addEventListener('click', () => window.seek(0));
+  document.getElementById('btn-ch2').addEventListener('click', () => window.seek(85));
+  document.getElementById('btn-ch3').addEventListener('click', () => window.seek(165));
+  document.getElementById('btn-ch4').addEventListener('click', () => window.seek(255));
+  document.getElementById('btn-ch5').addEventListener('click', () => window.seek(345));
+  document.getElementById('btn-ch6').addEventListener('click', () => window.seek(435));
+  document.getElementById('btn-ch7').addEventListener('click', () => window.seek(525));
+
+  // Scrubber user interaction
+  scrubber.addEventListener('input', (e) => {
+    window.seek(parseFloat(e.target.value));
+  });
+
+  // Sync with audio if user unpauses native audio
+  masterAudio.addEventListener('play', () => {
+    if (!isPlaying) {
+      isPlaying = true;
+      btnPlay.textContent = '⏸ PAUSE';
+      lastTimestamp = performance.now();
+      animFrameId = requestAnimationFrame(loop);
+    }
+  });
+  masterAudio.addEventListener('pause', () => {
+    if (isPlaying) {
+      isPlaying = false;
+      btnPlay.textContent = '▶ PLAY';
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+    }
+  });
+
+  // Check URL query parameters for render mode (?render=1)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('render') === '1') {
+    document.body.classList.add('render-mode');
+  }
+
+  // Initial draw at t=0
+  window.addEventListener('load', () => {
+    window.seek(0);
+  });
+  </script>
+</body>
+</html>
+"""
+
+with open(COMP_HTML, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"✅ Generated interactive player: {COMP_HTML}")

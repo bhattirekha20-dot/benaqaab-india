@@ -1,0 +1,44 @@
+{
+  "project": "SH-12: Delhi Lockdown & The CJP Protest",
+  "episode": "SH-12",
+  "format": "9:16 Vertical Short (1080x1920)",
+  "target_duration_range": "45.0s - 49.5s",
+  "date_of_incident": "10 October 2026",
+  "primary_subject": "Cockroach Janta Party (CJP) Nationwide Mobilization & Delhi Security Lockdown",
+  "verified_facts": {
+    "organization": "Cockroach Janta Party (CJP)",
+    "founded_date": "16 May 2026",
+    "founder": "Abhijeet Dipke",
+    "co_convenors": ["Saurav Das", "Ashutosh Ranka"],
+    "origin_context": "Satirical counter-response to Justice Surya Kant remark likening unemployed youth to cockroaches",
+    "primary_demands": [
+      "Resignation of Chief Election Commissioner Gyanesh Kumar",
+      "Immediate rollback and independent forensic audit of the Special Intensive Revision (SIR) voter roll deletions"
+    ],
+    "ground_clampdown_metrics": {
+      "security_personnel_deployed": 25000,
+      "metro_stations_closed": 45,
+      "metro_closure_window": "9:00 PM 9 Oct 2026 to 6:00 PM 10 Oct 2026",
+      "prohibitory_orders": "Section 163 of BNSS (Bhartiya Nagarik Suraksha Sanhita)",
+      "train_cancellations": "10-hour Mail & Express suspension at New Delhi and Hazrat Nizamuddin",
+      "internet_shutdown": "24-hour mobile internet suspension in Central Delhi / Jantar Mantar area",
+      "flight_detention": "Abhijeet Dipke taken into custody inside commercial flight upon landing at Delhi Airport",
+      "total_nationwide_detentions": "3,000+"
+    },
+    "supreme_court_intervention": {
+      "petition": "Contempt petition against citywide public transport shutdown",
+      "key_judicial_remark": "A hammer should not be used to kill a fly",
+      "observation": "Public transport cannot be completely paralyzed to preempt a peaceful assembly"
+    }
+  },
+  "two_source_validation": [
+    {
+      "source_name": "NDTV & The Hindu",
+      "reported_fact": "45 metro stations shut, 25k police deployed, Abhijeet Dipke detained on aircraft"
+    },
+    {
+      "source_name": "Supreme Court Record & Amnesty International",
+      "reported_fact": "Contempt proceedings, 'hammer on a fly' judicial observation, 24-hour internet shutdown under BNSS 163"
+    }
+  ]
+}

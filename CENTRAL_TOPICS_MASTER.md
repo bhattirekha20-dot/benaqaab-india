@@ -68,6 +68,7 @@
 | **SH-09** | India Last 24 Hours: Sabse Important Kya Badla? | News Roundup | **118.07s** (1m 58s) | `projects/india_last_24h/` • `VIDEOS/10_India_Last_24H_SHORT_118s.mp4` | 14 scenes, official DRI/ECI/PIB/NCS/BCCI cards, timed narration, Profile A neutral grade |
 | **SH-10** | India–Japan JCM: Carbon Credits Kise Milenge? | Climate Tech | **107s** (1m 47s) | `projects/india_japan_jcm/` • `VIDEOS/11_India_Japan_JCM_SHORT_107s.mp4` | Article 6.2 bilateral credits, corresponding adjustments, double counting prevention |
 | **SH-11** | World News 24 Hours: 5 Global Developments | News Roundup | **58.00s** (58s) | `projects/world_news_24h/` • `delivery/Benaqaab_World_News_07_Oct_2026.mp4` | Germany BND arrest, France school protests, Kenya Ebola case, Quebec election, Physics Nobel (Halzen IceCube). Profile A neutral grade. Spoken closing: *Shor nahi, source ke saath*. |
+| **SH-12** | Delhi Lockdown & The CJP Protest | Breaking / Civic Short | **47.30s** | `projects/sh12_cjp_delhi_lockdown/` | 30 visual cuts (1.5s cadence), 45 metro stations closed, 25k police, flight detention, SC 'hammer on a fly' rebuke. |
 
 ---
 

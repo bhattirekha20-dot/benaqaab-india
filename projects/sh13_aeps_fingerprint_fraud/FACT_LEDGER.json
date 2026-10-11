@@ -1,0 +1,27 @@
+{
+  "episode_id": "SH-13",
+  "title": "AePS Aadhaar Fingerprint Fraud: The Silicone Ungli Scam",
+  "format": "9:16 Vertical Short",
+  "target_duration_sec": 48.0,
+  "visual_cuts_target": 30,
+  "verified_facts": {
+    "system_name": "Aadhaar-Enabled Payment System (AePS)",
+    "regulating_agency": "National Payments Corporation of India (NPCI) & UIDAI",
+    "maximum_withdrawal_limit_per_txn": "₹10,000",
+    "total_fraud_exposure": "₹14.8+ Crores documented across state cases",
+    "seized_clones_count": "1,000+ artificial silicone thumbs seized",
+    "leak_source": "Public State Land Registry Portals (Sale Deeds & Mutation Records)",
+    "scanner_generation": "Legacy L0 Optical Biometric Scanners (Lacks Liveness Detection)",
+    "hotspot_regions": ["Nawada (Bihar)", "Gurugram & Palwal (Haryana)", "Uttar Pradesh", "West Bengal"],
+    "zero_auth_requirements": ["No OTP", "No PIN", "No Physical Card", "No SMS Alert pre-debit"],
+    "solution_shield": "UIDAI Biometric Lock via mAadhaar App / myaadhaar.uidai.gov.in",
+    "error_thrown_on_locked": "Error Code 330: Biometrics are locked by Aadhaar holder",
+    "helpline": "1930 (National Cyber Crime Reporting Portal)"
+  },
+  "primary_sources": [
+    "NPCI AePS Operating Circulars & Maximum Limits",
+    "UIDAI Technical Advisory on L0 to L1 Scanner Migration",
+    "MHA & Indian Cyber Crime Coordination Centre (I4C) Public Advisory",
+    "State Cyber Cell Police FIRs (Gurugram Police, Bihar Economic Offences Unit)"
+  ]
+}

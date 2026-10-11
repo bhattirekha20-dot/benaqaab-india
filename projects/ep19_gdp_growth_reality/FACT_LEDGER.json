@@ -1,0 +1,85 @@
+{
+  "episode": "EP-19",
+  "title": "India's 7.8% GDP vs Global Superpowers: What The Headline Numbers Hide",
+  "channel": "Benaqaab India",
+  "tagline": "SACH · SABOOT · BEBAK",
+  "format": "16:9 Landscape Widescreen (1920x1080)",
+  "target_duration_range": "8 to 12 Minutes",
+  "verified_metrics": {
+    "q1_real_gdp_growth_rate_pct": 7.8,
+    "q1_real_gva_growth_rate_pct": 8.2,
+    "q1_nominal_gdp_growth_rate_pct": 10.3,
+    "total_nominal_gdp_usd_trillion": 3.94,
+    "global_gdp_rank": 5,
+    "global_per_capita_rank": 136,
+    "india_per_capita_income_usd": 2730,
+    "usa_per_capita_income_usd": 85000,
+    "germany_per_capita_income_usd": 54000,
+    "china_per_capita_income_usd": 13500,
+    "global_growth_comparisons": {
+      "india_pct": 7.8,
+      "china_pct": 4.3,
+      "usa_pct": 1.5,
+      "germany_pct": 0.2,
+      "japan_pct": 1.1
+    },
+    "sectoral_growth_gva": {
+      "services_financial_it_re_pct": 12.1,
+      "overall_services_pct": 10.0,
+      "manufacturing_pct": 9.2,
+      "secondary_sector_pct": 8.6,
+      "agriculture_allied_pct": 3.6
+    },
+    "structural_shares": {
+      "manufacturing_share_of_gdp_pct": 15.8,
+      "make_in_india_target_pct": 25.0,
+      "china_manufacturing_share_pct": 27.0,
+      "agriculture_workforce_share_pct": 45.4,
+      "agriculture_gdp_contribution_pct": 15.0
+    },
+    "household_financial_indicators": {
+      "net_financial_savings_to_gdp_pct": 5.3,
+      "historical_normal_savings_pct": 8.1,
+      "household_debt_to_gdp_pct": 45.8,
+      "unsecured_consumption_loan_share_pct": 58.2
+    },
+    "k_shaped_indicators": {
+      "citizens_on_pmgkay_free_food_crore": 80.0,
+      "luxury_suv_sales_growth_pct": 24.5,
+      "entry_level_hatchback_sales_vs_2018_pct": -42.0,
+      "two_wheeler_sales_vs_peak_pct": -14.0
+    },
+    "demographic_clock": {
+      "median_age_years": 28.4,
+      "youth_entering_workforce_yearly_crore": 1.1,
+      "window_closes_year": 2045
+    }
+  },
+  "primary_sources": [
+    {
+      "entity": "Ministry of Statistics and Programme Implementation (MoSPI)",
+      "document": "Quarterly Estimates of GDP Q1 FY 2026-27 (Base Year 2022-23 Series)",
+      "url": "https://mospi.gov.in"
+    },
+    {
+      "entity": "Reserve Bank of India (RBI)",
+      "document": "Financial Stability Report & Household Financial Balance Sheets 2026",
+      "url": "https://rbi.org.in"
+    },
+    {
+      "entity": "International Monetary Fund (IMF)",
+      "document": "World Economic Outlook (WEO) Database October 2026",
+      "url": "https://imf.org"
+    },
+    {
+      "entity": "World Bank",
+      "document": "India Development Update & Per Capita GNI Classifications",
+      "url": "https://worldbank.org"
+    },
+    {
+      "entity": "Society of Indian Automobile Manufacturers (SIAM)",
+      "document": "Automobile Sales Flash Report (SUVs vs Entry-Level Hatchbacks)",
+      "url": "https://siam.in"
+    }
+  ]
+}

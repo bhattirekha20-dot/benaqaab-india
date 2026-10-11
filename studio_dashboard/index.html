@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benaqaab Studio — Live Mission Control & Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090e;
+      --bg-surface: rgba(15, 20, 32, 0.75);
+      --bg-card: rgba(20, 26, 42, 0.65);
+      --bg-card-hover: rgba(28, 36, 58, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-specular: rgba(255, 255, 255, 0.16);
+      --border-highlight: rgba(56, 189, 248, 0.4);
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-rose: #f43f5e;
+      --accent-emerald: #34d399;
+      --accent-orange: #f97316;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(52, 211, 153, 0.05) 0%, transparent 50%);
+    }
+
+    /* Ambient noise overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Header Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(7, 9, 14, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 20, 32, 0.85);
+      border: 1px solid var(--border-specular);
+      border-radius: 999px;
+      padding: 6px 16px 6px 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f97316 0%, #b45309 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #fff;
+    }
+
+    .brand-tagline {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--accent-amber);
+    }
+
+    .sys-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent-emerald);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 12px var(--accent-emerald);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      50% { transform: scale(1.25); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.7; }
+    }
+
+    .hardware-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hardware-badge strong {
+      color: var(--accent-cyan);
+    }
+
+    /* Main Container */
+    .dashboard-grid {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Command Console Hero Card */
+    .command-hero {
+      background: linear-gradient(135deg, rgba(20, 28, 48, 0.8) 0%, rgba(12, 16, 26, 0.9) 100%);
+      border: 1px solid var(--border-highlight);
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .command-hero::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 350px; height: 100%;
+      background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .console-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .console-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .console-title span {
+      color: var(--accent-cyan);
+    }
+
+    .charter-pill {
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      color: var(--accent-orange);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    .command-input-bar {
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .command-input-bar input {
+      flex: 1;
+      background: rgba(8, 12, 20, 0.85);
+      border: 1px solid var(--border-specular);
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .command-input-bar input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .command-btn {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0 28px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+    }
+
+    .command-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(2, 132, 199, 0.6);
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+
+    .quick-chips {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 6px 12px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: var(--border-specular);
+    }
+
+    /* Dual Stage Layout */
+    .stage-row {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 24px;
+    }
+
+    @media (max-width: 1200px) {
+      .stage-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Video Player & Stage Card */
+    .stage-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      backdrop-filter: blur(16px);
+    }
+
+    .stage-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stage-heading {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stage-aspect-toggle {
+      display: flex;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .aspect-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .aspect-btn.active {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    /* Player Viewport Frame */
+    .viewport-box {
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 580px;
+      position: relative;
+    }
+
+    .viewport-box iframe {
+      border: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .viewport-box.vertical-mode iframe {
+      width: 326px;
+      height: 580px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+    }
+
+    .viewport-box.wide-mode iframe {
+      width: 100%;
+      height: 580px;
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(10, 14, 24, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+
+    .scrub-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .play-btn {
+      background: var(--accent-cyan);
+      color: #000;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+    }
+
+    .time-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent-cyan);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .timeline-range {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .timeline-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+      cursor: pointer;
+    }
+
+    /* Right Column: Pipeline Stepper & Fact Ledger */
+    .sidebar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      backdrop-filter: blur(16px);
+    }
+
+    .pipeline-stepper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      transition: all 0.15s ease;
+    }
+
+    .step-item.active {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #fff;
+    }
+
+    .step-item.done {
+      border-color: rgba(52, 211, 153, 0.3);
+      color: var(--accent-emerald);
+    }
+
+    .step-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .step-item.active .step-icon {
+      background: var(--accent-cyan);
+      color: #000;
+      font-weight: 800;
+    }
+
+    .step-item.done .step-icon {
+      background: var(--accent-emerald);
+      color: #000;
+      font-weight: 800;
+    }
+
+    /* Video Understanding & Inspector Card */
+    .analyzer-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      backdrop-filter: blur(16px);
+    }
+
+    .analyzer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .analyzer-info h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .analyzer-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .video-picker-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .video-picker-row input {
+      flex: 1;
+      background: rgba(8, 12, 20, 0.85);
+      border: 1px solid var(--border-specular);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .analyze-btn {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 0 24px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Filmstrip Gallery */
+    .filmstrip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .filmstrip-item {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .filmstrip-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .filmstrip-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .frame-badge {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--accent-amber);
+    }
+
+    /* Tabs Card */
+    .tabs-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(16px);
+    }
+
+    .tab-nav {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .tab-btn.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .tab-pane {
+      display: none;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    pre code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #cbd5e1;
+      display: block;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      max-height: 380px;
+    }
+
+    /* Command Log Feed */
+    .cmd-log-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+
+    .cmd-log-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .cmd-log-item .cmd-text {
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    .cmd-log-item .cmd-time {
+      color: var(--text-dim);
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-pill">
+        <div class="brand-logo">B</div>
+        <div class="brand-text">
+          <span class="brand-name">BENAQAAB INDIA</span>
+          <span class="brand-tagline">SACH · SABOOT · BEBAK</span>
+        </div>
+      </div>
+      <div class="sys-pill">
+        <div class="pulse-dot"></div>
+        <span>LIVE MISSION CONTROL · 60 FPS</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div class="hardware-badge">
+        <span>GPU: <strong>Intel Iris Xe (QSV)</strong></span>
+        <span>•</span>
+        <span>CPU: <strong>13th Gen i7-1355U (10 Cores)</strong></span>
+      </div>
+      <select id="projectSelect" style="background: rgba(15,20,32,0.9); color: #fff; border: 1px solid var(--border-specular); padding: 8px 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px; outline: none; cursor: pointer;">
+        <option value="sh13_aeps_fingerprint_fraud" selected>SH-13: AePS Aadhaar Fingerprint Fraud</option>
+        <option value="sh12_cjp_delhi_lockdown">SH-12: Delhi Lockdown & CJP Protest</option>
+        <option value="ep18_gaganyaan_2026">EP-18: Gaganyaan 2026 Space Miracle</option>
+        <option value="ep17_pfbr">EP-17: PFBR India Ka Nuclear Miracle</option>
+        <option value="upi_explained_short">SH-06: UPI ₹314 Lakh Cr Explained</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard-grid">
+
+    <!-- Hero: Direct Command Console -->
+    <section class="command-hero">
+      <div class="console-header">
+        <div class="console-title">
+          <span>⚡ DIRECT COMMAND CONSOLE</span>
+          <div style="font-size: 12px; color: var(--text-muted); font-weight: 400; margin-left: 10px;">
+            Issue direct live instructions to Antigravity AI
+          </div>
+        </div>
+        <div class="charter-pill">ALL-IN-ONE WORLD & NATIONAL MEDIA NETWORK</div>
+      </div>
+
+      <div class="command-input-bar">
+        <input type="text" id="commandInput" placeholder="Type direct instruction for Antigravity AI (e.g. 'Render Master MP4', 'Add scene on L1 scanners', 'Extract video frames')..." />
+        <button class="command-btn" id="sendBtn">
+          <span>DISPATCH</span> ▶
+        </button>
+      </div>
+
+      <div class="quick-chips">
+        <button class="chip-btn" onclick="sendQuickCmd('Run Chromium QA Preview (10 Frames)')">⚡ Run Chromium QA</button>
+        <button class="chip-btn" onclick="sendQuickCmd('Analyze Video & Extract Keyframes')">🎬 Video Frame Inspector</button>
+        <button class="chip-btn" onclick="sendQuickCmd('Verify Fact Ledger & Primary Sources')">📑 Check Fact Ledger</button>
+        <button class="chip-btn" onclick="sendQuickCmd('Generate Master Audio (-14 LUFS)')">🎙️ Master Audio</button>
+        <button class="chip-btn" onclick="sendQuickCmd('Show Biometric Lock Shield')">🛡️ Lock Biometrics Shield</button>
+        <button class="chip-btn" onclick="sendQuickCmd('Render Broadcast MP4 (Hardware QSV)')">🚀 Render MP4</button>
+      </div>
+    </section>
+
+    <!-- Stage Row: Video Player + Pipeline Stepper -->
+    <div class="stage-row">
+
+      <!-- Left: Live Video Canvas & Player Stage -->
+      <section class="stage-card">
+        <div class="stage-topbar">
+          <div class="stage-heading">
+            <span style="color: var(--accent-cyan);">🎬 LIVE VIDEO STAGE:</span>
+            <span id="activeProjectTitle" style="font-size: 15px; color: #fff;">SH-13 AePS Aadhaar Fingerprint Fraud</span>
+          </div>
+          <div class="stage-aspect-toggle">
+            <button class="aspect-btn active" id="btnAspectVertical" onclick="setAspect('vertical')">9:16 Short</button>
+            <button class="aspect-btn" id="btnAspectWide" onclick="setAspect('wide')">16:9 Landscape</button>
+          </div>
+        </div>
+
+        <!-- Viewport Box containing live comp.html -->
+        <div class="viewport-box vertical-mode" id="viewportBox">
+          <iframe id="videoFrame" src="/workspace/projects/sh12_cjp_delhi_lockdown/comp.html?render=0" scrolling="no"></iframe>
+        </div>
+
+        <!-- Scrubber & Controls -->
+        <div class="player-controls">
+          <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+          <div class="scrub-group">
+            <input type="range" class="timeline-range" id="timeScrubber" min="0" max="48" step="0.1" value="0" oninput="seekVideo(this.value)" />
+            <div class="time-badge" id="timeDisplay">00:00.00 / 00:48.00</div>
+          </div>
+          <button class="chip-btn" onclick="refreshStage()">🔄 Reload</button>
+        </div>
+      </section>
+
+      <!-- Right: Pipeline Stepper & Active Ledger -->
+      <section class="sidebar-card">
+        <div style="font-family: var(--font-display); font-size: 16px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+          <span>🎯 PRODUCTION PIPELINE</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-amber);">SH-13 ACTIVE</span>
+        </div>
+
+        <div class="pipeline-stepper" id="pipelineStepper">
+          <div class="step-item done"><div class="step-icon">✓</div><span>Gate 0: Topic & Format Confirm</span></div>
+          <div class="step-item done"><div class="step-icon">✓</div><span>Step 1: Fact Ledger & Research Dossier</span></div>
+          <div class="step-item active"><div class="step-icon">●</div><span>Step 2: Script & Audio Lock (-14 LUFS)</span></div>
+          <div class="step-item"><div class="step-icon">3</div><span>Step 3: 30 Visual Cuts & comp.html</span></div>
+          <div class="step-item"><div class="step-icon">4</div><span>Step 4: Chromium QA (10 Snapshots)</span></div>
+          <div class="step-item"><div class="step-icon">5</div><span>Step 5: Human Approval Gate</span></div>
+          <div class="step-item"><div class="step-icon">6</div><span>Step 6: Master Render & High-CTR Thumbs</span></div>
+        </div>
+
+        <!-- Command Log Feed -->
+        <div style="margin-top: 10px;">
+          <div style="font-family: var(--font-display); font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--text-muted);">
+            RECENT COMMAND QUEUE:
+          </div>
+          <div class="cmd-log-feed" id="cmdLogFeed">
+            <div class="cmd-log-item">
+              <span class="cmd-text">System Initialized</span>
+              <span class="cmd-time">Ready</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Video Understanding & Frame Inspector Section -->
+    <section class="analyzer-card">
+      <div class="analyzer-header">
+        <div class="analyzer-info">
+          <h3>🔬 VIDEO UNDERSTANDING & KEYFRAME INSPECTOR</h3>
+          <p>You never have to manually send 18,000 frames. Point to any video file, and FFmpeg automatically extracts keyframe sequences for multimodal AI inspection.</p>
+        </div>
+        <div class="sys-pill" style="border-color: rgba(56, 189, 248, 0.4); color: var(--accent-cyan); background: rgba(56, 189, 248, 0.08);">
+          <span>FFMPEG SCENE DETECTOR ACTIVE</span>
+        </div>
+      </div>
+
+      <div class="video-picker-row">
+        <input type="text" id="videoPathInput" value="projects/sh12_cjp_delhi_lockdown/SH12_Master_Render.mp4" placeholder="Enter relative or absolute video path..." />
+        <button class="analyze-btn" id="analyzeBtn" onclick="runVideoAnalysis()">
+          <span>EXTRACT & INSPECT FRAMES</span> 🔍
+        </button>
+      </div>
+
+      <!-- Video Metrics Bar -->
+      <div id="videoMetrics" style="display: none; gap: 16px; background: rgba(0, 0, 0, 0.4); padding: 12px 18px; border-radius: 8px; border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 12px;">
+        <span>Video: <strong id="mVideoName" style="color: #fff;">-</strong></span>
+        <span>•</span>
+        <span>Duration: <strong id="mDuration" style="color: var(--accent-cyan);">-</strong></span>
+        <span>•</span>
+        <span>Resolution: <strong id="mRes" style="color: var(--accent-amber);">-</strong></span>
+        <span>•</span>
+        <span>Frames Extracted: <strong id="mCount" style="color: var(--accent-emerald);">-</strong></span>
+      </div>
+
+      <!-- Filmstrip Frame Grid -->
+      <div class="filmstrip-grid" id="filmstripGrid">
+        <div style="grid-column: 1 / -1; padding: 30px; text-align: center; color: var(--text-dim); font-size: 13px;">
+          Click "EXTRACT & INSPECT FRAMES" above to extract and visually inspect keyframes from the selected video.
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Data Tabs: Script, Fact Ledger, Dossier -->
+    <section class="tabs-card">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('tabScript')">📜 Master Script</button>
+        <button class="tab-btn" onclick="switchTab('tabLedger')">📊 Fact Ledger</button>
+        <button class="tab-btn" onclick="switchTab('tabDossier')">🕵️ Research Dossier</button>
+        <button class="tab-btn" onclick="switchTab('tabCharter')">🌐 All-In-One Media Charter</button>
+      </div>
+
+      <div class="tab-pane active" id="tabScript">
+        <pre><code id="scriptContent">Loading script...</code></pre>
+      </div>
+      <div class="tab-pane" id="tabLedger">
+        <pre><code id="ledgerContent">Loading fact ledger...</code></pre>
+      </div>
+      <div class="tab-pane" id="tabDossier">
+        <pre><code id="dossierContent">Loading research dossier...</code></pre>
+      </div>
+      <div class="tab-pane" id="tabCharter">
+        <div style="padding: 16px; background: rgba(0,0,0,0.4); border-radius: 8px; font-size: 14px; line-height: 1.8;">
+          <h4 style="color: var(--accent-orange); font-family: var(--font-display); font-size: 16px; margin-bottom: 8px;">BENAQAAB INDIA ALL-IN-ONE GLOBAL CHARTER</h4>
+          <p><strong>We are NOT a scam channel or narrow crime page.</strong> We cover everything that happens across the globe and in India:</p>
+          <ul style="margin-left: 20px; margin-top: 8px; color: var(--text-muted);">
+            <li>🌍 <strong>World News & Geopolitics:</strong> Global elections, diplomatic standoffs, treaties, intelligence.</li>
+            <li>🇮🇳 <strong>Indian National & Civic Affairs:</strong> Supreme court verdicts, policy changes, civic infrastructure.</li>
+            <li>🚀 <strong>Space & Astronomy:</strong> ISRO Gaganyaan, NASA Artemis, lunar soil, asteroids.</li>
+            <li>🏗️ <strong>Engineering & Mega-Projects:</strong> Bullet trains, highest bridges, nuclear fast-breeders.</li>
+            <li>📈 <strong>Economy & Markets:</strong> GDP, RBI repo rate, gold bills, rupee valuations.</li>
+            <li>⚡ <strong>Tech & AI:</strong> Microchip fabs, AI safety, cyber infrastructure.</li>
+            <li>🔍 <strong>Truth & Exposés:</strong> Systemic deceptions, unmasked documents, investigative evidence.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    let isPlaying = false;
+    let currentTime = 0;
+    let maxTime = 48.0;
+    let playInterval = null;
+
+    // Initialize Dashboard
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchStatus();
+      loadProjectData('sh13_aeps_fingerprint_fraud');
+      fetchCommands();
+
+      document.getElementById('commandInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') dispatchCommand();
+      });
+      document.getElementById('sendBtn').addEventListener('click', dispatchCommand);
+
+      document.getElementById('projectSelect').addEventListener('change', (e) => {
+        const val = e.target.value;
+        loadProjectData(val);
+        updateStagePreview(val);
+      });
+    });
+
+    async function fetchStatus() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+        if (data.active_project) {
+          document.getElementById('activeProjectTitle').innerText = `${data.active_project.id} ${data.active_project.title}`;
+        }
+      } catch (err) {
+        console.error('Status fetch error:', err);
+      }
+    }
+
+    async function fetchCommands() {
+      try {
+        const res = await fetch('/api/commands');
+        const data = await res.json();
+        renderCommandLogs(data.commands || []);
+      } catch (err) {
+        console.error('Commands fetch error:', err);
+      }
+    }
+
+    function renderCommandLogs(commands) {
+      const feed = document.getElementById('cmdLogFeed');
+      if (!commands || commands.length === 0) return;
+      feed.innerHTML = commands.map(c => `
+        <div class="cmd-log-item">
+          <span class="cmd-text">⚡ ${escapeHtml(c.command)}</span>
+          <span class="cmd-time">${c.timestamp || 'Just now'}</span>
+        </div>
+      `).join('');
+    }
+
+    async function dispatchCommand() {
+      const input = document.getElementById('commandInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      try {
+        const res = await fetch('/api/command', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ command: text })
+        });
+        const data = await res.json();
+        if (data.commands) renderCommandLogs(data.commands);
+      } catch (err) {
+        alert('Error dispatching command: ' + err.message);
+      }
+    }
+
+    function sendQuickCmd(text) {
+      document.getElementById('commandInput').value = text;
+      dispatchCommand();
+    }
+
+    async function loadProjectData(projectId) {
+      try {
+        const res = await fetch(`/api/project_data?project=${projectId}`);
+        const data = await res.json();
+        document.getElementById('scriptContent').innerText = data.script || 'No script drafted yet for this project.';
+        document.getElementById('ledgerContent').innerText = data.fact_ledger ? JSON.stringify(data.fact_ledger, null, 2) : 'No fact ledger found.';
+        document.getElementById('dossierContent').innerText = data.research_dossier || 'No research dossier found.';
+      } catch (err) {
+        console.error('Error loading project data:', err);
+      }
+    }
+
+    function updateStagePreview(projectId) {
+      const frame = document.getElementById('videoFrame');
+      if (projectId === 'sh12_cjp_delhi_lockdown') {
+        frame.src = '/workspace/projects/sh12_cjp_delhi_lockdown/comp.html?render=0';
+        setAspect('vertical');
+      } else if (projectId === 'sh13_aeps_fingerprint_fraud') {
+        frame.src = '/workspace/projects/sh13_aeps_fingerprint_fraud/comp.html?render=0';
+        setAspect('vertical');
+      } else if (projectId === 'ep18_gaganyaan_2026') {
+        frame.src = '/workspace/projects/ep18_gaganyaan_2026/comp.html?render=0';
+        setAspect('wide');
+      } else {
+        frame.src = `/workspace/projects/${projectId}/comp.html?render=0`;
+      }
+    }
+
+    function setAspect(mode) {
+      const box = document.getElementById('viewportBox');
+      const btnV = document.getElementById('btnAspectVertical');
+      const btnW = document.getElementById('btnAspectWide');
+
+      if (mode === 'vertical') {
+        box.classList.remove('wide-mode');
+        box.classList.add('vertical-mode');
+        btnV.classList.add('active');
+        btnW.classList.remove('active');
+      } else {
+        box.classList.remove('vertical-mode');
+        box.classList.add('wide-mode');
+        btnW.classList.add('active');
+        btnV.classList.remove('active');
+      }
+    }
+
+    function seekVideo(val) {
+      currentTime = parseFloat(val);
+      const mins = Math.floor(currentTime / 60);
+      const secs = (currentTime % 60).toFixed(2);
+      document.getElementById('timeDisplay').innerText = 
+        `${String(mins).padStart(2,'0')}:${String(secs).padStart(5,'0')} / 00:48.00`;
+
+      // Call seek in iframe
+      const frame = document.getElementById('videoFrame');
+      try {
+        if (frame.contentWindow && frame.contentWindow.seek) {
+          frame.contentWindow.seek(currentTime);
+        }
+      } catch (e) {}
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      const btn = document.getElementById('playBtn');
+      btn.innerText = isPlaying ? '⏸' : '▶';
+
+      if (isPlaying) {
+        playInterval = setInterval(() => {
+          currentTime += 0.1;
+          if (currentTime > maxTime) currentTime = 0;
+          document.getElementById('timeScrubber').value = currentTime;
+          seekVideo(currentTime);
+        }, 100);
+      } else {
+        clearInterval(playInterval);
+      }
+    }
+
+    function refreshStage() {
+      const frame = document.getElementById('videoFrame');
+      frame.src = frame.src;
+    }
+
+    async function runVideoAnalysis() {
+      const input = document.getElementById('videoPathInput');
+      const btn = document.getElementById('analyzeBtn');
+      const val = input.value.trim();
+      if (!val) return;
+
+      btn.disabled = true;
+      btn.innerText = 'EXTRACTING FRAMES... ⏳';
+
+      try {
+        const res = await fetch('/api/analyze_video', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ video_path: val, max_frames: 18 })
+        });
+        const data = await res.json();
+        btn.disabled = false;
+        btn.innerText = 'EXTRACT & INSPECT FRAMES 🔍';
+
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+
+        // Show metrics
+        document.getElementById('videoMetrics').style.display = 'flex';
+        document.getElementById('mVideoName').innerText = data.video_name;
+        document.getElementById('mDuration').innerText = data.duration_formatted;
+        document.getElementById('mRes').innerText = data.resolution;
+        document.getElementById('mCount').innerText = `${data.frame_count} frames (${data.interval_seconds}s step)`;
+
+        // Render filmstrip
+        const grid = document.getElementById('filmstripGrid');
+        if (data.frames && data.frames.length > 0) {
+          grid.innerHTML = data.frames.map(f => `
+            <div class="filmstrip-item" onclick="window.open('${f.url}', '_blank')">
+              <img src="${f.url}" alt="${f.filename}" loading="lazy" />
+              <div class="frame-badge">⏱ ${f.timestamp_formatted}</div>
+            </div>
+          `).join('');
+        } else {
+          grid.innerHTML = '<div style="grid-column: 1 / -1; padding: 20px; color: var(--accent-rose);">No frames extracted. Check file codec.</div>';
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerText = 'EXTRACT & INSPECT FRAMES 🔍';
+        alert('Analysis error: ' + err.message);
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
+    }
+  </script>
+</body>
+</html>

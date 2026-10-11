@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benaqaab India Deterministic Master Composition</title>
+  <!-- Google Fonts loaded deterministically -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+Devanagari:wght@600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #07090e;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Isolated Render Mode: 0px Preview UI Chrome */
+    body.render-mode,
+    body.render-mode html {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: #000 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+    }
+    body.render-mode header,
+    body.render-mode .controls-bar {
+      display: none !important;
+    }
+    body.render-mode .canvas-wrapper {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    body.render-mode canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* Preview UI Chrome */
+    header {
+      width: 100%;
+      max-width: 1440px;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(10, 15, 24, 0.88);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-group { display: flex; align-items: center; gap: 12px; }
+    .brand-logo { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #fbbf24; }
+    .brand-title { font-size: 17px; font-weight: 800; color: #fff; letter-spacing: 0.8px; }
+    .brand-tag { font-size: 11px; font-weight: 700; color: #fbbf24; letter-spacing: 1.5px; }
+
+    .canvas-wrapper {
+      position: relative;
+      margin-top: 20px;
+      width: min(92vw, 1280px);
+      aspect-ratio: 16 / 9; /* Use 9 / 16 for Shorts */
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    canvas { width: 100%; height: 100%; display: block; }
+
+    .controls-bar {
+      width: min(92vw, 1280px);
+      margin: 16px 0 40px 0;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      backdrop-filter: blur(16px);
+    }
+    .timeline-row { display: flex; align-items: center; gap: 14px; width: 100%; }
+    .time-readout { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: #38bdf8; min-width: 120px; }
+    .scrubber { flex: 1; height: 8px; border-radius: 4px; accent-color: #38bdf8; cursor: pointer; }
+    .btn-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    button {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.15s ease;
+    }
+    button.primary { background: #38bdf8; color: #000; border-color: #38bdf8; }
+    button:hover { filter: brightness(1.15); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-group">
+      <img src="../../brand/logo.png" class="brand-logo" alt="Logo">
+      <div>
+        <div class="brand-title">BENAQAAB INDIA</div>
+        <div class="brand-tag">SACH · SABOOT · BEBAK</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="canvas-wrapper">
+    <canvas id="stage" width="1920" height="1080"></canvas>
+  </div>
+
+  <div class="controls-bar">
+    <div class="timeline-row">
+      <span class="time-readout" id="time-display">00:00 / 00:00</span>
+      <input type="range" class="scrubber" id="scrubber" min="0" max="60" step="0.05" value="0">
+    </div>
+    <div class="btn-group">
+      <button id="btn-play" class="primary">▶ PLAY</button>
+      <button id="btn-restart">⏮ 00:00</button>
+    </div>
+  </div>
+
+  <audio id="master-audio" src="master_audio.mp3" preload="auto"></audio>
+
+  <!-- Motion Engine & Data -->
+  <script src="../../viz/motion.js"></script>
+
+  <script>
+    // -------------------------------------------------------------
+    // 1. CONFIGURATION & LAYOUT CONTRACT
+    // -------------------------------------------------------------
+    const canvas = document.getElementById('stage');
+    const ctx = canvas.getContext('2d');
+    const masterAudio = document.getElementById('master-audio');
+    const scrubber = document.getElementById('scrubber');
+    const timeDisplay = document.getElementById('time-display');
+    const btnPlay = document.getElementById('btn-play');
+    const btnRestart = document.getElementById('btn-restart');
+
+    const RENDER = navigator.webdriver || new URLSearchParams(location.search).has('render');
+    if (RENDER) document.body.classList.add('render-mode');
+
+    window.DURATION = 60.0; // Total duration in seconds
+    window.LAYOUT = {
+      W: 1920,
+      H: 1080,
+      isShorts: false,
+      safe: { x0: 60, x1: 1860, y0: 40, y1: 1040 }
+    };
+
+    // -------------------------------------------------------------
+    // 2. AUTOMATIC LAYOUT PROBE (FOR TOOLS/LAYOUT_GATE.PY)
+    // -------------------------------------------------------------
+    const _fill = CanvasRenderingContext2D.prototype.fillText;
+    let BOXES = null;
+    CanvasRenderingContext2D.prototype.fillText = function (s, x, y, ...a) {
+      if (BOXES && s) {
+        const str = String(s);
+        const m = this.measureText(str);
+        const T = this.getTransform();
+        const fontMatch = this.font.match(/(\d+(\.\d+)?)px/);
+        const fontPx = fontMatch ? parseFloat(fontMatch[1]) : 16;
+        const px = fontPx * Math.hypot(T.a, T.b);
+        const left = this.textAlign === 'center' ? x - m.width / 2 : this.textAlign === 'right' ? x - m.width : x;
+        const ascent = m.actualBoundingBoxAscent || (fontPx * 0.8);
+        const descent = m.actualBoundingBoxDescent || (fontPx * 0.2);
+        const p = T.transformPoint(new DOMPoint(left, y - ascent));
+        BOXES.push({
+          s: str,
+          x: p.x,
+          y: p.y,
+          w: m.width * T.a,
+          h: (ascent + descent) * T.d,
+          px,
+          alpha: this.globalAlpha
+        });
+      }
+      return _fill.call(this, s, x, y, ...a);
+    };
+
+    window.layout = t => {
+      BOXES = [];
+      window.seek(t);
+      const b = BOXES;
+      BOXES = null;
+      return b;
+    };
+
+    // -------------------------------------------------------------
+    // 3. ASSET REGISTRY & PRELOAD
+    // -------------------------------------------------------------
+    const ASSETS = new Map();
+    function registerAsset(key, src) {
+      const img = new Image();
+      img.src = src;
+      ASSETS.set(key, img);
+      return img;
+    }
+    const logoImg = registerAsset('logo', '../../brand/logo.png');
+
+    // -------------------------------------------------------------
+    // 4. DETERMINISTIC DRAW & SEEK CONTRACT
+    // -------------------------------------------------------------
+    function draw(t) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // 4.1 Base Background Plate
+      ctx.fillStyle = '#07090e';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // 4.2 Seeded Animated Film Grain (Deterministic 24fps)
+      if (window.Motion && Motion.drawGrain) {
+        Motion.drawGrain(ctx, canvas.width, canvas.height, 0.03, t);
+      }
+
+      // 4.3 Top-Left Persistent Brand Bug
+      if (window.Motion && Motion.drawBrandBug) {
+        Motion.drawBrandBug(ctx, logoImg, 40, 34);
+      }
+
+      // 4.4 Narrative Primitives (Timed to word-clock)
+      // Custom composition beats execute here...
+    }
+
+    window.seek = function(t) {
+      t = Math.max(0, Math.min(window.DURATION, t));
+      draw(t);
+    };
+
+    // -------------------------------------------------------------
+    // 5. DETERMINISTIC BOOT ORCHESTRATOR
+    // -------------------------------------------------------------
+    async function boot() {
+      // Ensure all critical fonts are ready before first frame
+      try {
+        await Promise.all([
+          document.fonts.load('800 64px "Noto Sans Devanagari"'),
+          document.fonts.load('800 64px "JetBrains Mono"'),
+          document.fonts.load('800 64px Inter'),
+          document.fonts.load('800 64px Outfit')
+        ]);
+        await document.fonts.ready;
+      } catch (e) {
+        console.warn('Font preload warning:', e);
+      }
+
+      // Ensure all registered visual assets are decoded
+      await Promise.all([...ASSETS.values()].map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve()));
+
+      scrubber.max = window.DURATION;
+      window.seek(0);
+      window.ready = true; // Signal headless renderer (hrender.py)
+
+      // Only launch requestAnimationFrame loop during human browser preview!
+      // In render mode, hrender.py strictly owns the master clock via window.seek(t).
+      if (!RENDER) {
+        let isPlaying = false;
+        let lastT = performance.now();
+        let curT = 0;
+
+        function previewLoop(ts) {
+          if (isPlaying) {
+            if (!masterAudio.paused && !masterAudio.seeking) {
+              curT = masterAudio.currentTime;
+            } else {
+              curT += (ts - lastT) / 1000;
+            }
+            if (curT >= window.DURATION) {
+              curT = window.DURATION;
+              isPlaying = false;
+              btnPlay.textContent = '▶ PLAY';
+              masterAudio.pause();
+            }
+            scrubber.value = curT;
+            timeDisplay.textContent = `${Math.floor(curT/60).toString().padStart(2,'0')}:${Math.floor(curT%60).toString().padStart(2,'0')}`;
+            window.seek(curT);
+          }
+          lastT = ts;
+          requestAnimationFrame(previewLoop);
+        }
+        requestAnimationFrame(previewLoop);
+
+        btnPlay.addEventListener('click', () => {
+          isPlaying = !isPlaying;
+          btnPlay.textContent = isPlaying ? '⏸ PAUSE' : '▶ PLAY';
+          if (isPlaying) {
+            masterAudio.currentTime = curT;
+            masterAudio.play().catch(() => {});
+          } else {
+            masterAudio.pause();
+          }
+        });
+        scrubber.addEventListener('input', e => {
+          curT = parseFloat(e.target.value);
+          masterAudio.currentTime = curT;
+          window.seek(curT);
+        });
+        btnRestart.addEventListener('click', () => {
+          curT = 0;
+          masterAudio.currentTime = 0;
+          scrubber.value = 0;
+          window.seek(0);
+        });
+      }
+    }
+    boot();
+  </script>
+</body>
+</html>
