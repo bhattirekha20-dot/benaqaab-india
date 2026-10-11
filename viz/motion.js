@@ -1194,13 +1194,185 @@
     ctx.restore();
   }
 
+  /**
+   * drawDarkSlateVectorStage — Full-Stage Textured Obsidian/Slate Canvas
+   * Implements Rule 3.17 & Section 178 (Geocarto / Vox standalone motion aesthetic).
+   * Renders atmospheric dark slate backdrop with subtle paper/chalk grain and cinematic vignette.
+   */
+  function drawDarkSlateVectorStage(ctx, w = 1920, h = 1080, bgBase = '#090c10') {
+    ctx.save();
+    // 1. Base Slate Gradient
+    const bgGrad = ctx.createRadialGradient(w / 2, h / 2, 80, w / 2, h / 2, Math.max(w, h) * 0.72);
+    bgGrad.addColorStop(0, '#0e131a');
+    bgGrad.addColorStop(0.65, bgBase);
+    bgGrad.addColorStop(1, '#040608');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    // 2. Subtle Slate Chalk/Noise Grain Overlay (Deterministic pseudo-random points)
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.022)';
+    for (let i = 0; i < 420; i++) {
+      const gx = ((i * 137.5) % w);
+      const gy = ((i * 269.3) % h);
+      ctx.fillRect(gx, gy, 1.2, 1.2);
+    }
+
+    // 3. Vignette Border
+    const vig = ctx.createRadialGradient(w / 2, h / 2, w * 0.42, w / 2, h / 2, w * 0.75);
+    vig.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    vig.addColorStop(1, 'rgba(0, 0, 0, 0.65)');
+    ctx.fillStyle = vig;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+
+  /**
+   * drawForensicVectorMap — Geocarto / Vox Standalone Map Sequence Engine
+   * Draws vector boundary contours, concentric seismic/geological fault rings,
+   * animated dashed fault fissures, editorial city/epicenter labels, and academic citation.
+   */
+  function drawForensicVectorMap(ctx, t, startT, dur, opts = {}) {
+    if (t < startT || t > startT + dur) return;
+    const elapsed = t - startT;
+    const remaining = (startT + dur) - t;
+    const masterAlpha = elapsed < 0.5 ? Math.min(1, elapsed / 0.5) : remaining < 0.4 ? Math.max(0, remaining / 0.4) : 1.0;
+
+    ctx.save();
+    ctx.globalAlpha = masterAlpha;
+
+    // Draw full-stage slate backdrop if requested (standalone mode)
+    if (opts.standalone !== false) {
+      drawDarkSlateVectorStage(ctx, opts.w || 1920, opts.h || 1080);
+    }
+
+    // Map Path / Boundary Contour
+    if (opts.boundaryPoints && opts.boundaryPoints.length > 2) {
+      ctx.save();
+      const drawProgress = Math.min(1, elapsed / (opts.drawDur || 1.8));
+      const pts = opts.boundaryPoints;
+      const count = Math.max(2, Math.floor(pts.length * drawProgress));
+
+      ctx.strokeStyle = opts.boundaryColor || '#ffffff';
+      ctx.lineWidth = opts.boundaryWidth || 2.0;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+      ctx.shadowBlur = 6;
+
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], pts[0][1]);
+      for (let i = 1; i < count; i++) {
+        ctx.lineTo(pts[i][0], pts[i][1]);
+      }
+      if (drawProgress >= 0.99 && opts.closed !== false) {
+        ctx.closePath();
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Concentric Hazard / Fault Rings around Epicenter
+    if (opts.epicenter) {
+      const ex = opts.epicenter.x;
+      const ey = opts.epicenter.y;
+      const rings = opts.rings || [80, 140, 200, 260];
+      const ringColor = opts.ringColor || '#ef4444';
+
+      rings.forEach((r, idx) => {
+        const ringDelay = 0.4 + idx * 0.2;
+        if (elapsed > ringDelay) {
+          const rp = Math.min(1, (elapsed - ringDelay) / 0.8);
+          const easedR = r * SpringEngine.step(elapsed - ringDelay, 'snappy');
+          const pulse = 0.55 + 0.45 * Math.sin(t * 3.0 + idx * 0.8);
+
+          ctx.save();
+          ctx.strokeStyle = ringColor;
+          ctx.globalAlpha = masterAlpha * (0.35 + 0.35 * pulse) * rp;
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.arc(ex, ey, Math.max(1, easedR), 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+      });
+
+      // Epicenter Target Reticle
+      ctx.save();
+      ctx.fillStyle = ringColor;
+      ctx.shadowColor = ringColor;
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(ex, ey, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Epicenter Center Label
+      if (opts.epicenter.label) {
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '700 18px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+        ctx.shadowBlur = 8;
+        ctx.fillText(opts.epicenter.label, ex, ey - 10);
+      }
+      ctx.restore();
+    }
+
+    // Geological Fault Lines (Dashed Arcs / Rays)
+    if (opts.faults && opts.faults.length > 0) {
+      opts.faults.forEach((fault, fIdx) => {
+        const fDelay = 0.8 + fIdx * 0.25;
+        if (elapsed > fDelay) {
+          const fp = Math.min(1, (elapsed - fDelay) / 0.6);
+          ctx.save();
+          ctx.strokeStyle = fault.color || 'rgba(239, 68, 68, 0.75)';
+          ctx.lineWidth = fault.width || 1.8;
+          ctx.setLineDash(fault.dash || [6, 4]);
+
+          ctx.beginPath();
+          ctx.moveTo(fault.x1, fault.y1);
+          const curX2 = fault.x1 + (fault.x2 - fault.x1) * fp;
+          const curY2 = fault.y1 + (fault.y2 - fault.y1) * fp;
+          ctx.lineTo(curX2, curY2);
+          ctx.stroke();
+
+          // Fault Name Label
+          if (fp > 0.6 && fault.label) {
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#f8fafc';
+            ctx.font = '600 15px "Inter", sans-serif';
+            ctx.textAlign = fault.align || 'left';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+            ctx.shadowBlur = 6;
+            ctx.fillText(fault.label, fault.labelX ?? curX2 + 8, fault.labelY ?? curY2);
+          }
+          ctx.restore();
+        }
+      });
+    }
+
+    // Institutional Academic Attribution (Bottom Right)
+    const attribution = opts.attribution || 'COURTESY: GEOCARTO INTERNATIONAL (2022)';
+    ctx.save();
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
+    ctx.font = '700 12.5px "JetBrains Mono", monospace';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(attribution, (opts.w || 1920) - 36, (opts.h || 1080) - 36);
+    ctx.restore();
+
+    ctx.restore();
+  }
+
   const api = { clamp01, smoothstep, cubicBezier, spring, springVelocity, springSettled, ARRIVE, SETTLE, SWEEP, CUT,
     Track, Beat, Morph, Camera, mixColor, css, handoff, appear, leave, WORD_STAGGER, LETTER_STAGGER, READ_RATE_WPS,
     readTime, splitWords, riseWords,
     drawOdometer, drawHighlighter, drawLivelyHighlighter, drawForensicHighlighter, drawOfficialSourceStrap,
     drawAudienceQuestionCard, drawSubscribeLikeCTA,
     drawRedactionPeel, drawEvidenceLoupe, drawVerdictStamp, drawCalloutPin,
-    drawRoadmapCard, drawGrain, drawDynamicCaption, SpringEngine };
+    drawRoadmapCard, drawGrain, drawDynamicCaption, SpringEngine,
+    drawDarkSlateVectorStage, drawForensicVectorMap };
   root.Motion = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
