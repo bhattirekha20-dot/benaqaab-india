@@ -98,7 +98,7 @@
     // CHAPTER 1 BEATS
     {
       start_s: 8.28, end_s: 16.07,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'GROUND REALITY CHECK · HOUSEHOLD LEDGER',
       title: 'THE INFLATION SQUEEZE ON SAVINGS',
@@ -110,7 +110,7 @@
     },
     {
       start_s: 16.07, end_s: 19.99,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'WELFARE REALITY · PMGKAY LEDGER',
       title: '80 CRORE CITIZENS ON FREE FOODGRAINS',
@@ -122,7 +122,7 @@
     },
     {
       start_s: 19.99, end_s: 29.44,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'cyan',
       tag: 'OFFICIAL MACRO DATA · PARLIAMENT ACCOUNTS',
       title: 'INDIA OVERTAKES UK: 5th LARGEST ECONOMY',
@@ -134,7 +134,7 @@
     },
     {
       start_s: 29.44, end_s: 38.90,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'cyan',
       tag: 'NATIONAL INCOME LEDGER · ₹330 LAKH CRORE',
       title: 'THE $3.94 TRILLION HEADLINE EUPHORIA',
@@ -174,7 +174,7 @@
     // CHAPTER 2 BEATS: PER-CAPITA INCOME ILLUSION
     {
       start_s: 83.45, end_s: 104.66,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'CHAPTER 2 ANCHOR · THE PER-CAPITA PARADOX',
       title: 'AGGREGATE GDP vs CITIZEN WALLET REALITY',
@@ -210,7 +210,7 @@
     },
     {
       start_s: 121.45, end_s: 137.96,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'OFFICIAL WORLD BANK RANKING TABLE',
       title: 'INDIA AT RANK #136 OUT OF 190 COUNTRIES',
@@ -222,7 +222,7 @@
     },
     {
       start_s: 137.96, end_s: 148.53,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'cyan',
       tag: 'DEVELOPED ECONOMY BENCHMARK · THE THRESHOLD',
       title: 'THE HIGH-INCOME DISTANCE: $14,005+',
@@ -250,7 +250,7 @@
     },
     {
       start_s: 224.59, end_s: 242.08,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'mint',
       tag: 'AUTOMOBILE FLASH DATA · SIAM REPORT',
       title: 'UPPER K: LUXURY SUVS BOOMING (+24.5%)',
@@ -298,7 +298,7 @@
     },
     {
       start_s: 263.51, end_s: 272.30,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'WELFARE DEPENDENCY · GOVT NOTIFICATION',
       title: 'PMGKAY EXTENSION: 80 CRORE ON FREE RATIONS',
@@ -338,7 +338,7 @@
     },
     {
       start_s: 291.50, end_s: 302.20,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'RBI FINANCIAL STABILITY REPORT · HISTORICAL LOW',
       title: 'NET FINANCIAL SAVINGS PLUNGE TO 5.3%',
@@ -350,7 +350,7 @@
     },
     {
       start_s: 302.20, end_s: 311.60,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'GROSS ASSETS vs RISING LIABILITIES',
       title: 'SAVINGS DRAIN: LIABILITIES SURPASS ASSETS',
@@ -362,7 +362,7 @@
     },
     {
       start_s: 311.60, end_s: 318.56,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'MIDDLE CLASS COST LIVING SQUEEZE',
       title: 'WHY SAVINGS COLLAPSED: EXPENSES TRIPLED',
@@ -374,7 +374,7 @@
     },
     {
       start_s: 318.56, end_s: 325.20,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'HOUSEHOLD DEBT MILESTONE · 45.8% OF GDP',
       title: 'HOUSEHOLD DEBT REACHES HISTORIC 45.8%',
@@ -386,7 +386,7 @@
     },
     {
       start_s: 325.20, end_s: 331.00,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'CREDIT CARD OUTSTANDINGS · RBI WARNING',
       title: 'CREDIT CARD DEBT PEAKS: ₹2.6 LAKH CRORE',
@@ -398,7 +398,7 @@
     },
     {
       start_s: 331.00, end_s: 335.95,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'NBFC GOLD COLLATERAL SURGE',
       title: 'PLEDGING FAMILY GOLD FOR CASH FLOW',
@@ -426,7 +426,7 @@
     },
     {
       start_s: 405.48, end_s: 409.40,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'mint',
       tag: 'SERVICE SECTOR EXPANSION · HIGH-TECH',
       title: 'IT & FINANCIAL SERVICES EXPANSION (+12.1%)',
@@ -450,7 +450,7 @@
     },
     {
       start_s: 415.00, end_s: 423.50,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'CAPITAL-INTENSIVE vs LABOR-INTENSIVE',
       title: 'HIGH-TECH CAPITAL INTENSITY PARADOX',
@@ -462,7 +462,7 @@
     },
     {
       start_s: 423.50, end_s: 431.23,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'mint',
       tag: 'MASS EMPLOYMENT INDUSTRIES · BLUE COLLAR',
       title: 'WHERE ARE TEXTILES, FOOTWEAR & TOYS?',
@@ -474,7 +474,7 @@
     },
     {
       start_s: 431.23, end_s: 450.38,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'crimson',
       tag: 'MANUFACTURING SHARE IN GDP · 15.8%',
       title: 'MANUFACTURING SHARE STALLED AT 15.8%',
@@ -500,7 +500,7 @@
     // CHAPTER 6 BEATS: THE 2045 DEMOGRAPHIC CLOCK
     {
       start_s: 457.45, end_s: 470.20,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'CHAPTER 6 ANCHOR · THE DEMOGRAPHIC CLOCK',
       title: 'THE 2045 DEADLINE: MEDIAN AGE 28.7 YEARS',
@@ -512,7 +512,7 @@
     },
     {
       start_s: 470.20, end_s: 477.50,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'cyan',
       tag: 'HISTORICAL PRECEDENT · EAST ASIA',
       title: 'EAST ASIAN TIGERS GOT RICH BEFORE AGING',
@@ -538,7 +538,7 @@
     },
     {
       start_s: 484.82, end_s: 500.18,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'FERTILITY RATE COLLAPSE · TFR 2.0',
       title: 'FERTILITY DROPS BELOW REPLACEMENT (2.0)',
@@ -566,7 +566,7 @@
     },
     {
       start_s: 572.61, end_s: 578.00,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'mint',
       tag: 'PILLAR 1 IMPLEMENTATION · MASS CLUSTERS',
       title: 'COASTAL EXPORT CLUSTERS & TARIFF CUTS',
@@ -578,7 +578,7 @@
     },
     {
       start_s: 578.00, end_s: 584.20,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'PILLAR 2 IMPLEMENTATION · MIDDLE-CLASS RELIEF',
       title: 'RESTORE MIDDLE-CLASS DISPOSABLE INCOME',
@@ -590,7 +590,7 @@
     },
     {
       start_s: 584.20, end_s: 590.00,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'mint',
       tag: 'PILLAR 3 IMPLEMENTATION · AGRI VALUE CHAINS',
       title: 'COLD STORAGE & FOOD PROCESSING REVOLUTION',
@@ -614,7 +614,7 @@
     },
     {
       start_s: 595.50, end_s: 600.50,
-      pos: 'top-right',
+      pos: 'top-left',
       theme: 'amber',
       tag: 'THE CITIZEN VERDICT · SACH · SABOOT · BEBAK',
       title: 'LOOK BEYOND THE 7.8% HEADLINE NOISE',

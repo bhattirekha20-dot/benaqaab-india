@@ -19,12 +19,15 @@ async def main():
         await page.wait_for_timeout(200)
 
         test_points = [
+            (10.0, 'previews/test_beat2_top_left.png', 'Beat 2: Kitchen Table Inflation (top-left)'),
             (48.6, 'previews/progressive_beat7_phase1_entry.png', 'Beat 7 Phase 1: Card Entry & Tag Wipe'),
             (49.3, 'previews/progressive_beat7_phase2_pod1.png', 'Beat 7 Phase 2: Title & Pod 1 MoSPI/RBI'),
             (50.2, 'previews/progressive_beat7_phase3_pod2_stream.png', 'Beat 7 Phase 3: Pod 2 World Bank & Data Packet'),
             (51.5, 'previews/progressive_beat7_phase4_full_verdict.png', 'Beat 7 Phase 4: Divider & Sach/Saboot Verdict'),
-            (85.5, 'previews/progressive_beat10_phase1.png', 'Beat 10: Living Costs Inflation HUD Phase 1'),
-            (87.5, 'previews/progressive_beat10_phase2.png', 'Beat 10: Living Costs Inflation HUD Phase 2'),
+            (90.0, 'previews/test_beat10_top_left.png', 'Beat 10: Slum & Luxury Split (top-left)'),
+            (118.0, 'previews/test_beat12_top_right.png', 'Beat 12: Train Doorway Commuter (top-right exception)'),
+            (230.0, 'previews/test_beat22_top_left.png', 'Beat 22: Farmer Tractor Loan (top-left)'),
+            (305.0, 'previews/test_beat31_top_left.png', 'Beat 31: Broken Piggy Bank (top-left)'),
         ]
 
         for t, out_path, desc in test_points:
