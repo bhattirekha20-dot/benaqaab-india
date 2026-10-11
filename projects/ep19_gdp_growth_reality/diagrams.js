@@ -83,222 +83,6 @@
     ctx.restore();
   }
 
-  // Animated Target Reticle Pin with elastic shockwave and dashed leader line
-  function drawCalloutPin(ctx, t, pinStart, targetX, targetY, elbowX, elbowY, cardX, label) {
-    if (t < pinStart) return;
-    const p = Math.min(1, (t - pinStart) / 0.6);
-    const easeP = easeOutCubic(p);
-
-    ctx.save();
-    // 1. Target Reticle circles
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.arc(targetX, targetY, 14 * easeP, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // Pulsing outer shockwave
-    const pulse = ((t - pinStart) * 2) % 1;
-    ctx.strokeStyle = `rgba(56, 189, 248, ${0.8 * (1 - pulse)})`;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.arc(targetX, targetY, 14 + pulse * 28, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // Center focal dot
-    ctx.fillStyle = '#fbbf24';
-    ctx.beginPath();
-    ctx.arc(targetX, targetY, 4, 0, Math.PI * 2);
-    ctx.fill();
-
-    // 2. Animated Leader Line (Elastic shoot-out)
-    if (t > pinStart + 0.3) {
-      const lineP = Math.min(1, (t - (pinStart + 0.3)) / 0.5);
-      const curElbowX = targetX + (elbowX - targetX) * Math.min(1, lineP * 2);
-      const curElbowY = targetY + (elbowY - targetY) * Math.min(1, lineP * 2);
-
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.85)';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([6, 4]);
-      ctx.beginPath();
-      ctx.moveTo(targetX, targetY);
-      ctx.lineTo(curElbowX, curElbowY);
-
-      if (lineP > 0.5) {
-        const lineP2 = (lineP - 0.5) / 0.5;
-        const curCardX = elbowX + (cardX - elbowX) * lineP2;
-        ctx.lineTo(curCardX, elbowY);
-      }
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Floating Pin Tag
-      if (lineP > 0.8) {
-        const tagAlpha = Math.min(1, (lineP - 0.8) / 0.2);
-        ctx.globalAlpha = tagAlpha;
-        ctx.fillStyle = 'rgba(15, 23, 42, 0.88)';
-        ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.roundRect(elbowX - 10, elbowY - 26, 160, 22, 6);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = '#38bdf8';
-        ctx.font = '700 11px "JetBrains Mono", monospace';
-        ctx.textAlign = 'left';
-        ctx.fillText(label, elbowX - 2, elbowY - 11);
-      }
-    }
-    ctx.restore();
-  }
-
-  // Draw Live Drawn & Written Forensic Note (Character-by-character + Stylus nib + Highlighters)
-  function drawLiveHandwrittenNote(ctx, t, text, start_s, end_s, boxX, boxY, boxW, highlightWords = [], headerLabel = '✍️ FORENSIC NOTE:', fontSz = 22) {
-    ctx.save();
-
-    if (headerLabel) {
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = '700 12px "JetBrains Mono", monospace';
-      ctx.textAlign = 'left';
-      ctx.fillText(headerLabel, boxX, boxY);
-    }
-
-    const textOffsetY = headerLabel ? boxY + 28 : boxY + 18;
-    const lineHeight = fontSz * 1.5;
-
-    if (t < start_s) {
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.25)';
-      ctx.font = `italic ${fontSz - 4}px "Kalam", cursive`;
-      ctx.textAlign = 'left';
-      ctx.fillText('(प्रतीक्षा: विश्लेषण शुरू हो रहा है...)', boxX, textOffsetY);
-      ctx.restore();
-      return;
-    }
-
-    const duration = Math.max(0.1, end_s - start_s);
-    const progress = Math.min(1.0, Math.max(0, (t - start_s) / duration));
-    const totalChars = text.length;
-    const revealedChars = Math.min(totalChars, Math.floor(progress * totalChars));
-
-    ctx.font = `700 ${fontSz}px "Kalam", "Inter", cursive`;
-
-    // Split words by space while tracking character offsets
-    const words = text.split(' ');
-    let curX = boxX;
-    let curY = textOffsetY;
-    let charCounter = 0;
-    let activeNib = null;
-
-    for (let i = 0; i < words.length; i++) {
-      const wStr = words[i];
-      const wWithSpace = wStr + ' ';
-      const metrics = ctx.measureText(wWithSpace);
-      const wWidth = metrics.width;
-
-      if (curX + wWidth > boxX + boxW) {
-        curX = boxX;
-        curY += lineHeight;
-      }
-
-      const wordStartChar = charCounter;
-      const wordEndChar = charCounter + wStr.length;
-      charCounter += wWithSpace.length;
-
-      const isHighlight = highlightWords.some(hw => wStr.includes(hw));
-
-      if (revealedChars >= wordEndChar) {
-        // FULLY REVEALED WORD
-        if (isHighlight) {
-          ctx.save();
-          ctx.fillStyle = 'rgba(250, 204, 21, 0.38)'; // Golden amber highlighter
-          ctx.beginPath();
-          ctx.roundRect(curX - 3, curY - (fontSz - 4), wWidth - 4, fontSz + 8, 4);
-          ctx.fill();
-          ctx.restore();
-        }
-
-        ctx.fillStyle = isHighlight ? '#fde047' : '#ffffff';
-        ctx.font = `700 ${fontSz}px "Kalam", "Inter", cursive`;
-        ctx.textAlign = 'left';
-        ctx.fillText(wStr, curX, curY);
-
-      } else if (revealedChars > wordStartChar && revealedChars < wordEndChar) {
-        // CURRENTLY BEING WRITTEN WORD (PARTIAL)
-        const partialLen = revealedChars - wordStartChar;
-        const partialStr = wStr.substring(0, partialLen);
-        const pMetrics = ctx.measureText(partialStr);
-
-        if (isHighlight) {
-          ctx.save();
-          const hlW = (wWidth - 4) * (partialLen / wStr.length);
-          ctx.fillStyle = 'rgba(250, 204, 21, 0.45)';
-          ctx.beginPath();
-          ctx.roundRect(curX - 3, curY - (fontSz - 4), hlW, fontSz + 8, 4);
-          ctx.fill();
-          ctx.restore();
-        }
-
-        ctx.fillStyle = '#38bdf8'; // Glowing cyan while actively drawing
-        ctx.font = `700 ${fontSz + 1}px "Kalam", "Inter", cursive`;
-        ctx.textAlign = 'left';
-        ctx.fillText(partialStr, curX, curY);
-
-        activeNib = { x: curX + pMetrics.width, y: curY };
-
-      } else {
-        // FUTURE WORD (SUBTLE GHOST)
-        ctx.fillStyle = 'rgba(148, 163, 184, 0.16)';
-        ctx.font = `400 ${fontSz}px "Kalam", "Inter", cursive`;
-        ctx.textAlign = 'left';
-        ctx.fillText(wStr, curX, curY);
-      }
-
-      curX += wWidth;
-    }
-
-    // Draw Glowing Stylus / Pen Nib if currently writing
-    if (activeNib && progress < 1.0) {
-      ctx.save();
-      ctx.fillStyle = '#38bdf8';
-      ctx.shadowColor = '#38bdf8';
-      ctx.shadowBlur = 12;
-      ctx.beginPath();
-      ctx.arc(activeNib.x + 2, activeNib.y - 6, 4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Stylus line
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
-      ctx.lineWidth = 2.2;
-      ctx.beginPath();
-      ctx.moveTo(activeNib.x + 2, activeNib.y - 6);
-      ctx.lineTo(activeNib.x + 9, activeNib.y - 20);
-      ctx.stroke();
-
-      // Subtle ink particle
-      const jitter = Math.sin(t * 35) * 1.5;
-      ctx.fillStyle = '#fbbf24';
-      ctx.beginPath();
-      ctx.arc(activeNib.x + 5 + jitter, activeNib.y - 2, 1.5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-
-    // Dynamic underline that expands across with progress
-    if (progress > 0) {
-      ctx.save();
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ctx.moveTo(boxX, curY + 14);
-      ctx.lineTo(boxX + (boxW - 30) * easeOutCubic(progress), curY + 14);
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    ctx.restore();
-  }
-
   // -------------------------------------------------------------
   // DIAGRAM 1: GDP vs GVA Discrepancy (64.29s - 83.45s)
   // -------------------------------------------------------------
@@ -414,13 +198,16 @@
     ctx.fillText('• Fastest growing major economy', c3X + 24, colY + 198);
     ctx.fillText('• Hides unequal income distribution', c3X + 24, colY + 221);
 
-    // Bottom Summary Banner with Live Handwritten Note
+    // Bottom Summary Banner
     const botY = y + 445;
-    drawGlassCard(ctx, x + 40, botY, cardW - 80, 105, 12, 'rgba(56, 189, 248, 0.35)', 'rgba(8, 14, 26, 0.7)');
-    drawLiveHandwrittenNote(ctx, t,
-      'जब जीडीपी 7.8% बढ़ता है लेकिन घरेलू बचत गिरकर 5.3% पर आ जाती है, तो इसका मतलब है कि ग्रोथ कागज़ पर टैक्स और उच्च-आय वालों के दम पर है, आम उपभोग पर नहीं!',
-      73.0, 81.5, x + 65, botY + 22, cardW - 130, ['7.8%', '5.3%', 'टैक्स', 'आम उपभोग'], '🔍 GROUND REALITY VERDICT · LIVE NARRATION SYNC:', 19
-    );
+    drawGlassCard(ctx, x + 40, botY, cardW - 80, 95, 12, 'rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.5)');
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 15px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('🔍 GROUND REALITY VERDICT:', x + 65, botY + 36);
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '500 15.5px "Inter", sans-serif';
+    ctx.fillText('जब जीडीपी बढ़ता है लेकिन आम आदमी की बचत गिरती है, तो इसका मतलब है कि ग्रोथ कागज़ पर टैक्स और उच्च-आय वालों के दम पर है, आम उपभोग पर नहीं!', x + 65, botY + 68);
 
     ctx.restore();
   }
@@ -529,13 +316,13 @@
       ctx.restore();
     });
 
-    // Bottom Note with Live Handwritten Note
-    const noteY = y + 510;
-    drawGlassCard(ctx, x + 40, noteY, cardW - 80, 80, 12, 'rgba(251, 191, 36, 0.35)', 'rgba(8, 14, 26, 0.7)');
-    drawLiveHandwrittenNote(ctx, t,
-      'भारत का जीडीपी पांचवां बड़ा ज़रूर है, लेकिन 143 करोड़ की आबादी में बांटने पर प्रति व्यक्ति आय सिर्फ $2,730 है—रैंक 136!',
-      159.0, 170.0, x + 65, noteY + 20, cardW - 130, ['पांचवां', '$2,730', 'रैंक 136!'], '✍️ PER-CAPITA REALITY · LIVE NARRATION SYNC:', 18
-    );
+    // Bottom Note
+    const noteY = y + 515;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 14px "Inter", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('भारत का जीडीपी पांचवां बड़ा ज़रूर है, लेकिन 143 करोड़ की आबादी में बांटने पर हम लोअर-मिडिल इनकम ब्रैकेट में हैं।', cx, noteY + 25);
+    ctx.fillText('Sources: World Bank Open Data (2025-26) · IMF World Economic Outlook', cx, noteY + 50);
 
     ctx.restore();
   }
@@ -654,13 +441,13 @@
     ctx.fillText('• Rural 100cc Motorcycles: Still −14% Below 2019 Peak', downCardX + 22, downCardY + 92);
     ctx.fillText('• 80 Crore Citizens (57% Population) on Free PMGKAY Rations', downCardX + 22, downCardY + 118);
 
-    // Bottom Verdict Pill with Live Handwritten Note
+    // Bottom Verdict Pill
     const botY = y + 535;
-    drawGlassCard(ctx, x + 60, botY, cardW - 120, 65, 12, 'rgba(244, 63, 94, 0.35)', 'rgba(8, 14, 26, 0.7)');
-    drawLiveHandwrittenNote(ctx, t,
-      'KEY EVIDENCE: अमीर और ज़्यादा ख़र्च कर रहे हैं, जबकि आम मिडिल-क्लास की ख़रीद शक्ति सिकुड़ रही है!',
-      208.0, 221.0, x + 85, botY + 18, cardW - 170, ['अमीर', 'ख़रीद शक्ति', 'सिकुड़'], '⚡ FORENSIC VERDICT · LIVE NARRATION SYNC:', 18
-    );
+    drawGlassCard(ctx, x + 60, botY, cardW - 120, 56, 12, 'rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.6)');
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '700 15px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('KEY EVIDENCE: अमीर और ज़्यादा ख़र्च कर रहे हैं, जबकि आम मिडिल-क्लास की ख़रीद शक्ति सिकुड़ रही है!', cx, botY + 34);
 
     ctx.restore();
   }
@@ -767,13 +554,16 @@
       ctx.restore();
     });
 
-    // Warning Banner at bottom with Live Handwritten Note
+    // Warning Banner at bottom
     const warnY = y + 450;
-    drawGlassCard(ctx, x + 40, warnY, cardW - 80, 105, 12, 'rgba(244, 63, 94, 0.4)', 'rgba(76, 5, 25, 0.35)');
-    drawLiveHandwrittenNote(ctx, t,
-      'यह इकॉनमिक ग्रोथ नए रोजगार या बढ़ती आय से नहीं, बल्कि उधार लिए गए पैसों (Credit Cards & EMIs) पर चल रही है!',
-      348.0, 359.5, x + 65, warnY + 22, cardW - 130, ['रोजगार', 'उधार', 'Credit Cards', 'EMIs'], '⚠️ CRITICAL FORENSIC TAKEAWAY · LIVE NARRATION SYNC:', 19
-    );
+    drawGlassCard(ctx, x + 40, warnY, cardW - 80, 95, 12, 'rgba(244, 63, 94, 0.4)', 'rgba(76, 5, 25, 0.3)');
+    ctx.fillStyle = '#f43f5e';
+    ctx.font = '900 16px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('⚠️ CRITICAL FORENSIC TAKEAWAY:', x + 65, warnY + 36);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '500 15px "Inter", sans-serif';
+    ctx.fillText('यह इकॉनमिक ग्रोथ नए रोजगार या बढ़ती आय से नहीं, बल्कि उधार लिए गए पैसों (Credit Cards & EMIs) पर चल रही है!', x + 65, warnY + 68);
 
     ctx.restore();
   }
@@ -906,12 +696,9 @@
       const p3Alpha = Math.min(1.0, p3Elapsed / 0.45);
       const p3Slide = (1 - easeOutCubic(Math.min(1.0, p3Elapsed / 0.5))) * 35;
 
-      // Draw Animated Target Reticle Pin & Leader Line pointing to the textile sewing operator
-      drawCalloutPin(ctx, t, 380.6, 540, 710, 880, 580, 1260, 'OPERATOR: ₹18K/MO');
-
       ctx.save();
       ctx.globalAlpha = p3Alpha;
-      const c3X = 1260 + p3Slide, c3Y = 90, c3W = 580, c3H = 570;
+      const c3X = 1260 + p3Slide, c3Y = 110, c3W = 560, c3H = 490;
       drawGlassCard(ctx, c3X, c3Y, c3W, c3H, 18, 'rgba(16, 185, 129, 0.45)', 'rgba(8, 14, 24, 0.90)');
 
       drawBadge(ctx, 'LABOR ABSORPTION ENGINE · REALITY', c3X + c3W/2, c3Y + 34, '#34d399', 'rgba(16, 185, 129, 0.15)', 'rgba(16, 185, 129, 0.4)');
@@ -923,56 +710,37 @@
       ctx.font = '500 13px "Inter", sans-serif';
       ctx.fillText('Why China & Vietnam Absorb Farm Workers', c3X + 32, c3Y + 106);
 
-      // Card 1: Job Density with Rolling Odometer
-      drawGlassCard(ctx, c3X + 28, c3Y + 126, c3W - 56, 100, 12, 'rgba(16, 185, 129, 0.35)', 'rgba(16, 185, 129, 0.06)');
+      // Card 1: Job Density
+      drawGlassCard(ctx, c3X + 28, c3Y + 130, c3W - 56, 120, 12, 'rgba(16, 185, 129, 0.35)', 'rgba(16, 185, 129, 0.06)');
       ctx.fillStyle = '#34d399';
-      ctx.font = '800 12px "JetBrains Mono", monospace';
-      ctx.fillText('HIGH-DENSITY JOB CREATION:', c3X + 44, c3Y + 152);
-
-      let jobsCount = 0;
-      if (t >= 381.5) {
-        const odoP = Math.min(1, (t - 381.5) / 1.8);
-        jobsCount = Math.round(250 * easeOutCubic(odoP));
-      }
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.fillText('HIGH-DENSITY JOB CREATION:', c3X + 48, c3Y + 158);
       ctx.fillStyle = '#ffffff';
-      ctx.font = '900 38px "JetBrains Mono", monospace';
-      ctx.fillText(jobsCount.toString(), c3X + 44, c3Y + 196);
-      ctx.fillStyle = '#34d399';
-      ctx.font = '800 20px "Inter", sans-serif';
-      ctx.fillText('JOBS', c3X + 145, c3Y + 192);
+      ctx.font = '900 28px "JetBrains Mono", monospace';
+      ctx.fillText('250 JOBS', c3X + 48, c3Y + 196);
       ctx.fillStyle = '#94a3b8';
-      ctx.font = '500 12px "Inter", sans-serif';
-      ctx.fillText('Per ₹1 Crore Capex (vs only 1.2 in IT)', c3X + 215, c3Y + 192);
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('Per ₹1 Crore Capex (vs only 1.2 in IT)', c3X + 48, c3Y + 226);
 
       // Card 2: No Degree Needed
-      drawGlassCard(ctx, c3X + 28, c3Y + 238, c3W - 56, 95, 12, 'rgba(56, 189, 248, 0.35)', 'rgba(56, 189, 248, 0.06)');
+      drawGlassCard(ctx, c3X + 28, c3Y + 266, c3W - 56, 110, 12, 'rgba(56, 189, 248, 0.35)', 'rgba(56, 189, 248, 0.06)');
       ctx.fillStyle = '#38bdf8';
-      ctx.font = '800 12px "JetBrains Mono", monospace';
-      ctx.fillText('EDUCATION BOUNDARY:', c3X + 44, c3Y + 264);
+      ctx.font = '800 13px "JetBrains Mono", monospace';
+      ctx.fillText('EDUCATION BOUNDARY:', c3X + 48, c3Y + 294);
       ctx.fillStyle = '#ffffff';
       ctx.font = '700 15px "Inter", sans-serif';
-      ctx.fillText('Zero Degree Barrier for Farm Youth', c3X + 44, c3Y + 290);
+      ctx.fillText('Zero Degree Barrier for Farm Youth', c3X + 48, c3Y + 322);
       ctx.fillStyle = '#cbd5e1';
-      ctx.font = '500 12px "Inter", sans-serif';
-      ctx.fillText('Immediate transition to monthly bank salary', c3X + 44, c3Y + 314);
-
-      // Card 3: Live Drawn VO Script Box
-      const b3Y = c3Y + 345;
-      drawGlassCard(ctx, c3X + 28, b3Y, c3W - 56, 150, 12, 'rgba(251, 191, 36, 0.35)', 'rgba(8, 14, 26, 0.6)');
-      drawLiveHandwrittenNote(ctx, t,
-        'खेत में काम करने वाले करोड़ों लोगों को कपड़ा, इलेक्ट्रॉनिक्स, और ऑटोमोटिव फ़ैक्ट्रीज़ में जॉब्स मिलीं।',
-        380.812, 388.0, c3X + 44, b3Y + 24, c3W - 88,
-        ['कपड़ा,', 'इलेक्ट्रॉनिक्स,', 'ऑटोमोटिव', 'जॉब्स'],
-        '🔴 LIVE NARRATION SYNC:', 19
-      );
+      ctx.font = '500 12.5px "Inter", sans-serif';
+      ctx.fillText('Immediate transition to monthly bank salary', c3X + 48, c3Y + 348);
 
       // Bottom Takeaway
       ctx.fillStyle = '#fbbf24';
       ctx.font = '600 12.5px "Inter", sans-serif';
-      ctx.fillText('बिना मास-फ़ैक्ट्रियों के 45% ग्रामीण आबादी को नौकरी नामुमकिन है!', c3X + 28, c3Y + 520);
+      ctx.fillText('बिना मास-फ़ैक्ट्रियों के 45% ग्रामीण आबादी को नौकरी नामुमकिन है!', c3X + 32, c3Y + 418);
       ctx.fillStyle = '#64748b';
       ctx.font = '400 11.5px "Inter", sans-serif';
-      ctx.fillText('Source: Annual Survey of Industries & World Bank Mfg Study', c3X + 28, c3Y + 542);
+      ctx.fillText('Source: Annual Survey of Industries & World Bank Mfg Study', c3X + 32, c3Y + 444);
 
       ctx.restore();
     }
@@ -1042,12 +810,14 @@
       ctx.font = '700 12px "JetBrains Mono", monospace';
       ctx.fillText('▲ -9.2% DEFICIT GAP TO MAKE IN INDIA TARGET (25%)', c4X + 34, c4Y + 270);
 
-      // Bottom Fact Box with Live Handwritten Note
-      drawGlassCard(ctx, c4X + 34, c4Y + 288, 600, 110, 10, 'rgba(56, 189, 248, 0.35)', 'rgba(8, 14, 26, 0.6)');
-      drawLiveHandwrittenNote(ctx, t,
-        'चीन ने 80 करोड़ लोगों को आईटी या स्टॉक मार्केट से नहीं, बल्कि दुनिया की फ़ैक्ट्री बनकर ग़रीबी से बाहर निकाला!',
-        390.0, 396.5, c4X + 54, c4Y + 312, 560, ['80 करोड़', 'फ़ैक्ट्री', 'ग़रीबी'], '⚡ GLOBAL COMPARISON · LIVE SYNC:', 18
-      );
+      // Bottom Fact Box
+      drawGlassCard(ctx, c4X + 34, c4Y + 296, 600, 94, 10, 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.03)');
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = '600 13.5px "Inter", sans-serif';
+      ctx.fillText('चीन ने 80 करोड़ लोगों को आईटी या स्टॉक मार्केट से नहीं,', c4X + 54, c4Y + 332);
+      ctx.fillStyle = '#34d399';
+      ctx.font = '700 13.5px "Inter", sans-serif';
+      ctx.fillText('बल्कि दुनिया की फ़ैक्ट्री बनकर ग़रीबी से बाहर निकाला!', c4X + 54, c4Y + 360);
 
       ctx.restore();
     }
@@ -1101,12 +871,13 @@
       ctx.font = '500 12px "Inter", sans-serif';
       ctx.fillText('Requires fluent English & Coding degrees', c5X + 44, c5Y + 316);
 
-      // Warning Verdict with Live Handwritten Note
-      drawGlassCard(ctx, c5X + 28, c5Y + 345, c5W - 56, 105, 10, 'rgba(244, 63, 94, 0.35)', 'rgba(8, 14, 26, 0.6)');
-      drawLiveHandwrittenNote(ctx, t,
-        'आईटी सेक्टर 60 करोड़ ग्रामीण युवाओं को नौकरी नहीं दे सकता—यही कारण है कि 7.8% के बावजूद नौकरियां गायब हैं!',
-        398.5, 404.8, c5X + 44, c5Y + 368, c5W - 88, ['आईटी सेक्टर', '60 करोड़', 'नौकरियां गायब'], '🔍 STRUCTURAL CHASM · LIVE NOTE:', 17
-      );
+      // Warning Verdict
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = '600 13px "Inter", sans-serif';
+      ctx.fillText('आईटी सेक्टर 60 करोड़ ग्रामीण युवाओं को नौकरी नहीं दे सकता!', c5X + 32, c5Y + 382);
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '400 12px "Inter", sans-serif';
+      ctx.fillText('यही कारण है कि 7.8% GDP ग्रोथ के बावजूद ग्राउंड पर जॉब्स ग़ायब हैं।', c5X + 32, c5Y + 412);
 
       ctx.restore();
     }
@@ -1224,13 +995,13 @@
     ctx.fillText('• Without universal healthcare', rightX + 24, colY + 204);
     ctx.fillText('• Brazil/Thailand stagnation risk', rightX + 24, colY + 232);
 
-    // Bottom Warning Banner with Live Handwritten Note
-    const botY = y + 508;
-    drawGlassCard(ctx, x + 40, botY, cardW - 80, 75, 12, 'rgba(251, 146, 60, 0.4)', 'rgba(8, 14, 26, 0.7)');
-    drawLiveHandwrittenNote(ctx, t,
-      '⚠️ अगर अगले 18 सालों में पर-कैपिटा इनकम नहीं बढ़ी, तो भारत अमीर बनने से पहले बूढ़ा हो जाएगा!',
-      512.0, 523.5, x + 65, botY + 18, cardW - 130, ['18 सालों', 'पर-कैपिटा', 'अमीर बनने से पहले बूढ़ा'], '⚠️ DEMOGRAPHIC COUNTDOWN · LIVE SYNC:', 18
-    );
+    // Bottom Warning Banner
+    const botY = y + 510;
+    drawGlassCard(ctx, x + 40, botY, cardW - 80, 68, 12, 'rgba(255, 255, 255, 0.12)', 'rgba(0, 0, 0, 0.6)');
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '700 15px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('⚠️ अगर अगले 18 सालों में पर-कैपिटा इनकम नहीं बढ़ी, तो भारत अमीर बनने से पहले बूढ़ा हो जाएगा!', cx, botY + 40);
 
     ctx.restore();
   }
@@ -1364,13 +1135,13 @@
       ctx.restore();
     });
 
-    // Bottom Conclusion Pill with Live Handwritten Note
-    const botY = y + 535;
-    drawGlassCard(ctx, x + 40, botY, cardW - 80, 65, 12, 'rgba(56, 189, 248, 0.35)', 'rgba(8, 14, 26, 0.7)');
-    drawLiveHandwrittenNote(ctx, t,
-      'मंज़िल 7.8% का हेडलाइन नंबर नहीं, बल्कि भारत को ग्लोबल पर-कैपिटा टॉप 50 में पहुंचाना है!',
-      562.0, 571.5, x + 65, botY + 18, cardW - 130, ['7.8%', 'टॉप 50'], '🎯 THE ULTIMATE NATIONAL GOAL · LIVE SYNC:', 18
-    );
+    // Bottom Conclusion Pill
+    const botY = y + 540;
+    drawGlassCard(ctx, x + 40, botY, cardW - 80, 52, 12, 'rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.6)');
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '700 14.5px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('मंज़िल 7.8% का हेडलाइन नंबर नहीं, बल्कि भारत को ग्लोबल पर-कैपिटा टॉप 50 में पहुंचाना है!', cx, botY + 32);
 
     ctx.restore();
   }
