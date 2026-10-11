@@ -6097,3 +6097,33 @@ Installed permanently in `.agents/skills/progressive-infographic-motion/` and `s
   - Phase 05 ($t=78.0$s): Equals operator clicks on + Step 3 (Headline Result GDP 7.8%) slams in with emerald green rim glow.
   - Phase 06 ($t=81.5$s): Animated energy packets flow along connection conduits + Bottom Ground Reality Verdict banner slides up.
 - Verified zero dead frames, 60FPS seek reproducibility, pure canvas render isolation, and 100% WCAG contrast.
+
+---
+
+## 🗺️ §178: FULL-STAGE STANDALONE MOTION GRAPHICS & NO-MANDATORY-PHOTO LAW (2026-10-11)
+
+### 1. User Direct Mandate & Reference Media
+- **Uploaded Reference Image:** `media_1791740671045_f19e6d68.png` (Geocarto International 2022 fault map of Rajasthan/Jaisalmer showing Ramgarh, Ghotaru, Kanoi, and Manhera Fault arcs).
+- **Verbatim User Directive:** *"where ever needed we can use the motion graphics this way if dont want to show the images at that duration of the video ok and it not compulsalry that we in every sec of the video to show the images ok"*
+- **Supreme Invariant Authority:** This directive overrides any rigid misinterpretation of "must show a photo every second". Codified as **`RULE-FULL-STAGE-MOTION-GRAPHICS-FREEDOM`** in `AGENTS.md` (§3.17) and permanent memory.
+
+### 2. Operational Directives & Artistic Execution
+1. **No Mandatory Photographic Underlay:**
+   - It is explicitly **NOT compulsory** to display photographic images (AI plates, archival footage, stock images) in every second of the video.
+   - Forcing a photo behind technical diagrams, maps, or formulas creates visual competition, hurts text contrast, and degrades documentary seriousness.
+2. **Standalone Motion Graphics As Primary Full-Stage Hero Assets:**
+   - Whenever an explanatory beat covers:
+     - **Geographical & Geological Maps:** Territorial borders, fault lines, earthquake epicenters, troop movements, maritime chokepoints (e.g., Geocarto International fault map style).
+     - **Economic & Systemic Flows:** Supply chains, liquidity crunches, money laundering conduits, or GDP accounting equations.
+     - **Scientific & Engineering Schematics:** Blueprints, physics models, reactor cycles, or chip architectures.
+     - **Forensic Timelines & Evidence Boards:** Chronological case timelines, call records matrices, or organizational charts.
+   - The **motion graphics themselves take 100% of the screen** as the primary hero asset on a textured dark/slate canvas.
+   - Every bespoke, animated vector and progressive infographic sequence counts 100% as a high-value visual asset in the production density ledger.
+3. **The Geocarto / Vox / Johnny Harris Signature Dark Vector Aesthetic:**
+   - **Background Canvas:** Deep obsidian/slate base (`#07090E`, `#0A0D14`) with subtle organic paper/slate texture or procedural SVG grain (3–4% opacity).
+   - **Hero Vector Linework:** Clean, crisp white or luminous strokes (`#ffffff` or `#f8fafc`, 1.5–2.5px) for borders, coastlines, and structural geometry.
+   - **Forensic Accent Data:** Concentric impact/hazard rings (Crimson `#ef4444` / Rose `#f43f5e`), dashed trajectory arcs, animated leader lines, and pulsating epicenter nodes.
+   - **Editorial Typography:** High-legibility sans-serif / monospace typography (`JetBrains Mono`, `Inter`, `Outfit`) labeling entities, faults, coordinates, or figures.
+   - **Academic / Institutional Attribution:** Mandatory lower-third/lower-right source credit (e.g. `COURTESY: GEOCARTO INTERNATIONAL (2022)` or `SOURCE: SURVEY OF INDIA / USGS / MOSPI`).
+4. **Integration with Existing Skills:**
+   - Directly harmonizes with `map-animation`, `benaqaab-investigative-motion`, `progressive-infographic-motion`, and `video-canvas-motion`.

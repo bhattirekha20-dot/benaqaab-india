@@ -177,7 +177,24 @@ Every explainer and documentary must implement the 5 Forensic Motion Primitives 
 - **Broadcast Purity Standard:** The video must appear 100% like a clean, high-end television documentary (Netflix, BBC, Vox, Dhruv Rathee). Internal production numbers belong exclusively in the preview HTML UI outside the canvas, never on the canvas itself.
 - **The Only Persistent Top-Corner Mark:** The only persistent mark permitted at the top is the sleek top-left brand pill (`RULE-LOGO-TOPLEFT`).
 
+### 3.17 Full-Stage Standalone Motion Graphics Freedom Law (`RULE-FULL-STAGE-MOTION-GRAPHICS-FREEDOM`)
+- **No Mandatory Photographic Underlay:** It is explicitly **NOT compulsory** to display photographic images in every single second of the video.
+- **Standalone Motion Graphics Autonomy:** Whenever an explanatory beat covers:
+  - **Geographical & Geological Maps:** Territorial borders, fault lines, earthquake epicenters, troop movements, trade corridors, or maritime chokepoints (e.g. Geocarto International fault map style).
+  - **Economic & Systemic Flows:** Supply chains, banking liquidity spirals, money laundering conduits, inflation loops, or GDP accounting equations.
+  - **Scientific & Engineering Schematics:** Blueprints, physics models, trajectory paths, reactor loops, or semiconductor architectures.
+  - **Forensic Timelines & Evidence Boards:** Chronological case timelines, call detail records (CDR) matrices, or organizational charts.
+- **The Motion Graphics Themselves Take Full Stage (100% Screen):**
+  - Render directly on an atmospheric, textured dark slate/obsidian canvas (`#07090E`, `#0A0D14`) with subtle organic paper/slate/noise grain (3–4% opacity).
+  - Never force a photographic image underneath when doing so degrades legibility, clutters data lines, or distracts from the forensic explanation.
+  - Every bespoke, animated vector and progressive infographic sequence counts 100% as a high-retention visual asset in the production density ledger.
+- **Dark Vector & Map Styling Standard (Geocarto / Vox / Johnny Harris):**
+  - Clean luminous vector outlines (`#ffffff` or `#f8fafc`, 1.5–2.5px).
+  - Bold color-coded data arcs (Crimson `#ef4444` for hazard/faults, Electric Sky `#38bdf8` for tech/water/trade, Signal Amber `#fbbf24` for finance/routes).
+  - Authoritative typography (`JetBrains Mono`, `Inter`, `Outfit`) and formal institutional citations (e.g. `COURTESY: GEOCARTO INTERNATIONAL (2022)` or `SOURCE: SURVEY OF INDIA / USGS / MOSPI`).
+
 ---
+
 
 
 ## 💎 ARTICLE 4: THE "BEST THING DONE" LAW (ZERO AI SLOP)
